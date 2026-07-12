@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2023.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_13"><a class="pcalibre1 anchor" id="sourcecontrol_silent_mode"></a>
+Source Control Silent Mode</h1>
+<p class="calibre7">It is now possible to perform Source Control operations without a user interface. When Silent Mode is enabled, dialog boxes do not appear when WAAPI requests interact with Source Control. To implement this change, the <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_progress_split_000.html">AK::Wwise::ISourceControlProgress</a> class (formerly <code class="calibre14">AK::Wwise::ISourceControlOperationProgress</code>) was redesigned. The following methods have been changed or added:</p>
+<ul class="calibre8">
+<li class="calibre9">Renamed <code class="calibre14">ShowProgress()</code> method to <code class="calibre14">BeginOperation()</code></li>
+<li class="calibre9">Renamed <code class="calibre14">OperationCompleted()</code> method to <code class="calibre14">EndOperation()</code></li>
+<li class="calibre9">Added <code class="calibre14">IsSilent()</code> method</li>
+<li class="calibre9">Added <code class="calibre14">IsAutoCheckout()</code> method</li>
+</ul>
+</div></div></div></body></html>

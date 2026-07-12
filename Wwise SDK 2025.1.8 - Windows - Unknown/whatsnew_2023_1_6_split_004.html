@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2023.1.6</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="generic_bugs_2023_1_6"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-68970</b> Fixed: Unreal brushes containing unaligned edge triangles (T-junctions) result in false positive boundary edges, causing a "Geometry is not watertight" warning and preventing the geometry from being used as a room.</li>
+<li class="calibre9"><b class="calibre13">WG-69595</b> Fixed: (Spatial Audio) Paths can escape through Portals with gaps between opening surfaces.</li>
+<li class="calibre9"><b class="calibre13">WG-71103</b> Fixed: (Spatial Audio) Distance is incorrectly calculated for parents of Reverb Zones.</li>
+<li class="calibre9"><b class="calibre13">WG-71800</b> Fixed: (Spatial Audio) Side-by-side Portals use the wrong diffraction point.</li>
+<li class="calibre9"><b class="calibre13">WG-71929</b> When using a high DPI monitor, clicking an object in the Project Explorer sometimes does not result in it being displayed in the Property Editor.</li>
+<li class="calibre9"><b class="calibre13">WG-72811</b> Fixed: Performance Monitor statistics in the Average column show "-nan %" in some scenarios.</li>
+<li class="calibre9"><b class="calibre13">WG-72990</b> Fixed: Voice Inspector displays voice contributions from parent nodes on properties that are overridden, for example Output Bus Volume.</li>
+<li class="calibre9"><b class="calibre13">WG-73058</b> Fixed: Wrong row can be selected when clicking a heavily populated Capture Log.</li>
+<li class="calibre9"><b class="calibre13">WG-73129</b> Fixed: (Spatial Audio) Spatialization of reverbs is incorrect because of a misinterpretation of <code class="calibre14"><a class="pcalibre el" href="struct_ak_init_settings_acbb4594e7634edbe91adec361e2cf111_split_000.html#acbb4594e7634edbe91adec361e2cf111">AkInitSettings::fGameUnitsToMeters</a></code>.</li>
+<li class="calibre9"><b class="calibre13">WG-73161</b> Fixed: Possible crash when trying to use the shortcut menu for a Music Segment.</li>
+<li class="calibre9"><b class="calibre13">WG-73196</b> Fixed: Music Stinger Play At property values Next Beat and Next Bar are reversed.</li>
+<li class="calibre9"><b class="calibre13">WG-73231</b> Fixed: (Spatial Audio) When the listener is transitioning between rooms, the distance to the outside room is sometimes returned as a very large number, resulting in it being inaudible.</li>
+<li class="calibre9"><b class="calibre13">WG-73299</b> Fixed: Game Parameter Simulation Value of 0 is reset to default after project reload.</li>
+<li class="calibre9"><b class="calibre13">WG-73329</b> Fixed: Music Playlist Item does not allow setting Avoid Repeat to zero.</li>
+<li class="calibre9"><b class="calibre13">WG-73372</b> Fixed: With Play Originals enabled, and with a very small Trim Start value, sound playback might play from the beginning instead of the specified value.</li>
+</ul>
+</div></div></div></body></html>

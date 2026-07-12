@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2017.2.6</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="bugs_2017_2_6"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-36351</b> Fixed: The SpatialAudioTutorial Unity scene's <code class="calibre14">AkRoomPortal</code> component Baker window throws errors.</li>
+<li class="calibre9"><b class="calibre13">WG-36402</b> Fixed: During tab delimited import, relative object paths may have a leading backslash.</li>
+<li class="calibre9"><b class="calibre13">WG-36981</b> Fixed: (WAAPI) The publish schema for <code class="calibre14">ak.wwise.core.object.propertyChanged</code> is wrong.</li>
+<li class="calibre9"><b class="calibre13">WG-37950</b> Fixed: When the listener transitions from one room to another through a portal, any additional portals also connected to the room the listener is transitioning into, cut out abruptly when the switch is made from multi-position to single-position.</li>
+<li class="calibre9"><b class="calibre13">WG-38029</b> Fixed: Sound propagation is not properly updated when the listener transitions to or from a portal connected to the outside.</li>
+<li class="calibre9"><b class="calibre13">WG-38098</b> Fixed: Wwise reports ID conflicts when opening a project and notifies to regenerate banks.</li>
+<li class="calibre9"><b class="calibre13">WG-38103</b> Fixed: The Reset button in the Obstruction/Occlusion settings was resetting to non default values.</li>
+<li class="calibre9"><b class="calibre13">WG-38170</b> Fixed: <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a9b71daa02c5d398d08c9eb0643d52555_split_000.html#a9b71daa02c5d398d08c9eb0643d52555">AK::SoundEngine::SetScalingFactor</a> does not affect spread nor focus.</li>
+<li class="calibre9"><b class="calibre13">WG-38188</b> Fixed: (WAAPI) Queries now accept property names starting with a number, such as 3DPositionSource.</li>
+<li class="calibre9"><b class="calibre13">WG-38202</b> Fixed: Original Audio Files "Override location for current user" option was not automatically re-applied when reloading the project.</li>
+<li class="calibre9"><b class="calibre13">WG-38215</b> Fixed: Crash when unloading bank while using PostMIDIOnEvent.</li>
+<li class="calibre9"><b class="calibre13">WG-38237</b> Fixed: Output bus filters potentially become unstable after changing the audio block size.</li>
+<li class="calibre9"><b class="calibre13">WG-38245</b> Fixed: Slow SoundBank generation.</li>
+<li class="calibre9"><b class="calibre13">WG-38311</b> Fixed: Using LoadAndDecode mode on banks containing MIDI or Convolution Reverb data could result in loading errors.</li>
+<li class="calibre9"><b class="calibre13">WG-38369</b> Fixed: Passing invalid game object positions or orientations may cause crashes in 3D positioning. Also, fixed failure to register a listener due to memory may result in a crash in 3D positioning.</li>
+<li class="calibre9"><b class="calibre13">WG-38391</b> Fixed: Virtual positions for sound emitters that are diffracted through portals is discontinuous when transitioning through a portal.</li>
+<li class="calibre9"><b class="calibre13">WG-38405</b> Fixed: (Android 8.1) Crash in AssetManager after updating to Android 8.1.</li>
+<li class="calibre9"><b class="calibre13">WG-38475</b> Fixed: ASSERT when setting <a class="pcalibre el" href="struct_ak_room_params_a07f3e05103b351f449673dfff361aa71_split_000.html#a07f3e05103b351f449673dfff361aa71">AkRoomParams::RoomGameObj_AuxSendLevelToSelf</a> to a value greater than 0.</li>
+</ul>
+</div></div></div></body></html>

@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK.Wwise::Plugin::V1::UndoEvent&lt; Backend &gt; Class Template Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_3">Detailed Description</h2>
+<div class="calibre2"><h3 class="calibre22">template&lt;typename Backend&gt;<br class="calibre10"/>
+class AK.Wwise::Plugin::V1::UndoEvent&lt; Backend &gt;</h3>
+
+<p class="calibre7">Base API to create a custom undo event in a plug-in. </p>
+<p class="calibre7">This is useful when you handle custom properties, not handled by Property Sets.</p>
+<p class="calibre7">Undo events should be derived by your undo class, providing <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_undo_event_ac7f7250af8b8676f3d03e7c6cb3485a0_split_000.html#ac7f7250af8b8676f3d03e7c6cb3485a0">UndoEvent::Undo</a>, <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_undo_event_aa346dcb74fee30109385e723d7102d6d_split_000.html#aa346dcb74fee30109385e723d7102d6d">UndoEvent::Redo</a> and <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_undo_event_aad07cf18120d7d951f781fcb92edca43_split_000.html#aad07cf18120d7d951f781fcb92edca43">UndoEvent::GetName</a> methods.</p>
+<p class="calibre7">No pointer to the backend class should be kept inside the undo event, as the object can be deleted and recreated when the plug-in gets removed through undo. The backend will be recreated at that point, making the pointer invalid.</p>
+<dl class="calibre7"><dt class="calibre23">Template Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">Backend</td><td class="calibre17">The plug-in backend type. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_host_undo_manager_8h_source.html#l00327">327</a> of file <a class="pcalibre el" href="_host_undo_manager_8h_source.html">HostUndoManager.h</a>.</p>
+</div></div><!-- contents -->
+
+
+</body></html>

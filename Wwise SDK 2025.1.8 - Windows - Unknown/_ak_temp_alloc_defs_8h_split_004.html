@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK/SoundEngine/Common/AkTempAllocDefs.h File Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table class="calibre3">
+<tbody class="calibre4"><tr class="calibre16"><td colspan="2" class="calibre17"><h2 class="calibre21" id="calibre_pb_3"><a class="pcalibre1 anchor" id="member-group"></a>
+TempAlloc systems</h2></td></tr>
+<tr class="calibre16"><td class="memitemleft">enum  </td><td class="memitemright"><a class="pcalibre el" href="namespace_a_k_1_1_temp_alloc_a94c6067317869a80ec86af6994a0ebd9_split_000.html#a94c6067317869a80ec86af6994a0ebd9">AK::TempAlloc::Type</a> { <a class="pcalibre el" href="namespace_a_k_1_1_temp_alloc_a94c6067317869a80ec86af6994a0ebd9_split_001.html#a94c6067317869a80ec86af6994a0ebd9a53147f87306352fff3f6f4800999bda2">AK::TempAlloc::Type_AudioRender</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_temp_alloc_a94c6067317869a80ec86af6994a0ebd9_split_001.html#a94c6067317869a80ec86af6994a0ebd9a4b1e87ec36a0ff9c1a4039f8928c4bc2">AK::TempAlloc::Type_NUM</a>
+ }</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">IDs of temporary memory pools used by the sound engine.  <a href="namespace_a_k_1_1_temp_alloc_a94c6067317869a80ec86af6994a0ebd9_split_000.html#a94c6067317869a80ec86af6994a0ebd9" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">enum  </td><td class="memitemright"><a class="pcalibre el" href="namespace_a_k_1_1_temp_alloc_a9e133fbbb2e0cc473595ce3cf83c2229_split_000.html#a9e133fbbb2e0cc473595ce3cf83c2229">AK::TempAlloc::Lifetime</a> { <a class="pcalibre el" href="namespace_a_k_1_1_temp_alloc_a9e133fbbb2e0cc473595ce3cf83c2229_split_001.html#a9e133fbbb2e0cc473595ce3cf83c2229ac6deb77098680329c5a963ce3e55a0e8">AK::TempAlloc::Lifetime_CurrentTick</a> = 0, 
+<a class="pcalibre el" href="namespace_a_k_1_1_temp_alloc_a9e133fbbb2e0cc473595ce3cf83c2229_split_001.html#a9e133fbbb2e0cc473595ce3cf83c2229acdbfc7e9b87b1c22727154e2efb73757">AK::TempAlloc::Lifetime_DoubleTick</a> = 1, 
+<a class="pcalibre el" href="namespace_a_k_1_1_temp_alloc_a9e133fbbb2e0cc473595ce3cf83c2229_split_001.html#a9e133fbbb2e0cc473595ce3cf83c2229a7c0847e69ff3e236b789e67345b38fc7">AK::TempAlloc::Lifetime_NUM</a>
+ }</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Lifetimes of temporary allocations available.  <a href="namespace_a_k_1_1_temp_alloc_a9e133fbbb2e0cc473595ce3cf83c2229_split_000.html#a9e133fbbb2e0cc473595ce3cf83c2229" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft"><a class="pcalibre el" href="_ak_sound_engine_export_8h_ac6e96d34dfc0e12f9aaa7a47f4e9c322_split_000.html#ac6e96d34dfc0e12f9aaa7a47f4e9c322">AKSOUNDENGINE_API</a> void </td><td class="memitemright"><a class="pcalibre el" href="namespace_a_k_1_1_temp_alloc_a685fc3e0a2b3ade4c442a848979274e9_split_000.html#a685fc3e0a2b3ade4c442a848979274e9">AK::TempAlloc::GetStats</a> (Type in_eType, Stats &amp;out_stats)</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Get simple statistics for a given temporary-memory pool.  <a href="namespace_a_k_1_1_temp_alloc_a685fc3e0a2b3ade4c442a848979274e9_split_000.html#a685fc3e0a2b3ade4c442a848979274e9" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft"><a class="pcalibre el" href="_ak_sound_engine_export_8h_ac6e96d34dfc0e12f9aaa7a47f4e9c322_split_000.html#ac6e96d34dfc0e12f9aaa7a47f4e9c322">AKSOUNDENGINE_API</a> void </td><td class="memitemright"><a class="pcalibre el" href="namespace_a_k_1_1_temp_alloc_ad7ca1e1f7b04720475c801ce21e1d50e_split_000.html#ad7ca1e1f7b04720475c801ce21e1d50e">AK::TempAlloc::DumpTempAllocsToFile</a> (Type in_eType, const <a class="pcalibre el" href="_platforms_2_windows_2_ak_types_8h_af48843ed095e0ea7dd05bd1b64070664_split_000.html#af48843ed095e0ea7dd05bd1b64070664">AkOSChar</a> *pszFilename)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+</tbody></table>
+<a id="details" class="pcalibre calibre12"></a></div></body></html>

@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::IAkMixerPluginContext::ComputePositioning</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="class_a_k_1_1_i_ak_mixer_plugin_context_a0d39528d0bf01ec4e08bc20956dfce2c_split_000.html#a0d39528d0bf01ec4e08bc20956dfce2c" class="pcalibre1 anchor">◆ </a></span>ComputePositioning()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="calibre3">
+  <tbody class="calibre4"><tr class="calibre16">
+  <td class="calibre17">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">virtual <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::IAkMixerPluginContext::ComputePositioning </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype">const <a class="pcalibre el" href="struct_ak_positioning_data_split_000.html">AkPositioningData</a> &amp; </td>
+          <td class="paramname"><em class="calibre59">in_posData</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="struct_ak_channel_config_split_000.html">AkChannelConfig</a> </td>
+          <td class="paramname"><em class="calibre59">in_inputConfig</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="struct_ak_channel_config_split_000.html">AkChannelConfig</a> </td>
+          <td class="paramname"><em class="calibre59">in_outputConfig</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="namespace_a_k_1_1_speaker_volumes_a57e0ce3a8225a58dd886853164554074_split_000.html#a57e0ce3a8225a58dd886853164554074">AK::SpeakerVolumes::MatrixPtr</a> </td>
+          <td class="paramname"><em class="calibre59">out_mxVolumes</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="calibre17">
+<span><span>pure virtual</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Compute the speaker volume matrix of built-in positioning in <a class="pcalibre el" href="namespace_a_k_1_1_wwise_split_000.html">Wwise</a> from given positioning data and input and output channel configurations. You may use the returned volume matrix with IAkGlobalPluginContext::MixNinNChannels. Any known (non-anonymous) combination of configurations will work. For example, ambisonics will be decoded or encoded if needed. Additionally, anonymous configurations registered via RegisterAnonymousConfig are partially supported as output channel configurations. </p><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> The function will fail if the input or output configuration is object-based, as the speaker volume matrix would be undefined.</td></tr>
+</tbody></table>
+<p class="calibre7">All panning or spatialization types are honored. 3D Spatialization is performed relative to the default listener position (0,0,0) and orientation, where the front vector is (0,0,1) and the top vector is (0,1,0), left handed. </p><dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">AK_Success if succeeded, AK_InvalidParameter if the input or output configuration is object-based, or AK_Fail if the channel configurations are unknown or unhandled. </dd></dl>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><a class="pcalibre el" href="class_a_k_1_1_i_ak_global_plugin_context_split_000.html">IAkGlobalPluginContext</a> </dd>
+<dd class="calibre24">
+<a class="pcalibre el" href="class_a_k_1_1_i_ak_mixer_plugin_context_a34798c9b84c516c80967adabf7c30524_split_000.html#a34798c9b84c516c80967adabf7c30524">IAkMixerPluginContext::RegisterAnonymousConfig</a> </dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_posData</td><td class="calibre17">Positioning data. The field "threeD" is ignored if in_posData.behavioral.spatMode is AK_SpatializationMode_None. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_inputConfig</td><td class="calibre17">Channel configuration of the input. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_outputConfig</td><td class="calibre17">Channel configuration of the output. </td></tr>
+    <tr class="calibre16"><td class="paramname">out_mxVolumes</td><td class="calibre17">Returned volumes matrix. Must be preallocated using <a class="pcalibre el" href="namespace_a_k_1_1_speaker_volumes_1_1_matrix_a59458aba2b1be3fa678021a3aea813b9_split_000.html#a59458aba2b1be3fa678021a3aea813b9">AK::SpeakerVolumes::Matrix::GetRequiredSize()</a> (see <a class="pcalibre el" href="namespace_a_k_1_1_speaker_volumes_1_1_matrix_split_000.html" title="Volume matrix (multi-in/multi-out channel configurations) services.">AK::SpeakerVolumes::Matrix</a> services). </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

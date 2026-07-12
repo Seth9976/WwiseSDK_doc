@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Defining Command Add-ons</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="defining_custom_commands_file_definition"></a>
+Definition of Command Add-ons</h1>
+<h2 class="calibre31"><a class="pcalibre1 anchor" id="defining_custom_commands_file_definition_fields"></a>
+Definition Fields</h2>
+<p class="calibre7">A command is described by the following fields:</p>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">id:</b> Defines a human readable unique ID for the command. To reduce the risk of ID conflicts, please use a concatenation of the author name, the product name, and the command name.</li>
+<li class="calibre9"><b class="calibre13">displayName:</b> Defines the name displayed in the user interface.</li>
+<li class="calibre9"><b class="calibre13">program:</b> Defines the program or script to run when the command is executed. Arguments are specified in 'args'.</li>
+<li class="calibre9"><b class="calibre13">args:</b> Defines the arguments. Refer to the documentation for the supported built-in variables. Note that in the case of multiple selection, the variables are expanded based on the startMode field.</li>
+<li class="calibre9"><b class="calibre13">cwd:</b> Defines the current working directory to execute the program.</li>
+<li class="calibre9"><b class="calibre13">defaultShortcut:</b> Defines the shortcut to use by default for this command. If the shortcut conflicts, it won't be used. This shortcut can be changed in the Keyboard Shortcut Manager.</li>
+<li class="calibre9"><b class="calibre13">redirectOutputs:</b> (Windows only) Defines if the standard output streams of the program (stdout + stderr) should be redirected and logged to Wwise on termination. This also prevents the window from displaying. Note that this feature should only be used for programs that will run briefly. The value is of boolean type and false by default.</li>
+<li class="calibre9"><b class="calibre13">startMode:</b> Specifies how to expand variables in the arguments field in case of multiple selection in the Wwise user interface. Possible values are:<ul class="calibre15">
+<li class="calibre9"><b class="calibre13">SingleSelectionSingleProcess:</b> Only supports single selection, will start the program once.</li>
+<li class="calibre9"><b class="calibre13">MultipleSelectionSingleProcessSpaceSeparated:</b> Program is started once with variables expanded to space separated arguments, each enclosed in double-quotes.</li>
+<li class="calibre9"><b class="calibre13">MultipleSelectionMultipleProcesses:</b> Program is started once per item selected, in parallel. Each running instance receives one selected item.</li>
+</ul>
+</li>
+<li class="calibre9"><b class="calibre13">contextMenu:</b> Specifies where the command will appear in the context menus and for which object types the command will be available. This field can include any of the following items:<ul class="calibre15">
+<li class="calibre9"><b class="calibre13">basePath:</b> Defines a forward-slash separated path for the parent sub-menus. If empty, the menu is inserted at the first level.</li>
+<li class="calibre9"><b class="calibre13">enabledFor:</b> Defines a comma-separated list of the object type names for which the item is enabled. Refer to <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for the list of type names supported. If empty, any type is allowed.</li>
+<li class="calibre9"><b class="calibre13">visibleFor:</b> Defines a comma-separated list of the object type names for which the item is visible. Refer to <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for the list of type names supported. If empty, any type is allowed.</li>
+</ul>
+</li>
+<li class="calibre9"><b class="calibre13">mainMenu:</b> Specifies where the command will appear in the Wwise menus.<ul class="calibre15">
+<li class="calibre9"><b class="calibre13">basePath:</b> Defines a forward-slash separated path for the parent sub-menus. It must at least define one level, which is associated with the top menu.</li>
+</ul>
+</li>
+</ul>
+</div></div></div></body></html>

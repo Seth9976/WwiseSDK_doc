@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>New Features Overview 2025.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_22"><a class="pcalibre1 anchor" id="features_25_1_dlb"></a>
+Dynamic Load Balancing</h2>
+<p class="calibre7">Dynamic Load Balancing continuously distributes acoustic tasks in relation to the amount of processing power available at any given time. This automatically optimizes the trade-off between latency and throughput for acoustic path calculation. Different acoustic tasks, such as path finding, raycasting, clustering, reflection path validation, and diffraction, can be spread across processing frames dynamically corresponding to available CPU resources. When CPU usage is low, more acoustics tasks can be processed simultaneously. When CPU usage is high, acoustic tasks can be distributed across processing frames. This method replaces the CPU Limit, which attempted to dynamically adjust the value of NumberOfPrimaryRays.</p>
+<p class="calibre7">Dynamic Load Balancing is a product of the CPU Limit and the Load Balancing Spread initialization settings. If there is no CPU Limit, load balancing remains constant at that setting. If there is a CPU Limit, the Load Balancing Spread setting is dynamically increased and attempts to minimize the CPU%; in this case the Load Balancing Spread value is used as a maximum value. If CPU usage is low, the Load Balancing Spread does not increase, but if the if the CPU usage rises to a high level for a period of time, the CPU load is dynamically balanced to compensate.</p>
+<p class="calibre7">Dynamic Load Balancing properties are available in <code class="calibre14"><a class="pcalibre el" href="struct_ak_spatial_audio_init_settings_split_000.html" title="Initialization settings of the spatial audio module.">AkSpatialAudioInitSettings</a></code>. For the Wwise Unity and Unreal Integrations, they are in the project settings.</p>
+</div></div></div></body></html>

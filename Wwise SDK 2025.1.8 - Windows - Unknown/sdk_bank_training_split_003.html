@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>SoundBank Integration Samples</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="sdk_bank_training_Method_3"></a>
+Micromanaging Media</h1>
+<p class="calibre7">Consider this strategy for complex games with many assets. For a discussion of this strategy and its implementation in Wwise Authoring, see <a href="https://www.audiokinetic.com/library/edge/?source=Help&amp;id=method_3_micromanaging_media" target="_blank" class="pcalibre calibre12">Micromanaging Media</a> in the Wwise Help.</p>
+<p class="calibre7">In the game, load the common SoundBanks at the beginning of your game then load the other SoundBanks when they are required. For example, the game could load the Event SoundBank and the common footsteps SoundBank at the beginning, then load the other SoundBanks based on the player's location in the game.</p>
+<div class="fragment"><div class="line"><span class="comment">// Load Init and the EventBank</span></div>
+<div class="line"><a class="pcalibre code" href="_ak_typedefs_8h_a472a3d18cbb0c4f081b3b619e4a2f349_split_000.html#a472a3d18cbb0c4f081b3b619e4a2f349">AkBankID</a>    bankID; <span class="comment">// Not used in this sample.</span></div>
+<div class="line"><a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> eResult = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">AK::SoundEngine::LoadBank</a>( L<span class="stringliteral">"Init.bnk"</span>, bankID );</div>
+<div class="line"><span class="keywordflow">if</span>( eResult == <a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_001.html#a64f7d1f79613cc4dcc49a4efba6caa63ad7c47fea3da641e7422573c6a13dc35e">AK_Success</a> )</div>
+<div class="line">{</div>
+<div class="line">    eResult = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">AK::SoundEngine::LoadBank</a>( L<span class="stringliteral">"EventBank.bnk"</span>, bankID );</div>
+<div class="line">}</div>
+<div class="line"><span class="keywordflow">if</span>( eResult == <a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_001.html#a64f7d1f79613cc4dcc49a4efba6caa63ad7c47fea3da641e7422573c6a13dc35e">AK_Success</a> )</div>
+<div class="line">{</div>
+<div class="line">    eResult = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">AK::SoundEngine::LoadBank</a>( L<span class="stringliteral">"Common_Footstep_bank.bnk"</span>, bankID );</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line">...</div>
+<div class="line"><span class="comment">// And at various places in the code, possibly based on the location:</span></div>
+<div class="line">eResult = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">AK::SoundEngine::LoadBank</a>( L<span class="stringliteral">"Winter_Footstep_bank.bnk"</span>, bankID );</div>
+<div class="line">...</div>
+<div class="line">eResult = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">AK::SoundEngine::LoadBank</a>( L<span class="stringliteral">"Desert_Footstep_bank.bnk"</span>, bankID );</div>
+<div class="line">...</div>
+<div class="line">eResult = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_ac91406bc2fe061e4248cb448207b5a64_split_000.html#ac91406bc2fe061e4248cb448207b5a64">AK::SoundEngine::UnloadBank</a>( L<span class="stringliteral">"Winter_Footstep_bank.bnk"</span>, NULL );</div>
+<div class="line">...</div>
+<div class="line">eResult = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_ac91406bc2fe061e4248cb448207b5a64_split_000.html#ac91406bc2fe061e4248cb448207b5a64">AK::SoundEngine::UnloadBank</a>( L<span class="stringliteral">"Desert_Footstep_bank.bnk"</span>, NULL );</div>
+</div><!-- fragment --></div></div></div></body></html>

@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>New Features Overview 2019.2</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_14"><a class="pcalibre1 anchor" id="features_19_2_memory_categories"></a>
+Memory Categories Replace and Expand Memory Pools</h1>
+<p class="calibre7">There are extensive changes to memory management, as Memory Pools have been replaced by Memory Categories which represent memory allocations.</p>
+<ul class="calibre8">
+<li class="calibre9">Fixed-size, pre-allocated memory pools are gone. Memory is now allocated on demand up to an optional global limit.</li>
+<li class="calibre9">The default implementation of the memory manager now uses rpmalloc. It performs better than the previous allocator, especially with multi-core rendering.</li>
+<li class="calibre9">Memory allocations are tracked using categories rather than pools, and for profiling purposes only.</li>
+<li class="calibre9">Platform-specific device memory can be specified per-allocation, rather than per-pool.</li>
+</ul>
+<p class="calibre7"> </p><div class="calibre2">
+<img alt="" src="memorymanagement.png" class="inline"/>
+</div>
+<p class="calibre7">For more information on Memory Management, see <a href="https://www.audiokinetic.com/library/edge/?source=Help&amp;id=managing_memory_in_wwise" target="_blank" class="pcalibre calibre12">Managing Memory</a>.</p>
+</div></div></div></body></html>

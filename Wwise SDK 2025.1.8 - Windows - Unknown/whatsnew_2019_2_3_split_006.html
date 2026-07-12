@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2019.2.3</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_5"><a class="pcalibre1 anchor" id="bugs_2019_2_3"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-46049</b> Fixed: Window is not modal during project load.</li>
+<li class="calibre9"><b class="calibre13">WG-46627</b> Fixed: Live editing a custom property in Wwise doesn't update the value in game.</li>
+<li class="calibre9"><b class="calibre13">WG-47356</b> Fixed: Notes field sometimes pops-up when opening objects or switching views.</li>
+<li class="calibre9"><b class="calibre13">WG-47646</b> Fixed: Capture Log does not scroll correctly to cursor position.</li>
+<li class="calibre9"><b class="calibre13">WG-48755</b> Fixed: Possible memory stomp when using custom memory allocators in Convolution plug-in.</li>
+<li class="calibre9"><b class="calibre13">WG-48766</b> Fixed: Using a protocol prefix in the name of the Perforce server removes server settings from the configuration.</li>
+<li class="calibre9"><b class="calibre13">WG-48771</b> Fixed: Perforce plug-in settings are not immediately used after changing them a second time.</li>
+<li class="calibre9"><b class="calibre13">WG-48776</b> Fixed: Assert when playing a sound that has a custom property.</li>
+<li class="calibre9"><b class="calibre13">WG-48799</b> Fixed: Connecting Wwise to a game while the game is playing Switch Containers can cause an unwanted transition to another Switch.</li>
+<li class="calibre9"><b class="calibre13">WG-48822</b> Fixed: Pause in playback when looping streamed Opus voices.</li>
+<li class="calibre9"><b class="calibre13">WG-48855</b> Fixed: Assert (AkBehavioralCtx.cpp) when running game without connecting Wwise for a long period of time.</li>
+<li class="calibre9"><b class="calibre13">WG-48907</b> Fixed: Decoded size is incorrectly reported in the SoundBank Editor for some codecs.</li>
+<li class="calibre9"><b class="calibre13">WG-48922</b> Fixed: (Mac Authoring) High CPU usage while idle.</li>
+<li class="calibre9"><b class="calibre13">WG-48976</b> Fixed: iOS interrupt handler safeguard code was accidentally removed in the last minor release.</li>
+<li class="calibre9"><b class="calibre13">WG-48999</b> Fixed: New Project dialog does not default to host's Documents directory.</li>
+<li class="calibre9"><b class="calibre13">WG-49017</b> Fixed: A null pointer for <code class="calibre14">pfFalign</code> callback in <code class="calibre14"><a class="pcalibre el" href="struct_ak_mem_settings_split_000.html">AkMemSettings</a></code> passes validation during memory manager initialization.</li>
+<li class="calibre9"><b class="calibre13">WG-49023</b> Fixed: In Unreal, StateGroup ID can be 0.</li>
+<li class="calibre9"><b class="calibre13">WG-49072</b> Fixed: (WAAPI) Providing notes with call <a class="pcalibre el" href="ak_wwise_core_object_create_split_000.html">ak.wwise.core.object.create</a> does not add the notes.</li>
+<li class="calibre9"><b class="calibre13">WG-49089</b> Fixed: Potential array out-of-bounds access when resampling audio with an odd number of channels.</li>
+<li class="calibre9"><b class="calibre13">WG-49249</b> Fixed: Deadlock in Wwise Authoring when performing some interactions in Wwise with a SCE Audio3d Bed Output as the primary sink.</li>
+<li class="calibre9"><b class="calibre13">WG-49264</b> Fixed: (Stadia) Possible crash in 5.1 Surround Audio channel mode when <code class="calibre14">AkPlatformInitSettings::sampleType</code> is equal to <code class="calibre14">AK_INT</code>.</li>
+<li class="calibre9"><b class="calibre13">WG-49303</b> Fixed: Crash in rpaligned_alloc when running out of memory while performing an allocation with alignment larger than 16 bytes.</li>
+<li class="calibre9"><b class="calibre13">WG-49393</b> Fixed: Events differing in name by numbers with leading zeroes get only a single entry in the generated header file.</li>
+</ul>
+</div></div></div></body></html>

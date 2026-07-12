@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Sound Engine Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_11"><a class="pcalibre1 anchor" id="iakeffectparam_communication"></a>
+Communication Between Parameter Nodes and Plug-ins.</h2>
+<p class="calibre7">Each plug-in has an associated parameter node from which it can retrieve parameter values from to update its DSP accordingly. The associated parameter node interface is passed in at plug-in initialization and will remain valid for the lifespan of the plug-in. The plug-in can then query information from the parameter node as often as required by the DSP process. Because of the unidirectional relationship between a plug-in to its associated parameter node, responding to parameter value query by the parameter node is left to the discretion of the implementer (e.g. using accessor methods).</p>
+</div></div></div></body></html>

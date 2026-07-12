@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2022.1.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_4"><a class="pcalibre1 anchor" id="generic_bugs_2022_1_1"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-54462</b> Fixed: Dragging windows in Wwise is noticeably laggy when using a pointing device with high polling rates.</li>
+<li class="calibre9"><b class="calibre13">WG-57142</b> Fixed: Elements in the Playlist of a Sequence Container are not properly aligned horizontally for some font sizes.</li>
+<li class="calibre9"><b class="calibre13">WG-57552</b> Fixed: Sorting image sources in the Reflect Effect Editor causes cursor flags to disappear in the graph.</li>
+<li class="calibre9"><b class="calibre13">WG-60993</b> Fixed: Possible assert in Wwise when selecting a current object while a Control Surface Session is in Learning mode.</li>
+<li class="calibre9"><b class="calibre13">WG-61593</b> Fixed: <a class="pcalibre el" href="ak_wwise_core_audiosourcepeaks_getminmaxpeaksinregion_split_000.html">ak.wwise.core.audioSourcePeaks.getMinMaxPeaksInRegion</a> ignores the channel override on the source.</li>
+<li class="calibre9"><b class="calibre13">WG-62060</b> Fixed: (Spatial Audio) Room Extent is not updated when moving a room associated with a disabled triangle geometry.</li>
+<li class="calibre9"><b class="calibre13">WG-62152</b> Fixed: Error report tool crashes when clicking the Help button.</li>
+<li class="calibre9"><b class="calibre13">WG-62322</b> Fixed: (Spatial Audio) Unexpected diffraction path from portals is retained when transitioning between rooms.</li>
+<li class="calibre9"><b class="calibre13">WG-62372</b> Fixed: (Spatial Audio) A path from an emitter is sometimes dropped when the emitter moves through a portal.</li>
+<li class="calibre9"><b class="calibre13">WG-62378</b> Fixed: (Spatial Audio) Diffraction paths are occasionally dropped if part of the first edge is occluded from the perspective of the listener.</li>
+<li class="calibre9"><b class="calibre13">WG-62387</b> Fixed: (Spatial Audio) Diffraction paths are not created when a distance probe moves while the listener is stationary outside of max distance.</li>
+<li class="calibre9"><b class="calibre13">WG-62388</b> Fixed: (Spatial Audio) Room previously associated with AkGeometry is not updated properly.</li>
+<li class="calibre9"><b class="calibre13">WG-62399</b> Fixed: (Spatial Audio) Direct path incorrectly bends behind the listener when an emitter is in the same room and the listener is close to an off-centered portal.</li>
+<li class="calibre9"><b class="calibre13">WG-62414</b> Fixed: (Spatial Audio) Orphaned paths can appear in the Game Object 3D Viewer if all portals are removed from a room.</li>
+<li class="calibre9"><b class="calibre13">WG-62497</b> Fixed: Invalid float value warning when calling <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ab0e4ddefe5ea550b2f356edaa5a49a26_split_000.html#ab0e4ddefe5ea550b2f356edaa5a49a26">SetRTPCValue()</a></code> for HFDamping.</li>
+<li class="calibre9"><b class="calibre13">WG-62526</b> Fixed: Slight glitching sound occurs when minimizing (suspending) the application while playing any audio.</li>
+<li class="calibre9"><b class="calibre13">WG-62571</b> Fixed: The expand/collapse state of objects isn't always properly restored when changing the current Selection Channel from within a Project Explorer view.</li>
+<li class="calibre9"><b class="calibre13">WG-62584</b> Fixed: False error reports in Profiler: "Duplicated media has different length in bank."</li>
+<li class="calibre9"><b class="calibre13">WG-62633</b> Fixed: Wwise Addressables disabled on server build by default.</li>
+<li class="calibre9"><b class="calibre13">WG-62699</b> Fixed: (Spatial Audio) Crash with geometries that have complex edge topology.</li>
+<li class="calibre9"><b class="calibre13">WG-62763</b> Fixed: Wwise crashes when copying an object into the playlist of a Sequence Container.</li>
+<li class="calibre9"><b class="calibre13">WG-62768</b> Fixed: Adding an Interactive Music object into the playlist of a Sequence Container.</li>
+<li class="calibre9"><b class="calibre13">WG-62794</b> Fixed: (Spatial Audio) Unexpected direct paths come from portals when there's already a diffracted path.</li>
+<li class="calibre9"><b class="calibre13">WG-62836</b> Fixed: Possible crash when using Paste Properties to copy an object list to one or more target objects.</li>
+<li class="calibre9"><b class="calibre13">WG-62878</b> Fixed: (Spatial Audio) Transmission paths can appear to bend while a listener is close to a portal.</li>
+<li class="calibre9"><b class="calibre13">WG-62886</b> Fixed: (Spatial Audio) Diffraction paths can be lost when the listener or emitters are in the corners of portals with large gaps between openings.</li>
+<li class="calibre9"><b class="calibre13">WG-62959</b> Fixed: Voice Inspector contributor view not always updated when viewing a Voice on an HDR Bus.</li>
+<li class="calibre9"><b class="calibre13">WG-63113</b> Fixed: Possible crash when deleting objects that are used in a Mixing Desk session.</li>
+<li class="calibre9"><b class="calibre13">WG-63116</b> Fixed: (Spatial Audio) A deadlock encountered when updating a geometry set that overlaps a portal.</li>
+</ul>
+</div></div></div></body></html>

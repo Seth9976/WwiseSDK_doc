@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::SoundEngine::SetSpeakerAngles</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="namespace_a_k_1_1_sound_engine_afaf319902f00bbf38fbff9129086d912_split_000.html#afaf319902f00bbf38fbff9129086d912" class="pcalibre1 anchor">◆ </a></span>SetSpeakerAngles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_sound_engine_export_8h_ac6e96d34dfc0e12f9aaa7a47f4e9c322_split_000.html#ac6e96d34dfc0e12f9aaa7a47f4e9c322">AKSOUNDENGINE_API</a> <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::SoundEngine::SetSpeakerAngles </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype">const <a class="pcalibre el" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a> * </td>
+          <td class="paramname"><em class="calibre59">in_pfSpeakerAngles</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> </td>
+          <td class="paramname"><em class="calibre59">in_uNumAngles</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a> </td>
+          <td class="paramname"><em class="calibre59">in_fHeightAngle</em> = <code class="calibre14"><a class="pcalibre el" href="_ak_speaker_config_8h_a0f974c4ff1591d13bf71f302f1bb47ef_split_000.html#a0f974c4ff1591d13bf71f302f1bb47ef">AK_DEFAULT_HEIGHT_ANGLE</a></code>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_ab608859e8c575f46ce18433e32aa2ccd_split_000.html#ab608859e8c575f46ce18433e32aa2ccd">AkOutputDeviceID</a> </td>
+          <td class="paramname"><em class="calibre59">in_idOutput</em> = <code class="calibre14">0</code> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Sets speaker angles of the specified device. Speaker angles are used for 3D positioning of sounds over standard configurations. Note that the current version of <a class="pcalibre el" href="namespace_a_k_1_1_wwise_split_000.html">Wwise</a> only supports positioning on the plane. The speaker angles are expressed as an array of loudspeaker pairs, in degrees, relative to azimuth ]0,180], for a 7.1 speaker configuration. Supported loudspeaker setups are always symmetric; the center speaker is always in the middle and thus not specified by angles. Angles must be set in ascending order. Note:</p><ul class="calibre8">
+<li class="calibre9">This function requires the minimum speaker angle between any pair of speakers to be at least 5 degrees.</li>
+<li class="calibre9">When setting angles for a 5.1 speaker layout, we recommend that you select an angle for the SL and SR channels, then subtract 15 degrees for in_pfSpeakerAngles[1] and add 15 degrees for in_pfSpeakerAngles[2] to set the arc appropriately.</li>
+</ul>
+<p class="calibre7">Typical usage:</p><ul class="calibre8">
+<li class="calibre9">Initialize the sound engine and/or add secondary output(s).</li>
+<li class="calibre9">Get number of speaker angles and their value into an array using <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a02ad46cabd64c04e8be198bfdc44be6b_split_000.html#a02ad46cabd64c04e8be198bfdc44be6b">GetSpeakerAngles()</a>.</li>
+<li class="calibre9">Modify the angles and call <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_afaf319902f00bbf38fbff9129086d912_split_000.html#afaf319902f00bbf38fbff9129086d912">SetSpeakerAngles()</a>. This function posts a message to the audio thread through the command queue, so it is thread safe. However the result may not be immediately read with <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a02ad46cabd64c04e8be198bfdc44be6b_split_000.html#a02ad46cabd64c04e8be198bfdc44be6b">GetSpeakerAngles()</a>. <dl class="section"><dt class="calibre23">Warning</dt><dd class="calibre24">This function only applies to configurations (or subset of these configurations) that are standard and whose speakers are on the plane (2D). </dd></dl>
+<dl class="section"><dt class="calibre23">Returns</dt><dd class="calibre24"></dd></dl>
+</li>
+<li class="calibre9"><code class="calibre14">AK_Success</code> if successful.</li>
+<li class="calibre9"><code class="calibre14">AK_InvalidFloatValue</code> if the value specified was NaN or Inf</li>
+<li class="calibre9"><code class="calibre14">AK_InsufficientMemory</code> if there wasn't enough memory in the message queue</li>
+<li class="calibre9"><code class="calibre14">AK_InvalidParameter</code> one of the parameter is invalid, check the debug log. Speaker angles must be [0, 180] and height angle must be [-90, 90]. Height angle must not be 0, regardless if height channels are used. <dl class="section"><dt class="calibre23">See also</dt><dd class="calibre24"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a02ad46cabd64c04e8be198bfdc44be6b_split_000.html#a02ad46cabd64c04e8be198bfdc44be6b">GetSpeakerAngles()</a> </dd></dl>
+</li>
+</ul>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_pfSpeakerAngles</td><td class="calibre17">Array of loudspeaker pair angles, in degrees relative to azimuth ]0,180]. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_uNumAngles</td><td class="calibre17">Number of elements in in_pfSpeakerAngles. It must correspond to AK::GetNumberOfAnglesForConfig( AK_SPEAKER_SETUP_DEFAULT_PLANE ) (the value returned by <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a02ad46cabd64c04e8be198bfdc44be6b_split_000.html#a02ad46cabd64c04e8be198bfdc44be6b">GetSpeakerAngles()</a>). </td></tr>
+    <tr class="calibre16"><td class="paramname">in_fHeightAngle</td><td class="calibre17">Elevation of the height layer, in degrees relative to the plane [-90,90], but it cannot be 0. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_idOutput</td><td class="calibre17">Output ID to set the bus on. As returned from AddOutput or GetOutputID. You can pass 0 for the main (default) output </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

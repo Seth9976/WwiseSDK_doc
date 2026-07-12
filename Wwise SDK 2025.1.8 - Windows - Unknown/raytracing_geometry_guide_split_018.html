@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Ray Tracing Engine Geometry Guide</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_17"><a class="pcalibre1 anchor" id="raytracing_geometry_guide_limitations_geometry_shape"></a>
+Geometry shape</h1>
+<p class="calibre7">Some geometry shapes are more difficult to process than others. Usually, geometries like planes and boxes are simple to process and give the best results in terms of sound propagation. Spheres and cylinders are more prone to errors. This is due to the curvature introduced by the sphere and the cylinder. Some diffraction edges may not be found, which would cause some diffraction paths to be missed. The algorithm implements several heuristics to overcome this issue in most cases. Increasing the number of primary rays or simplifying the geometry can solve the issue as well.</p>
+<div class="calibre2">
+<img alt="" src="geometry_shape.png" class="inline"/>
+<div class="calibre2">
+In this situation, we expect to find the diffraction path from L to E that goes through L, E2, E3, E4, and E. Unfortunately, the surface between E1 and E2 is small and thus it is difficult to find the necessary intersection that will provide the diffraction edge E2. In this case, the intersection with E1 is more likely. L is not in the shadow zone of E1, preventing the algorithm from actually finding the diffraction path from E2.</div></div>
+</div></div></div></body></html>

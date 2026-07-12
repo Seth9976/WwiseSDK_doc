@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integrating Wwise Motion</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_15"><a class="pcalibre1 anchor" id="wwise_motion_openxr"></a>
+Support for Meta Quest through OpenXR</h2>
+<p class="calibre7">Wwise Motion supports haptic feedback on Meta Quest Touch controllers through the OpenXR API, using the XR_FB_haptic_pcm extension. Wwise Motion Meta Quest support is available on Android (Meta Quest standalone) and on Windows when using Meta Horizon Link. The Motion sink accepts a Stereo 2-channel waveform. Channel 0 drives the left controller and channel 1 drives the right controller.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> For Unity and Unreal Engine projects, the Wwise integration packages for those engines already handle the AkMotionSink linking. For Meta Quest OpenXR haptics setup in those environments, see <a href="https://www.audiokinetic.com/library/edge/?source=Unity&amp;id=unity_openxr.html" target="_blank" class="pcalibre calibre12">Using Unity OpenXR for Haptic Feedback on Meta Quest</a> or <a href="https://www.audiokinetic.com/library/edge/?source=UE4&amp;id=using_features_motionopenxr.html" target="_blank" class="pcalibre calibre12">Using Unreal OpenXR for VR Haptic Feedback on Meta Quest</a> respectively. </td></tr>
+</tbody></table>
+<p class="calibre7"><b class="calibre13">Requirements</b></p><ul class="calibre8">
+<li class="calibre9">The XR_FB_haptic_pcm extension is required. This extension is only supported on the Meta OpenXR runtime.</li>
+<li class="calibre9">This feature has been validated on Meta Quest Touch Plus Controllers. Meta Quest Touch Controllers and Meta Quest Touch Pro Controllers are expected to be supported but have not been tested.</li>
+</ul>
+<p class="calibre7">Because AkMotionSink does not link directly to the OpenXR loader, you must pass your application's OpenXR function pointers and handles to the Motion plug-in before calling <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a15ab79f954a307902f529d8ccde8ad48_split_000.html#a15ab79f954a307902f529d8ccde8ad48">AK::SoundEngine::AddOutput</a></code>. To do this, include the following header:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="pcalibre code" href="_ak_motion_sink_open_x_r_helpers_8h_split_000.html">AK/Plugin/AkMotionSinkOpenXRHelpers.h</a>&gt;</span></div>
+</div><!-- fragment --><p class="calibre7">You also need a haptic XrAction in your OpenXR action set, bound to the /user/hand/left/output/haptic and /user/hand/right/output/haptic paths. When your XrInstance, XrSession, and haptic XrAction handles are ready, provide them to the Motion plug-in:</p>
+<ul class="calibre8">
+<li class="calibre9">If AkMotionSink is integrated as a static library, call <code class="calibre14">AKMOTIONSINK_SET_OPENXR_FUNCTIONS_AND_HANDLES_WWISE_STATIC</code> inside a function, after the handles are available: <div class="fragment"><div class="line"><a class="pcalibre code" href="_ak_motion_sink_open_x_r_helpers_8h_a367e32b3837a75c2b694f73eec22db54_split_000.html#a367e32b3837a75c2b694f73eec22db54">AKMOTIONSINK_SET_OPENXR_FUNCTIONS_AND_HANDLES_WWISE_STATIC</a>(xrInstance, xrSession, xrHapticAction);</div>
+</div><!-- fragment --></li>
+<li class="calibre9">If AkMotionSink is integrated as a dynamic library, call <code class="calibre14">AKMOTIONSINK_SET_OPENXR_FUNCTIONS_AND_HANDLES_WWISE_DYNAMIC</code> after <code class="calibre14">Init.bnk</code> is loaded and <code class="calibre14">AkMotion.dll</code> (or <code class="calibre14">libAkMotion.so</code>) is initialized: <div class="fragment"><div class="line">AKMOTIONSINK_SET_OPENXR_FUNCTIONS_AND_HANDLES_WWISE_DYNAMIC(xrInstance, xrSession, xrHapticAction);</div>
+</div><!-- fragment --></li>
+</ul>
+<p class="calibre7">After this call, add a Motion output with a device ID of 0 as usual: </p><div class="fragment"><div class="line"><a class="pcalibre code" href="struct_ak_output_settings_split_000.html">AkOutputSettings</a> outputSettings(<span class="stringliteral">"Wwise_Motion"</span>, 0);</div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a15ab79f954a307902f529d8ccde8ad48_split_000.html#a15ab79f954a307902f529d8ccde8ad48">AK::SoundEngine::AddOutput</a>(outputSettings);</div>
+</div><!-- fragment --><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b><ul class="calibre8">
+<li class="calibre9">On Android, if <code class="calibre14">AKMOTIONSINK_SET_OPENXR_FUNCTIONS_AND_HANDLES_WWISE_STATIC</code> or <code class="calibre14">AKMOTIONSINK_SET_OPENXR_FUNCTIONS_AND_HANDLES_WWISE_DYNAMIC</code> is not called before <code class="calibre14">AddOutput</code>, the sink automatically falls back to the Android device's built-in vibration.</li>
+<li class="calibre9">On Windows, when OpenXR functions have been initialized, a device ID of 0 routes to the OpenXR haptic sink instead of the default XInput device. </li>
+</ul>
+</td></tr>
+</tbody></table>
+</div></div></div></body></html>

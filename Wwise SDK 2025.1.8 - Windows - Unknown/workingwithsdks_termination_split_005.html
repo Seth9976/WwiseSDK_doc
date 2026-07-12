@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Terminate the Different Modules of the Sound Engine</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_4"><a class="pcalibre1 anchor" id="termination_memorymgr"></a>
+Terminating the Memory Manager</h1>
+<p class="calibre7">Finally, now that all the clients of the Memory Manager have been terminated, it's time for the Memory Manager itself to go as well:</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> TermSoundEngine()</div>
+<div class="line">{</div>
+<div class="line">    (...)</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Terminate the Memory Manager</span></div>
+<div class="line">    <a class="pcalibre code" href="namespace_a_k_1_1_memory_mgr_a3ec018c61b5dc7428cf51f35f290739e_split_000.html#a3ec018c61b5dc7428cf51f35f290739e">AK::MemoryMgr::Term</a>();</div>
+<div class="line">}</div>
+</div><!-- fragment --><p class="calibre7">Everything related to the sound engine has now been cleaned-up, and we are ready to exit the program. Next, you should move on to <a class="pcalibre el" href="workingwithsdks_integratingelements_split_000.html">Integrate Wwise Elements into Your Game</a>. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<div class="ttc" id="aclass_a_k_1_1_i_ak_stream_mgr_ac650db9915bd06d5eebc1852e0d0cd6e_html_ac650db9915bd06d5eebc1852e0d0cd6e"><div class="calibre2"><a href="class_a_k_1_1_i_ak_stream_mgr_ac650db9915bd06d5eebc1852e0d0cd6e_split_000.html#ac650db9915bd06d5eebc1852e0d0cd6e" class="pcalibre calibre12">AK::IAkStreamMgr::Get</a></div><div class="calibre2">static IAkStreamMgr * Get()</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_i_ak_stream_mgr_8h_source_split_000.html#l00698" class="pcalibre calibre12">IAkStreamMgr.h:698</a></div></div>
+<div class="ttc" id="anamespace_a_k_1_1_memory_mgr_a3ec018c61b5dc7428cf51f35f290739e_html_a3ec018c61b5dc7428cf51f35f290739e"><div class="calibre2"><a href="namespace_a_k_1_1_memory_mgr_a3ec018c61b5dc7428cf51f35f290739e_split_000.html#a3ec018c61b5dc7428cf51f35f290739e" class="pcalibre calibre12">AK::MemoryMgr::Term</a></div><div class="calibre2">AKSOUNDENGINE_API void Term()</div></div>
+<div class="ttc" id="anamespace_a_k_1_1_comm_a94e307d2974b89cc4fbc8ab0fef20d2f_html_a94e307d2974b89cc4fbc8ab0fef20d2f"><div class="calibre2"><a href="namespace_a_k_1_1_comm_a94e307d2974b89cc4fbc8ab0fef20d2f_split_000.html#a94e307d2974b89cc4fbc8ab0fef20d2f" class="pcalibre calibre12">AK::Comm::Term</a></div><div class="calibre2">AKSOUNDENGINE_API void Term()</div></div>
+<div class="ttc" id="aclass_a_k_1_1_i_ak_stream_mgr_ab846904b7ad95752193cf0e9a288ea8a_html_ab846904b7ad95752193cf0e9a288ea8a"><div class="calibre2"><a href="class_a_k_1_1_i_ak_stream_mgr_ab846904b7ad95752193cf0e9a288ea8a_split_000.html#ab846904b7ad95752193cf0e9a288ea8a" class="pcalibre calibre12">AK::IAkStreamMgr::Destroy</a></div><div class="calibre2">virtual void Destroy()=0</div></div>
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_a90f8c91937038615480db2b57ce2279e_html_a90f8c91937038615480db2b57ce2279e"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_a90f8c91937038615480db2b57ce2279e_split_000.html#a90f8c91937038615480db2b57ce2279e" class="pcalibre calibre12">AK::SoundEngine::Term</a></div><div class="calibre2">AKSOUNDENGINE_API void Term()</div></div>
+
+
+</body></html>

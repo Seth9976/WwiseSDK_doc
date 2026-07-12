@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Implementing a Windows Frontend</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="wwise_plugin_frontend_windows_resource"></a>
+Resource Handle</h1>
+<p class="calibre7">The resource handle is of type HINSTANCE and corresponds to your dynamic library holding the resource data compiled from a <code class="calibre14">.rc</code> file. It can be created using Microsoft Visual Studio and holds your custom dialogs and their content. For more information on resource files, consult the <a href="https://docs.microsoft.com/en-us/cpp/windows/how-to-create-a-resource-script-file" target="_blank" class="pcalibre calibre12">Microsoft documentation</a> about how to create resource files.</p>
+<p class="calibre7">The default implementation provides the module instance from a builtin injected by the MSVC linker.</p>
+<div class="fragment"><div class="line"><span class="comment">// GUIWindows.h</span></div>
+<div class="line"><span class="comment">// Acquire the module instance from the Microsoft linker</span></div>
+<div class="line"><span class="keyword">extern</span> <span class="stringliteral">"C"</span> IMAGE_DOS_HEADER <a class="pcalibre code" href="_g_u_i_windows_8h_a983773bd0fac8b545d479971ff56db4d_split_000.html#a983773bd0fac8b545d479971ff56db4d">__ImageBase</a>;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">virtual</span> HINSTANCE GetResourceHandle()<span class="keyword"> const</span></div>
+<div class="line"><span class="keyword"></span>{</div>
+<div class="line">    <span class="keywordflow">return</span> (HINSTANCE)&amp;<a class="pcalibre code" href="_g_u_i_windows_8h_a983773bd0fac8b545d479971ff56db4d_split_000.html#a983773bd0fac8b545d479971ff56db4d">__ImageBase</a>;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p class="calibre7">You don't need to implement this function unless a different module owns your dialog resources.</p>
+<p class="calibre7">To create a resource file (<code class="calibre14">.rc</code>), refer to <a class="pcalibre el" href="effectplugin_tools_resource_file.html">Creating Resource Files for Your Plug-in</a>.</p>
+</div></div></div></body></html>

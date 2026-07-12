@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Low-Level I/O</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_16"><a class="pcalibre1 anchor" id="streamingmanager_lowlevel_filepackage_implementation_walkthrough_filelocation"></a>
+File Location</h2>
+<p class="calibre7">The idea behind file look-up inside packages is the following: you get a file handle from the platform's file open function only once, and then at each call to <a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_a0abfde848b599b5e5b8e8ed63dc8b555_split_000.html#a0abfde848b599b5e5b8e8ed63dc8b555">AK::StreamMgr::IAkLowLevelIOHook::BatchOpen()</a>, you simply return a file descriptor that uses this file handle, but with an offset that corresponds to the offset of the original file inside the file package (using the uSector field of the file descriptor <a class="pcalibre el" href="struct_ak_file_desc_split_000.html">AkFileDesc</a>). This also has the benefit of allowing more control over the placement of files on disk.</p>
+<p class="calibre7">The File Packager utility carefully prepares its header so that the Low-Level I/O only has to cast some pointers to obtain the look-up tables it contains, that is, one for the streamed audio files, and one for the bank files. Look-up tables are arrays of the following structure:</p>
+<div class="fragment"><div class="line"><span class="keyword">struct </span>AkFileEntry </div>
+<div class="line">{</div>
+<div class="line">    <a class="pcalibre code" href="_ak_typedefs_8h_adff75ad09d4237d128c034afd17f3b35_split_000.html#adff75ad09d4237d128c034afd17f3b35">AkFileID</a>    fileID;     <span class="comment">// File identifier. </span></div>
+<div class="line">    <a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a>    uBlockSize; <span class="comment">// Size of one block, required alignment (in bytes).</span></div>
+<div class="line">    <a class="pcalibre code" href="_ak_numeral_types_8h_a3f2533eb6fb2011f230af7474daabc6c_split_000.html#a3f2533eb6fb2011f230af7474daabc6c">AkInt64</a>     iFileSize;  <span class="comment">// File size in bytes. </span></div>
+<div class="line">    <a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a>    uStartBlock;<span class="comment">// Start block, expressed in terms of uBlockSize. </span></div>
+<div class="line">    <a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a>    uLanguageID;<span class="comment">// Language ID. AK_INVALID_LANGUAGE_ID if not language-specific. </span></div>
+<div class="line">};</div>
+</div><!-- fragment --><p class="calibre7">The table key is the file's fileID. However, corresponding files of different languages have the same fileID, but a different uLanguageID. The File Packager always sorts the file entries by the fileID first, then by the uLanguageID. In <b class="calibre13">CAkFilePackageLowLevelIO::Open()</b>, the ID is passed to <b class="calibre13">CAkFilePackageLUT::LookupFile()</b> (in the string version of <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_1_1_dynamic_sequence_ab6daddd96e109dc7669889733ce4f2cc_split_000.html#ab6daddd96e109dc7669889733ce4f2cc">Open()</a>, the string is hashed first, using the service of the sound engine API, <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a1aae6ebdec25946fb2897ce0e025366d_split_000.html#a1aae6ebdec25946fb2897ce0e025366d">AK::SoundEngine::GetIDFromString()</a>). <b class="calibre13">CAkFilePackageLUT::LookupFile()</b> selects the appropriate table to search, based on the flags' uCodecID, and performs a binary search by the fileID and uLanguageID keys. If it finds a match, the file entry's address is returned to <b class="calibre13">CAkFilePackageLowLevelIO::Open()</b>, which gathers the necessary information to fill the file descriptor (<a class="pcalibre el" href="struct_ak_file_desc_split_000.html">AkFileDesc</a>).</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="tip.gif"/></td><td class="calibre17"><b class="calibre13">Tip:</b> Each file package is searched until a match is found. If you use a file package with soundbanks exclusively, and another with streamed files exclusively, then you may modify the implementation to use the <a class="pcalibre el" href="struct_ak_file_system_flags_split_000.html" title="File system flags for file descriptors mapping.">AkFileSystemFlags</a> to only look up files in the proper file package, once. </td></tr>
+</tbody></table>
+<p class="calibre7">The handle of the file descriptor, hFile, is that of the file package. The file size, iFileSize, was stored directly in the file entry, and so was the starting block, uSector.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> Recall that the Stream Manager does not expect a byte offset from the beginning of the file represented by the handle hFile, but rather an offset in terms of blocks ("sectors"). The block size represents the granularity of file positions. The current version of the File Packager uses the same block size for all files, which is specified at the time of generation (using -blocksize switch - refer to Wwise Help for more details on the File Packager's command line arguments). It performs zero-padding so that concatenated files always start on a block boundary. </td></tr>
+</tbody></table>
+<p class="calibre7">The File Package low-level I/O uses the uCustomParamSize field of the file descriptor to store the block size. This has 2 purposes:</p><ul class="calibre8">
+<li class="calibre9">easy access to its block size;</li>
+<li class="calibre9">distinguish file descriptors that belong to the file package (uCustomParamSize == 0 means that the file was not found in the package). For example, the file handle (which is shared between all files of a package) is not closed in <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_1_1_dynamic_sequence_ab204d963f6b81abc102a6d6b8272b591_split_000.html#ab204d963f6b81abc102a6d6b8272b591">CAkFilePackageLowLevelIO::Close()</a> when the file is part of a package.</li>
+</ul>
+</div></div></div></body></html>

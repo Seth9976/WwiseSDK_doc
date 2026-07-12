@@ -1,0 +1,1258 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Wwise Authoring Query Language (WAQL) Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_3"><a class="pcalibre1 anchor" id="waql_expressions"></a>
+Expressions</h2>
+<p class="calibre7">Select other objects, or values associated with the objects, in the sequence. </p><table class="doxtable">
+<tbody class="calibre4"><tr class="calibre16">
+<th colspan="1" class="calibre46">Object Expressions </th><th colspan="1" class="calibre46">Expression returning zero to many objects </th><th colspan="1" class="calibre46">Examples </th></tr>
+<tr class="calibre16">
+<td colspan="1" class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><b class="calibre13">OBJECT_EXPRESSION</b></p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">OBJECT_EXPRESSION</b>.<b class="calibre13">OBJECT_EXPRESSION...</b></p>
+<p class="endtd"></p>
+</td><td colspan="1" class="calibre36">Chain zero to many object expressions to return a Wwise object. Separate each expression with a dot. </td><td colspan="1" class="calibre36">$ from object "Event:Play_Hello" select parent.parent </td></tr>
+<tr class="calibre16">
+<td colspan="1" class="calibre36"><b class="calibre13">REFERENCE_NAME</b><br class="calibre10"/>
+@<b class="calibre13">REFERENCE_NAME</b><br class="calibre10"/>
+@@<b class="calibre13">REFERENCE_NAME</b> </td><td colspan="1" class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the object being referenced by the current object for a specific reference name.</p>
+<p class="calibre7"></p>
+<p class="calibre7">When using @, the reference directly defined on the object is used.</p>
+<p class="calibre7"></p>
+<p class="calibre7">Without the @, the override settings are used to find the reference value. This is the actual value used at playback. If there is an accessor of the same name, it will take precedance; in those rare cases, @@ must be used before the reference name.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">REFERENCE_NAME</b> refers to the name of a reference for the current object. Refer to <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for the complete list of object types and their references. The name is case-insensitive.</p>
+<p class="endtd"></p>
+</td><td colspan="1" class="calibre36"><p class="starttd"></p>
+<p class="calibre7">$ from type Sound select OutputBus<br class="calibre10"/>
+$ from type Sound select effects<br class="calibre10"/>
+$ from type Sound select @@Effects<br class="calibre10"/>
+$ from type Sound where outputBus="Bus:Main Audio Bus"</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td colspan="1" class="calibre36">children </td><td colspan="1" class="calibre36">Returns the direct children of the object. </td><td colspan="1" class="calibre36">$ from object "\Containers\Default Work Unit" select children </td></tr>
+<tr class="calibre16">
+<td colspan="1" class="calibre36"><p class="starttd"></p>
+<p class="calibre7">descendants</p>
+<p class="endtd"></p>
+</td><td colspan="1" class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns all descendants of the object in a single sequence. The descendants include all children recursively.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: The current object is not included. To include the current object use: select descendants, this</p>
+<p class="endtd"></p>
+</td><td colspan="1" class="calibre36"><p class="starttd"></p>
+<p class="calibre7">$ from object "\Containers\Default Work Unit" select descendants<br class="calibre10"/>
+$ from object "\Containers\Default Work Unit" select descendants, this</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td colspan="1" class="calibre36">this </td><td colspan="1" class="calibre36">Returns the current object. </td><td colspan="1" class="calibre36">$ from object "\Busses\Default Work Unit\Main Audio Bus" select this, descendants </td></tr>
+<tr class="calibre16">
+<td class="calibre36">parent </td><td class="calibre36">Returns the direct parent of the object. Returns no object if the object does not have a parent. </td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">$ from type Sound select parent<br class="calibre10"/>
+$ from type Sound where parent.name : "*engine"</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td colspan="1" class="calibre36">ancestors </td><td colspan="1" class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns all ancestors of the object in a single sequence. The descendants include all parents recursively.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: The current object is not included. To include the current object use: select ancestors, this</p>
+<p class="endtd"></p>
+</td><td colspan="1" class="calibre36">$ from object "Event:Play_Hello" select ancestors<br class="calibre10"/>
+$ from object "Event:Play_Hello" select ancestors, this </td></tr>
+<tr class="calibre16">
+<td colspan="1" class="calibre36">referencesTo </td><td colspan="1" class="calibre36">Returns all objects having a reference to the current object. </td><td colspan="1" class="calibre36"><p class="starttd"></p>
+<p class="calibre7">$ from type Effect select referencesTo<br class="calibre10"/>
+$ "Event:Play_Hello" select referencesTo</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">owner </td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the owner of the object. The owner is only set for "Custom" objects defined inside other objects.</p>
+<p class="calibre7"></p>
+<p class="calibre7">Shareset objects don't have an owner. They have a parent (<b class="calibre13">parent</b>), and they have objects referring to them (<b class="calibre13">referencesTo</b>).</p>
+<p class="calibre7"></p>
+<p class="calibre7">For example, the owner of a "Custom" effect is the object that contains the effect as an insert.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ from type Effect select owner<br class="calibre10"/>
+$ from type Effect where owner.name :"*env"</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">randomizer("<b class="calibre13">PROPERTY_NAME</b>") </td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the randomizer object associated with the specified property. Use the following properties on the randomizer object: min, max, enabled.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">PROPERTY_NAME</b> refers to the name of a property for the current object. Refer to <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for the complete list of object types and their properties. The name is case-insensitive.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ from type sound where randomizer("pitch") != null <br class="calibre10"/>
+ $ from type sound where randomizer("highpass").min &lt; 0<br class="calibre10"/>
+ $ from type sound where randomizer("lowpass").max &gt; 0<br class="calibre10"/>
+ $ from type sound where randomizer("volume").enabled = true </p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">state("<b class="calibre13">STATE_NAME</b>") </td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the custom state object associated with the specified state.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">STATE_NAME</b> refers to the qualified name, path or GUID of a state for the current object. See <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for the complete list of object types and their properties. The name is case-insensitive.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ from type sound where state("State:myState") != null <br class="calibre10"/>
+ $ from type sound where state("{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}") != null <br class="calibre10"/>
+ </p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">workunit </td><td class="calibre36">Returns the Work Unit object used to persist with the current object. </td><td class="calibre36">$ from type Effect select workunit </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">musicTransitionRoot</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">(DEPRECATED) Returns the Music Transition root object associated with the current object. This is deprecated. The TransitionRoot reference should be used instead.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type MusicSegment, MusicTrack, MusicPlaylistContainer and MusicSwitchContainer.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ from project select <span class="calibre42">musicTransitionRoot</span></p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">musicTransitionObject</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the object associated with the current music transition object.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type MusicTransition.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ from type musictransition select <span class="calibre42">musicTransitionObject</span></p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">musicPlaylistRoot</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">(DEPRECATED) Returns the Music Playlist root object associated with the current object. This is deprecated. The PlaylistRoot reference should be used instead.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type MusicPlaylistContainer.</p>
+<p class="endtd"></p>
+</td><td class="calibre36">$ from project select <span class="calibre42">musicPlaylistRoot</span> </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">maxDurationSource</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns a JSON object containing the id of the Audio Source object that has the maximum playback duration (in seconds) for all descendants of the current object. The JSON object also includes the maximum duration value itself.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with Containers objects and Events.</p>
+<p class="endtd"></p>
+</td><td class="calibre36">$ from object "\Containers" select <span class="calibre42">maxDurationSource</span> </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">maxDurationSourceObject</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the Audio Source object that has the maximum playback duration (in seconds) for all descendants of the current object.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with Containers objects and Events.</p>
+<p class="endtd"></p>
+</td><td class="calibre36">$ from object "\Containers" select <span class="calibre42">maxDurationSource</span> </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">maxRadiusAttenuation</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns a JSON object containing the id of the attenuation object that has the maximum radius distance in all descendants of the current objects. The JSON object also contains the maximum radius distance value itself.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with Containers objects and Events.</p>
+<p class="endtd"></p>
+</td><td class="calibre36">$ from type Sound select <span class="calibre42">maxRadiusAttenuation</span> </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">maxRadiusAttenuationObject</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the attenuation object that has the maximum radius distance in all descendants of the current objects.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with Containers objects and Events.</p>
+<p class="endtd"></p>
+</td><td class="calibre36">$ from type Sound select <span class="calibre42">maxRadiusAttenuation</span> </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">audioSourceLanguage</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the language object that is used for the current Audio Source.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with Audio Source objects.</p>
+<p class="endtd"></p>
+</td><td class="calibre36">$ from type AudioFileSource select <span class="calibre42">audioSourceLanguage</span> </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">switchContainerChildContext</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the Switch Container context object associated with the current Switch Container object. The Switch Container context objects hold settings about the Switch Container associations.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type SwitchContainer.</p>
+<p class="endtd"></p>
+</td><td class="calibre36">$ from project select <span class="calibre42">switchContainerChildContext</span> </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">switchGroupGameParameter</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the Game Parameter object associated with the current Switch Group object. The object is returned even if the "UseGameParameter" property of the Switch Group is false.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type SwitchGroup.</p>
+<p class="endtd"></p>
+</td><td class="calibre36">$ from type switchgroup select <span class="calibre42">switchGroupGameParameter</span> </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">panner</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the Speaker Panner object.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects that support Positioning.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ where <span class="calibre42">panner.panX &gt; 5</span></p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">stateGroups</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the state groups that are used for the states of the associated object. These are the state groups added in the States tab. The return is a list of objects.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This can only be used in a return expression.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">customStates</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the list of the current object's custom states that have a defined value.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects that support states.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ from type Sound select <span class="calibre42">customStates</span></p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">originalState</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the original state associated with the custom state object.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with custom state objects.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">$ from type CustomState select <span class="calibre42">originalState</span></p>
+<p class="calibre7"></p>
+<p class="calibre7">$ from type bus select customStates select <span class="calibre42">originalState</span></p>
+<p class="calibre7"></p>
+<p class="calibre7">$ where customstates.any()<br class="calibre10"/>
+ return: ["type", "id", "name", "customstates.{volume, pitch, lowpass, highpass, originalState.name as state, originalState.parent.name as stateGroup} as customStates"]</p>
+<p class="calibre7"></p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">extractEvents</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the Event objects referenced by this object.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type SoundBank.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ from type soundbank where <span class="calibre42">extractEvents.any(name="MyEvent")</span></p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">extractStructures</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the object structures referenced by this object.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type SoundBank.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ from type soundbank where <span class="calibre42">extractStructures.any(type="sound")</span></p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">extractMedia</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the paths of the media files referenced by this object.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type SoundBank. This can only be used in a return expression.</p>
+<p class="calibre7"></p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">soundbanksReferencingEvent</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the SoundBank objects referencing the current Event object.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type Event.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ from type event where <span class="calibre42">soundbanksReferencingEvent.count()</span> = 1</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<th colspan="1" class="calibre46">Value Expressions </th><th colspan="1" class="calibre46">Expression returning a number, string or boolean </th><th colspan="1" class="calibre46">Examples </th></tr>
+<tr class="calibre16">
+<td colspan="1" class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><b class="calibre13">OBJECT_EXPRESSION</b>.<b class="calibre13">VALUE_EXPRESSION</b></p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">OBJECT_EXPRESSION.OBJECT_EXPRESSION. VALUE_EXPRESSION<br class="calibre10"/>
+</b></p>
+<p class="endtd"></p>
+</td><td colspan="1" class="calibre36">Chain zero to many object expression, followed by a value expression to return a value on the chained object. Separate each expression with a dot. </td><td colspan="1" class="calibre36">$ where OutputBus.id = "{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">PROPERTY_NAME</b><br class="calibre10"/>
+@<b class="calibre13">PROPERTY</b><b class="calibre13">_NAME</b><br class="calibre10"/>
+@@<b class="calibre13">PROPERTY</b><b class="calibre13">_NAME</b> </td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the value of the property for a specific object.</p>
+<p class="calibre7"></p>
+<p class="calibre7">Without the @, the override settings are used to find the property value. This is the actual value used at playback (i.e. the effective value). If there is an accessor of the same name, it will take precedence; in those rare cases, @@ must be used before the property name.</p>
+<p class="calibre7"></p>
+<p class="calibre7">When using @, the property directly defined on the object is used, even if it is not overridden.</p>
+<p class="calibre7"></p>
+<p class="calibre7">@@ is the same as no @.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">PROPERTY_NAME</b> refers to the name of a property for the current object. Refer to <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for the complete list of object types and their properties. The name is case-insensitive.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">$ from type Sound where volume &lt; 0<br class="calibre10"/>
+$ from type Sound where @UserAuxSendVolume0 &lt; 0<br class="calibre10"/>
+$ from type Sound where IsLoopingEnabled = true<br class="calibre10"/>
+$ from type sound where isloopingenabled = true</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td colspan="1" class="calibre36">id </td><td colspan="1" class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns a 128-bit GUID string of the form: "{0CB93450-E995-40E5-98A5-239F15B1F1D4}".</p>
+<p class="calibre7"></p>
+<p class="calibre7">This is a unique identifier for the object in the project.</p>
+<p class="endtd"></p>
+</td><td colspan="1" class="calibre36">$ where id = "{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" </td></tr>
+<tr class="calibre16">
+<td class="calibre36">shortId </td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns a numeric 32-bit short ID for the object. This is the ID being used in the Sound Engine.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: The scope over which a short ID is unique depends on the type of object. Certain object types, like busses, events, effects, and game syncs have an ID that is unique across all objects of the same type. Others, like sounds and containers, are unique across the project.</p>
+<p class="endtd"></p>
+</td><td class="calibre36">$ where shortId = 1588715066 </td></tr>
+<tr class="calibre16">
+<td class="calibre36">name </td><td class="calibre36">Returns the name of the object as a string. </td><td class="calibre36">$ from type Event where name : "*hello*"<br class="calibre10"/>
+$ where name = "Play_Hello" </td></tr>
+<tr class="calibre16">
+<td class="calibre36">notes </td><td class="calibre36">Returns the notes of the object as a string (also known as comments). </td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">$ where notes : "audiokinetic"</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">type </td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the type of the object as a string.</p>
+<p class="calibre7"></p>
+<p class="calibre7">Refer to <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for the complete list of object types.</p>
+<p class="endtd"></p>
+</td><td class="calibre36">$ where type = "Sound" </td></tr>
+<tr class="calibre16">
+<td class="calibre36">nodeType </td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the type of the node as a string.</p>
+<p class="calibre7"></p>
+<p class="calibre7">Refer to <a class="pcalibre el" href="wobjectnodetypes_split_000.html">Wwise Nodes Reference</a> for the complete list of node types.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">$ where nodeType = "Sound SFX"</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">classId </td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the classID of the object. The classID is a numerical value representing the type of object and the type of effect, source or conversion plug-in.</p>
+<p class="calibre7"></p>
+<p class="calibre7">Refer to <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for the complete list of classIDs.</p>
+<p class="endtd"></p>
+</td><td class="calibre36">$ where classId = 8847363 </td></tr>
+<tr class="calibre16">
+<td class="calibre36">category </td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the category of the object.</p>
+<p class="calibre7"></p>
+<p class="calibre7">Possible categories are the top folder names found under the project root folder.</p>
+<p class="endtd"></p>
+</td><td class="calibre36">$ where category = "Containers"<br class="calibre10"/>
+$ where category = "Busses"<br class="calibre10"/>
+$ where category = "Events" </td></tr>
+<tr class="calibre16">
+<td class="calibre36">filePath </td><td class="calibre36">Returns the file path associated with the Work Unit or project. This is the absolute path of the wwu or wproj file. </td><td class="calibre36">$ where type = "WorkUnit" and filePath : "*wwu" </td></tr>
+<tr class="calibre16">
+<td class="calibre36">path </td><td class="calibre36">Returns the path of the project inside the Wwise project. This path includes the category, which is the top folder name. </td><td class="calibre36">$ where path : "microphone" </td></tr>
+<tr class="calibre16">
+<td class="calibre36">activeSource </td><td class="calibre36">Returns the active source associated to a sound object. </td><td class="calibre36">$ from type Sound select activeSource </td></tr>
+<tr class="calibre16">
+<td class="calibre36">isPlayable </td><td class="calibre36">Returns true if the object can be played in the transport, or inside an Event. Returns false otherwise. </td><td class="calibre36">$ where isPlayable<br class="calibre10"/>
+$ where isPlayable = false<br class="calibre10"/>
+$ where !isPlayable </td></tr>
+<tr class="calibre16">
+<td class="calibre36">childrenCount </td><td class="calibre36">Returns the number of children for the current object. </td><td class="calibre36">$ where childrenCount &gt; 10<br class="calibre10"/>
+$ where type = "RandomSequenceContainer" and childrenCount &gt; 5 </td></tr>
+<tr class="calibre16">
+<td class="calibre36">pluginName </td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the name of the plug-in as provided by the vendor of the plug-in.</p>
+<p class="calibre7"></p>
+<p class="calibre7">The plug-in name is available for Effects plug-ins, Source plug-ins, Audio Devices and Metadata objects.</p>
+<p class="calibre7"></p>
+<p class="calibre7">Note that the plug-in name is different from the name of the object.</p>
+<p class="endtd"></p>
+</td><td class="calibre36">$ where pluginName = "" </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">convertedFilePath</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the absolute path of the converted file associated with the current object.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type Sound and AudioSource.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ from type Sound where <span class="calibre42">convertedFilePath</span> : "hello"</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">originalFilePath</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the absolute path of the original file associated with the current object.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type Sound, AudioSource, Music Clip and Music Clip MIDI.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ from type Sound where <span class="calibre42">originalFilePath</span> : "hello"</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">originalRelativeFilePath</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the path of the original file associated with the current object, relative to the project's Originals folder.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type Sound, AudioSource, Music Clip, and Music Clip MIDI.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ from type Sound where <span class="calibre42">originalFilePath</span> : "hello"</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre44"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">originalTotalChannelCount</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the total number of channels of the original file associated with the current object.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type Sound, AudioSource, Music Clip, and Plug-in Media.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ from type Sound where <span class="calibre42">originalTotalChannelCount</span> &gt; 3</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre44"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">originalNormalChannelCount</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the total number of channels in the default plane of the original file associated with the current object.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type Sound, AudioSource, Music Clip, and Plug-in Media.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ from type Sound where <span class="calibre42">originalNormalChannelCount</span> &gt; 3</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre44"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">originalHeightChannelCount</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the total number of channels in the height plane of the original file associated with the current object.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type Sound, AudioSource, Music Clip, and Plug-in Media.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ from type Sound where <span class="calibre42">originalHeightChannelCount</span> &gt; 0</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre44"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">originalLFEChannelCount</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the total number of low-frequency channels of the original file associated with the current object.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type Sound, AudioSource, Music Clip, and Plug-in Media.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ from type Sound where <span class="calibre42">originalLFEChannelCount</span> &gt; 0</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre44"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">originalNonLFEChannelCount</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the total number of channels exclusive of the low-frequency channels of the original file associated with the current object.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type Sound, AudioSource, Music Clip, and Plug-in Media.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ from type Sound where <span class="calibre42">originalNonLFEChannelCount</span> &gt; 0</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre44"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">originalAnonymousChannelCount</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the total number of anonymous channels of the original file associated with the current object.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type Sound, AudioSource, Music Clip, and Plug-in Media.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ from type Sound where <span class="calibre42">originalAnonymousChannelCount</span> &gt; 0</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre44"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">originalAmbisonicsChannelCount</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the total number of ambisonics channels of the original file associated with the current object.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type Sound, AudioSource, Music Clip, and Plug-in Media.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ from type Sound where <span class="calibre42">originalAmbisonicsChannelCount</span> &gt; 0</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre44"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">originalChannelConfig</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the channel configuration string of the original file associated with the current object.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type Sound, AudioSource, Music Clip, and Plug-in Media.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ from type Sound where <span class="calibre42">originalChannelConfig</span> = "7.1.4"</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre44"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">originalChannelMask</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the channel configuration mask of the original file associated with the current object.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type Sound, AudioSource, Music Clip, and Plug-in Media.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ from type Sound where <span class="calibre42">originalChannelMask</span> = 185919</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre44"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">originalSampleRate</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the sample rate of the original file associated with the current object.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type Sound, AudioSource, Music Clip, and Plug-in Media.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ from type Sound where <span class="calibre42">originalSampleRate</span> = 48000</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre44"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">originalBitDepth</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the bit depth of the original file associated with the current object.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type Sound, AudioSource, Music Clip, and Plug-in Media.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ from type Sound where <span class="calibre42">originalBitDepth</span> = 16</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre44"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">originalFileSize</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the size in bytes of the original file associated with the current object.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type Sound, AudioSource, Music Clip, and Plug-in Media.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ from type Sound where <span class="calibre42">originalFileSize</span> != 0</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre44"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">originalDataSize</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the size in bytes of the original file's data associated with the current object.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type Sound, AudioSource, Music Clip, and Plug-in Media.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ from type Sound where <span class="calibre42">originalDataSize</span> != 0</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre44"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">originalSampleCount</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the number of samples in the original file associated with the current object.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type Sound, AudioSource, Music Clip, and Plug-in Media.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ from type Sound where <span class="calibre42">originalSampleCount</span> != 0</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre44"><p class="starttd1"></p>
+<p class="calibre7"><span class="calibre42">originalDuration</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the duration in seconds of the original file associated with the current object.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type Sound, AudioSource, Music Clip, and Plug-in Media.</p>
+<p class="calibre7"></p>
+<p class="calibre7">This can differ from the duration field because originalDuration does not include trims.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ from type Sound where <span class="calibre42">originalDuration</span> &gt; 1</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre44"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">originalCodec</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the codec of the original file associated with the current object.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type Sound, AudioSource, Music Clip, and Plug-in Media.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ from type Sound where <span class="calibre42">originalCodec</span> = "PCM"</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre44"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">convertedTotalChannelCount</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the total number of channels of the converted file associated with the current object.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type Sound, AudioSource, Music Clip, and Plug-in Media.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ from type Sound where <span class="calibre42">convertedTotalChannelCount</span> &gt; 3</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre44"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">convertedNormalChannelCount</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the total number of channels in the default plane of the converted file associated with the current object.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type Sound, AudioSource, Music Clip, and Plug-in Media.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ from type Sound where <span class="calibre42">convertedNormalChannelCount</span> &gt; 3</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre44"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">convertedHeightChannelCount</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the total number of channels in the height plane of the converted file associated with the current object.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type Sound, AudioSource, Music Clip, and Plug-in Media.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ from type Sound where <span class="calibre42">convertedHeightChannelCount</span> &gt; 0</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre44"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">convertedLFEChannelCount</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the total number of low-frequency channels of the converted file associated with the current object.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type Sound, AudioSource, Music Clip, and Plug-in Media.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ from type Sound where <span class="calibre42">convertedLFEChannelCount</span> &gt; 0</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre44"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">convertedNonLFEChannelCount</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the total number of channels exclusive of the low-frequency channels of the converted file associated with the current object.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type Sound, AudioSource, Music Clip, and Plug-in Media.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ from type Sound where <span class="calibre42">convertedNonLFEChannelCount</span> &gt; 0</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre44"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">convertedAnonymousChannelCount</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the total number of anonymous channels of the converted file associated with the current object.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type Sound, AudioSource, Music Clip, and Plug-in Media.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ from type Sound where <span class="calibre42">convertedAnonymousChannelCount</span> &gt; 0</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre44"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">convertedAmbisonicsChannelCount</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the total number of ambisonics channels of the converted file associated with the current object.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type Sound, AudioSource, Music Clip, and Plug-in Media.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ from type Sound where <span class="calibre42">convertedAmbisonicsChannelCount</span> &gt; 0</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre44"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">convertedChannelConfig</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the channel configuration string of the converted file associated with the current object.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type Sound, AudioSource, Music Clip, and Plug-in Media.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ from type Sound where <span class="calibre42">convertedChannelConfig</span> = "7.1.4"</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre44"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">convertedChannelMask</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the channel configuration mask of the converted file associated with the current object.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type Sound, AudioSource, Music Clip, and Plug-in Media.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ from type Sound where <span class="calibre42">convertedChannelMask</span> = 185919</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre44"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">convertedSampleRate</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the sample rate of the converted file associated with the current object.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type Sound, AudioSource, Music Clip, and Plug-in Media.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ from type Sound where <span class="calibre42">convertedSampleRate</span> = 48000</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre44"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">convertedSampleRateSetting</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the sample rate, expressed as a string, of the converted file associated with the current object.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type Sound, AudioSource, Music Clip, and Plug-in Media.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ from type Sound where <span class="calibre42">convertedSampleRateSetting</span> = "As Input"</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre44"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">convertedBitDepth</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the bit depth of the converted file associated with the current object.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type Sound, AudioSource, Music Clip, and Plug-in Media.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ from type Sound where <span class="calibre42">convertedSampleRate</span> = 16</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre44"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">convertedFileSize</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the size in bytes of the converted file associated with the current object.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type Sound, AudioSource, Music Clip, and Plug-in Media.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ from type Sound where <span class="calibre42">convertedFileSize</span> != 0</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre44"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">convertedDataSize</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the size in bytes of the converted file's data associated with the current object.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type Sound, AudioSource, Music Clip, and Plug-in Media.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ from type Sound where <span class="calibre42">convertedDataSize</span> != 0</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre44"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">convertedSampleCount</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the number of samples in the converted file associated with the current object.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type Sound, AudioSource, Music Clip, and Plug-in Media.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ from type Sound where <span class="calibre42">convertedSampleCount</span> != 0</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre44"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">convertedDuration</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the duration in seconds of the converted file associated with the current object.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type Sound, AudioSource, Music Clip, and Plug-in Media.</p>
+<p class="calibre7"></p>
+<p class="calibre7">This can differ from the duration field because convertedDuration does not include trims.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ from type Sound where <span class="calibre42">convertedDuration</span> &gt; 1</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre44"><p class="starttd1"></p>
+<p class="calibre7"><span class="calibre42">convertedTrimmedDuration</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the duration in seconds of the trimmed converted audio source associated with the current object.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type Sound, AudioSource, Music Clip, and Plug-in Media.</p>
+<p class="calibre7"></p>
+<p class="calibre7">This can differ from the convertedDuration field because convertedDuration does not include trims.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ from type Sound where <span class="calibre42">convertedTrimmedDuration</span> &gt; 1</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre44"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">convertedCodec</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the codec of the converted file associated with the current object.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type Sound, AudioSource, Music Clip, and Plug-in Media.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ from type Sound where <span class="calibre42">convertedCodec</span> = "Vorbis"</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre44"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">conversionFormat</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the codec of the file associated with the current object.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type Sound, AudioSource, Music Clip, and Plug-in Media.</p>
+<p class="calibre7"></p>
+<p class="calibre7">This differs from convertedCodec because the file does not have to be converted.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ from type Sound where <span class="calibre42">conversionFormat</span> = "Vorbis"</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">soundbankBnkFilePath</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the absolute path of the BNK file associated with the current object.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type SoundBank.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ where <span class="calibre42">soundbankBnkFilePath</span> : "car"</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">mediaId</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Unique value given to file. Used by the sound engine to identify the file.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type AudioSource, MidiFileSource and PluginMediaSource.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ where <span class="calibre42">mediaId</span> &gt; 0</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">conversionHash</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">The hash of everything in the project that affects a file's conversion (Conversion ShareSet, file modifications in the Source Editor, and so on).</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type AudioSource, MidiFileSource and PluginMediaSource.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ where <span class="calibre42">conversionHash</span> &gt; 0</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">contentHash</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">The hash of the conversionHash and the hash of the original file's contents.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type AudioSource, MidiFileSource and PluginMediaSource.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ where <span class="calibre42">contentHash</span> != ""</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">workunitIsDefault</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns true if the Work Unit object is the default work unit for its category.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type WorkUnit.</p>
+<p class="endtd"></p>
+</td><td class="calibre36">$ where <span class="calibre42">workunitIsDefault</span> </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><span class="calibre42">workunitType</span> </td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the type of the current Work Unit object. This can be one of the following values:</p>
+<ul class="calibre8">
+<li class="calibre9">
+"folder": for Physical folder objects, such as "\Containers". </li>
+<li class="calibre9">
+"rootFile": for Work Unit objects that are located inside </li>
+<li class="calibre9">
+"nestedFile"</li>
+</ul>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type WorkUnit.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">$ where <span class="calibre42">workunitType</span> = "folder"<br class="calibre10"/>
+$ where <span class="calibre42">workunitType</span> = "rootFile" and !<span class="calibre42">workunitIsDefault</span></p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">workunitIsDirty</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns true if the Work Unit has unsaved changes.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type WorkUnit.</p>
+<p class="endtd"></p>
+</td><td class="calibre36">$ where <span class="calibre42">workunitIsDirty</span> </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">workunitIsLoaded</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns true if a Work Unit is currently loaded in the Project. False if it has been unloaded.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type WorkUnit.</p>
+<p class="endtd"></p>
+</td><td class="calibre36">$ where <span class="calibre42">workunitIsLoaded</span> </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">isExplicitMute</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns true if the object is muted explicitly.</p>
+<p class="endtd"></p>
+</td><td class="calibre36">$ where <span class="calibre42">isExplicitMute</span> </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">isExplicitSolo</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns true if the object is soloed explicitly.</p>
+<p class="endtd"></p>
+</td><td class="calibre36">$ where <span class="calibre42">isExplicitSolo</span> </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">isImplicitMute</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns true if the object is muted implicitly.</p>
+<p class="endtd"></p>
+</td><td class="calibre36">$ where <span class="calibre42">isImplicitMute</span> </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">isImplicitSolo</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns true if the object is soloed implicitly.</p>
+<p class="endtd"></p>
+</td><td class="calibre36">$ where <span class="calibre42">isImplicitSolo</span> </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">isIncluded</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns true if the object is included. If one or more of the object's ancestors is excluded, the object is excluded as well.</p>
+<p class="endtd"></p>
+</td><td class="calibre36">$ where <span class="calibre42">isIncluded</span> </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">isLanguageIncluded</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns true if the audio source object's parent includes the audio source's language. The parent must be a Sound.</p>
+<p class="endtd"></p>
+</td><td class="calibre36">$ where (parent.type="sound" and <span class="calibre42">isLanguageIncluded</span>) </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">isLinked("<b class="calibre13">PROPERTY_NAME</b>")</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns true if the specified property of the current object is linked.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">PROPERTY_NAME</b> refers to the name of a property, reference or object list for the current object. Refer to <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for the complete list of object types and their properties. The name is case-insensitive.</p>
+<p class="endtd"></p>
+</td><td class="calibre36">$ where <span class="calibre42">isLinked("pitch")</span> </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">isOverridable("<b class="calibre13">PROPERTY_NAME</b>")</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns true if the specified property of the current object has an override property.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">PROPERTY_NAME</b> refers to the name of a property, reference or object list for the current object. Refer to <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for the complete list of object types and their properties. The name is case-insensitive.</p>
+<p class="endtd"></p>
+</td><td class="calibre36">$ where <span class="calibre42">isOverridable("SpeakerPanning")</span> </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">isSourceOfOverride("<b class="calibre13">PROPERTY_NAME</b>")</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns true if the object is the source of override for the specified property.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">PROPERTY_NAME</b> refers to the name of a property, reference or object list for the current object. Refer to <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for the complete list of object types and their properties. The name is case-insensitive.</p>
+<p class="endtd"></p>
+</td><td class="calibre36">$ where <span class="calibre42">isSourceOfOverride("SpeakerPanning")</span> </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">supportsStates</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns true if the object supports the use of States on any of its properties.</p>
+<p class="calibre7"></p>
+<p class="calibre7">See <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for the complete list of object types and their properties.</p>
+<p class="endtd"></p>
+</td><td class="calibre36">$ where <span class="calibre42">supportsStates</span> </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">supportsRandomizer</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns true if the object supports the use of a Randomizer on any of its properties.</p>
+<p class="calibre7"></p>
+<p class="calibre7">See <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for the complete list of object types and their properties.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ where <span class="calibre42">supportsRandomizer</span></p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">hasProperty("<b class="calibre13">PROPERTY_NAME</b>")</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns true if the object has the specified property.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">PROPERTY_NAME</b> refers to the name of a property, reference or object list for the current object. Refer to <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for the complete list of object types and their properties. The name is case-insensitive.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ where <span class="calibre42">hasProperty("InitialDelay")</span></p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">stateProperties</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the properties that are used for the states of the associated object. This represents the visible columns in the States tab. The return is a list of strings.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This can only be used in a return expression.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">validity</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns a JSON object representing the status of validity. There are 3 fields in the object: isValid (boolean), details (string), severity (string). The details and severity fields are only available when isValid is false. This can be used with Effect Slots, Events and Actions.</p>
+<p class="endtd"></p>
+</td><td class="calibre36">$ where <span class="calibre42">validity.isValid</span> </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">maxDurationSource.id</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the ID (GUID) of the audio source object with the longest duration.</p>
+<p class="endtd"></p>
+</td><td class="calibre36">$ where <span class="calibre42">maxDurationSource.id = "{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"</span> </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">maxDurationSource.trimmedDuration</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the duration in seconds of the longest trimmed source.</p>
+<p class="endtd"></p>
+</td><td class="calibre36">$ where <span class="calibre42">maxDurationSource.trimmedDuration &gt;= 2</span> </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">duration.min</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the minimum possible time (in seconds) playback can take.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This applies to all objects that can contain Audio Source objects, either directly as a source or indirectly through descendants.</p>
+<p class="endtd"></p>
+</td><td class="calibre36">$ where <span class="calibre42">duration.min = 3</span> </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">duration.max</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the maximum possible time (in seconds) playback can take.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This applies to all objects that can contain Audio Source objects, either directly as a source or indirectly through descendants.</p>
+<p class="endtd"></p>
+</td><td class="calibre36">$ where <span class="calibre42">duration.max = 5</span> </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">duration.type</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the type of duration, which can be "infinite", "mixed", "oneShot" or "unknown".</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ where <span class="calibre42">duration.type = "oneShot"</span></p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">loudness.integrated</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the integrated loudness measurement in LUFS for the entire associated audio file.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"><span class="calibre42">$ from type sound where loudness.integrated &gt; -14</span></p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">loudness.momentaryMax</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the momentary max measurement in LUFS for the associated audio file. The value represents the highest loudness value obtained with a very short (100ms) window evaluation.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"><span class="calibre42">$ from type sound where loudness.momentaryMax &gt; -14</span></p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">audioSourceTrimValues.trimBegin</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the beginning of the range of time for which the audio source is trimmed.</p>
+<p class="endtd"></p>
+</td><td class="calibre36">$ where <span class="calibre42">audioSourceTrimValues.trimBegin = 2</span> </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">audioSourceTrimValues.trimEnd</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the end of the range of time for which the audio source is trimmed.</p>
+<p class="endtd"></p>
+</td><td class="calibre36">$ where <span class="calibre42">audioSourceTrimValues.trimEnd = 5</span> </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">maxRadiusAttenuation.id</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the ID (GUID) of the attenuation object with the largest radius.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with Containers objects and Events.</p>
+<p class="endtd"></p>
+</td><td class="calibre36">$ where <span class="calibre42">maxRadiusAttenuation.id = "{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"</span> </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">maxRadiusAttenuation.radius</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns the radius of the attenuation object with the largest radius.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with Containers objects and Events.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ where <span class="calibre42">maxRadiusAttenuation.radius &gt; 100</span></p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">curveToUse</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">For the current Attenuation object this returns a string representing the curve to use for a given curve type.</p>
+<p class="calibre7"></p>
+<p class="calibre7">See <a class="pcalibre el" href="ak_wwise_core_object_setattenuationcurve_split_000.html">ak.wwise.core.object.setAttenuationCurve</a> for the list of curve types and uses.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type Attenuation.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd">$ from type Attenuation where <span class="calibre42">curveToUse("VolumeWetGameUsage")</span> = "UseVolumeDry"</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre42">hasEmptySwitchStateAssignment</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">For the current object this returns true if there are empty objects or paths assigned to any Switches or States it uses.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: This only works with objects of type SwitchContainer, MusicSwitchTrack, MusicSwitchContainer and DialogueEvent.</p>
+<p class="endtd"></p>
+</td><td class="calibre36">$ where <span class="calibre42">hasEmptySwitchStateAssignment</span> </td></tr>
+</tbody></table>
+<p class="calibre7"></p>
+</div></div></div></body></html>

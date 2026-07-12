@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::IAk3DAudioSinkPlugin::Consume</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="class_a_k_1_1_i_ak3_d_audio_sink_plugin_af37bef4cbb53fce501b22bedfc25fa2b_split_000.html#af37bef4cbb53fce501b22bedfc25fa2b" class="pcalibre1 anchor">◆ </a></span>Consume()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="calibre3">
+  <tbody class="calibre4"><tr class="calibre16">
+  <td class="calibre17">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">virtual void AK::IAk3DAudioSinkPlugin::Consume </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="class_ak_audio_buffer_split_000.html">AkAudioBuffer</a> * </td>
+          <td class="paramname"><em class="calibre59">in_pMainMix</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="class_ak_audio_buffer_split_000.html">AkAudioBuffer</a> * </td>
+          <td class="paramname"><em class="calibre59">in_pPassthroughMix</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">const <a class="pcalibre el" href="struct_ak_audio_objects_split_000.html">AkAudioObjects</a> &amp; </td>
+          <td class="paramname"><em class="calibre59">in_objects</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="struct_ak_ramp_split_000.html">AkRamp</a> </td>
+          <td class="paramname"><em class="calibre59">in_gain</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="calibre17">
+<span><span>pure virtual</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Same as <a class="pcalibre el" href="class_a_k_1_1_i_ak_sink_plugin_a72ea6266f695a0672ee0af6eaca81342_split_000.html#a72ea6266f695a0672ee0af6eaca81342">AK::IAkSinkPlugin::Consume()</a>, but receives 3 inputs: the main mix,the stereo passthrough and 3d audio objects. </p><dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="class_a_k_1_1_i_ak_sink_plugin_a72ea6266f695a0672ee0af6eaca81342_split_000.html#a72ea6266f695a0672ee0af6eaca81342">AK::IAkSinkPlugin::Consume()</a></li>
+<li class="calibre9"><a class="pcalibre el" href="class_a_k_1_1_i_ak_sink_plugin_base_a80d001f02f2c602683951e51a795954e_split_000.html#a80d001f02f2c602683951e51a795954e">AK::IAkSinkPlugin::IsDataNeeded()</a></li>
+<li class="calibre9"><a class="pcalibre el" href="class_a_k_1_1_i_ak_sink_plugin_base_af7035e026261662fb26bc747eaee77af_split_000.html#af7035e026261662fb26bc747eaee77af">AK::IAkSinkPlugin::OnFrameEnd()</a> </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_pMainMix</td><td class="calibre17">Audio buffer data structure for the main mix (binauralized or not, depending on if binauralization is supported and enabled). </td></tr>
+    <tr class="calibre16"><td class="paramname">in_pPassthroughMix</td><td class="calibre17">The stereo mix to send out to the system in passthrough fashion (no binauralization). NULL if the channel configuration of the device is not object-based or does not have a passthrough. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_objects</td><td class="calibre17">3D Audio objects and object audio buffers to be consumed. The audio buffers are in the native format of the sound engine (typically float, deinterleaved), as specified by io_rFormat passed to <a class="pcalibre el" href="class_a_k_1_1_i_ak_sink_plugin_base_ab13c519292782b8e485912cb85506f25_split_000.html#ab13c519292782b8e485912cb85506f25">Init()</a>. It is up to the plugin to transform it into a format that is compatible with its output. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_gain</td><td class="calibre17">Volume gain to apply to all inputs. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>General Information</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_15"><a class="pcalibre1 anchor" id="soundengine_banks_general_identification_streamedaudio"></a>
+Streamed Audio Files</h2>
+<p class="calibre7">Banks always store the ID of streamed audio files they reference. When the sound engine wants to start the playback of a source that is streamed, it gets the ID from the bank and calls the ID overload of the Stream Manager. This ends up calling the ID overload of <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_1_1_dynamic_sequence_ab6daddd96e109dc7669889733ce4f2cc_split_000.html#ab6daddd96e109dc7669889733ce4f2cc">AK::IAkLowLevelIO::Open()</a></code>. The default implementation of the Low-Level IO creates a string with the ID, and concatenates an extension that corresponds to the format of the file. If you want a copy of your streamed files to be created using this naming scheme and then stored in the Generated SoundBanks directory, use the "Copy Streamed Files" option on the SoundBanks tab of Project Settings dialog box. This operation is defined as a post-generation step. So, it is performed immediately following the generation of your SoundBanks. Refer to the Wwise Help for a complete description of the SoundBank project settings.</p>
+</div></div></div></body></html>

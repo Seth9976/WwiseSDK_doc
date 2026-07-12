@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak.wwise.debug.generateToneWAV</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="ak_wwise_debug_generatetonewavArguments"></a>
+Arguments</h1>
+<p class="calibre7"></p><table class="doxtable">
+<tbody class="calibre4"><tr class="calibre16">
+<th class="calibre46">Name </th><th class="calibre46">Type </th><th class="calibre46">Description  </th></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">path</b> * </td><td class="calibre36">string </td><td class="calibre36">File path to write the generated WAV file. This path normally uses the file extension WAV.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">bitDepth</b> </td><td class="calibre36">string </td><td class="calibre36">Bit depth of the audio file. Default is int16. Possible values: <ul class="calibre8">
+<li class="calibre9">
+int16 </li>
+<li class="calibre9">
+float32 </li>
+</ul>
+</td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">sampleRate</b> </td><td class="calibre36">number </td><td class="calibre36">Sample rate of the audio file. Default is 48000. Range: [300,192000]  </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">channelConfig</b> </td><td class="calibre36">string </td><td class="calibre36">Channel configuration of the audio file. Default is 1.0. Please use the silence waveform for the ambisonics configurations, as the other tone signals will be incompatible with the format. Possible values: <ul class="calibre8">
+<li class="calibre9">
+0.1 </li>
+<li class="calibre9">
+1.0 </li>
+<li class="calibre9">
+2.0 </li>
+<li class="calibre9">
+2.1 </li>
+<li class="calibre9">
+3.0 </li>
+<li class="calibre9">
+4.0 </li>
+<li class="calibre9">
+5.1 </li>
+<li class="calibre9">
+7.1 </li>
+<li class="calibre9">
+5.1.2 </li>
+<li class="calibre9">
+7.1.2 </li>
+<li class="calibre9">
+7.1.4 </li>
+<li class="calibre9">
+Ambisonics 1st order </li>
+<li class="calibre9">
+Ambisonics 2nd order </li>
+<li class="calibre9">
+Ambisonics 3rd order </li>
+<li class="calibre9">
+Ambisonics 4th order </li>
+<li class="calibre9">
+Ambisonics 5th order </li>
+</ul>
+</td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">setAnonymous</b> </td><td class="calibre36">boolean </td><td class="calibre36">Sets the channel configuration type to anonymous, this overrides the channel config but keeps the number of channels specified. When not specified, the default is false.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">sustainTime</b> </td><td class="calibre36">number </td><td class="calibre36">Number of seconds of the signal holds at the specified level. Default is 1 second. Range: [0,*]  </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">sustainLevel</b> </td><td class="calibre36">number </td><td class="calibre36">Decibel attenuation for the sustained signal. Default is 0 dB. Range: [-100,0]  </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">attackTime</b> </td><td class="calibre36">number </td><td class="calibre36">Number of seconds for the signal to reach sustain level. Default is 0 second. Range: [0,*]  </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">releaseTime</b> </td><td class="calibre36">number </td><td class="calibre36">Number of seconds for the signal to release from sustain level. Default is 0 second. Range: [0,*]  </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">waveform</b> </td><td class="calibre36">string </td><td class="calibre36">Waveform type. Default is silence. Possible values: <ul class="calibre8">
+<li class="calibre9">
+silence </li>
+<li class="calibre9">
+sine </li>
+<li class="calibre9">
+triangle </li>
+<li class="calibre9">
+square </li>
+<li class="calibre9">
+whiteNoise </li>
+</ul>
+</td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">waveformChannelMask</b> </td><td class="calibre36">integer </td><td class="calibre36">Specifies which channels receive waveform data. The channel mask is a bit field where each bit represents a channel. The least significant bit represents the channel at index zero. The bits with 0 are silent. When not specified, the default outputs waveform data on all channels.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">frequency</b> </td><td class="calibre36">number </td><td class="calibre36">Waveform frequency. Default is 440. Range: [1,22000]  </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">markers</b> </td><td class="calibre36">array </td><td class="calibre36">A list of markers to add to the generated WAV file. Each marker is an object with 'label' and 'position' properties, where 'position' is the position in seconds.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">markers <b class="calibre13">[...]</b> </td><td class="calibre36">object </td><td class="calibre36">A marker to add to the generated WAV file.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">markers[...].<b class="calibre13">label</b> </td><td class="calibre36">string </td><td class="calibre36">The label of the marker. Default is an empty string.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">markers[...].<b class="calibre13">position</b> * </td><td class="calibre36">number </td><td class="calibre36">The position of the marker in seconds.   </td></tr>
+</tbody></table>
+<p class="calibre7">(Required *)</p>
+<p class="calibre7"><a class="pcalibre el" href="ak_wwise_debug_generatetonewav_args_schema_split_000.html">Arguments Schema</a></p>
+</div></div></div></body></html>

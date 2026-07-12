@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2021.1.11</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="generic_community_bugs_2021_1_11"></a>
+Fixes for Community-Reported Bugs</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-52903</b> Fixed: Project Explorer doesn't restore expanded states correctly.</li>
+<li class="calibre9"><b class="calibre13">WG-59422</b> Fixed: Crash when combining finite Sequence Containers that have Trigger rate transitions with Blend Containers that have Initial Delays.</li>
+<li class="calibre9"><b class="calibre13">WG-60577</b> Fixed: Crash when deleting a Music Track while its volume slider is active.</li>
+<li class="calibre9"><b class="calibre13">WG-60602</b> Fixed: Out-of-bounds memory access when encoding very small (&lt;960 samples) sources with WEM Opus.</li>
+<li class="calibre9"><b class="calibre13">WG-60945</b> Fixed: Game-Defined Auxiliary Sends don't get regular updates from RTPCs on busses.</li>
+<li class="calibre9"><b class="calibre13">WG-60969</b> Fixed: (Spatial Audio) Any emitter using diffraction can become inaudible when the listener position overlaps a portal.</li>
+<li class="calibre9"><b class="calibre13">WG-61127</b> Fixed: Crash in <code class="calibre14">CAkListener::MultiDirectionGainCorrectionForObjects</code> during low-memory scenarios.</li>
+<li class="calibre9"><b class="calibre13">WG-61304</b> Fixed: (Spatial Audio) Diffraction path might be dropped and transmission loss goes to 0% when listener and emitter are in different rooms but on the same side of a portal.</li>
+<li class="calibre9"><b class="calibre13">WG-61508</b> Fixed: SoundBank metadata Max attenuation for Events does not take Post Event actions into account.</li>
+<li class="calibre9"><b class="calibre13">WG-61597</b> Fixed: Streaming media can be stopped if inspected by the garbage collector at the wrong time. Added more detailed logs to the AkUnrealIOHook.</li>
+<li class="calibre9"><b class="calibre13">WG-61634</b> Fixed: Crash when inspecting an RTPC or State from the Multi Editor or the default plug-in property list.</li>
+<li class="calibre9"><b class="calibre13">WG-61655</b> Fixed: Calling <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a81521a4611d3891c499ec9c5eb421ac2_split_000.html#a81521a4611d3891c499ec9c5eb421ac2">AK::SoundEngine::ReplaceOutput</a></code> with an Audio Device ShareSet of 0 can cause audio loss if the old output Audio Device is connected to multiple audio busses.</li>
+<li class="calibre9"><b class="calibre13">WG-61686</b> Fixed: External Editor doesn't work on Music Clips and Music MIDI Clips in the Segment Editor.</li>
+<li class="calibre9"><b class="calibre13">WG-61687</b> Fixed: WAQL originalFilePath doesn't work for MusicClip and MusicMidiClip.</li>
+<li class="calibre9"><b class="calibre13">WG-61706</b> Fixed: Crash when Opus sounds start in virtual mode.</li>
+<li class="calibre9"><b class="calibre13">WG-61727</b> Fixed: A nested Music Switch Container doesn't switch to the correct child when the parent Switch Container has an active Transition with a positive Offset.</li>
+<li class="calibre9"><b class="calibre13">WG-61850</b> Fixed: (Spatial Audio) Any emitter using diffraction can become inaudible when the listener position overlaps a portal.</li>
+<li class="calibre9"><b class="calibre13">WG-61981</b> Fixed: Crash due to memory stomp inside of CAkTransitionManager::TermList when shutting down the sound engine.</li>
+<li class="calibre9"><b class="calibre13">WG-62017</b> Fixed: (Spatial Audio) AKASSERT(portalPath.IsEnabled()) in the function <code class="calibre14">AkAcousticRoom::InitContributingPortalPaths</code>.</li>
+<li class="calibre9"><b class="calibre13">WG-62057</b> Fixed: Erroneous Seek Table Absence warnings occur when replaying Vorbis files from the beginning.</li>
+<li class="calibre9"><b class="calibre13">WG-62149</b> Fixed: Imported SoundBank files can be linked with the wrong WwiseAddressableSoundbank if the former's name is a substring of the latter. <br class="calibre10"/>
+</li>
+<li class="calibre9"><b class="calibre13">WG-62150</b> Fixed: Using S-Curve Interpolation on RTPC curves provides values outside the specified range in some cases. For example, it might generate negative values for Spread or LPF/HPF factors when the curve should stop at 0.</li>
+<li class="calibre9"><b class="calibre13">WG-62177</b> Fixed: Setting a bus configuration to <b class="calibre13">Same as passthrough mix</b> when 3D Audio is available but passthrough is not available sets the bus configuration to Audio Objects instead of setting it to the Audio Device's main mix.</li>
+<li class="calibre9"><b class="calibre13">WG-62358</b> Fixed: Crash due to stack overflow originating from <code class="calibre14">CAkVPL3dMixable::GetVolumes</code> in some scenarios.</li>
+<li class="calibre9"><b class="calibre13">WG-62383</b> Fixed: File Packager takes a long time to complete when there are many excluded memory files in a single SoundBank. </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

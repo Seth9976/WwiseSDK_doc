@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Rooms and Portals Overview</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_6"><a class="pcalibre1 anchor" id="spatial_audio_roomsportals_modelingsoundpropagationfromotherrooms_transmission_geometry"></a>
+Modeling Transmission Between Rooms with Geometry</h2>
+<p class="calibre7">When geometry is available, sound transmission is modeled using <code class="calibre14">AkAcousticSurface::TransmissionLoss</code>. Wwise Acoustics Geometry allows for detailed sound transmission modeling because you can assign different transmission loss coefficients to each individual triangle. Wwise Acoustics also uses Room geometry to compute a spread value for the transmission path. When a sound emitter is blocked by one or more geometric surfaces, the transmission loss factor of the geometry (as defined by <a class="pcalibre el" href="struct_ak_acoustic_surface_ab0ec8a6eee25b28b4f8b9e91dbff17da_split_000.html#ab0ec8a6eee25b28b4f8b9e91dbff17da">AkAcousticSurface::transmissionLoss</a>) is applied. If there is more than one surface between the emitter and listener, the maximum transmission loss factor is used. See <a class="pcalibre el" href="spatial_audio_apigeometry_diffract_split_003.html#spatial_audio_apigeometry_diffract_geometry_settings_transmission">Setting Up Geometry for Transmission</a> for more details.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> For accurate room transmission, it is necessary to define a shape for the Room so that the Room has a source and an extent. The Room shape is calculated from the bounding box surrounding the geometry associated with the Room. To set up Room transmission through the API, see <a class="pcalibre el" href="spatial_audio_roomsportals_apiconfig_split_003.html#spatial_audio_roomsportals_apiconfigroomgeometry">Setting up Room Geometry</a>. If you do not want to use the geometry for diffraction and reflection calculation, set <code class="calibre14"><a class="pcalibre el" href="struct_ak_geometry_instance_params_a30ef95f856b020642d4a45d43c3df86d_split_000.html#a30ef95f856b020642d4a45d43c3df86d">AkGeometryInstanceParams::UseForReflectionAndDiffraction</a></code> to false on the Room's <code class="calibre14">AkGeometryInstance</code>. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2025.1.5</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="generic_bugs_2025_1_5"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-80442</b> Fixed: Inconsistent reporting of Room spread values.</li>
+<li class="calibre9"><b class="calibre13">WG-80444</b> Fixed: Spread and aperture reported inconsistently at low values.</li>
+<li class="calibre9"><b class="calibre13">WG-80651</b> Fixed: (Acoustics) Removed invalid AKASSERT(m_referencedPortalEdges.IsEmpty() == m_portalEdgeIndex.IsEmpty()) in <code class="calibre14">AkGeometryInstance::UnindexPortalEdgeGeoemtry</code>.</li>
+<li class="calibre9"><b class="calibre13">WG-80662</b> Fixed: (Acoustics) Portal obstruction and occlusion transition in the wrong direction when leaving a room.</li>
+<li class="calibre9"><b class="calibre13">WG-80786</b> Fixed: Dynamic Sequence overlaps sounds when one sound is stopped due to voice limiting.</li>
+<li class="calibre9"><b class="calibre13">WG-80924</b> Fixed: Properties are not reflected in a connected game when importing from the Media Pool.</li>
+<li class="calibre9"><b class="calibre13">WG-80938</b> Fixed: Error Reporter sometimes fails to report the operating system.</li>
+<li class="calibre9"><b class="calibre13">WG-80947</b> Fixed: The modified indicator in the Property Editor is difficult to see in the light theme when the property is not overridden.</li>
+<li class="calibre9"><b class="calibre13">WG-81049</b> Fixed: Insufficient feedback on the progress of a long project migration.</li>
+<li class="calibre9"><b class="calibre13">WG-81111</b> Fixed: DSF and LPF/HPF filters are averaged independently, causing their interactions to negate intended high-frequency attenuation when applied to different propagation path types (for example, diffraction or transmission).</li>
+<li class="calibre9"><b class="calibre13">WG-81140</b> Fixed: Leaking file streams when Profiler connection is lost during Live Media Transfers.</li>
+<li class="calibre9"><b class="calibre13">WG-81143</b> Fixed: Deadlock while transferring large media files to a connected game and then switching to other media files.</li>
+<li class="calibre9"><b class="calibre13">WG-81184</b> Fixed: Play cursor in Source Editor behaves erratically when source is looping.</li>
+<li class="calibre9"><b class="calibre13">WG-81208</b> Fixed: In the Game Object 3D Viewer, in perspective mode, the camera zooms out further each time the <b class="calibre13">Frame All</b> button is clicked.</li>
+<li class="calibre9"><b class="calibre13">WG-81231</b> Fixed: The perceived loudness of the built-in HPF is not evaluated properly, resulting in suboptimal averaging of multiple propagation paths' filter values.</li>
+<li class="calibre9"><b class="calibre13">WG-81244</b> Fixed: Possible assert when undoing the import of an audio source into a Sound.</li>
+<li class="calibre9"><b class="calibre13">WG-81264</b> Fixed: (Acoustics) Missing diffraction behind Portals when Rooms have Geometry but don't enable <code class="calibre14"><a class="pcalibre el" href="struct_ak_geometry_instance_params_a30ef95f856b020642d4a45d43c3df86d_split_000.html#a30ef95f856b020642d4a45d43c3df86d">AkGeometryInstanceParams::UseForReflectionAndDiffraction</a></code>.</li>
+<li class="calibre9"><b class="calibre13">WG-81283</b> Fixed: Setting reflection order to 0 doesn't always clear the reflection paths.</li>
+<li class="calibre9"><b class="calibre13">WG-81380</b> Fixed: Possible crash when dragging items in the Project Explorer, particularly when an external program or WAAPI script is modifying the project.</li>
+<li class="calibre9"><b class="calibre13">WG-81383</b> Fixed: Ctrl+click to select multiple paths in the Game Object 3D Viewer doesn't work in profiling session files.</li>
+<li class="calibre9"><b class="calibre13">WG-81384</b> Fixed: Sibling 3D selection info missing from <code class="calibre14">.prof</code> files in the Game Object 3D Viewer, .</li>
+<li class="calibre9"><b class="calibre13">WG-81417</b> Fixed: Possible crash when scrolling a Performance Monitor view that has been shrunk vertically.</li>
+<li class="calibre9"><b class="calibre13">WG-81454</b> Fixed: (Acoustics) Miscalculation in the number of Poral rays necessary to achieve sufficient coverage.</li>
+<li class="calibre9"><b class="calibre13">WG-81497</b> Fixed: Crash when using ReaWwise or using WAAPI topics and WAQL.</li>
+<li class="calibre9"><b class="calibre13">WG-81526</b> Fixed: Perforce proceeds with submitting changes when cancelling the Description dialog.</li>
+<li class="calibre9"><b class="calibre13">WG-81612</b> Fixed: Erroneous values related to DSF after live editing with <b class="calibre13">Override Parent</b> selected.</li>
+<li class="calibre9"><b class="calibre13">WG-81666</b> Fixed: Incorrect behavior in <code class="calibre14"><a class="pcalibre el" href="class_ak_ring_buffer_a3b264d7bc0dc1ca8db8296e799ac4de4_split_000.html#a3b264d7bc0dc1ca8db8296e799ac4de4">AkRingBuffer::ReadDataFromRing</a></code> when underlying item sizes are larger than one byte.</li>
+<li class="calibre9"><b class="calibre13">WG-81678</b> Fixed: Crash when an existing object in the Audio File Importer is deleted.</li>
+<li class="calibre9"><b class="calibre13">WG-81691</b> Fixed: Crash in the Voice Graph when busses with reverbs are executing on the tail of the effect.</li>
+<li class="calibre9"><b class="calibre13">WG-81704</b> Fixed: Reverb Zone with Geometry has Room transmission loss applied to the emitter's direct path over transition region.</li>
+<li class="calibre9"><b class="calibre13">WG-81705</b> Fixed: Reverb Zone with no Geometry puts Room transmission loss on emitter.</li>
+<li class="calibre9"><b class="calibre13">WG-81752</b> Fixed: Audio Device not properly configured in Wwise Authoring.</li>
+<li class="calibre9"><b class="calibre13">WG-81828</b> Fixed: Using Dynamics on a Parametric EQ Effect with a sound that's quieter than -60db results in some modifications to the Dynamics Gain offset that might not be intended.</li>
+<li class="calibre9"><b class="calibre13">WG-81831</b> Fixed: Crash in Parametric EQ when running an instance of the Effect on a voice, and using a non-monaural Sidechain Mix as the Dynamics Input.</li>
+<li class="calibre9"><b class="calibre13">WG-81832</b> Fixed: Parametric EQ uses the incorrect scope for receiving data from a Sidechain Mix when Wwise Authoring is not connected to a running game.</li>
+<li class="calibre9"><b class="calibre13">WG-81836</b> Fixed: Sidechain Mixes are now resolved to their ShareSet in the Sidechain Mixes tab of the Advanced Profiler, instead of only displaying their Unique ID.</li>
+<li class="calibre9"><b class="calibre13">WG-81993</b> Fixed: (Acoustics) Possible crash when running acoustics tasks in low-memory conditions.</li>
+<li class="calibre9"><b class="calibre13">WG-82109</b> Fixed: (Acoustics) Assert in <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_comm_a94e307d2974b89cc4fbc8ab0fef20d2f_split_000.html#a94e307d2974b89cc4fbc8ab0fef20d2f">AkSoundGeometry::Term()</a></code>.</li>
+<li class="calibre9"><b class="calibre13">WG-82175</b> Fixed: Crash with MIDI music when using Actions with exceptions.</li>
+<li class="calibre9"><b class="calibre13">WG-82297</b> Fixed: (Acoustics) Possible crash caused by a race condition when streaming in Rooms and Portals while emitters are active and load balancing.</li>
+</ul>
+</div></div></div></body></html>

@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK/Tools/Common/AkAssert.h File Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table class="calibre3">
+<tbody class="calibre4"><tr class="calibre16"><td colspan="2" class="calibre17"><h2 class="calibre21" id="calibre_pb_0"><a class="pcalibre1 anchor" id="define-members"></a>
+Macros</h2></td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_assert_8h_ac0e6cc4061c0a7c154a8c921a0af74cb_split_000.html#ac0e6cc4061c0a7c154a8c921a0af74cb">AKASSERT</a>(Condition)   do { switch ( 0 ) { case 0: break; default: if ( !( Condition ) ) {} } } while ( 0 )</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_assert_8h_a7cad688743dfea863122787fe71bce27_split_000.html#a7cad688743dfea863122787fe71bce27">AKVERIFY</a>(x)   ((void)(x))</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_assert_8h_a5884d82f3fbd18205c7baf1340ce8dc7_split_000.html#a5884d82f3fbd18205c7baf1340ce8dc7">AK_IS_ASSERT_HOOKED</a>   (false)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_assert_8h_a00dc614bb13cadd39785870ac7fa2d09_split_000.html#a00dc614bb13cadd39785870ac7fa2d09">AKASSERTD</a>(Condition)   ((void)0)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_assert_8h_a0c76cf87cb77b1e74a3cdcb9de7f6777_split_000.html#a0c76cf87cb77b1e74a3cdcb9de7f6777">AKASSERT_RANGE</a>(Value,  Min,  Max)   (<a class="pcalibre el" href="_ak_assert_8h_ac0e6cc4061c0a7c154a8c921a0af74cb_split_000.html#ac0e6cc4061c0a7c154a8c921a0af74cb">AKASSERT</a>(((Value) &gt;= (Min)) &amp;&amp; ((Value) &lt;= (Max))))</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_assert_8h_a89461dec0452e3376a360cd54c903050_split_000.html#a89461dec0452e3376a360cd54c903050">AKASSERTANDRETURN</a>(__Expression,  __ErrorCode)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_assert_8h_a72825f9f4080d246ee46ae10b449f1af_split_000.html#a72825f9f4080d246ee46ae10b449f1af">AKASSERTPOINTERORFAIL</a>(__Pointer)   <a class="pcalibre el" href="_ak_assert_8h_a89461dec0452e3376a360cd54c903050_split_000.html#a89461dec0452e3376a360cd54c903050">AKASSERTANDRETURN</a>( __Pointer != NULL, <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_001.html#a64f7d1f79613cc4dcc49a4efba6caa63a904c9822fd2d40bb0ea6bfad9ead659b">AK_Fail</a> )</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_assert_8h_a0239ab339d7b565ded591ba997077e50_split_000.html#a0239ab339d7b565ded591ba997077e50">AKASSERTSUCCESSORRETURN</a>(__akr)   <a class="pcalibre el" href="_ak_assert_8h_a89461dec0452e3376a360cd54c903050_split_000.html#a89461dec0452e3376a360cd54c903050">AKASSERTANDRETURN</a>( __akr == <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_001.html#a64f7d1f79613cc4dcc49a4efba6caa63ad7c47fea3da641e7422573c6a13dc35e">AK_Success</a>, __akr )</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_assert_8h_a32029a1b927d3609e2db585d29d27e3b_split_000.html#a32029a1b927d3609e2db585d29d27e3b">AKASSERTPOINTERORRETURN</a>(__Pointer)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_assert_8h_a1c6d871d2dfc01214622dd25cf8ccd25_split_000.html#a1c6d871d2dfc01214622dd25cf8ccd25">AKSTATICASSERT</a>(__expr__,  __msg__)   typedef char __AKSTATICASSERT__[(__expr__)?1:-1]</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

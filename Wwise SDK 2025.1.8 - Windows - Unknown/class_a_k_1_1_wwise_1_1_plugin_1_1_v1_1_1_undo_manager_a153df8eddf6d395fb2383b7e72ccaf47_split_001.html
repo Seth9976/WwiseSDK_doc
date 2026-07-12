@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK.Wwise::Plugin::V1::UndoManager::CanLogUndos</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_undo_manager_a153df8eddf6d395fb2383b7e72ccaf47_split_000.html#a153df8eddf6d395fb2383b7e72ccaf47" class="pcalibre1 anchor">◆ </a></span>CanLogUndos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="calibre3">
+  <tbody class="calibre4"><tr class="calibre16">
+  <td class="calibre17">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">bool AK.Wwise::Plugin::V1::UndoManager::CanLogUndos </td>
+          <td class="calibre17">(</td>
+          <td class="paramname"/><td class="calibre17">)</td>
+          <td class="calibre17"> const</td>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="calibre17">
+<span><span>inline</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+
+<p class="calibre7">Returns whether logging can occur or not. </p>
+<p class="calibre7">Call this function when you are about to log an undo event to know if <a class="pcalibre el" href="namespace_a_k_1_1_wwise_split_000.html">Wwise</a> is in a state where undos are enabled. Undo logging can be disabled for a particular plug-in object if it already lives in the undo stack or in the clipboard.</p>
+<p class="calibre7">This function is useful to determine whether a complex undo operation can be started without opening a new undo group (see <a class="pcalibre el" href="structak__wwise__plugin__host__undo__manager__v1_a0d3457469940d6c51413b280190f4b13_split_000.html#a0d3457469940d6c51413b280190f4b13">ak_wwise_plugin_host_undo_manager_v1::OpenGroup</a>). Otherwise, the simple fact of opening an undo group will give a result of 0 if it's not possible to log undos at this time.</p>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">true if the plug-in can log undo events at this time. </dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_host_undo_manager_8h_source.html#l00620">620</a> of file <a class="pcalibre el" href="_host_undo_manager_8h_source.html">HostUndoManager.h</a>.</p>
+
+<p class="calibre7">References <a class="pcalibre el" href="_host_undo_manager_8h_source.html#l00242">ak_wwise_plugin_host_undo_manager_v1::CanLogUndos</a>, and <a class="pcalibre el" href="_plugin_info_generator_8h_source.html#l00089">AK.Wwise::Plugin::CBaseInterfaceGlue&lt; CHostUndoManager &gt;::g_cinterface</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

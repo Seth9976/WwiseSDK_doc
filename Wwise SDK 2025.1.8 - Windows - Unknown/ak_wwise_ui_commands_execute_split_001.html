@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak.wwise.ui.commands.execute</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="ak_wwise_ui_commands_executeArguments"></a>
+Arguments</h1>
+<p class="calibre7"></p><table class="doxtable">
+<tbody class="calibre4"><tr class="calibre16">
+<th class="calibre46">Name </th><th class="calibre46">Type </th><th class="calibre46">Description  </th></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">command</b> * </td><td class="calibre36">string </td><td class="calibre36">The ID of the command to execute. See <a class="pcalibre el" href="globalcommandsids.html">Wwise Authoring Command Identifiers</a> for the lists of commands.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">objects</b> </td><td class="calibre36">array </td><td class="calibre36">An array of objects. Each object is an ID (GUID), name, or path of the object. Some commands can take objects as arguments. See the commands for more information.   </td></tr>
+<tr class="calibre16">
+<td rowspan="4" class="calibre36">objects <b class="calibre13">[...]</b> </td><td class="calibre36"/><td class="calibre36"><p class="starttd"></p>
+<p class="endtd">Any of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">The name of the object qualified by its type or Short ID in the form of type:name or Global:shortId. Only object types that have globally-unique names or Short Ids are supported. Ex: Event:Play_Sound_01, Global:245489792   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">A project path to a Wwise object, including the category and the work-unit. For example: \Containers\Default Work Unit\New Sound SFX.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">files</b> </td><td class="calibre36">array </td><td class="calibre36">An array of files. Each object is an path to a file. Some commands can take files as arguments. See the commands for more information.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">files <b class="calibre13">[...]</b> </td><td class="calibre36">string </td><td class="calibre36">A path to a file. Some commands can take files as arguments. See the commands for more information.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">platforms</b> </td><td class="calibre36">array </td><td class="calibre36">An array of platform. Each platform is an ID (GUID) or a unique name. Some commands can take platforms as arguments. See the commands for more information.   </td></tr>
+<tr class="calibre16">
+<td rowspan="3" class="calibre36">platforms <b class="calibre13">[...]</b> </td><td class="calibre36"/><td class="calibre36"><p class="starttd"></p>
+<p class="endtd">Any of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">The name of the object.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="5" class="calibre36"><b class="calibre13">value</b> </td><td class="calibre36"/><td class="calibre36"><p class="starttd">A value to pass to the command. Some commands can take a value as an argument. See the commands for more information.<br class="calibre10"/>
+ The value of a property. </p>
+<p class="endtd">Any of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">null </td><td class="calibre36">A null value. No reference to an object.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">A string value.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">number </td><td class="calibre36">A numerical value.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">boolean </td><td class="calibre36">A boolean value.   </td></tr>
+</tbody></table>
+<p class="calibre7">(Required *)</p>
+<p class="calibre7"><a class="pcalibre el" href="ak_wwise_ui_commands_execute_args_schema_split_000.html">Arguments Schema</a></p>
+</div></div></div></body></html>

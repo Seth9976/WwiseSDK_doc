@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2022.1.9</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="generic_bugs_2022_1_9"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-63299</b> Fixed: (Spatial Audio) An assert is triggered in <code class="calibre14">NudgeToShadowZone()</code> when calculating diffraction on certain geometries.</li>
+<li class="calibre9"><b class="calibre13">WG-63963</b> Fixed: Timing values reported in the CPU tab of the Advanced Profiler are incorrect by a large factor in some scenarios.</li>
+<li class="calibre9"><b class="calibre13">WG-67441</b> Fixed: Miscalculation in edge case of onset detection.</li>
+<li class="calibre9"><b class="calibre13">WG-67502</b> Fixed: Event Editor is empty when creating an Event through the object shortcut menu.</li>
+<li class="calibre9"><b class="calibre13">WG-67683</b> Fixed: Possible infinite hang in <code class="calibre14">AK::JobMgr::WorkUntilDone</code> when running the sound engine in multi-core execution.</li>
+<li class="calibre9"><b class="calibre13">WG-67849</b> Fixed: In the Conversion Settings Editor, buttons aren't always properly enabled or disabled.</li>
+<li class="calibre9"><b class="calibre13">WG-67941</b> Fixed: Some lines appear transparent when the Voice Monitor view is undocked.</li>
+<li class="calibre9"><b class="calibre13">WG-68021</b> Fixed: Active Plug-in property set to incorrect value when connecting Wwise to a remote instance if the property has an RTPC and/or State applied.</li>
+<li class="calibre9"><b class="calibre13">WG-68218</b> Fixed: Attempting to stop a Switch Container in Continuous Play Mode on a specific Playing ID can stop other instances of this sound playing simultaneously on the same game object.</li>
+<li class="calibre9"><b class="calibre13">WG-68223</b> Fixed: Compressor and Expander Effects sometimes cause audio glitches when processing more than one Audio Object at one time.</li>
+<li class="calibre9"><b class="calibre13">WG-68299</b> Fixed: Saving a project after removing a platform can corrupt unlinked Object Lists (for example, Effects list).</li>
+<li class="calibre9"><b class="calibre13">WG-68387</b> Fixed: Stream Name is restricted to 16 char in the Streams tab of the Advanced Profiler.</li>
+<li class="calibre9"><b class="calibre13">WG-68515</b> Fixed: Crash when using very short IR (&lt;10ms) in AK Convolution Reverb.</li>
+<li class="calibre9"><b class="calibre13">WG-68741</b> Fixed: Slightly negative values can be shown in CPU tab of the Advanced Profiler.</li>
+<li class="calibre9"><b class="calibre13">WG-68775</b> Fixed: Window meter doesn't update in the HDR tab of the Property Editor for audio busses.</li>
+<li class="calibre9"><b class="calibre13">WG-68794</b> Fixed: Loudness normalization wrongly attributed to Voice Volume in Voice Inspector.</li>
+</ul>
+</div></div></div></body></html>

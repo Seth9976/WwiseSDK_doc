@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integration Details - Dynamic Dialogue</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="soundengine_dynamicdialogue_dynamicsequence"></a>
+Using Dynamic Sequences</h1>
+<p class="calibre7">Dynamic sequences allow you to:</p>
+<ul class="calibre8">
+<li class="calibre9">Enqueue several audio nodes to play with sample-accurate behavior, with an optional delay between items.</li>
+<li class="calibre9">Modify the playlist during playback.</li>
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_1_1_dynamic_sequence_afd87604f8cea6b836be5b657f74723f3_split_000.html#afd87604f8cea6b836be5b657f74723f3">Pause</a>, <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_1_1_dynamic_sequence_aa34180ccd604c29cd9222de08a449b4a_split_000.html#aa34180ccd604c29cd9222de08a449b4a">Resume</a> and <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_1_1_dynamic_sequence_a3153fbaab7c917914f2a60183523b1cc_split_000.html#a3153fbaab7c917914f2a60183523b1cc">Stop</a> playback.</li>
+<li class="calibre9">Be notified at the end of each playlist item through a callback (in addition to all normal event-related callbacks).</li>
+</ul>
+<p class="calibre7"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_1_1_dynamic_sequence_ab6daddd96e109dc7669889733ce4f2cc_split_000.html#ab6daddd96e109dc7669889733ce4f2cc">Opening </a> a Dynamic Sequence yields an AkPlayingID used for further interaction. <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_1_1_dynamic_sequence_ab204d963f6b81abc102a6d6b8272b591_split_000.html#ab204d963f6b81abc102a6d6b8272b591">Close </a> should be the last call to be made using a given AkPlayingID. Closing a playing dynamic sequence will not stop it: it will play until finished and then deallocate itself. <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_1_1_dynamic_sequence_ae2ac4c400d0145c6c25e050d752064bd_split_000.html#ae2ac4c400d0145c6c25e050d752064bd">Play </a> starts playback. During playback, the dynamic sequence takes items either from a playlist or a user callback.</p>
+</div></div></div></body></html>

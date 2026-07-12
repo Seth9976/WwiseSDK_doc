@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Example: Developing a Lowpass Filter Plug-in</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="effectplugin_runthrough_adddsp"></a>
+Implementing the Filtering Process</h1>
+<p class="calibre7">Now, we want to add some processing to make our plug-in a little bit more useful. We will implement a simple first order lowpass filter, using this equation:</p>
+<pre class="fragment">y[n] = x[n] + (y[n-1] - x[n]) * coeff
+</pre><p class="calibre7">where <code class="calibre14">coeff</code> is a floating-point value between 0 and 1.</p>
+<p class="calibre7">First, let's create a couple of variables in <code class="calibre14">SoundEnginePlugin/LowpassFX.h</code> to hold our filter's data.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">//...</span></div>
+<div class="line"><span class="keyword">private</span>:</div>
+<div class="line"><span class="comment">//...</span></div>
+<div class="line"> </div>
+<div class="line">    <a class="pcalibre code" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a> m_coeff;</div>
+<div class="line">    std::vector&lt;AkReal32&gt; m_previousOutput;</div>
+</div><!-- fragment --><p class="calibre7">The variable <code class="calibre14">m_coeff</code> is our filter coefficient as a floating-point value, it will be used for all sound channels. The vector <code class="calibre14">m_previousOutput</code> will hold the last output value of all channels, mandatory to compute the next values of the filter.</p>
+<p class="calibre7">To implement the filtering effect, all we have to do is to initialize the coefficient variable, adjust the size of the vector according to the number of channels and then process every sample with the previous formula.</p>
+<p class="calibre7">In <code class="calibre14">SoundEnginePlugin/LowpassFX.cpp</code>:</p>
+<div class="fragment"><div class="line">LowpassFX::LowpassFX()</div>
+<div class="line">    : <span class="comment">//...</span></div>
+<div class="line">    , m_coeff(0.99f)</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">//...</span></div>
+<div class="line"> </div>
+<div class="line"><a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> LowpassFX::<a class="pcalibre code" href="namespace_a_k_1_1_comm_a596691b552b507c26b4df958ee1c6de8_split_000.html#a596691b552b507c26b4df958ee1c6de8">Init</a>(<a class="pcalibre code" href="namespace_a_k_split_000.html">AK</a>::IAkPluginMemAlloc* in_pAllocator, <a class="pcalibre code" href="namespace_a_k_split_000.html">AK</a>::IAkEffectPluginContext* in_pContext, <a class="pcalibre code" href="namespace_a_k_split_000.html">AK</a>::IAkPluginParam* in_pParams, <a class="pcalibre code" href="struct_ak_audio_format_split_000.html">AkAudioFormat</a>&amp; in_rFormat)</div>
+<div class="line">{</div>
+<div class="line">    <span class="comment">//...</span></div>
+<div class="line">    m_previousOutput.resize(in_rFormat.GetNumChannels(), 0.0f);</div>
+<div class="line">    <span class="comment">//...</span></div>
+<div class="line">}</div>
+<div class="line"><span class="keywordtype">void</span> LowpassFX::Execute(<a class="pcalibre code" href="class_ak_audio_buffer_split_000.html">AkAudioBuffer</a>* io_pBuffer)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">const</span> <a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> uNumChannels = io_pBuffer-&gt;<a class="pcalibre code" href="class_ak_audio_buffer_a4523322478ec9a0f9de0c7c72e65df2f_split_000.html#a4523322478ec9a0f9de0c7c72e65df2f">NumChannels</a>();</div>
+<div class="line"> </div>
+<div class="line">    <a class="pcalibre code" href="_ak_numeral_types_8h_a7100a9b0a3b01df7639c1dc512678219_split_000.html#a7100a9b0a3b01df7639c1dc512678219">AkUInt16</a> uFramesProcessed;</div>
+<div class="line">    <span class="keywordflow">for</span> (<a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> i = 0; i &lt; uNumChannels; ++i)</div>
+<div class="line">    {</div>
+<div class="line">        <a class="pcalibre code" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a>* <a class="pcalibre code" href="_platforms_2_windows_2_ak_types_8h_ab66f3fb84361798a69b92a110f8a14cf_split_000.html#ab66f3fb84361798a69b92a110f8a14cf">AK_RESTRICT</a> pBuf = (<a class="pcalibre code" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a>* <a class="pcalibre code" href="_platforms_2_windows_2_ak_types_8h_ab66f3fb84361798a69b92a110f8a14cf_split_000.html#ab66f3fb84361798a69b92a110f8a14cf">AK_RESTRICT</a>)io_pBuffer-&gt;<a class="pcalibre code" href="class_ak_audio_buffer_ad2bc3b8ddd61eaa0c111798d5f9e8c9c_split_000.html#ad2bc3b8ddd61eaa0c111798d5f9e8c9c">GetChannel</a>(i);</div>
+<div class="line"> </div>
+<div class="line">        uFramesProcessed = 0;</div>
+<div class="line">        <span class="keywordflow">while</span> (uFramesProcessed &lt; io_pBuffer-&gt;uValidFrames)</div>
+<div class="line">        {</div>
+<div class="line">            <span class="comment">// Apply lowpass filtering per channel. </span></div>
+<div class="line">            m_previousOutput[i] = pBuf[uFramesProcessed] = </div>
+<div class="line">                pBuf[uFramesProcessed] + (m_previousOutput[i] - pBuf[uFramesProcessed]) * m_coeff;</div>
+<div class="line">            ++uFramesProcessed;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+</div><!-- fragment --></div></div></div></body></html>

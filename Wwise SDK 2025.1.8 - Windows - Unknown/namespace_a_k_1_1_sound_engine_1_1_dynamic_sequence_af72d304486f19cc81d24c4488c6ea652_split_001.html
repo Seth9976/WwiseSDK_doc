@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::SoundEngine::DynamicSequence::LockPlaylist</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="namespace_a_k_1_1_sound_engine_1_1_dynamic_sequence_af72d304486f19cc81d24c4488c6ea652_split_000.html#af72d304486f19cc81d24c4488c6ea652" class="pcalibre1 anchor">◆ </a></span>LockPlaylist()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_sound_engine_export_8h_ac6e96d34dfc0e12f9aaa7a47f4e9c322_split_000.html#ac6e96d34dfc0e12f9aaa7a47f4e9c322">AKSOUNDENGINE_API</a> <a class="pcalibre el" href="class_a_k_1_1_sound_engine_1_1_dynamic_sequence_1_1_playlist_split_000.html">Playlist</a>* AK::SoundEngine::DynamicSequence::LockPlaylist </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_a9270609771369ea575443fe080bbe9c3_split_000.html#a9270609771369ea575443fe080bbe9c3">AkPlayingID</a> </td>
+          <td class="paramname"><em class="calibre59">in_playingID</em></td><td class="calibre17">)</td>
+          <td class="calibre17"/>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Lock the <a class="pcalibre el" href="class_a_k_1_1_sound_engine_1_1_dynamic_sequence_1_1_playlist_split_000.html">Playlist</a> for editing. Needs a corresponding UnlockPlaylist call. </p><dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">Pointer to locked <a class="pcalibre el" href="class_a_k_1_1_sound_engine_1_1_dynamic_sequence_1_1_playlist_split_000.html">Playlist</a> if successful, NULL otherwise (in_playingID not found)</dd></dl>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="warning.gif"/></td><td class="calibre17"><b class="calibre13">Warning:</b> When opening a dynamic sequence with the callback flag <code class="calibre14">AK_DynamicSequenceSelect</code>, the callback is the ONLY way to determine the next item to play. <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_1_1_dynamic_sequence_af72d304486f19cc81d24c4488c6ea652_split_000.html#af72d304486f19cc81d24c4488c6ea652">AK::SoundEngine::DynamicSequence::LockPlaylist</a></code> always returns <code class="calibre14">NULL</code> for dynamic sequences opened with <code class="calibre14">AK_DynamicSequenceSelect</code>. </td></tr>
+</tbody></table>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_1_1_dynamic_sequence_aa7b7bbc2b6158423a0006682b44b40c5_split_000.html#aa7b7bbc2b6158423a0006682b44b40c5">AK::SoundEngine::DynamicSequence::UnlockPlaylist</a> </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_playingID</td><td class="calibre17">AkPlayingID returned by <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_1_1_dynamic_sequence_ab6daddd96e109dc7669889733ce4f2cc_split_000.html#ab6daddd96e109dc7669889733ce4f2cc">DynamicSequence::Open</a> </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

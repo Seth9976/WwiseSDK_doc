@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>I/O Tips, Troubleshooting and Optimization</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_7"><a class="pcalibre1 anchor" id="streamingmanager_tips_troubleshooting_voicestarvation"></a>
+Reducing CPU Usage by the I/O Thread</h2>
+<p class="calibre7">Threads of I/O devices usually use an insignificant amount of CPU, as they spend most of their time waiting for I/O. This CPU usage may be more significant with very fast devices (like RAM devices). In such a case, you can</p><ul class="calibre8">
+<li class="calibre9">Decrease target buffering;</li>
+<li class="calibre9">Decrease thread priority.</li>
+</ul>
+<p class="calibre7">If CPU spikes occur only when opening files, it may be because file opening takes a significant amount of time. Some platforms/disk devices are slow to return from fopen(). In such a case, defer file open (refer to <a class="pcalibre el" href="streamingmanager_lowlevel_split_004.html#streamingmanager_lowlevel_location_deferred_open">Deferred Opening</a> for more details).</p>
+</div></div></div></body></html>

@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK.Wwise::Plugin::V1::PropertySetBase::GetString</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_property_set_base_a9b538d96158349c6b8b6909beea07a7d_split_000.html#a9b538d96158349c6b8b6909beea07a7d" class="pcalibre1 anchor">◆ </a></span>GetString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename CHostPropertySetT  = CHostPropertySet, int interface_version = 1&gt; </div>
+<table class="calibre3">
+  <tbody class="calibre4"><tr class="calibre16">
+  <td class="calibre17">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">const char* <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_property_set_base_split_000.html">AK.Wwise::Plugin::V1::PropertySetBase</a>&lt; CHostPropertySetT, interface_version &gt;::GetString </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype">const GUID &amp; </td>
+          <td class="paramname"><em class="calibre59">in_guidPlatform</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">const char * </td>
+          <td class="paramname"><em class="calibre59">in_pszPropertyName</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"> const</td>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="calibre17">
+<span><span>inline</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+
+<p class="calibre7">Retrieves the string value of a specific property and returns the value as a temporary pointer. </p>
+<p class="calibre7">This is a convenience for <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_property_set_base_a9102df1be0eda0d5e4aee30517d8e2d8_split_000.html#a9102df1be0eda0d5e4aee30517d8e2d8">GetValueString</a> where the value is returned instead of being set in a provided variable.</p>
+<p class="calibre7">The plug-in XML definition file should define this property as a <code class="calibre14">string</code> in order to use this method.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> The returned pointer is provided by Authoring, and contains a TLS copy of the property value string. It is guaranteed to be valid until the next Host function call. If you wish to retain this string, you should make a copy at the earliest convenience. </td></tr>
+</tbody></table>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="wwiseplugin_backend_split_001.html#wwiseplugin_bank">Generating SoundBanks</a></li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_guidPlatform</td><td class="calibre17">The unique ID of the queried platform. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_pszPropertyName</td><td class="calibre17">The name of the queried property, based on the XML definition file. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">The value of the property. </dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_guidPlatform</td><td class="calibre17">The unique ID of the queried platform </td></tr>
+    <tr class="calibre16"><td class="paramname">in_pszPropertyName</td><td class="calibre17">The name of the property </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_v1_2_host_property_set_8h_source_split_001.html#l02027">2027</a> of file <a class="pcalibre el" href="_v1_2_host_property_set_8h_source_split_000.html">HostPropertySet.h</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

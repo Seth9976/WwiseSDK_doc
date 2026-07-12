@@ -1,0 +1,350 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak.wwise.core.getProjectInfo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="ak_wwise_core_getprojectinfoResult"></a>
+Result</h1>
+<p class="calibre7"></p><table class="doxtable">
+<tbody class="calibre4"><tr class="calibre16">
+<th class="calibre46">Name </th><th class="calibre46">Type </th><th class="calibre46">Description  </th></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">name</b> * </td><td class="calibre36">string </td><td class="calibre36">The Project name. Note that the Project name can differ from the WPROJ file name, if the file was renamed after Project creation.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">displayTitle</b> * </td><td class="calibre36">string </td><td class="calibre36">The complete text from the Wwise titlebar.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">path</b> * </td><td class="calibre36">string </td><td class="calibre36">The absolute path to the WPROJ file.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">id</b> * </td><td class="calibre36">string </td><td class="calibre36">Project id.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">isDirty</b> * </td><td class="calibre36">boolean </td><td class="calibre36">True if the Project or any of the Work Units have unsaved changes.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">currentLanguageId</b> * </td><td class="calibre36">string </td><td class="calibre36">The current Language set in the user interface.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">referenceLanguageId</b> * </td><td class="calibre36">string </td><td class="calibre36">The reference Language set in the Language settings.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">currentPlatformId</b> * </td><td class="calibre36">string </td><td class="calibre36">The current Platform set in the user interface.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">languages</b> * </td><td class="calibre36">array </td><td class="calibre36">Array of the Languages defined in the project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">languages <b class="calibre13">[...]</b> </td><td class="calibre36">object </td><td class="calibre36">Language defined in the project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">languages[...].<b class="calibre13">id</b> * </td><td class="calibre36">string </td><td class="calibre36">Language unique id.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">languages[...].<b class="calibre13">name</b> * </td><td class="calibre36">string </td><td class="calibre36">Language name.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">languages[...].<b class="calibre13">shortId</b> * </td><td class="calibre36">integer </td><td class="calibre36">The short ID (32-bit) of the language.<br class="calibre10"/>
+ Unsigned Integer 32-bit. Range: [0,4294967295]  </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">platforms</b> * </td><td class="calibre36">array </td><td class="calibre36">Array of the Platforms defined in the project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">platforms <b class="calibre13">[...]</b> </td><td class="calibre36">object </td><td class="calibre36">Platform defined in the project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">platforms[...].<b class="calibre13">id</b> * </td><td class="calibre36">string </td><td class="calibre36">Platform unique id.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">platforms[...].<b class="calibre13">name</b> * </td><td class="calibre36">string </td><td class="calibre36">Platform name defined in the Project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">platforms[...].<b class="calibre13">baseName</b> * </td><td class="calibre36">string </td><td class="calibre36">The name of the deployment platform used in file system.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">platforms[...].<b class="calibre13">baseDisplayName</b> * </td><td class="calibre36">string </td><td class="calibre36">The official name of the deployment platform. The name could contain special characters.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">platforms[...].<b class="calibre13">soundBankPath</b> * </td><td class="calibre36">string </td><td class="calibre36">The path on which the SoundBank files are generated for this Platform.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">platforms[...].<b class="calibre13">copiedMediaPath</b> * </td><td class="calibre36">string </td><td class="calibre36">The path on which the SoundBank media files are copied for this Platform.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">defaultConversion</b> * </td><td class="calibre36">object </td><td class="calibre36">The default Conversion Settings object used in the Project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultConversion.<b class="calibre13">id</b> * </td><td class="calibre36">string </td><td class="calibre36">Conversion Settings unique id.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultConversion.<b class="calibre13">name</b> * </td><td class="calibre36">string </td><td class="calibre36">Conversion Settings object name.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">directories</b> * </td><td class="calibre36">object </td><td class="calibre36">Collection of directories used by Wwise.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">directories.<b class="calibre13">root</b> * </td><td class="calibre36">string </td><td class="calibre36">The root directory of the project, where is located the wproj file.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">directories.<b class="calibre13">cache</b> * </td><td class="calibre36">string </td><td class="calibre36">The .cache directory of the project, as specified in the Project Settings. The .cache directory contains converted media files (WEM files).   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">directories.<b class="calibre13">originals</b> * </td><td class="calibre36">string </td><td class="calibre36">The Originals directory of the project, as specified in the Project Settings. The Originals directory contains the project's WAV files, separated by languages.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">directories.<b class="calibre13">soundBankOutputRoot</b> * </td><td class="calibre36">string </td><td class="calibre36">The SoundBank output root directory of the project, as specified in the Project Settings. This directory contains the Project's SoundBank C++ header, XML and JSON files. See the 'platforms' section for Platform specific directories.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">directories.<b class="calibre13">commands</b> * </td><td class="calibre36">string </td><td class="calibre36">The Commands directory of the project. See <a class="pcalibre el" href="defining_custom_commands_split_000.html">Defining Command Add-ons</a> for more information.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">directories.<b class="calibre13">properties</b> * </td><td class="calibre36">string </td><td class="calibre36">The root directory of the project. See <a class="pcalibre el" href="defining_custom_properties_split_000.html">Defining Custom Properties</a> for more information.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">defaultWorkUnits</b> </td><td class="calibre36">object </td><td class="calibre36">Default work units organized by category.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.<b class="calibre13">Busses</b> * </td><td class="calibre36">object </td><td class="calibre36">The work unit information.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Busses.<b class="calibre13">id</b> * </td><td class="calibre36">string </td><td class="calibre36">Work Unit unique id.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Busses.<b class="calibre13">name</b> * </td><td class="calibre36">string </td><td class="calibre36">Name of the Work Unit in the Project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Busses.<b class="calibre13">path</b> * </td><td class="calibre36">string </td><td class="calibre36">Path in the Project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Busses.<b class="calibre13">filePath</b> * </td><td class="calibre36">string </td><td class="calibre36">Absolute path in file system.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.<b class="calibre13">Containers</b> * </td><td class="calibre36">object </td><td class="calibre36">The work unit information.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Containers.<b class="calibre13">id</b> * </td><td class="calibre36">string </td><td class="calibre36">Work Unit unique id.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Containers.<b class="calibre13">name</b> * </td><td class="calibre36">string </td><td class="calibre36">Name of the Work Unit in the Project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Containers.<b class="calibre13">path</b> * </td><td class="calibre36">string </td><td class="calibre36">Path in the Project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Containers.<b class="calibre13">filePath</b> * </td><td class="calibre36">string </td><td class="calibre36">Absolute path in file system.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.<b class="calibre13">Events</b> * </td><td class="calibre36">object </td><td class="calibre36">The work unit information.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Events.<b class="calibre13">id</b> * </td><td class="calibre36">string </td><td class="calibre36">Work Unit unique id.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Events.<b class="calibre13">name</b> * </td><td class="calibre36">string </td><td class="calibre36">Name of the Work Unit in the Project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Events.<b class="calibre13">path</b> * </td><td class="calibre36">string </td><td class="calibre36">Path in the Project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Events.<b class="calibre13">filePath</b> * </td><td class="calibre36">string </td><td class="calibre36">Absolute path in file system.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.<b class="calibre13">Switches</b> * </td><td class="calibre36">object </td><td class="calibre36">The work unit information.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Switches.<b class="calibre13">id</b> * </td><td class="calibre36">string </td><td class="calibre36">Work Unit unique id.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Switches.<b class="calibre13">name</b> * </td><td class="calibre36">string </td><td class="calibre36">Name of the Work Unit in the Project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Switches.<b class="calibre13">path</b> * </td><td class="calibre36">string </td><td class="calibre36">Path in the Project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Switches.<b class="calibre13">filePath</b> * </td><td class="calibre36">string </td><td class="calibre36">Absolute path in file system.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.<b class="calibre13">States</b> * </td><td class="calibre36">object </td><td class="calibre36">The work unit information.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.States.<b class="calibre13">id</b> * </td><td class="calibre36">string </td><td class="calibre36">Work Unit unique id.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.States.<b class="calibre13">name</b> * </td><td class="calibre36">string </td><td class="calibre36">Name of the Work Unit in the Project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.States.<b class="calibre13">path</b> * </td><td class="calibre36">string </td><td class="calibre36">Path in the Project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.States.<b class="calibre13">filePath</b> * </td><td class="calibre36">string </td><td class="calibre36">Absolute path in file system.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.<b class="calibre13">SoundBanks</b> * </td><td class="calibre36">object </td><td class="calibre36">The work unit information.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.SoundBanks.<b class="calibre13">id</b> * </td><td class="calibre36">string </td><td class="calibre36">Work Unit unique id.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.SoundBanks.<b class="calibre13">name</b> * </td><td class="calibre36">string </td><td class="calibre36">Name of the Work Unit in the Project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.SoundBanks.<b class="calibre13">path</b> * </td><td class="calibre36">string </td><td class="calibre36">Path in the Project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.SoundBanks.<b class="calibre13">filePath</b> * </td><td class="calibre36">string </td><td class="calibre36">Absolute path in file system.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.<b class="calibre13">GameParameters</b> * </td><td class="calibre36">object </td><td class="calibre36">The work unit information.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.GameParameters.<b class="calibre13">id</b> * </td><td class="calibre36">string </td><td class="calibre36">Work Unit unique id.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.GameParameters.<b class="calibre13">name</b> * </td><td class="calibre36">string </td><td class="calibre36">Name of the Work Unit in the Project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.GameParameters.<b class="calibre13">path</b> * </td><td class="calibre36">string </td><td class="calibre36">Path in the Project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.GameParameters.<b class="calibre13">filePath</b> * </td><td class="calibre36">string </td><td class="calibre36">Absolute path in file system.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.<b class="calibre13">Effects</b> * </td><td class="calibre36">object </td><td class="calibre36">The work unit information.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Effects.<b class="calibre13">id</b> * </td><td class="calibre36">string </td><td class="calibre36">Work Unit unique id.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Effects.<b class="calibre13">name</b> * </td><td class="calibre36">string </td><td class="calibre36">Name of the Work Unit in the Project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Effects.<b class="calibre13">path</b> * </td><td class="calibre36">string </td><td class="calibre36">Path in the Project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Effects.<b class="calibre13">filePath</b> * </td><td class="calibre36">string </td><td class="calibre36">Absolute path in file system.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.<b class="calibre13">Devices</b> * </td><td class="calibre36">object </td><td class="calibre36">The work unit information.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Devices.<b class="calibre13">id</b> * </td><td class="calibre36">string </td><td class="calibre36">Work Unit unique id.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Devices.<b class="calibre13">name</b> * </td><td class="calibre36">string </td><td class="calibre36">Name of the Work Unit in the Project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Devices.<b class="calibre13">path</b> * </td><td class="calibre36">string </td><td class="calibre36">Path in the Project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Devices.<b class="calibre13">filePath</b> * </td><td class="calibre36">string </td><td class="calibre36">Absolute path in file system.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.<b class="calibre13">Presets</b> * </td><td class="calibre36">object </td><td class="calibre36">The work unit information.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Presets.<b class="calibre13">id</b> * </td><td class="calibre36">string </td><td class="calibre36">Work Unit unique id.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Presets.<b class="calibre13">name</b> * </td><td class="calibre36">string </td><td class="calibre36">Name of the Work Unit in the Project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Presets.<b class="calibre13">path</b> * </td><td class="calibre36">string </td><td class="calibre36">Path in the Project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Presets.<b class="calibre13">filePath</b> * </td><td class="calibre36">string </td><td class="calibre36">Absolute path in file system.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.<b class="calibre13">SoundcasterSessions</b> * </td><td class="calibre36">object </td><td class="calibre36">The work unit information.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.SoundcasterSessions.<b class="calibre13">id</b> * </td><td class="calibre36">string </td><td class="calibre36">Work Unit unique id.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.SoundcasterSessions.<b class="calibre13">name</b> * </td><td class="calibre36">string </td><td class="calibre36">Name of the Work Unit in the Project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.SoundcasterSessions.<b class="calibre13">path</b> * </td><td class="calibre36">string </td><td class="calibre36">Path in the Project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.SoundcasterSessions.<b class="calibre13">filePath</b> * </td><td class="calibre36">string </td><td class="calibre36">Absolute path in file system.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.<b class="calibre13">MixingSessions</b> * </td><td class="calibre36">object </td><td class="calibre36">The work unit information.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.MixingSessions.<b class="calibre13">id</b> * </td><td class="calibre36">string </td><td class="calibre36">Work Unit unique id.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.MixingSessions.<b class="calibre13">name</b> * </td><td class="calibre36">string </td><td class="calibre36">Name of the Work Unit in the Project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.MixingSessions.<b class="calibre13">path</b> * </td><td class="calibre36">string </td><td class="calibre36">Path in the Project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.MixingSessions.<b class="calibre13">filePath</b> * </td><td class="calibre36">string </td><td class="calibre36">Absolute path in file system.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.<b class="calibre13">Queries</b> * </td><td class="calibre36">object </td><td class="calibre36">The work unit information.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Queries.<b class="calibre13">id</b> * </td><td class="calibre36">string </td><td class="calibre36">Work Unit unique id.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Queries.<b class="calibre13">name</b> * </td><td class="calibre36">string </td><td class="calibre36">Name of the Work Unit in the Project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Queries.<b class="calibre13">path</b> * </td><td class="calibre36">string </td><td class="calibre36">Path in the Project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Queries.<b class="calibre13">filePath</b> * </td><td class="calibre36">string </td><td class="calibre36">Absolute path in file system.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.<b class="calibre13">Triggers</b> * </td><td class="calibre36">object </td><td class="calibre36">The work unit information.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Triggers.<b class="calibre13">id</b> * </td><td class="calibre36">string </td><td class="calibre36">Work Unit unique id.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Triggers.<b class="calibre13">name</b> * </td><td class="calibre36">string </td><td class="calibre36">Name of the Work Unit in the Project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Triggers.<b class="calibre13">path</b> * </td><td class="calibre36">string </td><td class="calibre36">Path in the Project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Triggers.<b class="calibre13">filePath</b> * </td><td class="calibre36">string </td><td class="calibre36">Absolute path in file system.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.<b class="calibre13">Attenuations</b> * </td><td class="calibre36">object </td><td class="calibre36">The work unit information.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Attenuations.<b class="calibre13">id</b> * </td><td class="calibre36">string </td><td class="calibre36">Work Unit unique id.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Attenuations.<b class="calibre13">name</b> * </td><td class="calibre36">string </td><td class="calibre36">Name of the Work Unit in the Project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Attenuations.<b class="calibre13">path</b> * </td><td class="calibre36">string </td><td class="calibre36">Path in the Project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Attenuations.<b class="calibre13">filePath</b> * </td><td class="calibre36">string </td><td class="calibre36">Absolute path in file system.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.<b class="calibre13">DynamicDialogue</b> * </td><td class="calibre36">object </td><td class="calibre36">The work unit information.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.DynamicDialogue.<b class="calibre13">id</b> * </td><td class="calibre36">string </td><td class="calibre36">Work Unit unique id.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.DynamicDialogue.<b class="calibre13">name</b> * </td><td class="calibre36">string </td><td class="calibre36">Name of the Work Unit in the Project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.DynamicDialogue.<b class="calibre13">path</b> * </td><td class="calibre36">string </td><td class="calibre36">Path in the Project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.DynamicDialogue.<b class="calibre13">filePath</b> * </td><td class="calibre36">string </td><td class="calibre36">Absolute path in file system.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.<b class="calibre13">Conversions</b> * </td><td class="calibre36">object </td><td class="calibre36">The work unit information.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Conversions.<b class="calibre13">id</b> * </td><td class="calibre36">string </td><td class="calibre36">Work Unit unique id.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Conversions.<b class="calibre13">name</b> * </td><td class="calibre36">string </td><td class="calibre36">Name of the Work Unit in the Project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Conversions.<b class="calibre13">path</b> * </td><td class="calibre36">string </td><td class="calibre36">Path in the Project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Conversions.<b class="calibre13">filePath</b> * </td><td class="calibre36">string </td><td class="calibre36">Absolute path in file system.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.<b class="calibre13">Modulators</b> * </td><td class="calibre36">object </td><td class="calibre36">The work unit information.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Modulators.<b class="calibre13">id</b> * </td><td class="calibre36">string </td><td class="calibre36">Work Unit unique id.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Modulators.<b class="calibre13">name</b> * </td><td class="calibre36">string </td><td class="calibre36">Name of the Work Unit in the Project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Modulators.<b class="calibre13">path</b> * </td><td class="calibre36">string </td><td class="calibre36">Path in the Project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Modulators.<b class="calibre13">filePath</b> * </td><td class="calibre36">string </td><td class="calibre36">Absolute path in file system.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.<b class="calibre13">ControlSurfaceSessions</b> * </td><td class="calibre36">object </td><td class="calibre36">The work unit information.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.ControlSurfaceSessions.<b class="calibre13">id</b> * </td><td class="calibre36">string </td><td class="calibre36">Work Unit unique id.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.ControlSurfaceSessions.<b class="calibre13">name</b> * </td><td class="calibre36">string </td><td class="calibre36">Name of the Work Unit in the Project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.ControlSurfaceSessions.<b class="calibre13">path</b> * </td><td class="calibre36">string </td><td class="calibre36">Path in the Project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.ControlSurfaceSessions.<b class="calibre13">filePath</b> * </td><td class="calibre36">string </td><td class="calibre36">Absolute path in file system.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.<b class="calibre13">VirtualAcoustics</b> * </td><td class="calibre36">object </td><td class="calibre36">The work unit information.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.VirtualAcoustics.<b class="calibre13">id</b> * </td><td class="calibre36">string </td><td class="calibre36">Work Unit unique id.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.VirtualAcoustics.<b class="calibre13">name</b> * </td><td class="calibre36">string </td><td class="calibre36">Name of the Work Unit in the Project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.VirtualAcoustics.<b class="calibre13">path</b> * </td><td class="calibre36">string </td><td class="calibre36">Path in the Project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.VirtualAcoustics.<b class="calibre13">filePath</b> * </td><td class="calibre36">string </td><td class="calibre36">Absolute path in file system.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.<b class="calibre13">Metadatas</b> * </td><td class="calibre36">object </td><td class="calibre36">The work unit information.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Metadatas.<b class="calibre13">id</b> * </td><td class="calibre36">string </td><td class="calibre36">Work Unit unique id.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Metadatas.<b class="calibre13">name</b> * </td><td class="calibre36">string </td><td class="calibre36">Name of the Work Unit in the Project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Metadatas.<b class="calibre13">path</b> * </td><td class="calibre36">string </td><td class="calibre36">Path in the Project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.Metadatas.<b class="calibre13">filePath</b> * </td><td class="calibre36">string </td><td class="calibre36">Absolute path in file system.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.<b class="calibre13">SidechainMixes</b> * </td><td class="calibre36">object </td><td class="calibre36">The work unit information.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.SidechainMixes.<b class="calibre13">id</b> * </td><td class="calibre36">string </td><td class="calibre36">Work Unit unique id.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.SidechainMixes.<b class="calibre13">name</b> * </td><td class="calibre36">string </td><td class="calibre36">Name of the Work Unit in the Project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.SidechainMixes.<b class="calibre13">path</b> * </td><td class="calibre36">string </td><td class="calibre36">Path in the Project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultWorkUnits.SidechainMixes.<b class="calibre13">filePath</b> * </td><td class="calibre36">string </td><td class="calibre36">Absolute path in file system.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">defaultImportWorkUnit</b> </td><td class="calibre36">object </td><td class="calibre36">The default location to import WAV and MIDI files as sounds and music segments.<br class="calibre10"/>
+ The work unit information.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultImportWorkUnit.<b class="calibre13">id</b> * </td><td class="calibre36">string </td><td class="calibre36">Work Unit unique id.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultImportWorkUnit.<b class="calibre13">name</b> * </td><td class="calibre36">string </td><td class="calibre36">Name of the Work Unit in the Project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultImportWorkUnit.<b class="calibre13">path</b> * </td><td class="calibre36">string </td><td class="calibre36">Path in the Project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">defaultImportWorkUnit.<b class="calibre13">filePath</b> * </td><td class="calibre36">string </td><td class="calibre36">Absolute path in file system.   </td></tr>
+</tbody></table>
+<p class="calibre7">(Required *)</p>
+<p class="calibre7"><a class="pcalibre el" href="ak_wwise_core_getprojectinfo_result_schema_split_000.html">Result Schema</a></p>
+</div></div></div></body></html>

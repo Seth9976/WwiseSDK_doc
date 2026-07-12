@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Testing Audio Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="plugin_tests_guidelines"></a>
+Guidelines</h1>
+<h2 class="calibre31"><a class="pcalibre1 anchor" id="plugin_tests_guidelines_ui"></a>
+User Interface</h2>
+<ul class="calibre8">
+<li class="calibre9">
+<b class="calibre13">Maximum Size</b>: The content of your plug-in UI should fit in a size of 1000x650 pixels to accommodate smaller laptop screens.  </li>
+<li class="calibre9">
+<b class="calibre13">Resizable</b>: Handling of the <code class="calibre14">WM_SIZE</code> message in the <code class="calibre14">WindowProc</code> function is recommended. This allows the user to obtain a smaller or a larger workspace depending on the emphasis given to the plug-in. It also helps the plug-in to better adapt to the Wwise layout system.  </li>
+<li class="calibre9">
+<b class="calibre13">Usage of the default controls</b>: Using the default control is not mandatory, but it has several advantages: <ul class="calibre15">
+<li class="calibre9">
+The RTPC icon automatically appears for properties that support it.  </li>
+<li class="calibre9">
+Control interaction is standard across Wwise (slider behavior, keyboard modifiers, context menus, and so on).  </li>
+<li class="calibre9">
+Link/Unlink is supported (for Source plug-ins only).  </li>
+<li class="calibre9">
+Slider ranges are automatically adjusted based on the property definitions.  </li>
+</ul>
+</li>
+<li class="calibre9">
+<b class="calibre13">Capitalization</b>: For text (labels, check-boxes, radio buttons, buttons, tooltips, and so on) use sentence-style capitalization.  </li>
+<li class="calibre9">
+<b class="calibre13">Modeless Dialog</b>: Do not create modeless dialogs (non-child) from the plug-in window. This will conflict with Wwise's layout system and could potentially create bugs. Use modal dialogs instead, but restrict their usage to a minimum (For Open/Save file dialogs, User/System Settings, Message Boxes, and so on).  </li>
+<li class="calibre9">
+<b class="calibre13">Avoid flickering</b>: When resizing the plug-in window, no flickering should occur. </li>
+</ul>
+</div></div></div></body></html>

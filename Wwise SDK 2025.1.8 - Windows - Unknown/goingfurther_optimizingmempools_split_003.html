@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Optimizing Memory Utilization</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="soundengine_initialization_advanced_soundengine_pool_memory_mising"></a>
+Running out of Memory</h1>
+<p class="calibre7">Total memory allocation by the sound engine can be controlled via the AkMemoryArenaSettings::uMemReservedLimit initialization parameter for each arena. With a limit set, the sound engine reacts differently to out-of-memory conditions depending on when the condition occurs. For example, here is what happens when memory is missing in the following scenarios:</p>
+<ul class="calibre8">
+<li class="calibre9">Sound engine initialization: The initialization fails.</li>
+<li class="calibre9">Loading a bank: The bank load fails.</li>
+<li class="calibre9">Starting a transition for a parameter, such as volume: The transition is skipped and the parameter jumps directly to the target value without transition.</li>
+<li class="calibre9">Playing a sound: Either the play fails or another playback with lower priority is stopped to free memory for the new one.</li>
+</ul>
+</div></div></div></body></html>

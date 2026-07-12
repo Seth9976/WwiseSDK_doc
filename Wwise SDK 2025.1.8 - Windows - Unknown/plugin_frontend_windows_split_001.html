@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Implementing a Windows Frontend</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="wwise_plugin_frontend_windows_mfc"></a>
+Using MFC</h1>
+<p class="calibre7">The Wwise Authoring GUI on Windows is built with the Microsoft Foundation Classes (MFC). While using MFC is optional for your plug-in, if you wish to do so you will need to initialize the library. This is provided through the service <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_plugin_m_f_c_windows_split_000.html" title="Initializes MFC for this plug-in.">AK::Wwise::Plugin::PluginMFCWindows</a></code>. Make sure to make it the first base class so that it is initialized before anything else.</p>
+<div class="fragment"><div class="line"><span class="keyword">class </span>FrontendSourcePluginMFC</div>
+<div class="line">:   <span class="keyword">public</span> <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_plugin_1_1_plugin_m_f_c_windows_split_000.html">AK::Wwise::Plugin::PluginMFCWindows</a>&lt;&gt;</div>
+<div class="line">,   <span class="keyword">public</span> <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_g_u_i_windows_split_000.html">AK::Wwise::Plugin::GUIWindows</a></div>
+<div class="line">{};</div>
+</div><!-- fragment --><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> Do <b class="calibre13">not</b> derive from this base class in the backend part of your plug-in, as it should not require MFC or any other GUI-related library. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

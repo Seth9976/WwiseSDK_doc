@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>New Features Overview 2023.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_1"><a class="pcalibre1 anchor" id="features_23_1_acoustic_simulation"></a>
+Acoustic Simulation</h2>
+<p class="calibre7">The desire to bring more dynamic audio realism, informed by worlds players are immersed in, continues to expand. The purpose of Wwise Spatial Audio is to convince players that the sounds originate from these worlds. To do so, Spatial Audio provides a combination of technology, creativity, and accessibility: technical accuracy based on a real-world understanding of acoustic phenomena, the ability to creatively manipulate environmental audio aspects to serve the aesthetic needs of the experience, and continued efforts to simplify the Spatial Audio feature so that anyone can use it.</p>
+<p class="calibre7">The introduction of Continuous Raytracing, Room Containment, improved Portal reflections, revised Room Aux Send Model, Reverb Zones, and Reflect decorrelation help users meet and exceed their real-time spatial acoustic needs. These features continue to deliver the latest simulation technology and acoustic simulation accuracy. They also demonstrate our commitment to growth in the direction of Wwise users, their needs, their abilities, and their desire to represent experiences realistically and finely tuned to their creative visions.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="features_23_1_cont_ray_casting"></a>
+Continuous Ray Casting</h3>
+<p class="calibre7">Ray casting provides information to drive the environmental sound influences of game geometry. The ability to understand the spatial aspects that surround the listener means that Wwise can represent sounds that use Spatial Audio with precision. The rays inform the obstruction, occlusion, transmission, and diffraction applied to sounds when objects or geometry are present. In the previous implementation, a high number of primary rays were cast only when the listener movement exceeded a predefined threshold. When these rays were cast on the same frame, a sudden load increase on the frame would result in occasional CPU peaks. This also required a movement threshold that was difficult to adjust. Now, we cast a significantly smaller amount of primary rays on each frame, which spreads the load over several frames and prevents CPU peaks. This approach optimizes the overall cost of continuous ray casting, makes the movement threshold obsolete, and simplifies the implementation while enhancing performance.</p>
+<div class="calibre2">
+<img alt="" src="spat_continuous_raycasting.png" class="inline"/>
+</div>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="features_23_1_room_containment"></a>
+Room Containment</h3>
+<p class="calibre7">Spatial Audio relies on the ability to know what Room a sound is in so that calculations can be made in relation to the listener. This ability has been improved when trying to determine which Room contains the game object (emitter) in order to automatically assign it. If a Room is fully contained inside another Room and does not share any surface with the surrounding Room, the correct Room can be automatically determined without any ambiguity. However, if a Room is partially inside another Room, or the Rooms share at least one common surface, it was previously difficult to determine the correct Room to which to assign the sound. Now, you can assign a priority number to each Room, and the priority system determines the correct Room to assign. If an object is inside several Rooms at the same time (for example, when a Room is inside another Room), the assigned Room is always the one with the highest priority or the innermost Room (according to the result of the ray casting) if priorities are the same. Furthermore, the API now provides a way to overwrite the automatically assigned Room for a given game object. The specified Room replaces the automatically assigned Room until the user explicitly removes the Room association.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="features_23_1_portal_reflections"></a>
+Improved Portal Reflections</h3>
+<p class="calibre7">Reflections now propagate naturally through Portals. Previously, when the emitter and listener were in separate Rooms, the paths between them were found in a piecewise fashion. That approach resulted in a complex process where values to a Portal, from Portal to Portal, and from Portal to listener were constructed by stitching the different paths together. Spatial Audio now uses a stochastic engine for holistic path finding that leverages Portal edge receptors, which allows for propagation just like regular geometry, including the natural propagation of reflections through Portals.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="features_23_1_room_aux_send"></a>
+Revised Room Aux Send Model</h3>
+<p class="calibre7">The revised Room Aux Send Model updates signal flow for diffraction, transmission loss, occlusion, and obstruction while allowing the emitter to send directly to all adjacent Rooms with direct sound paths to the listener. Sounds can therefore traverse through an environment with the reverb contribution across Rooms preserved and contributing appropriately to the resulting mix. Because an emitter now sends to an adjacent Room, when the emitter and listener are in the same Room but close to an open Portal, the sound excites the nearby Room. This change enhances the level of fidelity applied to the emitter's send value and means that diffraction can now be calculated differently for each Room. The attenuation was previously based on the emitter-listener distance and now matches the attenuation for the path length, which adds consistency to the resulting sound.</p>
+<div class="calibre2">
+<img alt="" src="rays_direct.png" class="inline"/>
+</div>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="features_23_1_reverb_zones"></a>
+Reverb Zones</h3>
+<p class="calibre7">Reverb Zones expand on the existing Rooms and Portals methodology for defining spaces and the connection between them. You can use Reverb Zones to uniquely specify spaces within Rooms without Portal connections. With the complexity of modern environments, it is common to require custom reverbs in areas of the world that are not logically delineated as separate Rooms, and it can be awkward or even impossible to separate them with the use of Portals. The Reverb Zone, which can have some walls or no walls at all, integrates tightly with the sound propagation framework: reverb contributions, diffractions, and reflections are rendered where appropriate.</p>
+<div class="calibre2">
+<img alt="" src="reverbzones_soundpropagation_go3dv.png" class="inline"/>
+</div>
+<table border="1" cellpadding="1" cellspacing="0" width="800px" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td width="50px" class="calibre17"><div class="calibre2">
+<img alt="" src="callout1.png" class="inline"/>
+</div>
+ </td><td width="750px" class="calibre17">An emitter plays inside a Room.  </td></tr>
+<tr class="calibre16">
+<td class="calibre17"><div class="calibre2">
+<img alt="" src="callout2.png" class="inline"/>
+</div>
+ </td><td class="calibre17">The sound propagates out of a Portal, which is connected to a Reverb Zone.  </td></tr>
+<tr class="calibre16">
+<td class="calibre17"><div class="calibre2">
+<img alt="" src="callout3.png" class="inline"/>
+</div>
+ </td><td class="calibre17">The sound continues to propagate outside to the Reverb Zone's parent Room. When outside, the sound also diffracts around an obstacle defined by geometry.  </td></tr>
+</tbody></table>
+<p class="calibre7">Possible uses for Reverb Zones include the following: a covered area with no walls, a forested area within an outdoor space, or any situation in which multiple reverb effects are desired within a common space. Reverb Zones have many advantages compared to standard Game-Defined Auxiliary Sends: they are part of the revised Room Aux Send model (refer to the previous section), and form reverb chains with other Rooms; they are spatialized according to their 3D extent; and they are also subject to other acoustic phenomena simulated in Wwise Spatial Audio, such as diffraction and transmission.</p>
+<p class="calibre7">Reverb Zones are Rooms, but with two additional properties: a Parent Room and a Transition Region Width. The parent-child relationship between the Reverb Zone and the Parent Room form a hierarchy that allows for sound propagation between them as if they were the same Room, without the need for a connecting Portal. A parent Room can have multiple Reverb Zones, but a Reverb Zone can only have a single Parent. A Reverb Zone cannot be its own parent, and portals cannot connect rooms within the same hierarchy of Reverb Zones. The automatically created 'outdoors' Room is commonly used as a parent Room for Reverb Zones, since they often model open spaces. The Transition Region Width is a region between the Reverb Zone and its parent, centered around the Reverb Zone geometry. It only applies where triangle transmission loss is set to 0.</p>
+<p class="calibre7">The Unreal and Unity integrations include Reverb Zone components and related functions.</p>
+<p class="calibre7"> </p><div class="calibre2">
+<img alt="" src="unreal_reverb_zone.png" class="calibre51"/>
+</div>
+<p class="calibre7"> 
+ </p><div class="calibre2">
+<img alt="" src="unity_ak_reverb_zone_component.png" class="inline"/>
+</div>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="features_23_1_phasing_mitigation"></a>
+Reflect Phasing Mitigation</h3>
+<p class="calibre7">The Reflect plug-in now offers two different ways to reduce phasing: Direct Sound Max Delay and Decorrelation Strength. Direct Sound Max Delay suppresses phasing artifacts that can occur between reflections and the direct sound, while Decorrelation Strength controls a filter that "scrambles" reflected signals just enough so that they sound similar to the unscrambled signal but differ enough to prevent comb-filtering when mixed with the direct signal. The decorrelation filter can also be used to widen stereo fields.</p>
+<div class="calibre2">
+<img alt="" src="plug_reflect_decorrelation_light.png" class="inline"/>
+</div>
+</div></div></div></body></html>

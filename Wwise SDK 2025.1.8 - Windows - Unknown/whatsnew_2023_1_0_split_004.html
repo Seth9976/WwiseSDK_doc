@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2023.1.0</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="generic_perf_changes_2023_1"></a>
+Performance Changes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-53649</b> Converted the Parametric EQ Effect from an In-Place Effect to an In-Place Object Processor. This means it is now instantiated only once per Audio Objects bus, as opposed to once per Audio Object. This saves some memory and significantly improves performance. For example, when running on an Audio Objects bus with many single-channel Audio Objects, the throughput performance should increase by up to a factor of four. Note that even though it is now considered an Object Processor, there are no other notable changes to the behavior or functionality.</li>
+<li class="calibre9"><b class="calibre13">WG-57311</b> Reduced the number of small memory allocations made by Spatial Audio.</li>
+<li class="calibre9"><b class="calibre13">WG-59366</b> The Source Control status icons of Work Units are now fetched asynchronously, which speeds up project loading and some source control operations. The Refresh Icons command is also faster.</li>
+<li class="calibre9"><b class="calibre13">WG-61576</b> Significantly improved performance of Event Actions such as Stop All, Pause All, Seek All, and Resume All, among others. Spikes in CPU usage that were seen with the use of these actions will be mostly eliminated.</li>
+<li class="calibre9"><b class="calibre13">WG-62148</b> Slightly improved performance when doing RMS metering of audio data.</li>
+<li class="calibre9"><b class="calibre13">WG-65815</b> Audio metadata of Originals files are now persistently cached, so that running Queries based on Audio Source duration or channel count, or generating the "Estimated Duration" metadata during SoundBank generation, now run much faster. After the cache has been populated, these operations on large projects now only take a few seconds to run, instead of several minutes.</li>
+<li class="calibre9"><b class="calibre13">WG-66168</b> It's no longer necessary to associate geometries with Rooms to improve CPU performance.</li>
+<li class="calibre9"><b class="calibre13">WG-66253</b> Audio buffers for mixing busses are now cleared at the start of their respective mixing operations instead of during <code class="calibre14">CAkLEngine::ReleaseBuffersAndFeedbackAsync</code>. This eliminates most of the cost of <code class="calibre14">CAkLEngine::ReleaseBuffersAndFeedbackAsync</code>.</li>
+<li class="calibre9"><b class="calibre13">WG-66254</b> The function used for conversion from decibels to linear gains now returns an exact result of 1.0f for an input of 0.0f, instead of 0.999039. Some optimizations that try to save on the application of gains can now check for results of 1.0f more reliably, making their results more relevant. An example of this is reducing the overhead of Audio Objects.</li>
+<li class="calibre9"><b class="calibre13">WG-66256</b> The 3D Audio Mixer Effect, and final mix-and-triage of Objects for 3D Audio devices, now perform a simpler mixdown when the source and destination buffers have the same configuration.</li>
+<li class="calibre9"><b class="calibre13">WG-66258</b> The audio format of original files is now persisted in a local database for faster access during Wwise Authoring operations.</li>
+<li class="calibre9"><b class="calibre13">WG-67234</b> Significantly improved the performance of Audio Objects busses in many situations. Metadata and audio data for Audio Objects no longer create separate memory allocations, or perform copies of the data, when there is only one output connection from a source bus to a destination bus that is processing as Audio Objects. Busses that have multiple output connections due to aux sends or because they are attached to a multi-positioned game object with listener-relative routing still require separate copies of data.</li>
+<li class="calibre9"><b class="calibre13">WG-67320</b> Integrated a new memory allocation system, "Temp Alloc", into the sound engine specifically for handling allocations that are only applicable for a single audio-render tick. This is used for audio buffers for audio busses, as well as metadata for audio objects. In most cases, this greatly reduces the number of memory allocations performed during audio rendering, improves performance in some multi-threaded scenarios, and slightly reduces fragmentation of memory pools used for audio processing. For more information on how to tune and manage this new system, refer to <a class="pcalibre el" href="goingfurther_optimizingmempools_reducing_memory_split_004.html#goingfurther_optimizingmempools_tempallocs">Tuning "Temp Alloc" Memory</a>. Note that as a part of this change, it is no longer possible for "Feedback" connections in the Voice Graph to be consumed by Audio Objects busses. This use case could create many other subtle and fatal issues, so it is no longer supported. Applications that create feedback scenarios due to Wwise Spatial Audio or other tools for handling audio propagation, must ensure that the destination busses of any feedback connections are mixing busses instead.</li>
+</ul>
+</div></div></div></body></html>

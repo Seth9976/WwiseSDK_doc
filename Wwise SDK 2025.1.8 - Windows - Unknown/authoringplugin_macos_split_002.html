@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>macOS Plug-in Considerations</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="authoringplugin_macos_debugging"></a>
+Debugging Authoring Plug-ins on macOS</h1>
+<p class="calibre7">Because the debug symbols of your plug-in will be in the Microsoft PDB format, there is no easy way to attach a debugger to the process and step through your code. However, it is possible to read the console output by launching the Wwise Authoring application through a launch script.</p>
+<p class="calibre7">The launch script is located in <code class="calibre14">&lt;Install Location&gt;/Wwise.app/Contents/Tools/WwiseOpenProject.sh</code> and can be launched from the Terminal application by its full absolute path, surrounded by quotes (or by manually escaping spaces).</p>
+<p class="calibre7">This script takes a single optional argument: the path of the Wwise project to be opened. If none is given, Wwise opens normally. Once launched, the standard output will be displayed in the console. You can log this output by adding <code class="calibre14">printf</code> calls in your plug-in's code. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

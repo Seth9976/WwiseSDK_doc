@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK.Wwise::Plugin::V1::ObjectStore::RemovePropertySet</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_object_store_a7bea99b254754de1c3bdc148e38762da_split_000.html#a7bea99b254754de1c3bdc148e38762da" class="pcalibre1 anchor">◆ </a></span>RemovePropertySet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename PropertySetT  = AK::Wwise::Plugin::PropertySet&gt; </div>
+<table class="calibre3">
+  <tbody class="calibre4"><tr class="calibre16">
+  <td class="calibre17">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">bool <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_object_store_split_000.html">AK.Wwise::Plugin::V1::ObjectStore</a>&lt; PropertySetT &gt;::RemovePropertySet </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype">const PropertySetT &amp; </td>
+          <td class="paramname"><em class="calibre59">in_propertySet</em></td><td class="calibre17">)</td>
+          <td class="calibre17"/>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="calibre17">
+<span><span>inline</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+
+<p class="calibre7">Removes an inner property set from any list, without deleting the object itself. </p>
+<p class="calibre7">This is useful if you still need the object internally, or if you want to move that object to another list or index.</p>
+<p class="calibre7">If a list doesn't contain any items anymore, the list will automatically be deleted.</p>
+<p class="calibre7">The function <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_object_store_aac799692bc78125ac4d2ef8c70b5997a_split_000.html#aac799692bc78125ac4d2ef8c70b5997a">DeletePropertySet</a> must be used if you still keep that reference without being reinserted through <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_object_store_a23316a944101ac1a01d331fd6c187606_split_000.html#a23316a944101ac1a01d331fd6c187606">InsertPropertySet</a>. For normal deletion, you should execute <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_object_store_aac799692bc78125ac4d2ef8c70b5997a_split_000.html#aac799692bc78125ac4d2ef8c70b5997a">DeletePropertySet</a> function directly, and it will remove any usage automatically.</p>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="structak__wwise__plugin__notifications__object__store__v1_a52356d1122e92ed58c93e44c3a525415_split_000.html#a52356d1122e92ed58c93e44c3a525415">ak_wwise_plugin_notifications_object_store_v1::NotifyInnerObjectAddedRemoved</a></li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_propertySet</td><td class="calibre17">The inner property set to remove from any list's index. The object is not deleted. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">true if successful </dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_host_object_store_8h_source.html#l00470">470</a> of file <a class="pcalibre el" href="_host_object_store_8h_source.html">HostObjectStore.h</a>.</p>
+
+<p class="calibre7">References <a class="pcalibre el" href="_plugin_info_generator_8h_source.html#l00089">AK.Wwise::Plugin::CBaseInterfaceGlue&lt; CHostObjectStore &gt;::g_cinterface</a>, <a class="pcalibre el" href="_plugin_helpers_8h_source.html#l00079">MKBOOL</a>, and <a class="pcalibre el" href="_host_object_store_8h_source.html#l00156">ak_wwise_plugin_host_object_store_v1::RemovePropertySet</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

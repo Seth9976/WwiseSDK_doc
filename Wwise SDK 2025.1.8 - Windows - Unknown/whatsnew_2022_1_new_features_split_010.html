@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>New Features Overview 2022.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_9"><a class="pcalibre1 anchor" id="features_22_1_filtering"></a>
+Filter Behavior: Use Highest Value</h2>
+<p class="calibre7">The accumulation method used for Voice LPF and Voice HPF can now be defined in the Project Settings. This allows you to choose whether to arrive at the final value by summing all values (previously the only method available) or by taking the highest of all object values.</p>
+<div class="calibre2">
+<img alt="" src="filter_project_settings.png" class="inline"/>
+</div>
+<p class="calibre7">In this example, each object specifies a value for the Low-pass filter property. The Low-pass filter value applied to the sound depends on the accumulation method chosen.</p>
+<div class="calibre2">
+<img alt="" src="dgm_filter_behavior.png" class="inline"/>
+</div>
+<table border="1" cellpadding="1" cellspacing="0" width="800px" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td width="50px" class="calibre17"><div class="calibre2">
+<img alt="" src="callout1.png" class="inline"/>
+</div>
+ </td><td width="750px" class="calibre17">Sum All Values: The Low-pass filter property values of each object are summed.  </td></tr>
+<tr class="calibre16">
+<td class="calibre17"><div class="calibre2">
+<img alt="" src="callout2.png" class="inline"/>
+</div>
+ </td><td class="calibre17">Use Highest Value: The highest of all of the object Low-pass filter property values is used.  </td></tr>
+</tbody></table>
+</div></div></div></body></html>

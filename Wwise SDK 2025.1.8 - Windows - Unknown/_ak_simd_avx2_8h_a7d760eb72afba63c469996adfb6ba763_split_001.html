@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AKSIMD_BLEND_V16I16</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="_ak_simd_avx2_8h_a7d760eb72afba63c469996adfb6ba763_split_000.html#a7d760eb72afba63c469996adfb6ba763" class="pcalibre1 anchor">◆ </a></span>AKSIMD_BLEND_V16I16</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">#define AKSIMD_BLEND_V16I16</td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"> </td>
+          <td class="paramname">a, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"> </td>
+          <td class="paramname">b, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"> </td>
+          <td class="paramname">i </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17">   _mm256_blend_epi16(a, b, i)</td>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">For each 16b integer, select one of the values from a and b using the provided control mask - if the nth bit is false, the nth value from a will be selected; if true, the value from b will be selected. (the mask applies to each 128b lane identically) </p>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_ak_simd_avx2_8h_source.html#l00082">82</a> of file <a class="pcalibre el" href="_ak_simd_avx2_8h_source.html">AkSimdAvx2.h</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>General Information</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_13"><a class="pcalibre1 anchor" id="soundengine_banks_general_identification_using_names_selected"></a>
+Selecting the "Use SoundBank Names" Option</h2>
+<p class="calibre7">When the option is selected, Wwise generates the bank files with their original name, appending the BNK extension.</p>
+<p class="calibre7">Banks store the names of other banks they reference. When the sound engine's Bank Manager needs to load another bank from I/O, following a <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a2e6ebb779470b43d78984c27f6a0c238_split_000.html#a2e6ebb779470b43d78984c27f6a0c238">PrepareEvent()</a></code> command, it uses the string version of <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_1_1_dynamic_sequence_ab6daddd96e109dc7669889733ce4f2cc_split_000.html#ab6daddd96e109dc7669889733ce4f2cc">AK::IAkLowLevelIO::Open()</a></code>. The string version of <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_1_1_dynamic_sequence_ab6daddd96e109dc7669889733ce4f2cc_split_000.html#ab6daddd96e109dc7669889733ce4f2cc">AK::IAkLowLevelIO::Open()</a></code> receives the name of the bank, concatenated with the ".bnk" extension. It is the responsibility of the Low-Level IO to prepend the path of the location of the bank, or to perform any transformation required, before accessing the platform's file system.</p>
+<p class="calibre7">Banks generated with the <em class="calibre11">Use SoundBank Names</em> option are slightly bigger, because they must store the names of the banks they reference, not just their ID.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> Generated bank names on disk, and their IDs, are enumerated in the file SoundBanksInfo.xml - see section <a class="pcalibre el" href="soundengine_banks_general_split_017.html#soundengine_banks_general_identification_infofile">SoundBanksInfo.xml</a>. </td></tr>
+</tbody></table>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="tip.gif"/></td><td class="calibre17"><b class="calibre13">Tip:</b> In the string overload of <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ac91406bc2fe061e4248cb448207b5a64_split_000.html#ac91406bc2fe061e4248cb448207b5a64">UnloadBank()</a></code>, strings are converted to IDs internally, and then the ID overload is called. It is possible to load a bank with the string overload, keep the associated bank ID that was returned, and later use this ID to unload the bank. </td></tr>
+</tbody></table>
+<p class="calibre7">.</p>
+</div></div></div></body></html>

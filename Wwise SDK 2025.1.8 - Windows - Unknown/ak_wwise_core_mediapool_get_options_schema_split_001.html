@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak.wwise.core.mediaPool.get Options Schema</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2"><h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="section_ak_wwise_core_mediapool_get_optionsSchema"></a>
+Schema</h1>
+<div class="fragment"><div class="line">{</div>
+<div class="line">    "type": "object",</div>
+<div class="line">    "properties": {</div>
+<div class="line">        "return": {</div>
+<div class="line">            "type": "array",</div>
+<div class="line">            "items": {</div>
+<div class="line">                "anyOf": [</div>
+<div class="line">                    {</div>
+<div class="line">                        "enum": [</div>
+<div class="line">                            "Score"</div>
+<div class="line">                        ],</div>
+<div class="line">                        "description": "The search result score. A value greater than 0. The higher the score, the better the results."</div>
+<div class="line">                    },</div>
+<div class="line">                    {</div>
+<div class="line">                        "enum": [</div>
+<div class="line">                            "FileId"</div>
+<div class="line">                        ],</div>
+<div class="line">                        "description": "A GUID representing the file in the database."</div>
+<div class="line">                    },</div>
+<div class="line">                    {</div>
+<div class="line">                        "enum": [</div>
+<div class="line">                            "Db"</div>
+<div class="line">                        ],</div>
+<div class="line">                        "description": "The database object containing the file. This is an object with 'id' and 'name' properties, where 'id' is the GUID of the database and 'name' is the name of the database."</div>
+<div class="line">                    },</div>
+<div class="line">                    {</div>
+<div class="line">                        "enum": [</div>
+<div class="line">                            "Path"</div>
+<div class="line">                        ],</div>
+<div class="line">                        "description": "The absolute path to the file in the file system."</div>
+<div class="line">                    },</div>
+<div class="line">                    {</div>
+<div class="line">                        "enum": [</div>
+<div class="line">                            "Size"</div>
+<div class="line">                        ],</div>
+<div class="line">                        "description": "The size of the file in bytes."</div>
+<div class="line">                    },</div>
+<div class="line">                    {</div>
+<div class="line">                        "enum": [</div>
+<div class="line">                            "Markers"</div>
+<div class="line">                        ],</div>
+<div class="line">                        "description": "An array of markers in the audio file. Each marker is an object with 'name' and 'time' properties, where 'name' is the marker's name and 'time' is its position in seconds."</div>
+<div class="line">                    },</div>
+<div class="line">                    {</div>
+<div class="line">                        "enum": [</div>
+<div class="line">                            "DetectedRegions"</div>
+<div class="line">                        ],</div>
+<div class="line">                        "description": "An array of detected regions in the audio file. Each region is an object with 'start' and 'end' properties, where 'start' and 'end' are the positions in seconds."</div>
+<div class="line">                    },</div>
+<div class="line">                    {</div>
+<div class="line">                        "anyOf": [</div>
+<div class="line">                            {</div>
+<div class="line">                                "enum": [</div>
+<div class="line">                                    "Filename"</div>
+<div class="line">                                ],</div>
+<div class="line">                                "description": "The name of the file, including the extension."</div>
+<div class="line">                            },</div>
+<div class="line">                            {</div>
+<div class="line">                                "enum": [</div>
+<div class="line">                                    "WAV/Duration"</div>
+<div class="line">                                ],</div>
+<div class="line">                                "description": "The duration of the file in seconds."</div>
+<div class="line">                            },</div>
+<div class="line">                            {</div>
+<div class="line">                                "enum": [</div>
+<div class="line">                                    "WAV/Sample Rate"</div>
+<div class="line">                                ],</div>
+<div class="line">                                "description": "The sample rate of the audio file in Hz."</div>
+<div class="line">                            },</div>
+<div class="line">                            {</div>
+<div class="line">                                "enum": [</div>
+<div class="line">                                    "WAV/Bit Depth"</div>
+<div class="line">                                ],</div>
+<div class="line">                                "description": "The bit depth of the audio file. Possible values are 8, 16, 24, or 32."</div>
+<div class="line">                            },</div>
+<div class="line">                            {</div>
+<div class="line">                                "enum": [</div>
+<div class="line">                                    "WAV/Channels"</div>
+<div class="line">                                ],</div>
+<div class="line">                                "description": "The number of channels of the audio file."</div>
+<div class="line">                            },</div>
+<div class="line">                            {</div>
+<div class="line">                                "enum": [</div>
+<div class="line">                                    "WAV/Channel Configuration"</div>
+<div class="line">                                ],</div>
+<div class="line">                                "description": "The channel configuration of the audio file, such as '1.0', '2.0', '5.1', '7.1.4', etc."</div>
+<div class="line">                            },</div>
+<div class="line">                            {</div>
+<div class="line">                                "enum": [</div>
+<div class="line">                                    "WAV/Data Size"</div>
+<div class="line">                                ],</div>
+<div class="line">                                "description": "The size of the audio data in bytes."</div>
+<div class="line">                            },</div>
+<div class="line">                            {</div>
+<div class="line">                                "enum": [</div>
+<div class="line">                                    "WAV/Loop Start"</div>
+<div class="line">                                ],</div>
+<div class="line">                                "description": "The position in seconds where the audio file loop starts."</div>
+<div class="line">                            },</div>
+<div class="line">                            {</div>
+<div class="line">                                "enum": [</div>
+<div class="line">                                    "WAV/Loop End"</div>
+<div class="line">                                ],</div>
+<div class="line">                                "description": "The position in seconds where the audio file loops back to the start."</div>
+<div class="line">                            },</div>
+<div class="line">                            {</div>
+<div class="line">                                "enum": [</div>
+<div class="line">                                    "WAV/Marker Count"</div>
+<div class="line">                                ],</div>
+<div class="line">                                "description": "The number of markers in the audio file."</div>
+<div class="line">                            },</div>
+<div class="line">                            {</div>
+<div class="line">                                "enum": [</div>
+<div class="line">                                    "WAV/Samples"</div>
+<div class="line">                                ],</div>
+<div class="line">                                "description": "The number of samples in the audio file, for one channel."</div>
+<div class="line">                            },</div>
+<div class="line">                            {</div>
+<div class="line">                                "type": "string",</div>
+<div class="line">                                "description": "Other fields found in the IXML chunk of the file. Use ak.core.mediaPool.getFields to get the list of supported fields."</div>
+<div class="line">                            }</div>
+<div class="line">                        ]</div>
+<div class="line">                    }</div>
+<div class="line">                ],</div>
+<div class="line">                "description": "A property to return for each file. The name is case-sensitive. Not all properties are available for all files."</div>
+<div class="line">            },</div>
+<div class="line">            "description": "The list of properties to return for each file. If not specified, the following properties are returned: 'Path', 'FileId', 'Db'."</div>
+<div class="line">        }</div>
+<div class="line">    },</div>
+<div class="line">    "additionalProperties": false</div>
+<div class="line">}</div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

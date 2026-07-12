@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Getting Started with WAQL</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_8"><a class="pcalibre1 anchor" id="waql_gs_play_events_reverse"></a>
+Playing with Events - In Reverse</h1>
+<p class="calibre7">Now let's try to start from the Sound objects and list all the Events that can play them:</p>
+<p class="calibre7"><code class="calibre14">$ from type sound</code></p>
+<p class="calibre7">Then obtain all the sounds themselves and all their ancestors. We care about the ancestors, because they can also be referenced by the Events. For example, a parent Random Container could be the target of an Event.</p>
+<p class="calibre7"><code class="calibre14">$ from type sound select this, ancestors</code></p>
+<p class="calibre7">Then obtain all objects that have a reference to what we have obtained so far:</p>
+<p class="calibre7"><code class="calibre14">$ from type sound select this, ancestors select referencesTo</code></p>
+<p class="calibre7">That is basically doing a find all references (similar to the Reference view), but we need to filter it to keep only the Event actions, because other objects like SoundBanks or SoundCaster sessions could have a reference to them:</p>
+<p class="calibre7"><code class="calibre14">$ from type sound select this, ancestors select referencesTo where type = "action"</code></p>
+<p class="calibre7">Finally, let's obtain the parent of each individual action, which are the Events:</p>
+<p class="calibre7"><code class="calibre14">$ from type sound select this, ancestors select referencesTo where type = "action" select parent</code></p>
+<p class="calibre7">Additional exercises:</p>
+<ul class="calibre8">
+<li class="calibre9">Instead of starting from all sounds from the project, start from a specific sound.</li>
+<li class="calibre9">Instead of starting from all sounds from the project, start from all objects under a specific Work Unit.</li>
+<li class="calibre9">Try to keep only the Play actions, filtering out the other action types, like Stop.</li>
+</ul>
+</div></div></div></body></html>

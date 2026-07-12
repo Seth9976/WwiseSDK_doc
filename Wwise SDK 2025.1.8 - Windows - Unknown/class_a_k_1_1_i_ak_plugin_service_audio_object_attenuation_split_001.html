@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::IAkPluginServiceAudioObjectAttenuation Class Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table class="calibre3">
+<tbody class="calibre4"><tr class="calibre16"><td colspan="2" class="calibre17"><h2 class="calibre21" id="calibre_pb_0"><a class="pcalibre1 anchor" id="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="calibre16"><td class="memitemleft">virtual <a class="pcalibre el" href="_ak_typedefs_8h_a8341fa4d01d2fa852c3cc410401b04dc_split_000.html#a8341fa4d01d2fa852c3cc410401b04dc">AkUniqueID</a> </td><td class="memitemright"><a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_service_audio_object_attenuation_af668b5dd447b40eedc097a3555cdfc61_split_000.html#af668b5dd447b40eedc097a3555cdfc61">GetAttenuation</a> (const <a class="pcalibre el" href="struct_ak_audio_object_split_000.html">AkAudioObject</a> &amp;in_object, <a class="pcalibre el" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a> &amp;out_distanceScaling) const =0</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">virtual bool </td><td class="memitemright"><a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_service_audio_object_attenuation_a9fd0aceaaac87aecc88a7458aae48ed2_split_000.html#a9fd0aceaaac87aecc88a7458aae48ed2">ExtractCurves</a> (<a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_mem_alloc_split_000.html">IAkPluginMemAlloc</a> *in_pAllocator, const <a class="pcalibre el" href="struct_ak_audio_object_split_000.html">AkAudioObject</a> &amp;in_object, <a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> in_curveTypesMask, void *out_curves[]) const =0</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">virtual void </td><td class="memitemright"><a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_service_audio_object_attenuation_af1edd8f1ee7a3ab12f9e3a726dcd5294_split_000.html#af1edd8f1ee7a3ab12f9e3a726dcd5294">Delete</a> (<a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_mem_alloc_split_000.html">IAkPluginMemAlloc</a> *in_pAllocator, void *&amp;io_attenuationCurve)=0</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Free memory of curve obtained with AK::IAkPluginServiceAttenuationCurve::ExtractCurves.  <a href="class_a_k_1_1_i_ak_plugin_service_audio_object_attenuation_af1edd8f1ee7a3ab12f9e3a726dcd5294_split_000.html#af1edd8f1ee7a3ab12f9e3a726dcd5294" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">virtual <a class="pcalibre el" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a> </td><td class="memitemright"><a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_service_audio_object_attenuation_a1890704e590af2f7c3d75b4b2c4cc028_split_000.html#a1890704e590af2f7c3d75b4b2c4cc028">Evaluate</a> (void *&amp;io_attenuationCurve, <a class="pcalibre el" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a> x)=0</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Evaluate the value of a curve at given x coordinate.  <a href="class_a_k_1_1_i_ak_plugin_service_audio_object_attenuation_a1890704e590af2f7c3d75b4b2c4cc028_split_000.html#a1890704e590af2f7c3d75b4b2c4cc028" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">virtual void </td><td class="memitemright"><a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_service_audio_object_attenuation_a8a091dad213e19ca2c94c4ab0e094155_split_000.html#a8a091dad213e19ca2c94c4ab0e094155">Linearize</a> (void *&amp;io_attenuationCurve)=0</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Some curves are serialized in the log domain. Use this function to convert all the points to linear at once.  <a href="class_a_k_1_1_i_ak_plugin_service_audio_object_attenuation_a8a091dad213e19ca2c94c4ab0e094155_split_000.html#a8a091dad213e19ca2c94c4ab0e094155" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">virtual const <a class="pcalibre el" href="_ak_sound_engine_types_8h_aa706b42f8491bd4cd738427a53f04519_split_000.html#aa706b42f8491bd4cd738427a53f04519">AkRTPCGraphPoint</a> &amp; </td><td class="memitemright"><a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_service_audio_object_attenuation_a37a8e4da84eb75e689d34568ea096668_split_000.html#a37a8e4da84eb75e689d34568ea096668">GetPoint</a> (const void *in_attenuationCurve, <a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> i) const =0</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Get the ith point of the curve.  <a href="class_a_k_1_1_i_ak_plugin_service_audio_object_attenuation_a37a8e4da84eb75e689d34568ea096668_split_000.html#a37a8e4da84eb75e689d34568ea096668" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">virtual <a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> </td><td class="memitemright"><a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_service_audio_object_attenuation_ad00a8396a968566d5870e16a33b5ff4c_split_000.html#ad00a8396a968566d5870e16a33b5ff4c">GetNumPoints</a> (const void *in_attenuationCurve) const =0</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Get the number of points on a curve.  <a href="class_a_k_1_1_i_ak_plugin_service_audio_object_attenuation_ad00a8396a968566d5870e16a33b5ff4c_split_000.html#ad00a8396a968566d5870e16a33b5ff4c" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+</tbody></table></div></body></html>

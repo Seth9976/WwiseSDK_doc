@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Wwise Project Database Sample</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="projectdatabase_ref"></a>
+Ref Classes</h1>
+<p class="calibre7">The Ref classes define each metadata object by its relation to related metadata. This class is helpful because the metadata in the generated SoundBanks minimizes duplicated information, and instead uses references to various data structures. For example, a media list references an Event ID, but the metadata for that media, such as the file location, is defined in the higher-level SoundBank metadata.</p>
+<p class="calibre7">To reference an Event’s Switch Container value, a Ref class keeps a copy of a shared pointer to the file’s root and contains directions to locate the Switch Container, such as "this file, in the SoundBanks structure, the first SoundBank, the fourth declared Event, the third declared Switch Container."</p>
+<p class="calibre7">The following code samples demonstrate how these classes work:</p>
+<div class="fragment"><div class="line"><span class="keyword">struct </span>WwiseMetadataMediaAttributes : <span class="keyword">public</span> WwiseMetadataMediaReference</div>
+<div class="line">{</div>
+<div class="line">    WwiseDBString Language;</div>
+<div class="line">    <span class="keywordtype">bool</span> bStreaming;</div>
+<div class="line">    WwiseMetadataMediaLocation Location;</div>
+<div class="line">    <span class="keywordtype">bool</span> bUsingReferenceLanguage;</div>
+<div class="line">    WwiseDBShortId Align;</div>
+<div class="line">    <span class="keywordtype">bool</span> bDeviceMemory;</div>
+<div class="line"> </div>
+<div class="line">    FWwiseMetadataMediaAttributes(FWwiseMetadataLoader&amp; Loader);</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">private</span>:</div>
+<div class="line">    <span class="keyword">static</span> WwiseMetadataMediaLocation LocationFromString(<span class="keyword">const</span> WwiseDBString&amp; LocationString);</div>
+<div class="line">};</div>
+</div><!-- fragment --><div class="fragment"><div class="line"><span class="keyword">struct </span>WwiseMetadataMedia : <span class="keyword">public</span> WwiseMetadataMediaAttributes</div>
+<div class="line">{</div>
+<div class="line">    WwiseDBString ShortName;</div>
+<div class="line">    WwiseDBString Path;</div>
+<div class="line">    WwiseDBString CachePath;</div>
+<div class="line">    WwiseDBShortId PrefetchSize;</div>
+<div class="line"> </div>
+<div class="line">    FWwiseMetadataMedia(FWwiseMetadataLoader&amp; Loader);</div>
+<div class="line">};</div>
+</div><!-- fragment --><p class="calibre7">Here is a media example:</p>
+<div class="fragment"><div class="line"><span class="stringliteral">"Media"</span>: [</div>
+<div class="line"> {</div>
+<div class="line">  <span class="stringliteral">"Id"</span>: <span class="stringliteral">"274591330"</span>,</div>
+<div class="line">  <span class="stringliteral">"Language"</span>: <span class="stringliteral">"English(US)"</span>,</div>
+<div class="line">  <span class="stringliteral">"Streaming"</span>: <span class="stringliteral">"false"</span>,</div>
+<div class="line">  <span class="stringliteral">"Location"</span>: <span class="stringliteral">"Loose"</span>,</div>
+<div class="line">  <span class="stringliteral">"ShortName"</span>: <span class="stringliteral">"Hello.wav"</span>,</div>
+<div class="line">  <span class="stringliteral">"Path"</span>: <span class="stringliteral">"Media/English(US)/27/274591330.wem"</span>,</div>
+<div class="line">  <span class="stringliteral">"CachePath"</span>: <span class="stringliteral">"Voices/English(US)/Hello_10C4C929.wem"</span></div>
+<div class="line"> }</div>
+</div><!-- fragment --><p class="calibre7">Essentially, the Ref classes provide context. Therefore, you can get information about the Switch Container as well as the class parents: the Event, the SoundBank, and the file.</p>
+<p class="calibre7">Some referred types require additional information. For example, the platform information is divided into two complementary files: <code class="calibre14">ProjectInfo.json</code> and <code class="calibre14">PlatformInfo.json</code>, so the platform Ref contains two different structures. Similarly, some other referred types might reside in multiple locations. The Ref class attempts to accommodate these particularities.</p>
+<p class="calibre7">Finally, the Ref classes provide additional utilities. If you pass the necessary global maps, you can get supplemental information alongside the Ref classes that are included in the specified Wwise object. For example, you can ask for the media requested in a particular Event’s definition, and it returns the media as Refs.</p>
+<p class="calibre7">Because the Ref information is declared as the base and derived structs, in a Switch Container you can request all of the Event’s Switch Container values and get the siblings simultaneously. The same is true for other types of information contained in Events.</p>
+</div></div></div></body></html>

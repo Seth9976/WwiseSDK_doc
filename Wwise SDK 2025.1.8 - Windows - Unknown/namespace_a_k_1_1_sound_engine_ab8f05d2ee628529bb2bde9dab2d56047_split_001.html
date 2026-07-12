@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::SoundEngine::SetBankLoadIOSettings</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="namespace_a_k_1_1_sound_engine_ab8f05d2ee628529bb2bde9dab2d56047_split_000.html#ab8f05d2ee628529bb2bde9dab2d56047" class="pcalibre1 anchor">◆ </a></span>SetBankLoadIOSettings()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_sound_engine_export_8h_ac6e96d34dfc0e12f9aaa7a47f4e9c322_split_000.html#ac6e96d34dfc0e12f9aaa7a47f4e9c322">AKSOUNDENGINE_API</a> <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::SoundEngine::SetBankLoadIOSettings </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a> </td>
+          <td class="paramname"><em class="calibre59">in_fThroughput</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_a6fd4ce3da8a0654b665da32c63623433_split_000.html#a6fd4ce3da8a0654b665da32c63623433">AkPriority</a> </td>
+          <td class="paramname"><em class="calibre59">in_priority</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Sets the I/O settings of the bank load and prepare event processes. The sound engine uses default values unless explicitly set by calling this method. </p><dl class="calibre7"><dt class="calibre23">Warning</dt><dd class="calibre24">This function must be called before loading banks. </dd></dl>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><code class="calibre14">AK_Success</code> if successful</li>
+<li class="calibre9"><code class="calibre14">AK_NotInitialized</code> if the sound engine was not correctly initialized</li>
+<li class="calibre9"><code class="calibre14">AK_InvalidParameter</code> if some parameters are invalid, check the debug console </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="soundengine_banks.html">Integration Details - Banks</a></li>
+<li class="calibre9"><a class="pcalibre el" href="streamingdevicemanager_split_000.html">Streaming / Stream Manager</a> </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_fThroughput</td><td class="calibre17">Average throughput of bank data streaming (bytes/ms) (the default value is AK_DEFAULT_BANK_THROUGHPUT) </td></tr>
+    <tr class="calibre16"><td class="paramname">in_priority</td><td class="calibre17">Priority of bank streaming (the default value is AK_DEFAULT_PRIORITY) </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

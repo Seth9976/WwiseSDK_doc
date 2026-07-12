@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2023.1.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_4"><a class="pcalibre1 anchor" id="generic_bugs_2023_1_1"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-63963</b> Fixed: Timing values reported in the CPU tab of the Advanced Profiler are incorrect by a large factor in some scenarios.</li>
+<li class="calibre9"><b class="calibre13">WG-67683</b> Fixed: Possible infinite hang in <code class="calibre14">AK::JobMgr::WorkUntilDone</code> when running the sound engine in multi-core execution.</li>
+<li class="calibre9"><b class="calibre13">WG-67849</b> Fixed: In the Conversion Settings Editor, buttons aren't always properly enabled or disabled.</li>
+<li class="calibre9"><b class="calibre13">WG-68183</b> Fixed: (Spatial Audio) Paths to unreachable rooms sometimes remain in the Game Object 3D Viewer when <b class="calibre13">Show Active Voices Only</b> is unselected.</li>
+<li class="calibre9"><b class="calibre13">WG-68211</b> Fixed: Voice Inspector contribution icon is incorrect in some scenarios.</li>
+<li class="calibre9"><b class="calibre13">WG-68218</b> Fixed: Attempting to stop a Switch Container in Continuous Play Mode on a specific Playing ID can stop other instances of this sound playing simultaneously on the same game object.</li>
+<li class="calibre9"><b class="calibre13">WG-68299</b> Fixed: Saving a project after removing a platform can corrupt unlinked Object Lists (for example, Effects list).</li>
+<li class="calibre9"><b class="calibre13">WG-68344</b> Fixed: (Spatial Audio) A room tone from a Reverb Zone sometimes pans suddenly to one side when the Listener moves between two transition regions surfaces.</li>
+<li class="calibre9"><b class="calibre13">WG-68367</b> Fixed: (Spatial Audio) Consecutive diffraction points are sometimes identical.</li>
+<li class="calibre9"><b class="calibre13">WG-68387</b> Fixed: Stream Name is restricted to 16 char in the Streams tab of the Advanced Profiler.</li>
+<li class="calibre9"><b class="calibre13">WG-68462</b> Fixed: (Spatial Audio) Spread and position of transmission paths are incorrect for Rooms that have transparent surfaces but are not Reverb Zones.</li>
+<li class="calibre9"><b class="calibre13">WG-68511</b> Fixed: Replacing a Convolution Reverb IR file with another of the same length does not register as a change.</li>
+<li class="calibre9"><b class="calibre13">WG-68515</b> Fixed: Crash when using very short IR (&lt;10ms) in AK Convolution Reverb.</li>
+<li class="calibre9"><b class="calibre13">WG-68629</b> Fixed: Crash when sound engine errors are printed in Unity.</li>
+<li class="calibre9"><b class="calibre13">WG-68644</b> Fixed: It's possible to unlink Render and Bypass from an Effect slot in Multi Editor.</li>
+<li class="calibre9"><b class="calibre13">WG-68674</b> Fixed: (Spatial Audio) Asserts are triggered when loading certain mesh types, including those with large edges, or edges far from the local origin.</li>
+<li class="calibre9"><b class="calibre13">WG-68717</b> Fixed: (Spatial Audio) An assert is triggered when geometry is passed to Spatial Audio that has colinear edges that are attached to both transparent and opaque surfaces.</li>
+<li class="calibre9"><b class="calibre13">WG-68741</b> Fixed: Slightly negative values can be shown in CPU tab of the Advanced Profiler.</li>
+<li class="calibre9"><b class="calibre13">WG-68756</b> Fixed: Streams tab in the Advanced Profiler shows numbers instead of file names.</li>
+<li class="calibre9"><b class="calibre13">WG-68775</b> Fixed: Window meter doesn't update in the HDR tab of the Property Editor for audio busses.</li>
+<li class="calibre9"><b class="calibre13">WG-68794</b> Fixed: Loudness normalization wrongly attributed to Voice Volume in Voice Inspector.</li>
+<li class="calibre9"><b class="calibre13">WG-68882</b> Fixed: (WAAPI) <a class="pcalibre el" href="ak_soundengine_postmsgmonitor_split_000.html">ak.soundengine.postMsgMonitor</a> writes an error instead of a message to the Capture Log.</li>
+<li class="calibre9"><b class="calibre13">WG-69059</b> Fixed: Assert when opening the Meter and Loudness Meter settings panels in the Debug version of Wwise Authoring.</li>
+<li class="calibre9"><b class="calibre13">WG-69117</b> Fixed: Audio Object IDs are not reset if the sound engine is initialized multiple times during a single process.</li>
+<li class="calibre9"><b class="calibre13">WG-69190</b> Fixed: Crash when dragging a source's trim points that creates an invalid trim area.</li>
+<li class="calibre9"><b class="calibre13">WG-69201</b> Fixed: (Spatial Audio) Abrupt volume change when crossing Portals due to differences in path distances to the same room.</li>
+<li class="calibre9"><b class="calibre13">WG-69220</b> Fixed: Crashes during playback of Sequence and Random Containers with sample-accurate transitions containing sounds streamed from disk without any "zero-latency" prefetched data while multi-core rendering is enabled.</li>
+<li class="calibre9"><b class="calibre13">WG-69230</b> Fixed: Possible crash in <code class="calibre14">AK::JobMgr::Internal::JobManager_workerFunction</code> during sound engine termination.</li>
+<li class="calibre9"><b class="calibre13">WG-69290</b> Fixed: Possible crash when modifying the contents of a nested Sequence Container.</li>
+<li class="calibre9"><b class="calibre13">WG-69405</b> Fixed: (Spatial Audio) Possible crash when Reverb Zones are dynamically moved over Portals.</li>
+<li class="calibre9"><b class="calibre13">WG-69596</b> Fixed: (Spatial Audio) Cannot update Transition Region Width when Reverb Zone is attached to a portal.</li>
+<li class="calibre9"><b class="calibre13">WG-69624</b> Fixed: Align field not present in SoundBank Metadata file for plug-in media.</li>
+<li class="calibre9"><b class="calibre13">WG-69638</b> Fixed: (Spatial Audio) It is possible to create a circular Reverb Zone hierarchy, resulting in an infinite loop.</li>
+<li class="calibre9"><b class="calibre13">WG-69644</b> Fixed: Converted files are evaluated and created when inspecting music hierarchy in Play Originals mode.</li>
+<li class="calibre9"><b class="calibre13">WG-69895</b> Fixed: (Spatial Audio) Updating a Reverb Zone with a new parent Room may trigger an assert.</li>
+</ul>
+</div></div></div></body></html>

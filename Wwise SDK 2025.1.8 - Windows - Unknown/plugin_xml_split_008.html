@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Wwise Plug-in XML Description Files</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_7"><a class="pcalibre1 anchor" id="wwiseplugin_xml_id_specification"></a>
+Company and Plug-in IDs</h2>
+<p class="calibre7">Wwise associates plug-in model definitions and plug-in implementations using numeral IDs. These IDs are provided in the XML description of each plug-in and in the plug-in descriptor in the plug-in library.</p>
+<p class="calibre7">The <code class="calibre14">CompanyID</code> is an ID corresponding to your organization. Three ranges exist: </p><ul class="calibre8">
+<li class="calibre9">
+0-63: <b class="calibre13">Reserved for Audiokinetic</b>, not available.  </li>
+<li class="calibre9">
+64-255: <b class="calibre13">Unrestricted range</b> for in-house use. A Company ID in this range cannot be used for external distribution.  </li>
+<li class="calibre9">
+256-4095: <b class="calibre13">Restricted range</b> for commercial plug-ins. These are assigned by Audiokinetic to official third-party developers. If you were assigned one of these, use it instead of a value in the 64-255 range. If not, do not use these values.  </li>
+</ul>
+<p class="calibre7">The <code class="calibre14">PluginID</code> is a unique numeral ID in the range 0-32767 that corresponds to a plug-in within a single organization.</p>
+<p class="calibre7">For example, if you are developing plug-ins for in-house use only, you can pick any <code class="calibre14">CompanyID</code> between 64 and 255, and any three PluginIDs between 0 and 32767. The numbers need not be sequential.</p>
+<p class="calibre7">The CompanyID and PluginID need to be passed to the Sound Engine plug-in declaration macro <code class="calibre14">AK_IMPLEMENT_PLUGIN_FACTORY</code>.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="caution.gif"/></td><td class="calibre17"><b class="calibre13">Caution:</b> Important considerations:<ul class="calibre8">
+<li class="calibre9">You should <em class="calibre11">never</em> change the CompanyID or PluginID of an existing plug-in. Projects using this plug-in will no longer recognize it. The CompanyID and PluginID are persisted with each plug-in instance, and are used to recreate an instance of the right plug-in when the file is loaded.</li>
+<li class="calibre9">If two or more PluginIDs are identical for the same CompanyID, Wwise will display an error message on startup. If this happens, change the ID for the new plug-in.</li>
+<li class="calibre9">If you base your plug-in on a sample plug-in provided by Audiokinetic (<a class="pcalibre el" href="samplecode_split_002.html#samplecode_plugins">Sample Plug-ins</a>), don't forget to change the CompanyID and PluginIDs to appropriate values. Use your assigned official CompanyID if you have one, or a number between 64 and 255 if you don't. Make sure no PluginIDs are repeated for that CompanyID. </li>
+</ul>
+</td></tr>
+</tbody></table>
+<p class="calibre7">For more details on IDs, refer to <a class="pcalibre el" href="plugin_ids_split_000.html">Wwise Plug-in IDs</a>.</p>
+</div></div></div></body></html>

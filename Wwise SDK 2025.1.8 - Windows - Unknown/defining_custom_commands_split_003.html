@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Defining Command Add-ons</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_2"><a class="pcalibre1 anchor" id="accessing_common_directories"></a>
+Common Directories</h2>
+<p class="calibre7">The following predefined directories should be used in the <code class="calibre14">program</code> field to avoid machine-specific absolute paths. They can also be used in the <code class="calibre14">args</code> field to pass a path as an argument to the program and in the <code class="calibre14">cwd</code> field to define the current working directory.</p>
+<table border="1" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<th class="calibre35">Variable</th><th class="calibre35">Referenced Location </th></tr>
+<tr class="calibre16">
+<td class="calibre17">${CurrentCommandDirectory}</td><td class="calibre17">The directory where the current command is defined. As mentioned above, it should be "Add-ons\\Commands". </td></tr>
+<tr class="calibre16">
+<td class="calibre17">${WwiseInstallRoot}</td><td class="calibre17">The Wwise installation directory. </td></tr>
+<tr class="calibre16">
+<td class="calibre17">${WwiseInstallBin}</td><td class="calibre17">The Wwise.exe directory. </td></tr>
+<tr class="calibre16">
+<td class="calibre17">${WwiseInstallAddons}</td><td class="calibre17"><b class="calibre13">Windows</b>: "${WwiseInstallRoot}\\Authoring\\Data\\Add-ons"<br class="calibre10"/>
+ <b class="calibre13">macOS</b>: "/Library/Application Support/Audiokinetic/Wwise &lt;version&gt;/Authoring/Data/Add-ons/Commands"  </td></tr>
+<tr class="calibre16">
+<td class="calibre17">${WwiseUserAddons}</td><td class="calibre17"><b class="calibre13">Windows</b>: "%APPDATA%\\Audiokinetic\\Wwise\\Add-ons"<br class="calibre10"/>
+ <b class="calibre13">macOS</b>: "$HOME/Library/Application Support/Audiokinetic/Wwise/Add-ons/Commands"  </td></tr>
+<tr class="calibre16">
+<td class="calibre17">${WwiseProjectRoot}</td><td class="calibre17">The Wwise project directory. </td></tr>
+<tr class="calibre16">
+<td class="calibre17">${WwiseProjectAddons}</td><td class="calibre17">"${WwiseProjectRoot}\\Add-ons" </td></tr>
+<tr class="calibre16">
+<td class="calibre17">${WwiseProjectOriginals}</td><td class="calibre17">"${WwiseProjectRoot}\\Originals" </td></tr>
+<tr class="calibre16">
+<td class="calibre17">${WwiseProjectSoundbanks}</td><td class="calibre17">Platform-specific generated soundbanks directory. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Advanced Topics in Rooms and Portals</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="spatial_audio_roomsportals_complexroomreverb"></a>
+Implementing Complex Room Reverberation</h1>
+<p class="calibre7">It is possible for the game to use <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_af960fca0239e219b9d08c2659fe9e5d4_split_000.html#af960fca0239e219b9d08c2659fe9e5d4">AK::SoundEngine::SetGameObjectAuxSendValues</a></code> in conjunction with Wwise Acoustics Rooms. The game's sends will be added in addition to the send to the Room object's auxiliary bus, as defined by <code class="calibre14"><a class="pcalibre el" href="struct_ak_room_params_a817e2d1ddf6693558804e546ceff8885_split_000.html#a817e2d1ddf6693558804e546ceff8885">AkRoomParams::ReverbAuxBus</a></code>.</p>
+<p class="calibre7">Additionally, it is possible to use <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a1b3e18a25b405e55ba82de9b70cd11ba_split_000.html#a1b3e18a25b405e55ba82de9b70cd11ba">AK::SoundEngine::SetObjectObstructionAndOcclusion</a></code> or <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ab0216f0dc33bef431d5d92f519e5be58_split_000.html#ab0216f0dc33bef431d5d92f519e5be58">AK::SoundEngine::SetMultipleObstructionAndOcclusion</a></code> with Acoustics emitters, even though Acoustics already uses diffraction and transmission. Refer to section <a class="pcalibre el" href="spatial_audio_roomsportals_apioverview_split_002.html#spatial_audio_roomsportals_modelingsoundpropagationfromotherrooms">Modeling Sound Propagation from Other Rooms</a> and <a class="pcalibre el" href="spatial_audio_roomsportals_advancedtopics_split_002.html#spatial_audio_roomsportals_modelingsoundpropagationfromsameroom">Modeling Obstacles Within a Room</a> for more details on obstruction and occlusion and how to use them with Wwise Acoustics Rooms and Portals.</p>
+<p class="calibre7">The sound engine API <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_af960fca0239e219b9d08c2659fe9e5d4_split_000.html#af960fca0239e219b9d08c2659fe9e5d4">AK::SoundEngine::SetGameObjectAuxSendValues</a></code> may be used to add additional Auxiliary Sends to the ones that are set by Wwise Acoustics. This may be useful when designing complex reverberation within the same Room, for example, if there are objects or terrain that call for different environmental effects. A Room's <code class="calibre14"><a class="pcalibre el" href="struct_ak_room_params_a817e2d1ddf6693558804e546ceff8885_split_000.html#a817e2d1ddf6693558804e546ceff8885">AkRoomParams::ReverbAuxBus</a></code> can also be left to "none" (<code class="calibre14">AK_INVALID_AUX_ID</code>), so that its send busses are only managed by the game via <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_af960fca0239e219b9d08c2659fe9e5d4_split_000.html#af960fca0239e219b9d08c2659fe9e5d4">AK::SoundEngine::SetGameObjectAuxSendValues</a></code>.</p>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="spatial_audio_roomsportals_paths_split_000.html">Propagation Paths in the Rooms and Portals Signal Model</a></li>
+<li class="calibre9"><a class="pcalibre el" href="spatial_audio_roomsportals_distance_split_000.html">Geometric Room Distance on Direct Paths</a></li>
+<li class="calibre9"><a class="pcalibre el" href="spatial_audio_third_person_split_000.html">Third-Person Perspective and Wwise Acoustics</a> </li>
+</ul>
+</dd></dl>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

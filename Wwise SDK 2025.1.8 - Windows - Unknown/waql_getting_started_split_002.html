@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Getting Started with WAQL</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="waql_gs_string_cond"></a>
+String Conditions</h1>
+<p class="calibre7">So far, we have only used numerical conditions. Let's try a string condition:</p>
+<p class="calibre7"><code class="calibre14">$ where name = "hello"</code></p>
+<p class="calibre7">String conditions compare the content of two strings. The equal operator performs a case-insensitive comparison. The condition will evaluate to true when the text is the same, regardless of the case. This is useful when you are looking for something very specific.</p>
+<p class="calibre7">There is also a way to compare portions of strings:</p>
+<p class="calibre7"><code class="calibre14">$ where name : "hello"</code></p>
+<p class="calibre7">This query uses a colon instead of an equal comparison operator. The colon defines a word search operator. It will return true when the specified word is found inside the element we are looking into. In this specific case, it will return true when "hello" is found in the name.</p>
+<p class="calibre7">Additional exercises:</p>
+<ul class="calibre8">
+<li class="calibre9">Change the text for which you are searching</li>
+<li class="calibre9">Try using the asterisk wildcard in the search text, for example, "*lo"</li>
+<li class="calibre9">Replace <b class="calibre13">name</b> by <b class="calibre13">notes</b> or <b class="calibre13">outputbus</b></li>
+</ul>
+</div></div></div></body></html>

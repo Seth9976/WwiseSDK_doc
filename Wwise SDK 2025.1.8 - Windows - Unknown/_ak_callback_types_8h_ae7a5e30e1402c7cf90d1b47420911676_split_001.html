@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AkGlobalCallbackLocation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="_ak_callback_types_8h_ae7a5e30e1402c7cf90d1b47420911676_split_000.html#ae7a5e30e1402c7cf90d1b47420911676" class="pcalibre1 anchor">◆ </a></span>AkGlobalCallbackLocation</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">enum <a class="pcalibre el" href="_ak_callback_types_8h_ae7a5e30e1402c7cf90d1b47420911676_split_000.html#ae7a5e30e1402c7cf90d1b47420911676">AkGlobalCallbackLocation</a></td>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+
+<p class="calibre7">Bit field of various locations in the audio processing loop where the game can be called back. </p>
+<table class="calibre3">
+<tbody class="calibre4"><tr class="calibre16"><th colspan="2" class="calibre35">Enumerator</th></tr><tr class="calibre16"><td class="calibre17"><a id="ae7a5e30e1402c7cf90d1b47420911676a68917ce14320bb481b9ab2cfe6b228b6" class="pcalibre calibre12"></a>AkGlobalCallbackLocation_Register </td><td class="calibre17"><p class="calibre7">Right after successful registration of callback/plugin. Typically used by plugins along with AkGlobalCallbackLocation_Term for allocating memory for the lifetime of the sound engine. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="ae7a5e30e1402c7cf90d1b47420911676af13fd05bf61f00e37dde9b34e8e14a98" class="pcalibre calibre12"></a>AkGlobalCallbackLocation_Begin </td><td class="calibre17"><p class="calibre7">Start of audio processing. The number of frames about to be rendered depends on the sink/end-point and can be zero. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="ae7a5e30e1402c7cf90d1b47420911676a75a5fe904855d596a5652cca9025ee41" class="pcalibre calibre12"></a>AkGlobalCallbackLocation_PreProcessMessageQueueForRender </td><td class="calibre17"><p class="calibre7">Start of frame rendering, before having processed game messages. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="ae7a5e30e1402c7cf90d1b47420911676a01715b3336f3103915d69d62e30b3b82" class="pcalibre calibre12"></a>AkGlobalCallbackLocation_PostMessagesProcessed </td><td class="calibre17"><p class="calibre7">After one or more messages have been processed, but before updating game object and listener positions internally. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="ae7a5e30e1402c7cf90d1b47420911676ae4e4ee72acf1bdc317a2922caadb9797" class="pcalibre calibre12"></a>AkGlobalCallbackLocation_BeginRender </td><td class="calibre17"><p class="calibre7">Start of frame rendering, after having processed game messages. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="ae7a5e30e1402c7cf90d1b47420911676aa8253be90a3fc3c208b61b4f22a1c919" class="pcalibre calibre12"></a>AkGlobalCallbackLocation_EndRender </td><td class="calibre17"><p class="calibre7">End of frame rendering. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="ae7a5e30e1402c7cf90d1b47420911676a8a14506ea05469eece67eeb7f820f997" class="pcalibre calibre12"></a>AkGlobalCallbackLocation_End </td><td class="calibre17"><p class="calibre7">End of audio processing. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="ae7a5e30e1402c7cf90d1b47420911676aa5c7eebdf589a1b0ea29989e78e8ea2d" class="pcalibre calibre12"></a>AkGlobalCallbackLocation_Term </td><td class="calibre17"><p class="calibre7">Sound engine termination. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="ae7a5e30e1402c7cf90d1b47420911676afd0151e57cff61f65ef3ae1bad83d651" class="pcalibre calibre12"></a>AkGlobalCallbackLocation_Monitor </td><td class="calibre17"><p class="calibre7">Send monitor data. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="ae7a5e30e1402c7cf90d1b47420911676ab30108371b0f53285f67c02a27ac8bd5" class="pcalibre calibre12"></a>AkGlobalCallbackLocation_MonitorRecap </td><td class="calibre17"><p class="calibre7">Send monitor data connection to recap. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="ae7a5e30e1402c7cf90d1b47420911676a97caf890959d744c1c088d19c2d02e11" class="pcalibre calibre12"></a>AkGlobalCallbackLocation_Init </td><td class="calibre17"><p class="calibre7">Sound engine initialization. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="ae7a5e30e1402c7cf90d1b47420911676a5d011e46f7895795e517ae8963753c72" class="pcalibre calibre12"></a>AkGlobalCallbackLocation_Suspend </td><td class="calibre17"><p class="calibre7">Sound engine suspension through <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_afc66d31bf5c6425d841ca3510e2d0539_split_000.html#afc66d31bf5c6425d841ca3510e2d0539">AK::SoundEngine::Suspend</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="ae7a5e30e1402c7cf90d1b47420911676afc694c052957b8b0f0016fca4f040786" class="pcalibre calibre12"></a>AkGlobalCallbackLocation_WakeupFromSuspend </td><td class="calibre17"><p class="calibre7">Sound engine awakening through <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a9244da1d4d0deedcabdaaae863fcff47_split_000.html#a9244da1d4d0deedcabdaaae863fcff47">AK::SoundEngine::WakeupFromSuspend</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="ae7a5e30e1402c7cf90d1b47420911676af25ffbaff3659d30f432ebae857d81f5" class="pcalibre calibre12"></a>AkGlobalCallbackLocation_ProfilerConnect </td><td class="calibre17"><p class="calibre7">Wwise Profiler has connected to the game. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="ae7a5e30e1402c7cf90d1b47420911676ab107d5cd5c67e9af1bdc657e461f673a" class="pcalibre calibre12"></a>AkGlobalCallbackLocation_ProfilerDisconnect </td><td class="calibre17"><p class="calibre7">Wwise Profiler has disconnected from the game. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="ae7a5e30e1402c7cf90d1b47420911676a3419a6bea89b5f767052ff39dd7251fc" class="pcalibre calibre12"></a>AkGlobalCallbackLocation_Num </td><td class="calibre17"><p class="calibre7">Total number of global callback locations. </p>
+</td></tr>
+</tbody></table>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_ak_callback_types_8h_source.html#l00108">108</a> of file <a class="pcalibre el" href="_ak_callback_types_8h_source.html">AkCallbackTypes.h</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

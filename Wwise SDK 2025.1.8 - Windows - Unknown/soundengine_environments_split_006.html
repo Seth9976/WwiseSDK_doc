@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integration Details - Environments and Game-defined Auxiliary Sends</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_5"><a class="pcalibre1 anchor" id="soundengine_environments_dynamic_aux_bus_routing"></a>
+Dynamically Sending To Auxiliary Busses.</h1>
+<p class="calibre7">Dynamically driving the aux bus routing is done using the <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_af960fca0239e219b9d08c2659fe9e5d4_split_000.html#af960fca0239e219b9d08c2659fe9e5d4">AK::SoundEngine::SetGameObjectAuxSendValues()</a></code> function. The first parameter of the function is the game object ID to which the game-defined aux bus routing will be applied. The second and third parameters represent an array of structure of type <code class="calibre14"><a class="pcalibre el" href="struct_ak_aux_send_value_split_000.html" title="Auxiliary bus sends information per game object per given auxiliary bus.">AkAuxSendValue</a></code> and the number of Auxiliary Busses to send to. If the sound does not have the option "Use game-defined auxiliary sends" enabled, then no environments will be applied to this game object. For every Auxiliary Bus to which a game object is sent, a control value must be set representing the percentage application of the environment. The control value is a value ranging from 0.0f to 1.0f, where 0 represents no send and 1 represents 100% send.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> When you change the auxiliary sends of an object, the sound engine interpolates environments to avoid glitches. Thus, in a given frame, an object may be connected to more Auxiliary Busses that you would expect. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

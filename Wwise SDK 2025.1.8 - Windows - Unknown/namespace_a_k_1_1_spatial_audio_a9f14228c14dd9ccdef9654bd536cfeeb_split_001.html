@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::SpatialAudio::QueryWetDiffraction</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="namespace_a_k_1_1_spatial_audio_a9f14228c14dd9ccdef9654bd536cfeeb_split_000.html#a9f14228c14dd9ccdef9654bd536cfeeb" class="pcalibre1 anchor">◆ </a></span>QueryWetDiffraction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_sound_engine_export_8h_ac6e96d34dfc0e12f9aaa7a47f4e9c322_split_000.html#ac6e96d34dfc0e12f9aaa7a47f4e9c322">AKSOUNDENGINE_API</a> <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::SpatialAudio::QueryWetDiffraction </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_spatial_audio_types_8h_a8e9c611850968a9aed0bc88bc71cd992_split_000.html#a8e9c611850968a9aed0bc88bc71cd992">AkPortalID</a> </td>
+          <td class="paramname"><em class="calibre59">in_portal</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a> &amp; </td>
+          <td class="paramname"><em class="calibre59">out_wetDiffraction</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Query information about the wet diffraction amount for the portal <code class="calibre14">in_portal</code>, returned as a normalized value <code class="calibre14">out_wetDiffraction</code> in the range [0,1]. <br class="calibre10"/>
+ The wet diffraction is calculated from how far into the 'shadow region' the listener is from the portal. Unlike dry diffraction, the wet diffraction does not depend on the incident angle, but only the normal of the portal. This value is applied by spatial audio, to the Diffraction value and built-in game parameter of the room game object that is on the other side of the portal (relative to the listener). This function must acquire the global sound engine lock and therefore, may block waiting for the lock. </p><dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_spatial_audio_init_settings_split_000.html">AkSpatialAudioInitSettings</a> </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_portal</td><td class="calibre17">The ID of the game object that the client wishes to query. </td></tr>
+    <tr class="calibre16"><td class="paramname">out_wetDiffraction</td><td class="calibre17">The number of slots in <code class="calibre14">out_aPaths</code>, after returning the number of valid elements written. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

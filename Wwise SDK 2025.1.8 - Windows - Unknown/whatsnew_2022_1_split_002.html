@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2022.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="generic_api_changes_2022_1"></a>
+API Changes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-52324</b> (WAAPI) Added topics ak.wwise.core.profiler.stateChanged and ak.wwise.core.profiler.switchChanged to allow subscription to notifications about changes of State Groups and Switch Groups.</li>
+<li class="calibre9"><b class="calibre13">WG-55694</b> (WAAPI) Added <a class="pcalibre el" href="ak_wwise_core_sound_setactivesource_split_000.html">ak.wwise.core.sound.setActiveSource</a> function and activeSource accessor.</li>
+<li class="calibre9"><b class="calibre13">WG-55975</b> Functions for controlling AkSemaphores, such as AkCreateSemaphore, now accept AkSemaphore&amp; as their parameter, not AkSemaphore*.</li>
+<li class="calibre9"><b class="calibre13">WG-56507</b> TryUnsetMedia now issues an asynchronous stop command, and marks media as unavailable, to guarantee that repeat calls to TryUnsetMedia will eventually succeed.</li>
+<li class="calibre9"><b class="calibre13">WG-56825</b> Plug-in API and callbacks: converted <code class="calibre14">AK::IAkMetering</code> interface to a plain struct <code class="calibre14"><a class="pcalibre el" href="struct_a_k_1_1_ak_metering_split_000.html" title="Struct containing metering information about a buffer. Depending on when this struct is generated,...">AK::AkMetering</a></code>.</li>
+<li class="calibre9"><b class="calibre13">WG-57085</b> Samples Library: <code class="calibre14">CAkFileHelpers::CloseFile</code> now accepts <a class="pcalibre el" href="struct_ak_file_desc_split_000.html">AkFileDesc</a> as an input parameter on all platforms, not an AkFileHandle.</li>
+<li class="calibre9"><b class="calibre13">WG-57285</b> Added new commands to <code class="calibre14">AK::ISourceControl::PluginInfo</code> to support more operations without a user interface. The new commands are used when updating output files (generated SoundBank and copied media files) under source control.</li>
+<li class="calibre9"><b class="calibre13">WG-57835</b> New argument is required in deprecated Mixer Plug-in API <code class="calibre14">IAkMixerInputContext::GetInputParam()</code> to allow the use of metadata plug-ins on Wwise objects routed to a mixer plug-in.</li>
+<li class="calibre9"><b class="calibre13">WG-58049</b> The Wwise sound engine now supports large world coordinates for game objects by moving to double-precision values for positioning. This allows the positioning of sounds to behave predictably, even with worlds that are billions of units in size. APIs dealing with game object positions have been updated to use two new types, <a class="pcalibre el" href="struct_ak_world_transform_split_000.html" title="Position and orientation of game objects in the world (i.e. supports 64-bit-precision position)">AkWorldTransform</a> and <a class="pcalibre el" href="struct_ak_vector64_split_000.html" title="3D 64-bit vector. Intended as storage for world positions of sounds and objects, benefiting from 64-b...">AkVector64</a>, which provide the additional data. This also includes changing the typedefs for AkSoundPosition and AkListenerPosition from <a class="pcalibre el" href="struct_ak_transform_split_000.html" title="Position and orientation of objects in a &quot;local&quot; space.">AkTransform</a> to <a class="pcalibre el" href="struct_ak_world_transform_split_000.html" title="Position and orientation of game objects in the world (i.e. supports 64-bit-precision position)">AkWorldTransform</a>. For more information, refer to <a class="pcalibre el" href="whatsnew_2022_1_migration_split_018.html#large_world_coordinates_for_game_objects">Large World Coordinates for Game Objects</a> in the migration notes.</li>
+<li class="calibre9"><b class="calibre13">WG-58395</b> Added <code class="calibre14">AkMemSettings::bUseDeviceMemAlways</code> initialization parameter to reduce memory usage on certain platforms by instantiating only a single heap for both device and non-device memory, instead of separate heaps for the two.</li>
+<li class="calibre9"><b class="calibre13">WG-58561</b> <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_source_control_containers_1_1_i_ak_list_split_000.html">AK::Wwise::SourceControlContainers::IAkList</a></code> now manages a single AkPos instance at a time. This means that methods returning an AkPos instance now invalidate any previously obtained AkPos, and such methods must no longer be called while iterating the list. Refer to the in-code SDK documentation for more details.</li>
+<li class="calibre9"><b class="calibre13">WG-59164</b> Removed <code class="calibre14">AkCommSettings::uNotification</code> initialization parameter: there is now only one dynamic port for communication with Wwise Authoring.</li>
+<li class="calibre9"><b class="calibre13">WG-59243</b> (WAAPI) Reworked content and format of information returned by function <a class="pcalibre el" href="ak_wwise_core_soundbank_generated_split_000.html">ak.wwise.core.soundbank.generated</a>.</li>
+<li class="calibre9"><b class="calibre13">WG-59258</b> Made the function <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_i_progress_a17958067a0608c0bbd4fc1556b7f8767_split_000.html#a17958067a0608c0bbd4fc1556b7f8767" title="Check if the user has cancelled the task.">AK::Wwise::Plugin::IProgress::IsCancelled</a></code> const.</li>
+<li class="calibre9"><b class="calibre13">WG-59775</b> (WAAPI) Added new error URI <code class="calibre14">ak.wwise.unknown_class_id</code>. More details are now provided in errors ak.wwise.invalid_language, ak.wwise.unknown_language, ak.wwise.unknown_platform, and ak.wwise.invalid_type.</li>
+<li class="calibre9"><b class="calibre13">WG-60226</b> The functions on IAkPluginServiceRNG to fetch the seed value used by the sound engine's random number generator now also advance the seed value.</li>
+</ul>
+</div></div></div></body></html>

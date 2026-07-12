@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak.wwise.core.audioSourcePeaks.getMinMaxPeaksInTrimmedRegion</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="ak_wwise_core_audiosourcepeaks_getminmaxpeaksintrimmedregionResult"></a>
+Result</h1>
+<p class="calibre7"></p><table class="doxtable">
+<tbody class="calibre4"><tr class="calibre16">
+<th class="calibre46">Name </th><th class="calibre46">Type </th><th class="calibre46">Description  </th></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">peaksBinaryStrings</b> </td><td class="calibre36">array </td><td class="calibre36">An array of binary strings.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">peaksBinaryStrings <b class="calibre13">[...]</b> </td><td class="calibre36">string </td><td class="calibre36">Binary strings representing one channel of min/max peaks data. When getCrossChannelPeaks is true there is only one binary string in this array, representing the min/max peaks across all channels.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">numChannels</b> </td><td class="calibre36">number </td><td class="calibre36">The number of channels of peak data (i.e. the number of strings in peaksBinaryStrings). This is 1 if getCrossChannelPeaks is true.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">maxAbsValue</b> </td><td class="calibre36">number </td><td class="calibre36">The maximum value that a peak can take. This can be used to normalize the peaks in the array (between -1, 1), by dividing each by this number.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">peaksArrayLength</b> </td><td class="calibre36">number </td><td class="calibre36">The number of peaks in the returned min max channel arrays. If peaksArrayLength is less than the numPeaks input argument, this indicates fewer samples were available than numPeaks requested. In this case, the arrays contain all of the sample values within the requested time window.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">peaksDataSize</b> </td><td class="calibre36">number </td><td class="calibre36">The size of the data in the min/max peaks arrays. This can be used (in conjunction with peaksArrayLength) to decode the peaksBinaryStrings to 16 bit integer arrays.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">channelConfig</b> </td><td class="calibre36">string </td><td class="calibre36">The channel configuration.   </td></tr>
+</tbody></table>
+<p class="calibre7"></p>
+<p class="calibre7"><a class="pcalibre el" href="ak_wwise_core_audiosourcepeaks_getminmaxpeaksintrimmedregion_result_schema_split_000.html">Result Schema</a></p>
+</div></div></div></body></html>

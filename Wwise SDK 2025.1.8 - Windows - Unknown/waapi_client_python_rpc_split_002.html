@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Python (Waapi-Client) - Remote Procedure Call</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="waapi_client_python_rpc_code"></a>
+Project Code</h1>
+<p class="calibre7">This file contains the following code, which allows you to connect to the Wwise Authoring API. </p><div class="fragment"><div class="line"><span class="comment">#!/usr/bin/env python3</span></div>
+<div class="line"><span class="keyword">from</span> waapi <span class="keyword">import</span> WaapiClient, CannotConnectToWaapiException</div>
+<div class="line"><span class="keyword">from</span> pprint <span class="keyword">import</span> pprint</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordflow">try</span>:</div>
+<div class="line">    <span class="comment"># Connecting to Waapi using default URL</span></div>
+<div class="line">    <span class="keyword">with</span> WaapiClient() <span class="keyword">as</span> client:</div>
+<div class="line">        <span class="comment"># NOTE: client will automatically disconnect at the end of the scope</span></div>
+<div class="line">        </div>
+<div class="line">        <span class="comment"># == Simple RPC without argument</span></div>
+<div class="line">        print(<span class="stringliteral">"Getting Wwise instance information:"</span>)</div>
+<div class="line">        </div>
+<div class="line">        result = client.call(<span class="stringliteral">"ak.wwise.core.getInfo"</span>)</div>
+<div class="line">        pprint(result)</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment"># == RPC with arguments</span></div>
+<div class="line">        print(<span class="stringliteral">"Query the Default Work Unit information:"</span>)</div>
+<div class="line">        </div>
+<div class="line">        object_get_args = {</div>
+<div class="line">            <span class="stringliteral">"from"</span>: {</div>
+<div class="line">                <span class="stringliteral">"path"</span>: [<span class="stringliteral">"\\Containers\\Default Work Unit"</span>]</div>
+<div class="line">            },</div>
+<div class="line">            <span class="stringliteral">"options"</span>: {</div>
+<div class="line">                <span class="stringliteral">"return"</span>: [<span class="stringliteral">"id"</span>, <span class="stringliteral">"name"</span>, <span class="stringliteral">"type"</span>]</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        result = client.call(<span class="stringliteral">"ak.wwise.core.object.get"</span>, object_get_args)</div>
+<div class="line">        pprint(result)</div>
+<div class="line"><span class="keywordflow">except</span> CannotConnectToWaapiException:</div>
+<div class="line">    print(<span class="stringliteral">"Could not connect to Waapi: Is Wwise running and Wwise Authoring API enabled?"</span>)</div>
+</div><!-- fragment --></div></div></div></body></html>

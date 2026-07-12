@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Source Control Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_10"><a class="pcalibre1 anchor" id="source_control_dll_creation_progress"></a>
+Implementing the Source Control Operation Progress Interface</h2>
+<p class="calibre7">The AK::Wwise::ISourceControlOperationProgress interface's implementation can be accessed via the <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_utilities_split_000.html">AK::Wwise::ISourceControlUtilities</a> interface given to the plug-in upon initialization. The former interface exposes these methods:</p><ul class="calibre8">
+<li class="calibre9">AK::Wwise::ISourceControlOperationProgress::ShowProgress();</li>
+<li class="calibre9">AK::Wwise::ISourceControlOperationProgress::AddLogMessage(LPCWSTR in_pszMessage );</li>
+<li class="calibre9">AK::Wwise::ISourceControlOperationProgress::IsCanceled();</li>
+<li class="calibre9">AK::Wwise::ISourceControlOperationProgress::Cancel();</li>
+<li class="calibre9">AK::Wwise::ISourceControlOperationProgress::OperationCompleted().</li>
+</ul>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="source_control_dll_creation_progress_creating"></a>
+Creating the Progress Dialog</h3>
+<p class="calibre7">To create and display the progress dialog, use the AK::Wwise::ISourceControlOperationProgress::ShowProgress() non-blocking method. To add a message to the log message list, use the AK::Wwise::ISourceControlOperationProgress::AddLogMessage() method.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="warning.gif"/></td><td class="calibre17"><b class="calibre13">Warning:</b> The progress dialog doesn't consider escape characters (such as '\n' or '\t'). The text must be added line by line and tabulation must be replaced with blank spaces. </td></tr>
+</tbody></table>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="source_control_dll_creation_progress_ok"></a>
+Enabling the OK Button</h3>
+<p class="calibre7">To enable the OK button, call the AK::Wwise::ISourceControlOperationProgress::OperationCompleted() method. The method will not return until the user presses the OK button. When the user does so, the dialog is closed and destroyed.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="source_control_dll_creation_progress_cancel"></a>
+Enabling the Cancel Button</h3>
+<p class="calibre7">To know if the user has pressed the Cancel button, call the AK::Wwise::ISourceControlOperationProgress::IsCanceled() method. You can also cancel the operation by calling the AK::Wwise::ISourceControlOperationProgress::Cancel() method.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> Even if you programmatically cancel the dialog by calling the AK::Wwise::ISourceControlOperationProgress::Cancel() method, you still have to call AK::Wwise::ISourceControlOperationProgress::OperationCompleted() to close and destroy the dialog. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

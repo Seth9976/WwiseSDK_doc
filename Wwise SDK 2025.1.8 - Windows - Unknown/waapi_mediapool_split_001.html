@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Managing and Querying the Media Pool</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="waapi_mediapool_database_management"></a>
+Managing Media Pool Databases</h1>
+<p class="calibre7">Media Pool databases are organized in a tree structure, with a private root node. The databases contain metadata about audio files such as their names, fields, and extracted audio features. The databases do not contain the audio files themselves. Wwise never writes, renames, or moves the actual audio files added to the Media Pool.</p>
+<p class="calibre7">There is one Project Originals database, which contains information about audio files that are already included in the Wwise project. You can also create User Databases, which link to libraries or directories that contain audio files that are not included in the Wwise project (for example, a recently downloaded <a href="https://www.audiokinetic.com/strata-library/overview/" target="_blank" class="pcalibre calibre12">Strata</a> collection). If you import files into Wwise from a location linked to a User Database, their information is added to the Project Originals database as well.</p>
+<p class="calibre7">Add User Databases as required to search audio files from multiple locations in your file system. When you use WAAPI to create databases, ensure that you create them under the User Databases folder.</p>
+<p class="calibre7">The following example shows the tree structure of the Media Pool databases and folders along with their GUIDs:</p>
+<ul class="calibre8">
+<li class="calibre9">Databases (Folder)<ul class="calibre15">
+<li class="calibre9">Project Originals</li>
+<li class="calibre9">User Databases (Folder)<ul class="calibre30">
+<li class="calibre9">Database 1</li>
+<li class="calibre9">Database 2</li>
+<li class="calibre9">...</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="calibre7">The databases are created in:</p><ul class="calibre8">
+<li class="calibre9"><b class="calibre13">Windows</b>: <code class="calibre14">LOCALAPPDATA%\Audiokinetic\Wwise\MediaPool\Databases</code></li>
+<li class="calibre9"><b class="calibre13">macOS</b>: <code class="calibre14">$HOME/Library/Application Support/Audiokinetic/Wwise/MediaPool/Databases</code></li>
+</ul>
+<p class="calibre7">Each database has an associated Lightning Memory-Mapped Database (LMDB) as its storage backend.</p>
+</div></div></div></body></html>

@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2023.1.0</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="generic_behavior_changes_2023_1"></a>
+Behavior Changes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-31188</b> The .akd file contents have been moved to a database inside the project's .cache folder. Existing .akd files can be deleted.</li>
+<li class="calibre9"><b class="calibre13">WG-47959</b> Arguments given to WwiseConsole that interact with an existing project are now relative to the console's current working directory instead of the project's directory.</li>
+<li class="calibre9"><b class="calibre13">WG-59985</b> Command add-ons using the redirectOutput option now start a process with a hidden window.</li>
+<li class="calibre9"><b class="calibre13">WG-61331</b> In the Voice Monitor <b class="calibre13">Bus</b> field, <b class="calibre13">Master Audio Bus</b> is now selected by default.</li>
+<li class="calibre9"><b class="calibre13">WG-61333</b> Spatial Audio rays are now expanded by default in the Contribution List of the Voice Inspector. Right-click the Contribution List to disable this functionality using the new <b class="calibre13">Auto Expand Spatial Audio</b> option.</li>
+<li class="calibre9"><b class="calibre13">WG-61770</b> Improved the ray tracing engine by continuously casting a small number of rays. The casting of rays no longer depends on the motion threshold setting (see <a class="pcalibre el" href="struct_ak_spatial_audio_init_settings_split_000.html">AkSpatialAudioInitSettings</a>). Rays are no longer cleared between calls to the ray tracing engine. Instead, they are kept until they become invalid. Casting rays continuously better distributes the CPU load among frames, reducing CPU spikes. And the default number of primary rays has been lowered to 10.</li>
+<li class="calibre9"><b class="calibre13">WG-62723</b> Creating a Sound SFX from the Project Explorer shortcut menu using a source plug-in now brings focus to the object name first and then to the Object Tab, similar to all other newly created objects.</li>
+<li class="calibre9"><b class="calibre13">WG-62888</b> AK Convolution Reverb IR can now be updated when Wwise is connected to a game without regenerating SoundBanks.</li>
+<li class="calibre9"><b class="calibre13">WG-63600</b> List search filter is now visible by default in the Multi Editor, the Keyboard Shortcuts and Commands dialog, and the Object Property Settings dialog of the List View.</li>
+<li class="calibre9"><b class="calibre13">WG-64024</b> (Wwise Console) The <code class="calibre14">project</code> argument is now optional for the <a class="pcalibre el" href="ak_wwise_cli_waapiserver_split_000.html">waapi-server</a> operation.</li>
+<li class="calibre9"><b class="calibre13">WG-64046</b> (Spatial Audio) Portal spread calculation now takes into account the listener's angle away from the front of a portal.</li>
+<li class="calibre9"><b class="calibre13">WG-64358</b> In the options dialogs for the Capture Log, Game Object 3D Viewer, and Audio Object 3D Viewer, moved Reset button from lower-right corner to lower-left corner to avoid confusion with typical placement of cancel buttons.</li>
+<li class="calibre9"><b class="calibre13">WG-64817</b> The Wwise toolbar now displays the name of the task running in the background if there is only one task. Otherwise, the number of tasks in execution and on hold is displayed.</li>
+<li class="calibre9"><b class="calibre13">WG-65038</b> (Spatial Audio) Geometric transmission loss now overrides room transmission loss if geometry is available to a room. Previously, Spatial Audio took the maximum of the geometric (surface) transmission loss and the room transmission loss values. However, this made it problematic to have a room with mixed transmissive and opaque surfaces. Having such a room would necessitate setting the room transmission loss value to the lowest surface transmission loss value, which would then make the reverb and room tones fully audible. By ignoring the room transmission loss value when geometry is available, the room transmission loss can now be set to a representative average and can be used effectively for reverb spatialization and room tone transmission simulation.</li>
+<li class="calibre9"><b class="calibre13">WG-65089</b> When using <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a1b3e18a25b405e55ba82de9b70cd11ba_split_000.html#a1b3e18a25b405e55ba82de9b70cd11ba">SetObjectObstructionAndOcclusion()</a></code> with Spatial Audio, the obstruction and occlusion values are now only sent to the direct path.</li>
+<li class="calibre9"><b class="calibre13">WG-65361</b> When changing the acoustic texture associated with an image source across two frames, the output signal of the Reflect plug-in now ducks and fades back in. Previously, only the contribution of the image source was affected, but in a harsher way. Note, the recommended way to handle the real-time swap of acoustic textures is to use a different image source ID.</li>
+</ul>
+</div></div></div></body></html>

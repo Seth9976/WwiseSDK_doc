@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2018.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_5"><a class="pcalibre1 anchor" id="opus_rename"></a>
+Opus for Nintendo Switch has been renamed OpusNX</h2>
+<p class="calibre7">With the introduction of the standard software Opus codec, the Switch-specific Opus codec was renamed OpusNX. This means that the related files have changed as well:</p><ul class="calibre8">
+<li class="calibre9">include file AkOpusFactory.h is now <a class="pcalibre el" href="_ak_opus_n_x_factory_8h_split_000.html">AkOpusNXFactory.h</a></li>
+<li class="calibre9">library file libAkOpusDecoder.a is now libAkOpusNXDecoder.a</li>
+</ul>
+<p class="calibre7">These files should be used on the Nintendo Switch to make use of the hardware decoder of that platform. Note that the standard Opus codec is also available on Switch but will be decoded in software. The standard Opus codec files are named <a class="pcalibre el" href="_ak_opus_decoder_factory_8h.html">AkOpusDecoderFactory.h</a> and AkOpusDecoder[.lib, .a].</p>
+</div></div></div></body></html>

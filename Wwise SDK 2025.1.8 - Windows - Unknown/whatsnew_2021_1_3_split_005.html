@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2021.1.3</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_4"><a class="pcalibre1 anchor" id="generic_bugs_2021_1_3"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-54122</b> Fixed: Images are wrongly reported as missing in the Authoring application.</li>
+<li class="calibre9"><b class="calibre13">WG-54484</b> Fixed: Appearance of Mixing Desk faders changes when moving the mouse over.</li>
+<li class="calibre9"><b class="calibre13">WG-54514</b> Fixed: (Spatial Audio) An assert when shutting down the Sound Engine if <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_a130a8d8fba48b2207aab063ce9ac729c_split_000.html#a130a8d8fba48b2207aab063ce9ac729c">AK::SpatialAudio::RemoveRoom()</a></code> is not called.</li>
+<li class="calibre9"><b class="calibre13">WG-54649</b> Fixed: Possible multiplication overflow on large files in <code class="calibre14">AK::StreamMgr::CAkStmTask::GetFileOffset</code>.</li>
+<li class="calibre9"><b class="calibre13">WG-54772</b> Fixed: Game Sync Monitor displays wrong label for Game Syncs.</li>
+<li class="calibre9"><b class="calibre13">WG-54808</b> Fixed: (Mac Authoring) Cannot use launch scripts without running Wwise.app first.</li>
+<li class="calibre9"><b class="calibre13">WG-54898</b> Fixed: The <em class="calibre11">Save All Counters to File...</em> entry in the context menu of the Performance Monitor is missing. It has been restored and renamed <em class="calibre11">Save Performance Counters.</em></li>
+<li class="calibre9"><b class="calibre13">WG-54924</b> Fixed: Crash when editing AkGeometryComponent properties during Play In Editor.</li>
+<li class="calibre9"><b class="calibre13">WG-54996</b> Fixed: Z control of Steering Panner is not updated after undo.</li>
+<li class="calibre9"><b class="calibre13">WG-55153</b> Fixed: (Spatial Audio) Transmission loss is not applied when the straight line path between an emitter and the listener intersects any portal, even if the portal is not part of the path between the emitter and listener.</li>
+<li class="calibre9"><b class="calibre13">WG-55155</b> Fixed: Krotos Igniter Live Synth crashes for some custom waveform files.</li>
+<li class="calibre9"><b class="calibre13">WG-55179</b> Fixed: Using <code class="calibre14">DataWriter::WriteString</code> in Authoring plug-ins' <code class="calibre14">GetBankParameter</code> function always writes an empty string.</li>
+<li class="calibre9"><b class="calibre13">WG-55183</b> Fixed: Source starvation when playing long Vorbis sounds with small Seek Table Granularity.</li>
+<li class="calibre9"><b class="calibre13">WG-55206</b> Fixed: Rare infinite loop in CAkAudioMgr::ReserveQueue.</li>
+<li class="calibre9"><b class="calibre13">WG-55219</b> Corrected an issue when using multi-positions and setting a number of positions higher than 255.</li>
+<li class="calibre9"><b class="calibre13">WG-55234</b> Fixed: Convolution Reverb Effect Editor data refreshes needlessly.</li>
+<li class="calibre9"><b class="calibre13">WG-55238</b> Fixed: Convolution Reverb Effect Editor does not always use impulse file when initially added.</li>
+<li class="calibre9"><b class="calibre13">WG-55314</b> Fixed: (WAQL) Possible crash when using the "referenceTo" keyword.</li>
+<li class="calibre9"><b class="calibre13">WG-55364</b> Fixed: Wwise projects with iZotope Trashbox Modeler plug-ins are set to dirty after project load.</li>
+<li class="calibre9"><b class="calibre13">WG-55371</b> Fixed: Crash when playing sample accurate sequence container with child container that has an effect.</li>
+<li class="calibre9"><b class="calibre13">WG-55417</b> Fixed: Impacter plug-in has runtime dependencies on C++ STL.</li>
+<li class="calibre9"><b class="calibre13">WG-55458</b> Fixed: Device ID numbers are not displayed on Audio Devices in the Voice Graph and Voice Inspector.</li>
+<li class="calibre9"><b class="calibre13">WG-55622</b> Fixed: Rare crash when using Blend Containers.</li>
+</ul>
+</div></div></div></body></html>

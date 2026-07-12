@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Defining C++ Project Settings</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_5"><a class="pcalibre1 anchor" id="soundengine_integration_cppprojectsettings_various_wchar_t"></a>
+Using wchar_t</h2>
+<p class="calibre7">If you call one or many Wwise sound engine functions that use the <b class="calibre13">wchar_t</b> type, you need to enable the "Treat wchar_t as Built-in type" option in your project's settings to ensure proper linking to the sound engine libraries. To do so, go to Configuration Properties &gt; C/C++ &gt; Language, and set "Treat wchar_t as Built-in Type" to "Yes". This sets the "/Zc:wchar_t" compile flag.</p>
+<p class="calibre7">However, this is not required if you do not call any of the functions of the sound engine that use the <b class="calibre13">wchar_t</b> type. Note that all these functions have counterparts that use the <b class="calibre13">char</b> type instead.</p>
+<p class="calibre7">If you call a function that uses <b class="calibre13">wchar_t</b>, but do not enable the "Treat wchar_t as Built-in Type" setting in your project, you will receive a link error similar to this one: <em class="calibre11">unresolved external symbol "enum AKRESULT __cdecl AK::SoundEngine::LoadBank(unsigned short const *,long,unsigned long &amp;)"</em>, because the compiler incorrectly interprets the function AK::SoundEngine::LoadBank(const wchar_t *,long,unsigned long &amp;) as AK::SoundEngine::LoadBank(unsigned short const *,long,unsigned long &amp;).</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="warning.gif"/></td><td class="calibre17"><p class="starttd"><b class="calibre13">Warning:</b> We recommend that you enable the "Treat wchar_t as Built-in Type" setting in your project. If you do not want to enable it, please read the following.</p>
+<p class="calibre7">Pay special attention to the <b class="calibre13">AkOSChar</b> type, which has a typedef of <b class="calibre13">wchar_t</b> on some platforms. This type is used with methods that involve disk I/O. More specifically, it is used by the Stream Manager (<a class="pcalibre el" href="class_a_k_1_1_i_ak_stream_mgr_split_000.html">AK::IAkStreamMgr</a>) and Low-Level I/O (<a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_split_000.html">AK::StreamMgr::IAkLowLevelIOHook</a>) interfaces.</p>
+<p class="calibre7">If Audiokinetic's default Stream Manager is used as your I/O manager throughout your game, you must enable the "Treat wchar_t as Built-in Type" setting on platforms where <b class="calibre13">AkOSChar</b> have a typedef of <b class="calibre13">wchar_t</b>. Typically, though, the Wwise sound engine is the only client of the Stream Manager. In such a case it is not necessary to enable the "Treat wchar_t as Built-in Type" setting in your project.</p>
+<p class="calibre7">The "Treat wchar_t as Built-in Type" setting does not cause problems with the Low-Level I/O API because you don't typically <em class="calibre11">call</em> it, but <em class="calibre11">implement</em> it instead.</p>
+<p class="calibre7">Note that the File Package Low-Level I/O sample (see <a class="pcalibre el" href="samplecode_split_009.html#samplecode_integration_filepackagelowlevelio">File Package Low-Level I/O Implementation</a>) calls some methods of the sound engine that use the <b class="calibre13">wchar_t</b> type when <b class="calibre13">AkOSChar</b> has a typedef of <b class="calibre13">wchar_t</b>. If you want to use this sample in your project without enabling the "Treat wchar_t as Built-in Type" setting, you must modify some parts of it to convert <b class="calibre13">wchar_t</b> strings into <b class="calibre13">char</b> strings wherever it is necessary. You can use the <a class="pcalibre el" href="namespace_a_k_p_l_a_t_f_o_r_m_a79c12f8f0710c4772f99b341006af233_split_000.html#a79c12f8f0710c4772f99b341006af233" title="String conversion helper. If io_pszAnsiString is null, the function returns the required size.">AKPLATFORM::AkWideCharToChar()</a> helper to do so. It is defined in <a class="pcalibre el" href="_common_2_ak_platform_funcs_8h_split_000.html">AK/Tools/Common/AkPlatformFuncs.h</a>.</p>
+<p class="endtd">For more information on how to integrate Wwise I/O, refer to <a class="pcalibre el" href="streamingdevicemanager_split_000.html">Streaming / Stream Manager</a>. </p>
+</td></tr>
+</tbody></table>
+</div></div></div></body></html>

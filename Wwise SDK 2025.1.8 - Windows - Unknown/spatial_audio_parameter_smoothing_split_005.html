@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Parameter Smoothing [Experimental]</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_4"><a class="pcalibre1 anchor" id="spatial_audio_parameter_smoothing_diffraction"></a>
+Diffraction Settings</h2>
+<p class="calibre7">To mitigate CPU usage, you can reduce the number of diffraction paths per emitter, which is another factor that can contribute to audio discontinuities. Low values for <a class="pcalibre el" href="struct_ak_spatial_audio_init_settings_a94f819cee9905b9745f9d628aedf7cf2_split_000.html#a94f819cee9905b9745f9d628aedf7cf2">AkSpatialAudioInitSettings::uMaxDiffractionPaths</a> typically cause paths to pop in and out, because a shorter path around one side of an obstacle replaces a longer path.</p>
+<p class="calibre7">You can also reduce the maximum diffraction order, which determines the maximum number of edges that a single path can contain. Low values for <a class="pcalibre el" href="struct_ak_spatial_audio_init_settings_a0e01d0d34659de40a8d84d93e05dfeab_split_000.html#a0e01d0d34659de40a8d84d93e05dfeab">AkSpatialAudioInitSettings::uMaxDiffractionOrder</a> can cause diffraction value discontinuities when the maximum number of edges is exceeded.</p>
+<p class="calibre7">Using parameter smoothing to eliminate discontinuities from conservative diffraction settings makes these kinds of artifacts much less audible and provides a more continuous audio experience. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

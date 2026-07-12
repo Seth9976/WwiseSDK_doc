@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Sound Engine Object Processor Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_4"><a class="pcalibre1 anchor" id="soundengine_plugins_objectprocessor_inplace_tails"></a>
+Handling Tails in In-Place Object Processors</h2>
+<p class="calibre7">Like Effect plug-ins, in-place Object Processors can handle tails by changing the <a class="pcalibre el" href="class_ak_audio_buffer_a069d15381980ac4851216e084cf6a0cc_split_000.html#a069d15381980ac4851216e084cf6a0cc" title="Execution status.">AkAudioBuffer::eState</a> field from AK_NoMoreData to AK_DataReady for the desired number of frames. Refer to <a class="pcalibre el" href="soundengine_plugins_effects_split_006.html#fx_tails">Implementing Effect Plug-in Tails</a> for more details. It is important to note however that Object Processors need to handle tails of all their Audio Objects independently. They would thus need to keep track of each object.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="caution.gif"/></td><td class="calibre17"><b class="calibre13">Caution:</b> Do not store the addresses of audio objects passed to Execute. They can change from frame to frame. The preferred way of identifying an object is to use the <a class="pcalibre el" href="struct_ak_audio_object_a4b5cc754786f067fa2b3fbed875652d8_split_000.html#a4b5cc754786f067fa2b3fbed875652d8" title="Unique ID, local to a given bus. Only the lower 56 of 64 bits are used for the object itself....">AkAudioObject::key</a> field. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

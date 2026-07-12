@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak_wwise_plugin_host_object_store_v1::GetListName</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="structak__wwise__plugin__host__object__store__v1_ac3d12537281fa88a2bbfb71e4e6cebbf_split_000.html#ac3d12537281fa88a2bbfb71e4e6cebbf" class="pcalibre1 anchor">◆ </a></span>GetListName</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">unsigned int(* ak_wwise_plugin_host_object_store_v1::GetListName) (const struct <a class="pcalibre el" href="structak__wwise__plugin__host__object__store__instance__v1_split_000.html">ak_wwise_plugin_host_object_store_instance_v1</a> *in_this, unsigned int in_uiListIndex, char *out_pszListName, unsigned int in_uiBufferSize)</td>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+
+<p class="calibre7">Gets the name of the list at the specified position. </p>
+<p class="calibre7">List ordering is arbitrary and can vary between Wwise Authoring versions or project loads.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="warning.gif"/></td><td class="calibre17"><b class="calibre13">Warning:</b> If you do not provide a buffer big enough to write the full string, the function will fail and return 0. Make sure to use a buffer big enough to write the entire string, depending on your own naming convention. </td></tr>
+</tbody></table>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_this</td><td class="calibre17">Current instance of this interface. </td></tr>
+    <tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_uiListIndex</td><td class="calibre17">Index of the list name to retrieve. </td></tr>
+    <tr class="calibre16"><td class="calibre17">[out]</td><td class="paramname">out_pszListName</td><td class="calibre17">Pointer to a buffer that will contain the list name. </td></tr>
+    <tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_uiBufferSize</td><td class="calibre17">Size of the provided buffer. If the buffer is not big enough for the entire name alongside a string ending suffix, the function will return 0 and no string will be copied. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">Number of characters written to the buffer, zero if failed. </dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_host_object_store_8h_source.html#l00274">274</a> of file <a class="pcalibre el" href="_host_object_store_8h_source.html">HostObjectStore.h</a>.</p>
+
+<p class="calibre7">Referenced by <a class="pcalibre el" href="_host_object_store_8h_source.html#l00594">AK.Wwise::Plugin::V1::ObjectStore&lt; PropertySetT &gt;::GetListName()</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

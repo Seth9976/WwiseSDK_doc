@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak.soundengine.getState Options Schema</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2"><h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="section_ak_soundengine_getstate_optionsSchema"></a>
+Schema</h1>
+<div class="fragment"><div class="line">{</div>
+<div class="line">    "type": "object",</div>
+<div class="line">    "description": "Specifies the return options for every object returned.\\n Object specifying the options for the results.",</div>
+<div class="line">    "properties": {</div>
+<div class="line">        "return": {</div>
+<div class="line">            "type": "array",</div>
+<div class="line">            "description": "Specifies what is being returned for every object. Refer to \\ref wobjects_index for more information on the properties and references available.\\n The array of return expressions defines which elements of the Wwise object is returned. This can include built-in accessors, such as the name or id, or object properties, such as the Volume or the Pitch.",</div>
+<div class="line">            "items": {</div>
+<div class="line">                "description": "A return expression.",</div>
+<div class="line">                "anyOf": [</div>
+<div class="line">                    {</div>
+<div class="line">                        "type": "string",</div>
+<div class="line">                        "description": "Specifies one or many of the built-in accessors for Wwise objects.",</div>
+<div class="line">                        "enum": [</div>
+<div class="line">                            "id",</div>
+<div class="line">                            "name",</div>
+<div class="line">                            "notes",</div>
+<div class="line">                            "type",</div>
+<div class="line">                            "pluginName",</div>
+<div class="line">                            "shortId",</div>
+<div class="line">                            "classId",</div>
+<div class="line">                            "category",</div>
+<div class="line">                            "filePath",</div>
+<div class="line">                            "workunit",</div>
+<div class="line">                            "parent",</div>
+<div class="line">                            "owner",</div>
+<div class="line">                            "path",</div>
+<div class="line">                            "isPlayable",</div>
+<div class="line">                            "childrenCount",</div>
+<div class="line">                            "totalSize",</div>
+<div class="line">                            "mediaSize",</div>
+<div class="line">                            "objectSize",</div>
+<div class="line">                            "structureSize",</div>
+<div class="line">                            "sound:convertedWemFilePath",</div>
+<div class="line">                            "sound:originalWavFilePath",</div>
+<div class="line">                            "soundbank:bnkFilePath",</div>
+<div class="line">                            "music:transitionRoot",</div>
+<div class="line">                            "music:playlistRoot",</div>
+<div class="line">                            "audioSource:playbackDuration",</div>
+<div class="line">                            "audioSource:maxDurationSource",</div>
+<div class="line">                            "audioSource:trimValues",</div>
+<div class="line">                            "audioSource:maxRadiusAttenuation",</div>
+<div class="line">                            "audioSource:language",</div>
+<div class="line">                            "workunit:isDefault",</div>
+<div class="line">                            "workunit:type",</div>
+<div class="line">                            "workunit:isDirty",</div>
+<div class="line">                            "switchContainerChild:context",</div>
+<div class="line">                            "convertedWemFilePath",</div>
+<div class="line">                            "originalFilePath",</div>
+<div class="line">                            "originalRelativeFilePath",</div>
+<div class="line">                            "convertedFilePath",</div>
+<div class="line">                            "originalWavFilePath",</div>
+<div class="line">                            "soundbankBnkFilePath",</div>
+<div class="line">                            "musicTransitionRoot",</div>
+<div class="line">                            "musicPlaylistRoot",</div>
+<div class="line">                            "musicTransitionObject",</div>
+<div class="line">                            "playbackDuration",</div>
+<div class="line">                            "duration",</div>
+<div class="line">                            "maxDurationSource",</div>
+<div class="line">                            "audioSourceTrimValues",</div>
+<div class="line">                            "maxRadiusAttenuation",</div>
+<div class="line">                            "audioSourceLanguage",</div>
+<div class="line">                            "workunitIsDefault",</div>
+<div class="line">                            "workunitType",</div>
+<div class="line">                            "workunitIsDirty",</div>
+<div class="line">                            "workunitIsLoaded",</div>
+<div class="line">                            "switchContainerChildContext",</div>
+<div class="line">                            "isExplicitMute",</div>
+<div class="line">                            "isExplicitSolo",</div>
+<div class="line">                            "isImplicitMute",</div>
+<div class="line">                            "isImplicitSolo",</div>
+<div class="line">                            "isIncluded",</div>
+<div class="line">                            "isLanguageIncluded",</div>
+<div class="line">                            "points",</div>
+<div class="line">                            "states",</div>
+<div class="line">                            "stateProperties",</div>
+<div class="line">                            "stateGroups",</div>
+<div class="line">                            "customStates",</div>
+<div class="line">                            "originalState",</div>
+<div class="line">                            "blendTracks",</div>
+<div class="line">                            "supportsStates",</div>
+<div class="line">                            "suppportsRandomizer",</div>
+<div class="line">                            "switchGroupGameParameter",</div>
+<div class="line">                            "hasEmptySwitchStateAssignment",</div>
+<div class="line">                            "extractEvents",</div>
+<div class="line">                            "extractStructures",</div>
+<div class="line">                            "extractMedia",</div>
+<div class="line">                            "soundbanksReferencingEvent"</div>
+<div class="line">                        ]</div>
+<div class="line">                    },</div>
+<div class="line">                    {</div>
+<div class="line">                        "type": "string",</div>
+<div class="line">                        "description": "Specifies one or many dot-separated accessors that form a query and yields a value or an object reference. Specifying a single @ returns the value of the property for the associated object. Specifying a double @@ returns the value of the property for the source of override. Refer to \\ref wobjects_index ."</div>
+<div class="line">                    }</div>
+<div class="line">                ]</div>
+<div class="line">            }</div>
+<div class="line">        },</div>
+<div class="line">        "platform": {</div>
+<div class="line">            "anyOf": [</div>
+<div class="line">                {</div>
+<div class="line">                    "type": "string",</div>
+<div class="line">                    "description": "The name of the platform."</div>
+<div class="line">                },</div>
+<div class="line">                {</div>
+<div class="line">                    "type": "string",</div>
+<div class="line">                    "pattern": "^\\{[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}\\}$",</div>
+<div class="line">                    "description": "The id of the platform.\\n An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}."</div>
+<div class="line">                }</div>
+<div class="line">            ],</div>
+<div class="line">            "description": "The ID (GUID) or name of the platform. This is an optional argument. When not specified, the current platform is used."</div>
+<div class="line">        },</div>
+<div class="line">        "language": {</div>
+<div class="line">            "anyOf": [</div>
+<div class="line">                {</div>
+<div class="line">                    "type": "string",</div>
+<div class="line">                    "description": "The name of the language."</div>
+<div class="line">                },</div>
+<div class="line">                {</div>
+<div class="line">                    "type": "string",</div>
+<div class="line">                    "pattern": "^\\{[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}\\}$",</div>
+<div class="line">                    "description": "The id of the language.\\n An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}."</div>
+<div class="line">                }</div>
+<div class="line">            ],</div>
+<div class="line">            "description": "The ID (GUID) or name of the language."</div>
+<div class="line">        }</div>
+<div class="line">    },</div>
+<div class="line">    "additionalProperties": false</div>
+<div class="line">}</div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

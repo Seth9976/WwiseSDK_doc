@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::SoundEngine::SeekOnEvent</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="namespace_a_k_1_1_sound_engine_a02e92f973a314ccd66edf55ae4756439_split_000.html#a02e92f973a314ccd66edf55ae4756439" class="pcalibre1 anchor">◆ </a></span>SeekOnEvent() <span class="permalink">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_sound_engine_export_8h_ac6e96d34dfc0e12f9aaa7a47f4e9c322_split_000.html#ac6e96d34dfc0e12f9aaa7a47f4e9c322">AKSOUNDENGINE_API</a> <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::SoundEngine::SeekOnEvent </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype">const char * </td>
+          <td class="paramname"><em class="calibre59">in_pszEventName</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> </td>
+          <td class="paramname"><em class="calibre59">in_gameObjectID</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_a8a4d0aa5dba6f9922d6b7b3e48958b24_split_000.html#a8a4d0aa5dba6f9922d6b7b3e48958b24">AkTimeMs</a> </td>
+          <td class="paramname"><em class="calibre59">in_iPosition</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">bool </td>
+          <td class="paramname"><em class="calibre59">in_bSeekToNearestMarker</em> = <code class="calibre14">false</code>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_a9270609771369ea575443fe080bbe9c3_split_000.html#a9270609771369ea575443fe080bbe9c3">AkPlayingID</a> </td>
+          <td class="paramname"><em class="calibre59">in_PlayingID</em> = <code class="calibre14"><a class="pcalibre el" href="_ak_constants_8h_a5141397d9cce5d9656f58931596d8360_split_000.html#a5141397d9cce5d9656f58931596d8360">AK_INVALID_PLAYING_ID</a></code> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Seeks inside all playing objects that are referenced in Play Actions of the specified Event.</p>
+<p class="calibre7">Notes:</p><ul class="calibre8">
+<li class="calibre9">This works with all objects of the Containers hierarchy, and also with Music Segments and Music Switch Containers.</li>
+<li class="calibre9">There is a restriction with sounds that play within a continuous sequence. Seeking is ignored if one of their ancestors is a continuous (random or sequence) container with crossfade or trigger rate transitions. Seeking is also ignored with sample-accurate transitions, unless the sound that is currently playing is the first sound of the sequence.</li>
+<li class="calibre9">Seeking is also ignored with voices that can go virtual with "From Beginning" behavior.</li>
+<li class="calibre9">With Music Segments, in_iPosition is relative to the Entry Cue, in milliseconds. Use a negative value to seek within the Pre-Entry.</li>
+<li class="calibre9">Sounds/segments are stopped if in_iPosition is greater than their duration.</li>
+<li class="calibre9">in_iPosition is clamped internally to the beginning of the sound/segment.</li>
+<li class="calibre9">If the option "Seek to nearest marker" is used, the seeking position snaps to the nearest marker. With objects of the Containers hierarchy, markers are embedded in wave files by an external wave editor. Note that looping regions ("sampler loop") are not considered as markers. Also, the "add file name marker" of the conversion settings dialog adds a marker at the beginning of the file, which is considered when seeking to nearest marker. In the case of interactive music objects (Music Segments, Music Switch Containers, and Music Playlist Containers), user (wave) markers are ignored: seeking occurs to the nearest segment cue (authored in the segment editor), including the Entry Cue, but excluding the Exit Cue.</li>
+<li class="calibre9">This method posts a command in the sound engine queue, thus seeking will not occur before the audio thread consumes it (after a call to <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_afe54af0f5be38be061e8a3c7d7642bb1_split_000.html#afe54af0f5be38be061e8a3c7d7642bb1">RenderAudio()</a>).</li>
+</ul>
+<p class="calibre7">Notes specific to Music Segments:</p><ul class="calibre8">
+<li class="calibre9">With Music Segments, in_iPosition is relative to the Entry Cue, in milliseconds. Use a negative value to seek within the Pre-Entry.</li>
+<li class="calibre9">Music segments cannot be looped. You may want to listen to the AK_EndOfEvent notification in order to restart them if required.</li>
+<li class="calibre9">In order to restart at the correct location, with all their tracks synchronized, Music Segments take the "look-ahead time" property of their streamed tracks into account for seeking. Consequently, the resulting position after a call to <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a33010f3ba82a8838bb2f4283ee2ee9d7_split_000.html#a33010f3ba82a8838bb2f4283ee2ee9d7">SeekOnEvent()</a> might be earlier than the value that was passed to the method. Use <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a8446828c7f31802a83b7b087c44ccbd4_split_000.html#a8446828c7f31802a83b7b087c44ccbd4">AK::SoundEngine::GetPlayingSegmentInfo()</a></code> to query the exact position of a segment. Also, the segment will be silent during that time (so that it restarts precisely at the position that you specified). <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a8446828c7f31802a83b7b087c44ccbd4_split_000.html#a8446828c7f31802a83b7b087c44ccbd4">AK::SoundEngine::GetPlayingSegmentInfo()</a></code> also informs you about the remaining look-ahead time.</li>
+</ul>
+<p class="calibre7">Notes specific to Music Switch Containers:</p><ul class="calibre8">
+<li class="calibre9">Seeking triggers a music transition towards the current (or target) segment. This transition is subject to the container's transition rule that matches the current and defined in the container, so the moment when seeking occurs depends on the rule's "Exit At" property. On the other hand, the starting position in the target segment depends on both the desired seeking position and the rule's "Sync To" property.</li>
+<li class="calibre9">If the specified time is greater than the destination segment's length, the modulo is taken.</li>
+</ul>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><code class="calibre14">AK_Success</code> if command was queued</li>
+<li class="calibre9"><code class="calibre14">AK_IDNotFound</code> if the Event ID is unknown (not loaded or typo in the ID) </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_afe54af0f5be38be061e8a3c7d7642bb1_split_000.html#afe54af0f5be38be061e8a3c7d7642bb1">AK::SoundEngine::RenderAudio()</a></code></li>
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a41e9ef8d42951871fe4a8ae58a29a68e_split_000.html#a41e9ef8d42951871fe4a8ae58a29a68e">AK::SoundEngine::PostEvent()</a></code></li>
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ae0b469d9fb8a099b40f52f004882d283_split_000.html#ae0b469d9fb8a099b40f52f004882d283">AK::SoundEngine::GetSourcePlayPosition()</a></code></li>
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a8446828c7f31802a83b7b087c44ccbd4_split_000.html#a8446828c7f31802a83b7b087c44ccbd4">AK::SoundEngine::GetPlayingSegmentInfo()</a></code> </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_pszEventName</td><td class="calibre17">Name of the event </td></tr>
+    <tr class="calibre16"><td class="paramname">in_gameObjectID</td><td class="calibre17">Associated game object ID; use AK_INVALID_GAME_OBJECT to affect all game objects </td></tr>
+    <tr class="calibre16"><td class="paramname">in_iPosition</td><td class="calibre17">Desired position where playback should restart, in milliseconds </td></tr>
+    <tr class="calibre16"><td class="paramname">in_bSeekToNearestMarker</td><td class="calibre17">If true, the final seeking position will be made equal to the nearest marker (see note above) </td></tr>
+    <tr class="calibre16"><td class="paramname">in_PlayingID</td><td class="calibre17">Specify the playing ID for the seek to be applied to. Will result in the seek happening only on active actions of the playing ID. Let it be AK_INVALID_PLAYING_ID or do not specify any, to seek on all active actions of this event ID. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

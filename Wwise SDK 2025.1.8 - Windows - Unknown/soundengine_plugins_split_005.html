@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Sound Engine Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_4"><a class="pcalibre1 anchor" id="fx_memory_alloc"></a>
+Allocating/De-allocating Memory in Audio Plug-ins</h1>
+<p class="calibre7">You should perform all dynamic memory allocation or deallocation inside audio plug-ins through the provided memory allocator interface. This ensures that all memory consumed and released by plug-ins can be tracked by the Memory Manager, marked with a specific memory category, and displayed in the Wwise profiler.</p>
+<p class="calibre7">Macros are provided to overload the new/delete operators and call malloc()/free() using the provided memory allocator. These macros are provided in <a class="pcalibre el" href="_i_ak_plugin_mem_alloc_8h_split_000.html">IAkPluginMemAlloc.h</a>.</p>
+<p class="calibre7">To allocate objects, use the <a class="pcalibre el" href="_i_ak_plugin_mem_alloc_8h_aca786bdd3829c192297a174d5d2d2479_split_000.html#aca786bdd3829c192297a174d5d2d2479">AK_PLUGIN_NEW()</a> macro and pass the pointer to the memory allocator interface and the desired object type. The macro returns a pointer to the newly-allocated object. The corresponding <a class="pcalibre el" href="_i_ak_plugin_mem_alloc_8h_ac6fa6544d3120811e155136866fc24aa_split_000.html#ac6fa6544d3120811e155136866fc24aa">AK_PLUGIN_DELETE()</a> macro should be used to release memory.</p>
+<p class="calibre7">To allocate arrays use the <a class="pcalibre el" href="_i_ak_plugin_mem_alloc_8h_abf61bf0827a987e8799a75a4d0e2f615_split_000.html#abf61bf0827a987e8799a75a4d0e2f615">AK_PLUGIN_ALLOC()</a>, which gets the requested size in bytes from the Memory Manager and returns a void pointer to the allocated memory address. Use the corresponding <a class="pcalibre el" href="_i_ak_plugin_mem_alloc_8h_a37dac3dbf976521288ecb8f36a16af3a_split_000.html#a37dac3dbf976521288ecb8f36a16af3a">AK_PLUGIN_FREE()</a> macro to release the allocated memory. The sample code below demonstrates how to use the macros.</p>
+<div class="fragment"><div class="line"><span class="comment">// Allocate single CAkMyObject</span></div>
+<div class="line">CAkMykObject * pSingleObject = <a class="pcalibre code" href="_i_ak_plugin_mem_alloc_8h_aca786bdd3829c192297a174d5d2d2479_split_000.html#aca786bdd3829c192297a174d5d2d2479">AK_PLUGIN_NEW</a>( in_pAllocator, CAkMyObject );</div>
+<div class="line"><span class="comment">// Release pSingleObject</span></div>
+<div class="line"><a class="pcalibre code" href="_i_ak_plugin_mem_alloc_8h_ac6fa6544d3120811e155136866fc24aa_split_000.html#ac6fa6544d3120811e155136866fc24aa">AK_PLUGIN_DELETE</a>( in_pAllocator, pSingleObject );</div>
+<div class="line"><span class="comment">// Allocate an array of uNumSamples audio samples</span></div>
+<div class="line"><a class="pcalibre code" href="_ak_common_defs_8h_a58f11a728038d16fe4187612a7a842fb_split_000.html#a58f11a728038d16fe4187612a7a842fb">AkSampleType</a> * pData = <span class="keyword">static_cast&lt;</span><a class="pcalibre code" href="_ak_common_defs_8h_a58f11a728038d16fe4187612a7a842fb_split_000.html#a58f11a728038d16fe4187612a7a842fb">AkSampleType</a> *<span class="keyword">&gt;</span>( <a class="pcalibre code" href="_i_ak_plugin_mem_alloc_8h_abf61bf0827a987e8799a75a4d0e2f615_split_000.html#abf61bf0827a987e8799a75a4d0e2f615">AK_PLUGIN_ALLOC</a>( in_pAllocator, <span class="keyword">sizeof</span>(<a class="pcalibre code" href="_ak_common_defs_8h_a58f11a728038d16fe4187612a7a842fb_split_000.html#a58f11a728038d16fe4187612a7a842fb">AkSampleType</a>) * uNumSamples) );</div>
+<div class="line"><span class="comment">// Free array of audio samples</span></div>
+<div class="line"><a class="pcalibre code" href="_i_ak_plugin_mem_alloc_8h_a37dac3dbf976521288ecb8f36a16af3a_split_000.html#a37dac3dbf976521288ecb8f36a16af3a">AK_PLUGIN_FREE</a>( in_pAllocator, pData );</div>
+</div><!-- fragment --></div></div></div></body></html>

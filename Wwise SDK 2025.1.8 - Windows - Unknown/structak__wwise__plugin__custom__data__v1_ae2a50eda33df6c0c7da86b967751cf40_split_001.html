@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak_wwise_plugin_custom_data_v1::GetPluginData</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="structak__wwise__plugin__custom__data__v1_ae2a50eda33df6c0c7da86b967751cf40_split_000.html#ae2a50eda33df6c0c7da86b967751cf40" class="pcalibre1 anchor">◆ </a></span>GetPluginData</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">bool(* ak_wwise_plugin_custom_data_v1::GetPluginData) (const struct <a class="pcalibre el" href="structak__wwise__plugin__custom__data__instance__v1_split_000.html">ak_wwise_plugin_custom_data_instance_v1</a> *in_this, const GUID *in_guidPlatform, <a class="pcalibre el" href="_ak_typedefs_8h_a4cb8ff0b7014efdaa21697f4ef928926_split_000.html#a4cb8ff0b7014efdaa21697f4ef928926">AkPluginParamID</a> in_idParam, struct <a class="pcalibre el" href="structak__wwise__plugin__host__data__writer__instance__v1_split_000.html">ak_wwise_plugin_host_data_writer_instance_v1</a> *in_pDataWriter)</td>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+
+<p class="calibre7">Obtains parameters that will be sent to the sound engine when Wwise is connected. </p>
+<p class="calibre7">This block should contain only data that is NOT a property defined in the plug-in xml file. The parameter ID should be different than the ones used in the plug-in xml.</p>
+<p class="calibre7">This is used when there are Object Store, large binary data sections, or properties not usually residing in the XML. </p><dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_audio_plugin_ae59a3955718ed3bbde0521da21cd8539_split_000.html#ae59a3955718ed3bbde0521da21cd8539">AK::Wwise::Plugin::AudioPlugin::GetBankParameters</a> for a discussion on parameter passing to the Sound Engine.</dd></dl>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> In order to use the in_pDataWriter instance, your plug-in must request the data writer interface: <a class="pcalibre el" href="structak__wwise__plugin__host__data__writer__v1_split_000.html" title="Interface used to write data during sound bank generation.">ak_wwise_plugin_host_data_writer_v1</a>. </td></tr>
+</tbody></table>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_this</td><td class="calibre17">Current instance of this interface. </td></tr>
+    <tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_guidPlatform</td><td class="calibre17">The unique ID of the queried platform </td></tr>
+    <tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_idParam</td><td class="calibre17">The plug-in defined parameter ID </td></tr>
+    <tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_pDataWriter</td><td class="calibre17">A pointer to the data writer instance being used. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">true if the plug-in has some plug-in defined data.</dd></dl>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v2_1_1_host_a55d16793cbfce0c58f9a0d004cf1f814_split_000.html#a55d16793cbfce0c58f9a0d004cf1f814">AK::Wwise::Plugin::Host::NotifyInternalDataChanged</a></li>
+<li class="calibre9"><a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_param_a7d4422a73ca832f64edc0465e59be771_split_000.html#a7d4422a73ca832f64edc0465e59be771">AK::IAkPluginParam::ALL_PLUGIN_DATA_ID</a></li>
+<li class="calibre9"><a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_param_ad47732326b85527316287e923d37a3e1_split_000.html#ad47732326b85527316287e923d37a3e1">AK::IAkPluginParam::SetParam</a> </li>
+</ul>
+</dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_custom_data_8h_source.html#l00159">159</a> of file <a class="pcalibre el" href="_custom_data_8h_source.html">CustomData.h</a>.</p>
+
+<p class="calibre7">Referenced by <a class="pcalibre el" href="_custom_data_8h_source.html#l00227">AK.Wwise::Plugin::V1::CustomData::Interface::Interface()</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

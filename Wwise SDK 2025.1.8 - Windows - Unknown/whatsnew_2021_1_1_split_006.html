@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2021.1.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_5"><a class="pcalibre1 anchor" id="generic_bugs_2021_1_1"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-45950</b> Fixed: 3D Meter does not respond correctly to multiple sources.</li>
+<li class="calibre9"><b class="calibre13">WG-48324</b> Fixed: It's possible to play a platform-excluded Music Segment in Wwise authoring.</li>
+<li class="calibre9"><b class="calibre13">WG-51624</b> Fixed: Small memory leak when using Wwise Motion plug-in with DirectInput controllers.</li>
+<li class="calibre9"><b class="calibre13">WG-52037</b> Fixed: Use-after-free error using sample-accurate transitions on sources with markers close to the end of the file.</li>
+<li class="calibre9"><b class="calibre13">WG-53070</b> Fixed: Bank name supplied to <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ac91406bc2fe061e4248cb448207b5a64_split_000.html#ac91406bc2fe061e4248cb448207b5a64">AK::SoundEngine::UnloadBank()</a></code> isn't used in profiler error messages.</li>
+<li class="calibre9"><b class="calibre13">WG-53246</b> Fixed: Analysis is re-run unnecessarily on some files, leading to unwanted changes in SoundBank data.</li>
+<li class="calibre9"><b class="calibre13">WG-53259</b> Fixed: Continuous Blend containers with continuous child containers resume playback when paused.</li>
+<li class="calibre9"><b class="calibre13">WG-53409</b> Fixed: Spatial Audio room's internal objects can be unnecessarily updated multiple times in some circumstances.</li>
+<li class="calibre9"><b class="calibre13">WG-53437</b> Fixed: Potential infinite loop in BankReader when loading a SoundBank containing some already-loaded media and the I/O device block size is greater than 1.</li>
+<li class="calibre9"><b class="calibre13">WG-53451</b> Fixed: Motion Source piling up when used in a Trigger rate container.</li>
+<li class="calibre9"><b class="calibre13">WG-53495</b> Fixed: Seek offset can be slightly off when Vorbis voice comes back from virtual with the Play From Elapsed Time behavior.</li>
+<li class="calibre9"><b class="calibre13">WG-53513</b> Fixed: Wwise crash when a node corresponding to one of the rows in the Contents Editor is deleted.</li>
+<li class="calibre9"><b class="calibre13">WG-53528</b> Fixed: Notes field does not wrap text correctly when resized.</li>
+<li class="calibre9"><b class="calibre13">WG-53536</b> Fixed: Crash when loading or unloading audio assets while Convolution Reverb is in use.</li>
+<li class="calibre9"><b class="calibre13">WG-53556</b> Fixed: Source plug-ins don't play when using sample-accurate transitions involving hardware decoders (e.g., Opus, Vorbis, ATRAC9).</li>
+<li class="calibre9"><b class="calibre13">WG-53590</b> Fixed: Panning behaves incorrectly when multiple 3D views are shown.</li>
+<li class="calibre9"><b class="calibre13">WG-53628</b> Fixed: (WAAPI) Can't create a Custom Cue on a Music Segment.</li>
+<li class="calibre9"><b class="calibre13">WG-53631</b> Fixed: Voice Inspector reports incorrect values for time and envelope modulators on volume and make-up gain.</li>
+<li class="calibre9"><b class="calibre13">WG-53632</b> Fixed: No error message in Profiler when SetBusEffect fails to load the specified Effect.</li>
+<li class="calibre9"><b class="calibre13">WG-53675</b> Fixed: The 3D Meter does not show the correct information when moving the profiling session cursor in the past.</li>
+<li class="calibre9"><b class="calibre13">WG-53677</b> Fixed: Possible crash when opening Voices Graph.</li>
+<li class="calibre9"><b class="calibre13">WG-53691</b> Fixed: Incorrect first frame volume for low frequency LFO modulators.</li>
+<li class="calibre9"><b class="calibre13">WG-53738</b> Fixed: Crash when Impacter memory allocation fails.</li>
+<li class="calibre9"><b class="calibre13">WG-53741</b> Fixed: Crash in <code class="calibre14">CAkSpatialAudioComponent::GetActiveRoom</code> on memory failure.</li>
+<li class="calibre9"><b class="calibre13">WG-53742</b> Fixed: Possible memory leak in <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a2d99e91099dba3eae8b2c67f9582bc01_split_000.html#a2d99e91099dba3eae8b2c67f9582bc01">AK::SoundEngine::DecodeBank</a></code> under low-memory conditions.</li>
+<li class="calibre9"><b class="calibre13">WG-53743</b> Fixed: Illegal memory read in iZotope Trash Box Modeller plug-in under low-memory conditions.</li>
+<li class="calibre9"><b class="calibre13">WG-53749</b> Fixed: Assert in <code class="calibre14">AkAcousticRoom::AddTransmissionRay()</code> on memory failure.</li>
+<li class="calibre9"><b class="calibre13">WG-53776</b> Fixed: (Spatial Audio) Potential invalid hit point returned in ray triangle intersection.</li>
+<li class="calibre9"><b class="calibre13">WG-53792</b> Fixed: Possible crash in Wwise on startup.</li>
+<li class="calibre9"><b class="calibre13">WG-53801</b> Fixed: Connection Dialog shows v2021.1.0 as "Different version" even with the proper version.</li>
+<li class="calibre9"><b class="calibre13">WG-53802</b> Fixed: The order of ObjectLists for a given object can change in the Work Unit files when saving a project.</li>
+<li class="calibre9"><b class="calibre13">WG-53965</b> Fixed: Incorrect generation of SoundBank data related to attachment properties when using mixer plug-ins and processing status of busses differ across platforms.</li>
+<li class="calibre9"><b class="calibre13">WG-54005</b> Fixed: High amount of "Total Reserved" memory after sound engine initialization.</li>
+<li class="calibre9"><b class="calibre13">WG-54070</b> Fixed: Wwise can crash when scrolling through the Project Explorer when the Metadata tab is open.</li>
+</ul>
+</div></div></div></body></html>

@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2025.1.4</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_5"><a class="pcalibre1 anchor" id="generic_community_bugs_2025_1_4"></a>
+Fixes for Community-Reported Bugs</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-70394</b> Fixed: WwiseConsole crashes when install files are missing.</li>
+<li class="calibre9"><b class="calibre13">WG-79113</b> Fixed: (Acoustics) Portal obstruction and occlusion are not applied to a path when there is diffraction from geometry between the listener and the Portal.</li>
+<li class="calibre9"><b class="calibre13">WG-79362</b> Fixed: Process not responding during initial indexing of a project.</li>
+<li class="calibre9"><b class="calibre13">WG-79983</b> Fixed: (Acoustics) The distance of a wet (reverberant) path from the emitter to an adjacent room and then to the listener is misrepresented as the direct distance between the emitter and listener. A new distance model is now used that takes into account the distance between the emitter or listener and their closest Portals.</li>
+<li class="calibre9"><b class="calibre13">WG-80095</b> Fixed: Possible assert when a streamed voice transitions from virtual to physical.</li>
+<li class="calibre9"><b class="calibre13">WG-80161</b> Fixed: Crash in <code class="calibre14">AkRTree</code> with ill-formed geometries resulting in infinite dimension.</li>
+<li class="calibre9"><b class="calibre13">WG-80401</b> Fixed: Moving cursors in the Attenuation Settings graph view does not update the audible attenuation preview for the Transport Control object.</li>
+<li class="calibre9"><b class="calibre13">WG-80544</b> Fixed: Scrolling with the trackpad is unusable on MacOS.</li>
+<li class="calibre9"><b class="calibre13">WG-80615</b> Fixed: Stinger Cue Name field not enabled when selecting Next Cue or Custom Cue.</li>
+<li class="calibre9"><b class="calibre13">WG-80724</b> Fixed: (Acoustics) Invalid distance attenuation when inside a Room with a room tone using a Distance Probe.</li>
+<li class="calibre9"><b class="calibre13">WG-80745</b> Fixed: (Acoustics) Room Transmission Loss doesn't interpolate correctly over the first Portal away from an emitter.</li>
+<li class="calibre9"><b class="calibre13">WG-80783</b> Fixed: <code class="calibre14">.meta</code> files are parsed by the project database during asset import.</li>
+<li class="calibre9"><b class="calibre13">WG-80807</b> Fixed: Floating windows lose maximized state when switching layout.</li>
+<li class="calibre9"><b class="calibre13">WG-80940</b> Fixed: (Acoustics) Crash in <code class="calibre14">AkSoundGeometry::DistanceSqToPortalCutout()</code>.</li>
+<li class="calibre9"><b class="calibre13">WG-80948</b> Fixed: Decoding errors when streaming long WEM Opus sounds that loop.</li>
+<li class="calibre9"><b class="calibre13">WG-80998</b> Fixed: Hang when exiting a Unity game that was off-focus (suspended).</li>
+<li class="calibre9"><b class="calibre13">WG-81088</b> Fixed: Crash when loading a project or deleting an object.</li>
+<li class="calibre9"><b class="calibre13">WG-81271</b> Fixed: Possible hang in <code class="calibre14">AK::JobMgr::Internal::JobPool_InitEntry</code> when terminating the sound engine or stopping all sounds and removing all outputs.</li>
+<li class="calibre9"><b class="calibre13">WG-81305</b> Fixed: Crash when <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a90f8c91937038615480db2b57ce2279e_split_000.html#a90f8c91937038615480db2b57ce2279e">AK::SoundEngine::Term</a></code> is called while Live Media Transfers are in progress.</li>
+</ul>
+</div></div></div></body></html>

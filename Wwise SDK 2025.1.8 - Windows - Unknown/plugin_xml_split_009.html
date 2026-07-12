@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Wwise Plug-in XML Description Files</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_8"><a class="pcalibre1 anchor" id="wwiseplugin_xml_plugininfo_tag"></a>
+PluginInfo Element</h2>
+<div class="fragment"><div class="line">&lt;PlatformSupport&gt;</div>
+<div class="line">       &lt;Platform Name=<span class="stringliteral">"Windows"</span>&gt;</div>
+<div class="line">          &lt;CanBeInsertOnBusses&gt;<span class="keyword">true</span>&lt;/CanBeInsertOnBusses&gt;</div>
+<div class="line">          &lt;CanBeInsertOnAudioObjects&gt;<span class="keyword">true</span>&lt;/CanBeInsertOnAudioObjects&gt;</div>
+<div class="line">          &lt;CanBeRendered&gt;<span class="keyword">true</span>&lt;/CanBeRendered&gt;</div>
+<div class="line">       &lt;/Platform&gt;</div>
+<div class="line">       &lt;Platform Name=<span class="stringliteral">"Mac"</span>&gt;</div>
+<div class="line">          &lt;CanBeInsertOnBusses&gt;<span class="keyword">true</span>&lt;/CanBeInsertOnBusses&gt;</div>
+<div class="line">          &lt;CanBeInsertOnAudioObjects&gt;<span class="keyword">true</span>&lt;/CanBeInsertOnAudioObjects&gt;</div>
+<div class="line">          &lt;CanBeRendered&gt;<span class="keyword">true</span>&lt;/CanBeRendered&gt;</div>
+<div class="line">       &lt;/Platform&gt;</div>
+<div class="line">       &lt;Platform Name=<span class="stringliteral">"iOS"</span>&gt;</div>
+<div class="line">          &lt;CanBeInsertOnBusses&gt;<span class="keyword">true</span>&lt;/CanBeInsertOnBusses&gt;</div>
+<div class="line">          &lt;CanBeInsertOnAudioObjects&gt;<span class="keyword">true</span>&lt;/CanBeInsertOnAudioObjects&gt;</div>
+<div class="line">          &lt;CanBeRendered&gt;<span class="keyword">true</span>&lt;/CanBeRendered&gt;</div>
+<div class="line">       &lt;/Platform&gt;</div>
+<div class="line">       &lt;Platform Name=<span class="stringliteral">"XboxOne"</span>&gt;</div>
+<div class="line">          &lt;CanBeInsertOnBusses&gt;<span class="keyword">true</span>&lt;/CanBeInsertOnBusses&gt;</div>
+<div class="line">          &lt;CanBeInsertOnAudioObjects&gt;<span class="keyword">true</span>&lt;/CanBeInsertOnAudioObjects&gt;</div>
+<div class="line">          &lt;CanBeRendered&gt;<span class="keyword">true</span>&lt;/CanBeRendered&gt;</div>
+<div class="line">       &lt;/Platform&gt;</div>
+<div class="line">       &lt;Platform Name=<span class="stringliteral">"PS4"</span>&gt;</div>
+<div class="line">          &lt;CanBeInsertOnBusses&gt;<span class="keyword">true</span>&lt;/CanBeInsertOnBusses&gt;</div>
+<div class="line">          &lt;CanBeInsertOnAudioObjects&gt;<span class="keyword">true</span>&lt;/CanBeInsertOnAudioObjects&gt;</div>
+<div class="line">          &lt;CanBeRendered&gt;<span class="keyword">true</span>&lt;/CanBeRendered&gt;</div>
+<div class="line">       &lt;/Platform&gt;</div>
+<div class="line">  &lt;/PlatformSupport&gt;</div>
+</div><!-- fragment --><p class="calibre7">The <code class="calibre14">PluginInfo/PlatformSupport</code> section defines the platforms supported by your plug-in. It can contain one or more <code class="calibre14">Platform</code> elements, each of them specifying the various features supported by a plug-in on each platform. The following features can be specified:</p><ul class="calibre8">
+<li class="calibre9"><code class="calibre14">CanBeInsertOnBusses</code> determines whether the effect can be applied to control and master busses. Typically this will require the effect to support surround audio configuration.</li>
+<li class="calibre9"><code class="calibre14">CanBeInsertOnAuxBusses</code> determines whether the effect can be applied to control and master auxiliary busses. Typically this will require the effect to support surround audio configuration. Note that if <code class="calibre14">CanBeInsertOnBusses</code> is already set, the effect is already available on Aux busses.</li>
+<li class="calibre9"><code class="calibre14">CanBeInsertOnAudioObjects</code> determines whether the effect can be applied as insert to SFX (must support both mono and stereo processing).</li>
+<li class="calibre9"><code class="calibre14">CanBeRendered</code> determines whether the effect can be used for offline rendering or not.</li>
+<li class="calibre9"><code class="calibre14">CanSendMonitorData</code> determines whether the effect can send monitoring data. Refer to <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_notifications_1_1_monitor_aaa00d3622c1d400d5150261b0f7820f1_split_000.html#aaa00d3622c1d400d5150261b0f7820f1" title="Received a new Monitor Data blob.">AK::Wwise::Plugin::Notifications::Monitor::NotifyMonitorData</a></code> for more information.</li>
+<li class="calibre9"><code class="calibre14">CanBeSourceOnSound</code> determines whether source plug-in can be a source for a sound.</li>
+<li class="calibre9"><code class="calibre14">CanBeInsertEndOfPipeline</code> determines whether the effect can only be added at the end of the audio pipeline, which corresponds to the last effect slot of a top-level Audio Bus (reserved for Audiokinetic).</li>
+</ul>
+<p class="calibre7">Your plug-in will be available only on the specified platforms within Wwise.</p>
+<p class="calibre7">It is also possible to add the "Any" platform instead of listing every supported platform. Be aware though, this plug-in will then be advertised as being available on all platforms in Wwise and, if the plug-in does not provide the matching runtime libraries, the user will only notice it when porting it on this platform.</p>
+<div class="fragment"><div class="line">&lt;PlatformSupport&gt;</div>
+<div class="line">       &lt;Platform Name=<span class="stringliteral">"Any"</span>&gt;</div>
+<div class="line">          &lt;CanBeInsertOnBusses&gt;<span class="keyword">true</span>&lt;/CanBeInsertOnBusses&gt;</div>
+<div class="line">          &lt;CanBeInsertOnAudioObjects&gt;<span class="keyword">true</span>&lt;/CanBeInsertOnAudioObjects&gt;</div>
+<div class="line">          &lt;CanBeRendered&gt;<span class="keyword">true</span>&lt;/CanBeRendered&gt;</div>
+<div class="line">       &lt;/Platform&gt;</div>
+<div class="line">  &lt;/PlatformSupport&gt;</div>
+</div><!-- fragment --></div></div></div></body></html>

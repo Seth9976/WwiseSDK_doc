@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::IAkSourcePlugin::TimeSkip</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="class_a_k_1_1_i_ak_source_plugin_ab6e9eccafd2116ff234f78298ae845c7_split_000.html#ab6e9eccafd2116ff234f78298ae845c7" class="pcalibre1 anchor">◆ </a></span>TimeSkip()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="calibre3">
+  <tbody class="calibre4"><tr class="calibre16">
+  <td class="calibre17">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">virtual <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::IAkSourcePlugin::TimeSkip </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> &amp; </td>
+          <td class="paramname"/><td class="calibre17">)</td>
+          <td class="calibre17"/>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="calibre17">
+<span><span>inline</span><span>virtual</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Skips execution when the voice is virtual playing from elapsed time to simulate processing that would have taken place (e.g. update internal state) while avoiding most of the CPU hit of plug-in execution. Given the number of frames requested adjust the number of frames that would have been produced by a call to <a class="pcalibre el" href="class_a_k_1_1_i_ak_source_plugin_ab23f5541d13b0d126131d83ae48b2588_split_000.html#ab23f5541d13b0d126131d83ae48b2588">Execute()</a> in the io_uFrames parameter and return and return AK_DataReady or AK_NoMoreData, depending if there would be audio output or not at that point. Returning AK_NotImplemented will trigger a normal execution of the voice (as if it was not virtual) thus not enabling the CPU savings of a proper from elapsed time behavior. Note that returning AK_NotImplemeted for a source plug-ins that support asynchronous processing will produce a 'resume' virtual voice behavior instead. </p>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_i_ak_plugin_8h_source_split_002.html#l01400">1400</a> of file <a class="pcalibre el" href="_i_ak_plugin_8h_source_split_000.html">IAkPlugin.h</a>.</p>
+
+<p class="calibre7">References <a class="pcalibre el" href="_ak_enums_8h_source_split_000.html#l00033">AK_NotImplemented</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

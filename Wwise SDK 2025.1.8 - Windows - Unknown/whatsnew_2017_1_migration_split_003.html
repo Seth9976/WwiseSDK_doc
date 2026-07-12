@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2017.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_2"><a class="pcalibre1 anchor" id="busses_assoicated_with_gameobject"></a>
+Busses in Wwise are now associated with a game object</h2>
+<p class="calibre7">Busses are no longer global entities; they can be instantiated multiple times in a manner similar to voices in the Actor-Mixer Hierarchy. It is possible to set game object scoped RTPCs on bus parameters that pertain to a mixing bus. However, be aware that the Voice parameters in the bus’s General Settings tab actually pertain to the game object from which the voice is playing, not the bus’s game object.</p>
+<p class="calibre7">The specific game object that is associated with a bus instance is determined by a combination of the Enable Positioning property in the Wwise project, and the emitter-listener associations defined by the game. Refer to the sections below, <a class="pcalibre el" href="whatsnew_2017_1_migration_split_007.html#enable_positioning_flag">The behavior or the 'Positioning Enabled' flag in the authoring tool has changed</a> and <a class="pcalibre el" href="whatsnew_2017_1_migration_split_008.html#voices_graph_construction">The algorithm to construct the Voices Graph has changed</a>, for more details. Dynamic signal routing and 3D-positioned busses are now possible in Wwise; however, a basic setup will have various sources playing from one or more ‘emitter’ game objects and the entire mixing bus chain on another game object, the ‘listener’.</p>
+</div></div></div></body></html>

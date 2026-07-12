@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2018.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_3"><a class="pcalibre1 anchor" id="positioning"></a>
+Positioning Tab</h2>
+<p class="calibre7">The Positioning tab of the Property Editor has been thoroughly reorganized. Here is a short guide for those who were used to the old set of controls.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="positioning_enablepos"></a>
+Enable Positioning</h3>
+<p class="calibre7">The Enable Positioning check box was renamed to Listener Relative Routing. It behaves exactly as before, but the name makes it more apparent that its effect goes beyond positioning and affects routing. In effect, it forces the engine to evaluate the emitter-listener association at that node. Emitters and listeners are game objects, assigned via the SDK; listeners are assigned to emitters using <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a2f85a55c38afa2e0dbc6172a7bec91d1_split_000.html#a2f85a55c38afa2e0dbc6172a7bec91d1">AK::SoundEngine::SetListeners</a></code>, or when setting aux sends; and emitters are set when posting Events. Evaluating the emitter-listener association means that the signal will "jump" from the current game object to its listener. This can be observed in the Voices Graph. Evaluating the emitter-listener association is a prerequisite for any positioning feature (distance attenuation and spatialization) that involve an emitter and a listener.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="positioning_2dpanneroff"></a>
+2D with Enable Panner off</h3>
+<p class="calibre7">This used to be the default setting, and still is. The Speaker Panning list must be set to <b class="calibre13">Direct Assignment</b>. The Listener Relative Routing option has no effect on panning.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="positioning_2dpanneron"></a>
+2D with Enable Panner on</h3>
+<p class="calibre7">The Speaker Panning list must be set to <b class="calibre13">Balance - Fade</b>. Then you can edit panning by clicking on <b class="calibre13">Edit…</b> to the right, in the same dialog as before. The Listener Relative Routing option has no effect on panning.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="positioning_3dgamedefined"></a>
+3D Game-Defined</h3>
+<p class="calibre7">Enable <b class="calibre13">Listener Relative Routing</b>, set Position list to <b class="calibre13">Emitter</b>, set 3D Spatialization to either <b class="calibre13">Position</b> or <b class="calibre13">Position + Orientation</b> (the former the default value). Ensure Speaker Panning / 3D Spatialization Mix is set to <b class="calibre13">100</b>. The equivalent of disabling the former option, Update At Each Frame, is to enable <b class="calibre13">Hold Emitter Position and Orientation</b>. You can also set an attenuation, like before.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="positioning_3duserdefined"></a>
+3D User-Defined</h3>
+<p class="calibre7">Enable <b class="calibre13">Listener Relative Routing</b>, set Position list to <b class="calibre13">Listener + Automation</b>, set 3D Spatialization to either <b class="calibre13">Position</b> or <b class="calibre13">Position + Orientation</b> (the former the default value). Ensure Speaker Panning / 3D Spatialization Mix is set to <b class="calibre13">100</b>. Edit the path by clicking on <b class="calibre13">Automation…</b>, in the same dialog as before. The equivalent of disabling the former option, Follow Listener Orientation. is to enable <b class="calibre13">Hold Listener Orientation</b>. You can also set an attenuation, like before.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="positioning_spat"></a>
+Spatialization set to None</h3>
+<p class="calibre7">Before, when setting positioning to 3D but Spatialization to None, the resulting positioning was equivalent to having the 2D panner enabled, with the dot in the middle. Now, Spatialization set to None takes whatever Speaker Panning option you choose, whether it is Direct Assignment or Balance - Fade with the position you desire. Also, this reorganization allows you to apply an attenuation on "2D" (panned) sounds.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="positioning_newfeatures"></a>
+New features</h3>
+<p class="calibre7">The Listener + Automation mode is equivalent to the former 3D User-Defined mode because the sound positions were always set relative to the listener. Now you can also have the sound positions occur around the emitter game object instead, by setting the Position mode to Emitter + Automation. In this case, the path automation will be done around the Emitter game object, where the front is defined by the orientation of the game object in game. The automated position is used for distance attenuation (if set) and spatialization (if set).</p>
+<p class="calibre7">Last but not least, you can blend between Panning and Spatialization (formerly referred to as 2D and 3D) using the Speaker Panning vs 3D Spatialization Mix slider, where 100 is full spatialization. </p><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> Using a value lower than 100 will be slightly more expensive at run-time due to the fact that both types of positioning must be calculated. </td></tr>
+</tbody></table>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="positioning_mixerplugin"></a>
+Mixer plug-in API</h3>
+<p class="calibre7">The functions <code class="calibre14">IAkMixerInputContext::IsSpatializationEnabled</code> and <code class="calibre14">IAkMixerInputContext::IsPannerEnabled</code> have been removed. You should instead use the following functions, which more accurately match the settings described above:</p><ul class="calibre8">
+<li class="calibre9"><code class="calibre14">GetSpeakerPanningType</code> </li>
+<li class="calibre9"><code class="calibre14">HasListenerRelativeRouting</code> </li>
+<li class="calibre9"><code class="calibre14">Get3DSpatializationMode</code> </li>
+</ul>
+<p class="calibre7"><code class="calibre14">GetNum3DPositions()</code> and other "3D"-related functions apply only when <code class="calibre14">HasListenerRelativeRouting()</code> returns <code class="calibre14">true</code>. Designers may use these positions for attenuation and/or spatialization, according to the other settings, which you can query.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="positioning_migrationdetails"></a>
+Migration Details</h3>
+<p class="calibre7">Here are a few details to be aware of:</p><ul class="calibre8">
+<li class="calibre9">The attenuation is now independent from spatialization, and is therefore not affected by Speaker Panning / 3D spatialization Mix. There is no way to directly disable attenuation at runtime. The alternatives are:<ul class="calibre15">
+<li class="calibre9">Playing the sound on a game object at the position of the listener, or directly on the listener game object.</li>
+<li class="calibre9">Adjusting the attenuation via <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a9b71daa02c5d398d08c9eb0643d52555_split_000.html#a9b71daa02c5d398d08c9eb0643d52555">AK::SoundEngine::SetScalingFactor</a></code>.</li>
+</ul>
+</li>
+<li class="calibre9">Game object-defined obstruction and occlusion now apply to all sounds and busses that have Listener Relative Routing enabled (typically, all objects of the actor-mixer hierarchy have Listener Relative Routing enabled). For avoiding obstruction / occlusion, post your event on a different, unobstructed and unoccluded game object.</li>
+<li class="calibre9">API / Plug-in API changes: Removed functions <code class="calibre14">AK::IAkMixerInputContext::IsSpatializationEnabled</code> and <code class="calibre14">AK::IAkMixerInputContext::IsPannerEnabled</code>, and added functions <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_mixer_input_context_aadf276dcd214deea9a4c121ba14eb85a_split_000.html#aadf276dcd214deea9a4c121ba14eb85a">AK::IAkMixerInputContext::GetSpeakerPanningType</a></code>, <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_mixer_input_context_ae097823ba7acd8dd7c23af084164a6f3_split_000.html#ae097823ba7acd8dd7c23af084164a6f3">AK::IAkMixerInputContext::HasListenerRelativeRouting</a></code>, and <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_mixer_input_context_a2b46119de056293abcbedbb3fbbaf45e_split_000.html#a2b46119de056293abcbedbb3fbbaf45e">AK::IAkMixerInputContext::Get3DSpatializationMode</a></code>.</li>
+<li class="calibre9">Project migration of RTPCs on "Positioning Type" moves curves over to Speaker Panning / 3D Spatialization Mix with constant segments. You can later change these constant segments to any line type of your liking by right-clicking on the curve in the RTPC view.</li>
+<li class="calibre9">Project migration clears Attenuation from 2D sounds except if there is an RTPC on "Positioning Type".</li>
+<li class="calibre9">Priority change based on distance will occur on objects with Listener automation, whereas sounds with the former 3D User-Defined Positioning mode would not.</li>
+<li class="calibre9">Sounds whose Position is set to Listener + Automation, but Spatialization set to None, will get distance attenuation due to automated positions, whereas before it did not.</li>
+<li class="calibre9">"3D" (spatialized) sounds with Spatialization Mode set to None used to mimic the behavior of "2D" sounds with "panner enabled" (Balance-Fade) with the cursor in the middle. The new behavior takes what you choose as the Speaker Panning option, that is, either Direct Assignment or Balance-Fade. However, the automatic project migration does not explicitly set the Speaker Panning option of "3D" sounds with Spatialization Mode set to None, so it will likely fall back to Direct Assignment.</li>
+</ul>
+</div></div></div></body></html>

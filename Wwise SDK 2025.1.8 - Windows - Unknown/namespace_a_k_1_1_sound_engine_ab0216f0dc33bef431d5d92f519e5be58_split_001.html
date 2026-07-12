@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::SoundEngine::SetMultipleObstructionAndOcclusion</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="namespace_a_k_1_1_sound_engine_ab0216f0dc33bef431d5d92f519e5be58_split_000.html#ab0216f0dc33bef431d5d92f519e5be58" class="pcalibre1 anchor">◆ </a></span>SetMultipleObstructionAndOcclusion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_sound_engine_export_8h_ac6e96d34dfc0e12f9aaa7a47f4e9c322_split_000.html#ac6e96d34dfc0e12f9aaa7a47f4e9c322">AKSOUNDENGINE_API</a> <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::SoundEngine::SetMultipleObstructionAndOcclusion </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> </td>
+          <td class="paramname"><em class="calibre59">in_EmitterID</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> </td>
+          <td class="paramname"><em class="calibre59">in_uListenerID</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="struct_ak_obstruction_occlusion_values_split_000.html">AkObstructionOcclusionValues</a> * </td>
+          <td class="paramname"><em class="calibre59">in_fObstructionOcclusionValues</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> </td>
+          <td class="paramname"><em class="calibre59">in_uNumOcclusionObstruction</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Sets a game object's obstruction and occlusion value for each position defined by <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_aec6be4dca0249557ea2680b755bd218a_split_000.html#aec6be4dca0249557ea2680b755bd218a">AK::SoundEngine::SetMultiplePositions</a>. This function differs from <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a1b3e18a25b405e55ba82de9b70cd11ba_split_000.html#a1b3e18a25b405e55ba82de9b70cd11ba">AK::SoundEngine::SetObjectObstructionAndOcclusion</a> as a list of obstruction/occlusion pair is provided and each obstruction/occlusion pair will affect the corresponding position defined at the same index. </p><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> In the case the number of obstruction/occlusion pairs is smaller than the number of positions, remaining positions' obstruction/occlusion values are set to 0.0. </td></tr>
+</tbody></table>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><code class="calibre14">AK_Success</code> if successful</li>
+<li class="calibre9"><code class="calibre14">AK_CommandTooLarge</code> if the number of obstruction values is too large for the command queue.</li>
+<li class="calibre9"><code class="calibre14">AK_InvalidParameter</code> if one of the parameter is out of range (check the debug console)</li>
+<li class="calibre9"><code class="calibre14">AK_InvalidFloatValue</code> if one of the occlusion/obstruction values is NaN or Inf. </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="soundengine_obsocc_split_000.html">Obstruction and Occlusion with Game-defined Auxiliary Sends</a></li>
+<li class="calibre9"><a class="pcalibre el" href="soundengine_environments_split_000.html">Integration Details - Environments and Game-defined Auxiliary Sends</a> </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">AK_Success if occlusion/obstruction values are successfully stored for this emitter </dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_EmitterID</td><td class="calibre17">Emitter game object ID </td></tr>
+    <tr class="calibre16"><td class="paramname">in_uListenerID</td><td class="calibre17">Listener game object ID </td></tr>
+    <tr class="calibre16"><td class="paramname">in_fObstructionOcclusionValues</td><td class="calibre17">Array of obstruction/occlusion pairs to apply ObstructionLevel: [0.0f..1.0f] OcclusionLevel: [0.0f..1.0f] </td></tr>
+    <tr class="calibre16"><td class="paramname">in_uNumOcclusionObstruction</td><td class="calibre17">Number of obstruction/occlusion pairs specified in the provided array </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Sound Engine Source Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_5"><a class="pcalibre1 anchor" id="iaksourceeffect_execute"></a>
+AK::IAkSourcePlugin::Execute()</h2>
+<p class="calibre7">This method executes the source plug-in's audio signal processing algorithm and fills given audio output buffers (refer to <a class="pcalibre el" href="soundengine_plugins_split_017.html#fx_audiobuffer_struct">Accessing Data Using AkAudioBuffer Structure</a>). Upon function entrance, the <a class="pcalibre el" href="class_ak_audio_buffer_ab7f90fd99119b56e92e4cbf3559f98cd_split_000.html#ab7f90fd99119b56e92e4cbf3559f98cd" title="Number of valid sample frames in the audio buffer.">AkAudioBuffer::uValidFrames</a> field of the output buffer will always be zero, meaning that there are no valid audio frames in the channel buffers. The <a class="pcalibre el" href="class_ak_audio_buffer_a537445dce6e3ed09dd2c337fd73c6b41_split_000.html#a537445dce6e3ed09dd2c337fd73c6b41">AkAudioBuffer::MaxFrames()</a> method returns the maximum number of audio sample frames that the source should fill. The plug-in determines how many output sample frames need to be produced, which may depend on parameter values such as duration. After DSP execution, the source plug-in must tell the audio pipeline how many sample frames were effectively produced by setting the <a class="pcalibre el" href="class_ak_audio_buffer_ab7f90fd99119b56e92e4cbf3559f98cd_split_000.html#ab7f90fd99119b56e92e4cbf3559f98cd" title="Number of valid sample frames in the audio buffer.">AkAudioBuffer::uValidFrames</a> field of the audio buffer accordingly.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> In general, the algorithm should always attempt to produce full buffers to avoid pipeline starvation. </td></tr>
+</tbody></table>
+<p class="calibre7">The Execute() routine will be called as long as the source plug-in sets the eState field of the <a class="pcalibre el" href="class_ak_audio_buffer_split_000.html">AkAudioBuffer</a> structure to AK_DataReady. When AK_NoMoreData is returned, the plug-in will be terminated and will no longer be called by the audio pipeline. Wwise supports source plug-ins that output to any configuration listed on the <a href="https://www.audiokinetic.com/library/edge/?source=Help&amp;id=understanding_channel_configurations" target="_blank" class="pcalibre calibre12">Understanding Bus Configurations</a> page except Audio Objects.</p>
+</div></div></div></body></html>

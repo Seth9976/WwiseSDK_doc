@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integration Details - MIDI</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="soundengine_midi_event_timing"></a>
+MIDI Event Timing</h1>
+<p class="calibre7">The moment at which a MIDI event is executed is determined by the following factors:</p><ul class="calibre8">
+<li class="calibre9">the moment at which it was queued (via PostMIDIOnEvent),</li>
+<li class="calibre9">the event's member <a class="pcalibre el" href="struct_ak_m_i_d_i_post_a946b9b31a3345afd96983129151751e9_split_000.html#a946b9b31a3345afd96983129151751e9" title="Frame offset (in samples) for MIDI event post.">AkMIDIPost::uOffset</a>,</li>
+<li class="calibre9">the argument in_bAbsoluteOffsets provided to the call to PostMIDIOnEvent.</li>
+</ul>
+<p class="calibre7">If in_bAbsoluteOffsets is false, the MIDI event is executed uOffset samples from the time the PostMIDIOnEvent message is read from the sound engine's message queue (see <a class="pcalibre el" href="soundengine_midi_split_005.html#soundengine_midi_update_sequence">Updating MIDI Sequences</a>). If in_bAbsoluteOffsets is true, the MIDI event is executed uOffset samples in absolute time. The current absolute time is obtained via a call to <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ac688bf2d1ae6f2009e7cde602a753b6b_split_000.html#ac688bf2d1ae6f2009e7cde602a753b6b">AK::SoundEngine::GetSampleTick</a>.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> The duration of a sample can be determined from the sound engine's audio settings, via a call to <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a1ecadb91731d6cabe36603fa419b6715_split_000.html#a1ecadb91731d6cabe36603fa419b6715">AK::SoundEngine::GetAudioSettings</a>. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

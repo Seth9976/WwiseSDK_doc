@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::SoundEngine::Suspend</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="namespace_a_k_1_1_sound_engine_afc66d31bf5c6425d841ca3510e2d0539_split_000.html#afc66d31bf5c6425d841ca3510e2d0539" class="pcalibre1 anchor">◆ </a></span>Suspend()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_sound_engine_export_8h_ac6e96d34dfc0e12f9aaa7a47f4e9c322_split_000.html#ac6e96d34dfc0e12f9aaa7a47f4e9c322">AKSOUNDENGINE_API</a> <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::SoundEngine::Suspend </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype">bool </td>
+          <td class="paramname"><em class="calibre59">in_bRenderAnyway</em> = <code class="calibre14">false</code>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">bool </td>
+          <td class="paramname"><em class="calibre59">in_bFadeOut</em> = <code class="calibre14">true</code> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">This function should be called to put the sound engine in background mode, where audio isn't processed anymore. This needs to be called if the console has a background mode or some suspended state. Call <code class="calibre14">WakeupFromSuspend</code> when your application receives the message from the OS that the process is back in foreground. When suspended, the sound engine will process API messages (like PostEvent and SetSwitch) only when <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_afe54af0f5be38be061e8a3c7d7642bb1_split_000.html#afe54af0f5be38be061e8a3c7d7642bb1">RenderAudio()</a> is called. It is recommended to match the <b class="calibre13">in_bRenderAnyway</b> parameter with the behavior of the rest of your game: if your game still runs in background and you must keep some kind of coherent state between the audio engine and game, then allow rendering. If you want to minimize CPU when in background, then don't allow rendering and never call RenderAudio from the game.</p>
+<p class="calibre7">Consult <a class="pcalibre el" href="workingwithsdks_system_calls_split_000.html">Handling System-Specific Events</a> to learn when it is appropriate to call this function for each platform. </p><dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a9244da1d4d0deedcabdaaae863fcff47_split_000.html#a9244da1d4d0deedcabdaaae863fcff47">WakeupFromSuspend</a> </dd>
+<dd class="calibre24">
+<a class="pcalibre el" href="workingwithsdks_system_calls_split_000.html">Handling System-Specific Events</a> </dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_bRenderAnyway</td><td class="calibre17">If set to true, audio processing will still occur, but not outputted. When set to false, no audio will be processed at all, even upon reception of <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_afe54af0f5be38be061e8a3c7d7642bb1_split_000.html#afe54af0f5be38be061e8a3c7d7642bb1">RenderAudio()</a>. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_bFadeOut</td><td class="calibre17">Delay the suspend by one audio frame in order to fade-out. When false, the suspend takes effect immediately but audio may glitch. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

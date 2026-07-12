@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::IAkStdStream::Read</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="class_a_k_1_1_i_ak_std_stream_a2b12fb0cd1beb3c1d77c8206a8b5796d_split_000.html#a2b12fb0cd1beb3c1d77c8206a8b5796d" class="pcalibre1 anchor">◆ </a></span>Read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="calibre3">
+  <tbody class="calibre4"><tr class="calibre16">
+  <td class="calibre17">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">virtual <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::IAkStdStream::Read </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype">void * </td>
+          <td class="paramname"><em class="calibre59">in_pBuffer</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> </td>
+          <td class="paramname"><em class="calibre59">in_uReqSize</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">bool </td>
+          <td class="paramname"><em class="calibre59">in_bWait</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_a6fd4ce3da8a0654b665da32c63623433_split_000.html#a6fd4ce3da8a0654b665da32c63623433">AkPriority</a> </td>
+          <td class="paramname"><em class="calibre59">in_priority</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a> </td>
+          <td class="paramname"><em class="calibre59">in_fDeadline</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> &amp; </td>
+          <td class="paramname"><em class="calibre59">out_uSize</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="calibre17">
+<span><span>pure virtual</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Schedule a read request. </p><dl class="calibre7"><dt class="calibre23">Warning</dt><dd class="calibre24">Use only with a multiple of the block size, queried via <a class="pcalibre el" href="class_a_k_1_1_i_ak_std_stream_a1121f1b371a613e020d38b99e65e7a2b_split_000.html#a1121f1b371a613e020d38b99e65e7a2b">AK::IAkStdStream::GetBlockSize()</a>. </dd></dl>
+<dl class="calibre7"><dt class="calibre23">Remarks</dt><dd class="calibre24">If the call is asynchronous (in_bWait = false), wait until <a class="pcalibre el" href="class_a_k_1_1_i_ak_std_stream_a165ff91b84857e73891f7943261ba275_split_000.html#a165ff91b84857e73891f7943261ba275">AK::IAkStdStream::GetStatus()</a> stops returning AK_StmStatusPending. </dd></dl>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">AK_Success if the operation was successfully scheduled (but not necessarily completed) </dd></dl>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="streamingdevicemanager_split_000.html">Streaming / Stream Manager</a> </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_pBuffer</td><td class="calibre17">User buffer address </td></tr>
+    <tr class="calibre16"><td class="paramname">in_uReqSize</td><td class="calibre17">Requested read size </td></tr>
+    <tr class="calibre16"><td class="paramname">in_bWait</td><td class="calibre17">Block until the operation is complete </td></tr>
+    <tr class="calibre16"><td class="paramname">in_priority</td><td class="calibre17">Heuristic: operation priority </td></tr>
+    <tr class="calibre16"><td class="paramname">in_fDeadline</td><td class="calibre17">Heuristic: operation deadline (ms) </td></tr>
+    <tr class="calibre16"><td class="paramname">out_uSize</td><td class="calibre17">The size that was actually read </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

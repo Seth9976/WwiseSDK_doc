@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Using Reverb Zones</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_5"><a class="pcalibre1 anchor" id="spatial_audio_roomsportals_reverbzones_distance"></a>
+Distance</h2>
+<p class="calibre7">Care needs to be taken to choose which surfaces of a Reverb Zone are transparent (transmission loss is 0) because of their effect on the calculation of distance between an object in the Reverb Zone and its parent room. Any distance calculation to or from a Reverb Zone is taken based on the nearest opaque triangles.</p>
+<p class="calibre7">A common example of this is the floor of a large Reverb Zone. If the floor of a Reverb Zone is transparent (has a surface transmission loss of 0), and a listener is positioned to be far away from any walls, then the nearest distance to the parent room will be through the floor, which is usually undesirable.</p>
+<p class="calibre7">Another common example is a surface in a Reverb Zone that has a portal to another room. A surface with a portal connected to it should usually be opaque.</p>
+<div class="calibre2">
+<img alt="" src="reverbzones_surfacechoices.png" class="inline"/>
+</div>
+<p class="calibre7">In this example, the three highlighted surfaces of a Reverb Zone have been made opaque. The bottom surface is shared with the floor. The left surface is shared with another room and has a connected portal. The top surface is a creative choice representing something like a covered balcony. All other surfaces are transparent.</p>
+</div></div></div></body></html>

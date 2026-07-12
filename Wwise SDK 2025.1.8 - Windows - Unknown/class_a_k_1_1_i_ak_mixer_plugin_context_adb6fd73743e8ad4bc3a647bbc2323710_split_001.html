@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::IAkMixerPluginContext::ComputeSpeakerVolumesPanner</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="class_a_k_1_1_i_ak_mixer_plugin_context_adb6fd73743e8ad4bc3a647bbc2323710_split_000.html#adb6fd73743e8ad4bc3a647bbc2323710" class="pcalibre1 anchor">◆ </a></span>ComputeSpeakerVolumesPanner()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="calibre3">
+  <tbody class="calibre4"><tr class="calibre16">
+  <td class="calibre17">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">virtual <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::IAkMixerPluginContext::ComputeSpeakerVolumesPanner </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_enums_8h_a229e1503503cb92fbca8a437196b283f_split_000.html#a229e1503503cb92fbca8a437196b283f">AkSpeakerPanningType</a> </td>
+          <td class="paramname"><em class="calibre59">in_ePannerType</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">const <a class="pcalibre el" href="struct_ak_vector_split_000.html">AkVector</a> &amp; </td>
+          <td class="paramname"><em class="calibre59">in_position</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a> </td>
+          <td class="paramname"><em class="calibre59">in_fCenterPct</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="struct_ak_channel_config_split_000.html">AkChannelConfig</a> </td>
+          <td class="paramname"><em class="calibre59">in_inputConfig</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="struct_ak_channel_config_split_000.html">AkChannelConfig</a> </td>
+          <td class="paramname"><em class="calibre59">in_outputConfig</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="namespace_a_k_1_1_speaker_volumes_a57e0ce3a8225a58dd886853164554074_split_000.html#a57e0ce3a8225a58dd886853164554074">AK::SpeakerVolumes::MatrixPtr</a> </td>
+          <td class="paramname"><em class="calibre59">out_mxVolumes</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="calibre17">
+<span><span>pure virtual</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Compute a volume matrix given the position of the panner (<a class="pcalibre el" href="namespace_a_k_1_1_wwise_split_000.html">Wwise</a> 2D panner). You may use the returned volume matrix with IAkGlobalPluginContext::MixNinNChannels. </p><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> ComputePositioning is more general than this one, as it can also compute speaker gains for 3D spatialization, and should be favored.</td></tr>
+</tbody></table>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">AK_Success if successful, AK_Fail otherwise. </dd></dl>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><a class="pcalibre el" href="class_a_k_1_1_i_ak_global_plugin_context_split_000.html">IAkGlobalPluginContext</a> </dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_ePannerType</td><td class="calibre17">Panner type </td></tr>
+    <tr class="calibre16"><td class="paramname">in_position</td><td class="calibre17">x,y,z panner position [-1,1]. Note that z has no effect at the moment. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_fCenterPct</td><td class="calibre17">Center percentage. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_inputConfig</td><td class="calibre17">Channel configuration of the input. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_outputConfig</td><td class="calibre17">Channel configuration of the mixer output. </td></tr>
+    <tr class="calibre16"><td class="paramname">out_mxVolumes</td><td class="calibre17">Returned volumes matrix. Must be preallocated using <a class="pcalibre el" href="namespace_a_k_1_1_speaker_volumes_1_1_matrix_a59458aba2b1be3fa678021a3aea813b9_split_000.html#a59458aba2b1be3fa678021a3aea813b9">AK::SpeakerVolumes::Matrix::GetRequiredSize()</a> (see <a class="pcalibre el" href="namespace_a_k_1_1_speaker_volumes_1_1_matrix_split_000.html" title="Volume matrix (multi-in/multi-out channel configurations) services.">AK::SpeakerVolumes::Matrix</a> services). </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

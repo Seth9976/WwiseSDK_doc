@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>I/O Tips, Troubleshooting and Optimization</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_3"><a class="pcalibre1 anchor" id="streamingmanager_tips_deferreddevice_completionindependentfromnumberoftransfers"></a>
+Transfer Completion Is Independent From Number of Transfers Issued</h2>
+<p class="calibre7">Some devices resolve transfer requests periodically, based on mechanisms that are mostly independent from the number of transfers that are issued. This is often the case with DMA controller-based devices. Transfers are completed when DMA completes, but you don't want to wait until it does before preparing another DMA; in this case, use a deferred device with a large <a class="pcalibre el" href="struct_ak_device_settings_af49f8b3af816b58296e952b20de2d7a3_split_000.html#af49f8b3af816b58296e952b20de2d7a3" title="Maximum number of transfers that can be sent simultaneously to the Low-Level I/O.">AkDeviceSettings::uMaxConcurrentIO</a>. It should be large enough so that it never prevents I/O requests to be sent in to the Low-Level I/O. The amount of bandwidth is therefore solely controlled by the target buffering length.</p>
+</div></div></div></body></html>

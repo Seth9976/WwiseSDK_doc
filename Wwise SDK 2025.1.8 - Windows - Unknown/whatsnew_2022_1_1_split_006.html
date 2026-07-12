@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2022.1.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_5"><a class="pcalibre1 anchor" id="generic_community_bugs_2022_1_1"></a>
+Fixes for Community-Reported Bugs</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-54673</b> Fixed: Adding an emitter-listener association programmatically where the emitter is a 3D bus only takes effect for new sounds going through that bus.</li>
+<li class="calibre9"><b class="calibre13">WG-59739</b> Fixed: When no volume attenuation curve is specified for an auxiliary send for a voice, but there is an occlusion or transmission curve set, and the 3D Position is set to <b class="calibre13">Listener with Automation</b> or <b class="calibre13">Hold Emitter Position and Orientation</b>, this results in asserts, and the auxiliary send volume of the voice is set to zero.</li>
+<li class="calibre9"><b class="calibre13">WG-60853</b> Fixed: (Spatial Audio) It is possible to have a quieter path chosen over a louder path if that path is shorter and has portal obstruction applied to it.</li>
+<li class="calibre9"><b class="calibre13">WG-61178</b> Fixed: Possible Wwise crash when pressing the Enter key immediately after adding an Effect.</li>
+<li class="calibre9"><b class="calibre13">WG-61686</b> Fixed: External Editor doesn't work on Music Clips and Music MIDI Clips in the Segment Editor.</li>
+<li class="calibre9"><b class="calibre13">WG-61687</b> Fixed: WAQL originalFilePath doesn't work for MusicClip and MusicMidiClip.</li>
+<li class="calibre9"><b class="calibre13">WG-61709</b> Fixed: Crash when loading a project with unresolved control input in an RTPC.</li>
+<li class="calibre9"><b class="calibre13">WG-61812</b> Fixed: (Spatial Audio) Room transmission loss is always applied when the Listener and Emitter are separated by an open portal and any other geometry.</li>
+<li class="calibre9"><b class="calibre13">WG-61981</b> Fixed: Crash due to memory stomp inside of CAkTransitionManager::TermList when shutting down the sound engine.</li>
+<li class="calibre9"><b class="calibre13">WG-62011</b> Fixed: Possible crash when renaming folders in the File Manager.</li>
+<li class="calibre9"><b class="calibre13">WG-62057</b> Fixed: Erroneous Seek Table Absence warnings occur when replaying Vorbis files from the beginning.</li>
+<li class="calibre9"><b class="calibre13">WG-62150</b> Fixed: Using S-Curve Interpolation on RTPC curves provides values outside the specified range in some cases. For example, it might generate negative values for Spread or LPF/HPF factors when the curve should stop at 0.</li>
+<li class="calibre9"><b class="calibre13">WG-62177</b> Fixed: Setting a bus configuration to <b class="calibre13">Same as passthrough mix</b> when 3D Audio is available but passthrough is not available sets the bus configuration to Audio Objects instead of setting it to the Audio Device's main mix.</li>
+<li class="calibre9"><b class="calibre13">WG-62358</b> Fixed: Crash due to stack overflow originating from <code class="calibre14">CAkVPL3dMixable::GetVolumes</code> in some scenarios.</li>
+<li class="calibre9"><b class="calibre13">WG-62540</b> Fixed: Wwise could crash when playing a continuous Blend Container triggered by a Random Container using a delay, and with a sound instance limit.</li>
+<li class="calibre9"><b class="calibre13">WG-62672</b> Fixed: Memory reallocation errors in Sound Engine when accumulating Voice Inspector data.</li>
+<li class="calibre9"><b class="calibre13">WG-62703</b> Fixed: Crash when generating SoundBanks with certain RTPCs.</li>
+<li class="calibre9"><b class="calibre13">WG-62780</b> Fixed: SetBasePath returns Ak_PathNotFound for all locations in an OBB file on Android.</li>
+<li class="calibre9"><b class="calibre13">WG-62791</b> Fixed: Perforce Submit dialog freezes for a long time when opening a large project.</li>
+<li class="calibre9"><b class="calibre13">WG-62952</b> Fixed: Project load freezes in Loading Layouts stage for large projects. </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

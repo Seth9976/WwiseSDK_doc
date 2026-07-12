@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>SoundBank Integration Samples</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="sdk_bank_training_Method_1"></a>
+The All-in-one SoundBank</h1>
+<p class="calibre7">With this strategy, all event content, sound structure data, and media files are stored in one SoundBank. For a discussion of this strategy and its implementation in Wwise Authoring, see <a href="https://www.audiokinetic.com/library/edge/?source=Help&amp;id=method_1_all_in_one_bank" target="_blank" class="pcalibre calibre12">The All-in-one SoundBank</a> in the Wwise Help.</p>
+<p class="calibre7">Since there is only one SoundBank for this game, load it when initializing the game. As always, the sound engine must be initialized first.</p>
+<div class="fragment"><div class="line">...</div>
+<div class="line"><span class="comment">// Initialize the sound engine here.</span></div>
+<div class="line">...</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Load the Init bank and the all-in-one bank.</span></div>
+<div class="line"><a class="pcalibre code" href="_ak_typedefs_8h_a472a3d18cbb0c4f081b3b619e4a2f349_split_000.html#a472a3d18cbb0c4f081b3b619e4a2f349">AkBankID</a>    bankID; <span class="comment">// not used in this sample.</span></div>
+<div class="line"><a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> eResult = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">AK::SoundEngine::LoadBank</a>( L<span class="stringliteral">"Init.bnk"</span>, bankID );</div>
+<div class="line"><span class="keywordflow">if</span>( eResult == <a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_001.html#a64f7d1f79613cc4dcc49a4efba6caa63ad7c47fea3da641e7422573c6a13dc35e">AK_Success</a> )</div>
+<div class="line">{</div>
+<div class="line">    eResult = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">AK::SoundEngine::LoadBank</a>( L<span class="stringliteral">"MyAllInOneBank.bnk"</span>, bankID );</div>
+<div class="line">}</div>
+<div class="line">...</div>
+</div><!-- fragment --></div></div></div></body></html>

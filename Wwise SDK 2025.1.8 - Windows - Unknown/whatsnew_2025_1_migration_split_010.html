@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2025.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_9"><a class="pcalibre1 anchor" id="project_path"></a>
+Actor-Mixer Hierarchy, Master-Mixer Hierarchy, and Interactive Music Hierarchy</h1>
+<p class="calibre7">This version of Wwise introduces significant updates to the project's folder structure.</p>
+<p class="calibre7">The following root nodes have been updated:</p>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">Audio Devices</b>: Renamed to <b class="calibre13">Devices</b></li>
+<li class="calibre9"><b class="calibre13">Master-Mixer Hierarchy</b>: Renamed to <b class="calibre13">Busses</b></li>
+<li class="calibre9"><b class="calibre13">Actor-Mixer Hierarchy</b>: Renamed to <b class="calibre13">Containers</b></li>
+<li class="calibre9"><b class="calibre13">Interactive Music Hierarchy</b>: Moved to <b class="calibre13">Containers</b> and renamed to <b class="calibre13">Music (Migrated)</b></li>
+</ul>
+<p class="calibre7">Any tool, script, or engine referencing these paths will need to be updated.</p>
+<p class="calibre7">Please note that Wwise provides aliases that automatically translate incoming paths to their new names. For example, <code class="calibre14">\Actor-Mixer Hierarchy\SFX_CHARACTER\SFX_EXPL_01</code> will automatically be translated to <code class="calibre14">\Containers\SFX_CHARACTER\SFX_EXPL_01</code>.</p>
+<p class="calibre7">The SDK function <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a00256bfd86c2bed14c626922fc4417b0_split_000.html#a00256bfd86c2bed14c626922fc4417b0">AK::SoundEngine::SetActorMixerEffect</a> was renamed <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_af70b2f69c1377e5ad8e5b8310d73a104_split_000.html#af70b2f69c1377e5ad8e5b8310d73a104">AK::SoundEngine::SetContainerEffect</a>.</p>
+</div></div></div></body></html>

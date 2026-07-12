@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::SoundEngine::PrepareGameSyncs</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="namespace_a_k_1_1_sound_engine_ace4cf0709017e282d0e48c2e29522b53_split_000.html#ace4cf0709017e282d0e48c2e29522b53" class="pcalibre1 anchor">◆ </a></span>PrepareGameSyncs() <span class="permalink">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_sound_engine_export_8h_ac6e96d34dfc0e12f9aaa7a47f4e9c322_split_000.html#ac6e96d34dfc0e12f9aaa7a47f4e9c322">AKSOUNDENGINE_API</a> <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::SoundEngine::PrepareGameSyncs </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a21e0dbb1f9aebfc22fdd88634dc1067b_split_000.html#a21e0dbb1f9aebfc22fdd88634dc1067b">PreparationType</a> </td>
+          <td class="paramname"><em class="calibre59">in_PreparationType</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_enums_8h_ad07fa9c8b684c00b6405a38f0ac798bc_split_000.html#ad07fa9c8b684c00b6405a38f0ac798bc">AkGroupType</a> </td>
+          <td class="paramname"><em class="calibre59">in_eGameSyncType</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> </td>
+          <td class="paramname"><em class="calibre59">in_GroupID</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> * </td>
+          <td class="paramname"><em class="calibre59">in_paGameSyncID</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> </td>
+          <td class="paramname"><em class="calibre59">in_uNumGameSyncs</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_callback_types_8h_a5f4438e001923453a9f795eb64946be6_split_000.html#a5f4438e001923453a9f795eb64946be6">AkBankCallbackFunc</a> </td>
+          <td class="paramname"><em class="calibre59">in_pfnBankCallback</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">void * </td>
+          <td class="paramname"><em class="calibre59">in_pCookie</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Prepares or un-prepare game syncs asynchronously (by ID).<br class="calibre10"/>
+The group and game syncs are specified by ID (see <a class="pcalibre el" href="soundengine_banks_general_split_000.html">General Information</a> for a discussion on using strings and IDs). The game syncs definitions must already exist in the sound engine by having explicitly loaded the bank(s) that contain them (with <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">LoadBank()</a>). A request is posted to the Bank Manager consumer thread. It will resolve all dependencies needed to successfully set this game sync group to one of the game sync values specified, and load the required banks, if applicable. The function returns immediately. Use a callback to be notified when the request has finished being processed. </p><dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">AK_Success if scheduling is was successful, AK_Fail otherwise. </dd></dl>
+<dl class="calibre7"><dt class="calibre23">Remarks</dt><dd class="calibre24">You need to call <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a76c611710ef7ffdd2d59f34e35b67cdc_split_000.html#a76c611710ef7ffdd2d59f34e35b67cdc">PrepareGameSyncs()</a> if the sound engine was initialized with <a class="pcalibre el" href="struct_ak_init_settings_a65a86ebc5f0f7c6e3612a70e102f1cfd_split_000.html#a65a86ebc5f0f7c6e3612a70e102f1cfd" title="Sets to true to enable AK::SoundEngine::PrepareGameSync usage.">AkInitSettings::bEnableGameSyncPreparation</a> set to true. When set to false, the sound engine automatically prepares all Game Syncs when preparing Events, so you never need to call this function. </dd></dl>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a1aae6ebdec25946fb2897ce0e025366d_split_000.html#a1aae6ebdec25946fb2897ce0e025366d">AK::SoundEngine::GetIDFromString()</a></code></li>
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a2e6ebb779470b43d78984c27f6a0c238_split_000.html#a2e6ebb779470b43d78984c27f6a0c238">AK::SoundEngine::PrepareEvent()</a></code></li>
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">AK::SoundEngine::LoadBank()</a></code></li>
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_init_settings_split_000.html">AkInitSettings</a></li>
+<li class="calibre9"><a class="pcalibre el" href="_ak_callback_types_8h_a5f4438e001923453a9f795eb64946be6_split_000.html#a5f4438e001923453a9f795eb64946be6">AkBankCallbackFunc</a></li>
+<li class="calibre9"><a class="pcalibre el" href="soundengine_banks.html">Integration Details - Banks</a></li>
+<li class="calibre9"><a class="pcalibre el" href="sdk_bank_training_split_000.html">SoundBank Integration Samples</a> </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_PreparationType</td><td class="calibre17">Preparation type ( Preparation_Load or Preparation_Unload ) </td></tr>
+    <tr class="calibre16"><td class="paramname">in_eGameSyncType</td><td class="calibre17">The type of game sync. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_GroupID</td><td class="calibre17">The State Group ID or the Switch Group ID. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_paGameSyncID</td><td class="calibre17">Array of ID of the Game Syncs to either support or not support. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_uNumGameSyncs</td><td class="calibre17">The number of game sync ID in the array. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_pfnBankCallback</td><td class="calibre17">Callback function </td></tr>
+    <tr class="calibre16"><td class="paramname">in_pCookie</td><td class="calibre17">Callback cookie (reserved to user, passed to the callback function) </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

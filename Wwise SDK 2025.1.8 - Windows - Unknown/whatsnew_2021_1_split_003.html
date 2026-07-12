@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2021.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="generic_behavior_changes_2021_1"></a>
+Behavior Changes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-48027</b> In Spatial Audio, the spread calculation has been improved for the wet path going through portals.</li>
+<li class="calibre9"><b class="calibre13">WG-48038</b> The distance used to compute spread and focus now corresponds to the real distance between the emitter and listener when the channel configuration of the output bus is fully 3D, that is, it has height channels, is ambisonics, or is Object-Based.</li>
+<li class="calibre9"><b class="calibre13">WG-48178</b> <a class="pcalibre el" href="class_ak_array_split_000.html" title="Specific implementation of array.">AkArray</a> now uses aligned realloc.</li>
+<li class="calibre9"><b class="calibre13">WG-48575</b> Out-of-memory message now additionally displays information concerning memory type.</li>
+<li class="calibre9"><b class="calibre13">WG-50447</b> Added exclusive RTPC support to the predelay parameter in all Wwise reverb Effects, for initialisation of predelay before playback.</li>
+<li class="calibre9"><b class="calibre13">WG-50776</b> Sound now propagates between Rooms that are only connected with disabled portals.</li>
+<li class="calibre9"><b class="calibre13">WG-52087</b> Performance metrics are now reported at every frame.</li>
+<li class="calibre9"><b class="calibre13">WG-53299</b> The behavior of the global callback location AkGlobalCallbackLocation_PostMessagesProcessed has changed such that the callback is only executed once per buffer rendered. The callback is now executed when messages have been processed at any time between the current buffer and the previous buffer, where as previously it would potentially get executed multiple times per buffer rendered, if there were multiple batches of messages to process. The location of the callback has not changed.</li>
+</ul>
+</div></div></div></body></html>

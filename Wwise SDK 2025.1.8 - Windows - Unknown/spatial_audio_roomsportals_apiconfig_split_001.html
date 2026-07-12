@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Rooms and Portals API Configuration</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2"><h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="spatial_audio_roomsportals_apiconfigcreateroom"></a>
+Creating Rooms and Portals</h1>
+<p class="calibre7">You need to create Rooms and Portals based on the geometry of your map or level, with <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_ab991cec1e8c9f4d2721fea2d37b285c8_split_000.html#ab991cec1e8c9f4d2721fea2d37b285c8">AK::SpatialAudio::SetRoom</a></code> and <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_aeffa58bec3569a1bac5feac3e0c370d9_split_000.html#aeffa58bec3569a1bac5feac3e0c370d9">AK::SpatialAudio::SetPortal</a></code>. Rooms and Portals have settings that you may change at run-time by calling these functions again with the same ID. Then the game calls <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_a3f080206f12c04b3464838cb18c43f4e_split_000.html#a3f080206f12c04b3464838cb18c43f4e">AK::SpatialAudio::SetGameObjectInRoom</a></code> for each emitter and the listener to tell Wwise Acoustics in what Room they are. From the point of view of Wwise Acoustics, Rooms don't have a defined position, shape, or size. They can thus be of any shape, but it is the responsibility of the game engine to perform containment tests to determine in which Room the objects are.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="warning.gif"/></td><td class="calibre17"><b class="calibre13">Warning:</b> Beware of Room IDs. They share the same scope as Game Objects, so make sure that you never use an ID that is already used as a Game Object. </td></tr>
+</tbody></table>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="warning.gif"/></td><td class="calibre17"><b class="calibre13">Warning:</b> Wwise Acoustics registers a Game Object to Wwise for each Room. The user can post events on this Game Object for ambience/room tone sounds, but should not attempt to alter the position or Automatic Room Sends of the object in calls to <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_split_000.html">AK::SoundEngine</a></code>. </td></tr>
+</tbody></table>
+<p class="calibre7">The most important Room setting is <code class="calibre14"><a class="pcalibre el" href="struct_ak_room_params_a817e2d1ddf6693558804e546ceff8885_split_000.html#a817e2d1ddf6693558804e546ceff8885">AkRoomParams::ReverbAuxBus</a></code>, which tells Wwise Acoustics to which auxiliary bus emitters should send when they are in that Room. Other settings will be discussed in sections below (see <a class="pcalibre el" href="spatial_audio_roomsportals_wwisesetup_split_002.html#spatial_audio_roomsportals_using3dreverbs">Setting Up a Room Auxiliary Bus in Wwise</a> and <a class="pcalibre el" href="spatial_audio_roomsportals_apioverview_split_006.html#spatial_audio_roomsportals_modelingsoundpropagationfromotherrooms_transmission">Transmission</a>).</p>
+<p class="calibre7">Portals represent openings between two Rooms. Contrary to Rooms, Portals have position and size, so Wwise Acoustics can perform containment tests itself. Portal size is given by the Portal setting <code class="calibre14"><a class="pcalibre el" href="struct_ak_portal_params_a74acf1db3eb64175a9368962bdb56ff6_split_000.html#a74acf1db3eb64175a9368962bdb56ff6">AkPortalParams::Extent</a></code>. Width and height (X and Y) are used by Wwise Acoustics to compute diffraction and spread, while depth (Z) defines a region in which Wwise Acoustics performs a smooth transition between the two connected Rooms by carefully manipulating the auxiliary send levels, Room object placement, and Spread (used by 3D Spatialization). Refer to sections <a class="pcalibre el" href="spatial_audio_roomsportals_wwisesetup_split_002.html#spatial_audio_roomsportals_using3dreverbs">Setting Up a Room Auxiliary Bus in Wwise</a> and <a class="pcalibre el" href="spatial_audio_roomsportals_apioverview_split_001.html#spatial_audio_roomsportals_summary">Summary of Sound Propagation Features</a> below for more details. Additionally, Portals may be enabled (open) or disabled (closed) using the <code class="calibre14"><a class="pcalibre el" href="struct_ak_portal_params_ae7b926f081a501061439f8db0de6efba_split_000.html#ae7b926f081a501061439f8db0de6efba">AkPortalParams::bEnabled</a></code> Portal setting.</p>
+</div></div></div></body></html>

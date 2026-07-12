@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Low-Level I/O</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_12"><a class="pcalibre1 anchor" id="streamingmanager_lowlevel_default_implementation_walkthrough_file_location"></a>
+Basic File Location</h2>
+<p class="calibre7">Files used by the sound engine are opened either with IDs (used for both streamed audio files and SoundBanks) or with strings (generally reserved for SoundBanks). <b class="calibre13">CAkDefaultIOHookDeferred</b> inherit from <b class="calibre13">CAkFileLocationBase</b>, which exposes methods to set global paths (<b class="calibre13">SetBasePath()</b>, <b class="calibre13">AddBasePath()</b>, <b class="calibre13">SetBankPath()</b>, <b class="calibre13">SetAudioSrcPath()</b>). Both overloads of <b class="calibre13">CAkDefaultIOHookDeferred::BatchOpen()</b> call <b class="calibre13">CAkFileLocationBase::GetFullFilePath()</b>, to create a full file name that can be used with native file open functions. The base path is prepended first. Then, if the file is a SoundBank, the SoundBank path is added. If it is a streamed audio file, the audio source path is added. In both cases, if it is a file with a location dependent on the current language, the language directory name is added.</p>
+<p class="calibre7">If the string overload is used, the file name string is appended to this path.</p>
+<p class="calibre7">In the ID overload, only Audiokinetic’s file IDs are resolved. A game that uses the ID overload needs to change the implementation according to its ID mapping scheme. The mapping scheme of <b class="calibre13">CAkFileLocationBase</b> is the following: it creates a string based on the file ID, and appends an extension that depends on the file type (specified with the Codec ID). This is compatible with the streamed files naming convention used by the "Copy Streamed Files" post-generation step soundbank setting. Refer to the Wwise Help for more information about the soundbank settings.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><p class="starttd"><b class="calibre13">Note:</b> When the option "Use SoundBank names" of the SoundBank settings is not selected, Wwise generates bank files with names' in the format [ID].bnk. Therefore, explicit bank loads by ID (through the ID overload of <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">AK::SoundEngine::LoadBank()</a>) and implicit bank loads triggered from <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a2e6ebb779470b43d78984c27f6a0c238_split_000.html#a2e6ebb779470b43d78984c27f6a0c238">AK::SoundEngine::PrepareEvent()</a> will be mapped properly in the Default Low-Level I/O. When "Use SoundBank names" is selected, Wwise generates bank files with their original names (bank_name.bnk). Implicit bank loading, and explicit bank loading by string will be mapped properly. However, explicit bank loading by ID will not work, because the Default Low-Level I/O will try to open a file named [ID].bnk, which does not exist.</p>
+<p class="calibre7">Refer to <a class="pcalibre el" href="soundengine_banks_general_split_012.html#soundengine_banks_general_identification_using_names">Using SoundBank Names</a> for a discussion on the "Use SoundBank names" option from an SDK point of view, or the Wwise Help for SoundBank settings in general.</p>
+<p class="endtd">Likewise, the Default Low-Level I/O opens streamed audio files with names in the format [ID].[ext]. The [ext] is an extension that depends on the audio format. It is possible to tell Wwise to automatically copy all streamed audio files in the Generated SoundBank path, with the [ID].[ext] file name format, at the end of the SoundBank generation (refer to <a class="pcalibre el" href="soundengine_banks_general_split_016.html#soundengine_banks_general_identification_streamedaudio">Streamed Audio Files</a> and the Wwise Help). </p>
+</td></tr>
+</tbody></table>
+<p class="calibre7">After the full file path is obtained, <b class="calibre13">CAkDefaultIOHookDeferred::Open()</b> opens the file directly using the system API (wrapped in helpers implemented in the platform-specific sample file AkFileHelpers.h).</p>
+<p class="calibre7">From the game code you can set the base, SoundBank, audio source, and language-specific paths by using the methods of <b class="calibre13">CAkFileLocationBase</b> mentioned above. Refer to the sample code of the <a class="pcalibre el" href="samplecode_split_008.html#samplecode_integration_defaultlowlevelio">Default Low-Level I/O Implementation</a> for more information.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="tip.gif"/></td><td class="calibre17"><p class="starttd"><b class="calibre13">Tip:</b> The sound engine does not know when banks need to be loaded from a language-specific directory. Therefore, it always calls <a class="pcalibre el" href="class_a_k_1_1_i_ak_stream_mgr_a1de2a7935a2d3cddb71e7cc7f48effd6_split_000.html#a1de2a7935a2d3cddb71e7cc7f48effd6">AK::IAkStreamMgr::CreateStd()</a> with the bIsLanguageSpecific flag of the <a class="pcalibre el" href="struct_ak_file_system_flags_split_000.html" title="File system flags for file descriptors mapping.">AkFileSystemFlags</a> structure set to true first, then to false if the first call failed. The sample default implementation of the Low-Level I/O blindly tries to open the file from the current language-specific directory, which is of course inefficient because of the failed calls made to fopen(), which should be avoided.</p>
+<p class="endtd">You should always reimplement the Low-Level I/O to fit your needs. If you know the names of the language-specific SoundBanks, or you defined a nomenclature to identify them, load them from the correct folders early in the process. </p>
+</td></tr>
+</tbody></table>
+</div></div></div></body></html>

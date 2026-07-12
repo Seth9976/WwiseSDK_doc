@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2024.1.0</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_5"><a class="pcalibre1 anchor" id="generic_bugs_2024_1"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-51253</b> Fixed: The Attenuation Editor does not show the affect of the <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a9b71daa02c5d398d08c9eb0643d52555_split_000.html#a9b71daa02c5d398d08c9eb0643d52555">AK::SoundEngine::SetScalingFactor</a></code> API.</li>
+<li class="calibre9"><b class="calibre13">WG-58722</b> Fixed: Possible freeze when deleting many objects with Multi Editor open.</li>
+<li class="calibre9"><b class="calibre13">WG-59490</b> Fixed: It is possible to configure the severity of InvalidEventAction from the Project Logs Settings.</li>
+<li class="calibre9"><b class="calibre13">WG-61985</b> Fixed: Room names are not shown correctly in the Game Object 3D Viewer.</li>
+<li class="calibre9"><b class="calibre13">WG-64157</b> Fixed: A new SoundBank created using the <b class="calibre13">New SoundBank</b> button is not created under the selected Work Unit.</li>
+<li class="calibre9"><b class="calibre13">WG-67207</b> Fixed: Playing a descendant object of a blend container applies the container's blend tracks to the played sounds.</li>
+<li class="calibre9"><b class="calibre13">WG-68184</b> Fixed: Possible to modify, copy paste, or remove effects from an override when an object is not set to override parent.</li>
+<li class="calibre9"><b class="calibre13">WG-68401</b> Fixed: Switch Containers have an obsolete property that is no longer configurable from Wwise.</li>
+<li class="calibre9"><b class="calibre13">WG-68535</b> Fixed: (Mac Authoring) Game Object Profiler's 3D view is not clipped properly when dragging splitters past the minimum layout size.</li>
+<li class="calibre9"><b class="calibre13">WG-68629</b> Fixed: Crash when sound engine errors are printed in Unity.</li>
+<li class="calibre9"><b class="calibre13">WG-68658</b> Fixed: WAAPI notification <code class="calibre14"><a class="pcalibre el" href="ak_wwise_core_transport_statechanged_split_000.html">ak.wwise.core.transport.stateChanged</a></code> not always sent when playback stopped.</li>
+<li class="calibre9"><b class="calibre13">WG-68681</b> Fixed: Sometimes possible to use a floating view when a modal dialog is shown.</li>
+<li class="calibre9"><b class="calibre13">WG-68686</b> Fixed: Possible crash when multiple Wwise Recorder plug-ins writing to the same file.</li>
+<li class="calibre9"><b class="calibre13">WG-69259</b> Fixed: Right-click on the RTPC icon for checkboxes doesn't show the Add RTPC shortcut menu.</li>
+<li class="calibre9"><b class="calibre13">WG-69327</b> Fixed: Some default properties are unnecessarily saved in SoundBanks.</li>
+<li class="calibre9"><b class="calibre13">WG-69981</b> Fixed: Deleted objects still playing after connecting to a game with a modified project.</li>
+<li class="calibre9"><b class="calibre13">WG-70117</b> Fixed: Memory leak in <code class="calibre14">AkVariantBase.h.</code></li>
+<li class="calibre9"><b class="calibre13">WG-71103</b> Fixed: (Spatial Audio) Distance is incorrectly calculated for parents of Reverb Zones.</li>
+<li class="calibre9"><b class="calibre13">WG-71220</b> Fixed: Incorrect slider display when moving the mouse over the Simulation Value of a Game Parameter after the range has been changed.</li>
+<li class="calibre9"><b class="calibre13">WG-71278</b> Fixed: Channels jump when zooming into a source WAV display with Film ordering override.</li>
+<li class="calibre9"><b class="calibre13">WG-71551</b> Fixed: Meter initialization slows down Wwise loading.</li>
+<li class="calibre9"><b class="calibre13">WG-71885</b> Fixed: Assert/Crash in debug Wwise Authoring after warping a curve with a sine segment in the Reflect Effect Editor.</li>
+<li class="calibre9"><b class="calibre13">WG-71964</b> Fixed: Possible sluggishness when dragging the entry cue in the Music Segment Editor.</li>
+<li class="calibre9"><b class="calibre13">WG-72029</b> Fixed: Failure to properly clean up prepared events when a memory allocation failure occurs during a ClearBanks operation.</li>
+<li class="calibre9"><b class="calibre13">WG-72119</b> Fixed: Incorrect "Ref'd Mem" values for Streaming Devices after project reload.</li>
+<li class="calibre9"><b class="calibre13">WG-72372</b> Fixed: (Spatial Audio) Virtual positions are still visible when diffraction paths are hidden in the Game Object 3D Viewer.</li>
+<li class="calibre9"><b class="calibre13">WG-72535</b> Fixed: Menu bar might not render correctly after changing the application display to fullscreen.</li>
+<li class="calibre9"><b class="calibre13">WG-72664</b> Fixed: Selection works incorrectly when adding, moving, and removing objects in the playlist in a sequence container.</li>
+<li class="calibre9"><b class="calibre13">WG-72724</b> Fixed: Incorrect display after resizing an Audio Object List.</li>
+<li class="calibre9"><b class="calibre13">WG-72829</b> Fixed: The Blend Track Editor scrollbar is not always updated correctly.</li>
+<li class="calibre9"><b class="calibre13">WG-72893</b> Fixed: Blend Track Editor cannot be resized below a certain size.</li>
+<li class="calibre9"><b class="calibre13">WG-72918</b> Fixed: (Spatial Audio) Calling PostEvent on a sound with a Reflections Aux Send, and then immediately calling <code class="calibre14">UnregisterGameObject</code> results in no reflections being heard.</li>
+<li class="calibre9"><b class="calibre13">WG-73143</b> Fixed: Project Explorer trackpad scrolling speed is too fast.</li>
+<li class="calibre9"><b class="calibre13">WG-73146</b> Fixed: Unnecessary warning when attenuation is disabled and no attenuation object is selected.</li>
+<li class="calibre9"><b class="calibre13">WG-73208</b> Fixed: Crash when passing a nullptr to <code class="calibre14">IAkMap::GetNextAssoc</code>.</li>
+<li class="calibre9"><b class="calibre13">WG-73256</b> Fixed: Profiler Settings reset between major versions of Wwise.</li>
+<li class="calibre9"><b class="calibre13">WG-73299</b> Fixed: Game Parameter Simulation Value of 0 is reset to default after project reload.</li>
+<li class="calibre9"><b class="calibre13">WG-73351</b> Fixed: "ASSERT: Invalid listener ID" when playing sounds that use Reflect from Authoring.</li>
+<li class="calibre9"><b class="calibre13">WG-73372</b> Fixed: With Play Originals enabled, and with a very small Trim Start value, sound playback might play from the beginning instead of the specified value.</li>
+<li class="calibre9"><b class="calibre13">WG-73382</b> Fixed: The Fade-in and Continue to play properties of a Switch Container's children are not properly updated when shown in List View upon changing the Play Mode of the Switch Container.</li>
+<li class="calibre9"><b class="calibre13">WG-73516</b> Fixed: Slider and faders sometimes change look on mouse over.</li>
+<li class="calibre9"><b class="calibre13">WG-73637</b> Fixed: Stall in Wwise Authoring when editing the columns of a List View with many rows.</li>
+<li class="calibre9"><b class="calibre13">WG-73713</b> Fixed: Possible stack overflow after calling <code class="calibre14">PrepareEvent</code> for a music hierarchy with transition segments.</li>
+<li class="calibre9"><b class="calibre13">WG-73727</b> Fixed: Stall in Wwise Authoring when changing inclusion on multiple elements at once.</li>
+<li class="calibre9"><b class="calibre13">WG-73776</b> Fixed: Possible crashes from a mismatch in calls to prepare functions (<code class="calibre14">PrepareEvent</code>, <code class="calibre14">PrepareGameSync</code>, <code class="calibre14">PrepareBank</code>, <code class="calibre14">LoadBank</code>) and their counterparts (<code class="calibre14">UnprepareEvent</code>, <code class="calibre14">UnprepareGameSync</code>, <code class="calibre14">UnprepareBank</code>, <code class="calibre14">UnloadBank</code>). For instance, possible crash when calling the functions <code class="calibre14">LoadBank</code>, <code class="calibre14">PrepareEvent</code>, <code class="calibre14">UnloadBank</code>, <code class="calibre14">UnprepareEvent</code>, in order.</li>
+<li class="calibre9"><b class="calibre13">WG-73808</b> Fixed: The result of dragging to the bottom of a Sequence Container playlist is not always correct.</li>
+<li class="calibre9"><b class="calibre13">WG-74131</b> Fixed: Possible crash when profiling and selecting multiple rows in the Capture Log.</li>
+<li class="calibre9"><b class="calibre13">WG-74405</b> Fixed: Possible crash when closing Wwise.</li>
+<li class="calibre9"><b class="calibre13">WG-74460</b> Fixed: Clicking in an empty area of the Event Viewer or Schematic View stops the active play in the Transport Control.</li>
+</ul>
+</div></div></div></body></html>

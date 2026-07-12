@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AkGlobalCallbackFunc</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="_ak_callback_types_8h_a14f2022125839c43179c0c32381b4486_split_000.html#a14f2022125839c43179c0c32381b4486" class="pcalibre1 anchor">◆ </a></span>AkGlobalCallbackFunc</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">typedef void( * AkGlobalCallbackFunc) (<a class="pcalibre el" href="_ak_callback_types_8h_a78d3b9e9a332305cf8487ec47fce631f_split_000.html#a78d3b9e9a332305cf8487ec47fce631f">AkGlobalPluginContextPtr</a> in_pContext, enum <a class="pcalibre el" href="_ak_callback_types_8h_ae7a5e30e1402c7cf90d1b47420911676_split_000.html#ae7a5e30e1402c7cf90d1b47420911676">AkGlobalCallbackLocation</a> in_eLocation, void *in_pCookie)</td>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Callback prototype used for global callback registration. This callback may be called from various locations within the audio processing loop. The exact location from which it is called is passed in in_eLocation, and corresponds to one of the values that were passed to <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ade293d3ed101fe494ead6dffb1c682fb_split_000.html#ade293d3ed101fe494ead6dffb1c682fb">RegisterGlobalCallback()</a>. See the possible values of AkGlobalCallbackLocation for more details about the available locations. </p><dl class="calibre7"><dt class="calibre23">Remarks</dt><dd class="calibre24">This callback is normally executed from the main audio thread. The processing time in the callback function should be minimal. Having too much processing time could cause voice starvation. </dd></dl>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ade293d3ed101fe494ead6dffb1c682fb_split_000.html#ade293d3ed101fe494ead6dffb1c682fb">AK::SoundEngine::RegisterGlobalCallback()</a></li>
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a79c4af0e9466849874ef113c9f8079d7_split_000.html#a79c4af0e9466849874ef113c9f8079d7">AK::SoundEngine::UnregisterGlobalCallback()</a> </li>
+</ul>
+</dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_ak_callback_types_8h_source.html#l00402">402</a> of file <a class="pcalibre el" href="_ak_callback_types_8h_source.html">AkCallbackTypes.h</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

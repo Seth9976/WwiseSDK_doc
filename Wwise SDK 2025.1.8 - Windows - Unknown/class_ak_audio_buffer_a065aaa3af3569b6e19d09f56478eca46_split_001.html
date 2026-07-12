@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AkAudioBuffer::StandardToPipelineIndex</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="class_ak_audio_buffer_a065aaa3af3569b6e19d09f56478eca46_split_000.html#a065aaa3af3569b6e19d09f56478eca46" class="pcalibre1 anchor">◆ </a></span>StandardToPipelineIndex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="calibre3">
+  <tbody class="calibre4"><tr class="calibre16">
+  <td class="calibre17">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">static <a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> AkAudioBuffer::StandardToPipelineIndex </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="struct_ak_channel_config_split_000.html">AkChannelConfig</a> </td>
+          <td class="paramname"><em class="calibre59">in_channelConfig</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> </td>
+          <td class="paramname"><em class="calibre59">in_uChannelIdx</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="calibre17">
+<span><span>inline</span><span>static</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Convert a channel, identified by a single channel bit, to a buffer index used in <a class="pcalibre el" href="class_ak_audio_buffer_ad2bc3b8ddd61eaa0c111798d5f9e8c9c_split_000.html#ad2bc3b8ddd61eaa0c111798d5f9e8c9c">GetChannel()</a> below, for a given channel config. Standard indexing follows channel bit order (see <a class="pcalibre el" href="_ak_speaker_config_8h_split_000.html">AkSpeakerConfig.h</a>). Pipeline/buffer indexing is the same but the LFE is moved to the end. </p>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_channelConfig</td><td class="calibre17">Channel configuration. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_uChannelIdx</td><td class="calibre17">Channel index in standard ordering to be converted to pipeline ordering. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_ak_common_defs_8h_source.html#l00398">398</a> of file <a class="pcalibre el" href="_ak_common_defs_8h_source.html">AkCommonDefs.h</a>.</p>
+
+<p class="calibre7">References <a class="pcalibre el" href="_ak_enums_8h_source_split_000.html#l00406">AK_ChannelConfigType_Standard</a>, <a class="pcalibre el" href="_ak_speaker_config_8h_source.html#l00041">AK_SPEAKER_LOW_FREQUENCY</a>, <a class="pcalibre el" href="_ak_assert_8h_source.html#l00069">AKASSERT</a>, <a class="pcalibre el" href="_ak_speaker_config_8h_source.html#l00450">AkChannelConfig::eConfigType</a>, <a class="pcalibre el" href="_ak_bit_funcs_8h_source.html#l00201">AK::GetNumNonZeroBits()</a>, <a class="pcalibre el" href="_ak_speaker_config_8h_source.html#l00634">AkChannelConfig::HasLFE()</a>, <a class="pcalibre el" href="_ak_speaker_config_8h_source.html#l00451">AkChannelConfig::uChannelMask</a>, and <a class="pcalibre el" href="_ak_speaker_config_8h_source.html#l00449">AkChannelConfig::uNumChannels</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

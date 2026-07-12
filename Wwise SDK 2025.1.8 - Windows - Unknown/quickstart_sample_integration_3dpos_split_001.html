@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Quick Start Sample Integration - 3D Positions</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2"><h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="soundengine_integration_positions"></a>
+3D Position Example</h1>
+<p class="calibre7">The sound engine lets you set 3D positions on game objects so the sounds they emit appear to come from the right direction with the correct speed and orientation.</p>
+<p class="calibre7">The following code sets a static position on a game object:</p>
+<div class="fragment"><div class="line">(...)</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">//</span></div>
+<div class="line"><span class="comment">// Set object position. In this demo we just position the Car object to</span></div>
+<div class="line"><span class="comment">// the front-right of the player, with a null speed, but in general the position set</span></div>
+<div class="line"><span class="comment">// on game objects depends on the position and orientation of entities</span></div>
+<div class="line"><span class="comment">// that exist in your game's world.</span></div>
+<div class="line"><span class="comment">//</span></div>
+<div class="line"> </div>
+<div class="line">AkSoundPosition soundPos;</div>
+<div class="line">soundPos.Position.X = 0.5;</div>
+<div class="line">soundPos.Position.Y = 0;</div>
+<div class="line">soundPos.Position.Z = 0.5;</div>
+<div class="line">soundPos.Orientation.X = -1;</div>
+<div class="line">soundPos.Orientation.Y = soundPos.Orientation.Z = 0;</div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a789e25bda32d1e11849afb6584942455_split_000.html#a789e25bda32d1e11849afb6584942455">AK::SoundEngine::SetPosition</a>( GAME_OBJECT_ID_CAR, soundPos );</div>
+</div><!-- fragment --><p class="calibre7">If you play the engine sound in the sample program, you will hear it at the front-right because of the position it was set to.</p>
+<p class="calibre7">Refer to <a class="pcalibre el" href="soundengine_3dpositions_split_000.html">Integration Details - 3D Positions</a> for more information.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> This sample code comes from the Sound Engine Integration Sample Project available in the <a class="pcalibre el" href="samplecode_split_000.html">Samples</a> section. Refer to <a class="pcalibre el" href="soundengine_integration_samplecode_split_000.html">Integration Demo Sample</a> for more information. </td></tr>
+</tbody></table>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_a789e25bda32d1e11849afb6584942455_html_a789e25bda32d1e11849afb6584942455"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_a789e25bda32d1e11849afb6584942455_split_000.html#a789e25bda32d1e11849afb6584942455" class="pcalibre calibre12">AK::SoundEngine::SetPosition</a></div><div class="calibre2">AKSOUNDENGINE_API AKRESULT SetPosition(AkGameObjectID in_GameObjectID, const AkSoundPosition &amp;in_Position, AkSetPositionFlags in_eFlags=AkSetPositionFlags_Default)</div></div>
+
+
+</body></html>

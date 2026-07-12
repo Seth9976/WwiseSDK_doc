@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Rooms and Portals Overview</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="spatial_audio_roomsportals_summary"></a>
+Summary of Sound Propagation Features</h1>
+<p class="calibre7">The table below summarizes the features of Wwise Acoustics Rooms and Portals by grouping them in terms of acoustic phenomena, describing what Wwise Acoustics does for each, and how sound designers can incorporate them in their project.</p>
+<table border="1" cellpadding="1" cellspacing="0" width="800px" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<th class="calibre35">Acoustic Phenomenon</th><th class="calibre35">Wwise Acoustics</th><th class="calibre35">Sound Design in Wwise </th></tr>
+<tr class="calibre16">
+<td class="calibre17">Diffraction of Direct Propagation Path </td><td class="calibre17"><ul class="calibre8">
+<li class="calibre9">
+Calculates indirect Sound Paths that drive diffraction values </li>
+<li class="calibre9">
+Modifies the Game Object position to simulate the perceived angle of incidence of the diffracted sound </li>
+</ul>
+</td><td class="calibre17"><ul class="calibre8">
+<li class="calibre9">
+Assigns diffraction values to volumes and filters through diffraction curves in the Attenuation ShareSet, project diffraction curves, or built-in RTPCs </li>
+</ul>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre17">Diffuse field (reverb) </td><td class="calibre17"><ul class="calibre8">
+<li class="calibre9">
+Send to Room's auxiliary bus </li>
+<li class="calibre9">
+Constant power transitions </li>
+</ul>
+</td><td class="calibre17"><ul class="calibre8">
+<li class="calibre9">
+Reverb, bus volume, and Automatic Room Send offset on Property Container </li>
+</ul>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre17">Room coupling: reverb spatialization and diffraction of adjacent room's diffuse field </td><td class="calibre17"><ul class="calibre8">
+<li class="calibre9">
+Calculates the propagation of the diffuse field through Portals </li>
+<li class="calibre9">
+Room object positioning and spread </li>
+<li class="calibre9">
+Send to listener's room's auxiliary bus</li>
+</ul>
+</td><td class="calibre17"><ul class="calibre8">
+<li class="calibre9">
+Assigns diffraction values to volumes and filters through diffraction curves in the Attenuation ShareSet, project diffraction curves, or built-in RTPCs </li>
+<li class="calibre9">
+<span>Volume, filtering, or any property on Bus</span> </li>
+<li class="calibre9">
+3D panning of busses, reverb, bus volume, and Automatic Room Send offset of Auxiliary Bus to other busses </li>
+</ul>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre17">Transmission </td><td class="calibre17"><ul class="calibre8">
+<li class="calibre9">
+Drives transmission loss values according to the Room and surfaces through which the Sound Path travels </li>
+</ul>
+</td><td class="calibre17"><ul class="calibre8">
+<li class="calibre9">
+Assigns transmission loss values to volumes and filters through transmission curves in the Attenuation ShareSet, project transmission curves, or built-in RTPCs </li>
+</ul>
+</td></tr>
+</tbody></table>
+</div></div></div></body></html>

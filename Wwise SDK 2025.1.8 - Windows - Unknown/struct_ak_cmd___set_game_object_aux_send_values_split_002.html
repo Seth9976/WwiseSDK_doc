@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AkCmd_SetGameObjectAuxSendValues Struct Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_1">Detailed Description</h2>
+<div class="calibre2"><p class="calibre7">Sets the Auxiliary Busses to route the specified game object. To clear the game object's auxiliary sends, <code class="calibre14">numValues</code> must be 0.</p>
+<p class="calibre7">The Sound Engine expects an array of <code class="calibre14"><a class="pcalibre el" href="struct_ak_aux_send_value_split_000.html" title="Auxiliary bus sends information per game object per given auxiliary bus.">AkAuxSendValue</a></code> objects after the command. The number of items must correspond to the number of channels in <code class="calibre14">channelConfig</code>. For example: </p><pre class="fragment">AkAuxSendValue values[2]; // Initialize array as required
+auto cmd = (AkCmd_SetGameObjectAuxSendValues*)AK_CommandBuffer_Add(buffer, AkCommand_SetGameObjectAuxSendValues);
+cmd-&gt;numValues = 2;
+AK_CommandBuffer_AddArray(buffer, sizeof(AkAuxSendValue), cmd-&gt;numValues, values);
+</pre><p class="calibre7">This command can fail for the following reasons:</p><ul class="calibre8">
+<li class="calibre9">AK_InvalidParameter: <code class="calibre14">gameObjectID</code> is outside the valid range, or incomplete array after the command.</li>
+<li class="calibre9">AK_IDNotFound: <code class="calibre14">gameObjectID</code> is not a registered game object ID.</li>
+</ul>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="_ak_command_types_8h_a001b78645b8b0335c0dd2e128cca2cfd_split_001.html#a001b78645b8b0335c0dd2e128cca2cfdaf61a2cd81ebb15c5cbaaeef537b500e2" title="See AkCmd_SetGameObjectAuxSendValues.">AkCommand_SetGameObjectAuxSendValues</a></li>
+<li class="calibre9"><a class="pcalibre el" href="_ak_command_buffer_8h_a7512f07e3e8f24cf4ed15bebf3a6392e_split_000.html#a7512f07e3e8f24cf4ed15bebf3a6392e">AK_CommandBuffer_AddArray</a></li>
+<li class="calibre9"><a class="pcalibre el" href="soundengine_environments_split_000.html">Integration Details - Environments and Game-defined Auxiliary Sends</a></li>
+<li class="calibre9"><a class="pcalibre el" href="soundengine_environments_split_006.html#soundengine_environments_dynamic_aux_bus_routing">Dynamically Sending To Auxiliary Busses.</a></li>
+<li class="calibre9"><a class="pcalibre el" href="soundengine_environments_split_002.html#soundengine_environments_id_vs_string">Using IDs or Strings (Unicode or ANSI)</a> </li>
+</ul>
+</dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_ak_command_types_8h_source_split_000.html#l00444">444</a> of file <a class="pcalibre el" href="_ak_command_types_8h_source_split_000.html">AkCommandTypes.h</a>.</p>
+</div></div><!-- contents -->
+
+
+</body></html>

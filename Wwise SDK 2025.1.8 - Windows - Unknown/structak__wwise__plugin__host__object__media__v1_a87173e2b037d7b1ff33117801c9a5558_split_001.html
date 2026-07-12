@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak_wwise_plugin_host_object_media_v1::GetConvertedDirectory</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="structak__wwise__plugin__host__object__media__v1_a87173e2b037d7b1ff33117801c9a5558_split_000.html#a87173e2b037d7b1ff33117801c9a5558" class="pcalibre1 anchor">◆ </a></span>GetConvertedDirectory</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">unsigned int(* ak_wwise_plugin_host_object_media_v1::GetConvertedDirectory) (const struct <a class="pcalibre el" href="structak__wwise__plugin__host__object__media__instance__v1_split_000.html">ak_wwise_plugin_host_object_media_instance_v1</a> *in_this, <a class="pcalibre el" href="_platforms_2_windows_2_ak_types_8h_af48843ed095e0ea7dd05bd1b64070664_split_000.html#af48843ed095e0ea7dd05bd1b64070664">AkOSChar</a> *out_pszDirectory, unsigned int in_uiBufferSize, const GUID *in_guidPlatform)</td>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+
+<p class="calibre7">Obtain the Converted directory for the plug-in and platform. </p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="warning.gif"/></td><td class="calibre17"><b class="calibre13">Warning:</b> If you do not provide a buffer big enough to write the full string, the function will fail and return 0. Make sure to use a buffer big enough to write the entire string, such as your platform's max path size. </td></tr>
+</tbody></table>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_this</td><td class="calibre17">Current instance of this interface. </td></tr>
+    <tr class="calibre16"><td class="calibre17">[out]</td><td class="paramname">out_pszDirectory</td><td class="calibre17">Buffer that will contain the path. </td></tr>
+    <tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_uiBufferSize</td><td class="calibre17">Size of the provided string buffer. </td></tr>
+    <tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_guidPlatform</td><td class="calibre17">GUID of the platform to query. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">Number of characters written to the buffer. 0 means a failure. </dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_host_object_media_8h_source.html#l00234">234</a> of file <a class="pcalibre el" href="_host_object_media_8h_source.html">HostObjectMedia.h</a>.</p>
+
+<p class="calibre7">Referenced by <a class="pcalibre el" href="_host_object_media_8h_source.html#l00505">AK.Wwise::Plugin::V1::ObjectMedia::GetConvertedDirectory()</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

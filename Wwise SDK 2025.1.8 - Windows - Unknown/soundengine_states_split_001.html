@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integration Details - States</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2"><h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="soundengine_states_intro"></a>
+Introduction</h1>
+<p class="calibre7">A state is a change that affects the audio properties on a global scale for all game objects. For every state group there can only be one current state, which is shared between all game objects.</p>
+<p class="calibre7">For example, a state group could be:</p>
+<ul class="calibre8">
+<li class="calibre9">Weather</li>
+</ul>
+<p class="calibre7">And the different states of this group could be:</p>
+<ul class="calibre8">
+<li class="calibre9">Sunny</li>
+<li class="calibre9">Rainy</li>
+<li class="calibre9">Cloudy</li>
+<li class="calibre9">None</li>
+</ul>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> Every state group has a state called "None". The "None" state represents the initial state of the group, and cannot be removed. In the "None" state, no parameter changes have been applied. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

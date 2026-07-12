@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Default Wwise Audio Devices</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_7"><a class="pcalibre1 anchor" id="obtaining_device_id"></a>
+Targeting Specific System Devices</h1>
+<p class="calibre7">On some platforms, the audio devices listed above can be configured to output to a specific system-level device when multiple are available. A value of 0 always means "use the default device". To configure an audio device with a specific system-level device, set <code class="calibre14"><a class="pcalibre el" href="struct_ak_output_settings_a0e145d97af362b7f3267b64ca0e38054_split_000.html#a0e145d97af362b7f3267b64ca0e38054">AkOutputSettings::idDevice</a></code> according to the rules described in this section.</p>
+<div open="1" platform="Windows" class="calibre2"></div><p class="calibre7"> Windows:</p><ul class="calibre8">
+<li class="calibre9">Use <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_a84b3896b7b5b223c72b5ea826fae6bd8_split_000.html#a84b3896b7b5b223c72b5ea826fae6bd8">AK::GetDeviceID</a></code> or <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_a8609f19bc85d9ea8266c2fdd79ac5084_split_000.html#a8609f19bc85d9ea8266c2fdd79ac5084">AK::GetDeviceIDFromName</a></code> to get the correct device ID. Leave it set to 0 for the default Windows device as seen in Audio Properties. <div open="0" platform="Windows" class="calibre2"></div></li>
+</ul>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="integrating_secondary_outputs_split_000.html">Integrating Secondary Outputs</a> </li>
+</ul>
+</dd></dl>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

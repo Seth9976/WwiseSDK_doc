@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integration Details - Environments and Game-defined Auxiliary Sends</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_9"><a class="pcalibre1 anchor" id="soundengine_environments_example4"></a>
+Example: Assigning an Aux Send to an Alternate Listener Game Object to Simulate an Acoustic Portal</h2>
+<p class="calibre7">In the following example, we have registered a game object that is used to simulate an acoustic portal in 3D space. The game object represents an environment that neither the sound, nor the main listener are inside. Setting the <code class="calibre14">listenerID</code> field to a valid game object ID creates an emitter-listener association in a similar manner to <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a2f85a55c38afa2e0dbc6172a7bec91d1_split_000.html#a2f85a55c38afa2e0dbc6172a7bec91d1">SetListeners()</a></code>, however it applies to an auxiliary output from an audio node, whereas <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a2f85a55c38afa2e0dbc6172a7bec91d1_split_000.html#a2f85a55c38afa2e0dbc6172a7bec91d1">SetListeners()</a></code> applies to the direct output. The audio node that sends audio is controlled by setting the "Use game-defined auxiliary sends" flag in the authoring tool. To visualize how setting <code class="calibre14">listenerID</code> creates an instance of the bus specified by <code class="calibre14">auxBusID</code> on the game object <code class="calibre14">listenerID</code>, see the voice graph tab in the advanced profiler of the Wwise authoring tool.</p>
+<div class="fragment"><div class="line"><span class="keyword">const</span> <a class="pcalibre code" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> GAME_OBJECT_ID_HUMAN = 200;</div>
+<div class="line"><span class="keyword">const</span> <a class="pcalibre code" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> GAME_OBJECT_ID_PORTAL = 201;</div>
+<div class="line"><span class="preprocessor">#define NUM_ENVIRONMENT 1</span></div>
+<div class="line"> </div>
+<div class="line"><a class="pcalibre code" href="struct_ak_aux_send_value_split_000.html">AkAuxSendValue</a> aEnv[NUM_ENVIRONMENT];</div>
+<div class="line">aEnv[0].<a class="pcalibre code" href="struct_ak_aux_send_value_a185a87e879e5a602446b07252bdd8519_split_000.html#a185a87e879e5a602446b07252bdd8519">listenerID</a> = GAME_OBJECT_ID_PORTAL; <span class="comment">// Target game object ID for this aux send.</span></div>
+<div class="line">aEnv[0].<a class="pcalibre code" href="struct_ak_aux_send_value_a985acf05c92308c7569dd4a91a3e4256_split_000.html#a985acf05c92308c7569dd4a91a3e4256">auxBusID</a> = AK::AUX_BUSSES::TUNNEL_ENV_PORTAL; <span class="comment">// Target aux bus ID for this aux send.</span></div>
+<div class="line">aEnv[0].<a class="pcalibre code" href="struct_ak_aux_send_value_a1e3fe0e1490d0e15af8a46d8ab4078f4_split_000.html#a1e3fe0e1490d0e15af8a46d8ab4078f4">fControlValue</a> = 1.0f;</div>
+<div class="line"> </div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_af960fca0239e219b9d08c2659fe9e5d4_split_000.html#af960fca0239e219b9d08c2659fe9e5d4">AK::SoundEngine::SetGameObjectAuxSendValues</a>( GAME_OBJECT_ID_HUMAN, aEnv, NUM_ENVIRONMENT );</div>
+</div><!-- fragment --><p class="calibre7">In this example, the <code class="calibre14">AK::AUX_BUSSES::TUNNEL_ENV_PORTAL</code> aux bus should be set to “Enable Positioning” and positioning type 3D in the Wwise authoring tool, so that is can also emit sound in the 3D simulation.</p>
+</div></div></div></body></html>

@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::ObjectPool::Deallocate</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="class_a_k_1_1_object_pool_a7978bffb37a2a133f82c31a03b0a0bd4_split_000.html#a7978bffb37a2a133f82c31a03b0a0bd4" class="pcalibre1 anchor">◆ </a></span>Deallocate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename AllocatorType  = ObjectPoolDefaultAllocator&lt;&gt;, typename LockType  = ObjectPoolDefaultLockType&gt; </div>
+<table class="calibre3">
+  <tbody class="calibre4"><tr class="calibre16">
+  <td class="calibre17">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> <a class="pcalibre el" href="class_a_k_1_1_object_pool_split_000.html">AK::ObjectPool</a>&lt; T, AllocatorType, LockType &gt;::Deallocate </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="class_a_k_1_1_object_pool_a4aa6fde6a154c29177c4f911400c2651_split_000.html#a4aa6fde6a154c29177c4f911400c2651">ValueType</a> * </td>
+          <td class="paramname"><em class="calibre59">data</em></td><td class="calibre17">)</td>
+          <td class="calibre17"/>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="calibre17">
+<span><span>inline</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Deallocates given pointer. Calling Deallocate when <a class="pcalibre el" href="class_a_k_1_1_object_pool_abe277cd17b164b855b2059eb2701ef71_split_000.html#abe277cd17b164b855b2059eb2701ef71">IsEmpty()</a> returns true is undefined behaviour. Calling Deallocate with a pointer that wasn't allocated by this pool is undefined behaviour.</p>
+<p class="calibre7">You can define AK_OBJECT_POOL_EXTRA_SAFETY for extra debugging check. </p>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_ak_object_pool_8h_source.html#l00166">166</a> of file <a class="pcalibre el" href="_ak_object_pool_8h_source.html">AkObjectPool.h</a>.</p>
+
+<p class="calibre7">References <a class="pcalibre el" href="_ak_enums_8h_source_split_000.html#l00050">AK_InvalidParameter</a>, <a class="pcalibre el" href="_ak_enums_8h_source_split_000.html#l00034">AK_Success</a>, <a class="pcalibre el" href="_ak_assert_8h_source.html#l00069">AKASSERT</a>, and <a class="pcalibre el" href="_ak_object_pool_8h_source.html#l00072">AK::ObjectPool&lt; T, AllocatorType, LockType &gt;::DataType::next</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

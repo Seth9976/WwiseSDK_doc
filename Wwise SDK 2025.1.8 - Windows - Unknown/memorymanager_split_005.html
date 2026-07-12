@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Memory Manager</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_4"><a class="pcalibre1 anchor" id="overridememorymanager"></a>
+Overriding the memory manager</h1>
+<p class="calibre7">It is possible for a client to provide a custom implementation of the <a class="pcalibre el" href="namespace_a_k_1_1_memory_mgr_split_000.html">AK::MemoryMgr</a> interface. All functions defined in <a class="pcalibre el" href="_ak_memory_mgr_8h_split_000.html">AkMemoryMgr.h</a> should be implemented. The functions from the <a class="pcalibre el" href="namespace_a_k_1_1_memory_mgr_split_000.html">AK::MemoryMgr</a> namespace defined in AkModule.h do not need to be implemented as they are specific to the default implementation of the memory manager.</p>
+<p class="calibre7">As when overriding the various allocation functions of <code class="calibre14"><a class="pcalibre el" href="struct_ak_mem_settings_split_000.html">AkMemSettings</a></code>, when writing a new <a class="pcalibre el" href="namespace_a_k_1_1_memory_mgr_split_000.html">AK::MemoryMgr</a> implementation care must be taken to honor the <code class="calibre14">AkMemType_Device</code> bit by returning device memory when the bit is set. Device memory allocation is used on certain platforms only, and must conform to specific parameters: refer to the platform-specific section for details. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

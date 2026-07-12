@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2021.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_13"><a class="pcalibre1 anchor" id="memmgr_changes"></a>
+Memory Manager Changes</h1>
+<h2 class="calibre31"><a class="pcalibre1 anchor" id="memmgr_falign_reallocalign"></a>
+Falign and ReallocAligned</h2>
+<p class="calibre7">AK::MemoryMgr::Falign and AK::MemoryMgr::dFalign have been removed. Memory allocated with <a class="pcalibre el" href="namespace_a_k_1_1_memory_mgr_aeb57745b9cfdc88c9775e5bc504e9ab5_split_000.html#aeb57745b9cfdc88c9775e5bc504e9ab5">AK::MemoryMgr::Malign</a> (or dMalign) can now be freed using <a class="pcalibre el" href="namespace_a_k_1_1_memory_mgr_a6ee20149a37b11b31589c6f23f46db65_split_000.html#a6ee20149a37b11b31589c6f23f46db65">AK::MemoryMgr::Free</a> (or dFree) or reallocated using <a class="pcalibre el" href="namespace_a_k_1_1_memory_mgr_a98fd48e4adafff36f44d6bf9be73bd41_split_000.html#a98fd48e4adafff36f44d6bf9be73bd41">AK::MemoryMgr::ReallocAligned</a> or (dReallocAligned).</p>
+</div></div></div></body></html>

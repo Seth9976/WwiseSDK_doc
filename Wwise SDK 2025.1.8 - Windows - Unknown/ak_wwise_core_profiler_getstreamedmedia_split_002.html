@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak.wwise.core.profiler.getStreamedMedia</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="ak_wwise_core_profiler_getstreamedmediaResult"></a>
+Result</h1>
+<p class="calibre7"></p><table class="doxtable">
+<tbody class="calibre4"><tr class="calibre16">
+<th class="calibre46">Name </th><th class="calibre46">Type </th><th class="calibre46">Description  </th></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">return</b> * </td><td class="calibre36">array </td><td class="calibre36">Array of Streams.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return <b class="calibre13">[...]</b> </td><td class="calibre36">object </td><td class="calibre36">Information about how each of the streams is managed by the Wwise sound engine.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return[...].<b class="calibre13">deviceName</b> * </td><td class="calibre36">string </td><td class="calibre36">The name of the device from which the stream eminates.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return[...].<b class="calibre13">streamName</b> * </td><td class="calibre36">string </td><td class="calibre36">The name given to the stream.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return[...].<b class="calibre13">fileSize</b> * </td><td class="calibre36">integer </td><td class="calibre36">The size of the file being streamed.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return[...].<b class="calibre13">filePosition</b> * </td><td class="calibre36">number </td><td class="calibre36">The position of the stream within the file, given as a percentage.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return[...].<b class="calibre13">priority</b> * </td><td class="calibre36">integer </td><td class="calibre36">The priority of the stream.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return[...].<b class="calibre13">bandwidthTotal</b> * </td><td class="calibre36">integer </td><td class="calibre36">The rate at which the file was streamed in the last profiling frame. This value takes all transfers into account, including transfers that occurred from the Stream Manager's cache.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return[...].<b class="calibre13">bandwidthLowLevel</b> * </td><td class="calibre36">integer </td><td class="calibre36">The rate at which the file was streamed in the last profiling frame. Unlike the Total Bandwidth field, this field value considers transfers that occurred from within the low-level device.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return[...].<b class="calibre13">referencedMemory</b> * </td><td class="calibre36">integer </td><td class="calibre36">The amount of memory that is referenced by the stream. This excludes memory used for I/O transfers. It can be seen as a measure of how much data the stream may grant to the sound engine at any given time.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return[...].<b class="calibre13">estimatedThroughput</b> * </td><td class="calibre36">integer </td><td class="calibre36">The estimated throughput of the stream. The sound engine estimates the rate at which it consumes data from a stream according to its encoding format and number of channels.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return[...].<b class="calibre13">active</b> * </td><td class="calibre36">boolean </td><td class="calibre36">Indicates True if the stream was active at least once during the last profiling frame.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return[...].<b class="calibre13">targetBufferSize</b> * </td><td class="calibre36">integer </td><td class="calibre36">The streaming device's target buffer length.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return[...].<b class="calibre13">bufferStatusBuffered</b> * </td><td class="calibre36">number </td><td class="calibre36">The portion of requested data that is buffered, given as a percentage of the target buffer size.   </td></tr>
+</tbody></table>
+<p class="calibre7">(Required *)</p>
+<p class="calibre7"><a class="pcalibre el" href="ak_wwise_core_profiler_getstreamedmedia_result_schema_split_000.html">Result Schema</a></p>
+</div></div></div></body></html>

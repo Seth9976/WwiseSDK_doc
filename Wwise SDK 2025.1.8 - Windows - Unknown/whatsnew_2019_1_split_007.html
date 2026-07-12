@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2019.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_6"><a class="pcalibre1 anchor" id="bugs_2019_1"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-22636</b> Fixed: Select All doesn't focus specifically on object names when editing them in the Project Explorer.</li>
+<li class="calibre9"><b class="calibre13">WG-30329</b> Fixed: Occasional crash in Batch Rename while modifying the project.</li>
+<li class="calibre9"><b class="calibre13">WG-33846</b> Fixed: Multi Editor allows setting invalid fade values for Audio Sources.</li>
+<li class="calibre9"><b class="calibre13">WG-34254</b> Fixed: Random and Sequence Containers with Trigger Rate transition types apply a Play Event transition to all children instead of the container itself.</li>
+<li class="calibre9"><b class="calibre13">WG-35046</b> Fixed: SoundBank metadata (TXT) files do not list Switch/State Groups if not referenced in the Actor-Mixer Hierarchy.</li>
+<li class="calibre9"><b class="calibre13">WG-35102</b> Fixed: The Solo/Mute buttons in the Sends tab of the Advanced Profiler did not properly affect the Game Object.</li>
+<li class="calibre9"><b class="calibre13">WG-36198</b> Fixed: Deleting an Event while playing it in Wwise authoring makes it impossible to stop the Event and the UI lock on some items remains.</li>
+<li class="calibre9"><b class="calibre13">WG-36591</b> Fixed: Some contextual menus display next to the mouse cursor when opening them using the keyboard.</li>
+<li class="calibre9"><b class="calibre13">WG-36671</b> Fixed: MIDI Target reference not shown in the Property Editor's MIDI tab for unloaded Work Units.</li>
+<li class="calibre9"><b class="calibre13">WG-36672</b> Fixed: False-positive warning when reloading a Work Unit after changing an unloaded reference.</li>
+<li class="calibre9"><b class="calibre13">WG-36910</b> Fixed: Flickering scrollbar when scrolling Project Explorer's vertical scrollbar with the mouse.</li>
+<li class="calibre9"><b class="calibre13">WG-37193</b> Fixed: Link and Unlink icons are not properly sized in Multi Editor for High DPI displays.</li>
+<li class="calibre9"><b class="calibre13">WG-37353</b> Fixed: Stop button of progress dialog for sort operations doesn't work.</li>
+<li class="calibre9"><b class="calibre13">WG-37660</b> Fixed: Audio Files Importer keyboard shortcut is only working when focus is on Project Explorer.</li>
+<li class="calibre9"><b class="calibre13">WG-37828</b> Fixed: Cannot change the split type of tabs in a view using the arrow keys.</li>
+<li class="calibre9"><b class="calibre13">WG-38104</b> Fixed: Corrupted SoundBanks could cause a crash in Profile and Release configurations.</li>
+<li class="calibre9"><b class="calibre13">WG-38316</b> Fixed: Capture Log context menu, "Add Game Object to Game Object Watch List - By Name" does not always add the correct name.</li>
+<li class="calibre9"><b class="calibre13">WG-38797</b> Fixed: Voice starvation issue when AddOutput is called for a DirectInput motion device.</li>
+<li class="calibre9"><b class="calibre13">WG-39005</b> Fixed: Cannot get primary device, once initialized, from the <code class="calibre14"><a class="pcalibre el" href="_ak_callback_types_8h_a3da9a1b793119a41c30eda4f5565eef9_split_000.html#a3da9a1b793119a41c30eda4f5565eef9">DeviceStatusCallback</a></code>.</li>
+<li class="calibre9"><b class="calibre13">WG-39079</b> Fixed: Copy-paste shortcuts do not work in the Event Viewer.</li>
+<li class="calibre9"><b class="calibre13">WG-39498</b> Fixed: Crash in XAudio2 when switching projects in Wwise authoring.</li>
+<li class="calibre9"><b class="calibre13">WG-39562</b> Fixed: Crash when a view changes while editing a Note.</li>
+<li class="calibre9"><b class="calibre13">WG-39683</b> Fixed: Error message when attempting to play a sound through the Wwise Convolution Reverb without an impulse response is too generic.</li>
+<li class="calibre9"><b class="calibre13">WG-39708</b> Fixed: Wwise hangs while profiling with watches containing a wildcard.</li>
+<li class="calibre9"><b class="calibre13">WG-39764</b> Fixed: (WAAPI) Crash when importing audio sources with a language not supported by the target parent.</li>
+<li class="calibre9"><b class="calibre13">WG-39782</b> Fixed: RTPC editor's S-Curve icon is not correct when selected.</li>
+<li class="calibre9"><b class="calibre13">WG-40196</b> Fixed: Scaling issues when a 125% DPI scaling is applied.</li>
+<li class="calibre9"><b class="calibre13">WG-40231</b> Fixed: Rendering issues in the SoundSeed Grain envelope editor.</li>
+<li class="calibre9"><b class="calibre13">WG-40266</b> Fixed: Dragging the Attack or Release sometimes causes a visual jitter in SoundSeed Grain.</li>
+<li class="calibre9"><b class="calibre13">WG-40390</b> Fixed: Negative Amplitude is not shown on feedback sliders in SoundSeed Grain.</li>
+<li class="calibre9"><b class="calibre13">WG-40411</b> Fixed: SoundSeed Grain envelope editor is unresponsive when there are many grains.</li>
+<li class="calibre9"><b class="calibre13">WG-40418</b> Fixed: SoundSeed Grain's Grain Visualizer rendering bugs when resizing.</li>
+<li class="calibre9"><b class="calibre13">WG-40427</b> Fixed: Crash while renaming a new item in Project Explorer.</li>
+<li class="calibre9"><b class="calibre13">WG-40428</b> Fixed: Crash is possible while sorting in SoundBank Generation log.</li>
+<li class="calibre9"><b class="calibre13">WG-40441</b> Fixed: SoundSeed Grain's Grain Visualizer has rendering issues when zooming and scrolling.</li>
+<li class="calibre9"><b class="calibre13">WG-40469</b> Fixed: Display issues when scrolling, zooming, and resizing the Grain Visualizer in SoundSeed Grain.</li>
+<li class="calibre9"><b class="calibre13">WG-40480</b> Fixed: SoundSeed Grain's Q slider is disabled when filter type is HPF6 or LPF6.</li>
+<li class="calibre9"><b class="calibre13">WG-40511</b> Fixed: (Windows) Missing *.filter files in Integration Demo sample code.</li>
+<li class="calibre9"><b class="calibre13">WG-40512</b> Fixed: SoundSeed Grain bypass buttons cannot be activated with keyboard.</li>
+<li class="calibre9"><b class="calibre13">WG-40638</b> Fixed: (WAAPI) Setting the <code class="calibre14">BypassEffects</code> property on objects returns an error.</li>
+<li class="calibre9"><b class="calibre13">WG-40646</b> Fixed: Splitter area disappears when resizing SoundSeed Grain Source Editor window.</li>
+<li class="calibre9"><b class="calibre13">WG-40656</b> Fixed: Missing Conversion Settings in the SoundSeed Grain factory assets.</li>
+<li class="calibre9"><b class="calibre13">WG-40660</b> Fixed: SetRTPCValue and SetRTPCValueWIthTransition messages are inverted in the Capture Log.</li>
+<li class="calibre9"><b class="calibre13">WG-40748</b> Fixed: (Windows) Assert in debug mode when quickly disconnecting/reconnecting a DirectInput device while playing a sound with motion feedback.</li>
+<li class="calibre9"><b class="calibre13">WG-40752</b> Fixed: Navigating backwards from the Source Editor to a sound with an RTPC object that can be inspected, such as a Modulator, prompts the editor rather than returning to the sound.</li>
+<li class="calibre9"><b class="calibre13">WG-40761</b> Fixed: Deleting an Event through the Event Viewer marks it as missing instead of removing it from the list.</li>
+<li class="calibre9"><b class="calibre13">WG-40779</b> Fixed: Multiple undo actions for single action of adding a custom marker to SoundSeed Grain sources.</li>
+<li class="calibre9"><b class="calibre13">WG-40784</b> Fixed: Changing SoundSeed Grain source properties or Conversion Settings can freeze the UI when there are many SoundSeed Grain instances.</li>
+<li class="calibre9"><b class="calibre13">WG-40836</b> Fixed: Wrong bypass icons in SoundSeed Grain.</li>
+<li class="calibre9"><b class="calibre13">WG-40857</b> Fixed: Crash when sorting the Volumes column of the Advanced Profiler's Listeners tab.</li>
+<li class="calibre9"><b class="calibre13">WG-40862</b> Fixed: Opening a modal window by using the title bar menu does not work when Wwise is out of focus.</li>
+<li class="calibre9"><b class="calibre13">WG-40946</b> Fixed: Active tab and splitter positions incorrectly shared between source plug-ins.</li>
+<li class="calibre9"><b class="calibre13">WG-40971</b> Fixed: Multi-Editor View Mode does not persist correctly when closing the view.</li>
+<li class="calibre9"><b class="calibre13">WG-41004</b> Fixed: Project Settings are no longer migrated correctly.</li>
+<li class="calibre9"><b class="calibre13">WG-41008</b> Fixed: Grain visualization issue when the Pitch value in the SoundSeed Grain settings is non-zero.</li>
+<li class="calibre9"><b class="calibre13">WG-41021</b> Fixed: Crash from undo after loading a source file into a new instance of SoundSeed Grain.</li>
+<li class="calibre9"><b class="calibre13">WG-41030</b> Fixed: Crash for some return options for topics <code class="calibre14"><a class="pcalibre el" href="ak_wwise_core_object_postdeleted_split_000.html">ak.wwise.core.object.postDeleted</a></code> and <code class="calibre14"><a class="pcalibre el" href="ak_wwise_core_object_childremoved_split_000.html">ak.wwise.core.object.childRemoved</a></code>.</li>
+<li class="calibre9"><b class="calibre13">WG-41159</b> Fixed: Expanding/collapsing nodes in trees using the left and right arrow keys no longer works.</li>
+<li class="calibre9"><b class="calibre13">WG-41214</b> Fixed: Crash in the Transport Control when closing Wwise authoring.</li>
+<li class="calibre9"><b class="calibre13">WG-41340</b> Fixed: (macOS) Failure to build source plug-ins created using wp.py for Mac target.</li>
+<li class="calibre9"><b class="calibre13">WG-41555</b> Fixed: Wrong converted sample rate reported in Opus.</li>
+<li class="calibre9"><b class="calibre13">WG-41725</b> Fixed: Crash while using the mouse wheel on random values of Positioning Automation (and potentially elsewhere) when no path point is selected.</li>
+<li class="calibre9"><b class="calibre13">WG-41756</b> Fixed: Opus playback sometimes stops unexpectedly after looping or seeking.</li>
+<li class="calibre9"><b class="calibre13">WG-41814</b> Fixed: Possible crash when selecting no object in the Project Explorer Browser invoked with the Add Exception... button in the Event Editor.</li>
+<li class="calibre9"><b class="calibre13">WG-41823</b> Fixed: Show All References and Schematic View on an Auxiliary Bus don't show references from User-Defined Auxiliary Sends.</li>
+<li class="calibre9"><b class="calibre13">WG-41899</b> Fixed: List in Emitter-Listener tab of the Profiler can grow indefinitely when game objects that have been unregistered are quickly re-registered.</li>
+<li class="calibre9"><b class="calibre13">WG-41939</b> Fixed: Crash in some Effect plug-ins under low memory conditions.</li>
+<li class="calibre9"><b class="calibre13">WG-42026</b> Fixed: Crash when calling <code class="calibre14">AK::Wwise::IPluginPropertySet::WaapiCall</code> from plug-in with <code class="calibre14">NULL</code> arguments or options.</li>
+<li class="calibre9"><b class="calibre13">WG-42046</b> Fixed: "Panning vs 3D Spatialization Mix" value not updated when live editing RTPC curve.</li>
+<li class="calibre9"><b class="calibre13">WG-42132</b> Fixed: (iOS) Application crash when playing Vorbis audio on iPhone 5 devices and older.</li>
+<li class="calibre9"><b class="calibre13">WG-42148</b> Fixed: Dragging objects onto the SoundBank Manager's list no longer resets the scroll position.</li>
+<li class="calibre9"><b class="calibre13">WG-42201</b> Fixed: (macOS) About dialog freezes the application if it is displayed on a secondary monitor.</li>
+<li class="calibre9"><b class="calibre13">WG-42202</b> Fixed: Crash when loading a profiling session that contains Effect plug-ins that are not installed.</li>
+<li class="calibre9"><b class="calibre13">WG-42204</b> Fixed: SoundSeed Grain is missing grain display in authoring tool when non-Windows platforms are selected.</li>
+</ul>
+<p class="calibre7">
+ </p><dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="whatsnew_2019_1_new_features_split_000.html">New Features Overview 2019.1</a></li>
+<li class="calibre9"><a class="pcalibre el" href="whatsnew_2019_1_migration_split_000.html">Important Migration Notes 2019.1</a></li>
+<li class="calibre9"><a class="pcalibre el" href="reference_platform_2019_1_split_000.html">Platform Requirements 2019.1</a> </li>
+</ul>
+</dd></dl>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

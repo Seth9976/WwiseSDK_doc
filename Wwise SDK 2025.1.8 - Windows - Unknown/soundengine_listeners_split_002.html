@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integrating Listeners</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="soundengine_registering_listeners"></a>
+Registering a Listener</h1>
+<p class="calibre7">In order to hear sound, at least one game object must be registered and assigned as a listener. You may use <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a4fe9102cd3cb2b59dda5d3d635dc49fe_split_000.html#a4fe9102cd3cb2b59dda5d3d635dc49fe">AK::SoundEngine::SetDefaultListeners</a></code> to assign a listener to all other game objects, or <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a2f85a55c38afa2e0dbc6172a7bec91d1_split_000.html#a2f85a55c38afa2e0dbc6172a7bec91d1">AK::SoundEngine::SetListeners</a></code> to assign a listener to a specific game object, and override what has been set using <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a4fe9102cd3cb2b59dda5d3d635dc49fe_split_000.html#a4fe9102cd3cb2b59dda5d3d635dc49fe">AK::SoundEngine::SetDefaultListeners</a></code>. Here is how we register a game object, and assign it as a default listener:</p>
+<div class="fragment"><div class="line"><a class="pcalibre code" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> MY_DEFAULT_LISTENER = 0; </div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Register the main listener.</span></div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a895ed0f83a0dea8fc284491c0ee0152c_split_000.html#a895ed0f83a0dea8fc284491c0ee0152c">AK::SoundEngine::RegisterGameObj</a>(MY_DEFAULT_LISTENER, <span class="stringliteral">"My Default Listener"</span>);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Set one listener as the default.</span></div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a4fe9102cd3cb2b59dda5d3d635dc49fe_split_000.html#a4fe9102cd3cb2b59dda5d3d635dc49fe">AK::SoundEngine::SetDefaultListeners</a>(&amp;MY_DEFAULT_LISTENER, 1);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Register a game object for playing sounds</span></div>
+<div class="line"><a class="pcalibre code" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> MY_EMITTER = 1; </div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a895ed0f83a0dea8fc284491c0ee0152c_split_000.html#a895ed0f83a0dea8fc284491c0ee0152c">AK::SoundEngine::RegisterGameObj</a>(MY_EMITTER, <span class="stringliteral">"My Emitter"</span>);</div>
+<div class="line"><span class="comment">// At this point "My Emitter" has 1 listener, "My Default Listener", because we designated it as the default listener.</span></div>
+<div class="line"> </div>
+<div class="line"><a class="pcalibre code" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> MY_LISTENER_NO2 = 2; </div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a895ed0f83a0dea8fc284491c0ee0152c_split_000.html#a895ed0f83a0dea8fc284491c0ee0152c">AK::SoundEngine::RegisterGameObj</a>(MY_LISTENER_NO2, <span class="stringliteral">"My Listener #2"</span>);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// If we want to change the listener for only "My Emitter", we do so as follows:</span></div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a2f85a55c38afa2e0dbc6172a7bec91d1_split_000.html#a2f85a55c38afa2e0dbc6172a7bec91d1">AK::SoundEngine::SetListeners</a>(MY_EMITTER , &amp;MY_LISTENER_NO2, 1);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// At this point, "My Emitter" has listener "My Listener #2". All other game object still have "My Default Listener" as their listener.</span></div>
+</div><!-- fragment --><p class="calibre7">You may inspect the emitter-listener associations that have been assigned in code by looking at the Emitter-Listener tab of the Advanced Profiler in the Wwise authoring tool. A simple game will elect a single game object as the default listener for all game objects; however, it is possible to use multiple listeners to output to a single output device. See <a class="pcalibre el" href="soundengine_listeners_split_010.html#soundengine_listeners_multi">Multiple Listeners In A Single Output Device</a> below. It is also possible to use listeners for 3D positioning of submixes. To do so, it is necessary to assign listeners to game object that are also listeners creating a directed graph of game objects, connected by emitter-listener associations.</p>
+</div></div></div></body></html>

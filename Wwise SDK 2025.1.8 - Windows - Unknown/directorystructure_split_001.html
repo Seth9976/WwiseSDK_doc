@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Directory Structure</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="wwise_sdk_input_lib_reference"></a>
+SDK Input Libraries and Distributed Binaries</h1>
+<p class="calibre7">The input libraries required to integrate the Wwise Sound Engine are available for each <a class="pcalibre el" href="goingfurther_builds_split_001.html#wwise_sdk_build_config">build configuration</a> in their respective platform folders contained in the root of the SDK installation directory. The library directory structure is defined as follows:</p><ul class="calibre8">
+<li class="calibre9">{Wwise SDK Dir}/{Platform name}/{Configuration name}/lib where<ul class="calibre15">
+<li class="calibre9">{Wwise SDK Dir} is the SDK installation directory</li>
+<li class="calibre9">{Platform name} is one of the available platform names (x64, Mac, iOS, ...). A suffix may further refine the CPU architecture or compiler targeted.</li>
+<li class="calibre9">{Configuration name} is one of the three build configurations (Debug, Profile, Release).</li>
+</ul>
+</li>
+</ul>
+<p class="calibre7">For example, Profile libraries for the Windows platform using Visual Studio 2019 can be found in {Wwise SDK Dir}\x64_vc160\Profile\lib.</p>
+<p class="calibre7">Refer to <a class="pcalibre el" href="goingfurther_builds_split_000.html">Build Configuration</a> for a description of the various libraries contained in this SDK.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="tip.gif"/></td><td class="calibre17"><b class="calibre13">Tip:</b> The SDK installer creates an environment variable named <code class="calibre14">WWISESDK</code> that points to the SDK's installation folder. You can use this environment variable in scripts and C++ projects to refer to include, library or binary directories from the SDK. Refer to <a class="pcalibre el" href="goingfurther_builds_split_004.html#wwise_sdk_lib_dependency_requirements_plugins">Source and Effect Plug-ins</a> for more details. <b class="calibre13">Note:</b> WWISESDK variable is not set on the MAC. </td></tr>
+</tbody></table>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

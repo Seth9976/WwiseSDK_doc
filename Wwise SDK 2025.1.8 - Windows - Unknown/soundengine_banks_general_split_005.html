@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>General Information</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_4"><a class="pcalibre1 anchor" id="soundengine_banks_general_id_vs_string_conversion"></a>
+String Conversion</h2>
+<p class="calibre7">The IDs of all Wwise objects that are available to the game (banks, events, game syncs, and so on) are computed by hashing their lowered-case name into a 32-bit integer.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="tip.gif"/></td><td class="calibre17"><b class="calibre13">Tip:</b> In Wwise, selecting the "Generate SoundBank content files" option on the SoundBanks tab of the Project Settings dialog box will create a corresponding text file for each bank, which enumerates the names and IDs of all the objects that it contains. See <a href="https://www.audiokinetic.com/library/edge/?source=Help&amp;id=defining_soundbank_settings_for_project#defining_soundbank_project_settings" target="_blank" class="pcalibre calibre12">Defining SoundBank project settings</a> for more information. </td></tr>
+</tbody></table>
+<p class="calibre7">The method <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a1aae6ebdec25946fb2897ce0e025366d_split_000.html#a1aae6ebdec25946fb2897ce0e025366d">AK::SoundEngine::GetIDFromString()</a></code> performs run-time conversion of a string into an ID. It is case-insensitive; the input string is converted to lowercase, then the hashing function is applied.</p>
+</div></div></div></body></html>

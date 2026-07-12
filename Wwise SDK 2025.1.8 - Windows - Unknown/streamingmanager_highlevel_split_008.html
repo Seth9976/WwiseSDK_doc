@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>High-Level Stream Manager API Description</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_7"><a class="pcalibre1 anchor" id="streamingmanager_highlevel_standardstreams_definition"></a>
+Definition</h2>
+<p class="calibre7">A standard stream uses a basic Read/Write scheme to control I/O operations. When <a class="pcalibre el" href="class_a_k_1_1_i_ak_std_stream_a2b12fb0cd1beb3c1d77c8206a8b5796d_split_000.html#a2b12fb0cd1beb3c1d77c8206a8b5796d">AK::IAkStdStream::Read()</a> or <a class="pcalibre el" href="class_a_k_1_1_i_ak_std_stream_af983e5aec5edd20b88a6b01e466d8779_split_000.html#af983e5aec5edd20b88a6b01e466d8779">AK::IAkStdStream::Write()</a> is called, an I/O request is queued to the scheduler, and the stream sets its status to AK_StmStatusPending. The user passes the transfer size requested and the address of the buffer. Upon completion, the stream sets its status to either AK_StmStatusCompleted or AK_StmStatusError. Its position is incremented by the actual size transferred, so the next operation will occur at the new position. To force another position, the user must use the <a class="pcalibre el" href="class_a_k_1_1_i_ak_std_stream_a5d0c3c6c525a882d89558b1aae485360_split_000.html#a5d0c3c6c525a882d89558b1aae485360">AK::IAkStdStream::SetPosition()</a> method before initiating a new transfer.</p>
+<p class="calibre7">Only one I/O operation can occur at a time. Subsequent operations need to be explicitly initiated by calling <a class="pcalibre el" href="class_a_k_1_1_i_ak_std_stream_a2b12fb0cd1beb3c1d77c8206a8b5796d_split_000.html#a2b12fb0cd1beb3c1d77c8206a8b5796d">AK::IAkStdStream::Read()</a> or <a class="pcalibre el" href="class_a_k_1_1_i_ak_std_stream_af983e5aec5edd20b88a6b01e466d8779_split_000.html#af983e5aec5edd20b88a6b01e466d8779">AK::IAkStdStream::Write()</a>. When the user has finished using a stream, <a class="pcalibre el" href="class_a_k_1_1_i_ak_std_stream_aaa6bca57f4a01a98dff95f68b1320403_split_000.html#aaa6bca57f4a01a98dff95f68b1320403">AK::IAkStdStream::Destroy()</a> must be called. Then the interface becomes invalid.</p>
+<table border="1" cellpadding="5" cellspacing="0" class="calibre38">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre17"><b class="calibre13">Default Streaming Manager Information</b><br class="calibre10"/>
+<br class="calibre10"/>
+ Read or write calls end up in I/O transfers in the Low-Level I/O. If the size requested at the client level is greater than the streaming device's granularity (<a class="pcalibre el" href="struct_ak_device_settings_abd4879bfd150b9a2f898102e3815dbe2_split_000.html#abd4879bfd150b9a2f898102e3815dbe2" title="I/O requests granularity (typical bytes/request).">AkDeviceSettings::uGranularity</a>), the transfers are split up. The stream stays in AK_StmStatusPending or AK_StmStatusIdle state until the whole transfer is complete, or until an error or an end-of-file condition occurs. </td></tr>
+</tbody></table>
+<p class="calibre7">The interface exposes other methods, including setting queries, access to current status or positions, and access to buffers supplied to previous operations.</p>
+</div></div></div></body></html>

@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak.wwise.core.getInfo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="ak_wwise_core_getinfoResult"></a>
+Result</h1>
+<p class="calibre7"></p><table class="doxtable">
+<tbody class="calibre4"><tr class="calibre16">
+<th class="calibre46">Name </th><th class="calibre46">Type </th><th class="calibre46">Description  </th></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">sessionId</b> * </td><td class="calibre36">string </td><td class="calibre36">Wwise session id.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">apiVersion</b> * </td><td class="calibre36">number </td><td class="calibre36">Version of the Wwise Authoring API. Range: [1,*]  </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">displayName</b> * </td><td class="calibre36">string </td><td class="calibre36">Wwise display name.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">branch</b> * </td><td class="calibre36">string </td><td class="calibre36">Branch built.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">copyright</b> * </td><td class="calibre36">string </td><td class="calibre36">Copyright information.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">version</b> * </td><td class="calibre36">object </td><td class="calibre36">Wwise version object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">version.<b class="calibre13">displayName</b> * </td><td class="calibre36">string </td><td class="calibre36">Wwise version name.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">version.<b class="calibre13">year</b> * </td><td class="calibre36">integer </td><td class="calibre36">Version year. Range: [2000,2100]  </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">version.<b class="calibre13">major</b> * </td><td class="calibre36">integer </td><td class="calibre36">Version's major number. Range: [0,100]  </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">version.<b class="calibre13">minor</b> * </td><td class="calibre36">integer </td><td class="calibre36">Version's minor number. Range: [0,100]  </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">version.<b class="calibre13">build</b> * </td><td class="calibre36">integer </td><td class="calibre36">Build number. Range: [1,*]  </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">version.<b class="calibre13">nickname</b> * </td><td class="calibre36">string </td><td class="calibre36">Special name given to a version.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">version.<b class="calibre13">schema</b> * </td><td class="calibre36">integer </td><td class="calibre36">Schema version for the Wwise Project and Work Units. Range: [1,*]  </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">configuration</b> * </td><td class="calibre36">string </td><td class="calibre36">Indicates a release or debug build. Possible values: <ul class="calibre8">
+<li class="calibre9">
+release </li>
+<li class="calibre9">
+debug </li>
+</ul>
+</td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">platform</b> * </td><td class="calibre36">string </td><td class="calibre36">Indicates the platform on which Wwise was built. Possible values: <ul class="calibre8">
+<li class="calibre9">
+x64 </li>
+<li class="calibre9">
+win32 </li>
+<li class="calibre9">
+macosx </li>
+<li class="calibre9">
+linux </li>
+</ul>
+</td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">isCommandLine</b> * </td><td class="calibre36">boolean </td><td class="calibre36">Indicates if Wwise is running in command line.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">processId</b> * </td><td class="calibre36">integer </td><td class="calibre36">The process identifier of Wwise.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">processPath</b> * </td><td class="calibre36">string </td><td class="calibre36">The process path of Wwise.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">directories</b> * </td><td class="calibre36">object </td><td class="calibre36">Collection of directories used by Wwise.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">directories.<b class="calibre13">install</b> * </td><td class="calibre36">string </td><td class="calibre36">The root directory of Wwise. This is the installation directory.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">directories.<b class="calibre13">authoring</b> * </td><td class="calibre36">string </td><td class="calibre36">The Wwise Authoring root directory.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">directories.<b class="calibre13">bin</b> * </td><td class="calibre36">string </td><td class="calibre36">The bin directory, where Wwise.exe is located.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">directories.<b class="calibre13">help</b> * </td><td class="calibre36">string </td><td class="calibre36">The help directory.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">directories.<b class="calibre13">user</b> * </td><td class="calibre36">string </td><td class="calibre36">The Wwise user data directory root.   </td></tr>
+</tbody></table>
+<p class="calibre7">(Required *)</p>
+<p class="calibre7"><a class="pcalibre el" href="ak_wwise_core_getinfo_result_schema_split_000.html">Result Schema</a></p>
+</div></div></div></body></html>

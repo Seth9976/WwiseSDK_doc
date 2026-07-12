@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integration Details - 3D Positions</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_3"><a class="pcalibre1 anchor" id="soundengine_3dpositions_multiplepos_usage"></a>
+Example use cases</h2>
+<p class="calibre7">By creating multiple positions for a single game object, you can simulate a number of different sound effects, including:</p><ul class="calibre8">
+<li class="calibre9"><a class="pcalibre el" href="soundengine_3dpositions_split_004.html#area_sounds">Area sounds</a></li>
+<li class="calibre9"><a class="pcalibre el" href="soundengine_3dpositions_split_004.html#multiple_objects">Multiple objects emitting the same sound in the same area</a></li>
+<li class="calibre9"><a class="pcalibre el" href="soundengine_3dpositions_split_004.html#stereo_speakers">Outputting the different channels of a single source to different positions</a></li>
+<li class="calibre9"><a class="pcalibre el" href="soundengine_3dpositions_split_004.html#simulating_sounds">Simulating sounds coming from openings (Sound Relocalization)</a></li>
+</ul>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="area_sounds"></a>
+Area sounds</h3>
+<p class="calibre7">You can simulate area sounds by using the <code class="calibre14">MultiPositionType_MultiDirections</code> option combined with appropriate values for Spread and distance-based Volume Attenuation. When using this method, you need to make sure that the number of positions does not increase the volume additively. By recreating area sounds using this method, you can have a single sound coming from multiple directions with realistic attenuation.</p>
+<p class="calibre7">In the following example, the black dots represent the initial position of sounds, the black circles represent the minimum distance for attenuation and spreading, and the pink circles represent the maximum radius:</p>
+<div class="calibre2">
+<img alt="" src="areasound.gif" class="inline"/>
+<div class="calibre2">
+Figure: Sample of Area Sound with Multiple Positions</div></div>
+<p class="calibre7">The blue region represents a lake in your game. The ambience sounds emanating from the lake are simulated using a sound with four positions.</p>
+<p class="calibre7">When the listener is at position A, the sound of the lake should come from all directions. This can be achieved by setting an appropriately high spread value, which diffuses the sounds so that they play back in all speakers.</p>
+<p class="calibre7">When the listener is at position B, they are beyond the maximum attenuation distance. This means that they will either hear no lake sounds or they will hear only a faint sound at its maximum attenuation. Because you are using multiple positions to simulate a large lake, the sound will always comes from the appropriate direction.</p>
+<p class="calibre7">When the listener is at position C, they will hear the lake from a wide angle of speakers (~180 degrees), but the sounds will be attenuated because the listener is a certain distance away from the lake. In this situation, the listener is still within the attenuation radius, so the lake sounds will not be attenuated to their maximum levels.</p>
+<p class="calibre7">By using this technique, you can recreate any kind of object shape by overlapping multiple sound positions. Keep in mind, however, that with each new position added, more CPU is required to calculate the resulting volumes.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="multiple_objects"></a>
+Multiple objects emitting the same sound in the same area</h3>
+<p class="calibre7">Let's say, for example, that in one of your levels, the corridors are all lit by a series of torches on the walls. These torches are all the same and will play the exact same sound. If you post a Play Event for each of them separately (supposing there are 20 of them), it would consume significantly more CPU and memory. Also, if the sound is being streamed, you may potentially have multiple duplicated streams, which can increase I/O access.</p>
+<p class="calibre7">In this situation, using <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_aec6be4dca0249557ea2680b755bd218a_split_000.html#aec6be4dca0249557ea2680b755bd218a">SetMultiplePositions()</a></code> would greatly improve performance. It also allows you to easily control all sounds in one operation, and reduces the number of game objects that need to be registered.</p>
+<p class="calibre7">When creating this scenario in game, you can use either <code class="calibre14">AkMultiPositionType_MultiSources</code> or <code class="calibre14">AkMultiPositionType_MultiDirections</code>.</p>
+<p class="calibre7"><code class="calibre14">AkMultiPositionType_MultiSources</code> will usually be more accurate, but may be problematic if positions are too close to one another. Remember that when only one voice is played to simulate multiple sounds, Wwise adds the volumes of the different positions, which may result in the volume going over 0 dB. <code class="calibre14">MultiPositionType_MultiDirections</code> uses a bit less CPU, and simply takes the maximum volume and plays it through each speaker. Since <code class="calibre14">MultiPositionType_MultiDirections</code> does not add the volumes, it guarantees that there will be no clipping and, therefore, may be more suitable.</p>
+<p class="calibre7">Despite there being multiple positions for a sound, there is still only one voice played by the sound engine. This means that when all sounds are out of range, only one virtual voice will be processed.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="stereo_speakers"></a>
+Outputting the different channels of a single source to different positions</h3>
+<p class="calibre7">Let's say a car is blasting stereo-recorded music from its speakers—the emitters. As seen in the image below, the left and right emitters could output respectively the left and right input channels of the music's stereo source file.</p>
+<p class="calibre7">In this situation, using the <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_aec6be4dca0249557ea2680b755bd218a_split_000.html#aec6be4dca0249557ea2680b755bd218a">SetMultiplePositions()</a></code> overload with the <code class="calibre14"><a class="pcalibre el" href="struct_ak_channel_emitter_split_000.html" title="Positioning information for a sound, with specified subset of its channels.">AkChannelEmitter</a></code> parameter provides flexible assignment of input channels. The <code class="calibre14">AkChannelMask</code> specifies which input channel, the left or right, the emitter positions use. Therefore, if the audio content is different in the left and right channels of the source, the listener will hear these differences relative to its current position.</p>
+<div class="calibre2">
+<img alt="" src="singlesourcemultipleemitters.png" class="inline"/>
+<div class="calibre2">
+Figure: Showing how a single multichannel source can emit different channels at different positions</div></div>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> The listeners to the left and the right of the car in the above image will hear a combination of the left (red) and right (blue) emitters in a single output channel, which is consequently highlighted in a shade of purple. The exact combination of the emitters depends on the attenuation distances and curves set for them. For example, a listener at a certain distance to the right of the car is likely to hear the right speaker more than the left, which would have greater attenuation. At a certain distance to the right, the listener may not even hear the left speaker at all. </td></tr>
+</tbody></table>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="simulating_sounds"></a>
+Simulating sounds coming from openings (Sound Relocalization)</h3>
+<p class="calibre7">When sounds are partially obstructed and/or occluded, they may appear to come from different directions than where they are actually located. In these cases, you can position the sound in multiple locations to create the effect that you want.</p>
+<p class="calibre7">For example, let's say that the direct path of a sound is blocked by a building—see the following illustration. Instead of using the real position of object A, it would sound more realistic to use the two alternate positions: A' and A''. When doing so, use <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a1b3e18a25b405e55ba82de9b70cd11ba_split_000.html#a1b3e18a25b405e55ba82de9b70cd11ba">SetObjectObstructionAndOcclusion()</a></code> and the same occlusion and obstruction parameters will apply to all positions, or use <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ab0216f0dc33bef431d5d92f519e5be58_split_000.html#ab0216f0dc33bef431d5d92f519e5be58">SetMultipleObstructionAndOcclusion()</a></code> and specify a unique occlusion and obstruction value for each sound position.</p>
+<div class="calibre2">
+<img alt="" src="buildings.gif" class="inline"/>
+<div class="calibre2">
+Figure: Relocating a sound using two alternate positions</div></div>
+<p class="calibre7">This approach also works well when simulating environments that have been destroyed, and sounds are coming from a number of arbitrary positions. When re-localizing sounds, it is better to use <code class="calibre14">MultiPositionType_MultiDirections</code>.</p>
+</div></div></div></body></html>

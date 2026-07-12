@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2023.1.0</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_5"><a class="pcalibre1 anchor" id="generic_bugs_2023_1"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-55217</b> Fixed: When column widths are reset to default, they are too small in High DPI.</li>
+<li class="calibre9"><b class="calibre13">WG-58205</b> Fixed: Search field in the List View does not show the keyboard shortcut when empty.</li>
+<li class="calibre9"><b class="calibre13">WG-58830</b> Fixed: Adding a property, such as color, to a Control Surface Session corrupts the project.</li>
+<li class="calibre9"><b class="calibre13">WG-60296</b> Fixed: Cursor moves to Contents Editor when inspecting objects.</li>
+<li class="calibre9"><b class="calibre13">WG-60477</b> Fixed: Unloading the parent Work Unit of an object in the Soundcaster can lead to asserts and incorrect colors.</li>
+<li class="calibre9"><b class="calibre13">WG-61762</b> Fixed: Not enough space for the Object Tab under the SoundBank Manager. The SoundBank layout has been changed to remove the Object Tab and include the SoundBank Editor and Property Editor.</li>
+<li class="calibre9"><b class="calibre13">WG-62760</b> Fixed: Wwise crashes after adding a Sequence Container to the playlist of another Sequence Container.</li>
+<li class="calibre9"><b class="calibre13">WG-62910</b> Fixed: When a view is maximized and then closed, reopening the view creates a view that is full screen.</li>
+<li class="calibre9"><b class="calibre13">WG-63299</b> Fixed: (Spatial Audio) An assert is triggered in <code class="calibre14">NudgeToShadowZone()</code> when calculating diffraction on certain geometries.</li>
+<li class="calibre9"><b class="calibre13">WG-63332</b> Fixed: Creating plug-ins with WAAPI sometimes shows blocking message dialogs.</li>
+<li class="calibre9"><b class="calibre13">WG-63479</b> Fixed: Buttons at the bottom of the Project Launcher dialog are sometimes cropped prematurely when making the dialog smaller vertically.</li>
+<li class="calibre9"><b class="calibre13">WG-63485</b> Fixed: AK Convolution Reverb IR begin and end trim are sometimes reset when updating the WAV file.</li>
+<li class="calibre9"><b class="calibre13">WG-64251</b> Fixed: When selecting an Event, the Property Editor title is updated to "Event Editor," but when an audio structure is selected, the title doesn't change back to "Property Editor".</li>
+<li class="calibre9"><b class="calibre13">WG-64281</b> Fixed: Can't use shortcut menu in Search tool results without inspecting the object.</li>
+<li class="calibre9"><b class="calibre13">WG-64283</b> Fixed: The reverb estimation service's <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_1_1_reverb_estimation_a2be1de76cd8b9ddf95217f06b02ebad6_split_000.html#a2be1de76cd8b9ddf95217f06b02ebad6">EstimateHFDamping()</a></code> function gives an incorrect value that is inconsistent with the definition of HF damping.</li>
+<li class="calibre9"><b class="calibre13">WG-64342</b> Fixed: WaveViewer.exe doesn't output any audio.</li>
+<li class="calibre9"><b class="calibre13">WG-64457</b> Fixed: Crash when closing Wwise after generating an AKD file on a huge audio file.</li>
+<li class="calibre9"><b class="calibre13">WG-64913</b> Fixed: Crash when switching from Offline Rendering mode to Real-time mode.</li>
+<li class="calibre9"><b class="calibre13">WG-64947</b> Fixed: Advanced Profiler tabs are not populated until the cursor is moved.</li>
+<li class="calibre9"><b class="calibre13">WG-65039</b> Fixed: Play icons in sequence playlists are not as clear as they could be. Now clear, individual icons are used for things like playing parent and delay.</li>
+<li class="calibre9"><b class="calibre13">WG-65210</b> Fixed: Effects don't fit well in the horizontal space of the secondary editor in Object Tabs and the secondary editor doesn't return to default size when the layout is reset.</li>
+<li class="calibre9"><b class="calibre13">WG-65331</b> Fixed: The Voice Inspector shows send values that are not applicable to the selected path if a Game Object has multiple sends to the same auxiliary bus but with different listeners.</li>
+<li class="calibre9"><b class="calibre13">WG-65358</b> Fixed: Deadlock during multi-core audio processing.</li>
+<li class="calibre9"><b class="calibre13">WG-65377</b> Fixed: User Interface elements like group boxes are drawn too thin with High DPI enabled.</li>
+<li class="calibre9"><b class="calibre13">WG-65472</b> Fixed; Modifying weight has no effect on child Switch or Blend containers.</li>
+<li class="calibre9"><b class="calibre13">WG-65479</b> Fixed: With certain combinations of screen resolution and scaling, some buttons in the Error Report tool are inaccessible.</li>
+<li class="calibre9"><b class="calibre13">WG-65593</b> Fixed: For instance-based views like the Meter, the tooltip mentions changing the selection channel rather than changing the instance.</li>
+<li class="calibre9"><b class="calibre13">WG-65649</b> Fixed: Possible deadlock when shutting down Wwise when using WAAPI.</li>
+<li class="calibre9"><b class="calibre13">WG-65766</b> Fixed: The OK and Cancel buttons in the New Project dialog are sometimes cropped.</li>
+<li class="calibre9"><b class="calibre13">WG-65887</b> Fixed: Contrast in Game Object 3D Viewer isn't good, especially in the Light theme.</li>
+<li class="calibre9"><b class="calibre13">WG-65926</b> Fixed: Panning multichannel sources or busses to a monaural bus has noticeably higher loudness than when panning the same source to a non-monaural bus.</li>
+<li class="calibre9"><b class="calibre13">WG-66129</b> Fixed: Some long error messages in the Capture Log are cut off.</li>
+<li class="calibre9"><b class="calibre13">WG-66132</b> Fixed: Event Editor is empty when creating an Event through the object shortcut menu.</li>
+<li class="calibre9"><b class="calibre13">WG-66137</b> Fixed: Possible crash in the Nuendo Game Audio Connect plug-in synchronization.</li>
+<li class="calibre9"><b class="calibre13">WG-66305</b> Fixed: Loading a Soundbank that has a reference to an unknown State Group returns a failure. Instead, the missing State Group is created with a transition time of 0s.</li>
+<li class="calibre9"><b class="calibre13">WG-66418</b> Fixed: (WAAPI) No error reported when attempting to import a WAV file as a Sound into an existing Voice of the same name.</li>
+<li class="calibre9"><b class="calibre13">WG-66589</b> Fixed: Cannot provide a version as a string in custom command JSON file.</li>
+<li class="calibre9"><b class="calibre13">WG-66621</b> Fixed: Using the arrow buttons to increase/decrease property values in Interactive Music items breaks the sequence of Tab navigation.</li>
+<li class="calibre9"><b class="calibre13">WG-66697</b> Fixed: When opening different versions of Wwise on the same computer, any docked view known to only one version of Wwise disappears when opening any of the other versions of Wwise.</li>
+<li class="calibre9"><b class="calibre13">WG-66729</b> Fixed: An Event Editor window is not opened when creating Events for more than one object.</li>
+<li class="calibre9"><b class="calibre13">WG-66756</b> Fixed: In Debug builds of Wwise, some <b class="calibre13">Current View</b> shortcuts generate asserts when executed in some views.</li>
+<li class="calibre9"><b class="calibre13">WG-66764</b> Fixed: Integration Demo crashes when handling a lot of errors at the same time.</li>
+<li class="calibre9"><b class="calibre13">WG-67112</b> Fixed: Associating a segment in a Music Switch Container doesn't enable or disable the buttons accordingly in the Transport Control and Soundcaster.</li>
+<li class="calibre9"><b class="calibre13">WG-67256</b> Fixed: Language Manager item in Project menu is named Languages rather than Language Manager.</li>
+<li class="calibre9"><b class="calibre13">WG-67318</b> Fixed: Invalid audio data is sometimes used for bus metering and by the Compressor, Expander, and Reflect plug-ins.</li>
+<li class="calibre9"><b class="calibre13">WG-67367</b> Fixed: Transport Control's Game Syncs lists (RTPCs, State Groups, Switch Groups) are missing some items.</li>
+<li class="calibre9"><b class="calibre13">WG-67441</b> Fixed: Miscalculation in edge case of onset detection.</li>
+<li class="calibre9"><b class="calibre13">WG-67941</b> Fixed: Some lines appear transparent when the Voice Monitor view is undocked.</li>
+<li class="calibre9"><b class="calibre13">WG-68223</b> Fixed: Compressor and Expander Effects sometimes cause audio glitches when processing more than one Audio Object at one time.</li>
+</ul>
+</div></div></div></body></html>

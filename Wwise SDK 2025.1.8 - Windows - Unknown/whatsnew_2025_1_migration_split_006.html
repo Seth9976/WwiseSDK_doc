@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2025.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_5"><a class="pcalibre1 anchor" id="c_cxx_api_changes_25_1_AkMusicEngine_lib"></a>
+AkMusicEngine library is removed</h2>
+<p class="calibre7">The entire AK::MusicEngine namespace, related functions and library are removed. The functionality of AK::MusicEngine was all moved to <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_split_000.html">AK::SoundEngine</a> and otherwise works the same way as before. If your game is using Unity or Unreal, the default integrations have been changed accordingly, it should be transparent. If your game uses a private game engine, this change will break your build. To migrate your code, follow these steps.</p>
+<ul class="calibre8">
+<li class="calibre9">The AkMusicEngine.lib/so file was removed. Game build scripts should be modified to remove the library from the linker input.</li>
+<li class="calibre9">The include AK/MusicEngine/Common/AkMusicEngine.h was removed. Remove all include statements to this file.</li>
+<li class="calibre9">The functions AK::MusicEngine::Init and AK::MusicEngine::Term are removed, simply delete them from your Wwise initialization code, along with references to the AkMusicSettings type.</li>
+<li class="calibre9">The function AK::MusicEngine::GetPlayingSegmentInfo was moved to <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a8446828c7f31802a83b7b087c44ccbd4_split_000.html#a8446828c7f31802a83b7b087c44ccbd4">AK::SoundEngine::GetPlayingSegmentInfo</a>, simply change the namespace in your code.</li>
+</ul>
+</div></div></div></body></html>

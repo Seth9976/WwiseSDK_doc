@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Ray Tracing Engine Geometry Guide</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_6"><a class="pcalibre1 anchor" id="raytracing_geometry_guide_clustering"></a>
+Emitter Clustering (Experimental)</h1>
+<p class="calibre7">As the number of emitters increases, the computational cost of reflection and diffraction path validation increases as well. However, individual path calculations are less important for distant emitters than for close emitters. To reduce resource consumption, you can use emitter clustering, an experimental feature that groups emitters based on their distance from the listener.</p>
+<p class="calibre7">Definitions:</p>
+<ul class="calibre8">
+<li class="calibre9">
+Cluster: a group of emitters. </li>
+<li class="calibre9">
+Cluster generator: the emitter within a cluster that created the cluster. </li>
+<li class="calibre9">
+Cluster leader: the emitter inside a cluster that is the closest to the listener. All emitters inside the cluster share the reflection and diffraction paths of the leader. </li>
+</ul>
+<p class="calibre7">To form emitter clusters, emitters must satisfy three criteria (see <a class="pcalibre el" href="struct_ak_spatial_audio_init_settings_split_000.html">AkSpatialAudioInitSettings()</a>): </p><ul class="calibre8">
+<li class="calibre9">
+<p class="starttd">Spatial proximity: distance between emitters must be less than the user-defined <code class="calibre14"><a class="pcalibre el" href="struct_ak_spatial_audio_init_settings_ac3eab08f2b45134b17d0a4d34f14a77d_split_000.html#ac3eab08f2b45134b17d0a4d34f14a77d" title="Max distance between emitters to be considered as neighbors. This distance is specified for the refer...">AkSpatialAudioInitSettings::fClusteringMaxDistance</a></code>.</p>
+<p class="endli"></p>
+</li>
+<li class="calibre9">
+<p class="starttd">Minimum number of emitters: a cluster requires at least <code class="calibre14"><a class="pcalibre el" href="struct_ak_spatial_audio_init_settings_a66dd539940098f9ed9bfd600262c1fa5_split_000.html#a66dd539940098f9ed9bfd600262c1fa5">AkSpatialAudioInitSettings::uClusteringMinPoints</a></code> emitters. Setting <code class="calibre14"><a class="pcalibre el" href="struct_ak_spatial_audio_init_settings_a66dd539940098f9ed9bfd600262c1fa5_split_000.html#a66dd539940098f9ed9bfd600262c1fa5">AkSpatialAudioInitSettings::uClusteringMinPoints</a></code> to less than 2 disables clustering.</p>
+<p class="endli"></p>
+</li>
+<li class="calibre9">
+Emitters within a cluster must share identical properties: <ul class="calibre15">
+<li class="calibre9">
+All emitters within a cluster must be visible (or not not visible) from the listener. </li>
+<li class="calibre9">
+All emitters must be visible from the cluster generator. </li>
+<li class="calibre9">
+All emitters within a cluster must have the same reflection and diffraction status: enabled or disabled. </li>
+</ul>
+</li>
+</ul>
+<p class="calibre7">Upon clustering, the emitter closest to the listener is selected as the cluster leader. Paths to the leader are then calculated and replicated for all other emitters in the cluster.</p>
+<p class="calibre7">After clustering, the emitter count decreases from N to n + c, where n represents the number of ungrouped emitters and c represents the number of clusters. The expected performance gain factor is N / (n + c).</p>
+<p class="calibre7">The following image depicts emitters clustered by color, with cluster leaders indicated by larger spheres. Emitters closest to the listener are ungrouped.</p>
+<div class="calibre2">
+<img alt="" src="emitter_clustering.png" class="inline"/>
+<div class="calibre2">
+Emitters grouped into several clusters</div></div>
+</div></div></div></body></html>

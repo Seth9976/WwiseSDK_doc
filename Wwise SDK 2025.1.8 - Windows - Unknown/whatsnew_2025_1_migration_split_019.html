@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2025.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_18"><a class="pcalibre1 anchor" id="waql_objectlist_structure"></a>
+WAQL Object Lists</h2>
+<p class="calibre7">This table provides examples that identify the pertinent changes when using a WAQL query involving object lists.</p>
+<table border="1" cellpadding="1" cellspacing="0" width="800px" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre17"><b class="calibre13">Old style</b></td><td class="calibre17"><b class="calibre13">New style</b> </td></tr>
+<tr class="calibre16">
+<td class="calibre17"><p class="starttd">where @metadata.any and @metadata.any(pluginname = "Wwise System Output Settings") </p>
+<p class="calibre7">"\\Busses\\Default Work Unit\\Master Audio Bus\\BusA" select metadata.at(1)</p>
+<p class="calibre7"></p>
+<p class="calibre7">return: ["metadata.at(1).name"]</p>
+<p class="endtd"></p>
+</td><td class="calibre17"><p class="starttd">where @metadata.any and @metadata.any(@metadata.pluginname = "Wwise System Output Settings") </p>
+<p class="calibre7">"\\Busses\\Default Work Unit\\Master Audio Bus\\BusA" select metadata.at(1).metadata</p>
+<p class="calibre7"></p>
+<p class="calibre7">return: ["metadata.at(1).metadata.name"]</p>
+<p class="calibre7"></p>
+<p class="calibre7">from type plugininnerobject where pluginname = "metadataslot" select metadata.where(pluginname="Wwise System Output Settings")</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre17">from type randomsequencecontainer select playlist.where(type = "sound") </td><td class="calibre17">from type randomsequencecontainer select playlist.where(playlistobject.type = "sound")  </td></tr>
+<tr class="calibre16">
+<td class="calibre17">where @Arguments.any(name = "StateGroup1") </td><td class="calibre17">where @Arguments.any(argument.name = "StateGroup1")  </td></tr>
+<tr class="calibre16">
+<td class="calibre17">where @EntryPath.any(name = "State1") </td><td class="calibre17">where @EntryPath.any(entrypathobject.name = "State1")  </td></tr>
+</tbody></table>
+</div></div></div></body></html>

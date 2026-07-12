@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Model of an Authoring Plug-in</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_3"><a class="pcalibre1 anchor" id="wwiseplugin_referenceset_notification"></a>
+Reference Set Notification</h2>
+<p class="calibre7">Wwise users can change object references through a control in the dialog, or by using the undo/redo commands. When a user changes a Reference, <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_notifications_1_1_reference_set___aa89f7b9b36764faa3442620a1c980b55_split_000.html#aa89f7b9b36764faa3442620a1c980b55" title="This function is called by Wwise when a plug-in reference changes.">AK::Wwise::Plugin::Notifications::ReferenceSet::NotifyReferenceChanged()</a></code> is called on your plug-in, which can update other plug-ins or UI states based on this change.</p>
+<div class="fragment"><div class="line"><span class="keyword">class </span>MySourcePlugin</div>
+<div class="line">:   <span class="keyword">public</span> <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_audio_plugin_split_000.html">AK::Wwise::Plugin::AudioPlugin</a></div>
+<div class="line">,   <span class="keyword">public</span> <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_plugin_1_1_requested_host_interface_3_01_reference_set_01_4_split_000.html">AK::Wwise::Plugin::RequestReferenceSet</a></div>
+<div class="line">{</div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line">    <span class="keywordtype">void</span> <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_plugin_1_1_notifications_1_1_reference_set___aa89f7b9b36764faa3442620a1c980b55_split_000.html#aa89f7b9b36764faa3442620a1c980b55">NotifyReferenceChanged</a>(</div>
+<div class="line">         <span class="keyword">const</span> GUID&amp; in_guidPlatform,</div>
+<div class="line">         <span class="keyword">const</span> <span class="keywordtype">char</span>* in_pszReferenceName)<span class="keyword"> override</span></div>
+<div class="line"><span class="keyword">    </span>{</div>
+<div class="line">        <span class="keywordflow">if</span> (strcmp(in_pszReferenceName, <span class="stringliteral">"TargetGameParameter"</span>) == 0)</div>
+<div class="line">        {</div>
+<div class="line">            <span class="comment">// Access the reference's GUID</span></div>
+<div class="line">            GUID refGuid = m_referenceset.GetReferenceGuid(in_guidPlatform, in_pszReferenceName);</div>
+<div class="line">            <span class="comment">// Do something with the GUID</span></div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">};</div>
+</div><!-- fragment --></div></div></div></body></html>

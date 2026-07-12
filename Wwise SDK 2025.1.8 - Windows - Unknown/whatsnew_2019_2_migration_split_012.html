@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2019.2</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_11"><a class="pcalibre1 anchor" id="migration_19_2_spatial_audio_portal_attenuation"></a>
+Attenuations on Portals are No Longer Necessary</h2>
+<p class="calibre7">In most circumstances, <em class="calibre11">users should remove any attenuation that was applied to a room bus in the Wwise Authoring Tool.</em> It is no longer necessary to have attenuation on rooms objects, because Spatial Audio in Wwise 2019.2 now applies the distance of the entire path between the emitter and the listener, to the attenuation of the sound.</p>
+<p class="calibre7">A common issue that users had with portals before Wwise 2019.2, was that the relative mix of two sounds with different attenuations was not consistent in the reverb that was transmitted through portals. For example, suppose both footsteps - a short attenuation, and gunfire - a long attenuation, play through the same portal. The sounds were mixed together at the location of the portal then re-spatialized at that same position. The sounds’ attenuations were evaluated using the distance between the emitter and the portal, which was only a portion of the total distance between the emitter and the listener - Spatial Audio relied on the portal’s attenuation to further attenuate the reverb. The result was that as the listener got further away from the portal, the relative volume of the two sounds remained the same instead of the footsteps decaying faster than the gunfire as the sound’s original attenuation curve dictated. Note that this was only an issue with the wet path - the direct path worked as expected.</p>
+<p class="calibre7">In Spatial Audio for Wwise 2019.2, the problem is solved by effectively putting the portal’s “pickup” location at the same position as the listener. This way, the entire distance of the path between the sound source and the listener is applied to the attenuation curve of the sounds before mixing the sound into the room’s 3D bus. Attenuation applied to the portal (ie room bus) is no longer necessary, but may still be desired. An attenuation post-mix would serve to further reduce the volume of the reverb or apply additional filtering to the reverb that passes through the portal.</p>
+</div></div></div></body></html>

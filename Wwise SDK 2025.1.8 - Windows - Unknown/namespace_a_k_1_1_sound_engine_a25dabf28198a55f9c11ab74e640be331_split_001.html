@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::SoundEngine::RegisterCaptureCallback</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="namespace_a_k_1_1_sound_engine_a25dabf28198a55f9c11ab74e640be331_split_000.html#a25dabf28198a55f9c11ab74e640be331" class="pcalibre1 anchor">◆ </a></span>RegisterCaptureCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_sound_engine_export_8h_ac6e96d34dfc0e12f9aaa7a47f4e9c322_split_000.html#ac6e96d34dfc0e12f9aaa7a47f4e9c322">AKSOUNDENGINE_API</a> <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::SoundEngine::RegisterCaptureCallback </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_callback_types_8h_ad86cd3539770fef8a06707770b980f25_split_000.html#ad86cd3539770fef8a06707770b980f25">AkCaptureCallbackFunc</a> </td>
+          <td class="paramname"><em class="calibre59">in_pfnCallback</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_ab608859e8c575f46ce18433e32aa2ccd_split_000.html#ab608859e8c575f46ce18433e32aa2ccd">AkOutputDeviceID</a> </td>
+          <td class="paramname"><em class="calibre59">in_idOutput</em> = <code class="calibre14"><a class="pcalibre el" href="_ak_constants_8h_a10906a6c67e9c74df9aeb174aee77ec4_split_000.html#a10906a6c67e9c74df9aeb174aee77ec4">AK_INVALID_OUTPUT_DEVICE_ID</a></code>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">void * </td>
+          <td class="paramname"><em class="calibre59">in_pCookie</em> = <code class="calibre14">NULL</code> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Registers a callback used for retrieving audio samples. The callback will be called from the audio thread during real-time rendering and from the main thread during offline rendering. </p><dl class="calibre7"><dt class="calibre23">Remarks</dt><dd class="calibre24">The captured audio in the buffer is interleaved. Use <code class="calibre14"><a class="pcalibre el" href="class_ak_audio_buffer_a8b3f75d4e95d5ce9af0b4573fae87510_split_000.html#a8b3f75d4e95d5ce9af0b4573fae87510">AkAudioBuffer::GetInterleavedData</a></code> to access it. Avoid using functions from the de-interleaved interface such as <code class="calibre14"><a class="pcalibre el" href="class_ak_audio_buffer_ad2bc3b8ddd61eaa0c111798d5f9e8c9c_split_000.html#ad2bc3b8ddd61eaa0c111798d5f9e8c9c">AkAudioBuffer::GetChannel</a></code>. </dd></dl>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><code class="calibre14">AK_Success</code> when successful</li>
+<li class="calibre9"><code class="calibre14">AK_DeviceNotFound</code> if the audio device ID doesn't match to a device in use.</li>
+<li class="calibre9"><code class="calibre14">AK_InvalidParameter</code> when in_pfnCallback is null</li>
+<li class="calibre9"><code class="calibre14">AK_NotInitialized</code> if the sound engine is not initialized at this time </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a15ab79f954a307902f529d8ccde8ad48_split_000.html#a15ab79f954a307902f529d8ccde8ad48">AK::SoundEngine::AddOutput()</a></code></li>
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_adc0d4b9a62088bc4cebf8cf95672b132_split_000.html#adc0d4b9a62088bc4cebf8cf95672b132">AK::SoundEngine::GetOutputID()</a></code></li>
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_acc0738332d393048d352d1ca6d92b355_split_000.html#acc0738332d393048d352d1ca6d92b355">AK::SoundEngine::UnregisterCaptureCallback()</a></code></li>
+<li class="calibre9"><a class="pcalibre el" href="soundengine_plugins_split_017.html#fx_audiobuffer_struct">Accessing Data Using AkAudioBuffer Structure</a> </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_pfnCallback</td><td class="calibre17">Capture callback function to register. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_idOutput</td><td class="calibre17">The audio device specific id, return by <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a15ab79f954a307902f529d8ccde8ad48_split_000.html#a15ab79f954a307902f529d8ccde8ad48">AK::SoundEngine::AddOutput</a> or <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_adc0d4b9a62088bc4cebf8cf95672b132_split_000.html#adc0d4b9a62088bc4cebf8cf95672b132">AK::SoundEngine::GetOutputID</a> </td></tr>
+    <tr class="calibre16"><td class="paramname">in_pCookie</td><td class="calibre17">Callback cookie that will be sent to the callback function along with additional information </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

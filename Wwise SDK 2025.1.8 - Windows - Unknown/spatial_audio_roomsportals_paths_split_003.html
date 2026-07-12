@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Propagation Paths in the Rooms and Portals Signal Model</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="spatial_audio_roomsportals_paths_ercoupling"></a>
+Emitter-Room Connection</h1>
+<div class="calibre2">
+<img alt="" src="rays_er_rl_annotated.png" class="inline"/>
+</div>
+<table border="1" cellpadding="1" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre17"><div class="calibre2">
+<img alt="" src="callout1.png" class="inline"/>
+</div>
+ </td><td class="calibre17">Emitter-Room connection  </td></tr>
+<tr class="calibre16">
+<td class="calibre17"><div class="calibre2">
+<img alt="" src="callout2.png" class="inline"/>
+</div>
+ </td><td class="calibre17">Room-Listener connection  </td></tr>
+</tbody></table>
+<p class="calibre7">The auxiliary connection of the Emitter towards a Room bus represents the energy injected by the source that reverberates inside the Room and produces a diffuse field. There is a connection to the Room that the Emitter occupies, and additional connections to each of the Rooms adjacent to the Emitter. The adjacent Room connections, and their send levels, represent the proportion of acoustic energy that propagates through those Portals into the adjacent Rooms. The remaining proportion is sent to the Emitter's Room.</p>
+<p class="calibre7">The connection to the Emitter's own Room contains paths that are comparable to the Direct Connection. The first path is a straight line to the Listener with distance attenuation, as well as Transmission Loss if there is no line of sight between the Emitter and Listener. There are also diffraction paths, which are longer than direct / transmission paths, and have diffraction instead of transmission.</p>
+<p class="calibre7">The additional connections to adjacent Rooms work the same way, except that the Portal that connects the Emitter's Room to the adjacent Room can introduce diffraction on the direct/transmission path: If an adjacent Room is not part of the shortest path from the Emitter's Room back to the listener, then diffuse energy exits the Room and "loops back" on trajectories perpendicular to the Portals' opening. Diffraction angles are computed from Portals' normal vectors if they have to bend to reach the Listener. (See <a class="pcalibre el" href="spatial_audio_roomsportals_apioverview_split_004.html#spatial_audio_roomsportals_modelingsoundpropagationfromotherrooms_wet_diffraction">Wet Path Diffraction</a>)</p>
+</div></div></div></body></html>

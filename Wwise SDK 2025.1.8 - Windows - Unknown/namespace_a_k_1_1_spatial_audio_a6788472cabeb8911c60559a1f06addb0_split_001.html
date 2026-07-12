@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::SpatialAudio::QueryReflectionPaths</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="namespace_a_k_1_1_spatial_audio_a6788472cabeb8911c60559a1f06addb0_split_000.html#a6788472cabeb8911c60559a1f06addb0" class="pcalibre1 anchor">◆ </a></span>QueryReflectionPaths()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_sound_engine_export_8h_ac6e96d34dfc0e12f9aaa7a47f4e9c322_split_000.html#ac6e96d34dfc0e12f9aaa7a47f4e9c322">AKSOUNDENGINE_API</a> <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::SpatialAudio::QueryReflectionPaths </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> </td>
+          <td class="paramname"><em class="calibre59">in_gameObjectID</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> </td>
+          <td class="paramname"><em class="calibre59">in_positionIndex</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="struct_ak_vector64_split_000.html">AkVector64</a> &amp; </td>
+          <td class="paramname"><em class="calibre59">out_listenerPos</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="struct_ak_vector64_split_000.html">AkVector64</a> &amp; </td>
+          <td class="paramname"><em class="calibre59">out_emitterPos</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="struct_ak_reflection_path_info_split_000.html">AkReflectionPathInfo</a> * </td>
+          <td class="paramname"><em class="calibre59">out_aPaths</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> &amp; </td>
+          <td class="paramname"><em class="calibre59">io_uArraySize</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Query information about the reflection paths that have been calculated via geometric reflection processing in the <a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_split_000.html" title="Audiokinetic spatial audio namespace.">SpatialAudio</a> API. This function can be used for debugging purposes. This function must acquire the global sound engine lock and therefore, may block waiting for the lock. </p><dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_reflection_path_info_split_000.html">AkReflectionPathInfo</a> </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_gameObjectID</td><td class="calibre17">The ID of the game object that the client wishes to query. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_positionIndex</td><td class="calibre17">The index of the associated game object position. </td></tr>
+    <tr class="calibre16"><td class="paramname">out_listenerPos</td><td class="calibre17">Returns the position of the listener game object that is associated with the game object <code class="calibre14">in_gameObjectID</code>. </td></tr>
+    <tr class="calibre16"><td class="paramname">out_emitterPos</td><td class="calibre17">Returns the position of the emitter game object <code class="calibre14">in_gameObjectID</code>. </td></tr>
+    <tr class="calibre16"><td class="paramname">out_aPaths</td><td class="calibre17">Pointer to an array of <code class="calibre14"><a class="pcalibre el" href="struct_ak_reflection_path_info_split_000.html" title="Structure for retrieving information about the indirect paths of a sound that have been calculated vi...">AkReflectionPathInfo</a>'s</code> which will be filled after returning. </td></tr>
+    <tr class="calibre16"><td class="paramname">io_uArraySize</td><td class="calibre17">The number of slots in <code class="calibre14">out_aPaths</code>, after returning the number of valid elements written. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

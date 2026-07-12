@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK Namespace Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_6">Detailed Description</h2>
+<div class="calibre2"><p class="calibre7">Definition of data structures for <a class="pcalibre el" href="struct_ak_audio_object_split_000.html">AkAudioObject</a>. </p>
+<p class="calibre7">Utility functions.</p>
+<p class="calibre7">Audiokinetic namespace.</p>
+<p class="calibre7">Can be used to track individual parameter changes to avoid costly computations when they remain constant This class is designed to use only the lower bit information of the parameter IDs</p>
+<p class="calibre7">Ambisonics configurations (corresponding to <a class="pcalibre el" href="struct_ak_channel_config_a598c4a4489e9fb252e7022ae99135674_split_000.html#a598c4a4489e9fb252e7022ae99135674" title="Channel config type (AkChannelConfigType).">AkChannelConfig::eConfigType</a> == AK_ChannelConfigType_Ambisonic). Convention: X points towards the front, and XYZ follow a right-hand rule, so Y is the side vector (pointing to the left). Channel presence and ordering are predefined according to the number of channels. The ordering convention is ACN, with the mapping of components to number of channels detailed below (source: <a href="https://en.wikipedia.org/wiki/Ambisonic_data_exchange_formats" class="pcalibre calibre12">https://en.wikipedia.org/wiki/Ambisonic_data_exchange_formats</a>). Normalization natively used in <a class="pcalibre el" href="namespace_a_k_1_1_wwise_split_000.html">Wwise</a> is SN3D.</p>
+<table border="1" cellpadding="1" cellspacing="0" width="800px" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td rowspan="2" class="calibre29"><b class="calibre13">Number of channels</b> </td><td colspan="2" class="calibre29"><b class="calibre13">Order</b></td><td rowspan="2" class="calibre29"><b class="calibre13">Description</b></td><td rowspan="2" class="calibre29"><b class="calibre13">Layout of components</b> </td></tr>
+<tr class="calibre16">
+<td class="calibre29">Horizontal</td><td class="calibre29">Vertical </td></tr>
+<tr class="calibre16">
+<td class="calibre56">1     </td><td class="calibre56">0    </td><td class="calibre56">0     </td><td class="calibre17">  mono</td><td class="calibre17">  </td></tr>
+<tr class="calibre16">
+<td class="calibre56">4     </td><td class="calibre56">1    </td><td class="calibre56">1     </td><td class="calibre17">  first-order full sphere</td><td class="calibre17">  WYZX </td></tr>
+<tr class="calibre16">
+<td class="calibre56">9     </td><td class="calibre56">2    </td><td class="calibre56">2     </td><td class="calibre17">  second-order full sphere</td><td class="calibre17">  WYZXVTRSU </td></tr>
+<tr class="calibre16">
+<td class="calibre56">16     </td><td class="calibre56">3    </td><td class="calibre56">3     </td><td class="calibre17">  third-order full sphere</td><td class="calibre17">  WYZXVTRSUQOMKLNP </td></tr>
+</tbody></table>
+</div></div><!-- contents -->
+
+
+</body></html>

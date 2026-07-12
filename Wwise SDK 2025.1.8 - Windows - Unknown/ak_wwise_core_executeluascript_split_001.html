@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak.wwise.core.executeLuaScript</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="ak_wwise_core_executeluascriptArguments"></a>
+Arguments</h1>
+<p class="calibre7"></p><table class="doxtable">
+<tbody class="calibre4"><tr class="calibre16">
+<th class="calibre46">Name </th><th class="calibre46">Type </th><th class="calibre46">Description  </th></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">luaScript</b> </td><td class="calibre36">string </td><td class="calibre36">Defines the main Lua file path to load and execute. Use this when your Lua code is stored in a file. Use an absolute file path. When this is used, the directory containing the script is automatically added to the Lua module search path, allowing the script to use <code class="calibre14">require</code> to load additional modules from that directory.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">luaString</b> </td><td class="calibre36">string </td><td class="calibre36">Defines the main Lua code to execute as a string. Use this when you want to execute Lua code directly without creating a file, which is useful for simple scripts, dynamic code generation, or inline execution. The code can span multiple lines and can use <code class="calibre14">require</code> to load modules from the configured Lua paths. This parameter is mutually optional with <code class="calibre14">luaScript</code> - you can use either one or both. Note: Unlike <code class="calibre14">luaScript</code>, using <code class="calibre14">luaString</code> does not automatically modify the Lua module search path (<code class="calibre14">package.path</code>). If you need to load modules relative to a specific directory, use <code class="calibre14">luaPaths</code> to explicitly add search paths.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">luaPaths</b> </td><td class="calibre36">array </td><td class="calibre36">Defines an array of paths to be used to search additional Lua modules using the <code class="calibre14">require</code> system. Each path should contain a <code class="calibre14"></code>? placeholder that will be replaced with the module name. Example: <code class="calibre14">'C:/path_to_folder/</code>?.lua'. These paths are added to the Lua <code class="calibre14">package.path</code> before the main script or string is executed.<br class="calibre10"/>
+ Several values provided for the option.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">luaPaths <b class="calibre13">[...]</b> </td><td class="calibre36">string </td><td class="calibre36">A value for the option.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">requires</b> </td><td class="calibre36">array </td><td class="calibre36">Defines additional modules to be loaded at runtime using the <code class="calibre14">require</code> system. Each module will be loaded before the main script or string is executed. Note that the following folders are automatically added to the Lua module search path: <code class="calibre14">PROJECT/Add-ons/Lua</code>, <code class="calibre14">APPDATA/Audiokinetic/Wwise/Add-ons/Lua</code>, <code class="calibre14">INSTALLDIR/Authoring/Data/Add-ons/Lua</code>. You can place custom modules in these directories and reference them here by name.<br class="calibre10"/>
+ Several values provided for the option.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">requires <b class="calibre13">[...]</b> </td><td class="calibre36">string </td><td class="calibre36">A value for the option.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">doFiles</b> </td><td class="calibre36">array </td><td class="calibre36">Defines additional Lua files or directories to load before the main Lua script or string is executed. If a file path is provided, that specific file will be executed. If a directory path is provided, all <code class="calibre14"></code>.lua files in that directory and its subdirectories will be loaded recursively. This is useful for loading helper functions, configuration, or setup code that the main script depends on.<br class="calibre10"/>
+ Several values provided for the option.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">doFiles <b class="calibre13">[...]</b> </td><td class="calibre36">string </td><td class="calibre36">A value for the option.   </td></tr>
+</tbody></table>
+<p class="calibre7"></p>
+<p class="calibre7"><a class="pcalibre el" href="ak_wwise_core_executeluascript_args_schema_split_000.html">Arguments Schema</a></p>
+</div></div></div></body></html>

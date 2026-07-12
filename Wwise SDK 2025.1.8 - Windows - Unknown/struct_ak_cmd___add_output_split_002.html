@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AkCmd_AddOutput Struct Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_1">Detailed Description</h2>
+<div class="calibre2"><p class="calibre7">Adds an output to the sound engine. Use this to add controller-attached headphones, controller speakers, DVR output, etc. <br class="calibre10"/>
+ The <code class="calibre14">settings</code> parameter contains an Audio Device shareset to specify the output plugin to use and a device ID to specify the instance, if necessary (e.g. which game controller).</p>
+<p class="calibre7">The Sound Engine can accept an array of <code class="calibre14">AkGameObjectID</code> objects after the command. These objects correspond to listener IDs attached to the output device. When specified, only the sounds routed to game objects linked to those listeners will play in this device. It is necessary to have separate listeners if multiple devices of the same type can coexist (e.g. controller speakers).</p>
+<p class="calibre7">To attach listener IDs to the device being added: </p><pre class="fragment">auto cmd = (AkCmd_AddOutput*)AK_CommandBuffer_Add(buffer, AkCommand_AddOutput);
+// Fill out the command...
+cmd-&gt;numListenerIDs = mylistenerArray.size();
+AK_CommandBuffer_AddArray(buffer, sizeof(AkGameObjectID), mylistenerArray.size(), mylistenerArray.data());
+</pre><p class="calibre7">When <code class="calibre14">numListenerIDs</code> is 0, sound routing simply obey the associations between Master Busses and Audio Devices setup in the Wwise Project.</p>
+<p class="calibre7">This command can fail for the following reasons:</p><ul class="calibre8">
+<li class="calibre9"><code class="calibre14">AK_InvalidParameter:</code> Out of range parameters or unsupported parameter combinations.</li>
+<li class="calibre9"><code class="calibre14">AK_IDNotFound:</code> The audioDeviceShareset in <code class="calibre14">settings</code> doesn't exist. Possibly, the Init bank isn't loaded yet or was not updated with latest changes.</li>
+<li class="calibre9"><code class="calibre14">AK_InsufficientMemory:</code> Not enough memory to complete the operation.</li>
+<li class="calibre9"><code class="calibre14">AK_DeviceNotCompatible:</code> Request output settings are incompatible with current system. A dummy output was created instead.</li>
+</ul>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="_ak_command_types_8h_a001b78645b8b0335c0dd2e128cca2cfd_split_001.html#a001b78645b8b0335c0dd2e128cca2cfda3254436f52efd13b0a86d9176b751196" title="See AkCmd_AddOutput.">AkCommand_AddOutput</a></li>
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a15ab79f954a307902f529d8ccde8ad48_split_000.html#a15ab79f954a307902f529d8ccde8ad48">AK::SoundEngine::AddOutput</a></li>
+<li class="calibre9"><a class="pcalibre el" href="integrating_secondary_outputs_split_000.html">Integrating Secondary Outputs</a></li>
+<li class="calibre9"><a class="pcalibre el" href="default_audio_devices_split_000.html">Default Wwise Audio Devices</a> </li>
+</ul>
+</dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_ak_command_types_8h_source_split_001.html#l00879">879</a> of file <a class="pcalibre el" href="_ak_command_types_8h_source_split_000.html">AkCommandTypes.h</a>.</p>
+</div></div><!-- contents -->
+
+
+</body></html>

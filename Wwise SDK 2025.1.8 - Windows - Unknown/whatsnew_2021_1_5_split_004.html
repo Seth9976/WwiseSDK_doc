@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2021.1.5</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="generic_community_bugs_2021_1_5"></a>
+Fixes for Community-Reported Bugs</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-54889</b> Fixed: WAAPI does not properly support WebSocket fragments (RPC calls with large payloads fail in Python).</li>
+<li class="calibre9"><b class="calibre13">WG-55303</b> Fixed: Poor performance in Listener-Relative Routing on busses with height channels.</li>
+<li class="calibre9"><b class="calibre13">WG-55786</b> Fixed: Crash when using <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a4935dbc8c375c82c03475a1dbde37a51_split_000.html#a4935dbc8c375c82c03475a1dbde37a51">AK::SoundEngine::RegisterBusMeteringCallback</a></code>.</li>
+<li class="calibre9"><b class="calibre13">WG-55808</b> Fixed: Crash when changing the Game Parameter that controls a property on a Modulator LFO while the sound is playing.</li>
+<li class="calibre9"><b class="calibre13">WG-56351</b> Fixed: Crash in <code class="calibre14">CAkRTPCMgr::AkRTPCSubscription::PushUpdate</code> when Blend Containers are driven by Modulators with properties controlled by RTPCs.</li>
+<li class="calibre9"><b class="calibre13">WG-56429</b> Fixed: (Spatial Audio) The transmission loss value for the listener's room is ignored on the direct transmission path for room tones and reverb if there are one or more rooms between the listener and the source.</li>
+<li class="calibre9"><b class="calibre13">WG-56562</b> Fixed: WAAPI calls are processed at a very slow rate during the SoundBank pre-generation and post-generation steps.</li>
+<li class="calibre9"><b class="calibre13">WG-56645</b> Fixed: XMA crash on GDK when recovering from an earlier decode error.</li>
+<li class="calibre9"><b class="calibre13">WG-56664</b> Fixed: Assert and crash when parameters are driven by MIDI Velocity.</li>
+<li class="calibre9"><b class="calibre13">WG-56680</b> Fixed: Performance degradation when many Switch Containers are loaded and when the values of RTPC-driven Switches change.</li>
+<li class="calibre9"><b class="calibre13">WG-56717</b> Fixed: Possible erroneous assert in function <code class="calibre14">CAkParameterTarget::SetRootNode</code>.</li>
+<li class="calibre9"><b class="calibre13">WG-56794</b> Fixed: Crash when entering a portal.</li>
+<li class="calibre9"><b class="calibre13">WG-56865</b> Fixed: Crash when profiling an Audio Device Effect such as the Mastering Suite.</li>
+<li class="calibre9"><b class="calibre13">WG-57117</b> Fixed: (Spatial Audio) When a Portal connects two rooms, Game Objects are sometimes reported as being in the wrong room.</li>
+<li class="calibre9"><b class="calibre13">WG-57204</b> Fixed: Crash when using XMA and unloading banks through memory pointers at the same time, instead of using the bank ID or file name. </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

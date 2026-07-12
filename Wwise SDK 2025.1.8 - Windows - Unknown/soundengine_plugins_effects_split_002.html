@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Sound Engine Effect Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_1"><a class="pcalibre1 anchor" id="iakmonadiceffect_init"></a>
+AK::IAkEffectPlugin::Init()</h2>
+<p class="calibre7">This method prepares the effect plug-in for data processing, allocates memory, and sets up initial conditions.</p>
+<p class="calibre7">The plug-in is passed in a pointer to a memory allocator interface (<code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_mem_alloc_split_000.html">AK::IAkPluginMemAlloc</a></code>). We recommend that you allocate all dynamic memory through this interface using the provided memory allocation macros (refer to <a class="pcalibre el" href="soundengine_plugins_split_005.html#fx_memory_alloc">Allocating/De-allocating Memory in Audio Plug-ins</a>) so that Wwise can track the memory, and so that any underlying memory hooks in the game engine can use it. For the most common memory allocation needs, specifically allocation at initialization and release at termination, the plug-in does not need to retain a pointer to the allocator. It is also provided to the plug-in on termination.</p>
+<p class="calibre7">The <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_effect_plugin_context_split_000.html">AK::IAkEffectPluginContext</a></code> interface can access the global context through <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_context_base_af02337aeaffd800ffce912a6c4231e0f_split_000.html#af02337aeaffd800ffce912a6c4231e0f">AK::IAkPluginContextBase::GlobalContext()</a></code>.</p>
+<p class="calibre7">The plug-in also receives a pointer to its associated parameter node interface (<code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_param_split_000.html">AK::IAkPluginParam</a></code>). Most plug-ins keep a reference to the associated parameter node to be able to retrieve parameters at runtime. Refer to <a class="pcalibre el" href="soundengine_plugins_split_012.html#iakeffectparam_communication">Communication Between Parameter Nodes and Plug-ins.</a> for more details.</p>
+<p class="calibre7">All of these interfaces remain valid throughout the plug-in's lifespan so it is safe to keep an internal reference to them when necessary.</p>
+<p class="calibre7">Effect plug-ins also receive the input/output audio format (which stays the same during the lifespan of the plug-in) to be able to allocate memory and set up processing for a given channel configuration.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_effect_plugin_ae5a44837c4adddf6ff58fab57453b020_split_000.html#ae5a44837c4adddf6ff58fab57453b020">AK::IAkEffectPlugin::Init()</a></code> is called every time the effect is instantiated, which happens when a voice starts playing or a mixing bus is instantiated. Because other sounds are typically playing already, this must occur within a reasonable amount of time. If you need to initialize large common/global data structures, do so when registering the plug-in library. See <a class="pcalibre el" href="soundengine_plugins_split_021.html#fx_global_hooks">Using Global Sound Engine Callbacks From Plug-ins</a> for more details. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

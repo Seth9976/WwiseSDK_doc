@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2024.1.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_5"><a class="pcalibre1 anchor" id="generic_bugs_2024_1_1"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-70769</b> Fixed: Loop markers can be erased by the play cursor during playback.</li>
+<li class="calibre9"><b class="calibre13">WG-72728</b> Fixed: Shortcut menu doesn't always appear when right-clicking in the editor selection areas of an object tab.</li>
+<li class="calibre9"><b class="calibre13">WG-73613</b> Fixed: SoundBank warning message about inconsistent streaming configurations is missing quotes around the file name.</li>
+<li class="calibre9"><b class="calibre13">WG-74043</b> Fixed: Possible memory access violation when loading a SoundBank with a Music Switch Container that references a deleted State.</li>
+<li class="calibre9"><b class="calibre13">WG-74205</b> Fixed: Distance Dry Volume curve in Attenuation Editor always selected when choosing a new Attenuation.</li>
+<li class="calibre9"><b class="calibre13">WG-74292</b> Fixed: Various issues with Blend Containers when manipulating them during playback.</li>
+<li class="calibre9"><b class="calibre13">WG-74691</b> Fixed: Selection rectangle is too wide when selecting an item in a playlist.</li>
+<li class="calibre9"><b class="calibre13">WG-74809</b> Fixed: AK ASIO Output plug-in resets the device rate to 48 kHz, ignoring the value of <code class="calibre14"><a class="pcalibre el" href="struct_ak_platform_init_settings_a2bf6f000f256b146d6cd36401a234b85_split_000.html#a2bf6f000f256b146d6cd36401a234b85" title="Sampling Rate. Default is 48000 Hz. Use 24000hz for low quality. Any positive reasonable sample rate ...">AkPlatformInitSettings::uSampleRate</a></code>.</li>
+<li class="calibre9"><b class="calibre13">WG-74854</b> Fixed: Rows in Random Containers and Sequence Containers are impossible to expand when the first column is very narrow.</li>
+<li class="calibre9"><b class="calibre13">WG-74885</b> Fixed: Deadlock on Comm termination after live-editing media assets.</li>
+<li class="calibre9"><b class="calibre13">WG-74887</b> Fixed: Play cursors in the Random-Sequence Editor become unsynchronized after sorting a column.</li>
+<li class="calibre9"><b class="calibre13">WG-74895</b> Fixed: Assert in <code class="calibre14">GetRtpcCurveValue</code> when connecting Profiler while sounds using RTPCs are playing.</li>
+<li class="calibre9"><b class="calibre13">WG-74929</b> Fixed: <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_1_1_query_a58bb2a69318ddee9d168c0e57fd2dac4_split_000.html#a58bb2a69318ddee9d168c0e57fd2dac4">AK::SoundEngine::Query::GetPositioningInfo</a></code> fails to get positioning info if the specified node does not override its parent's positioning.</li>
+<li class="calibre9"><b class="calibre13">WG-74964</b> Fixed: Vorbis and Opus decoder failure error on end of playback of non-streaming long sounds.</li>
+<li class="calibre9"><b class="calibre13">WG-75036</b> Fixed: <b class="calibre13">Game Units To Meters</b> setting range is wrong.</li>
+<li class="calibre9"><b class="calibre13">WG-75038</b> Fixed: Conflicting camera persistence in Game Object 3D Viewer compared to previous versions.</li>
+<li class="calibre9"><b class="calibre13">WG-75048</b> Fixed: Integration Demo Wwise project shows modifications after project has finished loading.</li>
+<li class="calibre9"><b class="calibre13">WG-75199</b> Fixed: Bus Configuration drop-down list in the Property Editor closes immediately when using the up and down arrow buttons.</li>
+<li class="calibre9"><b class="calibre13">WG-75204</b> Fixed: Changing the project color causes the Project Settings to stop being a modal dialog.</li>
+<li class="calibre9"><b class="calibre13">WG-75219</b> Fixed: Possible crash when using a keyboard shortcut while changing the color of an object.</li>
+<li class="calibre9"><b class="calibre13">WG-75282</b> Fixed: "Selected node (0) not available" message when loading a SoundBank with Blend Container and Random Container as children.</li>
+<li class="calibre9"><b class="calibre13">WG-75290</b> Fixed: Crash when right-clicking while dragging a marker.</li>
+<li class="calibre9"><b class="calibre13">WG-75341</b> Fixed: Erroneous warning about "Unknown Json field: PrintObjectColor".</li>
+<li class="calibre9"><b class="calibre13">WG-75491</b> Fixed: Erroneous warning about "Unknown Json field: Color".</li>
+</ul>
+</div></div></div></body></html>

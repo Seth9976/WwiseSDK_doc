@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Quick Start Sample Integration - Game Objects</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2"><h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="soundengine_integration_gameobj"></a>
+Game Object Example</h1>
+<p class="calibre7">For an overview of Game Objects, please refer to <a class="pcalibre el" href="concept_gameobjects.html">Understanding game objects</a>.</p>
+<p class="calibre7">Game objects must be registered before you can use them to post events, set positions, and so on. The following code registers two game objects with predefined IDs. Note that you can use any 64-bit unsigned integer ID ranging from 0 to 0x‭FFFFFFFFFFFFFFDF you want, such as an incremented counter or an object pointer cast into an <code class="calibre14">AkGameObjectID</code>.</p>
+<div class="fragment"><div class="line"><span class="keyword">const</span> <a class="pcalibre code" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> GAME_OBJECT_ID_CAR = 100;</div>
+<div class="line"><span class="keyword">const</span> <a class="pcalibre code" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> GAME_OBJECT_ID_HUMAN = 200;</div>
+<div class="line"><span class="keyword">const</span> <a class="pcalibre code" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> GAME_OBJECT_ID_MARKERS = 300;</div>
+<div class="line"> </div>
+<div class="line">(...)</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">//</span></div>
+<div class="line"><span class="comment">// Register game objects. Some global game objects might be registered</span></div>
+<div class="line"><span class="comment">// at initialization time, but most of your game objects will probably</span></div>
+<div class="line"><span class="comment">// be dynamically registered/unregistered as they appear/disappear in</span></div>
+<div class="line"><span class="comment">// the game.</span></div>
+<div class="line"><span class="comment">//</span></div>
+<div class="line"> </div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a895ed0f83a0dea8fc284491c0ee0152c_split_000.html#a895ed0f83a0dea8fc284491c0ee0152c">AK::SoundEngine::RegisterGameObj</a>( GAME_OBJECT_ID_CAR, <span class="stringliteral">"Car"</span> );</div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a895ed0f83a0dea8fc284491c0ee0152c_split_000.html#a895ed0f83a0dea8fc284491c0ee0152c">AK::SoundEngine::RegisterGameObj</a>( GAME_OBJECT_ID_HUMAN, <span class="stringliteral">"Human"</span> );</div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a895ed0f83a0dea8fc284491c0ee0152c_split_000.html#a895ed0f83a0dea8fc284491c0ee0152c">AK::SoundEngine::RegisterGameObj</a>( GAME_OBJECT_ID_MARKERS, <span class="stringliteral">"MarkerTest"</span> );</div>
+</div><!-- fragment --><p class="calibre7">When a game object becomes obsolete, for example when the corresponding entities are removed from the game's world, you should unregister them to free up any resources that might be associated with them:</p>
+<div class="fragment"><div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_af53445c959103c84ea50c17d665f254a_split_000.html#af53445c959103c84ea50c17d665f254a">AK::SoundEngine::UnregisterGameObj</a>( GAME_OBJECT_ID_CAR );</div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_af53445c959103c84ea50c17d665f254a_split_000.html#af53445c959103c84ea50c17d665f254a">AK::SoundEngine::UnregisterGameObj</a>( GAME_OBJECT_ID_HUMAN );</div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_af53445c959103c84ea50c17d665f254a_split_000.html#af53445c959103c84ea50c17d665f254a">AK::SoundEngine::UnregisterGameObj</a>( GAME_OBJECT_ID_MARKERS );</div>
+</div><!-- fragment --><p class="calibre7">Refer to <a class="pcalibre el" href="soundengine_gameobj_split_000.html">Integration Details - Game Objects</a> for more information on game objects.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> This sample code comes from the Sound Engine Integration Sample Project available in the <a class="pcalibre el" href="samplecode_split_000.html">Samples</a> section. Refer to <a class="pcalibre el" href="soundengine_integration_samplecode_split_000.html">Integration Demo Sample</a> for more information. </td></tr>
+</tbody></table>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<div class="ttc" id="a_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_html_a352a1eb6955fa208062e40a9ccdd2560"><div class="calibre2"><a href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560" class="pcalibre calibre12">AkGameObjectID</a></div><div class="calibre2">AkUInt64 AkGameObjectID</div><div class="calibre2">Game object ID.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_typedefs_8h_source.html#l00039" class="pcalibre calibre12">AkTypedefs.h:39</a></div></div>
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_a895ed0f83a0dea8fc284491c0ee0152c_html_a895ed0f83a0dea8fc284491c0ee0152c"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_a895ed0f83a0dea8fc284491c0ee0152c_split_000.html#a895ed0f83a0dea8fc284491c0ee0152c" class="pcalibre calibre12">AK::SoundEngine::RegisterGameObj</a></div><div class="calibre2">AKSOUNDENGINE_API AKRESULT RegisterGameObj(AkGameObjectID in_gameObjectID)</div></div>
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_af53445c959103c84ea50c17d665f254a_html_af53445c959103c84ea50c17d665f254a"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_af53445c959103c84ea50c17d665f254a_split_000.html#af53445c959103c84ea50c17d665f254a" class="pcalibre calibre12">AK::SoundEngine::UnregisterGameObj</a></div><div class="calibre2">AKSOUNDENGINE_API AKRESULT UnregisterGameObj(AkGameObjectID in_gameObjectID)</div></div>
+
+
+</body></html>

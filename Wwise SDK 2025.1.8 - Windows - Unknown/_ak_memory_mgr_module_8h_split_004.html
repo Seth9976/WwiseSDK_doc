@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK/SoundEngine/Common/AkMemoryMgrModule.h File Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table class="calibre3">
+<tbody class="calibre4"><tr class="calibre16"><td colspan="2" class="calibre17"><h2 class="calibre21" id="calibre_pb_3"><a class="pcalibre1 anchor" id="member-group"></a>
+Audiokinetic Memory Manager's implementation-specific definitions.</h2></td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_memory_mgr_module_8h_aa979b5c3b17ccf0686b9b919fb13d48f_split_000.html#aa979b5c3b17ccf0686b9b919fb13d48f">AK_CRT_ALLOCATOR_SUPPORTED</a></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_memory_mgr_module_8h_a6224438c55f276bf74224430ddd96986_split_000.html#a6224438c55f276bf74224430ddd96986">AK_STOMP_ALLOCATOR_SUPPORTED</a></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">enum  </td><td class="memitemright"><a class="pcalibre el" href="_ak_memory_mgr_module_8h_a166fce11fcaf8c6c3ccaf6f00182dc4c_split_000.html#a166fce11fcaf8c6c3ccaf6f00182dc4c">AkMemoryMgrArena</a> { <br class="calibre10"/>
+  <a class="pcalibre el" href="_ak_memory_mgr_module_8h_a166fce11fcaf8c6c3ccaf6f00182dc4c_split_001.html#a166fce11fcaf8c6c3ccaf6f00182dc4cada4fb0aaa502bf0b4481e825e20127be">AkMemoryMgrArena_Primary</a> = 0, 
+<a class="pcalibre el" href="_ak_memory_mgr_module_8h_a166fce11fcaf8c6c3ccaf6f00182dc4c_split_001.html#a166fce11fcaf8c6c3ccaf6f00182dc4caf034292470314618cda8b900728cf644">AkMemoryMgrArena_Media</a>, 
+<a class="pcalibre el" href="_ak_memory_mgr_module_8h_a166fce11fcaf8c6c3ccaf6f00182dc4c_split_001.html#a166fce11fcaf8c6c3ccaf6f00182dc4ca08ef70af1290299d43fafa826b9de574">AkMemoryMgrArena_Profiler</a>, 
+<a class="pcalibre el" href="_ak_memory_mgr_module_8h_a166fce11fcaf8c6c3ccaf6f00182dc4c_split_001.html#a166fce11fcaf8c6c3ccaf6f00182dc4caf31ccab25cd476a2a56382d14f370537">AkMemoryMgrArena_Device</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="_ak_memory_mgr_module_8h_a166fce11fcaf8c6c3ccaf6f00182dc4c_split_001.html#a166fce11fcaf8c6c3ccaf6f00182dc4ca6d04cd32dae8081d7af43611f5f67ab6">AkMemoryMgrArena_NUM</a>
+<br class="calibre10"/>
+ }</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">typedef void(* </td><td class="memitemright"><a class="pcalibre el" href="_ak_memory_mgr_module_8h_a8eb2200ee7ce4f8fd9163c4ef920c660_split_000.html#a8eb2200ee7ce4f8fd9163c4ef920c660">AkMemInitForThread</a>) ()</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">typedef void(* </td><td class="memitemright"><a class="pcalibre el" href="_ak_memory_mgr_module_8h_a382c6e27bfdb1ef0f86f27469242ff31_split_000.html#a382c6e27bfdb1ef0f86f27469242ff31">AkMemTermForThread</a>) ()</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">typedef void(* </td><td class="memitemright"><a class="pcalibre el" href="_ak_memory_mgr_module_8h_a18902debaee9178ca56951d96c11cdee_split_000.html#a18902debaee9178ca56951d96c11cdee">AkMemTrimForThread</a>) ()</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">typedef void *(* </td><td class="memitemright"><a class="pcalibre el" href="_ak_memory_mgr_module_8h_a029efc97dac467b5a32c05f5a98a0be9_split_000.html#a029efc97dac467b5a32c05f5a98a0be9">AkMemMalloc</a>) (<a class="pcalibre el" href="_ak_typedefs_8h_a58f62d75df808bf7c4e56b81c4025696_split_000.html#a58f62d75df808bf7c4e56b81c4025696">AkMemPoolId</a> poolId, size_t uSize)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">typedef void *(* </td><td class="memitemright"><a class="pcalibre el" href="_ak_memory_mgr_module_8h_aee41c8e4dcb40ccf365164f92833520a_split_000.html#aee41c8e4dcb40ccf365164f92833520a">AkMemMalign</a>) (<a class="pcalibre el" href="_ak_typedefs_8h_a58f62d75df808bf7c4e56b81c4025696_split_000.html#a58f62d75df808bf7c4e56b81c4025696">AkMemPoolId</a> poolId, size_t uSize, <a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> uAlignment)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">typedef void *(* </td><td class="memitemright"><a class="pcalibre el" href="_ak_memory_mgr_module_8h_a5953a53e49ecf87aa7b27c16d772d41a_split_000.html#a5953a53e49ecf87aa7b27c16d772d41a">AkMemRealloc</a>) (<a class="pcalibre el" href="_ak_typedefs_8h_a58f62d75df808bf7c4e56b81c4025696_split_000.html#a58f62d75df808bf7c4e56b81c4025696">AkMemPoolId</a> poolId, void *pAddress, size_t uSize)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">typedef void *(* </td><td class="memitemright"><a class="pcalibre el" href="_ak_memory_mgr_module_8h_a86749afaecf1e9e68d6f8a3b62499b87_split_000.html#a86749afaecf1e9e68d6f8a3b62499b87">AkMemReallocAligned</a>) (<a class="pcalibre el" href="_ak_typedefs_8h_a58f62d75df808bf7c4e56b81c4025696_split_000.html#a58f62d75df808bf7c4e56b81c4025696">AkMemPoolId</a> poolId, void *pAddress, size_t uSize, <a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> uAlignment)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">typedef void(* </td><td class="memitemright"><a class="pcalibre el" href="_ak_memory_mgr_module_8h_ac6982afe3d12d5af12af319d7c80d411_split_000.html#ac6982afe3d12d5af12af319d7c80d411">AkMemFree</a>) (<a class="pcalibre el" href="_ak_typedefs_8h_a58f62d75df808bf7c4e56b81c4025696_split_000.html#a58f62d75df808bf7c4e56b81c4025696">AkMemPoolId</a> poolId, void *pAddress)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">typedef size_t(* </td><td class="memitemright"><a class="pcalibre el" href="_ak_memory_mgr_module_8h_ad18caa43a0995ec341bd0100d2424ac5_split_000.html#ad18caa43a0995ec341bd0100d2424ac5">AkMemTotalReservedMemorySize</a>) ()</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">typedef size_t(* </td><td class="memitemright"><a class="pcalibre el" href="_ak_memory_mgr_module_8h_a7226b7b4a72db37bae1e2c5e0998adf2_split_000.html#a7226b7b4a72db37bae1e2c5e0998adf2">AkMemSizeOfMemory</a>) (<a class="pcalibre el" href="_ak_typedefs_8h_a58f62d75df808bf7c4e56b81c4025696_split_000.html#a58f62d75df808bf7c4e56b81c4025696">AkMemPoolId</a> poolId, void *pAddress)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">typedef void(* </td><td class="memitemright"><a class="pcalibre el" href="_ak_memory_mgr_module_8h_a868d7cb6a8696f0254f572959fa8058f_split_000.html#a868d7cb6a8696f0254f572959fa8058f">AkMemDebugMalloc</a>) (<a class="pcalibre el" href="_ak_typedefs_8h_a58f62d75df808bf7c4e56b81c4025696_split_000.html#a58f62d75df808bf7c4e56b81c4025696">AkMemPoolId</a> poolId, size_t uSize, void *pAddress, char const *pszFile, <a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> uLine)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">typedef void(* </td><td class="memitemright"><a class="pcalibre el" href="_ak_memory_mgr_module_8h_a0007c7fcd5e73e862d2338123ec46d97_split_000.html#a0007c7fcd5e73e862d2338123ec46d97">AkMemDebugMalign</a>) (<a class="pcalibre el" href="_ak_typedefs_8h_a58f62d75df808bf7c4e56b81c4025696_split_000.html#a58f62d75df808bf7c4e56b81c4025696">AkMemPoolId</a> poolId, size_t uSize, <a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> uAlignment, void *pAddress, char const *pszFile, <a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> uLine)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">typedef void(* </td><td class="memitemright"><a class="pcalibre el" href="_ak_memory_mgr_module_8h_ae82460c988c5e6eb441b905447fa8fc9_split_000.html#ae82460c988c5e6eb441b905447fa8fc9">AkMemDebugRealloc</a>) (<a class="pcalibre el" href="_ak_typedefs_8h_a58f62d75df808bf7c4e56b81c4025696_split_000.html#a58f62d75df808bf7c4e56b81c4025696">AkMemPoolId</a> poolId, void *pOldAddress, size_t uSize, void *pNewAddress, char const *pszFile, <a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> uLine)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">typedef void(* </td><td class="memitemright"><a class="pcalibre el" href="_ak_memory_mgr_module_8h_abea2c80bd6bfbcfd82ffcfe3ca3ffea4_split_000.html#abea2c80bd6bfbcfd82ffcfe3ca3ffea4">AkMemDebugReallocAligned</a>) (<a class="pcalibre el" href="_ak_typedefs_8h_a58f62d75df808bf7c4e56b81c4025696_split_000.html#a58f62d75df808bf7c4e56b81c4025696">AkMemPoolId</a> poolId, void *pOldAddress, size_t uSize, <a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> uAlignment, void *pNewAddress, char const *pszFile, <a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> uLine)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">typedef void(* </td><td class="memitemright"><a class="pcalibre el" href="_ak_memory_mgr_module_8h_aac6a537e02b9f4d99c0de1cba128f70c_split_000.html#aac6a537e02b9f4d99c0de1cba128f70c">AkMemDebugFree</a>) (<a class="pcalibre el" href="_ak_typedefs_8h_a58f62d75df808bf7c4e56b81c4025696_split_000.html#a58f62d75df808bf7c4e56b81c4025696">AkMemPoolId</a> poolId, void *pAddress)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+</tbody></table>
+<a id="details" class="pcalibre calibre12"></a></div></body></html>

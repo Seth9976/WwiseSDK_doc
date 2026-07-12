@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integration Details - 3D Positions</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="soundengine_3dpositions_realworld"></a>
+Setting a Game Object's Position</h1>
+<p class="calibre7">Call the <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a789e25bda32d1e11849afb6584942455_split_000.html#a789e25bda32d1e11849afb6584942455">AK::SoundEngine::SetPosition()</a></code> function for every game object whose sounds require this information. Also, make sure to call it for the listener game object. You need to set the position every time the position of a game object changes.</p>
+<div class="fragment"><div class="line"><a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a789e25bda32d1e11849afb6584942455_split_000.html#a789e25bda32d1e11849afb6584942455">AK::SoundEngine::SetPosition</a>( </div>
+<div class="line">    <a class="pcalibre code" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> in_GameObjectID,                             <span class="comment">// Game object identifier</span></div>
+<div class="line">    <span class="keyword">const</span> AkSoundPosition &amp; in_Position                         <span class="comment">// Position to set</span></div>
+<div class="line">);</div>
+</div><!-- fragment --><p class="calibre7">The first parameter is the ID of the game object. Refer to <a class="pcalibre el" href="soundengine_gameobj_split_000.html">Integration Details - Game Objects</a> for more information.</p>
+<p class="calibre7">The second parameter is an <code class="calibre14"><a class="pcalibre el" href="struct_ak_transform_split_000.html" title="Position and orientation of objects in a &quot;local&quot; space.">AkTransform</a></code> structure that contains vectors representing the position and orientation of the game object. Refer to <a class="pcalibre el" href="soundengine_3dpositions_split_005.html#soundengine_3dpositions_xyz">X-Y-Z Coordinate System</a> for information regarding how the X, Y, and Z axes are defined in the Wwise sound engine.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> If you call the <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a789e25bda32d1e11849afb6584942455_split_000.html#a789e25bda32d1e11849afb6584942455">AK::SoundEngine::SetPosition()</a></code> function multiple times and then call the <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_afe54af0f5be38be061e8a3c7d7642bb1_split_000.html#afe54af0f5be38be061e8a3c7d7642bb1">AK::SoundEngine::RenderAudio()</a></code> function, only the last value will be considered. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

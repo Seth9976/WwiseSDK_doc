@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2017.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_6"><a class="pcalibre1 anchor" id="enable_positioning_flag"></a>
+The behavior or the 'Positioning Enabled' flag in the authoring tool has changed</h2>
+<p class="calibre7">The <em class="calibre11">Enable Positioning</em> flag in the authoring tool now takes on a very important purpose: it determines whether or not to evaluate the emitter-listener associations for the current game object at this node in the voice graph. Furthermore, the 2D panner is now independent from the <em class="calibre11">Enable Positioning</em> flag; it is possible to pan a sound without positioning it. It is also possible to have a 2D sound that is <em class="calibre11">Positioning Enabled</em>; this means that we will evaluate the emitter-listener associations (the downstream node will be on a different game object), but not preform 3D spatialization. Here are some examples to demonstrate the usage of the <em class="calibre11">Enable Positioning</em> flag:</p><ul class="calibre8">
+<li class="calibre9">A voice in the Actor-Mixer Hierarchy has its <em class="calibre11">Enable Positioning</em> flag set and its <em class="calibre11">Positioning Type</em> set to 3D. This voice will be placed in 3D space according to the position of its game object, and it will be panned and attenuated before being mixed into its upstream bus. A unique instance of the upstream bus will be created for each listener game object that is associated with the emitter game object. This is a typical scenario in a modern game.</li>
+<li class="calibre9">A voice in the Actor-Mixer Hierarchy does not have its <em class="calibre11">Enable Positioning</em> flag set. The voice instead mixes into a bus that has its <em class="calibre11">Enable Positioning</em> flag set. In this case, the bus is spawned on the emitter game object, the same game object as the voice. A unique instance of the bus that is downstream (the parent) to the positioning-enabled bus is spawned for each listener of the emitter game object. This setup allows us to do something in Wwise that we could not have done before 2017.1: perform a submix before panning, attenuating, or spatializing a sound.</li>
+<li class="calibre9">A bus has its <em class="calibre11">Enable Positioning</em> flag set. A voice that also has its <em class="calibre11">Enable Positioning</em> flag set mixes into this bus. In this scenario, we are performing 2 X 3D mixes—a submix of a spatialized sound is then spatialized again. In this setup we have 3 game objects: an emitter, a listener, and a game object that is both listener to the first game object and an emitter to the final listener. A setup such as this can be used to simulate acoustic phenomena such as portals. <table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> If you see two instances of the Master Audio Bus in the Voice Graph when you do not expect to, it is a good indication that you forgot to set the <em class="calibre11">Enable Positioning</em> flag at some point in your signal chain. </td></tr>
+</tbody></table>
+</li>
+</ul>
+</div></div></div></body></html>

@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>New Features Overview 2017.2</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="whatsnew_2017_2_spatialaudio_roomsportals_soundpropagation"></a>
+Spatial Audio: Sound Propagation, Rooms, and Portals</h1>
+<p class="calibre7">Development in Spatial Audio continued during 2017.2 with a focus on expanding the existing features by enhancing usability, runtime efficiency, and flexibility. Here’s an overview of the main elements:</p>
+<ul class="calibre8">
+<li class="calibre9">Sound Propagation<ul class="calibre15">
+<li class="calibre9">The path of sound from an emitter to reach a listener can now traverse one or multiple Portals. <br class="calibre10"/>
+</li>
+<li class="calibre9">Virtual positions are attributed to sounds as if they are coming from the Portal closest to the listener.</li>
+</ul>
+</li>
+<li class="calibre9">Smooth Transitions Between Rooms<ul class="calibre15">
+<li class="calibre9">Portals are now volumes instead of being point sources, which allows for smoother and more accurate panning and spread when going through Portals.</li>
+<li class="calibre9">Room reverbs now smoothly and automatically crossfade over distance.</li>
+<li class="calibre9">Spatialized Portal Game Objects can also send to listener’s room.</li>
+</ul>
+</li>
+<li class="calibre9">Diffraction Modeling<ul class="calibre15">
+<li class="calibre9">Diffraction is represented as an angle ranging from 0° (no diffraction) to 180°. It can be driven using obstruction and/or the new <em class="calibre11">Diffraction</em> built-in parameters.</li>
+<li class="calibre9">The emitter dry path(s) and a Room's wet path have different angles. The dry diffraction angle is the deviation from the straight-line path, and the wet diffraction angle is the angle from the normal of the Portal.</li>
+</ul>
+</li>
+</ul>
+<div class="calibre2">
+<img alt="" src="soundpropagation2017.2.png" class="inline"/>
+</div>
+<ul class="calibre8">
+<li class="calibre9">Basic Transmission Modeling<ul class="calibre15">
+<li class="calibre9">When no paths through Portals are found from the emitter to the listener, the ‘sound transmission’ path goes through the walls.</li>
+<li class="calibre9">Rooms are tagged with ‘wall occlusion’ values, which are used to set the Wwise occlusion value on the emitter.</li>
+</ul>
+</li>
+<li class="calibre9">Portal Obstruction<ul class="calibre15">
+<li class="calibre9">The Spatial Audio API provides means to set game-driven obstruction values on the Portal objects.</li>
+</ul>
+</li>
+<li class="calibre9">Profiler Improvements<ul class="calibre15">
+<li class="calibre9">LPF and HPF values are now complementing the volume values in the <a href="https://www.audiokinetic.com/library/edge/?source=Help&amp;id=voices_graph#graph_view" target="_blank" class="pcalibre calibre12">Voices Graph</a> tab of the Advanced Profiler view.</li>
+</ul>
+</li>
+</ul>
+<div class="calibre2">
+<img alt="" src="new_voicesgraph.png" class="inline"/>
+</div>
+<ul class="calibre8">
+<li class="calibre9">Efficient Game Object Usage<ul class="calibre15">
+<li class="calibre9">Multiple positions are leveraged at the Portals when the listener is not in the Room, which results in an important performance improvement over 2017.1 as only one game object is now instantiated per Room.</li>
+<li class="calibre9">Single position (not using orientation) following the listener is used when the listener is located inside a Room. <b class="calibre13">Integrations in UE4, Unity, and an SDK Example Exposed in the Integration Demo Are Provided.</b></li>
+</ul>
+</li>
+</ul>
+</div></div></div></body></html>

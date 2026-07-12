@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::IAkMixerPluginContext::ComputeSphericalVBAPGains</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="class_a_k_1_1_i_ak_mixer_plugin_context_aa7c859ee24ba912f6663304facdbf332_split_000.html#aa7c859ee24ba912f6663304facdbf332" class="pcalibre1 anchor">◆ </a></span>ComputeSphericalVBAPGains()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="calibre3">
+  <tbody class="calibre4"><tr class="calibre16">
+  <td class="calibre17">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">virtual <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::IAkMixerPluginContext::ComputeSphericalVBAPGains </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype">void * </td>
+          <td class="paramname"><em class="calibre59">in_pPannerData</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a> </td>
+          <td class="paramname"><em class="calibre59">in_fAzimuth</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a> </td>
+          <td class="paramname"><em class="calibre59">in_fElevation</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> </td>
+          <td class="paramname"><em class="calibre59">in_uNumChannels</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="namespace_a_k_1_1_speaker_volumes_ad437e8acf5a9509d22a2d13629502afa_split_000.html#ad437e8acf5a9509d22a2d13629502afa">AK::SpeakerVolumes::VectorPtr</a> </td>
+          <td class="paramname"><em class="calibre59">out_vVolumes</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="calibre17">
+<span><span>pure virtual</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Compute panning gains on the plane given an incidence angle and channel configuration. </p><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> ComputePositioning is more general than this one, as it handles spread and focus, and can also compute speaker gains for non-3D spatialization, and should be favored.</td></tr>
+</tbody></table>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">AK_Success if successful, AK_Fail otherwise. </dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_pPannerData</td><td class="calibre17">Contains data relevant to the 3D panner that shoud be re-used accross plugin instances. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_fAzimuth</td><td class="calibre17">Incident angle, in radians [-pi,pi], where 0 is the azimuth (positive values are clockwise) </td></tr>
+    <tr class="calibre16"><td class="paramname">in_fElevation</td><td class="calibre17">Incident angle, in radians [0,pi], where 0 is the elevation (positive values are clockwise) </td></tr>
+    <tr class="calibre16"><td class="paramname">in_uNumChannels</td><td class="calibre17">Number of output channels. </td></tr>
+    <tr class="calibre16"><td class="paramname">out_vVolumes</td><td class="calibre17">Returned volumes (see <a class="pcalibre el" href="namespace_a_k_1_1_speaker_volumes_1_1_vector_split_000.html" title="Volume vector services.">AK::SpeakerVolumes::Vector</a> services). Must be allocated prior to calling this function with the size returned by <a class="pcalibre el" href="namespace_a_k_1_1_speaker_volumes_1_1_matrix_a59458aba2b1be3fa678021a3aea813b9_split_000.html#a59458aba2b1be3fa678021a3aea813b9">AK::SpeakerVolumes::Vector::GetRequiredSize()</a> for the desired configuration. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

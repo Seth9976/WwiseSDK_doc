@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2019.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="api_changes_2019_1"></a>
+API Changes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-39800</b> Enhanced our API by adding a function, <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_aafa66841a791ef5e024fe4e99caf3e91_split_000.html#aafa66841a791ef5e024fe4e99caf3e91">AK::SoundEngine::ExecuteActionOnPlayingID(AkActionOnEventType in_ActionType, AkPlayingID in_playingID, AkTimeMs in_uTransitionDuration, AkCurveInterpolation in_eFadeCurve)</a></code>, which will execute the specified Action on the active content associated with the playing ID.</li>
+<li class="calibre9"><b class="calibre13">WG-39919</b> (UWP) Changed the Motion sink API. <code class="calibre14">AK::GetDeviceIDFromGamepad()</code> must be called to retrieve the correct motion device ID of a UWP gamepad.</li>
+<li class="calibre9"><b class="calibre13">WG-40362</b> Added several new APIs:<ul class="calibre15">
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a81521a4611d3891c499ec9c5eb421ac2_split_000.html#a81521a4611d3891c499ec9c5eb421ac2">AK::SoundEngine::ReplaceOutput</a></code> to allow for easily changing the device or active ShareSet for a given output device. (Also added new section to IntegrationDemo Sample to demonstrate its application in a simple "Options" menu.)</li>
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a5d78cde4f63ad85951f9f49cab387421_split_000.html#a5d78cde4f63ad85951f9f49cab387421">AK::SoundEngine::GetDeviceSpatialAudioSupport</a></code> to easily determine if a given deviceId supports spatial audio.</li>
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="namespace_a_k_adc935e72c08f3108e358888ba0622ccd_split_000.html#adc935e72c08f3108e358888ba0622ccd">AK::GetWindowsDeviceCount</a></code> and <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_ab02747c480440f19f08d2ef1199ce4f6_split_000.html#ab02747c480440f19f08d2ef1199ce4f6">AK::GetWindowsDevice</a></code> APIs to simplify enumeration of IMMDevices on Windows for most common cases.</li>
+<li class="calibre9">(Xbox One) <code class="calibre14">AkPlatformInitSettings::bEnablespatialAudio</code> property to permit OS-level enabling of Spatial Audio services during sound engine initialization.</li>
+</ul>
+</li>
+<li class="calibre9"><b class="calibre13">WG-40535</b> Changed Spatial Audio's API:<ul class="calibre15">
+<li class="calibre9">Removed <code class="calibre14">QuerySoundPropagationPaths</code> because the information returned is largely redundant with <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_a23fbb01896e63cce53b2a65c917c53b7_split_000.html#a23fbb01896e63cce53b2a65c917c53b7">QueryDiffractionPaths</a></code>.</li>
+<li class="calibre9">Added Room and Portal ID to <code class="calibre14"><a class="pcalibre el" href="struct_ak_diffraction_path_info_split_000.html">AkDiffractionPathInfo</a></code> so that propagation paths can be returned via <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_a23fbb01896e63cce53b2a65c917c53b7_split_000.html#a23fbb01896e63cce53b2a65c917c53b7">QueryDiffractionPaths</a></code>.</li>
+<li class="calibre9">Added new function <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_a9f14228c14dd9ccdef9654bd536cfeeb_split_000.html#a9f14228c14dd9ccdef9654bd536cfeeb">QueryWetDiffraction</a></code> to return information about diffraction for a specific portal.</li>
+</ul>
+</li>
+<li class="calibre9"><b class="calibre13">WG-40716</b> Exposed platform-specific information to plug-ins through new method <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_global_plugin_context_a30092cae52c9cc349f0470813cf23489_split_000.html#a30092cae52c9cc349f0470813cf23489">AK::IAkGlobalPluginContext::GetPlatformContext()</a></code>.</li>
+</ul>
+</div></div></div></body></html>

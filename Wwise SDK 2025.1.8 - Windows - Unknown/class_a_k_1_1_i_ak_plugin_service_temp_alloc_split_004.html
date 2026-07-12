@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::IAkPluginServiceTempAlloc Class Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_3">Detailed Description</h2>
+<div class="calibre2"><p class="calibre7">Interface for performing extremely-fast zero-fragmentation temporary allocations, e.g. allocations that exist for one or two ticks, or allocations that exist for a single stack frame. These use the existing <a class="pcalibre el" href="namespace_a_k_1_1_temp_alloc_split_000.html">TempAlloc</a> infrastructure in the core soundengine, whose behaviour and allocation characteristics are defined in the <a class="pcalibre el" href="namespace_a_k_1_1_memory_mgr_split_000.html">MemoryMgr</a> initialization settings.</p>
+<p class="calibre7">For temporary allocations, types and lifetimes can be specified for mallocations – or reallocs. These allocations will only persist for the given soundengine tick (Lifetime_CurrentTick) and be destroyed at the beginning of the next tick, or will persist for two soundengine ticks.</p>
+<p class="calibre7">For bookmark allocations, you need to mark the start of a bookmark-allocation Region and perform allocations that persist until the bookmark-allocation region is closed. A struct, "PluginBookmarkAllocRegion" has been provided to help with that.</p>
+<p class="calibre7">Because these allocations are guaranteed to be destroyed collectively and simultaneously as a part of their respective system, there is no fragmentation incurred by this, and no 'free' function is available. Also, these allocations are also extremely fast, with no multi-threading contention in most cases, and the total overhead of each alloc measured on the order of dozens of cycles.</p>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="goingfurther_optimizingmempools_reducing_memory_split_005.html#goingfurther_optimizingmempools_bookmarkalloc">Tuning "Bookmark Allocator" Memory</a> </li>
+</ul>
+</dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_i_ak_plugin_temp_alloc_8h_source.html#l00059">59</a> of file <a class="pcalibre el" href="_i_ak_plugin_temp_alloc_8h_source.html">IAkPluginTempAlloc.h</a>.</p>
+</div></div><!-- contents -->
+
+
+</body></html>

@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2025.1.6</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="generic_bugs_2025_1_6"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-75245</b> Fixed: Excluding a sound object during playback doesn't stop its source plug-in.</li>
+<li class="calibre9"><b class="calibre13">WG-81407</b> Fixed: (Acoustics) In some cases, paths between a Room and the listener are calculated but not used.</li>
+<li class="calibre9"><b class="calibre13">WG-81593</b> Fixed: (Acoustics) Direct paths can escape through gaps in Portals without applying Transmission Loss.</li>
+<li class="calibre9"><b class="calibre13">WG-81739</b> Fixed: Clicking the Help button in the Property Editor Favorites dialog opens the incorrect page in Wwise Help.</li>
+<li class="calibre9"><b class="calibre13">WG-81833</b> Fixed: Crash in the Game Object 3D Viewer when profiling a game that has an unnamed spatial audio Portal.</li>
+<li class="calibre9"><b class="calibre13">WG-82053</b> Fixed: Crash when selecting <b class="calibre13">Open in New Tab</b> in the shortcut menu of a Music Switch Container.</li>
+<li class="calibre9"><b class="calibre13">WG-82078</b> Fixed: Crash when Replay encounters a <code class="calibre14">PostEvent</code> command with a callback.</li>
+<li class="calibre9"><b class="calibre13">WG-82263</b> Fixed: Not possible to scroll down in the CPU Timeline of the Advanced Profiler when viewing profiling data of a runtime with many threads, but no timing data for each thread.</li>
+<li class="calibre9"><b class="calibre13">WG-82290</b> Fixed: Tone Generator plug-in's random number generator behaves non-deterministically when running in multi-core mode.</li>
+<li class="calibre9"><b class="calibre13">WG-82383</b> Fixed: (Mac Authoring) Crash when moving a band in the Parametric EQ plug-in.</li>
+<li class="calibre9"><b class="calibre13">WG-82484</b> Fixed: Function <code class="calibre14">SetRTPCValueByPlayingID</code> fails when called during the audio frame in which the playing ID was created.</li>
+<li class="calibre9"><b class="calibre13">WG-82486</b> Fixed: 3D panning of positioned sources or busses with some height channel data, such as 4.0.4 or 5.1.4, does not include some of the input channels during mixing. Note that one consequence of this change is that some existing content using 4.0.4 or 5.1.4 configs that had highly correlated data across channels, in such a way that the missing input was not directly noticed, might have their apparent loudness increased.</li>
+<li class="calibre9"><b class="calibre13">WG-82534</b> Fixed: (Acoustics) Possible crash in <code class="calibre14">AkGeometrySet/AkRTree</code> when running in low-memory conditions.</li>
+<li class="calibre9"><b class="calibre13">WG-82589</b> Fixed: Continuous Random and Sequence Containers don't always finish playback. This is most likely to occur when playing a child container that doesn't play any voices.</li>
+<li class="calibre9"><b class="calibre13">WG-82633</b> Fixed: Unicode text in markers are sometimes treated as binary data.</li>
+<li class="calibre9"><b class="calibre13">WG-82637</b> Fixed: Assert when a <b class="calibre13">Reset Bus Volume All</b> Action is triggered with game-object scope.</li>
+</ul>
+</div></div></div></body></html>

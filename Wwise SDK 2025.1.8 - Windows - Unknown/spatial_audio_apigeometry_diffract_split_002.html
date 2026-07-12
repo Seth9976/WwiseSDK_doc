@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Using the Geometry API for Simulating Diffraction and Transmission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="spatial_audio_apigeometry_diffract_geometry_settings"></a>
+Setting Up Geometry for Diffraction</h1>
+<p class="calibre7">Each geometry set that is passed to Wwise Acoustics needs to say explicitly whether it should be considered for calculating diffraction paths. This is done via the <code class="calibre14"><a class="pcalibre el" href="struct_ak_geometry_params_a9ae54ac73dcb4426a1905fbd3c511ca0_split_000.html#a9ae54ac73dcb4426a1905fbd3c511ca0" title="Switch to enable or disable geometric diffraction for this Geometry.">AkGeometryParams::EnableDiffraction</a></code> flag. This flag enables generation of edge data that is necessary for diffraction calculations, and is used for both geometric diffraction on the direct path and for diffraction of reflections.</p>
+<p class="calibre7">Also, consider whether or not you want the boundary edges of a mesh to be able to diffract sound. For a given mesh, a boundary edge is defined as an edge that is connected to only one triangle and, therefore, exists on the boundary of the manifold. The complexity of the diffraction calculation increases with the number of edges, so the option should be disabled if your mesh contains boundary edges that should not diffract sound.</p>
+<p class="calibre7">Finally, note that acoustic textures assigned to acoustic surfaces do not have any effect on diffraction because edge materials don't absorb energy. Edges simply bend sound.</p>
+</div></div></div></body></html>

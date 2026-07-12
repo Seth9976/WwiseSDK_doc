@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>High-Level Stream Manager API Description</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_16"><a class="pcalibre1 anchor" id="streamingmanager_highlevel_autostreams_watchout"></a>
+Common Pitfalls and Other Considerations</h2>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="streamingmanager_highlevel_autostreams_watchout_blocksize"></a>
+Block Size</h3>
+<p class="calibre7">The Stream Manager always queries the block size of a given file to the Low-Level I/O before choosing the buffer size, to ensure that the buffer size is a multiple of the block size. Therefore, users of automatic streams do not have to concern themselves with the Low-Level block size, unless they are forcing the stream to another position. In this case, they need to consider the block size obtained from <a class="pcalibre el" href="class_a_k_1_1_i_ak_auto_stream_a6869aba1d6b9301a3f59468166a8fb7c_split_000.html#a6869aba1d6b9301a3f59468166a8fb7c">AK::IAkAutoStream::GetBlockSize()</a>, or the real absolute offset returned by <a class="pcalibre el" href="class_a_k_1_1_i_ak_auto_stream_a3bbe9d9fe0f933ee75da2adfbfbc9e38_split_000.html#a3bbe9d9fe0f933ee75da2adfbfbc9e38">AK::IAkAutoStream::SetPosition()</a>.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="streamingmanager_highlevel_autostreams_watchout_position"></a>
+Stream Position</h3>
+<p class="calibre7">Stream position is evaluated from the user's point of view, and is queried and set by the Get/SetPosition() methods. Data transferred from the Low-Level I/O into the Stream Manager's buffers is not taken into account when computing the position. It is updated when a buffer is released by the user. If some data had already been transferred from the Low-Level I/O when <a class="pcalibre el" href="class_a_k_1_1_i_ak_auto_stream_a3bbe9d9fe0f933ee75da2adfbfbc9e38_split_000.html#a3bbe9d9fe0f933ee75da2adfbfbc9e38">AK::IAkAutoStream::SetPosition()</a> was called, that data is generally flushed.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><p class="starttd"><b class="calibre13">Note:</b> Users should avoid calling <a class="pcalibre el" href="class_a_k_1_1_i_ak_auto_stream_a3bbe9d9fe0f933ee75da2adfbfbc9e38_split_000.html#a3bbe9d9fe0f933ee75da2adfbfbc9e38">AK::IAkAutoStream::SetPosition()</a> whenever possible. If it must be used, it should be called as early as possible. For example, in the sound engine, when a looping sound source obtains a buffer from the Stream Manager, it checks to see if the loop end is contained in that buffer. If it is, <a class="pcalibre el" href="class_a_k_1_1_i_ak_auto_stream_a3bbe9d9fe0f933ee75da2adfbfbc9e38_split_000.html#a3bbe9d9fe0f933ee75da2adfbfbc9e38">AK::IAkAutoStream::SetPosition()</a> is called right away (that is, long before ReleaseBuffer()), thus minimizing the risk of streaming useless data. Also, specifying looping heuristics can help the internal scheduler make better decisions regarding requests to the Low-Level I/O.</p>
+<p class="endtd"></p>
+</td></tr>
+</tbody></table>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="tip.gif"/></td><td class="calibre17"><p class="starttd"><b class="calibre13">Tip:</b> <a class="pcalibre el" href="class_a_k_1_1_i_ak_auto_stream_a3bbe9d9fe0f933ee75da2adfbfbc9e38_split_000.html#a3bbe9d9fe0f933ee75da2adfbfbc9e38">AK::IAkAutoStream::SetPosition()</a> can be called with or without having a buffer locked, but it is recommended to change the position as early as possible, to minimize the risk of streaming data for nothing. Stopping the stream appropriately can also help minimize wasted bandwidth.</p>
+<p class="calibre7"><a class="pcalibre el" href="class_a_k_1_1_i_ak_auto_stream_a3bbe9d9fe0f933ee75da2adfbfbc9e38_split_000.html#a3bbe9d9fe0f933ee75da2adfbfbc9e38">AK::IAkAutoStream::SetPosition()</a> does not release buffers held by the client. Clients decide when buffers should be released by calling ReleaseBuffer() explicitly. <a class="pcalibre el" href="class_a_k_1_1_i_ak_auto_stream_a3bbe9d9fe0f933ee75da2adfbfbc9e38_split_000.html#a3bbe9d9fe0f933ee75da2adfbfbc9e38">AK::IAkAutoStream::SetPosition()</a> actually indicates the position expected by the client for the <b class="calibre13">next call</b> to GetBuffer().</p>
+<p class="endtd"><a class="pcalibre el" href="class_a_k_1_1_i_ak_auto_stream_ae7fa6bd56c493b906e294618b47be39e_split_000.html#ae7fa6bd56c493b906e294618b47be39e">AK::IAkAutoStream::GetPosition()</a> returns the position of the first buffer currently held by the client. If the client holds no buffer, then it returns the position of the buffer that will be granted at the next call to GetBuffer(). </p>
+</td></tr>
+</tbody></table>
+<p class="calibre7">The AK_NoMoreData return code of <a class="pcalibre el" href="class_a_k_1_1_i_ak_auto_stream_aa8197d63b8e758acb075a437103e573c_split_000.html#aa8197d63b8e758acb075a437103e573c">AK::IAkAutoStream::GetBuffer()</a> is determined from the stream position. The out_bEndOfStream optional flag returned by <a class="pcalibre el" href="class_a_k_1_1_i_ak_auto_stream_ae7fa6bd56c493b906e294618b47be39e_split_000.html#ae7fa6bd56c493b906e294618b47be39e">AK::IAkAutoStream::GetPosition()</a> is also bound to the stream position. It returns True if and only if</p><ul class="calibre8">
+<li class="calibre9">uLoopEnd heuristics is set to 0 (not looping),</li>
+<li class="calibre9">no more data is being transferred from the Low-Level I/O,</li>
+<li class="calibre9">the user has released all its buffers.</li>
+</ul>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="streamingmanager_highlevel_autostreams_watchout_blocking"></a>
+Methods Blocking on Pending Low-Level Operations</h3>
+<p class="calibre7">The automatic stream API has been designed so that the user never blocks on any pending transactions with the Low-Level I/O, except for blocking <a class="pcalibre el" href="class_a_k_1_1_i_ak_auto_stream_aa8197d63b8e758acb075a437103e573c_split_000.html#aa8197d63b8e758acb075a437103e573c">AK::IAkAutoStream::GetBuffer()</a> calls. Even <a class="pcalibre el" href="class_a_k_1_1_i_ak_auto_stream_a7371eb45a24988fc3d5372bc15c77db7_split_000.html#a7371eb45a24988fc3d5372bc15c77db7">AK::IAkAutoStream::Destroy()</a> should not block. Typically, if a stream is still interacting with the Low-Level I/O when it is destroyed, it will continue to live internally until the current transfer with the Low-Level I/O is complete.</p>
+</div></div></div></body></html>

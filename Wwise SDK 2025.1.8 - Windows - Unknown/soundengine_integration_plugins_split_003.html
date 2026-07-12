@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integration Details - Plug-Ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_2"><a class="pcalibre1 anchor" id="soundengine_integration_plugins_integration_libraries"></a>
+Linking with Plug-In Libraries</h2>
+<p class="calibre7">Each plug-in is provided as an individual library (LIB file) that must be linked into your game. Registration is automatic if you include the corresponding factory file from SDK/include/AK/Plugin. For example, the factory file for the Compressor effect is: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="pcalibre code" href="_ak_compressor_f_x_factory_8h_split_000.html">AK/Plugin/AkCompressorFXFactory.h</a>&gt;</span></div>
+</div><!-- fragment --><p class="calibre7">For a complete list of libraries for each plug-in, refer to <a class="pcalibre el" href="goingfurther_builds_split_004.html#wwise_sdk_lib_dependency_requirements_plugins">Source and Effect Plug-ins</a>. When finalizing your game before shipping, you should register only the plug-ins that are actually used to reduce the size of the your game executable, especially if you ship on mobile devices.</p>
+<p class="calibre7">For an example of integrating plug-ins, refer to <a class="pcalibre el" href="quickstart_sample_integration_plugins_split_000.html">Quick Start Sample Integration - Plug-Ins</a>.</p>
+</div></div></div></body></html>

@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK.Wwise::Plugin::V1::GUIWindows::GetDialog</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_g_u_i_windows_a21b81136769b185c244ada93e6767f14_split_000.html#a21b81136769b185c244ada93e6767f14" class="pcalibre1 anchor">◆ </a></span>GetDialog()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="calibre3">
+  <tbody class="calibre4"><tr class="calibre16">
+  <td class="calibre17">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">virtual bool AK.Wwise::Plugin::V1::GUIWindows::GetDialog </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_a5a9328b141630d1de228c92e81e9034d_split_000.html#a5a9328b141630d1de228c92e81e9034d">eDialog</a> </td>
+          <td class="paramname"><em class="calibre59">in_eDialog</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">uint32_t &amp; </td>
+          <td class="paramname"><em class="calibre59">out_uiDialogID</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="struct_a_k_1_1_wwise_1_1_plugin_1_1_populate_table_item_split_000.html">PopulateTableItem</a> *&amp; </td>
+          <td class="paramname"><em class="calibre59">out_pTable</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"> const</td>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="calibre17">
+<span><span>inline</span><span>virtual</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+
+<p class="calibre7">Retrieves the plug-in dialog parameters. </p>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_eDialog</td><td class="calibre17">The dialog type. </td></tr>
+    <tr class="calibre16"><td class="calibre17">[out]</td><td class="paramname">out_uiDialogID</td><td class="calibre17">The returned resource ID of the dialog </td></tr>
+    <tr class="calibre16"><td class="calibre17">[out]</td><td class="paramname">out_pTable</td><td class="calibre17">The returned table of property-control bindings (can be nullptr if no properties are to be bound). </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">True if out_uiDialogID was set. If nothing was set and true is returned, an empty dialog will be created (non-MFC code will then have a window handle to hook to). False otherwise (no frontend).</dd></dl>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="plugin_frontend_windows_split_003.html#wwiseplugin_dialogcode">Dialog Acquisition</a></li>
+<li class="calibre9"><a class="pcalibre el" href="wwiseplugin_dialog_guide_split_000.html">Wwise Plug-in Dialog Reference</a> </li>
+</ul>
+</dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_g_u_i_windows_8h_source.html#l00280">280</a> of file <a class="pcalibre el" href="_g_u_i_windows_8h_source.html">GUIWindows.h</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

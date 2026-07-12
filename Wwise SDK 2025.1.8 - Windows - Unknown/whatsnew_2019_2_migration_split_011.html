@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2019.2</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_10"><a class="pcalibre1 anchor" id="migration_19_2_spatial_audio_api_remove"></a>
+Redundant Spatial Audio APIs Have Been Removed</h2>
+<p class="calibre7">In Wwise 2019.1 and before, there were a number of APIs in Spatial Audio that were effectively duplicates of those found in the sound engine, but which applied specifically to game objects that were registered as a Spatial Audio emitter. Not only was it confusing, but we had no way of ensuring that the user called the correct API. In 2019.2, since it is no longer necessary to register an emitter, <em class="calibre11">the following APIs have been removed.</em></p>
+<ul class="calibre8">
+<li class="calibre9"><em class="calibre11">AK::SpatialAudio::SetPosition</em> Replace with <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a789e25bda32d1e11849afb6584942455_split_000.html#a789e25bda32d1e11849afb6584942455">AK::SoundEngine::SetPosition</a></li>
+<li class="calibre9"><em class="calibre11">AK::SpatialAudio::SetEmitterAuxSendValues</em> Replace with <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_af960fca0239e219b9d08c2659fe9e5d4_split_000.html#af960fca0239e219b9d08c2659fe9e5d4">AK::SoundEngine::SetGameObjectAuxSendValues</a></li>
+<li class="calibre9"><em class="calibre11">AK::SpatialAudio::SetEmitterObstructionAndOcclusion</em> Replace with <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a1b3e18a25b405e55ba82de9b70cd11ba_split_000.html#a1b3e18a25b405e55ba82de9b70cd11ba">AK::SoundEngine::SetObjectObstructionAndOcclusion</a></li>
+</ul>
+</div></div></div></body></html>

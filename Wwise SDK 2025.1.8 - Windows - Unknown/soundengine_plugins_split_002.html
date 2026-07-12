@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Sound Engine Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="register_effects"></a>
+Plug-in Static Registration</h1>
+<p class="calibre7">Various instances of audio plug-ins are all handled by the Plug-in Manager, which recognizes different plug-in classes using both CompanyIDs and PluginIDs. Plug-ins must be registered to the Plug-in Manager before they can be used in game. The registration process binds a PluginID to the creation function callbacks provided as arguments.</p>
+<p class="calibre7">The sample code below demonstrates how plug-ins can be registered by the game. Plug-ins provided by Audiokinetic must also be registered if they are used by a game.</p>
+<p class="calibre7">For ease of use, all plugins also have a Factory header file which only contains the AK_STATIC_LINK_PLUGIN macro. To make plugin management easier, name your Factory header the same way as your library concatenated with "Factory". For example, the code below would be the content for MyPluginFactory.h associated with MyPlugin.lib.</p>
+<div class="fragment"><div class="line"><a class="pcalibre code" href="_i_ak_plugin_8h_a8e9fc150137c878499f2200e7e27a256_split_000.html#a8e9fc150137c878499f2200e7e27a256">AK_STATIC_LINK_PLUGIN</a>(MyPlugin);    <span class="comment">//This macro registers the plugin in the sound engine.</span></div>
+</div><!-- fragment --><p class="calibre7">A game using MyPlugin would simply include the MyPluginFactory file and link with MyPlugin.lib. </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;AK/Plugin/MyPluginFactory.h&gt;</span>  <span class="comment">// Factory headers forces linking of the plugin code through AK_STATIC_LINK_PLUGIN.</span></div>
+</div><!-- fragment --><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> If you get a link error about symbols ending with <em class="calibre11">_linkonceonly</em> multiply defined, this means you included the Factory include in multiple CPP files. It needs to be included once only per linking unit (such as a DLL, SO, DYLIB, or EXE file). </td></tr>
+</tbody></table>
+</div></div></div></body></html>

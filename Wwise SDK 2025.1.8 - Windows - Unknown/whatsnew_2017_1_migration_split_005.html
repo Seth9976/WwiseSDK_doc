@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2017.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_4"><a class="pcalibre1 anchor" id="game_must_specify_listerner_for_auxsends"></a>
+The game must specify a listener when setting auxiliary sends</h2>
+<p class="calibre7">When setting a game-defined send through the API, it is now necessary to fill out an additional field to specify which game object will receive the send (both an Auxiliary Bus ID and a game object ID are necessary to uniquely identify a mixing bus instance). Specifying a game object when setting a game defined aux send is another way to add an emitter-listener association. It is similar to the <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a2f85a55c38afa2e0dbc6172a7bec91d1_split_000.html#a2f85a55c38afa2e0dbc6172a7bec91d1">SetListeners()</a></code> API call, which defines the emitter-listener associations for the main bus output (sometimes called the “dry path”). <br class="calibre10"/>
+</p>
+<div class="fragment"><div class="line"><a class="pcalibre code" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> myListenerID = 1;</div>
+<div class="line"><a class="pcalibre code" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> myEmitterID = 123;</div>
+<div class="line"> </div>
+<div class="line"><a class="pcalibre code" href="struct_ak_aux_send_value_split_000.html">AkAuxSendValue</a> auxSendVal;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// listenerID must be specified. </span></div>
+<div class="line">auxSendVal.<a class="pcalibre code" href="struct_ak_aux_send_value_a185a87e879e5a602446b07252bdd8519_split_000.html#a185a87e879e5a602446b07252bdd8519">listenerID</a> = myListenerID; </div>
+<div class="line">auxSendVal.<a class="pcalibre code" href="struct_ak_aux_send_value_a985acf05c92308c7569dd4a91a3e4256_split_000.html#a985acf05c92308c7569dd4a91a3e4256">auxBusID</a> = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a1aae6ebdec25946fb2897ce0e025366d_split_000.html#a1aae6ebdec25946fb2897ce0e025366d">AK::SoundEngine::GetIDFromString</a>(“MyAuxBusName”);</div>
+<div class="line">auxSendVal.<a class="pcalibre code" href="struct_ak_aux_send_value_a1e3fe0e1490d0e15af8a46d8ab4078f4_split_000.html#a1e3fe0e1490d0e15af8a46d8ab4078f4">fControlValue</a> = 1.0f;</div>
+<div class="line"> </div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_af960fca0239e219b9d08c2659fe9e5d4_split_000.html#af960fca0239e219b9d08c2659fe9e5d4">AK::SoundEngine::SetGameObjectAuxSendValues</a>(myEmitterID, &amp;auxSendVal, 1);</div>
+</div><!-- fragment --><p class="calibre7">For the sake of convenience, it is possible to set the <code class="calibre14">listenerID</code> field to <code class="calibre14">AK_INVALID_GAME_OBJECT</code>, which will tell the sound engine to simply use the listener(s) that have already been specified with the <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a2f85a55c38afa2e0dbc6172a7bec91d1_split_000.html#a2f85a55c38afa2e0dbc6172a7bec91d1">SetListeners()</a></code> or <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a4fe9102cd3cb2b59dda5d3d635dc49fe_split_000.html#a4fe9102cd3cb2b59dda5d3d635dc49fe">SetDefaultListeners()</a></code> API calls. This feature facilitates both code migration and the most common auxiliary send scenarios, whereby the listener is the same as the one for the direct output.</p>
+</div></div></div></body></html>

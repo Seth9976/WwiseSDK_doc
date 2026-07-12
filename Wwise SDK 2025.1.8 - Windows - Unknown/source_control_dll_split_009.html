@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Source Control Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_8"><a class="pcalibre1 anchor" id="source_control_dll_creation_object_destroy"></a>
+Destroying the Plug-in Instance</h2>
+<p class="calibre7">When Wwise needs to create an instance of your source control plug-in, it calls the AkSourceControlCreatePlugin() function in your DLL (<a class="pcalibre el" href="source_control_dll_split_003.html#source_control_dll_creation_exported">Establishing Exported Functions</a>) to create the new instance. This function returns an interface to your source control plug-in. When the plug-in instance is no longer needed, Wwise calls the <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_a7682bc6fd40d00c825703604ab79fc85_split_000.html#a7682bc6fd40d00c825703604ab79fc85" title="This function destroys the plug-in. The implementation is generally '{ delete this; }'.">AK::Wwise::ISourceControl::Destroy()</a> method on that particular instance. This method releases any memory or other resources the object consumes, and then deletes the object itself.</p>
+<p class="calibre7">If the instance was created with the operator New, a typical implementation of <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_a7682bc6fd40d00c825703604ab79fc85_split_000.html#a7682bc6fd40d00c825703604ab79fc85" title="This function destroys the plug-in. The implementation is generally '{ delete this; }'.">AK::Wwise::ISourceControl::Destroy()</a> would be:</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> SamplePlugin::Destroy()</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">delete</span> <span class="keyword">this</span>;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p class="calibre7">An instance of the plug-in is created in the following situations:</p><ul class="calibre8">
+<li class="calibre9">The Wwise user selects it from the source control plug-in list in the Project Settings dialog and accepts the changes</li>
+<li class="calibre9">The Wwise user loads a project in which they had already used the source control plug-in.</li>
+</ul>
+<p class="calibre7">The instance of the plug-in is destroyed in the following situations:</p><ul class="calibre8">
+<li class="calibre9">The Wwise user selects another source control plug-in from the Project Settings dialog and accepts the changes;</li>
+<li class="calibre9">The project is closed.</li>
+</ul>
+</div></div></div></body></html>

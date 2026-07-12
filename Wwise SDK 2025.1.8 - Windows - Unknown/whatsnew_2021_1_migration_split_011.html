@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2021.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_10"><a class="pcalibre1 anchor" id="height_spread"></a>
+Height Spread</h1>
+<p class="calibre7">Spread and Focus curves are now evaluated against the real distance between the emitter and listener, while they used to be evaluated against the distance of the emitter-listener vector projected on the plane defined by the listener's top vector.</p>
+<p class="calibre7">The old behavior typically increased the spread of 3D sounds passing above or below the listener, and thus helped smooth out their panning on planar speaker configurations (5.1, 7.1, and so on). Unfortunately, this behavior is not very realistic with panning on 3D configurations like binaural stereo or 7.1.4. For example, a 3D sound flying by would suddenly become omnidirectional as it passed over the listener.</p>
+<p class="calibre7">In order to evaluate Spread based on the real distance without losing the smoothing effect when panning on planar configurations, a new property called Height Spread has been introduced. It automatically computes a minimal spread based on elevation, if and only if panning occurs on a planar configuration, or based on negative elevation alone if panning occurs on hemispherical configurations, like 7.1.4.</p>
+<p class="calibre7">The property is true by default, and is located in the Attenuation Editor. You may opt out of this behavior by deselecting the check box. If there is no attenuation on the sound, you will need to create an Attenuation ShareSet specifically for this purpose, with a flat Output Bus volume curve.</p>
+</div></div></div></body></html>

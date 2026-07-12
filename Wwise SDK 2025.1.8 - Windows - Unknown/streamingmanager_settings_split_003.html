@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Audiokinetic Stream Manager Initialization Settings</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_2"><a class="pcalibre1 anchor" id="streamingmanager_settings_defmanagerinit_device_uIOMemorySize"></a>
+I/O Memory Size</h2>
+<p class="calibre7"><a class="pcalibre el" href="struct_ak_device_settings_a75893592924a59881fe2cbca4e4ddd04_split_000.html#a75893592924a59881fe2cbca4e4ddd04" title="Size of memory for I/O (for automatic streams). It is passed directly to AK::MemoryMgr::Malign(),...">AkDeviceSettings::uIOMemorySize</a> is the total size of the memory reserved for a device’s automatic streaming. The device creates a special memory pool, to which automatic stream I/O data is written. If you don’t plan to use any automatic streams, specify zero. Note, however, that the sound engine uses automatic streams to play streamed audio files. <a class="pcalibre el" href="struct_ak_device_settings_a3a99efb65d353954df652c007ac761c5_split_000.html#a3a99efb65d353954df652c007ac761c5">AkDeviceSettings::pIOMemory</a>, <a class="pcalibre el" href="struct_ak_device_settings_ae4d4ef1d88e6a43dd134845f18e26b42_split_000.html#ae4d4ef1d88e6a43dd134845f18e26b42" title="I/O memory alignment. It is passed directly to AK::MemoryMgr::Malign().">AkDeviceSettings::uIOMemoryAlignment</a> and <a class="pcalibre el" href="struct_ak_device_settings_ac765faebf4d47270efbe33cc762192cb_split_000.html#ac765faebf4d47270efbe33cc762192cb" title="Attributes for I/O memory. Here, specify the allocation type (AkMemType_Device, and so on)....">AkDeviceSettings::ePoolAttributes</a> are additional parameters that are passed directly to the pool creation method, AK::MemoryMgr::CreatePool().</p>
+<p class="calibre7">Defaults:</p><ul class="calibre8">
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_device_settings_a3a99efb65d353954df652c007ac761c5_split_000.html#a3a99efb65d353954df652c007ac761c5">AkDeviceSettings::pIOMemory</a>: NULL (memory pool is allocated by the device)</li>
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_device_settings_a75893592924a59881fe2cbca4e4ddd04_split_000.html#a75893592924a59881fe2cbca4e4ddd04" title="Size of memory for I/O (for automatic streams). It is passed directly to AK::MemoryMgr::Malign(),...">AkDeviceSettings::uIOMemorySize</a>: 2 MB</li>
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_device_settings_ae4d4ef1d88e6a43dd134845f18e26b42_split_000.html#ae4d4ef1d88e6a43dd134845f18e26b42" title="I/O memory alignment. It is passed directly to AK::MemoryMgr::Malign().">AkDeviceSettings::uIOMemoryAlignment</a>: 4 (on Windows - platform specific)</li>
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_device_settings_ac765faebf4d47270efbe33cc762192cb_split_000.html#ac765faebf4d47270efbe33cc762192cb" title="Attributes for I/O memory. Here, specify the allocation type (AkMemType_Device, and so on)....">AkDeviceSettings::ePoolAttributes</a>: AkMalloc (on Windows - platform specific)</li>
+</ul>
+</div></div></div></body></html>

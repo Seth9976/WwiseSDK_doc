@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::IAkEffectPluginContext::CreateOutputObjects</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="class_a_k_1_1_i_ak_effect_plugin_context_a96f65eb02b520f2ca5af497e645971a0_split_000.html#a96f65eb02b520f2ca5af497e645971a0" class="pcalibre1 anchor">◆ </a></span>CreateOutputObjects()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="calibre3">
+  <tbody class="calibre4"><tr class="calibre16">
+  <td class="calibre17">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">virtual <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::IAkEffectPluginContext::CreateOutputObjects </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="struct_ak_channel_config_split_000.html">AkChannelConfig</a> </td>
+          <td class="paramname"><em class="calibre59">in_channelConfig</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="struct_ak_audio_objects_split_000.html">AkAudioObjects</a> &amp; </td>
+          <td class="paramname"><em class="calibre59">io_objects</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="calibre17">
+<span><span>pure virtual</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Create new objects on the output side. Only out-of-place object processors (plugins implementing <a class="pcalibre el" href="class_a_k_1_1_i_ak_out_of_place_object_plugin_split_000.html">AK::IAkOutOfPlaceObjectPlugin</a>) may create output objects. If successful, the newly constructed objects will be available in out_ppBuffer/out_ppObjects. To obtain all the output objects in a single array after having created objects using this function, use GetOutputObjects, or wait for the next call to <a class="pcalibre el" href="class_a_k_1_1_i_ak_out_of_place_object_plugin_a762b09e1978f3eabdebea17e84581f5a_split_000.html#a762b09e1978f3eabdebea17e84581f5a">AK::IAkOutOfPlaceObjectPlugin::Execute</a> where output objects are passed via the in_pObjectBuffersOut/in_pObjectsOut arguments. Object processors inform the host that an output object may be disposed of by setting its state to AK_NoMoreData from within <a class="pcalibre el" href="class_a_k_1_1_i_ak_out_of_place_object_plugin_a762b09e1978f3eabdebea17e84581f5a_split_000.html#a762b09e1978f3eabdebea17e84581f5a">AK::IAkOutOfPlaceObjectPlugin::Execute</a>. </p><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> You should never store the pointers returned in io_objects, as the objects point to may change across audio render passes, or after subsequent calls to CreateOutputObjects.</td></tr>
+</tbody></table>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> This function can be called outside of the plug-in's Execute function, such as during Init, but audio buffer data for the object may not be available. </td></tr>
+</tbody></table>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">AK_Success if all objects were created successfully, AK_Fail otherwise. The optional arguments out_ppBuffer and out_ppObjects may be used to obtain the output objects newly created. </dd></dl>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="class_a_k_1_1_i_ak_effect_plugin_context_ad0b9c549569b25dea349d2a352f02e58_split_000.html#ad0b9c549569b25dea349d2a352f02e58">GetOutputObjects</a></li>
+<li class="calibre9"><a class="pcalibre el" href="class_a_k_1_1_i_ak_out_of_place_object_plugin_a762b09e1978f3eabdebea17e84581f5a_split_000.html#a762b09e1978f3eabdebea17e84581f5a">AK::IAkOutOfPlaceObjectPlugin::Execute</a> </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_channelConfig</td><td class="calibre17">Desired channel configuration for all new objects. </td></tr>
+    <tr class="calibre16"><td class="paramname">io_objects</td><td class="calibre17"><a class="pcalibre el" href="struct_ak_audio_objects_a9408cb0a160b5e02ce1bc2d2bd63e73a_split_000.html#a9408cb0a160b5e02ce1bc2d2bd63e73a" title="Number of audio objects.">AkAudioObjects::uNumObjects</a>, the number of objects to create. <a class="pcalibre el" href="struct_ak_audio_objects_a0684629542f01bb629b5056edb4880e6_split_000.html#a0684629542f01bb629b5056edb4880e6" title="Array of pointers to audio object buffers.">AkAudioObjects::ppObjectBuffers</a>, Returned array of pointers to the object buffers newly created, allocated by the caller. Pass nullptr if they're not needed. <a class="pcalibre el" href="struct_ak_audio_objects_a4332a296e3e6d98688176aa460584853_split_000.html#a4332a296e3e6d98688176aa460584853" title="Array of pointers to audio objects.">AkAudioObjects::ppObjects</a>, Returned array of pointers to the objects newly created, allocated by the caller. Pass nullptr if they're not needed. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

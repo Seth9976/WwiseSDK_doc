@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak.wwise.core.mediaPool.get</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="ak_wwise_core_mediapool_getOptions"></a>
+Options</h1>
+<p class="calibre7"></p><table class="doxtable">
+<tbody class="calibre4"><tr class="calibre16">
+<th class="calibre46">Name </th><th class="calibre46">Type </th><th class="calibre46">Description  </th></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">return</b> </td><td class="calibre36">array </td><td class="calibre36">The list of properties to return for each file. If not specified, the following properties are returned: 'Path', 'FileId', 'Db'.   </td></tr>
+<tr class="calibre16">
+<td rowspan="21" class="calibre36">return <b class="calibre13">[...]</b> </td><td class="calibre36"/><td class="calibre36"><p class="starttd">A property to return for each file. The name is case-sensitive. Not all properties are available for all files. </p>
+<p class="endtd">Any of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">Score</b> : The search result score. A value greater than 0. The higher the score, the better the results.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">FileId</b> : A GUID representing the file in the database.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">Db</b> : The database object containing the file. This is an object with 'id' and 'name' properties, where 'id' is the GUID of the database and 'name' is the name of the database.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">Path</b> : The absolute path to the file in the file system.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">Size</b> : The size of the file in bytes.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">Markers</b> : An array of markers in the audio file. Each marker is an object with 'name' and 'time' properties, where 'name' is the marker's name and 'time' is its position in seconds.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">DetectedRegions</b> : An array of detected regions in the audio file. Each region is an object with 'start' and 'end' properties, where 'start' and 'end' are the positions in seconds.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><p class="starttd"></p>
+<p class="endtd">Any of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">Filename</b> : The name of the file, including the extension.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">WAV/Duration</b> : The duration of the file in seconds.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">WAV/Sample Rate</b> : The sample rate of the audio file in Hz.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">WAV/Bit Depth</b> : The bit depth of the audio file. Possible values are 8, 16, 24, or 32.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">WAV/Channels</b> : The number of channels of the audio file.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">WAV/Channel Configuration</b> : The channel configuration of the audio file, such as '1.0', '2.0', '5.1', '7.1.4', etc.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">WAV/Data Size</b> : The size of the audio data in bytes.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">WAV/Loop Start</b> : The position in seconds where the audio file loop starts.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">WAV/Loop End</b> : The position in seconds where the audio file loops back to the start.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">WAV/Marker Count</b> : The number of markers in the audio file.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">WAV/Samples</b> : The number of samples in the audio file, for one channel.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">Other fields found in the IXML chunk of the file. Use ak.core.mediaPool.getFields to get the list of supported fields.   </td></tr>
+</tbody></table>
+<p class="calibre7"></p>
+<p class="calibre7"><a class="pcalibre el" href="ak_wwise_core_mediapool_get_options_schema_split_000.html">Options Schema</a></p>
+</div></div></div></body></html>

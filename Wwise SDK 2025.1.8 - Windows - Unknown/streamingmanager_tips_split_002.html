@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>I/O Tips, Troubleshooting and Optimization</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_1"><a class="pcalibre1 anchor" id="streamingmanager_tips_deferreddevice_asyncapi"></a>
+Game Engine I/O Manager Exposes an Asynchronous API</h2>
+<p class="calibre7">If your I/O manager only exposes an asynchronous API and you wish to route the Wwise I/O calls to it, it is much easier for you to implement an adapter layer with a deferred I/O hook. In order to reduce false predictions, typical to the deferred I/O device, set <a class="pcalibre el" href="struct_ak_device_settings_af49f8b3af816b58296e952b20de2d7a3_split_000.html#af49f8b3af816b58296e952b20de2d7a3" title="Maximum number of transfers that can be sent simultaneously to the Low-Level I/O.">AkDeviceSettings::uMaxConcurrentIO</a> to 1 or 2.</p>
+</div></div></div></body></html>

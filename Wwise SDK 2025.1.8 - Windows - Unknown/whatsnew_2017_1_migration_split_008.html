@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2017.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_7"><a class="pcalibre1 anchor" id="voices_graph_construction"></a>
+The algorithm to construct the Voices Graph has changed</h2>
+<p class="calibre7">Before 2017.1, the Voices Graph constructed when playing a sound was entirely specified by the Wwise project; there was little that the game could do to manipulate it. In Wwise 2017.1, the Voices Graph is based on a combination of the routing defined by the hierarchies in the Wwise project and the emitter-listener associations defined in the game. The algorithm to construct the Voices Graph can be summarized as follows:</p><ul class="calibre8">
+<li class="calibre9">After an Event which plays a sound is posted, a source is spawned and associated with the game object as specified by the Event.</li>
+<li class="calibre9">The source is connected to the Voices Graph according to the Enable Positioning flag:<ul class="calibre15">
+<li class="calibre9">If the source has its Enable Positioning flag set in the Wwise project:<ul class="calibre30">
+<li class="calibre9">If it doesn’t exist already, an instance of the source’s output bus is spawned for each listener that has been associated with the source’s game object. The source is connected to each of these bus instances.</li>
+</ul>
+</li>
+<li class="calibre9">If the source does not have positioning enabled:<ul class="calibre30">
+<li class="calibre9">A single instance of the output bus is spawned, if it does not already exist, using the same game object as the source. The source is connected to this bus.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="calibre9">Each successive bus in the Voices Graph is connected to its parent bus, according to the state of the Enable Positioning flag:<ul class="calibre15">
+<li class="calibre9">If the bus has its 'Enable Positioning' flag set: <br class="calibre10"/>
+<ul class="calibre30">
+<li class="calibre9">An instance of the bus’s parent bus is spawned for each listener that has been associated with the bus’s game object.</li>
+</ul>
+</li>
+<li class="calibre9">If the bus does not have its 'Enable Positioning' flag set:<ul class="calibre30">
+<li class="calibre9">A single instance of the bus’s parent is spawned using the same game object as the current bus.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="calibre7">The rules that define the routing of a sound can be complicated. The new Voices Graph in the Wwise Advanced Profiler now groups nodes by game object and is an extremely useful tool when debugging routing issues.</p>
+</div></div></div></body></html>

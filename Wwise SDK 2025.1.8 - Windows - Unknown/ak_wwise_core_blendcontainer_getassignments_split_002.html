@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak.wwise.core.blendContainer.getAssignments</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="ak_wwise_core_blendcontainer_getassignmentsResult"></a>
+Result</h1>
+<p class="calibre7"></p><table class="doxtable">
+<tbody class="calibre4"><tr class="calibre16">
+<th class="calibre46">Name </th><th class="calibre46">Type </th><th class="calibre46">Description  </th></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">return</b> </td><td class="calibre36">array </td><td class="calibre36">Array of Blend Track assignments.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return <b class="calibre13">[...]</b> </td><td class="calibre36">object </td><td class="calibre36">Blend Track assignment information.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return[...].<b class="calibre13">child</b> </td><td class="calibre36">string </td><td class="calibre36">The ID (GUID) of the assigned child.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return[...].<b class="calibre13">index</b> </td><td class="calibre36">integer </td><td class="calibre36">The index of the child among the Blend Track's assignments. If a value is provided, it will be clamped to the range [0-n], where n is the current number of assignments. If a value is not provided, then the assignment will be added at the end.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return[...].<b class="calibre13">edges</b> </td><td class="calibre36">array </td><td class="calibre36">The configuration of the edges of the assignment within the Blend Track. This information is only useful if the Blend Track has a crossfade Game Parameter. If not specified, the edges will be configured using default values. If specified, there must be two edges: 0 = left, 1 = right.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return[...].edges <b class="calibre13">[...]</b> </td><td class="calibre36">object </td><td class="calibre36">The edge configuration of the Blend Track edge.<br class="calibre10"/>
+ Defines the characteristics of Blend Track assignment's edge.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return[...].edges[...].<b class="calibre13">fadeMode</b> * </td><td class="calibre36">string </td><td class="calibre36">The configuration of the edge's crossfade. Possible values: <ul class="calibre8">
+<li class="calibre9">
+None </li>
+<li class="calibre9">
+Manual </li>
+<li class="calibre9">
+Automatic </li>
+</ul>
+</td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return[...].edges[...].<b class="calibre13">fadeShape</b> * </td><td class="calibre36">string </td><td class="calibre36">The shape of the edge's crossfade curve. Possible values: <ul class="calibre8">
+<li class="calibre9">
+Constant </li>
+<li class="calibre9">
+Linear </li>
+<li class="calibre9">
+Log3 </li>
+<li class="calibre9">
+Log2 </li>
+<li class="calibre9">
+Log1 </li>
+<li class="calibre9">
+InvertedSCurve </li>
+<li class="calibre9">
+SCurve </li>
+<li class="calibre9">
+Exp1 </li>
+<li class="calibre9">
+Exp2 </li>
+<li class="calibre9">
+Exp3 </li>
+</ul>
+</td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return[...].edges[...].<b class="calibre13">edgePosition</b> * </td><td class="calibre36">number </td><td class="calibre36">The position of the edge. The position must be within the range of the Blend Track's crossfade Game Parameter's range. If this edge is the left edge, then this position must be less or equal edgePosition of the right edge. If this is the right edge then vice versa.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return[...].edges[...].<b class="calibre13">fadePosition</b> </td><td class="calibre36">number </td><td class="calibre36">The start/end position of the fade curve. The position must be within the range of the Blend Track's crossfade Game Parameter's range. If this edge is the left edge, then this position must be greater or equal this edge's edgePosition, and less or equal the right edge's edgePosition. If this is the right edge then vice versa. This argument is used only if fadeMode is 'Manual'.   </td></tr>
+</tbody></table>
+<p class="calibre7"></p>
+<p class="calibre7"><a class="pcalibre el" href="ak_wwise_core_blendcontainer_getassignments_result_schema_split_000.html">Result Schema</a></p>
+</div></div></div></body></html>

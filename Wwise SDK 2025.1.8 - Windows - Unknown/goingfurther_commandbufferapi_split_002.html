@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Increasing simulation data throughput with the Command Buffer API</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="goingfurther_commandbufferapi_construct"></a>
+Constructing command buffers</h1>
+<p class="calibre7">To construct a command buffer, the size of the buffer must first be determined. The size of the buffer depends on the quantity and type of commands it contains. You can use the <code class="calibre14"><a class="pcalibre el" href="_ak_command_buffer_8h_a82240c411d92107bed90b0d368590845_split_000.html#a82240c411d92107bed90b0d368590845">AK_CommandBuffer_MinSize()</a></code> and <code class="calibre14"><a class="pcalibre el" href="_ak_command_buffer_8h_a36a84f23dce2a8a1c5184c5461b9726d_split_000.html#a36a84f23dce2a8a1c5184c5461b9726d">AK_CommandBuffer_CmdSize()</a></code> functions to calculate the buffer size.</p>
+<p class="calibre7">After the buffer size is calculated, the client can allocate the buffer using <code class="calibre14"><a class="pcalibre el" href="_ak_command_buffer_8h_a995f9aaba5db0a2afd5ea4c490c2a28c_split_000.html#a995f9aaba5db0a2afd5ea4c490c2a28c">AK_CommandBuffer_Create()</a></code>. This function allocates the buffer and initializes it as an empty but valid command buffer.</p>
+<p class="calibre7">For example, the following code demonstrates how to create a valid command buffer able to accomodate 20 <code class="calibre14">RegisterGameObject</code> commands and 20 <code class="calibre14">SetRTPC</code> commands:</p>
+<div class="fragment"><div class="line"><span class="keywordtype">size_t</span> buffer_size = <a class="pcalibre code" href="_ak_command_buffer_8h_a82240c411d92107bed90b0d368590845_split_000.html#a82240c411d92107bed90b0d368590845">AK_CommandBuffer_MinSize</a>() + (20 * <a class="pcalibre code" href="_ak_command_buffer_8h_a36a84f23dce2a8a1c5184c5461b9726d_split_000.html#a36a84f23dce2a8a1c5184c5461b9726d">AK_CommandBuffer_CmdSize</a>(<a class="pcalibre code" href="_ak_command_types_8h_a001b78645b8b0335c0dd2e128cca2cfd_split_001.html#a001b78645b8b0335c0dd2e128cca2cfdafa6120328cdb73a0745a5777863dc0d4">AkCommand_RegisterGameObject</a>)) + (20 * <a class="pcalibre code" href="_ak_command_buffer_8h_a36a84f23dce2a8a1c5184c5461b9726d_split_000.html#a36a84f23dce2a8a1c5184c5461b9726d">AK_CommandBuffer_CmdSize</a>(<a class="pcalibre code" href="_ak_command_types_8h_a001b78645b8b0335c0dd2e128cca2cfd_split_001.html#a001b78645b8b0335c0dd2e128cca2cfda95aa5709b8fff06b947d3eda020b1189">AkCommand_SetRTPC</a>));</div>
+<div class="line"><span class="keywordtype">void</span> * buffer = <a class="pcalibre code" href="_ak_command_buffer_8h_a995f9aaba5db0a2afd5ea4c490c2a28c_split_000.html#a995f9aaba5db0a2afd5ea4c490c2a28c">AK_CommandBuffer_Create</a>(buffer_size);</div>
+<div class="line">assert(buffer != NULL);</div>
+</div><!-- fragment --><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><p class="starttd"><b class="calibre13">Note:</b> Alternatively, clients can choose to manage the command buffer memory using their own engine's allocation hooks. To do so, replace the call to <code class="calibre14"><a class="pcalibre el" href="_ak_command_buffer_8h_a995f9aaba5db0a2afd5ea4c490c2a28c_split_000.html#a995f9aaba5db0a2afd5ea4c490c2a28c">AK_CommandBuffer_Create()</a></code> with a manual memory allocation of the same size, using an alignment of 4 bytes. Then, use <code class="calibre14"><a class="pcalibre el" href="_ak_command_buffer_8h_afc99984f6d3d3f48d562e239d4ba089d_split_000.html#afc99984f6d3d3f48d562e239d4ba089d">AK_CommandBuffer_Init()</a></code> to initialize the content of the buffer as an empty but valid command buffer.</p>
+<p class="endtd">Note that such buffers should be released using the usual method provided by the game engine. See <a class="pcalibre el" href="goingfurther_commandbufferapi_split_005.html#goingfurther_commandbufferapi_cleanup">Cleaning up</a> for more details. </p>
+</td></tr>
+</tbody></table>
+<p class="calibre7">To add commands to the buffer, use <code class="calibre14"><a class="pcalibre el" href="_ak_command_buffer_8h_af47a12700e1cd382114958c3d9c31211_split_000.html#af47a12700e1cd382114958c3d9c31211">AK_CommandBuffer_Add()</a></code>. For example, the following code demonstrates how to fill the buffer with 20 <code class="calibre14">RegisterGameObject</code> commands and 20 <code class="calibre14">SetRTPC</code> commands:</p>
+<div class="fragment"><div class="line"><span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i &lt; 20; i++)</div>
+<div class="line">{</div>
+<div class="line">    <a class="pcalibre code" href="struct_ak_cmd___register_game_object_split_000.html">AkCmd_RegisterGameObject</a> * pCmd = (<a class="pcalibre code" href="struct_ak_cmd___register_game_object_split_000.html">AkCmd_RegisterGameObject</a>*)<a class="pcalibre code" href="_ak_command_buffer_8h_af47a12700e1cd382114958c3d9c31211_split_000.html#af47a12700e1cd382114958c3d9c31211">AK_CommandBuffer_Add</a>(buffer, <a class="pcalibre code" href="_ak_command_types_8h_a001b78645b8b0335c0dd2e128cca2cfd_split_001.html#a001b78645b8b0335c0dd2e128cca2cfdafa6120328cdb73a0745a5777863dc0d4">AkCommand_RegisterGameObject</a>, 0);</div>
+<div class="line">    assert(pCmd != <span class="keyword">nullptr</span>); <span class="comment">// If null is returned, it means the buffer is full and cannot accomodate another command.</span></div>
+<div class="line">    pCmd-&gt;<a class="pcalibre code" href="struct_ak_cmd___register_game_object_a26cf8b895f9d1edfd3151b5455dc54e5_split_000.html#a26cf8b895f9d1edfd3151b5455dc54e5">gameObjectID</a> = 100 + i;</div>
+<div class="line">}</div>
+<div class="line"><span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i &lt; 20; i++)</div>
+<div class="line">{</div>
+<div class="line">    <a class="pcalibre code" href="struct_ak_cmd___set_r_t_p_c_split_000.html">AkCmd_SetRTPC</a> * pCmd = (<a class="pcalibre code" href="struct_ak_cmd___set_r_t_p_c_split_000.html">AkCmd_SetRTPC</a>*)<a class="pcalibre code" href="_ak_command_buffer_8h_af47a12700e1cd382114958c3d9c31211_split_000.html#af47a12700e1cd382114958c3d9c31211">AK_CommandBuffer_Add</a>(buffer, <a class="pcalibre code" href="_ak_command_types_8h_a001b78645b8b0335c0dd2e128cca2cfd_split_001.html#a001b78645b8b0335c0dd2e128cca2cfda95aa5709b8fff06b947d3eda020b1189">AkCommand_SetRTPC</a>, 0);</div>
+<div class="line">    assert(pCmd != <span class="keyword">nullptr</span>);</div>
+<div class="line">    pCmd-&gt;<a class="pcalibre code" href="struct_ak_cmd___set_r_t_p_c_a71e3883d6dfdbf8479dbe4601e4858c3_split_000.html#a71e3883d6dfdbf8479dbe4601e4858c3">rtpcID</a> = MY_RTPC_ID;</div>
+<div class="line">    pCmd-&gt;<a class="pcalibre code" href="struct_ak_cmd___set_r_t_p_c_a1675d3bcf513f2adb6a75f79f74dec15_split_000.html#a1675d3bcf513f2adb6a75f79f74dec15">rtpcValue</a> = 5.5;</div>
+<div class="line">    pCmd-&gt;<a class="pcalibre code" href="struct_ak_cmd___set_r_t_p_c_ac60a5a93956f8c25d8df7b93f53f21ee_split_000.html#ac60a5a93956f8c25d8df7b93f53f21ee">gameObjectID</a> = 100 + i; <span class="comment">// Because commands in a buffer are executed sequentially, this ID will have been registered by the time this command is processed.</span></div>
+<div class="line">}</div>
+</div><!-- fragment --><p class="calibre7">Each command has a code (dictated by the enum <code class="calibre14"><a class="pcalibre el" href="_ak_command_types_8h_a001b78645b8b0335c0dd2e128cca2cfd_split_000.html#a001b78645b8b0335c0dd2e128cca2cfd">AkCommand</a></code>) and a fixed-size payload structure. Not all commands have the same payload size. The example above shows that the <code class="calibre14">AkCommand_RegisterGameObject</code> command has a payload described by the <code class="calibre14"><a class="pcalibre el" href="struct_ak_cmd___register_game_object_split_000.html">AkCmd_RegisterGameObject</a></code> structure, while <code class="calibre14">AkCommand_SetRTPC</code> has the payload described by the <code class="calibre14"><a class="pcalibre el" href="struct_ak_cmd___set_r_t_p_c_split_000.html">AkCmd_SetRTPC</a></code> structure. See the documentation for <code class="calibre14"><a class="pcalibre el" href="_ak_command_types_8h_a001b78645b8b0335c0dd2e128cca2cfd_split_000.html#a001b78645b8b0335c0dd2e128cca2cfd">AkCommand</a></code> to learn which payload structures are associated with command codes.</p>
+</div></div></div></body></html>

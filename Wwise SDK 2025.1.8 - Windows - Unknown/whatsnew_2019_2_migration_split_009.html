@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2019.2</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_8"><a class="pcalibre1 anchor" id="migration_19_2_spatial_audio_configuration"></a>
+Configure Spatial Audio Directly in the Authoring Tool</h2>
+<p class="calibre7">A core pillar of Wwise is to empower sound designers and to reduce reliance on programmers, and so it is only natural to allow designers to configure Spatial Audio settings directly inside the Wwise authoring tool instead of in the game engine. <em class="calibre11">The following properties have been added to both sound and bus objects in Wwise:</em></p>
+<ul class="calibre8">
+<li class="calibre9"><em class="calibre11">Early Reflections Aux Bus.</em> Set the Auxiliary Bus that this sound should send to for early reflections processing. The bus must have the Wwise Reflect plug-in inserted as an effect in order to render the early reflections. Setting a valid early reflections bus will enable reflection processing for this sound in the Spatial Audio runtime. This field should be left blank for sound that should not generate early reflections.<ul class="calibre15">
+<li class="calibre9">Note: This field may be left unassigned, and instead, the early reflections bus may be set on a per-game object basis via the new API <a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_af9357c33f3ea4f9551b0e169ded73c15_split_000.html#af9357c33f3ea4f9551b0e169ded73c15">AK::SpatialAudio::SetEarlyReflectionsAuxSend()</a>.</li>
+</ul>
+</li>
+<li class="calibre9"><em class="calibre11">Early Reflections Send Volume.</em> Set the send volume for the early reflections bus specified by Early Reflections Aux Bus.<ul class="calibre15">
+<li class="calibre9">Note: The early reflections send volume may be set on a per-game object basis via the new API <a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_a691784b217ba9ccd30e6513dedb924e6_split_000.html#a691784b217ba9ccd30e6513dedb924e6">AK::SpatialAudio::SetEarlyReflectionsVolume()</a>. The value passed to this function is combined with the volume set per-sound in the authoring tool.</li>
+</ul>
+</li>
+<li class="calibre9"><em class="calibre11">Enable Diffraction.</em> Enable diffraction processing for this sound. Checking this box will:<ul class="calibre15">
+<li class="calibre9">Compute the diffraction paths between the sound emitter and the Spatial Audio listener - including paths passing through portals and across geometric edges.</li>
+<li class="calibre9">Set the obstruction value according to the diffraction coefficient.</li>
+<li class="calibre9">Set the diffraction built-in game parameter according to the diffraction coefficient.</li>
+<li class="calibre9">Use multi-positioning to pan and attenuate the sound, according to the calculated virtual sound positions. An important point here is that Spatial Audio configuration settings are now <em class="calibre11">specified per-sound</em>. Previously, it was not possible to have different settings for two sounds playing on the same game object. The only work-around was to create additional game objects with new emitter settings.</li>
+</ul>
+</li>
+</ul>
+</div></div></div></body></html>

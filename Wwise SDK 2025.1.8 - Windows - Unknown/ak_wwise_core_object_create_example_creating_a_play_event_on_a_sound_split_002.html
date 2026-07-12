@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating a Play Event on a Sound</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="ak_wwise_core_object_create_example_creating_a_play_event_on_a_sound_args"></a>
+Arguments</h1>
+<div class="fragment"><div class="line">{</div>
+<div class="line">    <span class="stringliteral">"parent"</span>: <span class="stringliteral">"\\Events\\Default Work Unit"</span>,</div>
+<div class="line">    <span class="stringliteral">"type"</span>: <span class="stringliteral">"Folder"</span>,</div>
+<div class="line">    <span class="stringliteral">"name"</span>: <span class="stringliteral">"WAAPI"</span>,</div>
+<div class="line">    <span class="stringliteral">"onNameConflict"</span>: <span class="stringliteral">"merge"</span>,</div>
+<div class="line">    <span class="stringliteral">"children"</span>: [</div>
+<div class="line">        {</div>
+<div class="line">            <span class="stringliteral">"type"</span>: <span class="stringliteral">"Event"</span>,</div>
+<div class="line">            <span class="stringliteral">"name"</span>: <span class="stringliteral">"Play_SFX"</span>,</div>
+<div class="line">            <span class="stringliteral">"children"</span>: [</div>
+<div class="line">                {</div>
+<div class="line">                    <span class="stringliteral">"name"</span>: <span class="stringliteral">""</span>,</div>
+<div class="line">                    <span class="stringliteral">"type"</span>: <span class="stringliteral">"Action"</span>,</div>
+<div class="line">                    <span class="stringliteral">"@ActionType"</span>: 1,</div>
+<div class="line">                    <span class="stringliteral">"@Target"</span>: <span class="stringliteral">"\\Containers\\Default Work Unit\\SFX"</span></div>
+<div class="line">                }</div>
+<div class="line">            ]</div>
+<div class="line">        }</div>
+<div class="line">    ]</div>
+<div class="line">}</div>
+</div><!-- fragment --></div></div></div></body></html>

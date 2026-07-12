@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AkPluginInfo Struct Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table class="calibre3">
+<tbody class="calibre4"><tr class="calibre16"><td colspan="2" class="calibre17"><h2 class="calibre21" id="calibre_pb_1"><a class="pcalibre1 anchor" id="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="calibre16"><td class="memitemleft"><a class="pcalibre el" href="_ak_enums_8h_af1a95e76b0e2a003e7edb2ad6f4043f4_split_000.html#af1a95e76b0e2a003e7edb2ad6f4043f4">AkPluginType</a> </td><td class="memitemright"><a class="pcalibre el" href="struct_ak_plugin_info_a3ba9f6803016c5467ea437cb921214c5_split_000.html#a3ba9f6803016c5467ea437cb921214c5">eType</a></td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Plug-in type.  <a href="struct_ak_plugin_info_a3ba9f6803016c5467ea437cb921214c5_split_000.html#a3ba9f6803016c5467ea437cb921214c5" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft"><a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> </td><td class="memitemright"><a class="pcalibre el" href="struct_ak_plugin_info_acbe924820d397d496920384724aa4a39_split_000.html#acbe924820d397d496920384724aa4a39">uBuildVersion</a></td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Plug-in build version, must match the AK_WWISESDK_VERSION_COMBINED macro from <a class="pcalibre el" href="_ak_wwise_s_d_k_version_8h_split_000.html">AkWwiseSDKVersion.h</a>. Prevents usage of plugins compiled for other versions, avoiding crashes or data issues.  <a href="struct_ak_plugin_info_acbe924820d397d496920384724aa4a39_split_000.html#acbe924820d397d496920384724aa4a39" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">bool </td><td class="memitemright"><a class="pcalibre el" href="struct_ak_plugin_info_a70fb541431bdc08cdb490a926ccc3ee4_split_000.html#a70fb541431bdc08cdb490a926ccc3ee4">bIsInPlace</a></td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Buffer usage (in-place or not). If true, and the plug-in is an insert effect, it should implement IAkInPlaceEffectPlugin, otherwise it should implement IAkOutOfPlaceEffectPlugin. If it is an object processor (see CanProcessObjects, below), it should implement IAkInPlaceObjectPlugin or IAkOutOfPlaceObjectPlugin respectively.  <a href="struct_ak_plugin_info_a70fb541431bdc08cdb490a926ccc3ee4_split_000.html#a70fb541431bdc08cdb490a926ccc3ee4" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">bool </td><td class="memitemright"><a class="pcalibre el" href="struct_ak_plugin_info_a2b7dda9208b4817d238f207055b40e99_split_000.html#a2b7dda9208b4817d238f207055b40e99">bCanChangeRate</a></td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">True for effects whose sample throughput is different between input and output. Effects that can change rate need to be out-of-place (!bIsInPlace), and cannot exist on busses.  <a href="struct_ak_plugin_info_a2b7dda9208b4817d238f207055b40e99_split_000.html#a2b7dda9208b4817d238f207055b40e99" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">bool </td><td class="memitemright"><a class="pcalibre el" href="struct_ak_plugin_info_a2ef7278e26b80f2559e8699b0cad72b9_split_000.html#a2ef7278e26b80f2559e8699b0cad72b9">bReserved</a></td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Legacy bIsAsynchronous plug-in flag, now unused. Preserved for plug-in backward compatibility. bReserved should be false for all plug-in.  <a href="struct_ak_plugin_info_a2ef7278e26b80f2559e8699b0cad72b9_split_000.html#a2ef7278e26b80f2559e8699b0cad72b9" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">bool </td><td class="memitemright"><a class="pcalibre el" href="struct_ak_plugin_info_abb27da271e4dc15b9b3ef9cb3316cfd3_split_000.html#abb27da271e4dc15b9b3ef9cb3316cfd3">bCanProcessObjects</a></td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Plug-in can process audio objects. They must implement IAkInPlaceObjectPlugin or IAkOutOfPlaceObjectPlugin, depending on if they work in-place or out-of-place. Out-of-place object processors only work on busses.  <a href="struct_ak_plugin_info_abb27da271e4dc15b9b3ef9cb3316cfd3_split_000.html#abb27da271e4dc15b9b3ef9cb3316cfd3" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">bool </td><td class="memitemright"><a class="pcalibre el" href="struct_ak_plugin_info_ae041826945a2c7d2c3606d15cd68910c_split_000.html#ae041826945a2c7d2c3606d15cd68910c">bIsDeviceEffect</a></td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Plug-in can process final mixes and objects right before sending them to the audio device for output. Plug-ins that process the main mix, passthrough mix and objects directly at the end of the pipeline must implement IAkAudioDeviceEffectPlugin. Audio device effect plug-ins must be in place (bIsInPlace = true) and must be able to process objects (bCanProcessObjects = true).  <a href="struct_ak_plugin_info_ae041826945a2c7d2c3606d15cd68910c_split_000.html#ae041826945a2c7d2c3606d15cd68910c" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">bool </td><td class="memitemright"><a class="pcalibre el" href="struct_ak_plugin_info_a71e4ca49ae60dc03241ca6fb86eec8a7_split_000.html#a71e4ca49ae60dc03241ca6fb86eec8a7">bCanRunOnObjectConfig</a></td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Plug-in can run on bus with Audio Object configuration. Effect plug-ins are instantiated once per Audio Objects on those busses. While this may be fine for effects such as EQs, it is an user error for effects such as reverbs, or for any effect that is non-linear. Effects that return false will fail to initialize when created on busses with Audio Object Configuration.  <a href="struct_ak_plugin_info_a71e4ca49ae60dc03241ca6fb86eec8a7_split_000.html#a71e4ca49ae60dc03241ca6fb86eec8a7" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">bool </td><td class="memitemright"><a class="pcalibre el" href="struct_ak_plugin_info_ada2e875962c620119cf8433f704bd696_split_000.html#ada2e875962c620119cf8433f704bd696">bUsesGainAttribute</a></td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Plug-in knows how to process objects separately from the cumulativeGain of the object (or the processing of the object's audio is independent of the overall object gain). bCanProcessObjects must also be true, as this relies on Object Metadata.  <a href="struct_ak_plugin_info_ada2e875962c620119cf8433f704bd696_split_000.html#ada2e875962c620119cf8433f704bd696" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+</tbody></table>
+<a id="details" class="pcalibre calibre12"></a></div></body></html>

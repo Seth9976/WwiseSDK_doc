@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::SoundEngine::SetBusDevice</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="namespace_a_k_1_1_sound_engine_adf34d8d0405ddb7d10b4c5c63db13e5b_split_000.html#adf34d8d0405ddb7d10b4c5c63db13e5b" class="pcalibre1 anchor">◆ </a></span>SetBusDevice() <span class="permalink">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_sound_engine_export_8h_ac6e96d34dfc0e12f9aaa7a47f4e9c322_split_000.html#ac6e96d34dfc0e12f9aaa7a47f4e9c322">AKSOUNDENGINE_API</a> <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::SoundEngine::SetBusDevice </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_a8341fa4d01d2fa852c3cc410401b04dc_split_000.html#a8341fa4d01d2fa852c3cc410401b04dc">AkUniqueID</a> </td>
+          <td class="paramname"><em class="calibre59">in_idBus</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_a8341fa4d01d2fa852c3cc410401b04dc_split_000.html#a8341fa4d01d2fa852c3cc410401b04dc">AkUniqueID</a> </td>
+          <td class="paramname"><em class="calibre59">in_idNewDevice</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Sets the Audio Device to which a master bus outputs. This overrides the setting in the <a class="pcalibre el" href="namespace_a_k_1_1_wwise_split_000.html">Wwise</a> project. <br class="calibre10"/>
+ Can only be set on top-level busses. The Init bank should be successfully loaded prior to this call. </p><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> This function is useful only if used before the creation of an output, at the beginning of the sound engine setup. Once active outputs using this Bus have been created, it is imperative to use <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_split_000.html">AK::SoundEngine</a>:ReplaceOutput instead to change the type of output. <dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">AK_IDNotFound when either the Bus ID or the Device ID are not present in the Init bank or the bank was not loaded AK_InvalidParameter when the specified bus is not a Master Bus. This function can be called only on busses that have no parent bus. </dd></dl>
+</td></tr>
+</tbody></table>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_idBus</td><td class="calibre17">Id of the master bus </td></tr>
+    <tr class="calibre16"><td class="paramname">in_idNewDevice</td><td class="calibre17">New device shareset to replace with. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

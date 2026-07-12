@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2022.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="generic_perf_changes_2022_1"></a>
+Performance Changes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-47020</b> Significantly improved performance when applying LPF and HPF effects on voices and on mix-connections to busses. Depending on the CPU architecture and number of voices being processed, throughput performance of LPF and HPF Effects has improved by a factor of 1.5-5.0x. High-end ARM CPUs and x86 CPUs leveraging AVX2 instructions are expected to see the most significant improvements.</li>
+<li class="calibre9"><b class="calibre13">WG-53573</b> Significantly improved runtime performance when a very large number of RTPCs or Switches are in use at the same time in the game and used to drive multiple structures.</li>
+<li class="calibre9"><b class="calibre13">WG-55298</b> Improved performance of Meter plug-in when in Peak mode by approximately 4x for channel-based Effects.</li>
+<li class="calibre9"><b class="calibre13">WG-57259</b> Improved performance of Clear Audio File Cache.</li>
+<li class="calibre9"><b class="calibre13">WG-58106</b> Reduced number of short-lived memory allocations incurred by <code class="calibre14">AkPipelineBufferBase::GetCachedBuffer</code> by keeping buffers allocated for more than one frame at a time.</li>
+<li class="calibre9"><b class="calibre13">WG-59293</b> Disabled reflection ray casting when <code class="calibre14"><a class="pcalibre el" href="struct_ak_spatial_audio_init_settings_a346377be1b9f6905fb2d8d3e1540eb39_split_000.html#a346377be1b9f6905fb2d8d3e1540eb39" title="Maximum reflection order [1, 4] - the number of 'bounces' in a reflection path. A high reflection ord...">AkSpatialAudioInitSettings::uMaxReflectionOrder</a></code> is set to 0.</li>
+<li class="calibre9"><b class="calibre13">WG-60536</b> Improved performance of 3d panning on speaker configurations with height channels.</li>
+<li class="calibre9"><b class="calibre13">WG-60982</b> Improved performance of Time Stretch in Classic mode when not actually stretching.</li>
+<li class="calibre9"><b class="calibre13">WG-61053</b> Significantly reduced CPU overhead of the sound engine runtime and <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_monitor_split_000.html">AK::Monitor</a></code> thread when the Wwise Profiler is connected and some Profiler Settings, such as Voice Inspector Data, are active. This should greatly improve the accuracy of the CPU measurements reported in Wwise.</li>
+</ul>
+</div></div></div></body></html>

@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Audio Device (Sink) Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_1"><a class="pcalibre1 anchor" id="se_audiodevice_engine"></a>
+Sound Engine Component</h2>
+<p class="calibre7">On the sound engine side, writing an audio device plug-in consists of implementing the <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_sink_plugin_split_000.html" title="Software interface for sink (audio endpoint) plugins.">AK::IAkSinkPlugin</a></code> interface. Only the functions specific to this interface are covered there. Refer to <a class="pcalibre el" href="soundengine_plugins_split_000.html">Creating Sound Engine Plug-ins</a> for information about interface components shared with other plug-in types ( <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_split_000.html">AK::IAkPlugin</a></code> interface). Also refer to the provided AkSink plug-in for sample code (<a class="pcalibre el" href="samplecode_split_000.html">Samples</a>).</p>
+<p class="calibre7">An audio device is always specified through the plug-in it is using (Audio Device ShareSet) and a specific device ID. This device ID has no meaning for the Wwise sound engine, it is for the sole purpose of the plug-in implementor to discriminate devices where many of the same type exists. It is passed by the game through the <code class="calibre14"><a class="pcalibre el" href="struct_ak_output_settings_a0e145d97af362b7f3267b64ca0e38054_split_000.html#a0e145d97af362b7f3267b64ca0e38054">AkOutputSettings::idDevice</a></code> parameter used in <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a9a26da64092b97243844df77cbcdbf5f_split_000.html#a9a26da64092b97243844df77cbcdbf5f">AK::SoundEngine::Init</a></code> and <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a15ab79f954a307902f529d8ccde8ad48_split_000.html#a15ab79f954a307902f529d8ccde8ad48">AK::SoundEngine::AddOutput</a></code>. For example, an audio device plug-in which would access Windows' audio devices could probably see many Windows' devices on a particular computer. <br class="calibre10"/>
+</p>
+<p class="calibre7">If your device doesn't need to discriminate between multiple devices, you can ignore that parameter. However, if you need to implement this, be aware that you MUST also support the "default device" concept, which is selected when the <code class="calibre14">idDevice</code> parameter is <code class="calibre14">0</code>. Whether the first available device or a specific device is selected when receiving <code class="calibre14">0</code> is up to the plug-in programmer.</p>
+<p class="calibre7">Sink plug-ins can register an extra static function to support enumeration of available audio devices. The purpose of this function is to fill the possible devices a user can select in the authoring tool as well as to allow device enumeration at run-time through calls to <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a3de19a0cdec459ebdc73fc1d0f8f276e_split_000.html#a3de19a0cdec459ebdc73fc1d0f8f276e">AK::SoundEngine::GetDeviceList</a></code>. This function is optional. If not implemented, it is expected that the plug-in will initialize to a "default" output when required. If necessary, the additional static function should be provided after the plug-in parameter creation function. For more information on other static functions to provide for plug-in creation, see <a class="pcalibre el" href="soundengine_plugins_split_000.html">Creating Sound Engine Plug-ins</a>.</p>
+<p class="calibre7">Below is an example implementation of device enumeration for a fictitious sink plug-in, MyPlugin. Note that functions and classes in the MyPlugin namespace are placeholders for actual plug-in implementations.</p>
+<p class="calibre7"><code class="calibre14">The</code> plug-in device enumeration will be called by Wwise with the maximum number of devices to fill and a pre-allocated array of <code class="calibre14"><a class="pcalibre el" href="struct_ak_device_description_split_000.html">AkDeviceDescription</a></code>. The maximum length of the device name is <code class="calibre14">AK_MAX_PATH</code> (256 characters). You must modify the count (<code class="calibre14">io_maxNumDevices</code>) to reflect the number of device descriptions correctly filled. If the provided device description array pointer is null, the count should still be modified to reflect the number of device descriptions that would be filled, so that the caller can allocate an appropriate amount of memory for <code class="calibre14">out_deviceDescriptions</code>.</p>
+<div class="fragment"><div class="line"><span class="comment">// ...</span></div>
+<div class="line"> </div>
+<div class="line"><a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> GetMyPluginDeviceList(<a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a>&amp; io_maxNumDevices, <a class="pcalibre code" href="struct_ak_device_description_split_000.html">AkDeviceDescription</a>* out_deviceDescriptions)</div>
+<div class="line">{</div>
+<div class="line">    <span class="comment">// For example, fetch the available devices</span></div>
+<div class="line">    <span class="keyword">const</span> <a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> deviceCount = MyPlugin::GetNumberOfDevices();</div>
+<div class="line">    <span class="keyword">const</span> MyPlugin::Device* devices = MyPlugin::GetDevices();</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Handle device count requests:</span></div>
+<div class="line">    <span class="comment">// If out_deviceDescriptions is NULL, io_maxNumDevices should be set to the device count</span></div>
+<div class="line">    <span class="comment">// so the caller can determine how much memory to reserve.</span></div>
+<div class="line">    <span class="keywordflow">if</span> (out_deviceDescriptions == NULL)</div>
+<div class="line">    {</div>
+<div class="line">        io_maxNumDevices = deviceCount;</div>
+<div class="line">        <span class="keywordflow">return</span> <a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_001.html#a64f7d1f79613cc4dcc49a4efba6caa63ad7c47fea3da641e7422573c6a13dc35e">AK_Success</a>;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// else, fill out_deviceDescriptions</span></div>
+<div class="line">    <span class="comment">// until all available devices are filled (i == deviceCount)</span></div>
+<div class="line">    <span class="comment">// or the end of the array is reached (i == io_maxNumDevices)</span></div>
+<div class="line">    <span class="keywordtype">int</span> i = 0;</div>
+<div class="line">    <span class="keywordflow">for</span> (; i &lt; deviceCount &amp;&amp; i &lt; io_maxNumDevices; ++i)</div>
+<div class="line">    {</div>
+<div class="line">        <a class="pcalibre code" href="namespace_a_k_p_l_a_t_f_o_r_m_aebd4566f4b4cc51c94ab69c3272b5991_split_000.html#aebd4566f4b4cc51c94ab69c3272b5991">AKPLATFORM::SafeStrCpy</a>(out_deviceDescriptions[i].deviceName, device[i]-&gt;deviceName, <a class="pcalibre code" href="_platforms_2_windows_2_ak_types_8h_ac1096fa0921ee445f47e145c167eab4b_split_000.html#ac1096fa0921ee445f47e145c167eab4b">AK_MAX_PATH</a>);</div>
+<div class="line">        out_deviceDescriptions[i].<a class="pcalibre code" href="struct_ak_device_description_a5e1be4d07a51040ccc6ff04a38e7d47c_split_000.html#a5e1be4d07a51040ccc6ff04a38e7d47c">idDevice</a> = devices[i].idDevice;</div>
+<div class="line">        out_deviceDescriptions[i].<a class="pcalibre code" href="struct_ak_device_description_ac0acc1661266c664aae7d9fd983315eb_split_000.html#ac0acc1661266c664aae7d9fd983315eb">deviceStateMask</a> = devices[i].deviceStateMask;</div>
+<div class="line">        out_deviceDescriptions[i].<a class="pcalibre code" href="struct_ak_device_description_aff286ff755788f1997fc4bf34846824f_split_000.html#aff286ff755788f1997fc4bf34846824f">isDefaultDevice</a> = devices[i].isDefaultDevice;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Set the number of devices written into the array</span></div>
+<div class="line">    io_maxNumDevices = i;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">return</span> <a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_001.html#a64f7d1f79613cc4dcc49a4efba6caa63ad7c47fea3da641e7422573c6a13dc35e">AK_Success</a>;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">//Static initializer object to automatically register the plug-in in the sound engine.</span></div>
+<div class="line"><a class="pcalibre code" href="class_a_k_1_1_plugin_registration_split_000.html">AK::PluginRegistration</a> MyPluginRegistration(<a class="pcalibre code" href="_ak_enums_8h_af1a95e76b0e2a003e7edb2ad6f4043f4_split_001.html#af1a95e76b0e2a003e7edb2ad6f4043f4a2971cc4c818bf62c55175445d2be117d">AkPluginTypeEffect</a>, AKCOMPANYID_MYCOMPANY, EFFECTID_MYPLUGIN, CreateMyPlugin, CreateMyPluginParams, GetMyPluginDeviceList);</div>
+</div><!-- fragment --><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> This sound engine implementation replaces the previous authoring only plug-in equivalent <code class="calibre14">AkGetSinkPluginDevices</code> so that device enumeration can be implemented for all supported platforms and can be called at run-time through <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a3de19a0cdec459ebdc73fc1d0f8f276e_split_000.html#a3de19a0cdec459ebdc73fc1d0f8f276e">AK::SoundEngine::GetDeviceList</a></code>. </td></tr>
+</tbody></table>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> This function will be compiled on all platforms. To handle platform specific device enumeration, one should use the appropriate macros (e.g. <code class="calibre14">AK_WIN</code>, <code class="calibre14">AK_LINUX</code>, etc.) and return <code class="calibre14">AK_NotImplemented</code> on platforms for which no implementation is defined. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

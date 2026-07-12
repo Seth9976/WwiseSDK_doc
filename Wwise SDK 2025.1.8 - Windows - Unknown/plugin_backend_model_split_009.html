@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Model of an Authoring Plug-in</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_8"><a class="pcalibre1 anchor" id="wwiseplugin_displaynames"></a>
+Property Display Names and Values</h2>
+<p class="calibre7">A "user-friendly" name can be associated to each property by specifying the "DisplayName" attribute in the Property tag (see <a class="pcalibre el" href="plugin_xml_properties_split_001.html#wwiseplugin_xml_properties_tag">Properties Element</a> for more details). However, if you have dynamic properties that take a different meaning depending on context, you can implement the <code class="calibre14">AK::Wwise::Plugin::PropertyDisplayNames</code> interface and specify display names for properties and named values.</p>
+<p class="calibre7">Display names are displayed in several places in the user interface. These include the RTPC Manager, the Multi Editor, the edit menu for the undo/redo commands after a property change, and so on.</p>
+<p class="calibre7">The <code class="calibre14">in_pszPropertyName</code> parameter in <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_property_display_name_a7e2d1eb64f740de7921fc3d793dc4f37_split_000.html#a7e2d1eb64f740de7921fc3d793dc4f37" title="Gets the user-friendly name of the specified property.">AK::Wwise::Plugin::PropertyDisplayName::DisplayNameForProp</a></code> corresponds to the property name specified in the plug-in's XML definition file (<a class="pcalibre el" href="plugin_xml_split_000.html">Wwise Plug-in XML Description Files</a>). Here is a sample implementation of this method:</p>
+<div class="fragment"><div class="line"><span class="keywordtype">bool</span> MySourcePlugin::DisplayNameForProp(</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">char</span>* in_pszPropertyName,</div>
+<div class="line">    <span class="keywordtype">char</span>* out_pszDisplayName,</div>
+<div class="line">    uint32_t in_unCharCount)<span class="keyword"> const</span></div>
+<div class="line"><span class="keyword"></span>{</div>
+<div class="line">    <span class="keywordflow">if</span> (strcmp(in_pszPropertyName, <span class="stringliteral">"Frequency"</span>) == 0)</div>
+<div class="line">    {</div>
+<div class="line">        strncpy(out_pszDisplayName, <span class="stringliteral">"Frequency (KHz)"</span>, in_unCharCount);</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p class="calibre7">If a certain property has non-numeric values, such as a boolean property that means On/Off or Yes/No, or an enumeration for a curve type, or if <em class="calibre11">some</em> values have a special meaning, you can specify custom text to be displayed for some or all of the property's possible values in your implementation of the <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_property_display_name_a2d1788ed6ead7d8d9d38b16ff0c868a9_split_000.html#a2d1788ed6ead7d8d9d38b16ff0c868a9" title="Get the user-friendly names of possible values for the specified property.">AK::Wwise::Plugin::PropertyDisplayName::DisplayNamesForPropValues()</a></code> method. The custom text will be used in the RTPC graph view for those values on the Y axis.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><p class="starttd"><b class="calibre13">Note:</b> The format of the string that is built by <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_property_display_name_a2d1788ed6ead7d8d9d38b16ff0c868a9_split_000.html#a2d1788ed6ead7d8d9d38b16ff0c868a9" title="Get the user-friendly names of possible values for the specified property.">AK::Wwise::Plugin::PropertyDisplayName::DisplayNamesForPropValues()</a></code> is the same as that of the "Options" attribute you can specify on Combo Box controls in your dialog (Refer to <a class="pcalibre el" href="wwiseplugin_dialog_guide_split_000.html">Wwise Plug-in Dialog Reference</a> for more information). The string contains value/text pairs separated by commas, and each pair contains the numeric value and the text separated by a colon. For example:</p>
+<ul class="calibre8">
+<li class="calibre9">Boolean property: "0:Off,1:On"</li>
+<li class="calibre9">Numeric property seen as an enumeration: "0:Low Pass,1:High Pass,2:Band Pass"</li>
+<li class="calibre9">Numeric property with some values that have a special meaning: "-100:Left,0:Center,100:Right"</li>
+</ul>
+<p class="endtd">For <code class="calibre14">bool</code> properties, use 0 for <code class="calibre14">false</code> and 1 for <code class="calibre14">true</code> on the value side of a value/text pair. </p>
+</td></tr>
+</tbody></table>
+<p class="calibre7">In the sample code below, the name is retrieved from the plug-in's resources:</p>
+<div class="fragment"><div class="line"><span class="comment">// Allow Wwise to retrieve a user friendly name for that property's value (for example, RTPCs).</span></div>
+<div class="line"><span class="keywordtype">bool</span> MySourcePlugin::DisplayNamesForPropValues(</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">char</span> * in_pszPropertyName,</div>
+<div class="line">    <span class="keywordtype">char</span> * out_pszValuesName,</div>
+<div class="line">    uint32_t in_unCharCount</div>
+<div class="line">)<span class="keyword"> const</span></div>
+<div class="line"><span class="keyword"></span>{</div>
+<div class="line">    <span class="keywordflow">if</span> (strcmp(in_pszPropertyName, szSmoothMode) == 0)</div>
+<div class="line">    {</div>
+<div class="line">        strncpy(out_pszValuesName, <span class="stringliteral">"0:LowRes,1:HiRes"</span>, in_unCharCount);</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">}</div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+<div class="ttc" id="aclass_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_data_writer_html"><div class="calibre2"><a href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_data_writer_split_000.html" class="pcalibre calibre12">AK.Wwise::Plugin::V1::DataWriter</a></div><div class="calibre2">Interface used to write data during sound bank generation.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_host_data_writer_8h_source.html#l00244" class="pcalibre calibre12">HostDataWriter.h:245</a></div></div>
+<div class="ttc" id="aclass_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_notifications_1_1_property_set___a90d279b0b03eed79cb10a5b56b0aff90_html_a90d279b0b03eed79cb10a5b56b0aff90"><div class="calibre2"><a href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_notifications_1_1_property_set___a90d279b0b03eed79cb10a5b56b0aff90_split_000.html#a90d279b0b03eed79cb10a5b56b0aff90" class="pcalibre calibre12">AK.Wwise::Plugin::V1::Notifications::PropertySet_::NotifyPropertyChanged</a></div><div class="calibre2">virtual void NotifyPropertyChanged(const GUID &amp;in_guidPlatform, const char *in_pszPropertyName)</div><div class="calibre2">This function is called by Wwise when a plug-in property changes.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_v1_2_host_property_set_8h_source_split_001.html#l02417" class="pcalibre calibre12">HostPropertySet.h:2417</a></div></div>
+<div class="ttc" id="aclass_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_data_writer_a9626e22ea3ba15a71d2cf51ac2332693_html_a9626e22ea3ba15a71d2cf51ac2332693"><div class="calibre2"><a href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_data_writer_a9626e22ea3ba15a71d2cf51ac2332693_split_000.html#a9626e22ea3ba15a71d2cf51ac2332693" class="pcalibre calibre12">AK.Wwise::Plugin::V1::DataWriter::WriteInt32</a></div><div class="calibre2">bool WriteInt32(int32_t in_value)</div><div class="calibre2">Writes a 32-bit signed integer value.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_host_data_writer_8h_source.html#l00323" class="pcalibre calibre12">HostDataWriter.h:323</a></div></div>
+<div class="ttc" id="aclass_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_audio_plugin_html"><div class="calibre2"><a href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_audio_plugin_split_000.html" class="pcalibre calibre12">AK.Wwise::Plugin::V1::AudioPlugin</a></div><div class="calibre2">Wwise API for general Audio Plug-in's backend.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_audio_plugin_8h_source.html#l00130" class="pcalibre calibre12">AudioPlugin.h:133</a></div></div>
+<div class="ttc" id="aclass_a_k_1_1_wwise_1_1_plugin_1_1_requested_host_interface_3_01_reference_set_01_4_html"><div class="calibre2"><a href="class_a_k_1_1_wwise_1_1_plugin_1_1_requested_host_interface_3_01_reference_set_01_4_split_000.html" class="pcalibre calibre12">AK.Wwise::Plugin::RequestedHostInterface&lt; ReferenceSet &gt;</a></div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_host_reference_set_8h_source.html#l00536" class="pcalibre calibre12">HostReferenceSet.h:536</a></div></div>
+<div class="ttc" id="aclass_a_k_1_1_wwise_1_1_plugin_1_1_notifications_1_1_reference_set___aa89f7b9b36764faa3442620a1c980b55_html_aa89f7b9b36764faa3442620a1c980b55"><div class="calibre2"><a href="class_a_k_1_1_wwise_1_1_plugin_1_1_notifications_1_1_reference_set___aa89f7b9b36764faa3442620a1c980b55_split_000.html#aa89f7b9b36764faa3442620a1c980b55" class="pcalibre calibre12">AK.Wwise::Plugin::Notifications::ReferenceSet_::NotifyReferenceChanged</a></div><div class="calibre2">virtual void NotifyReferenceChanged(const GUID &amp;in_guidPlatform, const char *in_pszReferenceName)</div><div class="calibre2">This function is called by Wwise when a plug-in reference changes.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_host_reference_set_8h_source.html#l00511" class="pcalibre calibre12">HostReferenceSet.h:511</a></div></div>
+<div class="ttc" id="aclass_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_audio_plugin_ae59a3955718ed3bbde0521da21cd8539_html_ae59a3955718ed3bbde0521da21cd8539"><div class="calibre2"><a href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_audio_plugin_ae59a3955718ed3bbde0521da21cd8539_split_000.html#ae59a3955718ed3bbde0521da21cd8539" class="pcalibre calibre12">AK.Wwise::Plugin::V1::AudioPlugin::GetBankParameters</a></div><div class="calibre2">virtual bool GetBankParameters(const GUID &amp;in_guidPlatform, DataWriter &amp;in_dataWriter) const</div><div class="calibre2">Obtains parameters that will be written to a bank.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_audio_plugin_8h_source.html#l00228" class="pcalibre calibre12">AudioPlugin.h:228</a></div></div>
+<div class="ttc" id="aclass_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_data_writer_ad7b44a9cfd9992e441695bde4f1d8a8a_html_ad7b44a9cfd9992e441695bde4f1d8a8a"><div class="calibre2"><a href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_data_writer_ad7b44a9cfd9992e441695bde4f1d8a8a_split_000.html#ad7b44a9cfd9992e441695bde4f1d8a8a" class="pcalibre calibre12">AK.Wwise::Plugin::V1::DataWriter::WriteUInt32</a></div><div class="calibre2">bool WriteUInt32(uint32_t in_value)</div><div class="calibre2">Writes a 32-bit unsigned integer value.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_host_data_writer_8h_source.html#l00375" class="pcalibre calibre12">HostDataWriter.h:375</a></div></div>
+
+
+</body></html>

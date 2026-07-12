@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Ray Tracing Engine Geometry Guide</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_16"><a class="pcalibre1 anchor" id="raytracing_geometry_guide_limitations_number_of_triangles"></a>
+Number of triangles</h1>
+<p class="calibre7">The number of triangles contained in the geometry is directly related to the CPU usage of the engine: the more triangles, the higher the CPU usage. This is due to the fact that more intersection tests are required on the object. Usually, sound propagation does not require highly detailed geometry. Reducing the number of triangles can help increase the performance without sacrificing quality.</p>
+<div class="calibre2">
+<img alt="" src="number_of_triangles.png" class="inline"/>
+<div class="calibre2">
+Here the plane is composed of 4 triangles: the rays have to be tested against each triangle.</div></div>
+</div></div></div></body></html>

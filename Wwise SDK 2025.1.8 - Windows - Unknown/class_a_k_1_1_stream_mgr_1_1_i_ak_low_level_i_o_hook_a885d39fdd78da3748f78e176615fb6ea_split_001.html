@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::StreamMgr::IAkLowLevelIOHook::GetDeviceData</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_a885d39fdd78da3748f78e176615fb6ea_split_000.html#a885d39fdd78da3748f78e176615fb6ea" class="pcalibre1 anchor">◆ </a></span>GetDeviceData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="calibre3">
+  <tbody class="calibre4"><tr class="calibre16">
+  <td class="calibre17">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">virtual <a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> AK::StreamMgr::IAkLowLevelIOHook::GetDeviceData </td>
+          <td class="calibre17">(</td>
+          <td class="paramname"/><td class="calibre17">)</td>
+          <td class="calibre17"/>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="calibre17">
+<span><span>pure virtual</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Returns custom profiling data for the streaming device above this low-level hook. As opposed to <a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_a06860cb1211c2ebd5c49f4429cc66a0b_split_000.html#a06860cb1211c2ebd5c49f4429cc66a0b">GetDeviceDesc()</a>, this is called at every monitoring frame. You may implement this function in order to display any value you find useful in the "Streaming Devices" tab of the <a class="pcalibre el" href="namespace_a_k_1_1_wwise_split_000.html">Wwise</a> profiler ("Custom Param" column). </p><dl class="calibre7"><dt class="calibre23">Remarks</dt><dd class="calibre24">For profiling purposes only. The Release configuration of the Stream Manager never calls it. </dd></dl>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">A 32-bit unsigned value to display in the <a class="pcalibre el" href="namespace_a_k_1_1_wwise_split_000.html">Wwise</a> profiler. </dd></dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

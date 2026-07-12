@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Third-Person Perspective and Wwise Acoustics</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="third_person_reflections"></a>
+Reflections</h1>
+<p class="calibre7">The reflection system in Wwise Acoustics uses the Reflect plug-in to render early reflections for a sound and a Listener.</p><ul class="calibre8">
+<li class="calibre9">A reflection path is calculated by casting rays from the Listener.</li>
+<li class="calibre9">When a path is found, it is traced back from the Emitter, bouncing off a number of surfaces, and ending up at the Listener. An image source position is calculated and passed to the Reflect plug-in.</li>
+<li class="calibre9">In the Reflect plug-in:<ul class="calibre15">
+<li class="calibre9">The reflection is panned according to the position of the Listener Game Object, and the image source position.</li>
+<li class="calibre9">The reflection is attenuated according to the distance between the image source and the Distance Probe Game Object. The curve used to evaluate the attenuation of a reflection is determined by the settings of the Reflect plug-in.</li>
+</ul>
+</li>
+</ul>
+</div></div></div></body></html>

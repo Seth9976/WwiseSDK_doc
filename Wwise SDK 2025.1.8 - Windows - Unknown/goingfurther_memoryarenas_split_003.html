@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Configuration and Tuning of AkMemoryArenas</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="goingfurther_memoryarenas_callbacks"></a>
+AkMemoryArenaSettings Allocation Callbacks</h1>
+<p class="calibre7">For <code class="calibre14">AkMemoryArenaSettings::fnMemAllocSpan</code> and <code class="calibre14">AkMemoryArenaSettings::fnMemFreeSpan</code>, the callbacks have the following requirements and behavior:</p><ul class="calibre8">
+<li class="calibre9"><code class="calibre14">fnMemAllocSpan</code> only needs to return a pointer to a memory allocation of the requested size. The returned allocation has no requirements concerning the alignment of the returned memory, nor does it need to be contiguous with other prior memory allocations.</li>
+<li class="calibre9"><code class="calibre14">fnMemFreeSpan</code> only needs to release the memory at the address given.</li>
+<li class="calibre9"><code class="calibre14">fnMemFreeSpan</code> is only called with addresses previously returned via <code class="calibre14">fnMemAllocSpan</code>. The size parameter is also the same value with which the allocation was initially requested.</li>
+<li class="calibre9">During execution of <code class="calibre14">fnMemAllocSpan</code>, an arbitrary value can be written to <code class="calibre14">out_userData</code>. This value is provided to the equivalent call to <code class="calibre14">fnMemFreeSpan</code>, as the <code class="calibre14">in_userData</code> parameter.</li>
+</ul>
+<p class="calibre7">The callbacks can be very flexible in their implementations. Even the following can be used, for example:</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span>* <a class="pcalibre code" href="namespace_a_k_p_l_a_t_f_o_r_m_a8607b18eaea4aa3fdfa581caee18970a_split_000.html#a8607b18eaea4aa3fdfa581caee18970a">AllocSpan</a>(<span class="keywordtype">size_t</span> size, <span class="keywordtype">size_t</span>* out_userData)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordflow">return</span> std::malloc(size);</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> <a class="pcalibre code" href="namespace_a_k_p_l_a_t_f_o_r_m_a9bb64f59357062f99eb67c179ab1daba_split_000.html#a9bb64f59357062f99eb67c179ab1daba">FreeSpan</a>(<span class="keywordtype">void</span>* address, <span class="keywordtype">size_t</span> size, <span class="keywordtype">size_t</span> in_userData)</div>
+<div class="line">{</div>
+<div class="line">    std::free(address);</div>
+<div class="line">}</div>
+</div><!-- fragment --><p class="calibre7">The Memory Arenas tab in the Advanced Profiler lists every currently allocated span, with the address and userData values for each span matching the values returned from these callbacks. This can be useful for debugging purposes, especially when used alongside other debugging and profiling tools.</p>
+</div></div></div></body></html>

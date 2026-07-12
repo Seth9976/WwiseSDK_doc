@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak_wwise_plugin_host_xml_v1::ReadElementString</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="structak__wwise__plugin__host__xml__v1_a89bad3f954551246f7156ec7debac923_split_000.html#a89bad3f954551246f7156ec7debac923" class="pcalibre1 anchor">◆ </a></span>ReadElementString</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">const char*(* ak_wwise_plugin_host_xml_v1::ReadElementString) (struct <a class="pcalibre el" href="structak__wwise__plugin__host__xml__reader__instance__v1_split_000.html">ak_wwise_plugin_host_xml_reader_instance_v1</a> *in_this)</td>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+
+<p class="calibre7">Reads simple text-only elements, and increments the pointer. </p>
+<p class="calibre7">Since strings can span multiple content elements, this method will read all the sequential string-like elements and append them, returning one simple string. This function also works with empty nodes and multiple lines.</p>
+<p class="calibre7">If no processing or incrementing is warranted, <a class="pcalibre el" href="structak__wwise__plugin__host__xml__v1_a4cd5cb7f09d7bb150d1d8edf28cb85b6_split_000.html#a4cd5cb7f09d7bb150d1d8edf28cb85b6">Read</a>, <a class="pcalibre el" href="structak__wwise__plugin__host__xml__v1_a5b1199800f62503a4476aa0c0d8e2ea6_split_000.html#a5b1199800f62503a4476aa0c0d8e2ea6">MoveToContent</a> and <a class="pcalibre el" href="structak__wwise__plugin__host__xml__v1_a34c7e682c031091853413758e216fc93_split_000.html#a34c7e682c031091853413758e216fc93">GetValue</a> should be used instead.</p>
+<p class="calibre7">This method goes past the ending element node, or the equivalent of calling Read once more.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> The string is available until the next Host operation. If storing is required, a copy should be made at the earliest convenience. </td></tr>
+</tbody></table>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_this</td><td class="calibre17">Current reader instance of this interface. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">The string of the current nodes, an empty string if the value is empty. The buffer is owned by Authoring and is valid until the next API call. </dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_host_xml_8h_source_split_000.html#l00311">311</a> of file <a class="pcalibre el" href="_host_xml_8h_source_split_000.html">HostXml.h</a>.</p>
+
+<p class="calibre7">Referenced by <a class="pcalibre el" href="_host_xml_8h_source_split_000.html#l00698">AK.Wwise::Plugin::V1::XmlReader::ReadElementString()</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

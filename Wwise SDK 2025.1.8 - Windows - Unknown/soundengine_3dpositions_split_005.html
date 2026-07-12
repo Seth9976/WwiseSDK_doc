@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integration Details - 3D Positions</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_4"><a class="pcalibre1 anchor" id="soundengine_3dpositions_xyz"></a>
+X-Y-Z Coordinate System</h1>
+<p class="calibre7">The Wwise sound expects a left-handed coordinate system. The default values are the following, although the only thing that matters is the position and orientation of emitters relative to the listener orientation frame:</p><ul class="calibre8">
+<li class="calibre9">X: Vector that points to the right</li>
+<li class="calibre9">Y: Vector that points up</li>
+<li class="calibre9">Z: Vector that points forward.</li>
+</ul>
+<div class="calibre2">
+<img alt="" src="positioningaxis.gif" class="inline"/>
+<div class="calibre2">
+Direction of the X, Y and Z Axes in the Wwise Sound Engine.</div></div>
+<p class="calibre7">For an example of integrating 3D positions, refer to <a class="pcalibre el" href="quickstart_sample_integration_3dpos_split_001.html#soundengine_integration_positions">3D Position Example</a>.</p>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9">Sample code in <a class="pcalibre el" href="samplecode_split_006.html#samplecode_integration">Game Integration Sample Code</a> for examples of game object positioning.</li>
+<li class="calibre9"><a class="pcalibre el" href="soundengine_listeners_split_000.html">Integrating Listeners</a></li>
+<li class="calibre9"><a class="pcalibre el" href="soundengine_gameobj_split_000.html">Integration Details - Game Objects</a> </li>
+</ul>
+</dd></dl>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<div class="ttc" id="a_ak_numeral_types_8h_a7100a9b0a3b01df7639c1dc512678219_html_a7100a9b0a3b01df7639c1dc512678219"><div class="calibre2"><a href="_ak_numeral_types_8h_a7100a9b0a3b01df7639c1dc512678219_split_000.html#a7100a9b0a3b01df7639c1dc512678219" class="pcalibre calibre12">AkUInt16</a></div><div class="calibre2">uint16_t AkUInt16</div><div class="calibre2">Unsigned 16-bit integer.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_numeral_types_8h_source.html#l00033" class="pcalibre calibre12">AkNumeralTypes.h:33</a></div></div>
+<div class="ttc" id="a_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_html_a352a1eb6955fa208062e40a9ccdd2560"><div class="calibre2"><a href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560" class="pcalibre calibre12">AkGameObjectID</a></div><div class="calibre2">AkUInt64 AkGameObjectID</div><div class="calibre2">Game object ID.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_typedefs_8h_source.html#l00039" class="pcalibre calibre12">AkTypedefs.h:39</a></div></div>
+<div class="ttc" id="a_ak_enums_8h_a751ba836dfd5edf52ceaab00cf74b6c1_html_a751ba836dfd5edf52ceaab00cf74b6c1"><div class="calibre2"><a href="_ak_enums_8h_a751ba836dfd5edf52ceaab00cf74b6c1_split_000.html#a751ba836dfd5edf52ceaab00cf74b6c1" class="pcalibre calibre12">AkMultiPositionType</a></div><div class="calibre2">AkMultiPositionType</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_enums_8h_source_split_000.html#l00315" class="pcalibre calibre12">AkEnums.h:316</a></div></div>
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_aec6be4dca0249557ea2680b755bd218a_html_aec6be4dca0249557ea2680b755bd218a"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_aec6be4dca0249557ea2680b755bd218a_split_000.html#aec6be4dca0249557ea2680b755bd218a" class="pcalibre calibre12">AK::SoundEngine::SetMultiplePositions</a></div><div class="calibre2">AKSOUNDENGINE_API AKRESULT SetMultiplePositions(AkGameObjectID in_GameObjectID, const AkSoundPosition *in_pPositions, AkUInt16 in_NumPositions, AkMultiPositionType in_eMultiPositionType=AkMultiPositionType_MultiDirections, AkSetPositionFlags in_eFlags=AkSetPositionFlags_Default)</div></div>
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_a789e25bda32d1e11849afb6584942455_html_a789e25bda32d1e11849afb6584942455"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_a789e25bda32d1e11849afb6584942455_split_000.html#a789e25bda32d1e11849afb6584942455" class="pcalibre calibre12">AK::SoundEngine::SetPosition</a></div><div class="calibre2">AKSOUNDENGINE_API AKRESULT SetPosition(AkGameObjectID in_GameObjectID, const AkSoundPosition &amp;in_Position, AkSetPositionFlags in_eFlags=AkSetPositionFlags_Default)</div></div>
+<div class="ttc" id="a_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_html_a64f7d1f79613cc4dcc49a4efba6caa63"><div class="calibre2"><a href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63" class="pcalibre calibre12">AKRESULT</a></div><div class="calibre2">AKRESULT</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_enums_8h_source_split_000.html#l00031" class="pcalibre calibre12">AkEnums.h:32</a></div></div>
+
+
+</body></html>

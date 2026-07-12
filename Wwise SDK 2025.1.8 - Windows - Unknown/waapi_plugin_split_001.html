@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Using the Wwise Authoring API in Wwise Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2"><h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="waapi_plugin_rpc"></a>
+Calling a remote procedure</h1>
+<p class="calibre7">The Wwise Authoring API can be used to issue remote procedure calls from within a Wwise plug-in using the <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v2_1_1_host_a9b037370b1afd2f198efc440a61b6755_split_000.html#a9b037370b1afd2f198efc440a61b6755">AK::Wwise::Plugin::Host::WaapiCall()</a></code> method. This method is provided by the Host component, which you can request by inheriting from <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_a4ef1b0bee4438ded222bf1a691d61722_split_000.html#a4ef1b0bee4438ded222bf1a691d61722" title="Latest version of the requested C++ Host interface.">AK::Wwise::Plugin::RequestHost</a></code>.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> Calls to the <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v2_1_1_host_a9b037370b1afd2f198efc440a61b6755_split_000.html#a9b037370b1afd2f198efc440a61b6755">AK::Wwise::Plugin::Host::WaapiCall()</a></code> method are always blocking. </td></tr>
+</tbody></table>
+<p class="calibre7">Utility classes are provided so that callers can provide a strategy for memory allocation. <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_mallocator_split_000.html">AK::Wwise::Mallocator</a></code> offers a default implementation using functions from the C library, such as <code class="calibre14">malloc</code>, <code class="calibre14">free</code> and <code class="calibre14">realloc</code>. A custom strategy can easily be provided by defining a class that implements <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_mem_alloc_split_000.html">AK::IAkPluginMemAlloc</a></code>. Finally, a wrapper class <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_safe_allocator_split_000.html">AK::Wwise::SafeAllocator</a></code> is used to ensure type-safety and automatic memory management.</p>
+<p class="calibre7">Examples:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="pcalibre code" href="_ak_allocator_8h_split_000.html">AK/Tools/Common/AkAllocator.h</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;rapidjson/document.h&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Use the default allocation strategy for results and errors</span></div>
+<div class="line"><a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_mallocator_split_000.html">AK::Wwise::Mallocator</a> alloc;</div>
+<div class="line"> </div>
+<div class="line"><a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_safe_allocator_split_000.html">AK::Wwise::SafeAllocator&lt;char&gt;</a> szResults(&amp;alloc);</div>
+<div class="line"><a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_safe_allocator_split_000.html">AK::Wwise::SafeAllocator&lt;char&gt;</a> szError(&amp;alloc);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Issue a remote procedure call to the Wwise Authoring API</span></div>
+<div class="line">m_host.WaapiCall(<span class="stringliteral">"ak.wwise.core.getInfo"</span>, NULL, NULL, alloc, szResults, szError);</div>
+<div class="line"><span class="keywordflow">if</span> (!szError)</div>
+<div class="line">{</div>
+<div class="line">    <span class="comment">// Parse the results JSON string</span></div>
+<div class="line">    <a class="pcalibre code" href="namespace_a_k_1_1_wwise_1_1_plugin_1_1_xml_node_type_a2fa372cb0681531259c177a5938a22ff_split_001.html#a2fa372cb0681531259c177a5938a22ffafe099684193320746aae4bf5cd0258b7">rapidjson::Document</a> results;</div>
+<div class="line">    results.Parse(szResults);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// ...</span></div>
+<div class="line">}</div>
+</div><!-- fragment --><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="pcalibre code" href="_ak_allocator_8h_split_000.html">AK/Tools/Common/AkAllocator.h</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;rapidjson/document.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;rapidjson/stringbuffer.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;rapidjson/writer.h&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Use the default allocation strategy for results and errors</span></div>
+<div class="line"><a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_mallocator_split_000.html">AK::Wwise::Mallocator</a> alloc;</div>
+<div class="line"> </div>
+<div class="line"><a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_safe_allocator_split_000.html">AK::Wwise::SafeAllocator&lt;char&gt;</a> szResults(&amp;alloc);</div>
+<div class="line"><a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_safe_allocator_split_000.html">AK::Wwise::SafeAllocator&lt;char&gt;</a> szError(&amp;alloc);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Build a JSON object that contains the procedure's parameters</span></div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_wwise_1_1_plugin_1_1_xml_node_type_a2fa372cb0681531259c177a5938a22ff_split_001.html#a2fa372cb0681531259c177a5938a22ffafe099684193320746aae4bf5cd0258b7">rapidjson::Document</a> args;</div>
+<div class="line">args.SetObject();</div>
+<div class="line">args.AddMember(<span class="stringliteral">"classId"</span>, 8192003, args.GetAllocator());</div>
+<div class="line">args.AddMember(<span class="stringliteral">"property"</span>, <span class="stringliteral">"ModDepth"</span>, args.GetAllocator());</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Stringify the JSON object</span></div>
+<div class="line">rapidjson::StringBuffer buffer;</div>
+<div class="line">rapidjson::Writer&lt;rapidjson::StringBuffer&gt; writer(buffer);</div>
+<div class="line">args.Accept(writer);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Issue a remote procedure call to the Wwise Authoring API</span></div>
+<div class="line">m_host.WaapiCall(<span class="stringliteral">"ak.wwise.core.plugin.getProperty"</span>, buffer.GetString(), NULL, alloc, szResults, szError);</div>
+<div class="line"><span class="keywordflow">if</span> (!szError)</div>
+<div class="line">{</div>
+<div class="line">    <span class="comment">// Parse the results JSON string</span></div>
+<div class="line">    <a class="pcalibre code" href="namespace_a_k_1_1_wwise_1_1_plugin_1_1_xml_node_type_a2fa372cb0681531259c177a5938a22ff_split_001.html#a2fa372cb0681531259c177a5938a22ffafe099684193320746aae4bf5cd0258b7">rapidjson::Document</a> results;</div>
+<div class="line">    results.Parse(szResults);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// ...</span></div>
+<div class="line">}</div>
+</div><!-- fragment --><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> Here, RapidJSON is only used for demonstration purposes and is in no way mandatory. </td></tr>
+</tbody></table>
+<p class="calibre7">Refer to <a class="pcalibre el" href="plugin_dll_split_000.html">Authoring Plug-in Library Format</a> for more information on Wwise plug-ins. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<div class="ttc" id="aclass_a_k_1_1_wwise_1_1_mallocator_html"><div class="calibre2"><a href="class_a_k_1_1_wwise_1_1_mallocator_split_000.html" class="pcalibre calibre12">AK.Wwise::Mallocator</a></div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_allocator_8h_source.html#l00045" class="pcalibre calibre12">AkAllocator.h:47</a></div></div>
+<div class="ttc" id="aclass_a_k_1_1_wwise_1_1_safe_allocator_html"><div class="calibre2"><a href="class_a_k_1_1_wwise_1_1_safe_allocator_split_000.html" class="pcalibre calibre12">AK.Wwise::SafeAllocator</a></div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_allocator_8h_source.html#l00105" class="pcalibre calibre12">AkAllocator.h:106</a></div></div>
+<div class="ttc" id="a_ak_allocator_8h_html"><div class="calibre2"><a href="_ak_allocator_8h_split_000.html" class="pcalibre calibre12">AkAllocator.h</a></div></div>
+<div class="ttc" id="anamespace_a_k_1_1_wwise_1_1_plugin_1_1_xml_node_type_a2fa372cb0681531259c177a5938a22ff_html_a2fa372cb0681531259c177a5938a22ffafe099684193320746aae4bf5cd0258b7"><div class="calibre2"><a href="namespace_a_k_1_1_wwise_1_1_plugin_1_1_xml_node_type_a2fa372cb0681531259c177a5938a22ff_split_001.html#a2fa372cb0681531259c177a5938a22ffafe099684193320746aae4bf5cd0258b7" class="pcalibre calibre12">AK.Wwise::Plugin::XmlNodeType::Document</a></div><div class="calibre2">@ Document</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_host_xml_8h_source_split_000.html#l00064" class="pcalibre calibre12">HostXml.h:64</a></div></div>
+
+
+</body></html>

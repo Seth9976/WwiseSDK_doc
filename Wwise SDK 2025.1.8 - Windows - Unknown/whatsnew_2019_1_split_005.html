@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2019.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_4"><a class="pcalibre1 anchor" id="behavior_changes_2019_1"></a>
+Behavior Changes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-36386</b> When adding a custom cue in the Music Segment Editor it will snap according to the active snap settings (Bars/Beats, Cues, Loops/Clips).</li>
+<li class="calibre9"><b class="calibre13">WG-37672</b> Stopping, pausing, and resuming a Play Action from within Wwise authoring now does so by playing ID. This has a direct effect on the behavior within the context of the Soundcaster. When playing a sound via multiple Soundcaster modules, a Pause, Resume, or Stop Action on an individual module will only affect the sound instances associated with that module.</li>
+<li class="calibre9"><b class="calibre13">WG-38218</b> Event Actions created through Tab Delimited Import will not be added to an existing Event if an identical one is already assigned.</li>
+<li class="calibre9"><b class="calibre13">WG-38720</b> When using ADPCM to encode a file during conversion, we now use the Platinum Games codec.</li>
+<li class="calibre9"><b class="calibre13">WG-39067</b> Command line messages are prefixed with the channel in which they were logged (when applicable).</li>
+<li class="calibre9"><b class="calibre13">WG-39435</b> The title bar has indicators to show the application is in automation mode or, if it is a debug build, has asserts disabled. If the automation mode is enabled, the skin colors will also be offset.</li>
+<li class="calibre9"><b class="calibre13">WG-39692</b> Improved the accuracy of sample accurate transitions when reacting to "break" actions.</li>
+<li class="calibre9"><b class="calibre13">WG-39787</b> The Randomizer Min Offset and Max Offset property display range is now based on the display range of the randomized property.</li>
+<li class="calibre9"><b class="calibre13">WG-39842</b> The dark skin is now used by default, replacing the classic skin.</li>
+<li class="calibre9"><b class="calibre13">WG-39899</b> (WAAPI) Functions <code class="calibre14"><a class="pcalibre el" href="ak_wwise_core_audio_import_split_000.html">ak.wwise.core.audio.import</a></code> and <code class="calibre14"><a class="pcalibre el" href="ak_wwise_core_audio_importtabdelimited_split_000.html">ak.wwise.core.audio.importTabDelimited</a></code> now return the list of log entries, which can be retrieved as an array through the <code class="calibre14">log</code> property of the details object, when there's an error. Additionally, <code class="calibre14"><a class="pcalibre el" href="ak_wwise_core_audio_importtabdelimited_split_000.html">ak.wwise.core.audio.importTabDelimited</a></code> now returns the list of imported objects on success.</li>
+<li class="calibre9"><b class="calibre13">WG-40053</b> The first row of an RTPC list is now only automatically selected if there is at least one RTPC set.</li>
+<li class="calibre9"><b class="calibre13">WG-40069</b> Copy-pasting items in the Project Explorer now automatically selects the pasted items.</li>
+<li class="calibre9"><b class="calibre13">WG-40073</b> (Android) Wwise will dynamically increase its internal buffer size to limit cases of voice starvation.</li>
+<li class="calibre9"><b class="calibre13">WG-40213</b> Wwise authoring blocks Windows from closing if your project is not properly saved or reverted.</li>
+<li class="calibre9"><b class="calibre13">WG-40240</b> <b class="calibre13">Ctrl+Mouse Wheel</b> now zooms vertically, while <b class="calibre13">Ctrl+Shift+Mouse Wheel</b> zooms horizontally.</li>
+<li class="calibre9"><b class="calibre13">WG-40572</b> When there are multiple SoundSeed Grain instances, Wwise filters modulation bypass and file conversion notifications.</li>
+<li class="calibre9"><b class="calibre13">WG-40614</b> Events referenced by Music Event Cues will be included in the SoundBanks only if the Structures inclusion option is selected for the appropriate project elements in the Add tab of the SoundBank Editor.</li>
+<li class="calibre9"><b class="calibre13">WG-40628</b> Rows in the parameter-modulator property list can be sorted according to their column values. There is an undo/redo event for sorting.</li>
+<li class="calibre9"><b class="calibre13">WG-40694</b> State transitions can now be edited while connected.</li>
+<li class="calibre9"><b class="calibre13">WG-40845</b> Automatically pinning objects to the Transport with <b class="calibre13">Alt+Click</b> is no longer possible. However, added new shortcuts to Toggle Pin (Ctrl+P) and Pin Selected Object (Ctrl+Alt+P).</li>
+<li class="calibre9"><b class="calibre13">WG-41643</b> The default communication monitoring queue memory pool size is now 256 KB (up from 64 KB), enabling bigger projects to have valid profiling information even when having a very large number of concurrently playing voices.</li>
+</ul>
+</div></div></div></body></html>

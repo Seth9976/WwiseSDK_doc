@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak.wwise.core.profiler.getLoadedMedia Result Schema</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2"><h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="section_ak_wwise_core_profiler_getloadedmedia_resultSchema"></a>
+Schema</h1>
+<div class="fragment"><div class="line">{</div>
+<div class="line">    "type": "object",</div>
+<div class="line">    "properties": {</div>
+<div class="line">        "return": {</div>
+<div class="line">            "type": "array",</div>
+<div class="line">            "description": "Array of Loaded Media.",</div>
+<div class="line">            "items": {</div>
+<div class="line">                "type": "object",</div>
+<div class="line">                "description": "Information about a media file loaded into memory as a result of the PrepareEvent() and PrepareGameSyncs() functions.",</div>
+<div class="line">                "properties": {</div>
+<div class="line">                    "mediaId": {</div>
+<div class="line">                        "type": "integer",</div>
+<div class="line">                        "description": "The short ID of the media file."</div>
+<div class="line">                    },</div>
+<div class="line">                    "fileName": {</div>
+<div class="line">                        "type": "string",</div>
+<div class="line">                        "description": "The name of the media file."</div>
+<div class="line">                    },</div>
+<div class="line">                    "format": {</div>
+<div class="line">                        "type": "string",</div>
+<div class="line">                        "description": "The audio format of the media file."</div>
+<div class="line">                    },</div>
+<div class="line">                    "size": {</div>
+<div class="line">                        "type": "integer",</div>
+<div class="line">                        "description": "The size (in bytes) of the media file."</div>
+<div class="line">                    },</div>
+<div class="line">                    "soundBank": {</div>
+<div class="line">                        "type": "string",</div>
+<div class="line">                        "description": "The name of the SoundBank that contains the media file."</div>
+<div class="line">                    }</div>
+<div class="line">                },</div>
+<div class="line">                "required": [</div>
+<div class="line">                    "mediaId",</div>
+<div class="line">                    "fileName",</div>
+<div class="line">                    "format",</div>
+<div class="line">                    "size",</div>
+<div class="line">                    "soundBank"</div>
+<div class="line">                ],</div>
+<div class="line">                "additionalProperties": false</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">    },</div>
+<div class="line">    "required": [</div>
+<div class="line">        "return"</div>
+<div class="line">    ],</div>
+<div class="line">    "additionalProperties": false</div>
+<div class="line">}</div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

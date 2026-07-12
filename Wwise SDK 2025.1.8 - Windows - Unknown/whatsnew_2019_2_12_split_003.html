@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2019.2.12</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="generic_behavior_changes_2019_2_12"></a>
+Behavior Changes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-54345</b> When profiling, Game Parameters not used by objects in the project are no longer synced.</li>
+<li class="calibre9"><b class="calibre13">WG-54349</b> Exceptionally for this minor version, it is not possible to connect Wwise Authoring to a previous minor version of the sound engine.</li>
+<li class="calibre9"><b class="calibre13">WG-54605</b> Various SDK functions, such as <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ab0e4ddefe5ea550b2f356edaa5a49a26_split_000.html#ab0e4ddefe5ea550b2f356edaa5a49a26">AK::SoundEngine::SetRTPCValue</a></code> and <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_af960fca0239e219b9d08c2659fe9e5d4_split_000.html#af960fca0239e219b9d08c2659fe9e5d4">AK::SoundEngine::SetGameObjectAuxSendValues</a></code>, now return AK_InvalidFloatValue and skip execution if values such as NaN or Inf are passed as parameters on Debug, Profile, and Release binary configurations of the Sound Engine. Previously, this was the case for Debug and Profile binary configurations, but not Release.</li>
+</ul>
+</div></div></div></body></html>

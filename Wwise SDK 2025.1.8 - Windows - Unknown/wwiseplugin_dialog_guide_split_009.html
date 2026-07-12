@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Wwise Plug-in Dialog Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_8"><a class="pcalibre1 anchor" id="wwiseplugin_dialog_guide_controls_wwise_class"></a>
+"Class" Control Attribute</h2>
+<p class="calibre7">The <code class="calibre14">Class</code> attribute is mandatory. It identifies the type of control to be inserted in the dialog to replace the static placeholder. This attribute has the following format:</p>
+<div class="fragment"><div class="line">Class=[Classname]</div>
+</div><!-- fragment --><p class="calibre7">where <em class="calibre11">[Classname]</em> can be one of:</p>
+<ul class="calibre8">
+<li class="calibre9"><code class="calibre14">Caption:</code> Read-only text display <br class="calibre10"/>
+<div class="calibre2">
+<img alt="" src="control_caption.gif" class="inline"/>
+</div>
+ <br class="calibre10"/>
+The static control in your resources should be exactly 13 units high, and be wide enough to accomodate the longest text it might contain. <br class="calibre10"/>
+<br class="calibre10"/>
+</li>
+<li class="calibre9"><code class="calibre14">Combo:</code> Dropdown list <br class="calibre10"/>
+<div class="calibre2">
+<img alt="" src="control_combo.gif" class="inline"/>
+</div>
+ <br class="calibre10"/>
+The static control in your resources should be exactly 13 units high, and be wide enough to hold the longest text it might contain. <br class="calibre10"/>
+<br class="calibre10"/>
+</li>
+<li class="calibre9"><code class="calibre14">Edit:</code> editable text <br class="calibre10"/>
+ <br class="calibre10"/>
+The static control in your resources should be exactly 13 units high, and be wide enough to hold the longest text it might contain. A property of type "string" should be bound to this control. <br class="calibre10"/>
+<br class="calibre10"/>
+</li>
+<li class="calibre9"><code class="calibre14">Fader:</code> Volume fader <br class="calibre10"/>
+<div class="calibre2">
+<img alt="" src="control_fader.gif" class="inline"/>
+</div>
+ <br class="calibre10"/>
+<br class="calibre10"/>
+</li>
+<li class="calibre9"><code class="calibre14">Spinner:</code> Integer numeric editor with spinner control <br class="calibre10"/>
+<div class="calibre2">
+<img alt="" src="control_spinner.gif" class="inline"/>
+</div>
+ <br class="calibre10"/>
+The static control in your resources should be exactly 13 units high, and be wide enough to hold the biggest value it might contain. <br class="calibre10"/>
+<br class="calibre10"/>
+</li>
+<li class="calibre9"><code class="calibre14">SuperRange:</code> Numeric editor with horizontal slider <br class="calibre10"/>
+<div class="calibre2">
+<img alt="" src="control_superrange.gif" class="inline"/>
+</div>
+ <br class="calibre10"/>
+The static control in your resources should be exactly 13 units high, and be wide enough to hold the biggest value it might contain.</li>
+</ul>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> Each of these controls supports various optional attributes to adapt their behavior to the particular needs of each property. Refer to <a class="pcalibre el" href="wwiseplugin_dialog_guide_split_011.html#wwiseplugin_dialog_guide_controls_wwise_attributes">Other Control Attributes</a> for more information. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2019.2.2</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_4"><a class="pcalibre1 anchor" id="bugs_2019_2_2"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-46449</b> Fixed: (Android) Audio output is garbled on Vivo Y51A phones running older firmware.</li>
+<li class="calibre9"><b class="calibre13">WG-46596</b> Fixed: <a class="pcalibre el" href="ak_wwise_core_profiler_getrtpcs_split_000.html">ak.wwise.core.profiler.getRTPCs</a> returns an error if the time requested is either before or after a profiling session period.</li>
+<li class="calibre9"><b class="calibre13">WG-47718</b> Fixed: Crash in rpmalloc when out of memory.</li>
+<li class="calibre9"><b class="calibre13">WG-48188</b> Fixed: Compilation warnings reported by AkPlatformFuncs.h and <a class="pcalibre el" href="_ak_stream_mgr_module_8h_split_000.html">AkStreamMgrModule.h</a> when compiling with /W4 on Windows.</li>
+<li class="calibre9"><b class="calibre13">WG-48235</b> Fixed: <code class="calibre14">FilePackager.Console</code> does not package audio files that are set to streaming.</li>
+<li class="calibre9"><b class="calibre13">WG-48265</b> Fixed: On Linux operating systems, Wwise crashes when attempting to enumerate network devices for devices that do not have an IP address.</li>
+<li class="calibre9"><b class="calibre13">WG-48357</b> Fixed: Sound transmission does not function when virtual positioning is disabled and there are no paths to the listener, e.g., when all portals are closed.</li>
+<li class="calibre9"><b class="calibre13">WG-48379</b> Fixed: Small memory leak when terminating the sound engine immediately after calling <code class="calibre14">AddOutputCaptureMarker</code>.</li>
+<li class="calibre9"><b class="calibre13">WG-48392</b> Fixed: Erroneous values are displayed in the Volumes column of the Advanced Profiler view's Listeners tab.</li>
+<li class="calibre9"><b class="calibre13">WG-48402</b> Fixed: rpmalloc incorrectly tracking currently used virtual memory.</li>
+<li class="calibre9"><b class="calibre13">WG-48417</b> Fixed: When enabling the <a class="pcalibre el" href="struct_ak_init_settings_a0ffc62cdbb07d0c8ebb2440fd177625b_split_000.html#a0ffc62cdbb07d0c8ebb2440fd177625b" title="Debug setting: Enable checks for out-of-range (and NAN) floats in the processing code....">AkInitSettings::bDebugOutOfRangeCheckEnabled</a> system, some code paths were not properly enabled and could falsely points to the next item in the pipeline as the bad sample insertion point.</li>
+<li class="calibre9"><b class="calibre13">WG-48440</b> Fixed: MS Spatial Audio plug-in crashes on a specific version of Windows.</li>
+<li class="calibre9"><b class="calibre13">WG-48442</b> Fixed: Erroneous warnings when generating External Sources from a command line.</li>
+<li class="calibre9"><b class="calibre13">WG-48502</b> Fixed: Possible memory corruption when the DecodeBank operation is used on a multichannel Opus source.</li>
+<li class="calibre9"><b class="calibre13">WG-48503</b> Fixed: Out-of-bounds memory read in <code class="calibre14"><a class="pcalibre el" href="class_ak_array_a21687ba2fac7670b6ed2b84e4196ef73_split_000.html#a21687ba2fac7670b6ed2b84e4196ef73">AkArray::BinarySearch</a></code>.</li>
+<li class="calibre9"><b class="calibre13">WG-48599</b> Fixed: Crash in Convolution plug-in when using Visual Studio 2015 libraries with AVX support enabled.</li>
+<li class="calibre9"><b class="calibre13">WG-48683</b> Fixed: <code class="calibre14">AK_ALIGN</code> does not align memory.</li>
+<li class="calibre9"><b class="calibre13">WG-48743</b> Fixed: Source starvation on some streamed PCM or ATRAC9 sounds with encoded loop points.</li>
+</ul>
+</div></div></div></body></html>

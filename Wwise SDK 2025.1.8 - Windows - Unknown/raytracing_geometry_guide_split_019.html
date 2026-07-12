@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Ray Tracing Engine Geometry Guide</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_18"><a class="pcalibre1 anchor" id="raytracing_geometry_guide_performance_tweaking"></a>
+Performance Tweaking</h1>
+<p class="calibre7">The following table provides information you can use to tweak parameters for different use cases.</p>
+<table border="1" cellpadding="1" cellspacing="0" width="900px" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<th class="calibre35">Symptoms</th><th class="calibre35">Possible solutions </th></tr>
+<tr class="calibre16">
+<td class="calibre17">Spatial Audio - General CPU issues </td><td class="calibre17"><ul class="calibre8">
+<li class="calibre9">
+<b class="calibre13">Decrease the order of reflection:</b> 1st and 2nd order of reflection are sufficient in most cases.  </li>
+<li class="calibre9">
+<b class="calibre13">Disable diffraction or reflection on diffraction if not needed:</b> computing diffraction is CPU intensive. Instead of completely disabling diffraction, reduce the number of diffraction edges in the scene if possible.  </li>
+<li class="calibre9">
+<b class="calibre13">Use rooms and portals:</b> if your scene is composed of independent sections, consider using rooms and portals to isolate them. <br class="calibre10"/>
+  </li>
+<li class="calibre9">
+<b class="calibre13">Increase the motion threshold:</b> small values might validate reflection and diffraction paths too often. Consider setting this to the highest possible value that maintains good quality results. Low values might introduce some inaccuracy in the reflection and diffraction paths. Some examples of inaccuracy: reflections might not be perfectly specular, some paths might be discovered with some delay, some invalid paths might be removed later than expected.  </li>
+<li class="calibre9">
+<b class="calibre13">Decrease the number of triangles if possible:</b> objects with a high level of detail increase CPU cost and tend to decrease overall quality.  </li>
+<li class="calibre9">
+<b class="calibre13">Decrease the maximum number of reflection paths:</b> validation of a high number of paths increases CPU cost. Low values might affect the overall quality.  </li>
+</ul>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre17">Spatial Audio - Raytracing CPU is high </td><td class="calibre17"><ul class="calibre8">
+<li class="calibre9">
+<b class="calibre13">Decrease the number of primary rays:</b> values as low as 5 can still produce good results.  </li>
+<li class="calibre9">
+<b class="calibre13">Enable Dynamic Load Balancing (<a class="pcalibre el" href="raytracing_geometry_guide_split_014.html#raytracing_geometry_guide_dynamic_load_balancing">Dynamic Load Balancing</a>):</b> set your desired CPU percentage, and the feature will automatically control the load balancing spread to keep the CPU below the specified value.  </li>
+</ul>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre17">Spatial Audio - Path Validation CPU is high and there is only one emitter </td><td class="calibre17"><ul class="calibre8">
+<li class="calibre9">
+<b class="calibre13">Disable diffraction or reflection on diffraction if not needed:</b> computing diffraction is CPU intensive. Instead of completely disabling diffraction, reduce the number of diffraction edges in the scene if possible.  </li>
+<li class="calibre9">
+<b class="calibre13">Decrease the maximum number of reflection paths:</b> validation of a high number of paths increases CPU cost. Low values might affect the overall quality.  </li>
+</ul>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre17">Spatial Audio - Path Validation CPU is high and there are multiple emitters </td><td class="calibre17"><ul class="calibre8">
+<li class="calibre9">
+<b class="calibre13">Enable load balancing:</b> start with a value lower than 10 and adjust if necessary. Values lower than 10 should not noticeably affect quality. You can also enable Dynamic Load Balancing (<a class="pcalibre el" href="raytracing_geometry_guide_split_014.html#raytracing_geometry_guide_dynamic_load_balancing">Dynamic Load Balancing</a>).  </li>
+<li class="calibre9">
+<b class="calibre13">Decrease the maximum number of reflection paths:</b> validation of a high number of paths increases CPU cost. Low values might affect the overall quality.  </li>
+</ul>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre17">Spatial Audio - CPU is high (path validation and ray tracing are both involved) and there is only one emitter </td><td class="calibre17"><ul class="calibre8">
+<li class="calibre9">
+<b class="calibre13">Enable load balancing:</b> use a value of 2. It will spread the computation of ray tracing and path validation on different frames and thus reduce the peaks. Higher values won't help much.  </li>
+<li class="calibre9">
+<b class="calibre13">Increase the motion threshold:</b> in this case, it reduces average CPU consumption more than it reduces the peaks.  </li>
+<li class="calibre9">
+<b class="calibre13">Decrease the maximum number of reflection paths:</b> validation of a high number of paths increases CPU cost. Low values might affect the overall quality.  </li>
+</ul>
+</td></tr>
+</tbody></table>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

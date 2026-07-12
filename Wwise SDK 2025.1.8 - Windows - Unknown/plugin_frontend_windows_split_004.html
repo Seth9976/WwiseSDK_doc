@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Implementing a Windows Frontend</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="wwise_plugin_frontend_windows_windowproc"></a>
+Windows Events Handling through WindowProc</h1>
+<p class="calibre7">If UI changes require specific actions, such as enabling or disabling controls, you can carry these out by interpreting the window messages received in the <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_g_u_i_windows_a8ea33835cc026463f2f64b4327f89b17_split_000.html#a8ea33835cc026463f2f64b4327f89b17" title="Window message handler for dialogs.">AK::Wwise::Plugin::GUIWindows::WindowProc()</a></code> function:</p>
+<div class="fragment"><div class="line"><span class="comment">// Standard window function allowing the user to intercept whatever message is of interest when implementing UI behavior.</span></div>
+<div class="line"><span class="keywordtype">bool</span> FrontendSourcePlugin::WindowProc(</div>
+<div class="line">    <a class="pcalibre code" href="namespace_a_k_1_1_wwise_1_1_plugin_a5a9328b141630d1de228c92e81e9034d_split_000.html#a5a9328b141630d1de228c92e81e9034d">AK::Wwise::Plugin::eDialog</a> in_eDialog,</div>
+<div class="line">    HWND in_hWnd,</div>
+<div class="line">    UINT in_message,</div>
+<div class="line">    WPARAM in_wParam,</div>
+<div class="line">    LPARAM in_lParam,</div>
+<div class="line">    LRESULT&amp; out_lResult)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordflow">if</span> ( in_message == WM_INITDIALOG )</div>
+<div class="line">    {</div>
+<div class="line">        <span class="comment">// Perform anything you need to do on dialog window initialization ...</span></div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// For example, catch window command actions (only for the main dialog) to enable/disable controls</span></div>
+<div class="line">    <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( in_eDialog == <a class="pcalibre code" href="namespace_a_k_1_1_wwise_1_1_plugin_a5a9328b141630d1de228c92e81e9034d_split_001.html#a5a9328b141630d1de228c92e81e9034da70f74e61c5e7bef5d95559c73c9978cc">SettingsDialog</a> &amp;&amp; in_message == WM_COMMAND )</div>
+<div class="line">    {</div>
+<div class="line">        <span class="comment">// Notification code</span></div>
+<div class="line">        <span class="keywordflow">switch</span> ( HIWORD( in_wParam ) )</div>
+<div class="line">        {</div>
+<div class="line">        <span class="keywordflow">case</span> BN_CLICKED:</div>
+<div class="line">            <span class="comment">// Check which button was clicked</span></div>
+<div class="line">            <span class="keywordflow">switch</span> ( LOWORD( in_wParam ) )</div>
+<div class="line">            {</div>
+<div class="line">            <span class="keywordflow">case</span> IDC_CHECK_SWEEPFREQ:</div>
+<div class="line">                <span class="comment">// Verify if check box was enabled</span></div>
+<div class="line">                <span class="keywordflow">if</span> ( IsDlgButtonChecked( in_hWnd, IDC_CHECK_SWEEPFREQ ) == BST_CHECKED )</div>
+<div class="line">                {</div>
+<div class="line">                    <span class="comment">// Enable some controls ...</span></div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( IsDlgButtonChecked( in_hWnd, IDC_CHECK_SWEEPFREQ ) == BST_UNCHECKED )</div>
+<div class="line">                {</div>
+<div class="line">                    <span class="comment">// Disable some controls ...</span></div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">break</span>;</div>
+<div class="line">            }</div>
+<div class="line">        } <span class="comment">// End switch hi word (notification code)</span></div>
+<div class="line"> </div>
+<div class="line">    } <span class="comment">// End command window event</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Return false to let the parent window deal with the message.</span></div>
+<div class="line">    <span class="comment">// Return true for messages you don't want the parent window to handle.</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">}</div>
+</div><!-- fragment --></div></div></div></body></html>

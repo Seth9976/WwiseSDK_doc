@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Increasing simulation data throughput with the Command Buffer API</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="goingfurther_commandbufferapi_overview"></a>
+Understanding the Command Buffer API</h1>
+<p class="calibre7">The Command Buffer API works like other command buffer-based APIs, such as <a href="https://docs.vulkan.org/spec/latest/chapters/cmdbuffers.html" target="_blank" class="pcalibre calibre12">Vulkan</a> and <a href="https://learn.microsoft.com/en-us/gaming/gdk/_content/gc/system/overviews/directstorage/directstorage-overview" target="_blank" class="pcalibre calibre12">DirectStorage</a>. The command buffer is a region of memory that contains a sequential list of instructions for the sound engine. For example, a single command buffer can contain several unrelated commands such as:</p>
+<ul class="calibre8">
+<li class="calibre9">Registering game objects</li>
+<li class="calibre9">Posting events</li>
+<li class="calibre9">Updating RTPC values</li>
+</ul>
+<p class="calibre7">After you construct the buffer and submit it to the sound engine, the buffer is added to the sound engine's internal processing queue. The commands in the buffer are then processed asynchronously on the next audio rendering frame, in the order in which they are listed in the buffer.</p>
+<p class="calibre7">Commands can fail during processing. When a command fails, the sound engine proceeds to the next command in the buffer.</p>
+<p class="calibre7">Clients can be called back when all commands in a buffer are processed. When this callback occurs, the client can inspect the result code of each command in the buffer and release or re-use the memory area.</p>
+</div></div></div></body></html>

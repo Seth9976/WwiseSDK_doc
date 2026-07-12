@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>New Features Overview 2024.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_11"><a class="pcalibre1 anchor" id="features_24_1_adm"></a>
+ADM Support (Experimental)</h2>
+<p class="calibre7">Experimental support has been added for the import and playback of Audio Definition Model (ADM) WAV files. These sources can contain complete object-based audio scenes, with channel bed and 3D-positioned dynamic objects, providing an alternative for cinematics and immersive music. These files are handled like regular WAV files as part of the audio file import. An ADM file can be used as a Source in the Actor-Mixer Hierarchy or as a Clip in the Interactive Music Hierarchy.</p>
+<div class="calibre2">
+<img alt="" src="view_audioobject3d_adm_light.png" class="inline"/>
+</div>
+<p class="calibre7">The ADM specification is flexible, and this version of Wwise adds supports for some, but not all, of its features. In particular, support is focused on ADM produced with the following tools:</p>
+<ul class="calibre8">
+<li class="calibre9">Avid Pro Tools and Steinberg Nuendo, when exporting a Dolby Atmos Master ADM</li>
+<li class="calibre9">REAPER with the EAR Production Suite</li>
+<li class="calibre9">360 WalkMix Creator</li>
+</ul>
+<p class="calibre7">The following features are currently supported:</p>
+<ul class="calibre8">
+<li class="calibre9">Channel beds as Direct Speaker Panning</li>
+<li class="calibre9">Mono objects as dynamic 3D-positioned objects with animation</li>
+</ul>
+<p class="calibre7">Some hardware codec implementations cannot handle the high channel counts typically used with ADM. ADM metadata is preserved when using the following codecs:</p>
+<ul class="calibre8">
+<li class="calibre9">PCM</li>
+<li class="calibre9">ADPCM</li>
+<li class="calibre9">Vorbis</li>
+<li class="calibre9">Opus</li>
+</ul>
+<p class="calibre7">See <a class="pcalibre el" href="whatsnew_known_issues_split_000.html">Known Issues and Limitations</a> for a list of known issues for this experimental feature.</p>
+</div></div></div></body></html>

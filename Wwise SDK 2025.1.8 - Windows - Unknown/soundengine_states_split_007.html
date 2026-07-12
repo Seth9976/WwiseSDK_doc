@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integration Details - States</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_6"><a class="pcalibre1 anchor" id="soundengine_states_transitions"></a>
+State Transitions</h1>
+<p class="calibre7">When a state change is triggered, if transitions have been defined, the transition from Parameter Value A to Parameter Value B will begin. A default transition time is applied to all parameters. Transition times can be defined in Wwise.</p>
+<p class="calibre7">If the transition time is set to zero (that is, there is no transition time), there is no transition and the parameter value jumps directly to the target value. If the presence of a transition does not make the game sound better, the transition should be set to zero to save transition resources.</p>
+<p class="calibre7">If a second state change is triggered while the previous state is still in transition, the new parameters will define the new target and the parameter will transit from the current value to the new target value using the new transition time. If a transition is interrupted, the current value will transit to the previous value. For example, if a state change to State 1 interrupts a transition from State 1 to State 2, the values change from their current settings back to State 1 using the new transition time.</p>
+<div class="calibre2">
+<img alt="" src="soundenginestates_transitioninterruption.gif" class="inline"/>
+</div>
+<p class="calibre7">State transition time is ignored for Boolean type parameters, and for state-driving switch containers. Switch containers have their own options that drive what happens on state or switch changes.</p>
+<p class="calibre7">For an example of integrating states, refer to <a class="pcalibre el" href="quickstart_sample_integration_states_split_001.html#soundengine_integration_states">State Example</a>.</p>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><a class="pcalibre el" href="concept_state.html">Understanding States</a>, <a class="pcalibre el" href="soundengine_gameobj_split_000.html">Integration Details - Game Objects</a>, <a class="pcalibre el" href="soundengine_switch_split_000.html">Integration Details - Switches</a>, <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a68dc9be195962c671b82fbb354b68cc5_split_000.html#a68dc9be195962c671b82fbb354b68cc5">AK::SoundEngine::SetState()</a> </dd></dl>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_a68dc9be195962c671b82fbb354b68cc5_html_a68dc9be195962c671b82fbb354b68cc5"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_a68dc9be195962c671b82fbb354b68cc5_split_000.html#a68dc9be195962c671b82fbb354b68cc5" class="pcalibre calibre12">AK::SoundEngine::SetState</a></div><div class="calibre2">AKSOUNDENGINE_API AKRESULT SetState(AkStateGroupID in_stateGroup, AkStateID in_state)</div></div>
+
+
+</body></html>

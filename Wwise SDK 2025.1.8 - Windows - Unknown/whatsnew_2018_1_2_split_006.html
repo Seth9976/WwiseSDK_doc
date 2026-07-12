@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2018.1.2</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_5"><a class="pcalibre1 anchor" id="bugs_2018_1_2"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-37357</b> Fixed: (Mac Authoring) UI refresh issue when scrolling in the Soundcaster view.</li>
+<li class="calibre9"><b class="calibre13">WG-38109</b> Fixed: The Capture Log's Select All command takes a long time to complete.</li>
+<li class="calibre9"><b class="calibre13">WG-38280</b> Fixed: Unlinked properties will stay unlinked after loading a Preset that has linked properties.</li>
+<li class="calibre9"><b class="calibre13">WG-38782</b> Fixed: (WAAPI) The automatic resolving of name conflicts when importing sound objects affects the parent object rather than the created one.</li>
+<li class="calibre9"><b class="calibre13">WG-38956</b> Fixed: (UWP) Crash in Motion on start-up.</li>
+<li class="calibre9"><b class="calibre13">WG-39078</b> Fixed: (iOS) Rare assert when interrupting the sink.</li>
+<li class="calibre9"><b class="calibre13">WG-39087</b> Fixed: Text color contrast issue when selecting rows in the SoundBank Log.</li>
+<li class="calibre9"><b class="calibre13">WG-39096</b> Fixed: Enabling <b class="calibre13">Include parents and busses</b> in the Capture Log Filter can lead to a crash.</li>
+<li class="calibre9"><b class="calibre13">WG-39098</b> Fixed: User-Defined Auxiliary Send override for a child of a Blend Container has no effect if the child's auxiliary sends are not defined.</li>
+<li class="calibre9"><b class="calibre13">WG-39141</b> Fixed: Loss of focus on the Capture Log after using its Select All command.</li>
+<li class="calibre9"><b class="calibre13">WG-39183</b> Fixed: Drawing issue where some object names would be drawn outside of their frame.</li>
+<li class="calibre9"><b class="calibre13">WG-39205</b> Fixed: Crash when calling <code class="calibre14">StopAll</code> during State transitions on active objects.</li>
+<li class="calibre9"><b class="calibre13">WG-39247</b> Fixed: Crash in 3D Meter when graphic device becomes unavailable.</li>
+<li class="calibre9"><b class="calibre13">WG-39249</b> Fixed: <code class="calibre14">GetPanningRule</code>, <code class="calibre14">GetSpeakerAngles</code>, <code class="calibre14">GetSpeakerConfiguration</code>, and <code class="calibre14">GetPS4OutputHandle</code> do not wait for sound engine startup, returning default values.</li>
+<li class="calibre9"><b class="calibre13">WG-39279</b> Fixed: Freeze on Tab Delimited Import when importing a file on the root.</li>
+<li class="calibre9"><b class="calibre13">WG-39286</b> Fixed: (Android) Rare crash at game startup on Android P.</li>
+<li class="calibre9"><b class="calibre13">WG-39287</b> Fixed: Edit field of New (Browser) dialog not focused by default.</li>
+<li class="calibre9"><b class="calibre13">WG-39295</b> Fixed: With tabs split in the Advanced Game Profiler, if the second tab is set to the first tab and then the project reloaded, the second tab could become empty.</li>
+<li class="calibre9"><b class="calibre13">WG-39312</b> Fixed: Infinite loop in <code class="calibre14">CAkListener::ComputeSpeakerMatrix3D</code> when passing volume offsets to <code class="calibre14">SetListenerSpatialization</code> and using ambisonics.</li>
+<li class="calibre9"><b class="calibre13">WG-39407</b> Fixed: Failure to find files through reparse points.</li>
+<li class="calibre9"><b class="calibre13">WG-39417</b> Fixed: Grayed out OK button when the filter of an object browser is closed.</li>
+<li class="calibre9"><b class="calibre13">WG-39427</b> Fixed: The Capture Log's row selection shortcut, Shift+End, does not work.</li>
+<li class="calibre9"><b class="calibre13">WG-39441</b> Fixed: (Windows) Motion is attenuated on with Xbox One controllers.</li>
+<li class="calibre9"><b class="calibre13">WG-39467</b> Fixed: The MS Spatial sink plug-in can crash when running low on memory.</li>
+<li class="calibre9"><b class="calibre13">WG-39469</b> Fixed: API profiling displays result of <code class="calibre14">SetState</code> as "unresolved" for valid States.</li>
+<li class="calibre9"><b class="calibre13">WG-39474</b> Fixed: (Windows) Possible audio glitches when using the WASAPI audio sink on Windows when the Windows User Settings is set to a high resolution frequency (192 kHz) on some hardware.</li>
+<li class="calibre9"><b class="calibre13">WG-39487</b> Fixed: Occasional crash due to drag-and-drop of an object in a Switch Container's Contents Editor.</li>
+<li class="calibre9"><b class="calibre13">WG-39498</b> Fixed: Crash in XAudio2 when switching project in Wwise Authoring.</li>
+<li class="calibre9"><b class="calibre13">WG-39509</b> Fixed: Filling <code class="calibre14">AkInitSetting.settingMainOutput.audioDeviceShareset</code> doesn't switch the master Audio Bus to the specified device.</li>
+<li class="calibre9"><b class="calibre13">WG-39523</b> Fixed: Initial Delay not loaded by Presets.</li>
+<li class="calibre9"><b class="calibre13">WG-39529</b> Fixed: Rare crash on start-up when no output devices are ready.</li>
+<li class="calibre9"><b class="calibre13">WG-39594</b> Fixed: (WAAPI) Crash while disabling an active WAAPI session.</li>
+</ul>
+<p class="calibre7">
+ </p><dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="whatsnew_2018_1_2_migration_split_000.html">Important Migration Notes 2018.1.2</a></li>
+<li class="calibre9"><a class="pcalibre el" href="reference_platform_2018_1_2_split_000.html">Platform Requirements 2018.1.2</a> </li>
+</ul>
+</dd></dl>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

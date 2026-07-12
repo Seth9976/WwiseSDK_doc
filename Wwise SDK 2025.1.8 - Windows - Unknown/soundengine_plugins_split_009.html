@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Sound Engine Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_8"><a class="pcalibre1 anchor" id="iakeffectparam_setparamsblock"></a>
+AK::IAkPluginParam::SetParamsBlock()</h2>
+<p class="calibre7">This method sets all plug-in parameters at once using a parameter block that was stored through <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_audio_plugin_ae59a3955718ed3bbde0521da21cd8539_split_000.html#ae59a3955718ed3bbde0521da21cd8539" title="Obtains parameters that will be written to a bank.">AK::Wwise::Plugin::AudioPlugin::GetBankParameters()</a> during bank creation in Wwise. The parameters will be read in the same format they were written into the bank by the Wwise counterpart of the plug-in. Note that data is in packed format and thus variables may not be aligned based on the data type as required for some target platforms. Use the READBANKDATA helper macro provided in <a class="pcalibre el" href="_ak_bank_read_helpers_8h_split_000.html">AkBankReadHelpers.h</a> to avoid theses platform specific concerns. There is no need to worry about endianness issues for the plug-in parameters as data is properly byte swapped by the application.</p>
+<div class="fragment"><div class="line"><span class="comment">// Read and parse parameter block.</span></div>
+<div class="line"><a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> CAkMyPluginParams::SetParamsBlock( <span class="keywordtype">void</span> * in_pParamsBlock, <a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> in_uBlockSize )</div>
+<div class="line">{</div>
+<div class="line">    <span class="comment">// Read data in the order it was put in the bank</span></div>
+<div class="line">    <a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> eResult = <a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_001.html#a64f7d1f79613cc4dcc49a4efba6caa63ad7c47fea3da641e7422573c6a13dc35e">AK_Success</a>;</div>
+<div class="line">    <a class="pcalibre code" href="_ak_numeral_types_8h_a6a754f6e0ddd97ae59f3aae854cde270_split_000.html#a6a754f6e0ddd97ae59f3aae854cde270">AkUInt8</a> * pParamsBlock = (<a class="pcalibre code" href="_ak_numeral_types_8h_a6a754f6e0ddd97ae59f3aae854cde270_split_000.html#a6a754f6e0ddd97ae59f3aae854cde270">AkUInt8</a> *)in_pParamsBlock;</div>
+<div class="line">    m_fFloatParam1 = <a class="pcalibre code" href="_ak_bank_read_helpers_8h_a18513ab855bc8316634d74b9a17138c5_split_000.html#a18513ab855bc8316634d74b9a17138c5">READBANKDATA</a>( <a class="pcalibre code" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a>, pParamsBlock, in_ulBlockSize );</div>
+<div class="line">    m_bBoolParam2 = <a class="pcalibre code" href="_ak_bank_read_helpers_8h_a18513ab855bc8316634d74b9a17138c5_split_000.html#a18513ab855bc8316634d74b9a17138c5">READBANKDATA</a>( <span class="keywordtype">bool</span>, pParamsBlock, in_ulBlockSize );</div>
+<div class="line">    <a class="pcalibre code" href="_ak_bank_read_helpers_8h_a50c3e7712a0452bd3ee8d5ac2185d2cf_split_000.html#a50c3e7712a0452bd3ee8d5ac2185d2cf">CHECKBANKDATASIZE</a>( in_ulBlockSize, eResult );</div>
+<div class="line">    <span class="keywordflow">return</span> eResult;</div>
+<div class="line">}</div>
+</div><!-- fragment --></div></div></div></body></html>

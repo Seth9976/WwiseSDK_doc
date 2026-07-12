@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2016.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="feature_changes_2016_1"></a>
+New Features</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-15054</b> Added capability to show game objects with multiple positions in the Game Object 3D viewer.</li>
+<li class="calibre9"><b class="calibre13">WG-17823</b> Added search field to the Project Explorer-Browser.</li>
+<li class="calibre9"><b class="calibre13">WG-24758</b> Added support for ambisonics to the Wwise sound engine.</li>
+<li class="calibre9"><b class="calibre13">WG-26555</b> Added support for offline decompression of Vorbis audio files, allowing storage of decompressed audio in memory.</li>
+<li class="calibre9"><b class="calibre13">WG-27265</b> Added Wwise Object Path to XML and JSON SoundBank descriptors.</li>
+<li class="calibre9"><b class="calibre13">WG-27299</b> Added <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ab24b5dc8bd4d1adbdc6aa5c98d94d946_split_000.html#ab24b5dc8bd4d1adbdc6aa5c98d94d946">AK::SoundEngine::PostMIDIOnEvent</a></code> and <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_acce4adb3c2bbd018ef375c85379949e3_split_000.html#acce4adb3c2bbd018ef375c85379949e3">AK::SoundEngine::StopMIDIOnEvent</a></code> to execute a number of MIDI events on a specified Event object.</li>
+<li class="calibre9"><b class="calibre13">WG-27432</b> Added support for High DPI monitors.</li>
+<li class="calibre9"><b class="calibre13">WG-27484</b> Changed LFO Frequency minimum value from 0.02 to 0.001.</li>
+<li class="calibre9"><b class="calibre13">WG-27598</b> Added support for ambisonics to the Sony Audio3d plug-in.</li>
+<li class="calibre9"><b class="calibre13">WG-27691</b> Added new Wwise CLI option, <code class="calibre14">-AbortOnLoadIssues</code>, for aborting a command if a project load issue is detected.</li>
+<li class="calibre9"><b class="calibre13">WG-27822</b> New option, <em class="calibre11">Synchronize modified objects</em>, in Remote Connection dialog enables Wwise to send all objects that have been touched during an authoring session.</li>
+<li class="calibre9"><b class="calibre13">WG-28377</b> Added <code class="calibre14">-NoDecode</code> command line option to avoid generating .decoded files.</li>
+<li class="calibre9"><b class="calibre13">WG-28417</b> Added support for ambisonics in PCM, ADPCM, and Vorbis codecs.</li>
+<li class="calibre9"><b class="calibre13">WG-28419</b> Added support for importation and playback of ambisonic (AMB) files.</li>
+<li class="calibre9"><b class="calibre13">WG-28420</b> Added support for ambisonics to audio busses.</li>
+<li class="calibre9"><b class="calibre13">WG-28421</b> Added support for ambisonics in the Wwise Compressor, Wwise Delay, Wwise Expander, Wwise Flanger, Wwise Gain, Wwise Guitar Distortion, Wwise Harmonizer, Wwise Meter, Wwise Parametric EQ, Wwise Peak Limiter, Wwise Pitch Shifter, and McDSP FutzBox.</li>
+<li class="calibre9"><b class="calibre13">WG-28428</b> Created the Audiokinetic Launcher to manage Wwise installations and projects.</li>
+<li class="calibre9"><b class="calibre13">WG-28664</b> (Mac Authoring) Added Nuendo Game Audio Connect to OS X.</li>
+<li class="calibre9"><b class="calibre13">WG-28708</b> Added <code class="calibre14">-SetTitleBarText</code> command-line option to append text to the Wwise Authoring window name.</li>
+<li class="calibre9"><b class="calibre13">WG-28710</b> Added support for UTF8 and UCS2 files in a tab-delimited import.</li>
+<li class="calibre9"><b class="calibre13">WG-28721</b> Added support for 7.1.4 audio in the Wwise Compressor, Wwise Convolution Reverb, Wwise Delay, Wwise Expander, Wwise Flanger, Wwise Gain, Wwise Guitar Distortion, Wwise Harmonizer, Wwise Meter, Wwise Parametric EQ, Wwise Peak Limiter, Wwise Pitch Shifter, Wwise Recorder, McDSP FutzBox, Auro Headphone, and IOSONO Proximity.</li>
+<li class="calibre9"><b class="calibre13">WG-28814</b> Added support for ambisonics files in the Wwise Wave Viewer.</li>
+<li class="calibre9"><b class="calibre13">WG-28816</b> Added keyboard shortcut for "Convert for all platforms" and "Convert for current platform" for current selection.</li>
+<li class="calibre9"><b class="calibre13">WG-28836</b> Added new API function, <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_aca0f99ddcebac011789b9fbd0a393502_split_000.html#aca0f99ddcebac011789b9fbd0a393502">AK::SoundEngine::GetBackgroundMusicMute()</a></code>, to get the state of the BGM busses. Also, a new callback can be specified in <code class="calibre14"><a class="pcalibre el" href="struct_ak_init_settings_a071653afbe490f1c9b5169d0a47ad6f5_split_000.html#a071653afbe490f1c9b5169d0a47ad6f5" title="Application-defined audio source change event callback function.">AkInitSettings.BGMCallback</a></code> to receive notifications of this state's changes. This will be triggered every time the end-user starts or stops their music player.</li>
+<li class="calibre9"><b class="calibre13">WG-28874</b> Added capability to assign specific channels to positions when setting multiple positions on a game object, which opens up lots of flexibility in the placement of individual channels in the 3D world. See <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_aec6be4dca0249557ea2680b755bd218a_split_000.html#aec6be4dca0249557ea2680b755bd218a">AK::SoundEngine::SetMultiplePositions()</a></code> for details.</li>
+<li class="calibre9"><b class="calibre13">WG-28889</b> Added ability to set Bus configurations from the sound engine API.</li>
+<li class="calibre9"><b class="calibre13">WG-28967</b> Added the Wwise Perforce plug-in name and version, to be identified properly by the Perforce server log.</li>
+<li class="calibre9"><b class="calibre13">WG-28982</b> Added multichannel support on iOS and tvOS.</li>
+<li class="calibre9"><b class="calibre13">WG-29075</b> Added keyboard shortcuts for several workgroup operations. Added additional keyboard shortcuts for Edit in external editor.</li>
+<li class="calibre9"><b class="calibre13">WG-29134</b> Added <em class="calibre11">Reverb</em> check box to enable/disable reverb section of Auro Headphone.</li>
+<li class="calibre9"><b class="calibre13">WG-29143</b> Added support to Wwise for adapting channel configurations when plugging/unplugging an audio device.</li>
+<li class="calibre9"><b class="calibre13">WG-29199</b> Added support for ambisonics in the RoomVerb plug-in.</li>
+<li class="calibre9"><b class="calibre13">WG-29420</b> Added RTPC for 3D user-defined up-down positioning (Z axis).</li>
+<li class="calibre9"><b class="calibre13">WG-29506</b> Added option to enable Secondary Output plug-in selection in API.</li>
+<li class="calibre9"><b class="calibre13">WG-29532</b> Added top vector of game object position in Wwise 3D profiler.</li>
+<li class="calibre9"><b class="calibre13">WG-29544</b> Added support for 6.x, 11.x, and 13.x WAV files in the Wwise Wave Viewer.</li>
+<li class="calibre9"><b class="calibre13">WG-29608</b> Added multichannel support on Android.</li>
+<li class="calibre9"><b class="calibre13">WG-29845</b> Exposed <code class="calibre14">AkCallbackType::AK_EnableGetSourcePlayPosition</code> callback within the <code class="calibre14">AkEvent</code> component.</li>
+</ul>
+<p class="calibre7">Refer to <a class="pcalibre el" href="whatsnew_2016_1_new_features_split_000.html">New Features Overview 2016.1</a> for more details.</p>
+</div></div></div></body></html>

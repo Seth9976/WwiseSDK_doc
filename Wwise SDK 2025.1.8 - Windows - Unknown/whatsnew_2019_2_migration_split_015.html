@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2019.2</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_14"><a class="pcalibre1 anchor" id="migration_19_2_wwiseconsole_convertExamples"></a>
+WwiseConsole examples</h2>
+<p class="calibre7">Here are a few examples of the WwiseCLI syntax compared to the new WwiseConsole syntax.</p>
+<p class="calibre7">Generate SoundBanks for platforms Windows and Linux only. </p><pre class="calibre32">WwiseCLI C:\MyProject\MyProject.wproj -GenerateSoundBanks -Platform Windows -Platform Linux</pre> <pre class="calibre32">WwiseConsole generate-soundbank C:\MyProject\MyProject.wproj --platform Windows Linux</pre><p class="calibre7">Run a WAAPI server with verbose logging. </p><pre class="calibre32">WwiseCLI C:\MyProject\MyProject.wproj -Waapi -Verbose</pre> <pre class="calibre32">WwiseConsole waapi-server C:\MyProject\MyProject.wproj --verbose</pre><p class="calibre7">Create new project which supports platforms Windows and Linux. </p><pre class="calibre32">WwiseCLI C:\MyNewProject\MyNewProject -CreateNewProject -Platform Windows -Platform Linux</pre> <pre class="calibre32">WwiseConsole create-new-project C:\MyNewProject\MyNewProject.wproj --platform Windows Linux</pre> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

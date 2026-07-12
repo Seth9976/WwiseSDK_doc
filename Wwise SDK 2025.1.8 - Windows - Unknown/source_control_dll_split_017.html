@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Source Control Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_16"><a class="pcalibre1 anchor" id="source_control_dll_creation_object_icons"></a>
+Allowing Wwise to Refresh Project Explorer Icons</h2>
+<p class="calibre7">Wwise needs to refresh icons in the following situations:</p><ul class="calibre8">
+<li class="calibre9">The source control plug-in is loaded</li>
+<li class="calibre9">The user accepts the plug-in configuration</li>
+<li class="calibre9">The user refreshes the icons manually by clicking on the "Refresh" or "Refresh All" Project Explorer contextual menu item</li>
+<li class="calibre9">The File Manager dialog is closed.</li>
+</ul>
+<p class="calibre7">Using a pattern similar to that of the <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_ad9ed25401176139c3185a5980b6d44d4_split_000.html#ad9ed25401176139c3185a5980b6d44d4">AK::Wwise::ISourceControl::GetFileStatus()</a> method, AK::Wwise::ISourceControl::GetFileStatusIcons( const StringList&amp; in_rFilenameList, FilenameToIconMap&amp; out_rFileIconsMap ) must return a map containing icons and tool tip texts for files in the list. The first parameter is the list of names of the file for which Wwise needs to have icon maps. The second parameter is the resulting map containing the following components:</p><ul class="calibre8">
+<li class="calibre9">The icon to be displayed as an overlay on the work unit's original icon</li>
+<li class="calibre9">The tool tip text to be displayed when you move the mouse over the given icon.</li>
+</ul>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="warning.gif"/></td><td class="calibre17"><b class="calibre13">Warning:</b> The memory of the string members of <a class="pcalibre el" href="struct_a_k_1_1_wwise_1_1_i_source_control_1_1_filename_to_icon_map_item_split_000.html">AK::Wwise::ISourceControl::FilenameToIconMapItem</a> must be allocated using the SysAllocString function because Wwise is responsible for deleting this memory. Two strings must not share the same memory space because Wwise will try to destroy these two strings separately. </td></tr>
+</tbody></table>
+<p class="calibre7">The icons contained in the map can be any size, but they will be resized to a format of 15x15 pixels. Functions related to icons are only called if <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_1_1_plugin_info_a4564f014cd3d12853ef34612e237b5a7_split_000.html#a4564f014cd3d12853ef34612e237b5a7" title="Indicates that the plug-in supports Project Explorer custom icons.">AK::Wwise::ISourceControl::PluginInfo::m_bStatusIconAvailable</a> is set to True.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="tip.gif"/></td><td class="calibre17"><b class="calibre13">Tip:</b> A set of icons you can use is installed with this SDK. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

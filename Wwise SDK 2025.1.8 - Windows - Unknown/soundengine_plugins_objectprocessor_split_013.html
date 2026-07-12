@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Sound Engine Object Processor Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_12"><a class="pcalibre1 anchor" id="soundengine_plugins_objectprocessor_outofplace_setname"></a>
+Assigning a Name to an Audio Object</h2>
+<p class="calibre7">In the authoring tool's Audio Object Profiler, Audio Objects are given the name of the Wwise Objects from which they were instigated. Output objects of an out-of-place Object Processor are therefore all named with the name of the hosting bus. In order to make profiling easier, it is recommended to use <a class="pcalibre el" href="struct_ak_audio_object_a0254e6325540e0edec1c72a19a39d70d_split_000.html#a0254e6325540e0edec1c72a19a39d70d">AkAudioObject::SetName</a> in order to provide a name to output objects, when it makes sense to do so.</p>
+<p class="calibre7">For example, when creating objects in the <a class="pcalibre el" href="soundengine_plugins_objectprocessor_split_011.html#soundengine_plugins_objectprocessor_outofplace_panner">3D Panner</a> above, we could have named them like this:</p>
+<div class="fragment"><div class="line"><span class="comment">// FL</span></div>
+<div class="line">ppObjects[0]-&gt;<a class="pcalibre code" href="struct_ak_audio_object_a0254e6325540e0edec1c72a19a39d70d_split_000.html#a0254e6325540e0edec1c72a19a39d70d">SetName</a>(in_pAllocator, <span class="stringliteral">"FL"</span>);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">//...</span></div>
+</div><!-- fragment --></div></div></div></body></html>

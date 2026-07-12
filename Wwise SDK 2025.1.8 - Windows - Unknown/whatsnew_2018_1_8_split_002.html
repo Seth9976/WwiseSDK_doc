@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2018.1.8</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="bugs_2018_1_8"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-40466</b> Fixed: (Switch) Wwise Motion plug-in crash on device disconnection.</li>
+<li class="calibre9"><b class="calibre13">WG-40521</b> Fixed: Crash when disconnecting an ASIO device while an ASIO source is playing.</li>
+<li class="calibre9"><b class="calibre13">WG-41214</b> Fixed: Crash in the Transport Control when closing Wwise authoring.</li>
+<li class="calibre9"><b class="calibre13">WG-41796</b> Fixed: Opus incorrectly converts 1.1 channel source to stereo under certain conditions.</li>
+<li class="calibre9"><b class="calibre13">WG-42525</b> Fixed: (macOS) Audio loss when another application acquires Bluetooth audio input.</li>
+<li class="calibre9"><b class="calibre13">WG-42716</b> Fixed: Possible crash when playing a sample-accurate hierarchy containing containers with trigger-rate transitions.</li>
+<li class="calibre9"><b class="calibre13">WG-42807</b> Fixed: Advanced Profiler Voices Graph is unnecessarily wide.</li>
+<li class="calibre9"><b class="calibre13">WG-42813</b> Fixed: Crash when moving RTPC cursor in Transport or Soundcaster.</li>
+<li class="calibre9"><b class="calibre13">WG-42858</b> Fixed: In some Spatial Audio error messages, game objects IDs are truncated to 32 bits.</li>
+<li class="calibre9"><b class="calibre13">WG-42860</b> Fixed: Opus audio conversion temporary cached files accumulated over interrupted conversion sessions.</li>
+<li class="calibre9"><b class="calibre13">WG-42866</b> Fixed: SoundbanksInfo.xml erroneously reports a maximum Attenuation Distance on Events that contain both 2D and 3D attenuated sounds.</li>
+<li class="calibre9"><b class="calibre13">WG-42908</b> Fixed: Possible crash in release builds using 3D Automation with trigger rate Random Containers.</li>
+<li class="calibre9"><b class="calibre13">WG-43025</b> Fixed: <a class="pcalibre el" href="namespace_microsoft_split_000.html">Microsoft</a> Spatial Sound Platform output plug-in causes audio crackling if output device is not configured to be 48 kHz.</li>
+<li class="calibre9"><b class="calibre13">WG-43083</b> Fixed: For a continuous Blend Container where a sound was active in multiple zones of the same Blend Track, the sound was also considered active in between the zones.</li>
+<li class="calibre9"><b class="calibre13">WG-43146</b> Fixed: <a class="pcalibre el" href="namespace_microsoft_split_000.html">Microsoft</a> Spatial Sound Platform Output plugin caused audio crackling if audio thread was not pumped at a regular rate. <br class="calibre10"/>
+Fixed: Audio from <a class="pcalibre el" href="namespace_microsoft_split_000.html">Microsoft</a> Spatial Sound Platform Output plugin was not routed to the correct output device.</li>
+<li class="calibre9"><b class="calibre13">WG-43149</b> Fixed: Crash when connecting to a game during playback of a Random Container with trigger rate and 3D paths enabled.</li>
+<li class="calibre9"><b class="calibre13">WG-43155</b> Fixed: (Linux) DSP plug-ins registration issue.</li>
+<li class="calibre9"><b class="calibre13">WG-43230</b> Fixed: (PS4) Deadlock in the SCE Audio 3D Object Panner plug-in.</li>
+<li class="calibre9"><b class="calibre13">WG-43238</b> Fixed: Custom Attenuation loses its owner (Used By field in the Attenuation Editor).</li>
+<li class="calibre9"><b class="calibre13">WG-43271</b> Fixed: Division by zero in Crankcase REV causing an infinite loop.</li>
+<li class="calibre9"><b class="calibre13">WG-43350</b> Fixed: Rendered Effects are instanced in the sound engine when Wwise is connected.</li>
+<li class="calibre9"><b class="calibre13">WG-43412</b> Fixed: Effects were not rendered if there was a State Group controlling either the Bypass Effect x or Bypass All, or one of the Effect's properties.</li>
+<li class="calibre9"><b class="calibre13">WG-43440</b> Fixed: The "None" part of a Path in an Interactive Music Switch Container is incorrectly interpreted as a wildcard ("*"). <table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> Important note: SoundBanks must be re-generated to fix the issue. </td></tr>
+</tbody></table>
+</li>
+<li class="calibre9"><b class="calibre13">WG-43459</b> Fixed: Occasional crash when editing events that contain Post Event actions.</li>
+<li class="calibre9"><b class="calibre13">WG-43496</b> Fixed: Assert when adding or removing output devices.</li>
+<li class="calibre9"><b class="calibre13">WG-43550</b> Fixed: Some UI elements were not updating on changes of State Group assignment.</li>
+</ul>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="reference_platform_2018_1_8_split_000.html">Platform Requirements 2018.1.8</a> </li>
+</ul>
+</dd></dl>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

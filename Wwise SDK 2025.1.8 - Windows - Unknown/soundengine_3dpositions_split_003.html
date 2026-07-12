@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integration Details - 3D Positions</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_2"><a class="pcalibre1 anchor" id="soundengine_3dpositions_multiplepos"></a>
+Setting multiple positions for a single game object</h2>
+<p class="calibre7">Instead of using the <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a789e25bda32d1e11849afb6584942455_split_000.html#a789e25bda32d1e11849afb6584942455">AK::SoundEngine::SetPosition()</a></code> function, which only allows a single 3D position for each game object, you can use the <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_aec6be4dca0249557ea2680b755bd218a_split_000.html#aec6be4dca0249557ea2680b755bd218a">AK::SoundEngine::SetMultiplePositions()</a></code> function, which allows you to set multiple 3D positions for a single game object.</p>
+<div class="fragment"><div class="line"><a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_aec6be4dca0249557ea2680b755bd218a_split_000.html#aec6be4dca0249557ea2680b755bd218a">AK::SoundEngine::SetMultiplePositions</a>( </div>
+<div class="line">            <a class="pcalibre code" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> in_GameObjectID,             <span class="comment">///&lt; Game object identifier.</span></div>
+<div class="line"><span class="comment"></span>            <span class="keyword">const</span> AkSoundPosition * in_pPositions,      <span class="comment">///&lt; Array of positions to apply.</span></div>
+<div class="line"><span class="comment"></span>            <a class="pcalibre code" href="_ak_numeral_types_8h_a7100a9b0a3b01df7639c1dc512678219_split_000.html#a7100a9b0a3b01df7639c1dc512678219">AkUInt16</a> in_NumPositions,                   <span class="comment">///&lt; Number of positions specified in the provided array.</span></div>
+<div class="line"><span class="comment"></span>            <a class="pcalibre code" href="_ak_enums_8h_a751ba836dfd5edf52ceaab00cf74b6c1_split_000.html#a751ba836dfd5edf52ceaab00cf74b6c1">AkMultiPositionType</a> in_eMultiPositionType       <span class="comment">///&lt; \ref AkMultiPositionType</span></div>
+<div class="line"><span class="comment"></span>            );</div>
+<div class="line">);</div>
+</div><!-- fragment --><p class="calibre7">Select the <code class="calibre14">AkMultiPositionType</code> carefully. The option you choose depends on the situation and the type of effect you are trying to create.</p>
+<ul class="calibre8">
+<li class="calibre9">If you pass <code class="calibre14">AkMultiPositionType_MultiSources</code>, the different sound volumes are added, which simulates multiple objects emitting the same sound at the same time. This function can be useful in many different situations, and works well when you have many objects that emit the exact same sound. This function might, however, cause certain issues when the sounds are too close to each other. The problem being that by adding volumes, multiple sounds will be playing exactly in phase, which increases the chance of clipping.</li>
+<li class="calibre9">If you pass <code class="calibre14">AkMultiPositionType_MultiDirections</code>, the volume played in each speaker is the maximum in each direction. This function can be used to simulate a variety of different situations in game, including wall openings, area sounds, as well as multiple objects emitting the same sound at the same time. If, however, the game player expects the sound to grow louder when two or more objects emitting the sound are in close proximity, add the sounds with <code class="calibre14">AkMultiPositionType_MultiSources</code>.</li>
+<li class="calibre9">Do not use <code class="calibre14">AkMultiPositionType_SingleSource</code> with <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_aec6be4dca0249557ea2680b755bd218a_split_000.html#aec6be4dca0249557ea2680b755bd218a">SetMultiplePositions()</a></code> because it only takes the first listed position into account.</li>
+<li class="calibre9">Due to technical limitations, sounds that have diffraction enabled are always treated as <code class="calibre14">MultiPositionType_MultiDirections</code>.</li>
+</ul>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="soundengine_3dpositions_multiplepos_obsocc"></a>
+Using obstruction and occlusion with multiple sound positions</h3>
+<p class="calibre7">The <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a1b3e18a25b405e55ba82de9b70cd11ba_split_000.html#a1b3e18a25b405e55ba82de9b70cd11ba">AK::SoundEngine::SetObjectObstructionAndOcclusion</a></code> API applies a single obstruction and occlusion value to all sound positions. If instead you use <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ab0216f0dc33bef431d5d92f519e5be58_split_000.html#ab0216f0dc33bef431d5d92f519e5be58">AK::SoundEngine::SetMultipleObstructionAndOcclusion</a></code>, unique obstruction and occlusion values are assigned to each sound position. For more information, refer to <a class="pcalibre el" href="soundengine_obsocc_split_000.html">Obstruction and Occlusion with Game-defined Auxiliary Sends</a>.</p>
+</div></div></div></body></html>

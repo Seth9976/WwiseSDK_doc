@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2019.1.4</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="bugs_2019_1_4"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-41040</b> Fixed: Possible crash when deleting a RTPC that is pinned in the Game Sync Monitor.</li>
+<li class="calibre9"><b class="calibre13">WG-44006</b> Fixed: .cache sharing issue when running multiple concurrent instances of WwiseCLI.</li>
+<li class="calibre9"><b class="calibre13">WG-44193</b> Fixed: Crash in Batch Rename view when sorting via the Value column header.</li>
+<li class="calibre9"><b class="calibre13">WG-44476</b> Fixed: Sounds with 3D Spatialization set to None fade out when using <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a3e3e9e5335df01fca37f9b3ed518e2bd_split_000.html#a3e3e9e5335df01fca37f9b3ed518e2bd">AK::SoundEngine::SetListenerSpatialization</a>.</li>
+<li class="calibre9"><b class="calibre13">WG-44498</b> Fixed: Potential crash when closing a project.</li>
+<li class="calibre9"><b class="calibre13">WG-44509</b> Fixed: Rare Authoring crash when playing Interactive Music segments in Transport Control.</li>
+<li class="calibre9"><b class="calibre13">WG-44647</b> Fixed: Possible crash when a sound finishes during a sample-accurate transition and multi-core rendering is enabled.</li>
+<li class="calibre9"><b class="calibre13">WG-44698</b> Fixed: Possible crash when using blend containers in continuous mode to play continuous trigger rate containers.</li>
+<li class="calibre9"><b class="calibre13">WG-44784</b> Fixed: Various issues after re-ordering effects in the Effects tab of the Property Editor.</li>
+<li class="calibre9"><b class="calibre13">WG-44798</b> Fixed: Volume spike when a voice becomes physical for the first time after starting virtual.</li>
+<li class="calibre9"><b class="calibre13">WG-44811</b> Fixed: (Spatial Audio) If a portal connects two rooms that are not perfectly flush, then it is possible to have a gap or inconsistency in the sound, because the object gets momentarily assigned to the wrong room.</li>
+<li class="calibre9"><b class="calibre13">WG-44834</b> Fixed: Crackling or garbled audio after calling RemoveOutput on the primary output device that is generated during Sound Engine initialization, and then calling AddOutput to create a new output device.</li>
+<li class="calibre9"><b class="calibre13">WG-44913</b> Fixed: (Spatial Audio) CPU spike when calling SetRoom/SetPortal, and there is no geometry in the scene to processes.</li>
+<li class="calibre9"><b class="calibre13">WG-44918</b> Fixed: (WAAPI) Accessor for property UserAuxSends does not return the correct value when using the parent overrides.</li>
+<li class="calibre9"><b class="calibre13">WG-44938</b> Fixed: FilePackager generates invalid file packages for Lumin and Stadia.</li>
+<li class="calibre9"><b class="calibre13">WG-44947</b> Fixed: WAV file marker text may be incorrectly displayed as base64.</li>
+<li class="calibre9"><b class="calibre13">WG-45046</b> Fixed: (Android) Audio stuttering on Huawei phones running on the Kirin 980 chipset.</li>
+</ul>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="reference_platform_2019_1_4_split_000.html">Platform Requirements 2019.1.4</a> </li>
+</ul>
+</dd></dl>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

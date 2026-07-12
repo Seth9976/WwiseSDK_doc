@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2025.1.2 Beta 3</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_5"><a class="pcalibre1 anchor" id="generic_bugs_2025_1_2"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-45038</b> Fixed: selection sphere can be smaller than icons.</li>
+<li class="calibre9"><b class="calibre13">WG-77920</b> Fixed: (Acoustics) Toggling between rays and paths in the Game Object 3D Viewer causes paths to flicker.</li>
+<li class="calibre9"><b class="calibre13">WG-78529</b> Fixed: crash when repeatedly loading sound banks with an unsupported version.</li>
+<li class="calibre9"><b class="calibre13">WG-78614</b> Fixed: (Acoustics) Short sounds played with TriggerRate occasionally update with incorrect Spatial Audio properties.</li>
+<li class="calibre9"><b class="calibre13">WG-78920</b> Fixed : CamelCase words were not properly indexed for search in the media pool.</li>
+<li class="calibre9"><b class="calibre13">WG-78977</b> Fixed: (WAAPI) When creating Events in Project Explorer, the order of the notifications for the nameChanged and childAdded topics is not consistent across the different user interface actions.</li>
+<li class="calibre9"><b class="calibre13">WG-79023</b> Fixed: Some captions have inconsistent tooltip text.</li>
+<li class="calibre9"><b class="calibre13">WG-79072</b> Selection properties of a virtual position in the Game Object 3D Viewer should include the properties of their corresponding path.</li>
+<li class="calibre9"><b class="calibre13">WG-79169</b> Fixed: (Acoustics) Room transmission loss doesn't interpolate correctly through a portal when leaving a hierarchy.</li>
+<li class="calibre9"><b class="calibre13">WG-79232</b> Fixed: When using Auto-play and Loop in the Media Pool, multiple regions can play simultaneously.</li>
+<li class="calibre9"><b class="calibre13">WG-79244</b> Fixed: (Acoustics) Rays cast from the listener are continuously added and then removed around some edges. This can cause unnecessary path updates.</li>
+<li class="calibre9"><b class="calibre13">WG-79306</b> Fixed: 3D Game Object List eye icon state doesn't persist across connection/disconnections.</li>
+<li class="calibre9"><b class="calibre13">WG-79320</b> Fixed: The Game Object Name column in the Capture Log can be incorrect for some game objects.</li>
+<li class="calibre9"><b class="calibre13">WG-79363</b> Fixed: The selection properties of all positions of a multi-position emitter are not the same</li>
+<li class="calibre9"><b class="calibre13">WG-79392</b> Fixed: Contextual help is not available on the Sidechain Send and Sidechain Receive plug-ins.</li>
+<li class="calibre9"><b class="calibre13">WG-79393</b> Fix: Sidechain Mixed can't be linked/unlinked</li>
+<li class="calibre9"><b class="calibre13">WG-79493</b> Fixed: 3D Game Object List row height is lower than eye button height.</li>
+<li class="calibre9"><b class="calibre13">WG-79495</b> Fixed: 3D Viewer Tool bar display options reads "Text" instead of "Labels".</li>
+<li class="calibre9"><b class="calibre13">WG-79505</b> Fixed: Windows can automatically turn on efficiency mode for Wwise Authoring application and tools.</li>
+<li class="calibre9"><b class="calibre13">WG-79507</b> Fixed: Dangling Room ID on reflection selection info structure.</li>
+<li class="calibre9"><b class="calibre13">WG-79508</b> Fixed: In the Game Object 3D Viewer, clicking on the Display Options button toggles a blue color regardless of the outcome. Fixed: Game Object 3D Viewer Follow button doesn't have a keyboard shortcut.</li>
+<li class="calibre9"><b class="calibre13">WG-79525</b> Fixed: Some Spatial Audio properties are missing from the Selection Properties pane.</li>
+<li class="calibre9"><b class="calibre13">WG-79526</b> Fixed: Incorrect and missing Reflection Path data in the 3D Selection Property pane.</li>
+<li class="calibre9"><b class="calibre13">WG-79528</b> Fixed: 3D Toolbar tooltips are not identical to drop-down list tooltips.</li>
+<li class="calibre9"><b class="calibre13">WG-79530</b> Fixed: (Acoustics) Diffraction node properties in the Game Object 3D Viewer show incorrect room information.</li>
+<li class="calibre9"><b class="calibre13">WG-79537</b> Fixed : Media Pool files with the same filename in the same database would not all appear in searhc results.</li>
+<li class="calibre9"><b class="calibre13">WG-79547</b> Fixed: Results don't update when adding new databases from folders in the Media Pool.</li>
+<li class="calibre9"><b class="calibre13">WG-79586</b> Fixed: Infinite loop on SoundEngine <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_comm_a94e307d2974b89cc4fbc8ab0fef20d2f_split_000.html#a94e307d2974b89cc4fbc8ab0fef20d2f">Term()</a></code> in low-memory conditions.</li>
+<li class="calibre9"><b class="calibre13">WG-79589</b> Fixed: Columns of the Game 3D Viewer Selection Pane cannot be resized.</li>
+<li class="calibre9"><b class="calibre13">WG-79590</b> Fixed: 3D Game Object List has wrong default columns and size.</li>
+<li class="calibre9"><b class="calibre13">WG-79601</b> Fix: crash when live-editing a source</li>
+<li class="calibre9"><b class="calibre13">WG-79639</b> Fixed: Results are slow when using Include/Exclude options on Media Pool databases and folders.</li>
+<li class="calibre9"><b class="calibre13">WG-79725</b> Fixed: Terminating the sound engine after loading a soundbank containing a Sidechain Mix shareset, but without manually unloading the soundbank, results in a crash.</li>
+<li class="calibre9"><b class="calibre13">WG-79755</b> Fixed: SoundBanks do not follow the Wwise Authoring's Hierarchy in the Wwise Browser.</li>
+<li class="calibre9"><b class="calibre13">WG-79782</b> Fixed: AVX instructions would be called from non-AVX section of code when running an unoptimized executable with the Debug AkSoundEngine libraries.</li>
+<li class="calibre9"><b class="calibre13">WG-79821</b> Fixed: In Project Explorer, the name of an object could be cut when it was renamed in another layout.</li>
+</ul>
+</div></div></div></body></html>

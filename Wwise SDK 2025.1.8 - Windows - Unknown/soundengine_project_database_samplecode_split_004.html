@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Wwise Project Database Sample</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="wwiseprojectdatabase_accessing"></a>
+Accessing Information: WwiseProjectDatabase and WwiseDataStructure</h1>
+<p class="calibre7">The WwiseProjectDatabase handles queries through its access methods from the API.</p>
+<p class="calibre7">Inside the Data structure, there are two structures:</p>
+<ul class="calibre8">
+<li class="calibre9">The <b class="calibre13">Root structure</b> contains basic information for each platform for a project’s structure:<ul class="calibre15">
+<li class="calibre9">The Platform list, which includes all available platforms for a project, even if they aren’t loaded.</li>
+<li class="calibre9">The Language list.</li>
+</ul>
+</li>
+<li class="calibre9">The <b class="calibre13">Platforms structure map</b> contains all of the project’s information for each platform.</li>
+</ul>
+<p class="calibre7">The Data structure’s structs contain:</p><ul class="calibre8">
+<li class="calibre9">A list of all loaded file names in the <code class="calibre14">GeneratedPlatformFiles</code> property.</li>
+<li class="calibre9">One unique copy of each parsed JSON file in the <code class="calibre14">JsonFiles</code> property.</li>
+<li class="calibre9">Refs for each accessible piece of data.</li>
+</ul>
+<p class="calibre7">In addition, the Data structure allows templated access through functions such as <code class="calibre14">GetRef</code>.</p>
+<p class="calibre7">The following code samples demonstrate how to determine whether a SoundBank is an Auto-Defined SoundBank:</p>
+<div class="fragment"><div class="line"><span class="keywordtype">bool</span> IsAutoDefinedSoundBank(<span class="keyword">const</span> <span class="keywordtype">char</span>* InSoundBankName)</div>
+<div class="line">{</div>
+<div class="line">    <span class="comment">//Init is usually only called once at the start of the application. It is here to show that it needs to be called for the Project Database to parse the SoundBanks.</span></div>
+<div class="line">    <a class="pcalibre code" href="namespace_a_k_1_1_comm_a596691b552b507c26b4df958ee1c6de8_split_000.html#a596691b552b507c26b4df958ee1c6de8">Init</a>(<span class="stringliteral">"Path/To/GeneratedSoundBank"</span>, <span class="stringliteral">"Windows"</span>);</div>
+<div class="line">    <span class="keyword">auto</span> SoundBankRef = GetSoundBankRefString(<span class="keyword">const</span> <span class="keywordtype">char</span>* InString);</div>
+<div class="line">    <span class="keywordflow">if</span>(SoundBankRef)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordtype">bool</span> bIsUserDefined = IsUserBank(SoundBankRef);</div>
+<div class="line">        DeleteSoundBankRef(SoundBankRef);</div>
+<div class="line">        <span class="comment">//If the SoundBank is not a User-Defined SoundBank, then it is an Auto-Defined SoundBank</span></div>
+<div class="line">        <span class="keywordflow">return</span> !bIsUserDefined;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">};</div>
+</div><!-- fragment --></div></div></div></body></html>

@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Migrating a pre-2021.1 Authoring Plug-in</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_6"><a class="pcalibre1 anchor" id="plugin_21_1_migration_porting_backend_frontend"></a>
+Implementing a Frontend</h2>
+<p class="calibre7">Implementing <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_a989b8417cedde33d928b90171491fcc5_split_000.html#a989b8417cedde33d928b90171491fcc5" title="Latest version of the C++ AudioPlugin interface.">AK::Wwise::Plugin::AudioPlugin</a></code> provides the minimum implementation for SoundBank generation. However, providing only this part of the plug-in means there is no custom GUI to display, and so the Authoring application will generate one that looks similar to the Multi-Editor view.</p>
+<p class="calibre7">As previously hinted, the <code class="calibre14">AudioPlugin</code> class represents the backend of the Authoring plug-in: it can be used in a command-line context (without a GUI) and implements any custom data or state management. To display a custom GUI, a new class needs to be created that will be attached to the same plug-in identifier. This class will be instantiated separately from the backend class.</p>
+<p class="calibre7">The frontend class is implemented by subclassing a frontend interface. Due to the nature of GUIs, these are permitted to be platform specific. Hence, the <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_a5d74c88aa83c4e608fb75d1ac5555c9b_split_000.html#a5d74c88aa83c4e608fb75d1ac5555c9b" title="Latest version of the C++ GUIWindows interface.">AK::Wwise::Plugin::GUIWindows</a></code> interface, to which the original frontend-related methods were moved, can be subclass for providing a custom plug-in GUI on Windows.</p>
+<div class="fragment"><div class="line"><span class="keyword">class </span>MyFrontend : <span class="keyword">public</span> <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_g_u_i_windows_split_000.html">AK::Wwise::Plugin::GUIWindows</a></div>
+<div class="line">{</div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line">  <span class="keywordtype">bool</span> <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_g_u_i_windows_a21b81136769b185c244ada93e6767f14_split_000.html#a21b81136769b185c244ada93e6767f14">GetDialog</a>(</div>
+<div class="line">    <a class="pcalibre code" href="namespace_a_k_1_1_wwise_1_1_plugin_a5a9328b141630d1de228c92e81e9034d_split_000.html#a5a9328b141630d1de228c92e81e9034d">AK::Wwise::Plugin::eDialog</a> in_eDialog,</div>
+<div class="line">    uint32_t&amp; out_uiDialogID,</div>
+<div class="line">    <a class="pcalibre code" href="struct_a_k_1_1_wwise_1_1_plugin_1_1_populate_table_item_split_000.html">AK::Wwise::Plugin::PopulateTableItem</a>*&amp; out_pTable</div>
+<div class="line">  ) <span class="keyword">const</span>;</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordtype">bool</span> <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_g_u_i_windows_a8ea33835cc026463f2f64b4327f89b17_split_000.html#a8ea33835cc026463f2f64b4327f89b17">WindowProc</a>(</div>
+<div class="line">    <a class="pcalibre code" href="namespace_a_k_1_1_wwise_1_1_plugin_a5a9328b141630d1de228c92e81e9034d_split_000.html#a5a9328b141630d1de228c92e81e9034d">AK::Wwise::Plugin::eDialog</a> in_eDialog,</div>
+<div class="line">    HWND in_hWnd,</div>
+<div class="line">    uint32_t in_message,</div>
+<div class="line">    WPARAM in_wParam,</div>
+<div class="line">    LPARAM in_lParam,</div>
+<div class="line">    LRESULT&amp; out_lResult</div>
+<div class="line">  );</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordtype">bool</span> <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_g_u_i_windows_a4923a0688cfc1bca88fcd33196c897a7_split_000.html#a4923a0688cfc1bca88fcd33196c897a7">Help</a>(</div>
+<div class="line">    HWND in_hWnd,</div>
+<div class="line">    <a class="pcalibre code" href="namespace_a_k_1_1_wwise_1_1_plugin_a5a9328b141630d1de228c92e81e9034d_split_000.html#a5a9328b141630d1de228c92e81e9034d">AK::Wwise::Plugin::eDialog</a> in_eDialog,</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">char</span>* in_szLanguageCode</div>
+<div class="line">  );</div>
+<div class="line">};</div>
+</div><!-- fragment --><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> If you intend to use MFC, you should also subclass <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_plugin_m_f_c_windows_split_000.html" title="Initializes MFC for this plug-in.">AK::Wwise::Plugin::PluginMFCWindows</a></code> first. This will handle the initialization of a global <code class="calibre14">CWinApp</code> for your library. </td></tr>
+</tbody></table>
+<p class="calibre7">Notice that copies of <code class="calibre14">eDialog</code> and <code class="calibre14">PopulateTableItem</code> have been added to the <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_split_000.html">AK::Wwise::Plugin</a></code> namespace. In the case of <code class="calibre14">PopulateTableItem</code>, the related macros have also been updated to reflect their relation to the frontend interface:</p>
+<ul class="calibre8">
+<li class="calibre9"><code class="calibre14">AK_BEGIN_POPULATE_TABLE()</code> -&gt; <code class="calibre14"><a class="pcalibre el" href="_g_u_i_windows_8h_ace7e697c1d8a310c9794cf05ce8ce1d8_split_000.html#ace7e697c1d8a310c9794cf05ce8ce1d8" title="Starts a new property-control bindings table.">AK_WWISE_PLUGIN_GUI_WINDOWS_BEGIN_POPULATE_TABLE()</a></code> </li>
+<li class="calibre9"><code class="calibre14">AK_POP_ITEM()</code> -&gt; <code class="calibre14"><a class="pcalibre el" href="_g_u_i_windows_8h_af6140142c9fe6ff132aee5ad0fde1caf_split_000.html#af6140142c9fe6ff132aee5ad0fde1caf" title="Declares an association between a control and a property within a property-control bindings table.">AK_WWISE_PLUGIN_GUI_WINDOWS_POP_ITEM()</a></code> </li>
+<li class="calibre9"><code class="calibre14">AK_END_POPULATE_TABLE()</code> -&gt; <a class="pcalibre el" href="_g_u_i_windows_8h_a286a575e82a4a1b002ff737b186d4c76_split_000.html#a286a575e82a4a1b002ff737b186d4c76" title="Ends the declaration of a property-control bindings table.">AK_WWISE_PLUGIN_GUI_WINDOWS_END_POPULATE_TABLE()</a></li>
+</ul>
+<p class="calibre7">See <a class="pcalibre el" href="wwiseplugin_dialog_guide_split_007.html#wwiseplugin_dialog_guide_poptable">How to Bind Regular Controls to Properties</a> for more details.</p>
+<p class="calibre7">In a frontend class, you must <em class="calibre11">not</em> subclass <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_a989b8417cedde33d928b90171491fcc5_split_000.html#a989b8417cedde33d928b90171491fcc5" title="Latest version of the C++ AudioPlugin interface.">AK::Wwise::Plugin::AudioPlugin</a></code> or implement any backend related logic, such as property value adjustments or operations affecting the result of a SoundBank generation. The frontend should be solely responsible for displaying properties and monitoring data in a user-friendly way, and update the plug-in model based on user input.</p>
+<p class="calibre7">If the backend does not need to make any adjustments to values supplied by the user, the frontend can simply request the <code class="calibre14">PropertySet</code> component by subclassing <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_a5eb9b772d01c414e7c77b44ef66e661f_split_000.html#a5eb9b772d01c414e7c77b44ef66e661f" title="Latest version of the requested C++ PropertySet interface.">AK::Wwise::Plugin::RequestPropertySet</a></code>. However, if the backend does any value adjustments on properties, for example to implement dynamic property ranges, this should be implemented in the backend.</p>
+<p class="calibre7">If the backend offers some implementations that the frontend requires, it can request the<code class="calibre14">LinkBackend</code> service by subclassing <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_a4d4fbbc7cf09da60c669ce79799feba7_split_000.html#a4d4fbbc7cf09da60c669ce79799feba7" title="Latest version of the requested C++ LinkBackend interface.">AK::Wwise::Plugin::RequestLinkBackend</a></code>. It will provide the frontend class with a <code class="calibre14">m_backend</code> instance representing the backend instance to which it is bound.</p>
+<p class="calibre7">The reverse is also possible, where a backend class can request <code class="calibre14">LinkFrontend</code> by subclassing <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_ae784aa1d2e816b127f160a83410ffed8_split_000.html#ae784aa1d2e816b127f160a83410ffed8" title="Latest version of the requested C++ LinkFrontend interface.">AK::Wwise::Plugin::RequestLinkFrontend</a></code>. One big difference for <code class="calibre14">LinkFrontend</code> is that there can be multiple frontends for one backend: the <code class="calibre14">m_frontend</code> instance inherited therefore represents an array of frontends. The size of the array can be obtained by the <code class="calibre14">GetArray</code> method and a <code class="calibre14">ForEach</code> function is offered for convenience.</p>
+</div></div></div></body></html>

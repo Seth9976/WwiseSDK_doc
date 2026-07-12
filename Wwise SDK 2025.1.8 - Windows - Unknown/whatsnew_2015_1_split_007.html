@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2015.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_6"><a class="pcalibre1 anchor" id="bugs_2015_1"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-13972</b> Fixed: Many error messages in the Wwise capture log do not point to a Wwise project object.</li>
+<li class="calibre9"><b class="calibre13">WG-18166</b> Fixed: Meters on Actor-Mixer objects do not use the game object associated with the playing instance.</li>
+<li class="calibre9"><b class="calibre13">WG-19373</b> Fixed: Users are only able to connect to the first instance when two sound engine instances are running on the same machine.</li>
+<li class="calibre9"><b class="calibre13">WG-24301</b> Fixed: REV crash when renaming Wwise.exe.</li>
+<li class="calibre9"><b class="calibre13">WG-26154</b> Fixed: Motion is incompatible with Flanger effect.</li>
+<li class="calibre9"><b class="calibre13">WG-26190</b> Fixed: Transition error in Music Playlist when set to "Same As Previous Segment".</li>
+<li class="calibre9"><b class="calibre13">WG-26196</b> Fixed: Game Object Explorer's copy to clipboard in Watch List copies wrong info.</li>
+<li class="calibre9"><b class="calibre13">WG-26214</b> Users now get "Add to Source Control" option when importing impulse response (file already in originals folder).</li>
+<li class="calibre9"><b class="calibre13">WG-26232</b> Fixed: iZotope Hybrid Reverb's help button does not open PDF.</li>
+<li class="calibre9"><b class="calibre13">WG-26261</b> Fixed: Music Transition source/destination reference not properly updated when moving a container.</li>
+<li class="calibre9"><b class="calibre13">WG-26311</b> Fixed: WSound::GetDefaultValue overload is potentially dangerous.</li>
+<li class="calibre9"><b class="calibre13">WG-26323</b> Fixed: No Music Sequence Container keyboard shortcut.</li>
+<li class="calibre9"><b class="calibre13">WG-26427</b> Fixed: Preset does not load references to busses.</li>
+<li class="calibre9"><b class="calibre13">WG-26431</b> Project Zipper now presents separate options for ZIP file inclusions: media info file, WAV files and *MID files.</li>
+<li class="calibre9"><b class="calibre13">WG-26525</b> Fixed: Wwise project does not become dirty when a default work unit is added on project open.</li>
+<li class="calibre9"><b class="calibre13">WG-26547</b> Fixed: Bogus error when generating external sources from command line for all platforms.</li>
+<li class="calibre9"><b class="calibre13">WG-26580</b> Fixed: ASSERT when you multi-edit a Motion Bus.</li>
+<li class="calibre9"><b class="calibre13">WG-26609</b> Fixed: Effect Editor undo change effect not working after relink in a specific scenario.</li>
+<li class="calibre9"><b class="calibre13">WG-26647</b> Fixed: Japanese SDK documentation missing in the Mac and iOS distributions.</li>
+<li class="calibre9"><b class="calibre13">WG-26660</b> Fixed: ShortID conflicts caused by Japanese characters.</li>
+<li class="calibre9"><b class="calibre13">WG-26795</b> Fixed: Cube Demo bug.</li>
+<li class="calibre9"><b class="calibre13">WG-26802</b> Fixed: Unlinked effects applied when they should not.</li>
+<li class="calibre9"><b class="calibre13">WG-26861</b> Fixed: Assert when converting a 96 kHz file to 300 Hz or 500 Hz.</li>
+<li class="calibre9"><b class="calibre13">WG-26876</b> Fixed: Wwise crash on exit or closing project when project is located on a mapped network drive.</li>
+<li class="calibre9"><b class="calibre13">WG-26915</b> Fixed: Level 3 XMA conversion plug-in for Xbox One is in the wrong MSI.</li>
+<li class="calibre9"><b class="calibre13">WG-26954</b> Fixed: Filters phase opposition between versions (64/32 bits and Profile/Release).</li>
+<li class="calibre9"><b class="calibre13">WG-27023</b> Fixed: Inaccurate default volume thresholds for auto sampling rate.</li>
+<li class="calibre9"><b class="calibre13">WG-27106</b> Can now use /ZI compiler flag on Xbox 360 to allow various permutations of sound engine configuration and run-time library.</li>
+<li class="calibre9"><b class="calibre13">WG-27229</b> Fixed: Inconsistent behavior on priority handling.</li>
+<li class="calibre9"><b class="calibre13">WG-27230</b> Fixed: Property Editor - All Properties tab is empty when created.</li>
+<li class="calibre9"><b class="calibre13">WG-27231</b> Fixed: Property Editor - Wrong hit detection of check boxes in the "All Properties" tab.</li>
+<li class="calibre9"><b class="calibre13">WG-27234</b> Fixed: iZotope Trash documentation does not open.</li>
+<li class="calibre9"><b class="calibre13">WG-27449</b> Fixed: (Mac) Channel configuration not switching to 5.1/7.1 when changing Audio MIDI Preferences.</li>
+<li class="calibre9"><b class="calibre13">WG-27593</b> Fixed: WwiseCLI does not accept project path containing front slashes.</li>
+<li class="calibre9"><b class="calibre13">WG-27626</b> Fixed: RTPC on HPF erroneously changes HDR active range.</li>
+<li class="calibre9"><b class="calibre13">WG-27655</b> Fixed: (Mac) Surround and Back channels are coming out from the wrong speakers.</li>
+<li class="calibre9"><b class="calibre13">WG-27669</b> Fixed: Crankcase REV crash in REV.exe when analyzing mono partial files.</li>
+<li class="calibre9"><b class="calibre13">WG-27702</b> Fixed: (iOS) Crash when locking device during IntegrationDemo initialization.</li>
+<li class="calibre9"><b class="calibre13">WG-27743</b> Fixed: (iOS) All audio interrupts briefly when suspending/resuming application while playing music.</li>
+<li class="calibre9"><b class="calibre13">WG-28058</b> Fixed: (iOS) Errors displayed in Xcode when other user ends/reject FaceTime Call without initializing call.</li>
+<li class="calibre9"><b class="calibre13">WG-28060</b> Fixed: (iOS) Xcode displays Ak Error when ending a FaceTime call after accepting it.</li>
+</ul>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="whatsnew_2015_1_new_features_split_000.html">New Features Overview 2015.1</a> 
+</li>
+<li class="calibre9"><a class="pcalibre el" href="whatsnew_2015_1_migration.html">Important Migration Notes 2015.1</a> <br class="calibre10"/>
+ </li>
+</ul>
+</dd></dl>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

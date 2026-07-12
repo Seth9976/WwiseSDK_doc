@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK.Wwise::Plugin::V1::LinkBackend::As</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_link_backend_a20ab757948a2d67eaea35ec525a5a3dd_split_000.html#a20ab757948a2d67eaea35ec525a5a3dd" class="pcalibre1 anchor">◆ </a></span>As()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Backend &gt; </div>
+<table class="calibre3">
+  <tbody class="calibre4"><tr class="calibre16">
+  <td class="calibre17">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">Backend* AK.Wwise::Plugin::V1::LinkBackend::As </td>
+          <td class="calibre17">(</td>
+          <td class="paramname"/><td class="calibre17">)</td>
+          <td class="calibre17"/>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="calibre17">
+<span><span>inline</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+
+<p class="calibre7">Retrieves a link to the plug-in's backend instance, casted as your C++ Backend class type. </p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> The returned pointer might be modified in the frontend lifetime. For example, a plug-in that would undo and redo a plug-in creation might return a different value. As such, you should not store the backend pointer in a class member, but query it at every operation. </td></tr>
+</tbody></table>
+<dl class="calibre7"><dt class="calibre23">Template Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">Backend</td><td class="calibre17">Expected type of the backend instance. An unexpected type yields to an undefined result. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">Pointer of the backend class instance. </dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_plugin_links_8h_source.html#l00187">187</a> of file <a class="pcalibre el" href="_plugin_links_8h_source.html">PluginLinks.h</a>.</p>
+
+<p class="calibre7">References <a class="pcalibre el" href="_plugin_links_8h_source.html#l00171">AK.Wwise::Plugin::V1::LinkBackend::Get()</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

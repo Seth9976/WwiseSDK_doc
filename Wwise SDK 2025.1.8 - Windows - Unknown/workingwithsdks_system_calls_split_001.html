@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Handling System-Specific Events</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="system_calls_background"></a>
+Application in Background/Foreground</h1>
+<p class="calibre7">In general, all game systems can put the application in the background for a time. Wwise can have three possible behaviors, depending on your preferences or the platform's requirements:</p><ul class="calibre8">
+<li class="calibre9">Suspend all audio rendering: Call <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_afc66d31bf5c6425d841ca3510e2d0539_split_000.html#afc66d31bf5c6425d841ca3510e2d0539">AK::SoundEngine::Suspend(false)</a> to do so.</li>
+<li class="calibre9">Partially suspend (keep processing events, but don't render audio): Call <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_afc66d31bf5c6425d841ca3510e2d0539_split_000.html#afc66d31bf5c6425d841ca3510e2d0539">AK::SoundEngine::Suspend(true)</a>. This is useful if your game still runs and sends calls to the sound engine.</li>
+<li class="calibre9">Continue to play audio: There's nothing to do.</li>
+</ul>
+<p class="calibre7">In general, when the application is put in the background and <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_afc66d31bf5c6425d841ca3510e2d0539_split_000.html#afc66d31bf5c6425d841ca3510e2d0539">Suspend(false)</a> is used, the game should not call any of the sound engine APIs. Posting events and such would work, but would accumulate and be played all at the same time when the system would be awoken. To resume the audio processing, call <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a9244da1d4d0deedcabdaaae863fcff47_split_000.html#a9244da1d4d0deedcabdaaae863fcff47">AK::SoundEngine::WakeupFromSuspend()</a> followed by a call to <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_afe54af0f5be38be061e8a3c7d7642bb1_split_000.html#afe54af0f5be38be061e8a3c7d7642bb1">RenderAudio()</a> when receiving the proper notification from the system. You may queue up other events before calling <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_afe54af0f5be38be061e8a3c7d7642bb1_split_000.html#afe54af0f5be38be061e8a3c7d7642bb1">RenderAudio()</a>.</p>
+<p class="calibre7">You should read about each platform's requirements in the manufacturer's documentation to choose the right behavior. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Using the Geometry API for Simulating Early Reflections</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="spatial_audio_wwiseprojectsetup"></a>
+Wwise project setup</h1>
+<p class="calibre7">For each sound that should support dynamic early reflections, make sure an early reflections bus is assigned under the General Settings tab in the Wwise Authoring Tool to indicate the Auxiliary Bus that hosts the desired <a href="https://www.audiokinetic.com/library/edge/?source=Help&amp;id=wwise_reflect_plug_in_effect" target="_blank" class="pcalibre calibre12">Reflect</a> plug-in. Acoustics will establish a special aux send connection to this bus. You may also set a send volume.</p>
+<div class="calibre2">
+<img alt="" src="early_reflection_send.png" class="inline"/>
+</div>
+<p class="calibre7">Typically for environmental reverbs, the Auxiliary Bus is created on the listener game object allowing multiple emitters to share the same bus and effect instance. While still true for rooms used for late reverb by Acoustics, this is not the case for early reflections, because each emitter has its own set of reflections that depend on the unique position of the emitter. Instead, the ER bus instance is created on the emitter game object, and different emitters will send to different instances of the Auxiliary Bus. This is illustrated in the image of the Voices Graph in the <a class="pcalibre el" href="spatial_audio_apigeometry_er_split_006.html#spatial_audio_wwiseprojectsetup_ertolr">Early reflections sending to late reverberation</a> section below.</p>
+<p class="calibre7">You need to understand the following aspects of the bus structure design for handling dynamic environmental effects in your Wwise project effectively.</p>
+</div></div></div></body></html>

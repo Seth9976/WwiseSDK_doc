@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::SoundEngine::LoadBank</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="namespace_a_k_1_1_sound_engine_a496b9917fe035f301bcff0accd61f80f_split_000.html#a496b9917fe035f301bcff0accd61f80f" class="pcalibre1 anchor">◆ </a></span>LoadBank() <span class="permalink">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_sound_engine_export_8h_ac6e96d34dfc0e12f9aaa7a47f4e9c322_split_000.html#ac6e96d34dfc0e12f9aaa7a47f4e9c322">AKSOUNDENGINE_API</a> <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::SoundEngine::LoadBank </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_a472a3d18cbb0c4f081b3b619e4a2f349_split_000.html#a472a3d18cbb0c4f081b3b619e4a2f349">AkBankID</a> </td>
+          <td class="paramname"><em class="calibre59">in_bankID</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_callback_types_8h_a5f4438e001923453a9f795eb64946be6_split_000.html#a5f4438e001923453a9f795eb64946be6">AkBankCallbackFunc</a> </td>
+          <td class="paramname"><em class="calibre59">in_pfnBankCallback</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">void * </td>
+          <td class="paramname"><em class="calibre59">in_pCookie</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_a365fb591a961a6db1e5eb9a1a18dc555_split_000.html#a365fb591a961a6db1e5eb9a1a18dc555">AkBankType</a> </td>
+          <td class="paramname"><em class="calibre59">in_bankType</em> = <code class="calibre14"><a class="pcalibre el" href="_ak_enums_8h_a53237f7d5d95d0b7547549dc0cdd3207_split_001.html#a53237f7d5d95d0b7547549dc0cdd3207af8f3522168778f083e00dbd3ce444002">AkBankType_User</a></code> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Loads a bank asynchronously (by ID).<br class="calibre10"/>
+</p><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> Requires that the "Use SoundBank names" option be unchecked in the <a class="pcalibre el" href="namespace_a_k_1_1_wwise_split_000.html">Wwise</a> Project Settings. </td></tr>
+</tbody></table>
+<p class="calibre7">The bank ID is passed to the Stream Manager. See <a class="pcalibre el" href="soundengine_banks_general_split_000.html">General Information</a> for a discussion on using strings and IDs. A bank load request will be posted to the Bank Manager consumer thread. The function returns immediately. </p><dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><code class="calibre14">AK_Success</code> if the scheduling was successful,</li>
+<li class="calibre9"><code class="calibre14">AK_InvalidBankType</code> if in_bankType was invalid Use a callback to be notified when completed, and get the status of the request. The bank ID, which is obtained by hashing the bank name (see <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a1aae6ebdec25946fb2897ce0e025366d_split_000.html#a1aae6ebdec25946fb2897ce0e025366d">GetIDFromString()</a>). You may use this ID with <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ac91406bc2fe061e4248cb448207b5a64_split_000.html#ac91406bc2fe061e4248cb448207b5a64">UnloadBank()</a></code>. </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Remarks</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9">The initialization bank (Init.bnk) must be loaded first.</li>
+<li class="calibre9">All SoundBanks subsequently loaded must come from the same <a class="pcalibre el" href="namespace_a_k_1_1_wwise_split_000.html">Wwise</a> project as the initialization bank. If you need to load SoundBanks from a different project, you must first unload ALL banks, including the initialization bank, then load the initialization bank from the other project, and finally load banks from that project.</li>
+<li class="calibre9">Codecs and plug-ins must be registered before loading banks that use them.</li>
+<li class="calibre9">Loading a bank referencing an unregistered plug-in or codec will result in a load bank success, but the plug-ins will not be used. More specifically, playing a sound that uses an unregistered effect plug-in will result in audio playback without applying the said effect. If an unregistered source plug-in is used by an event's audio objects, posting the event will fail.</li>
+<li class="calibre9">The file path should be resolved in your implementation of the Stream Manager, or in the Low-Level I/O module if you use the default Stream Manager's implementation. The ID overload of <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_stream_mgr_a1de2a7935a2d3cddb71e7cc7f48effd6_split_000.html#a1de2a7935a2d3cddb71e7cc7f48effd6">AK::IAkStreamMgr::CreateStd()</a></code> and <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_a0abfde848b599b5e5b8e8ed63dc8b555_split_000.html#a0abfde848b599b5e5b8e8ed63dc8b555">AK::StreamMgr::IAkLowLevelIOHook::BatchOpen()</a></code> are called.</li>
+<li class="calibre9">The cookie (in_pCookie) is passed to the Low-Level I/O module for your convenience, in <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_a0abfde848b599b5e5b8e8ed63dc8b555_split_000.html#a0abfde848b599b5e5b8e8ed63dc8b555">AK::StreamMgr::IAkLowLevelIOHook::BatchOpen()</a></code> as <a class="pcalibre el" href="struct_ak_file_system_flags_a23007119f2b9d630d97ac5e2c95d9ac5_split_000.html#a23007119f2b9d630d97ac5e2c95d9ac5" title="Custom parameter.">AkFileSystemFlags::pCustomParam</a>. <table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> When <a class="pcalibre el" href="namespace_a_k_1_1_wwise_split_000.html">Wwise</a> Authoring is connected to the game in "Profile And Edit (Sync All)" mode, LoadBank will succeed even if the file is not found. This might be the case when sound banks were not generated, for example. The Capture Log will still report the missing file. This allows working without sound banks, as long as <a class="pcalibre el" href="namespace_a_k_1_1_wwise_split_000.html">Wwise</a> Authoring is connected. The Init.bnk is still required to initialize the sound engine properly though. </td></tr>
+</tbody></table>
+</li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ac91406bc2fe061e4248cb448207b5a64_split_000.html#ac91406bc2fe061e4248cb448207b5a64">AK::SoundEngine::UnloadBank()</a></code></li>
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ab934f98a6622976d24e0a096911eb0c8_split_000.html#ab934f98a6622976d24e0a096911eb0c8">AK::SoundEngine::ClearBanks()</a></code></li>
+<li class="calibre9"><a class="pcalibre el" href="_ak_callback_types_8h_a5f4438e001923453a9f795eb64946be6_split_000.html#a5f4438e001923453a9f795eb64946be6">AkBankCallbackFunc</a></li>
+<li class="calibre9"><a class="pcalibre el" href="soundengine_banks.html">Integration Details - Banks</a></li>
+<li class="calibre9"><a class="pcalibre el" href="integrating_elements_plugins.html">Integrating Plug-Ins</a></li>
+<li class="calibre9"><a class="pcalibre el" href="sdk_bank_training_split_000.html">SoundBank Integration Samples</a> </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_bankID</td><td class="calibre17">Bank ID of the bank to load </td></tr>
+    <tr class="calibre16"><td class="paramname">in_pfnBankCallback</td><td class="calibre17">Callback function </td></tr>
+    <tr class="calibre16"><td class="paramname">in_pCookie</td><td class="calibre17">Callback cookie (reserved to user, passed to the callback function, and also to <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_a0abfde848b599b5e5b8e8ed63dc8b555_split_000.html#a0abfde848b599b5e5b8e8ed63dc8b555">AK::StreamMgr::IAkLowLevelIOHook::BatchOpen()</a></code> as <a class="pcalibre el" href="struct_ak_file_system_flags_a23007119f2b9d630d97ac5e2c95d9ac5_split_000.html#a23007119f2b9d630d97ac5e2c95d9ac5" title="Custom parameter.">AkFileSystemFlags::pCustomParam</a>) </td></tr>
+    <tr class="calibre16"><td class="paramname">in_bankType</td><td class="calibre17">Type of the bank to load </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

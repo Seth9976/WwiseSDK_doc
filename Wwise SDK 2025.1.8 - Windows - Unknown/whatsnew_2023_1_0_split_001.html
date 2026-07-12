@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2023.1.0</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="generic_feature_changes_2023_1"></a>
+New Features</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-29468</b> Added support for up to 255 Effects per object.</li>
+<li class="calibre9"><b class="calibre13">WG-39278</b> (WAAPI) Added support for Work Units in <a class="pcalibre el" href="ak_wwise_core_object_delete_split_000.html">ak.wwise.core.object.delete</a>, <a class="pcalibre el" href="ak_wwise_core_object_move_split_000.html">ak.wwise.core.object.move</a>, <a class="pcalibre el" href="ak_wwise_core_object_copy_split_000.html">ak.wwise.core.object.copy</a>, <a class="pcalibre el" href="ak_wwise_core_object_create_split_000.html">ak.wwise.core.object.create</a>, and <a class="pcalibre el" href="ak_wwise_core_object_set_split_000.html">ak.wwise.core.object.set</a>.</li>
+<li class="calibre9"><b class="calibre13">WG-42230</b> (Spatial Audio) Diffraction paths are now found across corners as well as edges. This significantly reduces incidents of paths cutting in/out abruptly as objects go behind barriers and results in smoother audio output.</li>
+<li class="calibre9"><b class="calibre13">WG-44681</b> (WAAPI) Music Switch Containers can now be created and organized with WAAPI using <a class="pcalibre el" href="ak_wwise_core_object_set_split_000.html">ak.wwise.core.object.set</a>.</li>
+<li class="calibre9"><b class="calibre13">WG-47295</b> (WAAPI) Rewrote the Sequence Container object model using object lists, which makes the sequence available through WAAPI.</li>
+<li class="calibre9"><b class="calibre13">WG-52539</b> Added new functions to the IAkPluginServiceMixer interface allowing plug-ins to use the existing high-performance biquad filter functionality available in Wwise instead of a custom-made solution.</li>
+<li class="calibre9"><b class="calibre13">WG-53279</b> Added a lightweight solution to the Reflect plug-in to suppress phasing issues caused by interference between reflections and the direct sound.</li>
+<li class="calibre9"><b class="calibre13">WG-54869</b> (WAAPI) <a class="pcalibre el" href="ak_wwise_core_object_set_split_000.html">ak.wwise.core.object.set</a> now supports importing audio files on multiple object types, including Work Units, Virtual Folders, Containers, Sounds, Audio File Sources, Music Segments, Source plug-ins, and Effect plug-ins.</li>
+<li class="calibre9"><b class="calibre13">WG-57314</b> Added Motion and Reflect plug-ins to the Integration Demo. It was also modified to allow other plug-in demos in the future.</li>
+<li class="calibre9"><b class="calibre13">WG-57421</b> (WAAPI) Added function <a class="pcalibre el" href="ak_wwise_core_profiler_savecapture_split_000.html">ak.wwise.core.profiler.saveCapture</a> to save profiler captures.</li>
+<li class="calibre9"><b class="calibre13">WG-58608</b> (WAAPI) Added source control API. Refer to <a class="pcalibre el" href="ak_wwise_core_sourcecontrol_add_split_000.html">ak.wwise.core.sourceControl.add</a>, <a class="pcalibre el" href="ak_wwise_core_sourcecontrol_checkout_split_000.html">ak.wwise.core.sourceControl.checkOut</a>, <a class="pcalibre el" href="ak_wwise_core_sourcecontrol_commit_split_000.html">ak.wwise.core.sourceControl.commit</a>, <a class="pcalibre el" href="ak_wwise_core_sourcecontrol_delete_split_000.html">ak.wwise.core.sourceControl.delete</a>, <a class="pcalibre el" href="ak_wwise_core_sourcecontrol_getsourcefiles_split_000.html">ak.wwise.core.sourceControl.getSourceFiles</a>, <a class="pcalibre el" href="ak_wwise_core_sourcecontrol_getstatus_split_000.html">ak.wwise.core.sourceControl.getStatus</a>, <a class="pcalibre el" href="ak_wwise_core_sourcecontrol_move_split_000.html">ak.wwise.core.sourceControl.move</a>, <a class="pcalibre el" href="ak_wwise_core_sourcecontrol_revert_split_000.html">ak.wwise.core.sourceControl.revert</a>, and <a class="pcalibre el" href="ak_wwise_core_sourcecontrol_setprovider_split_000.html">ak.wwise.core.sourceControl.setProvider</a>.</li>
+<li class="calibre9"><b class="calibre13">WG-58676</b> (WAAPI) Introduced a JSON anonymous object accessor in the return options to group properties by object.</li>
+<li class="calibre9"><b class="calibre13">WG-59020</b> Steering panner can now output to ambisonic busses.</li>
+<li class="calibre9"><b class="calibre13">WG-59482</b> (Spatial Audio) The Wwise Spatial Audio library can now perform room containment calculations internally. Previously, it was necessary for you to assign a Game Object to a Room using the <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_a3f080206f12c04b3464838cb18c43f4e_split_000.html#a3f080206f12c04b3464838cb18c43f4e">AK::SpatialAudio::SetGameObjectInRoom</a></code> API. Now, this containment calculation can be performed automatically as long as each Room is assigned geometry using the <code class="calibre14"><a class="pcalibre el" href="struct_ak_room_params_ac63a7f55f7bf863dde9af7e3e3a69758_split_000.html#ac63a7f55f7bf863dde9af7e3e3a69758">AkRoomParams::GeometryInstanceID</a></code>. If you want to override the internal Room containment calculation, call <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_a3f080206f12c04b3464838cb18c43f4e_split_000.html#a3f080206f12c04b3464838cb18c43f4e">AK::SpatialAudio::SetGameObjectInRoom</a></code>, and Wwise will cease to update the Room automatically for the specified Game Object. You can then call <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_a63a469a6dfb61ecc4883607720f1e448_split_000.html#a63a469a6dfb61ecc4883607720f1e448">AK::SpatialAudio::UnsetGameObjectInRoom</a></code> to resume internal Room containment calculation. A new member, <code class="calibre14"><a class="pcalibre el" href="struct_ak_room_params_aec788cb06ec5d8b5aa500e1bec88556c_split_000.html#aec788cb06ec5d8b5aa500e1bec88556c">AkRoomParams::RoomPriority</a></code>, has been added to <code class="calibre14"><a class="pcalibre el" href="struct_ak_room_params_split_000.html" title="Parameters passed to SetRoom.">AkRoomParams</a></code>. It is used by the internal Room containment algorithm to determine which Room to assign to a Game Object when it is physically located inside two Rooms (for example, a Room inside another Room). In this case, the room with the higher priority is assigned.</li>
+<li class="calibre9"><b class="calibre13">WG-59684</b> Clicking the Display options button in the Capture Log, Audio Object 3D Viewer, and Game Object 3D Viewer now opens the options in a separate view.</li>
+<li class="calibre9"><b class="calibre13">WG-60166</b> (WAAPI) Added support in return options to chain several accessors that return multiple objects. For example, children.name</li>
+<li class="calibre9"><b class="calibre13">WG-60274</b> (WAAPI) Improved the user experience when using source control with WAAPI.</li>
+<li class="calibre9"><b class="calibre13">WG-60358</b> Listener and emitter room assignments are now automatically computed by Wwise. The automatically assigned room can be overridden by a call to <code class="calibre14">SetGameObjectInRoom</code> or re-enabled by a call to <code class="calibre14">UnsetGameObjectInRoom</code>.</li>
+<li class="calibre9"><b class="calibre13">WG-60615</b> (WAAPI) Added new function to expose source control operations.</li>
+<li class="calibre9"><b class="calibre13">WG-60616</b> (WAAPI/WAQL) Added new accessors: mediaId, conversionHash, and contentHash.</li>
+<li class="calibre9"><b class="calibre13">WG-60834</b> Added a new <b class="calibre13">OriginalsSubFolder</b> column header to tab-delimited import.</li>
+<li class="calibre9"><b class="calibre13">WG-61101</b> (WAAPI) Added <a class="pcalibre el" href="ak_wwise_core_log_additem_split_000.html">ak.wwise.core.log.addItem</a> and <a class="pcalibre el" href="ak_wwise_core_log_clear_split_000.html">ak.wwise.core.log.clear</a> for logging.</li>
+<li class="calibre9"><b class="calibre13">WG-61119</b> Inspecting the Audio Device now includes Meter and Effects bottom tabs like the other objects. The Bus also includes a bottom tab for the Meter. The meter view can now be set to pinned mode, allowing more than 4 meters with different objects being metered.</li>
+<li class="calibre9"><b class="calibre13">WG-61181</b> Added the Audio Device Meter view. It appears at the bottom of the Object Tab when selecting an Audio Device. This meter view replaces the meters that were previously integrated in the Audio Device Editor.</li>
+<li class="calibre9"><b class="calibre13">WG-61312</b> You can now resize Soundcaster lists.</li>
+<li class="calibre9"><b class="calibre13">WG-61374</b> Replaced the Property Editor with an Object Tab in the Voice Profiler layout to display objects' properties.</li>
+<li class="calibre9"><b class="calibre13">WG-61962</b> Multiple threads are now shared for audio file analysis and WEM generation.</li>
+<li class="calibre9"><b class="calibre13">WG-61965</b> (WAAPI) Added argument autoCheckOutToSourceControl to <a class="pcalibre el" href="ak_wwise_ui_project_open_split_000.html">ak.wwise.ui.project.open</a>.</li>
+<li class="calibre9"><b class="calibre13">WG-62000</b> (Spatial Audio) Improved path calculation for higher-order diffraction paths. Paths across multiple edges are now optimized to find the shortest possible path, resulting in a more accurate diffraction coefficient.</li>
+<li class="calibre9"><b class="calibre13">WG-62069</b> Added new shortcut menus to the Music Segment Editor to convert Music Tracks to Music Subtracks.</li>
+<li class="calibre9"><b class="calibre13">WG-62096</b> (WAAPI) Introduced the keyword "as" in the return options to allow an alias to be used in the returned object.</li>
+<li class="calibre9"><b class="calibre13">WG-62097</b> (WAAPI) Added new functions in the return options to work on objects lists, such as: first, last, count, at, etc.</li>
+<li class="calibre9"><b class="calibre13">WG-62153</b> (WAAPI) Added support to import plug-in media sources through <a class="pcalibre el" href="ak_wwise_core_object_set_split_000.html">ak.wwise.core.object.set</a>.</li>
+<li class="calibre9"><b class="calibre13">WG-62630</b> Wwise can now compute in which room a game object is located.</li>
+<li class="calibre9"><b class="calibre13">WG-62838</b> "Push All Modified Objects" mode now synchronizes all modifications to the project upon connection to the game, even for changes made in a prior session. When SoundBanks are loaded after connecting, further synchronization occurs as needed.</li>
+<li class="calibre9"><b class="calibre13">WG-63206</b> (WAAPI) Added support for retrieving the Loaded Media information from profiling data.</li>
+<li class="calibre9"><b class="calibre13">WG-63256</b> (WAAPI) Added support for retrieving the CPU usage information from profiling data.</li>
+<li class="calibre9"><b class="calibre13">WG-63257</b> (WAAPI) Added support for retrieving Performance Monitor counter information from profiling data.</li>
+<li class="calibre9"><b class="calibre13">WG-63492</b> (WAAPI) Added new utility function <a class="pcalibre el" href="ak_wwise_debug_generatetonewav_split_000.html">ak.wwise.debug.generateToneWAV</a> to generate test WAV files.</li>
+<li class="calibre9"><b class="calibre13">WG-63507</b> Using a geometry that is not watertight for the definition of a room now produces an error message.</li>
+<li class="calibre9"><b class="calibre13">WG-63574</b> Added information to the Project Migration dialog to support source control during migration.</li>
+<li class="calibre9"><b class="calibre13">WG-64050</b> (Spatial Audio) Reflections can now propagate seamlessly through portals. Reflections might occur on either side of a portal, as well as in intermediate rooms between two portals.</li>
+<li class="calibre9"><b class="calibre13">WG-64094</b> (WAAPI) Added support for retrieving the Streamed Media information from profiling data.</li>
+<li class="calibre9"><b class="calibre13">WG-64095</b> (Spatial Audio) The new Reverb Zones feature allows you to assign a distinct reverb effect to a specified region inside a Room. A Reverb Zone is a new type of Room, allowing for sound propagation between Rooms without the need for portals. Reverb Zones are particularly useful for spaces not easily delineated by walls, such as covered areas, balconies, and various outdoor environments. Two new API functions have been added to manage Reverb Zones: <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_af57f04a0250faecc0246cf0552c03ca6_split_000.html#af57f04a0250faecc0246cf0552c03ca6">AK::SpatialAudio::SetReverbZone</a></code> and <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_abc3f56c19b125967645dcdfc4082b15a_split_000.html#abc3f56c19b125967645dcdfc4082b15a">AK::SpatialAudio::RemoveReverbZone</a></code>.</li>
+<li class="calibre9"><b class="calibre13">WG-64118</b> (WAAPI) Added the following new functions related to mute/solo:<ul class="calibre15">
+<li class="calibre9">ak.wwise.core.audio.mute</li>
+<li class="calibre9">ak.wwise.core.audio.solo</li>
+<li class="calibre9">ak.wwise.core.audio.resetMute</li>
+<li class="calibre9">ak.wwise.core.audio.resetSolo</li>
+</ul>
+</li>
+<li class="calibre9"><b class="calibre13">WG-64159</b> Added a Room ID column in the Game Object List in the Game Object 3D Viewer.</li>
+<li class="calibre9"><b class="calibre13">WG-64180</b> (WAAPI) You can now omit the project argument when starting a WAAPI server using WwiseConsole.</li>
+<li class="calibre9"><b class="calibre13">WG-64194</b> (WAAPI) Added <a class="pcalibre el" href="ak_wwise_ui_project_create_split_000.html">ak.wwise.ui.project.create</a> and <a class="pcalibre el" href="ak_wwise_console_project_create_split_000.html">ak.wwise.console.project.create</a> to create and load a new project using WAAPI.</li>
+<li class="calibre9"><b class="calibre13">WG-64250</b> Improved graph drawing to give more space to the area where curves appear.</li>
+<li class="calibre9"><b class="calibre13">WG-64411</b> Added support for object lists (Effects, RTPC, etc.) in the List View.</li>
+<li class="calibre9"><b class="calibre13">WG-64882</b> Height channels now get 3D spatialized instead of being dropped.</li>
+<li class="calibre9"><b class="calibre13">WG-65095</b> Loudness Normalization is now more configurable: a loudness target can be set (with a default value of -23 corresponding to the target from prior releases), and it is now possible to normalize based on the Momentary Max value instead of Integrated, which is usually a better fit for short sound effects. The measured loudness values are also now available as columns in the List View and can be queried using WAAPI and WAQL.</li>
+<li class="calibre9"><b class="calibre13">WG-65100</b> Added four User Layouts so you can create custom layouts to suit your workflows.</li>
+<li class="calibre9"><b class="calibre13">WG-65118</b> Added GetProjectLicenseID to the <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_af6f9dc5d367c3383c37f96fe9e1b943f_split_000.html#af6f9dc5d367c3383c37f96fe9e1b943f" title="Latest version of the C++ Host interface.">AK::Wwise::Plugin::Host</a></code> service, which has been updated to version 2.</li>
+<li class="calibre9"><b class="calibre13">WG-65177</b> Clicking or dragging anywhere in the Source Editor's timeline ruler now sets the play cursor time. When dragging the cursor, the time is displayed in a tooltip.</li>
+<li class="calibre9"><b class="calibre13">WG-65191</b> When using the Recorder Effect in Wwise Authoring, you can now include "%s" in the <b class="calibre13">Authoring Tool Output Path</b> to add a date and time string to the filename. With this, each invocation of the Recorder Effect creates a new file, instead of reusing the same filename and overwriting the contents.</li>
+<li class="calibre9"><b class="calibre13">WG-65226</b> Added an option to display transition zones in the 3D viewer.</li>
+<li class="calibre9"><b class="calibre13">WG-65437</b> Added platform argument to *.project.create WAAPI functions. This new argument allows you to indicate the platform(s) supported by the new project.</li>
+<li class="calibre9"><b class="calibre13">WG-66122</b> Error messages are now shown on project load when files under .cache are read-only.</li>
+<li class="calibre9"><b class="calibre13">WG-66350</b> Waveforms are now shown by default in the List View for Sound SFX objects.</li>
+<li class="calibre9"><b class="calibre13">WG-66562</b> Added support for Effect lists in the Multi Editor.</li>
+<li class="calibre9"><b class="calibre13">WG-66725</b> In Wwise Project Settings, you can now specify the line ending (LF vs. CRLF) applied when saving project and SoundBank files.</li>
+<li class="calibre9"><b class="calibre13">WG-67403</b> You can now open the Attenuation Editor from the Positioning tab of the Property Editor even when <b class="calibre13">Override parent</b> is not selected.</li>
+<li class="calibre9"><b class="calibre13">WG-67559</b> Added the experimental Live Media Transfer feature. Refer to <a href="https://www.audiokinetic.com/library/edge/?source=Help&amp;id=user_preferences" target="blank" class="pcalibre calibre12">User Preferences</a> for details on enabling it.</li>
+</ul>
+</div></div></div></body></html>

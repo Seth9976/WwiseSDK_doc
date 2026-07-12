@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak_wwise_plugin_host_object_store_v1::GetPropertySet</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="structak__wwise__plugin__host__object__store__v1_ae8c3b0976a1120bc4f13a96b4b8a8a46_split_000.html#ae8c3b0976a1120bc4f13a96b4b8a8a46" class="pcalibre1 anchor">◆ </a></span>GetPropertySet</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">struct <a class="pcalibre el" href="structak__wwise__plugin__host__property__set__instance__v1_split_000.html">ak_wwise_plugin_host_property_set_instance_v1</a>*(* ak_wwise_plugin_host_object_store_v1::GetPropertySet) (const struct <a class="pcalibre el" href="structak__wwise__plugin__host__object__store__instance__v1_split_000.html">ak_wwise_plugin_host_object_store_instance_v1</a> *in_this, const char *in_pszListName, unsigned int in_uiIndex)</td>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+
+<p class="calibre7">Gets an inner property set inside the specified list at the specified position. </p>
+<p class="calibre7">Wwise Authoring handles the object's lifetime as long as it's inserted. You should not call <a class="pcalibre el" href="structak__wwise__plugin__host__object__store__v1_af005199ea8b58c036505d4137a1dee6a_split_000.html#af005199ea8b58c036505d4137a1dee6a">DeletePropertySet</a> unless you want to remove it from your plug-in instance's objects.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> In order to manage property sets, you must make sure to use <a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_a5eb9b772d01c414e7c77b44ef66e661f_split_000.html#a5eb9b772d01c414e7c77b44ef66e661f">AK::Wwise::Plugin::RequestPropertySet</a>. </td></tr>
+</tbody></table>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_this</td><td class="calibre17">Current instance of this interface. </td></tr>
+    <tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_pszListName</td><td class="calibre17">Name of the polled list. If the list doesn't exist, the function will return nullptr. </td></tr>
+    <tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_uiIndex</td><td class="calibre17">Inner property set index in the list. If higher than or equal to the current object count in that list, the function will return nullptr. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">The requested inner property set, or nullptr if not existing. </dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_host_object_store_8h_source.html#l00156">156</a> of file <a class="pcalibre el" href="_host_object_store_8h_source.html">HostObjectStore.h</a>.</p>
+
+<p class="calibre7">Referenced by <a class="pcalibre el" href="_host_object_store_8h_source.html#l00494">AK.Wwise::Plugin::V1::ObjectStore&lt; PropertySetT &gt;::GetPropertySet()</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

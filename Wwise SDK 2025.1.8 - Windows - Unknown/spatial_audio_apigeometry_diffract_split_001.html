@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Using the Geometry API for Simulating Diffraction and Transmission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2"><h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="spatial_audio_apigeometry_diffract_intro"></a>
+Introduction</h1>
+<p class="calibre7">The geometry passed to Wwise Acoustics may be used to simulate diffraction and transmission of sound. As such, it can completely replace your game engine's ray casting methods for computing obstruction.</p>
+<p class="calibre7">When an emitter is hidden from a listener by an object, Wwise Acoustics computes paths along its edges and, if some are found, computes the diffraction coefficient resulting from the sound bending around these edges. The apparent angle of incidence of the emitter is modified accordingly, and the diffraction value is sent to Wwise where you may control how it ultimately affects the sound. Typically, diffraction results in low-pass filtering.</p>
+<p class="calibre7">Additionally, Wwise Acoustics computes sound paths going through geometry. Sound transmitting though an obstacle has a transmission loss coefficient applied to it, resulting from the surface properties assigned to the geometry via the API. Typically, transmission loss is modeled with a low-pass filter and a volume attenuation.</p>
+<p class="calibre7">The image below is a screenshot of the Game Object 3D Viewer in Wwise. It shows a sound with a diffraction path, diffracting around the edges of a thin wall, and a transmission path with a transmission loss of 100%.</p>
+<div class="calibre2">
+<img alt="" src="diffraction.png" class="inline"/>
+</div>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="warning.gif"/></td><td class="calibre17"><b class="calibre13">Warning:</b> Geometric diffraction and transmission can be used to entirely replace your game engine's ray casting method for computing obstruction, however the performance cost grows with the complexity of the geometry. Geometry passed to Wwise Acoustics should be kept as simple as possible. Also, it is good to use the efficient Rooms and Portals abstraction (see <a class="pcalibre el" href="using_rooms_and_portals.html">Rooms and Portals</a>) in conjunction with Geometric Diffraction in order to reduce the computational complexity of the latter. </td></tr>
+</tbody></table>
+<p class="calibre7">Geometric diffraction can be used to affect the direct sound propagation path between the emitter and listener, but also the path of its early reflections, when used in conjunction with Reflect.</p>
+</div></div></div></body></html>

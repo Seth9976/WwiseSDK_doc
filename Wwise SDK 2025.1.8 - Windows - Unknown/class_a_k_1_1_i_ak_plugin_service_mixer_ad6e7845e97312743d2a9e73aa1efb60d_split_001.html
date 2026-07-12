@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::IAkPluginServiceMixer::MixNinNChannels</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="class_a_k_1_1_i_ak_plugin_service_mixer_ad6e7845e97312743d2a9e73aa1efb60d_split_000.html#ad6e7845e97312743d2a9e73aa1efb60d" class="pcalibre1 anchor">◆ </a></span>MixNinNChannels()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="calibre3">
+  <tbody class="calibre4"><tr class="calibre16">
+  <td class="calibre17">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">virtual void AK::IAkPluginServiceMixer::MixNinNChannels </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="class_ak_audio_buffer_split_000.html">AkAudioBuffer</a> * </td>
+          <td class="paramname"><em class="calibre59">in_pInputBuffer</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="class_ak_audio_buffer_split_000.html">AkAudioBuffer</a> * </td>
+          <td class="paramname"><em class="calibre59">in_pMixBuffer</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a> </td>
+          <td class="paramname"><em class="calibre59">in_fPrevGain</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a> </td>
+          <td class="paramname"><em class="calibre59">in_fNextGain</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="namespace_a_k_1_1_speaker_volumes_ab18a1b6d7ea27c2c3760092d577d0a80_split_000.html#ab18a1b6d7ea27c2c3760092d577d0a80">AK::SpeakerVolumes::ConstMatrixPtr</a> </td>
+          <td class="paramname"><em class="calibre59">in_mxPrevVolumes</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="namespace_a_k_1_1_speaker_volumes_ab18a1b6d7ea27c2c3760092d577d0a80_split_000.html#ab18a1b6d7ea27c2c3760092d577d0a80">AK::SpeakerVolumes::ConstMatrixPtr</a> </td>
+          <td class="paramname"><em class="calibre59">in_mxNextVolumes</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="calibre17">
+<span><span>pure virtual</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+
+<p class="calibre7">N to N channels mix. </p>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_pInputBuffer</td><td class="calibre17">Input multichannel buffer. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_pMixBuffer</td><td class="calibre17">Multichannel buffer with which the input buffer is mixed. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_fPrevGain</td><td class="calibre17">Gain, corresponding to the beginning of the buffer, to apply uniformly to each mixed channel. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_fNextGain</td><td class="calibre17">Gain, corresponding to the end of the buffer, to apply uniformly to each mixed channel. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_mxPrevVolumes</td><td class="calibre17">In/out channel volume distribution corresponding to the beginning of the buffer (see <a class="pcalibre el" href="namespace_a_k_1_1_speaker_volumes_1_1_matrix_split_000.html" title="Volume matrix (multi-in/multi-out channel configurations) services.">AK::SpeakerVolumes::Matrix</a> services). </td></tr>
+    <tr class="calibre16"><td class="paramname">in_mxNextVolumes</td><td class="calibre17">In/out channel volume distribution corresponding to the end of the buffer (see <a class="pcalibre el" href="namespace_a_k_1_1_speaker_volumes_1_1_matrix_split_000.html" title="Volume matrix (multi-in/multi-out channel configurations) services.">AK::SpeakerVolumes::Matrix</a> services). </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

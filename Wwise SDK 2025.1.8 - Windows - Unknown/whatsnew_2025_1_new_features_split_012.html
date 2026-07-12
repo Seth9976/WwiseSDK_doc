@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>New Features Overview 2025.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_11"><a class="pcalibre1 anchor" id="features_25_1_waql_additions"></a>
+WAQL Accessor Additions</h2>
+<p class="calibre7">Several Wwise Authoring Query Language (WAQL) accessors were added:</p>
+<ul class="calibre8">
+<li class="calibre9"><code class="calibre14">workunitIsLoaded</code>: Returns true if a Work Unit is currently loaded in the project.</li>
+<li class="calibre9"><code class="calibre14">musicTransitionObject</code>: Returns the transition Music Segment associated with the current Music Transition object.</li>
+<li class="calibre9"><code class="calibre14">switchGroupGameParameter</code>: Returns the Game Parameter object associated with the current Switch Group object.</li>
+<li class="calibre9"><code class="calibre14">customStates</code>: Returns the list of the current object's custom states that have a defined value.</li>
+<li class="calibre9"><code class="calibre14">originalNonLFEChannelCount</code>: Returns the total number of channels in the original file, excluding low-frequency channels.</li>
+<li class="calibre9"><code class="calibre14">originalAmbisonicsChannelCount</code>: Returns the total number of ambisonics channels of the original file associated with the current object.</li>
+<li class="calibre9"><code class="calibre14">convertedNonLFEChannelCount</code>: Returns the total number of channels in the converted file, excluding low-frequency channels.</li>
+<li class="calibre9"><code class="calibre14">convertedAmbisonicsChannelCount</code>: Returns the total number of ambisonics channels of the converted file associated with the current object.</li>
+<li class="calibre9"><code class="calibre14">convertedSampleRateSetting</code>: Returns the selected sample rate settings of the converted file, expressed as a string.</li>
+<li class="calibre9"><code class="calibre14">convertedTrimmedDuration</code>: Returns the duration in seconds of the trimmed converted audio source associated with the current object.</li>
+<li class="calibre9"><code class="calibre14">isLanguageIncluded</code>: Returns true if the audio source object's parent includes the audio source's language.</li>
+<li class="calibre9"><code class="calibre14">conversionFormat</code>: Returns the codec of the file associated with the current object.</li>
+<li class="calibre9"><code class="calibre14">supportsStates</code>: Returns true if the object supports the use of States on any of its properties.</li>
+<li class="calibre9"><code class="calibre14">supportsRandomizer</code>: Returns true if the object supports the use of a Randomizer on any of its properties.</li>
+<li class="calibre9"><code class="calibre14">hasEmptySwitchStateAssignment</code>: Returns true if there are empty objects or paths assigned on Switch Containers and Music Switch Containers.</li>
+<li class="calibre9"><code class="calibre14">extractEvents</code>: Returns the Event objects referenced by the SoundBank object.</li>
+<li class="calibre9"><code class="calibre14">extractStructures</code>: Returns the object structures referenced by the SoundBank object.</li>
+<li class="calibre9"><code class="calibre14">extractMedia</code>: Returns the paths of the media files referenced by the SoundBank object.</li>
+<li class="calibre9"><code class="calibre14">soundbanksReferencingEvent</code>: Returns the SoundBank objects referencing the current Event object.</li>
+</ul>
+</div></div></div></body></html>

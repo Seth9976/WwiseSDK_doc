@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Streaming / Stream Manager</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="streamingdevicemanager_solution"></a>
+Audiokinetic's I/O Streaming Solution</h1>
+<p class="calibre7">Audiokinetic Sound Engine's I/O streaming solution consists of an autonomous, overridable streaming management module. The following figure is a block diagram representing the module and its place in the sound engine / game architecture:</p>
+<div class="calibre2">
+<img alt="" src="streaming_withcustomlowlevelio.gif" class="inline"/>
+</div>
+<p class="calibre7">Its public interface, defined in <a class="pcalibre el" href="_i_ak_stream_mgr_8h_split_000.html">IAkStreamMgr.h</a>, is intended to be used by both the sound engine and the game. The former uses the interface to load SoundBanks and stream audio files. The latter may use it to load graphics, textures, levels, saved games, and so on.</p>
+<p class="calibre7">The public interface is a platform-independent high-level abstraction for data transfers involving storage (I/O) devices that wraps handles to files or other objects close to the platform's operating system or hardware into so-called "streams". In this documentation, the module that implements the stream objects and stream factory is referred to as the High-Level Stream Manager, or simply the Stream Manager.</p>
+<p class="calibre7">You may override the Stream Manager entirely if you wish, but the Wwise SDK comes with a default implementation. This default implementation defines another level for you to hook your I/O-related code, called the Low-Level I/O, which is much simpler to use. It is the preferred way of integrating Wwise I/O into your game.</p>
+<table border="1" cellpadding="5" cellspacing="0" class="calibre38">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre17"><p class="starttd"><b class="calibre13">Default Streaming Manager Information</b>
+<br class="calibre10"/>
+ </p><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> Throughout this chapter, you will encounter boxes like this that give additional details specific to Audiokinetic's implementation of the Stream Manager. </td></tr>
+</tbody></table>
+<p class="endtd">Functions and structures related to streaming but that are specific to the default implementation of the Stream Manager, such as <a class="pcalibre el" href="namespace_a_k_1_1_stream_mgr_af9d67dd0e502e5603a2921099916e2ab_split_000.html#af9d67dd0e502e5603a2921099916e2ab">AK::StreamMgr::Create()</a>, are defined in <a class="pcalibre el" href="_ak_stream_mgr_module_8h_split_000.html">AkStreamMgrModule.h</a>, in the SDK's include directory. </p>
+</td></tr>
+</tbody></table>
+</div></div></div></body></html>

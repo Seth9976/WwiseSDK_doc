@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AkSpeakerVolumeMatrixCallbackInfo Struct Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table class="calibre3">
+<tbody class="calibre4"><tr class="calibre16"><td colspan="2" class="calibre17"><h2 class="calibre21" id="calibre_pb_0"><a class="pcalibre1 anchor" id="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="calibre16"><td class="memitemleft"><a class="pcalibre el" href="_ak_typedefs_8h_afcd81d4c2e56d86764346716eca7fe4c_split_000.html#afcd81d4c2e56d86764346716eca7fe4c">AkSpeakerVolumesMatrixPtr</a> </td><td class="memitemright"><a class="pcalibre el" href="struct_ak_speaker_volume_matrix_callback_info_a8939707c798dfb3687a80a00db8a8c74_split_000.html#a8939707c798dfb3687a80a00db8a8c74">pVolumes</a></td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Pointer to volume matrix describing the contribution of each source channel to destination channels. Use methods of <a class="pcalibre el" href="namespace_a_k_1_1_speaker_volumes_1_1_matrix_split_000.html" title="Volume matrix (multi-in/multi-out channel configurations) services.">AK::SpeakerVolumes::Matrix</a> to interpret them.  <a href="struct_ak_speaker_volume_matrix_callback_info_a8939707c798dfb3687a80a00db8a8c74_split_000.html#a8939707c798dfb3687a80a00db8a8c74" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">struct <a class="pcalibre el" href="struct_ak_channel_config_split_000.html">AkChannelConfig</a> </td><td class="memitemright"><a class="pcalibre el" href="struct_ak_speaker_volume_matrix_callback_info_a30e81ba08ad7b60f475ab431af67587f_split_000.html#a30e81ba08ad7b60f475ab431af67587f">inputConfig</a></td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Channel configuration of the voice/bus.  <a href="struct_ak_speaker_volume_matrix_callback_info_a30e81ba08ad7b60f475ab431af67587f_split_000.html#a30e81ba08ad7b60f475ab431af67587f" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">struct <a class="pcalibre el" href="struct_ak_channel_config_split_000.html">AkChannelConfig</a> </td><td class="memitemright"><a class="pcalibre el" href="struct_ak_speaker_volume_matrix_callback_info_afd0b0f3ada00da404ddf2f3a8d269017_split_000.html#afd0b0f3ada00da404ddf2f3a8d269017">outputConfig</a></td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Channel configuration of the output bus.  <a href="struct_ak_speaker_volume_matrix_callback_info_afd0b0f3ada00da404ddf2f3a8d269017_split_000.html#afd0b0f3ada00da404ddf2f3a8d269017" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft"><a class="pcalibre el" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a> * </td><td class="memitemright"><a class="pcalibre el" href="struct_ak_speaker_volume_matrix_callback_info_a98f33fbc94ccda839e1069f549ded36e_split_000.html#a98f33fbc94ccda839e1069f549ded36e">pfBaseVolume</a></td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Base volume, common to all channels.  <a href="struct_ak_speaker_volume_matrix_callback_info_a98f33fbc94ccda839e1069f549ded36e_split_000.html#a98f33fbc94ccda839e1069f549ded36e" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft"><a class="pcalibre el" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a> * </td><td class="memitemright"><a class="pcalibre el" href="struct_ak_speaker_volume_matrix_callback_info_a1e3f15191739f523ec8955e7e025cf7c_split_000.html#a1e3f15191739f523ec8955e7e025cf7c">pfEmitterListenerVolume</a></td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Emitter-listener pair-specific gain. When there are multiple emitter-listener pairs, this volume is set to that of the loudest pair, and the relative gain of other pairs is applied directly on the channel volume matrix pVolumes.  <a href="struct_ak_speaker_volume_matrix_callback_info_a1e3f15191739f523ec8955e7e025cf7c_split_000.html#a1e3f15191739f523ec8955e7e025cf7c" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft"><a class="pcalibre el" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> </td><td class="memitemright"><a class="pcalibre el" href="struct_ak_speaker_volume_matrix_callback_info_ac33a3cdea27f81d741802dfd73e44d7c_split_000.html#ac33a3cdea27f81d741802dfd73e44d7c">mixConnectionGameObjId</a></td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Game Object ID of the mix connection.  <a href="struct_ak_speaker_volume_matrix_callback_info_ac33a3cdea27f81d741802dfd73e44d7c_split_000.html#ac33a3cdea27f81d741802dfd73e44d7c" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft"><a class="pcalibre el" href="_ak_callback_types_8h_ab4f4becf2477fc5b3afc41da781a50bd_split_000.html#ab4f4becf2477fc5b3afc41da781a50bd">AkMixerInputContextPtr</a> </td><td class="memitemright"><a class="pcalibre el" href="struct_ak_speaker_volume_matrix_callback_info_a6930688e64bad2ce4019fc4c19de7962_split_000.html#a6930688e64bad2ce4019fc4c19de7962">pContext</a></td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Context of the current voice/bus about to be mixed into the output bus with specified base volume and volume matrix.  <a href="struct_ak_speaker_volume_matrix_callback_info_a6930688e64bad2ce4019fc4c19de7962_split_000.html#a6930688e64bad2ce4019fc4c19de7962" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft"><a class="pcalibre el" href="_ak_callback_types_8h_a9cea4525427dbee2eb129300d2cff556_split_000.html#a9cea4525427dbee2eb129300d2cff556">AkMixerPluginContextPtr</a> </td><td class="memitemright"><a class="pcalibre el" href="struct_ak_speaker_volume_matrix_callback_info_ac1e8922ff3762c07e99ba3acb98f0bb5_split_000.html#ac1e8922ff3762c07e99ba3acb98f0bb5">pMixerContext</a></td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Output mixing bus context. Use it to access a few useful panning and mixing services, as well as the ID of the output bus. NULL if pContext is the Main Audio Bus.  <a href="struct_ak_speaker_volume_matrix_callback_info_ac1e8922ff3762c07e99ba3acb98f0bb5_split_000.html#ac1e8922ff3762c07e99ba3acb98f0bb5" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+</tbody></table>
+<a id="details" class="pcalibre calibre12"></a></div></body></html>

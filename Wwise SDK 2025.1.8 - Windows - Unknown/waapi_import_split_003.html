@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Importing Audio Files and Creating Structures</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_2"><a class="pcalibre1 anchor" id="waapi_set_lists_modes"></a>
+Understanding lists and list modes</h2>
+<p class="calibre7">Lists are generic containers for storing objects. The objects in a given list are typically of the same type. Lists provide a convenient mechanism for populating and retrieving objects through WAAPI that are "owned" by another object. For example, the RTPCs for a given object are contained in the "RTPC" list of that object.</p>
+<p class="calibre7">When calling <a class="pcalibre el" href="ak_wwise_core_object_set_split_000.html">ak.wwise.core.object.set</a>, it is possible to specify one of two list modes.</p>
+<p class="calibre7">If a list already contains objects:</p>
+<ul class="calibre8">
+<li class="calibre9">append: Add the new objects to the list if possible, keeping existing objects. Some lists might not permit duplicate equivalent objects: e.g., some properties of RTPCs in the RTPC list are exclusive so there can only be one RTPC with that property.</li>
+<li class="calibre9">replaceAll: Remove all existing objects and add the new objects, with the duplicate restriction.</li>
+</ul>
+<p class="calibre7">For empty lists the behavior is to append.</p>
+</div></div></div></body></html>

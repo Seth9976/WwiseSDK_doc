@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Configuration and Tuning of AkMemoryArenas</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="goingfurther_memoryarenas_settings"></a>
+AkMemoryArenaSettings</h1>
+<p class="calibre7">The initialization settings of the AkMemoryMgr include an array of settings that allow you to configure the different AkMemoryArenas used by the sound engine. Unless noted, none of the sizes described below need to be a power of two.</p>
+<ul class="calibre8">
+<li class="calibre9"><code class="calibre14">AkMemoryArenaSettings::bEnableSba</code> - Controls whether or not the SBA should be activated. If inactive, then every Small allocation is considered a Medium allocation and sent to the TLSF heap. By default, this option is disabled for the Media AkMemoryArena because Media allocations are typically too large for the SBA.</li>
+<li class="calibre9"><code class="calibre14">AkMemoryArenaSettings::uSbaInitSize</code> - The size, in bytes, of the initial region of memory for the SBA heap. Allocations in this initial region take up less space due to the lack of memory allocation overhead.</li>
+<li class="calibre9"><code class="calibre14">AkMemoryArenaSettings::uSbaSpanSize</code> - The size, in bytes, of each span of memory used for the SBA heap. Higher values can slightly improve system performance but can result in greater memory waste due to memory being left unused. Note that this value must be a power of two.</li>
+<li class="calibre9"><code class="calibre14">AkMemoryArenaSettings::uSbaMaximumUnusedSpans</code> - The number of SBA spans that will be left in an unused state before being freed when allocated outside of the initial region of memory for the SBA heap.</li>
+<li class="calibre9"><code class="calibre14">AkMemoryArenaSettings::uTlsfInitSize</code> - The size, in bytes, of the initial Base span of memory used for the TLSF heap.</li>
+<li class="calibre9"><code class="calibre14">AkMemoryArenaSettings::uTlsfSpanSize</code> - The size, in bytes, of each secondary span of memory created for Medium allocations. If an allocation request, which requires a new span, is larger than this size, then the size of the span rounds up the size of the allocation request to the next multiple of this value.</li>
+<li class="calibre9"><code class="calibre14">AkMemoryArenaSettings::uTlsfLargeSpanSize</code> - The size, in bytes, of each secondary span of memory created for Large allocations. If an allocation request, which requires a new span, is larger than this size, then the size of the span rounds up the size of the allocation request to the next multiple of this value.</li>
+<li class="calibre9"><code class="calibre14">AkMemoryArenaSettings::uTlsfSpanOverhead</code> - When requesting a new span for TLSF, this is the number of bytes that is subtracted from the Huge allocation that is requested.</li>
+<li class="calibre9"><code class="calibre14">AkMemoryArenaSettings::uTlsfMaximumUnusedMediumSpans</code> - The number of spans for Medium allocations that can be empty and unused before being released.</li>
+<li class="calibre9"><code class="calibre14">AkMemoryArenaSettings::uTlsfMaximumUnusedLargeSpans</code> - The number of spans for Large allocations that can be empty and unused before being released.</li>
+<li class="calibre9"><code class="calibre14">AkMemoryArenaSettings::uAllocSizeLarge</code> - The minimum size, in bytes, that an allocation must be in order to be classified as Large. All allocation sizes smaller than this value, but larger than 256 bytes, are considered Medium allocations. Note that if this value is greater than uAllocSizeHuge, no allocations will be classified as Large.</li>
+<li class="calibre9"><code class="calibre14">AkMemoryArenaSettings::uAllocSizeHuge</code> - The minimum size, in bytes, that an allocation must be in order to be classified as Huge.</li>
+<li class="calibre9"><code class="calibre14">AkMemoryArenaSettings::uMemReservedLimit</code> - The maximum amount of memory, in bytes, that can be reserved by this AkMemoryArena. If the Huge heap attempts to request memory beyond this limit, a nullptr is returned, and <code class="calibre14">fnMemAllocSpan</code> is not called.</li>
+<li class="calibre9"><code class="calibre14">AkMemoryArenaSettings::fnMemAllocSpan:</code> - The user-provided callback executed when the Huge heap requires a new allocation, including any requests for new spans from the TLSF heap.</li>
+<li class="calibre9"><code class="calibre14">AkMemoryArenaSettings::fnMemFreeSpan</code> - The user-provided callback executed when the Huge heap frees an allocation, including releasing any spans from the TLSF heap.</li>
+</ul>
+<p class="calibre7">The following code sample can be used for the default initialization of the AkMemoryArenaSettings for the AkMemoryMgr, and might be a good starting point for further customization of the AkMemoryArenaSettings:</p>
+<div class="fragment"><div class="line"><a class="pcalibre code" href="struct_ak_mem_settings_split_000.html">AkMemSettings</a> memSettings;</div>
+<div class="line"><span class="keywordflow">for</span> (<a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> eArenaType = <a class="pcalibre code" href="_ak_memory_mgr_module_8h_a166fce11fcaf8c6c3ccaf6f00182dc4c_split_001.html#a166fce11fcaf8c6c3ccaf6f00182dc4cada4fb0aaa502bf0b4481e825e20127be">AkMemoryMgrArena_Primary</a>; eArenaType &lt; <a class="pcalibre code" href="_ak_memory_mgr_module_8h_a166fce11fcaf8c6c3ccaf6f00182dc4c_split_001.html#a166fce11fcaf8c6c3ccaf6f00182dc4ca6d04cd32dae8081d7af43611f5f67ab6">AkMemoryMgrArena_NUM</a>; eArenaType++)</div>
+<div class="line">{</div>
+<div class="line">    <a class="pcalibre code" href="struct_a_k_1_1_memory_arena_1_1_ak_memory_arena_settings_split_000.html">AK::MemoryArena::AkMemoryArenaSettings</a>&amp; arenaSettings = memSettings.<a class="pcalibre code" href="struct_ak_mem_settings_ad938c0122f4ed866a1ae1c459812d597_split_000.html#ad938c0122f4ed866a1ae1c459812d597">memoryArenaSettings</a>[eArenaType];</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Set defaults for all of the settings</span></div>
+<div class="line">    arenaSettings.<a class="pcalibre code" href="struct_a_k_1_1_memory_arena_1_1_ak_memory_arena_settings_ae6e2a5d134dcc17e2560db12032efdae_split_000.html#ae6e2a5d134dcc17e2560db12032efdae">bEnableSba</a> = <span class="keyword">true</span>;</div>
+<div class="line">    arenaSettings.<a class="pcalibre code" href="struct_a_k_1_1_memory_arena_1_1_ak_memory_arena_settings_a38a3458e0df1124c2fe1adce95a65da5_split_000.html#a38a3458e0df1124c2fe1adce95a65da5">uSbaInitSize</a> = 0;</div>
+<div class="line">    arenaSettings.<a class="pcalibre code" href="struct_a_k_1_1_memory_arena_1_1_ak_memory_arena_settings_a37b90d5f6b49be36850ec06438077ea1_split_000.html#a37b90d5f6b49be36850ec06438077ea1">uSbaSpanSize</a> = 16384;</div>
+<div class="line">    arenaSettings.<a class="pcalibre code" href="struct_a_k_1_1_memory_arena_1_1_ak_memory_arena_settings_abb44a42ccd21315a44b276d4fa2cb648_split_000.html#abb44a42ccd21315a44b276d4fa2cb648">uSbaMaximumUnusedSpans</a> = 1;</div>
+<div class="line"> </div>
+<div class="line">    arenaSettings.<a class="pcalibre code" href="struct_a_k_1_1_memory_arena_1_1_ak_memory_arena_settings_a84025d5b4c90a8d3921c28cd9b7b517c_split_000.html#a84025d5b4c90a8d3921c28cd9b7b517c">uTlsfInitSize</a> = 2 * 1024 * 1024;</div>
+<div class="line">    arenaSettings.<a class="pcalibre code" href="struct_a_k_1_1_memory_arena_1_1_ak_memory_arena_settings_a61be009fb1b18dd0ea983eb873998d60_split_000.html#a61be009fb1b18dd0ea983eb873998d60">uTlsfSpanSize</a> = 2 * 1024 * 1024;</div>
+<div class="line">    arenaSettings.<a class="pcalibre code" href="struct_a_k_1_1_memory_arena_1_1_ak_memory_arena_settings_ae3530381c708848afa239a5b4161aed1_split_000.html#ae3530381c708848afa239a5b4161aed1">uTlsfLargeSpanSize</a> = 8 * 1024 * 1024;</div>
+<div class="line">    arenaSettings.<a class="pcalibre code" href="struct_a_k_1_1_memory_arena_1_1_ak_memory_arena_settings_af54775ab16bddad12d14d0e6bc4cbdf0_split_000.html#af54775ab16bddad12d14d0e6bc4cbdf0">uTlsfSpanOverhead</a> = 128; <span class="comment">// std::malloc in particular appears to generate 128B of overhead for our large allocations</span></div>
+<div class="line">    arenaSettings.<a class="pcalibre code" href="struct_a_k_1_1_memory_arena_1_1_ak_memory_arena_settings_a331f90c6905a828d5ec4434d5530b56d_split_000.html#a331f90c6905a828d5ec4434d5530b56d">uTlsfMaximumUnusedMediumSpans</a> = 1;</div>
+<div class="line">    arenaSettings.<a class="pcalibre code" href="struct_a_k_1_1_memory_arena_1_1_ak_memory_arena_settings_a926578aa4de0d8d4085afa51ac8559b9_split_000.html#a926578aa4de0d8d4085afa51ac8559b9">uTlsfMaximumUnusedLargeSpans</a> = 1;</div>
+<div class="line"> </div>
+<div class="line">    arenaSettings.<a class="pcalibre code" href="struct_a_k_1_1_memory_arena_1_1_ak_memory_arena_settings_a9630470020e7dcf088b3a5e189b96d76_split_000.html#a9630470020e7dcf088b3a5e189b96d76">uAllocSizeLarge</a> = UINT_MAX;</div>
+<div class="line">    arenaSettings.<a class="pcalibre code" href="struct_a_k_1_1_memory_arena_1_1_ak_memory_arena_settings_a1f1ce618bd9b5b544354a93a47d1580e_split_000.html#a1f1ce618bd9b5b544354a93a47d1580e">uAllocSizeHuge</a> = 4 * 1024 * 1024;</div>
+<div class="line">    arenaSettings.<a class="pcalibre code" href="struct_a_k_1_1_memory_arena_1_1_ak_memory_arena_settings_a07814e5a7e2d552f7c8d4e880e121e9a_split_000.html#a07814e5a7e2d552f7c8d4e880e121e9a">uMemReservedLimit</a> = 0;</div>
+<div class="line"> </div>
+<div class="line">    arenaSettings.<a class="pcalibre code" href="struct_a_k_1_1_memory_arena_1_1_ak_memory_arena_settings_a5da5a8e3af77f520ee46bdcc97fce372_split_000.html#a5da5a8e3af77f520ee46bdcc97fce372">fnMemAllocSpan</a> = <a class="pcalibre code" href="namespace_a_k_p_l_a_t_f_o_r_m_a8607b18eaea4aa3fdfa581caee18970a_split_000.html#a8607b18eaea4aa3fdfa581caee18970a">AKPLATFORM::AllocSpan</a>;</div>
+<div class="line">    arenaSettings.<a class="pcalibre code" href="struct_a_k_1_1_memory_arena_1_1_ak_memory_arena_settings_a5bbf92ce6096b998829fa7622489db95_split_000.html#a5bbf92ce6096b998829fa7622489db95">fnMemFreeSpan</a> = <a class="pcalibre code" href="namespace_a_k_p_l_a_t_f_o_r_m_a9bb64f59357062f99eb67c179ab1daba_split_000.html#a9bb64f59357062f99eb67c179ab1daba">AKPLATFORM::FreeSpan</a>;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// ... except...</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// The primary heap should be initialized with a larger uTlsfInitSize and uSbaInitSize,</span></div>
+<div class="line"><span class="comment">// since almost every project will have a lot of data going into them</span></div>
+<div class="line">memSettings.<a class="pcalibre code" href="struct_ak_mem_settings_ad938c0122f4ed866a1ae1c459812d597_split_000.html#ad938c0122f4ed866a1ae1c459812d597">memoryArenaSettings</a>[<a class="pcalibre code" href="_ak_memory_mgr_module_8h_a166fce11fcaf8c6c3ccaf6f00182dc4c_split_001.html#a166fce11fcaf8c6c3ccaf6f00182dc4cada4fb0aaa502bf0b4481e825e20127be">AkMemoryMgrArena_Primary</a>].<a class="pcalibre code" href="struct_a_k_1_1_memory_arena_1_1_ak_memory_arena_settings_a38a3458e0df1124c2fe1adce95a65da5_split_000.html#a38a3458e0df1124c2fe1adce95a65da5">uSbaInitSize</a> = 2 * 1024 * 1024;</div>
+<div class="line">memSettings.<a class="pcalibre code" href="struct_ak_mem_settings_ad938c0122f4ed866a1ae1c459812d597_split_000.html#ad938c0122f4ed866a1ae1c459812d597">memoryArenaSettings</a>[<a class="pcalibre code" href="_ak_memory_mgr_module_8h_a166fce11fcaf8c6c3ccaf6f00182dc4c_split_001.html#a166fce11fcaf8c6c3ccaf6f00182dc4cada4fb0aaa502bf0b4481e825e20127be">AkMemoryMgrArena_Primary</a>].<a class="pcalibre code" href="struct_a_k_1_1_memory_arena_1_1_ak_memory_arena_settings_a84025d5b4c90a8d3921c28cd9b7b517c_split_000.html#a84025d5b4c90a8d3921c28cd9b7b517c">uTlsfInitSize</a> = 8 * 1024 * 1024;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// The media heap should not have an SBA at all</span></div>
+<div class="line">memSettings.<a class="pcalibre code" href="struct_ak_mem_settings_ad938c0122f4ed866a1ae1c459812d597_split_000.html#ad938c0122f4ed866a1ae1c459812d597">memoryArenaSettings</a>[<a class="pcalibre code" href="_ak_memory_mgr_module_8h_a166fce11fcaf8c6c3ccaf6f00182dc4c_split_001.html#a166fce11fcaf8c6c3ccaf6f00182dc4caf034292470314618cda8b900728cf644">AkMemoryMgrArena_Media</a>].<a class="pcalibre code" href="struct_a_k_1_1_memory_arena_1_1_ak_memory_arena_settings_ae6e2a5d134dcc17e2560db12032efdae_split_000.html#ae6e2a5d134dcc17e2560db12032efdae">bEnableSba</a> = <span class="keyword">false</span>;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// the "profiler" arena should not be initialized at all if we're in "optimized" (ie release) configs</span></div>
+<div class="line"><span class="preprocessor">#if defined(AK_OPTIMIZED)</span></div>
+<div class="line">memSettings.<a class="pcalibre code" href="struct_ak_mem_settings_ad938c0122f4ed866a1ae1c459812d597_split_000.html#ad938c0122f4ed866a1ae1c459812d597">memoryArenaSettings</a>[<a class="pcalibre code" href="_ak_memory_mgr_module_8h_a166fce11fcaf8c6c3ccaf6f00182dc4c_split_001.html#a166fce11fcaf8c6c3ccaf6f00182dc4ca08ef70af1290299d43fafa826b9de574">AkMemoryMgrArena_Profiler</a>].<a class="pcalibre code" href="struct_a_k_1_1_memory_arena_1_1_ak_memory_arena_settings_a5da5a8e3af77f520ee46bdcc97fce372_split_000.html#a5da5a8e3af77f520ee46bdcc97fce372">fnMemAllocSpan</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line">memSettings.<a class="pcalibre code" href="struct_ak_mem_settings_ad938c0122f4ed866a1ae1c459812d597_split_000.html#ad938c0122f4ed866a1ae1c459812d597">memoryArenaSettings</a>[<a class="pcalibre code" href="_ak_memory_mgr_module_8h_a166fce11fcaf8c6c3ccaf6f00182dc4c_split_001.html#a166fce11fcaf8c6c3ccaf6f00182dc4ca08ef70af1290299d43fafa826b9de574">AkMemoryMgrArena_Profiler</a>].<a class="pcalibre code" href="struct_a_k_1_1_memory_arena_1_1_ak_memory_arena_settings_a5bbf92ce6096b998829fa7622489db95_split_000.html#a5bbf92ce6096b998829fa7622489db95">fnMemFreeSpan</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div></div></div></body></html>

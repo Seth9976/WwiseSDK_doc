@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AkCmd_ControlEventStreamCache Struct Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_1">Detailed Description</h2>
+<div class="calibre2"><p class="calibre7">Allows streaming the first part of all streamed files referenced by an Event into a cache buffer.</p>
+<p class="calibre7">Caching streams are serviced when no other streams require the available bandwidth. The files will remain cached until a command disables caching, or a higher priority pinned file needs the space and the limit set by <code class="calibre14">uMaxCachePinnedBytes</code> is exceeded. <br class="calibre10"/>
+</p>
+<dl class="calibre7"><dt class="calibre23">Remarks</dt><dd class="calibre24">The amount of data from the start of the file that will be pinned to cache is determined by the prefetch size. The prefetch size is set via the authoring tool and stored in the sound banks. <br class="calibre10"/>
+ </dd>
+<dd class="calibre24">
+It is possible to override the prefetch size stored in the sound bank via the low level IO. For more information see <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_a0abfde848b599b5e5b8e8ed63dc8b555_split_000.html#a0abfde848b599b5e5b8e8ed63dc8b555">AK::StreamMgr::IAkLowLevelIOHook::BatchOpen()</a></code> and <code class="calibre14"><a class="pcalibre el" href="struct_ak_file_system_flags_split_000.html" title="File system flags for file descriptors mapping.">AkFileSystemFlags</a></code>. </dd>
+<dd class="calibre24">
+If this function is called additional times with the same event, then the priority of the caching streams are updated. Note however that priority is passed down to the stream manager on a file-by-file basis, and if another event is pinned to cache that references the same file but with a different priority, then the first priority will be updated with the most recent value. </dd>
+<dd class="calibre24">
+If the event references files that are chosen based on a State Group (via a switch container), all files in all states will be cached. Those in the current active state will get cached with active priority, while all other files will get cached with inactive priority. </dd>
+<dd class="calibre24">
+<code class="calibre14">inactivePriority</code> is only relevant for events that reference switch containers that are assigned to State Groups. This parameter is ignored for all other events, including events that only reference switch containers that are assigned to Switch Groups. Files that are chosen based on a Switch Group have a different switch value per game object, and are all effectively considered active by the pin-to-cache system.</dd></dl>
+<p class="calibre7">This command can fail for the following reasons:</p><ul class="calibre8">
+<li class="calibre9"><code class="calibre14">AK_InvalidParameter</code> if <code class="calibre14">eventID</code> is invalid</li>
+<li class="calibre9"><code class="calibre14">AK_IDNotFound</code> if <code class="calibre14">eventID</code> refers to an unknown event</li>
+</ul>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="_ak_command_types_8h_a001b78645b8b0335c0dd2e128cca2cfd_split_001.html#a001b78645b8b0335c0dd2e128cca2cfdaad5c3276c6f28ec03634c9744edfeb7d" title="See AkCmd_ControlEventStreamCache.">AkCommand_ControlEventStreamCache</a></li>
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ae98b64113d2b9bd2e63adef8cee96805_split_000.html#ae98b64113d2b9bd2e63adef8cee96805">AK::SoundEngine::PinEventInStreamCache</a></li>
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a09d2491e7ad56454b3720f182b09549a_split_000.html#a09d2491e7ad56454b3720f182b09549a">AK::SoundEngine::UnpinEventInStreamCache</a></li>
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a3e077eddb929881cd5369fd3e6bba5d7_split_000.html#a3e077eddb929881cd5369fd3e6bba5d7">AK::SoundEngine::GetBufferStatusForPinnedEvent</a></li>
+<li class="calibre9"><a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_a0abfde848b599b5e5b8e8ed63dc8b555_split_000.html#a0abfde848b599b5e5b8e8ed63dc8b555">AK::StreamMgr::IAkLowLevelIOHook::BatchOpen</a></li>
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_file_system_flags_split_000.html" title="File system flags for file descriptors mapping.">AkFileSystemFlags</a> </li>
+</ul>
+</dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_ak_command_types_8h_source_split_002.html#l01249">1249</a> of file <a class="pcalibre el" href="_ak_command_types_8h_source_split_000.html">AkCommandTypes.h</a>.</p>
+</div></div><!-- contents -->
+
+
+</body></html>

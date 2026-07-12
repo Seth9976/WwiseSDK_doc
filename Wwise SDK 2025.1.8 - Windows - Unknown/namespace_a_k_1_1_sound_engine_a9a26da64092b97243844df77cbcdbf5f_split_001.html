@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::SoundEngine::Init</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="namespace_a_k_1_1_sound_engine_a9a26da64092b97243844df77cbcdbf5f_split_000.html#a9a26da64092b97243844df77cbcdbf5f" class="pcalibre1 anchor">◆ </a></span>Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_sound_engine_export_8h_ac6e96d34dfc0e12f9aaa7a47f4e9c322_split_000.html#ac6e96d34dfc0e12f9aaa7a47f4e9c322">AKSOUNDENGINE_API</a> <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::SoundEngine::Init </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="struct_ak_init_settings_split_000.html">AkInitSettings</a> * </td>
+          <td class="paramname"><em class="calibre59">in_pSettings</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="struct_ak_platform_init_settings_split_000.html">AkPlatformInitSettings</a> * </td>
+          <td class="paramname"><em class="calibre59">in_pPlatformSettings</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Initialize the sound engine. </p><dl class="calibre7"><dt class="calibre23">Warning</dt><dd class="calibre24">This function is not thread-safe. </dd></dl>
+<dl class="calibre7"><dt class="calibre23">Remarks</dt><dd class="calibre24">The initial settings should be initialized using <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a03381fc17e1b0ee16c2ab501c647ab9e_split_000.html#a03381fc17e1b0ee16c2ab501c647ab9e">AK::SoundEngine::GetDefaultInitSettings()</a></code> and <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_aecdb9cd8f2d7f461ef1a58f5f5f5725d_split_000.html#aecdb9cd8f2d7f461ef1a58f5f5f5725d">AK::SoundEngine::GetDefaultPlatformInitSettings()</a></code> to fill the structures with their default settings. This is not mandatory, but it helps avoid backward compatibility problems.</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><code class="calibre14">AK_Success</code> if the initialization was successful</li>
+<li class="calibre9"><code class="calibre14">AK_MemManagerNotInitialized</code> if the memory manager is not available or not properly initialized</li>
+<li class="calibre9"><code class="calibre14">AK_StreamMgrNotInitialized</code> if the stream manager is not available or not properly initialized</li>
+<li class="calibre9"><code class="calibre14">AK_SSEInstructionsNotSupported</code> if the machine does not support SSE instruction (only on the PC)</li>
+<li class="calibre9"><code class="calibre14">AK_InsufficientMemory</code> if there is not enough memory available to initialize the sound engine properly</li>
+<li class="calibre9"><code class="calibre14">AK_InvalidParameter</code> if some parameters are invalid</li>
+<li class="calibre9"><code class="calibre14">AK_AlreadyInitialized</code> if the sound engine is already initialized, or if the provided settings result in insufficient</li>
+<li class="calibre9"><code class="calibre14">AK_Fail</code> for unknown errors, check with <a class="pcalibre el" href="namespace_a_k_split_000.html" title="Definition of data structures for AkAudioObject.">AK</a> Support. resources for the initialization. </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="soundengine_integration_init_advanced_split_000.html">Advanced Sound Engine Integration</a></li>
+<li class="calibre9"><a class="pcalibre el" href="workingwithsdks_initialization_split_000.html">Initializing Sound Engine Modules</a></li>
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a90f8c91937038615480db2b57ce2279e_split_000.html#a90f8c91937038615480db2b57ce2279e">AK::SoundEngine::Term()</a></code></li>
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a03381fc17e1b0ee16c2ab501c647ab9e_split_000.html#a03381fc17e1b0ee16c2ab501c647ab9e">AK::SoundEngine::GetDefaultInitSettings()</a></code></li>
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_aecdb9cd8f2d7f461ef1a58f5f5f5725d_split_000.html#aecdb9cd8f2d7f461ef1a58f5f5f5725d">AK::SoundEngine::GetDefaultPlatformInitSettings()</a></code> </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_pSettings</td><td class="calibre17">Initialization settings (can be NULL, to use the default values) </td></tr>
+    <tr class="calibre16"><td class="paramname">in_pPlatformSettings</td><td class="calibre17">Platform-specific settings (can be NULL, to use the default values) </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

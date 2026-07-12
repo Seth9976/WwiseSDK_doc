@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integration Details - Environments and Game-defined Auxiliary Sends</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_7"><a class="pcalibre1 anchor" id="soundengine_environments_example2"></a>
+Example: Setting the Environments of a Main Character Using IDs Setting Hangar to 75% and Tunnel to 25%.</h2>
+<div class="fragment"><div class="line"><span class="keyword">const</span> <a class="pcalibre code" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> GAME_OBJECT_ID_HUMAN = 200;</div>
+<div class="line"><span class="preprocessor">#define NUM_ENVIRONMENT 2</span></div>
+<div class="line"> </div>
+<div class="line"><a class="pcalibre code" href="struct_ak_aux_send_value_split_000.html">AkAuxSendValue</a> aEnv[NUM_ENVIRONMENT];</div>
+<div class="line">aEnv[0].<a class="pcalibre code" href="struct_ak_aux_send_value_a185a87e879e5a602446b07252bdd8519_split_000.html#a185a87e879e5a602446b07252bdd8519">listenerID</a> = <a class="pcalibre code" href="_ak_constants_8h_a82290a98a9cf7901722a69a590aeee34_split_000.html#a82290a98a9cf7901722a69a590aeee34">AK_INVALID_GAME_OBJECT</a>; <span class="comment">// Use the same set of listeners assigned via the SetListeners/SetDefaultListeners API.</span></div>
+<div class="line">aEnv[1].<a class="pcalibre code" href="struct_ak_aux_send_value_a185a87e879e5a602446b07252bdd8519_split_000.html#a185a87e879e5a602446b07252bdd8519">listenerID</a> = <a class="pcalibre code" href="_ak_constants_8h_a82290a98a9cf7901722a69a590aeee34_split_000.html#a82290a98a9cf7901722a69a590aeee34">AK_INVALID_GAME_OBJECT</a>; </div>
+<div class="line">aEnv[0].<a class="pcalibre code" href="struct_ak_aux_send_value_a985acf05c92308c7569dd4a91a3e4256_split_000.html#a985acf05c92308c7569dd4a91a3e4256">auxBusID</a> = AK::AUX_BUSSES::HANGAR_ENV;</div>
+<div class="line">aEnv[1].<a class="pcalibre code" href="struct_ak_aux_send_value_a985acf05c92308c7569dd4a91a3e4256_split_000.html#a985acf05c92308c7569dd4a91a3e4256">auxBusID</a> = AK::AUX_BUSSES::TUNNEL_ENV;</div>
+<div class="line">aEnv[0].<a class="pcalibre code" href="struct_ak_aux_send_value_a1e3fe0e1490d0e15af8a46d8ab4078f4_split_000.html#a1e3fe0e1490d0e15af8a46d8ab4078f4">fControlValue</a> = 0.75f; <span class="comment">// 0.75 stands for 75%, the control value ranges from 0 to 1.</span></div>
+<div class="line">aEnv[1].<a class="pcalibre code" href="struct_ak_aux_send_value_a1e3fe0e1490d0e15af8a46d8ab4078f4_split_000.html#a1e3fe0e1490d0e15af8a46d8ab4078f4">fControlValue</a> = 0.25f; <span class="comment">// 0.25 stands for 25%, the control value ranges from 0 to 1.</span></div>
+<div class="line"> </div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_af960fca0239e219b9d08c2659fe9e5d4_split_000.html#af960fca0239e219b9d08c2659fe9e5d4">AK::SoundEngine::SetGameObjectAuxSendValues</a>( GAME_OBJECT_ID_HUMAN, aEnv, NUM_ENVIRONMENT );</div>
+</div><!-- fragment --><p class="calibre7">Using the control values, it is possible to make sounds go smoothly from one environment to another.</p>
+</div></div></div></body></html>

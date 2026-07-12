@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Sound Engine Effect Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_3"><a class="pcalibre1 anchor" id="iakmonadiceffect_execute_general"></a>
+IAkInPlaceEffectPlugin::Execute</h2>
+<p class="calibre7">This method executes the plug-in's signal processing algorithm in-place on a given audio buffer (refer to <a class="pcalibre el" href="soundengine_plugins_split_017.html#fx_audiobuffer_struct">Accessing Data Using AkAudioBuffer Structure</a> for more information). This structure provides information to the plug-in regarding how many input samples are valid (<a class="pcalibre el" href="class_ak_audio_buffer_ab7f90fd99119b56e92e4cbf3559f98cd_split_000.html#ab7f90fd99119b56e92e4cbf3559f98cd" title="Number of valid sample frames in the audio buffer.">AkAudioBuffer::uValidFrames</a>) and the maximum number of audio sample frames the buffer can accommodate (<a class="pcalibre el" href="class_ak_audio_buffer_a537445dce6e3ed09dd2c337fd73c6b41_split_000.html#a537445dce6e3ed09dd2c337fd73c6b41">AkAudioBuffer::MaxFrames()</a> method). The <a class="pcalibre el" href="class_ak_audio_buffer_a069d15381980ac4851216e084cf6a0cc_split_000.html#a069d15381980ac4851216e084cf6a0cc" title="Execution status.">AkAudioBuffer::eState</a> structure member signals the plug-in whether it is the last execution (AK_NoMoreData) or not (AK_DataReady).</p>
+<p class="calibre7"><a class="pcalibre el" href="class_a_k_1_1_i_ak_in_place_effect_plugin_afc80cd74cb7eb9673f49443d0838a941_split_000.html#afc80cd74cb7eb9673f49443d0838a941">AK::IAkInPlaceEffectPlugin::TimeSkip()</a> is substituted to Execute() when a virtual voice is playing from elapsed time to allow plug-ins to keep updating their internal state if desired.</p>
+</div></div></div></body></html>

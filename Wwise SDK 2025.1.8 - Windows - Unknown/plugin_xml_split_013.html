@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Wwise Plug-in XML Description Files</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_12"><a class="pcalibre1 anchor" id="wwiseplugin_objectstore_notifications"></a>
+Inner Objects Notifications</h2>
+<p class="calibre7">The interface <code class="calibre14">AK::Wwise::Plugin::NotificationsObjectStore</code> provides handlers to override that allow to act on notification events related to inner objects. These are primarily meant to update custom GUI elements on model changes that could be triggered by a user interaction, an undo event or even a WAAPI call.</p>
+<p class="calibre7">For example, after calling <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_object_store_a23316a944101ac1a01d331fd6c187606_split_000.html#a23316a944101ac1a01d331fd6c187606" title="Inserts an inner property set into the specified list at the specified position.">AK::Wwise::Plugin::ObjectStore::InsertPropertySet</a></code>, do not update the UI right-away. Wait for the notification <code class="calibre14">AK::Wwise::Plugin::NotificationsObjectStore::NotifyInnerObjectAddedRemoved</code> to be called on your plug-in. This notification tells you that an object was added or removed from a list.</p>
+<p class="calibre7">Similarly, you can react on <code class="calibre14">AK::Wwise::Plugin::NotificationsObjectStore::NotifyInnerObjectPropertyChanged</code>, which is called when the value of a property changes in an inner object.</p>
+</div></div></div></body></html>

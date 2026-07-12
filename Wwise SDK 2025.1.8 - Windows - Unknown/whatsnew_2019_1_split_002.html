@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2019.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="feature_changes_2019_1"></a>
+New Features</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-17193</b> Added the ability to trigger Events from Music Segments.</li>
+<li class="calibre9"><b class="calibre13">WG-34558</b> Added new Music Transition Destination options for Music Playlist Containers. Last Played Segment and Next Segment offer the possibility to resume a music playlist's playback between different Switch states of an ancestor Music Switch Container.</li>
+<li class="calibre9"><b class="calibre13">WG-35746</b> Improved the Project Explorer to allow copy and paste of an object onto itself in order to quickly duplicate it, instead of having to select the parent.</li>
+<li class="calibre9"><b class="calibre13">WG-36703</b> Created new shortcuts, <b class="calibre13">Alt + ,</b> and <b class="calibre13">Alt + .</b>, to move to previous and next frames within Profiler views.</li>
+<li class="calibre9"><b class="calibre13">WG-36796</b> Added collapsible splitter to some views.</li>
+<li class="calibre9"><b class="calibre13">WG-37100</b> Added associated keyboard shortcut keys to button tooltips.</li>
+<li class="calibre9"><b class="calibre13">WG-37229</b> Refined double-click on property RTPC indicators to highlight the correct entry in the RTPC list.</li>
+<li class="calibre9"><b class="calibre13">WG-37690</b> Added setting for optimizing Spatial Audio calculations with respect to listener: <code class="calibre14"><a class="pcalibre el" href="struct_ak_spatial_audio_init_settings_a15f96c2d6a69f821c8ae6d677e6d29f4_split_000.html#a15f96c2d6a69f821c8ae6d677e6d29f4" title="Amount that an emitter or listener has to move to trigger a validation of reflections/diffraction....">AkSpatialAudioInitSettings.fMovementThreshold</a></code>.</li>
+<li class="calibre9"><b class="calibre13">WG-37947</b> Added a new panel to the RTPC tab, which allows you to view and modify the selected RTPC's settings without opening its editor. The panel also has an icon which displays the number of references to the selected RTPC and which can be clicked to open the Reference View listing all the references.</li>
+<li class="calibre9"><b class="calibre13">WG-38148</b> (WAAPI) Added <code class="calibre14"><a class="pcalibre el" href="ak_wwise_core_object_setrandomizer_split_000.html">ak.wwise.core.object.setRandomizer</a></code> function.</li>
+<li class="calibre9"><b class="calibre13">WG-38779</b> Set Wwise to save the last used layout and to automatically restore it after the project loads.</li>
+<li class="calibre9"><b class="calibre13">WG-38915</b> Changed Spatial Audio to permit issuing individual reflection and diffraction processing tasks to the game engine's job scheduler, allowing tasks to be executed in parallel across CPU cores and improving overall system efficiency by better utilizing available CPU resources.</li>
+<li class="calibre9"><b class="calibre13">WG-39165</b> Added shortcuts (Ctrl+Number and Ctrl+Alt+Number) to change tab selection in the Property Editor's alternate split.</li>
+<li class="calibre9"><b class="calibre13">WG-39203</b> Expanded keyboard navigation to have the Tab and Tab + Shift option work in the Project Explorer when editing an object name.</li>
+<li class="calibre9"><b class="calibre13">WG-39332</b> (WAAPI) Added query syntax support for return options.</li>
+<li class="calibre9"><b class="calibre13">WG-39557</b> Created the new Logs view, which incorporates start-up, project load, SoundBank generation, conversion, and WAAPI messages. It replaces the Project Load Log and SoundBank Generation Log views.</li>
+<li class="calibre9"><b class="calibre13">WG-39825</b> (WAAPI) Added <code class="calibre14"><a class="pcalibre el" href="ak_wwise_core_audio_imported_split_000.html">ak.wwise.core.audio.imported</a></code> topic, which publishes the result of an import operation.</li>
+<li class="calibre9"><b class="calibre13">WG-39889</b> Added new "Enable Attenuation" RTPC-able property, which lets you control whether or not to apply the Attenuation ShareSet.</li>
+<li class="calibre9"><b class="calibre13">WG-40018</b> (WAAPI) Added <code class="calibre14"><a class="pcalibre el" href="ak_wwise_core_profiler_getvoices_split_000.html">ak.wwise.core.profiler.getVoices</a></code> to allow retrieval of voice structures from the profiler in the authoring application.</li>
+<li class="calibre9"><b class="calibre13">WG-40019</b> Added distinct commands to start and stop the capture.</li>
+<li class="calibre9"><b class="calibre13">WG-40021</b> Replaced Hue by Color in the User Preferences and changed it from adjusting the skin hue to affecting only neutral grays, allowing to change the color of the user interface without affecting the skin color scheme.</li>
+<li class="calibre9"><b class="calibre13">WG-40054</b> Supplemented context menu for RTPC-able elements with Add RTPC option for direct RTPC creation.</li>
+<li class="calibre9"><b class="calibre13">WG-40218</b> Added new experimental Light theme for users who prefer a light skin over the dark one but want better contrast than the Classic theme. Because it's currently experimental, there may be items without the correct colors.</li>
+<li class="calibre9"><b class="calibre13">WG-40262</b> Created default keyboard shortcuts for Mute (Alt+M) and Solo (Alt+S).</li>
+<li class="calibre9"><b class="calibre13">WG-40274</b> Reorganized Source Editor view layout to maximize WAV file editing.</li>
+<li class="calibre9"><b class="calibre13">WG-40384</b> Enhanced Performance Monitor with an average curve. Set CPU and Plug-in timers to high-frequency resolution, with a default average curve roughly corresponding to the 200 ms sampling interval in prior releases.</li>
+<li class="calibre9"><b class="calibre13">WG-40422</b> Added drag &amp; drop support for WAV files in SoundSeed Grain.</li>
+<li class="calibre9"><b class="calibre13">WG-40438</b> Added a "none" option to the SoundSeed Grain modulator list button to remove a modulator association from a given parameter.</li>
+<li class="calibre9"><b class="calibre13">WG-40546</b> Added Vorbis as a SoundSeed Grain Conversion Setting.</li>
+<li class="calibre9"><b class="calibre13">WG-40744</b> Added context menu to modulator indicators in SoundSeed Grain, which can be used to directly add modulations.</li>
+<li class="calibre9"><b class="calibre13">WG-40747</b> Enhanced modulator icons in SoundSeed Grain to show all modulation entries in the list when double-clicked.</li>
+<li class="calibre9"><b class="calibre13">WG-40954</b> Added WwiseCLI support for <code class="calibre14">-LoadProject</code> to simply load a project and then exit immediately. Used with <code class="calibre14">-Save</code>, this allows migrating and saving a project from the command line.</li>
+<li class="calibre9"><b class="calibre13">WG-41009</b> Improved Opus conversion to fully support encoding of all Wwise channel configurations, including ambisonics.</li>
+</ul>
+</div></div></div></body></html>

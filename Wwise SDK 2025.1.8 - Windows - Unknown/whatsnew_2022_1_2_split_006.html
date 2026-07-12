@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2022.1.2</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_5"><a class="pcalibre1 anchor" id="generic_community_bugs_2022_1_2"></a>
+Fixes for Community-Reported Bugs</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-58892</b> Fixed: Imprecision with the panning of mono sounds with non-zero spread and non-zero focus to the back of the listener.</li>
+<li class="calibre9"><b class="calibre13">WG-60199</b> Fixed: Possible crash on connection when using any plug-in that takes a string as a parameter, for example, the Recorder plug-in.</li>
+<li class="calibre9"><b class="calibre13">WG-61907</b> Fixed: Crash when geometries contain invalid triangles.</li>
+<li class="calibre9"><b class="calibre13">WG-62393</b> Fixed: Stereo Delay Effect plug-in does not apply dry gain to height channels.</li>
+<li class="calibre9"><b class="calibre13">WG-63034</b> Fixed: Generic errors are reported when Mastering Suite initialization fails. An invalid channel configuration will now be reported when encountered.</li>
+<li class="calibre9"><b class="calibre13">WG-63088</b> Fixed: Calls to <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ab24b5dc8bd4d1adbdc6aa5c98d94d946_split_000.html#ab24b5dc8bd4d1adbdc6aa5c98d94d946">AK::SoundEngine::PostMIDIOnEvent()</a></code> fail to release some allocated memory.</li>
+<li class="calibre9"><b class="calibre13">WG-63242</b> Fixed: Freeze when generating SoundBanks with WwiseConsole and the option to add the generated files to Source Control is enabled.</li>
+<li class="calibre9"><b class="calibre13">WG-63247</b> Fixed: Successive SoundBank generations can delete the source file(s) for Soundseed Grain plug-ins.</li>
+<li class="calibre9"><b class="calibre13">WG-63270</b> Fixed: Reflect calls internal Wwise sound engine functions, which could result in compatibility issues if the Wwise source is changed. These internal function calls were replaced by calls to the public API.</li>
+<li class="calibre9"><b class="calibre13">WG-63379</b> Fixed: Motion plug-in notice is displayed on project load.</li>
+<li class="calibre9"><b class="calibre13">WG-63425</b> Fixed: Crash in AkConversionTable (RTPC support).</li>
+<li class="calibre9"><b class="calibre13">WG-63465</b> Fixed: There is no longer a button to create new user-defined SoundBanks. The button has been put back, similar to a button that existed in Wwise 2021.1.</li>
+<li class="calibre9"><b class="calibre13">WG-63512</b> Fixed: Assert from <a class="pcalibre el" href="_i_ak_plugin_mem_alloc_8h_split_000.html">IAkPluginMemAlloc.h</a> header file make debug strings present in optimized targets.</li>
+<li class="calibre9"><b class="calibre13">WG-63545</b> Fixed: Deadlock during a call to UnloadBank when:<ul class="calibre15">
+<li class="calibre9">A sound stops with a transition during the call to UnloadBank.</li>
+<li class="calibre9">The same sound is paused in the same frame as the call to UnloadBank.</li>
+</ul>
+</li>
+<li class="calibre9"><b class="calibre13">WG-63585</b> Fixed: (Spatial Audio) A slow constant memory leak in the Spatial Audio pool.</li>
+<li class="calibre9"><b class="calibre13">WG-63588</b> Fixed: Possible crash when opening a project that has a circular reference between a Music Event Cue and an Event.</li>
+<li class="calibre9"><b class="calibre13">WG-63691</b> Fixed: Crash when using List View Size Previews in a project with version control integration enabled.</li>
+<li class="calibre9"><b class="calibre13">WG-63749</b> Fixed: Calls to <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ac55e3d6ac464b0579a8487c88a755d8c_split_000.html#ac55e3d6ac464b0579a8487c88a755d8c">AK::SoundEngine::ExecuteActionOnEvent</a></code> perform action on all active MIDI items (starting with <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ab24b5dc8bd4d1adbdc6aa5c98d94d946_split_000.html#ab24b5dc8bd4d1adbdc6aa5c98d94d946">AK::SoundEngine::PostMIDIOnEvent</a></code>), regardless of the target of the Event's Actions.</li>
+<li class="calibre9"><b class="calibre13">WG-63860</b> Fixed: Crash when closing a Wwise project while a long version control operation is in progress. </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

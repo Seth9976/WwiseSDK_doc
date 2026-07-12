@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Sound Engine Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_3"><a class="pcalibre1 anchor" id="soundengine_plugin_binaries_loading"></a>
+Loading Dynamic Library Plug-ins</h2>
+<p class="calibre7">Unlike statically linked plug-ins, dynamically linked plug-ins are loaded on demand. The Init bank contains a list of plug-in IDs that the project uses. When the Init bank is being loaded, the Sound Engine searches this list for unrecognized plug-in IDs. An attempt to load the dynamic library that contains the plug-in is made for each of these unrecognized plug-ins.</p>
+<p class="calibre7">For the attempt to succeed, the plug-in library file must be placed in a location that the operating system's dynamic library loader searches. Library search paths vary from system to system. On several platforms, the directory containing the game executable is part of the library search paths.</p>
+<p class="calibre7">Alternatively, set <code class="calibre14"><a class="pcalibre el" href="struct_ak_init_settings_a381f6978151d3e205f3b493523ed3b57_split_000.html#a381f6978151d3e205f3b493523ed3b57" title="When using DLLs for plugins, specify their path. Leave NULL if DLLs are in the same folder as the gam...">AkInitSettings::szPluginDLLPath</a></code> to the local system path that contains the plug-in library files. This path takes precedence over the operating system's library search paths. Refer to the IntegrationDemo sample code for the recommended <code class="calibre14"><a class="pcalibre el" href="struct_ak_init_settings_a381f6978151d3e205f3b493523ed3b57_split_000.html#a381f6978151d3e205f3b493523ed3b57" title="When using DLLs for plugins, specify their path. Leave NULL if DLLs are in the same folder as the gam...">AkInitSettings::szPluginDLLPath</a></code> setup method for various platforms.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> When using a game engine integration, <code class="calibre14"><a class="pcalibre el" href="struct_ak_init_settings_a381f6978151d3e205f3b493523ed3b57_split_000.html#a381f6978151d3e205f3b493523ed3b57" title="When using DLLs for plugins, specify their path. Leave NULL if DLLs are in the same folder as the gam...">AkInitSettings::szPluginDLLPath</a></code> is managed automatically. Plug-in library files are automatically copied to the appropriate directory when Wwise is integrated into the game engine project. If you are using Unity, refer to <a href="https://www.audiokinetic.com/library/wwise_launcher/?source=InstallGuide&amp;id=integrating_wwise_into_a_unity_project" target="_blank" class="pcalibre calibre12">Integrating Wwise into a Unity Project</a>. If you are using Unreal Engine, refer to <a href="https://www.audiokinetic.com/library/wwise_launcher/?source=InstallGuide&amp;id=integrating_wwise_into_an_unreal_project" target="_blank" class="pcalibre calibre12">Integrating Wwise into an Unreal Engine Project</a>. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

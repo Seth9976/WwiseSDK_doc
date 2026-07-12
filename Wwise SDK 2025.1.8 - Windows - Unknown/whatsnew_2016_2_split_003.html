@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2016.2</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="api_changes_2016_2"></a>
+API Changes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-30183</b> New function exposed in IAkSourcePluginContext Interface allowing to access the cookie that was provided to the associated call to <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a41e9ef8d42951871fe4a8ae58a29a68e_split_000.html#a41e9ef8d42951871fe4a8ae58a29a68e">PostEvent()</a></code>: <code class="calibre14">IAkSourcePluginContext::GetCookie()</code>.</li>
+<li class="calibre9"><b class="calibre13">WG-30616</b> Added access to internal audio node ID to all kinds of plugins, via <code class="calibre14">AK::IAkPluginContextBase::GetNodeID()</code>.</li>
+<li class="calibre9"><b class="calibre13">WG-30620</b> <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_1_1_dynamic_dialogue_a18385d0523eb14ff57bd4ea9f18c08f6_split_000.html#a18385d0523eb14ff57bd4ea9f18c08f6">AK::SoundEngine::DynamicDialogue::ResolveDialogueEvent</a></code> has a new callback, allowing the client to accept or reject candidate selections based on custom criteria.</li>
+<li class="calibre9"><b class="calibre13">WG-30621</b> New <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_1_1_dynamic_dialogue_a57f1aefcc5f2092dc7ef750fe82d811c_split_000.html#a57f1aefcc5f2092dc7ef750fe82d811c">AK::SoundEngine::DynamicDialogue::GetDialogueEventCustomPropertyValue</a></code> function allows access to custom properties on dialogue events.</li>
+<li class="calibre9"><b class="calibre13">WG-30622</b> New <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_1_1_dynamic_dialogue_split_000.html">AK::SoundEngine::DynamicDialogue</a></code> functions:<ul class="calibre15">
+<li class="calibre9">New <code class="calibre14">AK::SoundEngine::DynamicDialogue::GetPlayingItem</code> function returns information on the currently playing item.</li>
+<li class="calibre9">New <code class="calibre14">AK::SoundEngine::DynamicDialogue::GetPauseTimes</code> function allows game to know precisely how much time was spent while a dynamic sequence was paused.</li>
+<li class="calibre9">Added playing ID, game object and audio node ID parameters to <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_monitor_af621607586023874d04c1904264a48ae_split_000.html#af621607586023874d04c1904264a48ae">AK::Monitor::PostCode</a></code> and <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_monitor_ab6c0af10be91ee196c480081cddc38ab_split_000.html#ab6c0af10be91ee196c480081cddc38ab">AK::Monitor::PostString</a></code>.</li>
+<li class="calibre9">New <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a8d4ce557eb5262a36140c26ccfb93fde_split_000.html#a8d4ce557eb5262a36140c26ccfb93fde">AK::SoundEngine::GetBufferTick</a></code> function allows game to keep track of audio output buffers for timing purposes.</li>
+</ul>
+</li>
+<li class="calibre9"><b class="calibre13">WG-30623</b> New <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a8b72b34f95c65c1f1bfda2bd7382245a_split_000.html#a8b72b34f95c65c1f1bfda2bd7382245a">AK::SoundEngine::GetContainerHistory</a></code> and <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a82aa3d070f13f556e501df4992e10323_split_000.html#a82aa3d070f13f556e501df4992e10323">AK::SoundEngine::SetContainerHistory</a></code> functions allow to take a snapshot of the Random and Sequence Container states and reload it in a subsequent session.</li>
+<li class="calibre9"><b class="calibre13">WG-30939</b> (iOS 10.0 and macOS Sierra [10.12]) Removed explicit references to deprecated OSAtomic functions in the public API.</li>
+</ul>
+</div></div></div></body></html>

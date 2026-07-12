@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2022.1.2</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="generic_perf_changes_2022_1_2"></a>
+Performance Changes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-57458</b> Adjusted scheduling of jobs in the <code class="calibre14">AK::JobMgr</code> so that when a job has all of its dependencies satisfied, it is scheduled for execution immediately, instead of being enqueued and later dequeued. This should reduce the overhead of the job manager system, especially when running voice graphs containing many small busses, and improve execution of jobs due to improved cache utilization in many cases.</li>
+<li class="calibre9"><b class="calibre13">WG-60124</b> The entirety of the sound engine tick, that is, execution of <code class="calibre14">CAkAudioMgr::Perform</code>, now runs as jobs of type <code class="calibre14">AkJobType_AudioProcessing</code>. For game integrations that have set up support for the Wwise Job Manager, even with just one worker of type <code class="calibre14">AkJobType_AudioProcessing</code>, this should eliminate almost all of the work performed on the <code class="calibre14">AK::EventMgr</code> thread, and instead let the entirety of the sound engine tick run on game engine thread pools. For example, this should eliminate performance issues that work being performed on the game engine thread pools might have experienced due to being pre-empted by the <code class="calibre14">AK::EventMgr</code> thread, which should improve the overall consistency of game engine performance.</li>
+<li class="calibre9"><b class="calibre13">WG-63532</b> Dispatching of "empty" jobs by the <code class="calibre14">AK::JobMgr</code> no longer issues worker requests. Most notably, this should eliminate many worker requests initiated by <code class="calibre14">_CallGlobalExtensionsAsync</code> that would not actually have any work to be performed.</li>
+</ul>
+</div></div></div></body></html>

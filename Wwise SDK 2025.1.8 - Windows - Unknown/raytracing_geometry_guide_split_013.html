@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Ray Tracing Engine Geometry Guide</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_12"><a class="pcalibre1 anchor" id="raytracing_geometry_guide_load_balancing_in_depth"></a>
+Load Balancing in Depth</h2>
+<p class="calibre7">Whenever a Wwise Acoustics task needs to be performed, it is placed in a priority queue for further processing instead of being executed immediately. If the task is already in the queue, it is not placed in the queue again. This prevents redundant computation and reduces CPU consumption. At each frame, the number of tasks to process (N) is computed based on the number of elements in the queue and the load balancing spread settings. The first N priority tasks are pulled from the queue and executed.</p>
+<p class="calibre7">In general, task priority is determined by the time at which the task was created (inserted): older tasks are executed first. For some tasks, such as the path validation tasks, the priority might be different. Whenever an emitter becomes active, the path validation task priority is increased to force the validation of the new paths. This is important to prevent delays in path creation.</p>
+<div class="calibre2">
+<img alt="" src="loadbalancingpushtoqueue.png" class="inline"/>
+<div class="calibre2">
+A task is placed in the queue if it is not already scheduled.</div></div>
+<p class="calibre7"> <br class="calibre10"/>
+</p>
+<div class="calibre2">
+<img alt="" src="loadbalancingpopfromqueue.png" class="inline"/>
+<div class="calibre2">
+At each frame, N tasks are pulled from the queue for execution.</div></div>
+<p class="calibre7"> <br class="calibre10"/>
+</p>
+<div class="calibre2">
+<img alt="" src="loadbalancingspread.png" class="inline"/>
+<div class="calibre2">
+There are 7 elements in the queue and the load balancing spread is set to 3. The number of tasks (N) that will be executed in this frame is CEIL(7/3) = 3. The tasks T1, T2, and T3 will be executed in the same frame. The process is repeated in the next frame.</div></div>
+</div></div></div></body></html>

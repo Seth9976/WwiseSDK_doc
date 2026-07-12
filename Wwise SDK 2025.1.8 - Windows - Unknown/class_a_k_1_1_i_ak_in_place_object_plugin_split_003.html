@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::IAkInPlaceObjectPlugin Class Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_2">Detailed Description</h2>
+<div class="calibre2"><p class="calibre7">In-place Object Processor plug-in interface. Implement this interface when your plugin returns both <a class="pcalibre el" href="struct_ak_plugin_info_abb27da271e4dc15b9b3ef9cb3316cfd3_split_000.html#abb27da271e4dc15b9b3ef9cb3316cfd3" title="Plug-in can process audio objects. They must implement IAkInPlaceObjectPlugin or IAkOutOfPlaceObjectP...">AkPluginInfo::bCanProcessObjects</a> and <a class="pcalibre el" href="struct_ak_plugin_info_a70fb541431bdc08cdb490a926ccc3ee4_split_000.html#a70fb541431bdc08cdb490a926ccc3ee4" title="Buffer usage (in-place or not). If true, and the plug-in is an insert effect, it should implement IAk...">AkPluginInfo::bIsInPlace</a> set to true. In-place object processors just modify objects' audio or metadata, but do not destroy objects create additional output objects. An object processor may be initialized with an Object configuration, or any channel configuration, depending on the configuration of its input. It is not allowed to change the channel configuration in Init. </p>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_i_ak_plugin_8h_source_split_001.html#l00942">942</a> of file <a class="pcalibre el" href="_i_ak_plugin_8h_source_split_000.html">IAkPlugin.h</a>.</p>
+</div></div><!-- contents -->
+
+
+</body></html>

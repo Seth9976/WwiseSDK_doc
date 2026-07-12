@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Getting Started with WAQL</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="waql_gs_filter_query"></a>
+A Simple Filtering Query</h1>
+<p class="calibre7">Type the following in the List View search field:</p>
+<p class="calibre7"><code class="calibre14">$ where volume &lt; 0</code></p>
+<p class="calibre7">The first character is <b class="calibre13">$</b> and tells Wwise we are writing a WAQL query. This is how Wwise distinguishes between a standard text search and a WAQL query. Everything that follows the <b class="calibre13">$</b> defines the query itself.</p>
+<p class="calibre7">In this example, we start the query with a <b class="calibre13">where</b> keyword. When starting with a <b class="calibre13">where</b> keyword, WAQL will automatically take every object of the project and filter the objects using the conditional statement defined after the <b class="calibre13">where</b>. The <b class="calibre13">where</b> keyword is a filter that only outputs the matching objects.</p>
+<p class="calibre7">In summary:</p>
+<p class="calibre7"><code class="calibre14">$ where CONDITION</code></p>
+<p class="calibre7">The CONDITION is a Boolean expression returning true or false. In the example above, we are comparing the volume with a numerical value. If the volume is less than zero, the query will return true. This condition will be verified on all objects of the project. The result of the query is all objects for which the volume is less than zero.</p>
+<p class="calibre7">Additional exercises:</p>
+<ul class="calibre8">
+<li class="calibre9">Try different operators: &lt;=, &gt;, &gt;=, =</li>
+<li class="calibre9">Replace <b class="calibre13">volume</b> by <b class="calibre13">pitch</b> or <b class="calibre13">lowpass</b></li>
+<li class="calibre9">Try to define more complex expressions by using <b class="calibre13">and</b> and <b class="calibre13">or</b> with or without parentheses</li>
+</ul>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="tip.gif"/></td><td class="calibre17"><b class="calibre13">Tip:</b> To learn about WAQL property names, refer to <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a>. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

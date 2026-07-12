@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::IAkAutoStream::QueryBufferingStatus</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="class_a_k_1_1_i_ak_auto_stream_a34793515f3d57ed32f4622173d010100_split_000.html#a34793515f3d57ed32f4622173d010100" class="pcalibre1 anchor">◆ </a></span>QueryBufferingStatus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="calibre3">
+  <tbody class="calibre4"><tr class="calibre16">
+  <td class="calibre17">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">virtual <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::IAkAutoStream::QueryBufferingStatus </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> &amp; </td>
+          <td class="paramname"><em class="calibre59">out_uNumBytesAvailable</em></td><td class="calibre17">)</td>
+          <td class="calibre17"/>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="calibre17">
+<span><span>pure virtual</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Get the amount of buffering that the stream has. The buffering is defined as the number of bytes that the stream has buffered, excluding the number of bytes that is currently granted to the user (with <a class="pcalibre el" href="class_a_k_1_1_i_ak_auto_stream_aa8197d63b8e758acb075a437103e573c_split_000.html#aa8197d63b8e758acb075a437103e573c">GetBuffer()</a>). </p><dl class="calibre7"><dt class="calibre23">Remarks</dt><dd class="calibre24">The returned value corresponds to the buffering status at that moment, and does not even guarantee that it will not shrink. </dd></dl>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9">AK_DataReady: Some data has been buffered (out_uNumBytesAvailable is greater than 0).</li>
+<li class="calibre9">AK_NoDataReady: No data is available, and the end of file has not been reached.</li>
+<li class="calibre9">AK_NoMoreData: Some or no data is available, but the end of file has been reached. The stream will not buffer any more data.</li>
+<li class="calibre9">AK_Fail: The stream is invalid due to an I/O error. </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">out_uNumBytesAvailable</td><td class="calibre17">Number of bytes available in the stream's buffer(s). </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

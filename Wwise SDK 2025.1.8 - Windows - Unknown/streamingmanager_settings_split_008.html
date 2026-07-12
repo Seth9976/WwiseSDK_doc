@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Audiokinetic Stream Manager Initialization Settings</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_7"><a class="pcalibre1 anchor" id="streamingmanager_settings_defmanagerinit_device_bUseStreamCache"></a>
+Use Stream Cache</h2>
+<p class="calibre7"><a class="pcalibre el" href="struct_ak_device_settings_aaa0e8dc2b18f827559aaf8672705dd49_split_000.html#aaa0e8dc2b18f827559aaf8672705dd49" title="If true, the device attempts to reuse I/O buffers that have already been streamed from disk....">AkDeviceSettings::bUseStreamCache</a> determines whether data caching is enabled or not.</p>
+<p class="calibre7">Streaming devices support data caching into their streaming pool. When an I/O operation is executed for a memory block, file metadata is attached to it. If the same stream or another instance of the same stream requires a block of data corresponding to the same file at more or less the same position, this block of data will be used directly, thus avoiding a transfer from the low-level I/O.</p>
+<p class="calibre7">You must know that critical data structures are preallocated (from the Stream Manager memory pool) when devices are created. Running out of memory at run-time would result in the I/O thread spinning over nothing with a high priority, having disastrous consequences on the game's performances.</p>
+<p class="calibre7">With stream data caching, there may be more than one reference for a given memory block. References to memory blocks are an example of such preallocated critical data structures.</p>
+<p class="calibre7">By calling <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ae98b64113d2b9bd2e63adef8cee96805_split_000.html#ae98b64113d2b9bd2e63adef8cee96805">AK::SoundEngine::PinEventInStreamCache()</a></code>, the user can request that certain events have their media "pinned" into stream cache, so that it is ready and can be played with zero latency when needed. If the data is not already in cache when <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ae98b64113d2b9bd2e63adef8cee96805_split_000.html#ae98b64113d2b9bd2e63adef8cee96805">AK::SoundEngine::PinEventInStreamCache()</a></code> is called, then the data will be streamed in with a low priority automatic stream. The length, in milliseconds, of each media file that is pinned can be customized using the prefetch slider in the Wwise authoring tool. The data will stay in memory until the user releases the media by calling <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a09d2491e7ad56454b3720f182b09549a_split_000.html#a09d2491e7ad56454b3720f182b09549a">AK::SoundEngine::UnpinEventInStreamCache()</a></code>.</p>
+<p class="calibre7"><a class="pcalibre el" href="struct_ak_device_settings_aaa0e8dc2b18f827559aaf8672705dd49_split_000.html#aaa0e8dc2b18f827559aaf8672705dd49" title="If true, the device attempts to reuse I/O buffers that have already been streamed from disk....">AkDeviceSettings::bUseStreamCache</a> specifies if the device should attempt to reuse IO buffers that have already been streamed from disk. This is particularly useful when streaming small looping sounds. The drawback is a small CPU hit when allocating memory, and a slightly larger memory footprint in the StreamManager pool.</p>
+<p class="calibre7">Default: false (caching disabled). </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

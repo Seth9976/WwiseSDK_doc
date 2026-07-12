@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2025.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_4"><a class="pcalibre1 anchor" id="c_cxx_api_changes_25_1_types"></a>
+Other minor type changes and renames</h2>
+<ul class="calibre8">
+<li class="calibre9">The enum <code class="calibre14">AK::SoundEngine::AkActionOnEventType</code> has been renamed to <code class="calibre14">AkActionOnEventType</code> in the global namespace. Its values are also similarly renamed.</li>
+<li class="calibre9">The enum <code class="calibre14">AK::AkAudioDeviceEvent</code> has been renamed to <code class="calibre14">AkAudioDeviceEvent</code> in the global namespace. Its values are also similarly renamed.</li>
+<li class="calibre9">The enum <code class="calibre14">AK::SoundEngine::MultiPositionType</code> has been renamed to <code class="calibre14">AkMultiPositionType</code> in the global namespace. Its values are also similarly renamed.</li>
+<li class="calibre9">The enum <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_1_1_dynamic_sequence_a8a2d2e9917fc300d080436c871b03b51_split_000.html#a8a2d2e9917fc300d080436c871b03b51">AK::SoundEngine::DynamicSequence::DynamicSequenceType</a></code> has been renamed to <code class="calibre14">AkDynamicSequenceType</code> in the global namespace. Its values are also similarly renamed.</li>
+<li class="calibre9">The struct <code class="calibre14"><a class="pcalibre el" href="struct_ak_m_i_d_i_post_split_000.html">AkMIDIPost</a></code> no longer inherits <code class="calibre14"><a class="pcalibre el" href="struct_ak_m_i_d_i_event_split_000.html">AkMIDIEvent</a></code>; it has a <code class="calibre14">midiEvent</code> data member instead.</li>
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="struct_ak_world_transform_split_000.html" title="Position and orientation of game objects in the world (i.e. supports 64-bit-precision position)">AkWorldTransform</a></code> and <code class="calibre14"><a class="pcalibre el" href="struct_ak_transform_split_000.html" title="Position and orientation of objects in a &quot;local&quot; space.">AkTransform</a></code> are now <code class="calibre14">struct</code> types.</li>
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="struct_wave_format_extensible_split_000.html">WaveFormatExtensible</a></code> has been renamed to <code class="calibre14"><a class="pcalibre el" href="struct_wem_format_extensible_split_000.html">WemFormatExtensible</a></code> to avoid confusion with the actual WAVE format definition.</li>
+</ul>
+</div></div></div></body></html>

@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>JavaScript, In browser - WAMP</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="wamp_js_browser_code"></a>
+Project Code</h1>
+<p class="calibre7">The sample file, index.js in the <code class="calibre14"><b class="calibre13">hello-wwise-web-wamp</b></code> sample directory allows to connect to the Wwise Authoring API. </p><div class="fragment"><div class="line">var showMessage = <span class="keyword">function</span>(message){</div>
+<div class="line">  document.getElementById(<span class="stringliteral">"message"</span>).innerHTML = message; </div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">function</span> onBodyLoad() {</div>
+<div class="line">    <span class="comment">// Create the WAMP connection</span></div>
+<div class="line">    var connection = <span class="keyword">new</span> autobahn.Connection({</div>
+<div class="line">            url: <span class="stringliteral">'ws://localhost:8080/waapi'</span>,</div>
+<div class="line">            realm: <span class="stringliteral">'realm1'</span>,</div>
+<div class="line">            protocols: [<span class="stringliteral">'wamp.2.json'</span>]</div>
+<div class="line">        });</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Setup handler for connection closed</span></div>
+<div class="line">    connection.onclose = <span class="keyword">function</span> (reason, details) {</div>
+<div class="line">        showMessage(<span class="stringliteral">'wamp connection closed'</span>);</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">    };</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Setup handler for connection opened</span></div>
+<div class="line">    connection.onopen = <span class="keyword">function</span> (session) {</div>
+<div class="line">        showMessage(<span class="stringliteral">'wamp connection opened'</span>);</div>
+<div class="line"> </div>
+<div class="line">        <span class="comment">// Call getInfo</span></div>
+<div class="line">        session.call(ak.wwise.core.getInfo, [], {}).then(</div>
+<div class="line">            <span class="keyword">function</span> (res) {</div>
+<div class="line">                showMessage(`Hello ${res.kwargs.displayName} ${res.kwargs.version.displayName}`);</div>
+<div class="line">            },</div>
+<div class="line">            <span class="keyword">function</span> (error) {</div>
+<div class="line">                showMessage(`error: ${error}`);</div>
+<div class="line">            }        </div>
+<div class="line">        );</div>
+<div class="line">    };</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Open the connection</span></div>
+<div class="line">    connection.open();</div>
+<div class="line">}</div>
+</div><!-- fragment --><p class="calibre7">The sample file, index.html, in the <code class="calibre14"><b class="calibre13">hello-wwise-web-wamp</b></code> sample directory is a simple webpage which uses the previous script to connect to the Wwise Authoring API and renders the output message. </p><div class="fragment"><div class="line">&lt;!DOCTYPE html&gt;</div>
+<div class="line">&lt;html lang="en"&gt;</div>
+<div class="line">&lt;head&gt;</div>
+<div class="line">    &lt;meta charset="utf-8"&gt;</div>
+<div class="line">    &lt;title&gt;Hello Wwise&lt;/title&gt;</div>
+<div class="line">    &lt;script src="node_modules/autobahn-browser/autobahn.min.js"&gt;&lt;/script&gt;</div>
+<div class="line">    &lt;script src="../../../../include/AK/WwiseAuthoringAPI/js/waapi.js"&gt;&lt;/script&gt;</div>
+<div class="line">    &lt;script src="index.js"&gt;&lt;/script&gt;</div>
+<div class="line">&lt;/head&gt;</div>
+<div class="line">&lt;body onload="onBodyLoad()"&gt;</div>
+<div class="line">    &lt;div id="message"&gt;</div>
+<div class="line">        Not connected.</div>
+<div class="line">    &lt;/div&gt;</div>
+<div class="line">&lt;/body&gt;</div>
+<div class="line">&lt;/html&gt;</div>
+</div><!-- fragment --></div></div></div></body></html>

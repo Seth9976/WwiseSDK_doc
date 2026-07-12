@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integrating Listeners</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_4"><a class="pcalibre1 anchor" id="third_person_panning"></a>
+Panning and Spatialization</h2>
+<p class="calibre7">In almost all scenarios, panning and spatialization, including spread and focus in Wwise, should be based on the camera’s position and orientation. Any disconnect between the camera and the relative orientation of the sounds in the simulation, with respect to the final speaker array (whether physical or virtual binaural), results in a loss of immersion. For example, if the camera is looking directly at a sound, then that sound should come from the center speaker channel. A sound to the left of the camera should come from the left speaker(s), and so on.</p>
+<p class="calibre7">To achieve this goal, the Listener Game Object must be placed on the active camera, and the orientation of the Listener must be updated to match.</p>
+</div></div></div></body></html>

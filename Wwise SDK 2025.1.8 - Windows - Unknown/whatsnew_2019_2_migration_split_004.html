@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2019.2</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="text_fileformat_unicode"></a>
+UTF-8 encoding</h1>
+<p class="calibre7">The encoding format for text files produced by the Wwise Authoring application is now UTF-8. The option to choose the encoding format between ANSI and Unicode has been removed. The built-in macro ContentFileFormat provided for pre/post-SoundBank generation has been deprecated and will be removed in the next version. In 2019.2, it will always provide the value "Unicode". The SoundBank generation settings passed to SoundFrame will also ignore AK::SoundFrame::SoundBankGenerationSettings::eContentTxtFileFormat, defaulting to AK::SoundFrame::SoundBankContentTxtFileFormat_UNICODE.</p>
+</div></div></div></body></html>

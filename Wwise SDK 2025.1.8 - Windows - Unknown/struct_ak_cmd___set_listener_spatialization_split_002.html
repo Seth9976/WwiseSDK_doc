@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AkCmd_SetListenerSpatialization Struct Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_1">Detailed Description</h2>
+<div class="calibre2"><p class="calibre7">Sets a listener's spatialization parameters. This lets you define listener-specific volume offsets for each audio channel. If <code class="calibre14">isSpatialized</code> is false, the volumes array is used for this listener (3D positions have no effect on the speaker distribution). Otherwise, the volumes array is added to the speaker distribution computed for this listener. </p><dl class="calibre7"><dt class="calibre23">Remarks</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9">If a sound is mixed into a bus that has a different speaker configuration than <code class="calibre14">channelConfig</code>, standard up/downmix rules apply.</li>
+<li class="calibre9">Sounds with 3D Spatialization set to None will not be affected by these parameters.</li>
+</ul>
+</dd></dl>
+<p class="calibre7">When <code class="calibre14">channelConfig</code> is set to a valid channel config, the Sound Engine expects an array of <code class="calibre14">AkReal32</code> objects after the command. The number of items must correspond to the number of channels in <code class="calibre14">channelConfig</code>. For example: </p><pre class="fragment">AkReal32 volumes[2] = { 1.0f, 1.0f };
+auto cmd = (AkCmd_SetListenerSpatialization*)AK_CommandBuffer_Add(buffer, AkCommand_SetListenerSpatialization);
+cmd-&gt;channelConfig.SetStandard(AK_SPEAKER_SETUP_STEREO);
+AK_CommandBuffer_AddArray(buffer, sizeof(AkReal32), cmd-&gt;channelConfig.uNumChannels, volumes);
+</pre><p class="calibre7">When <code class="calibre14">channelConfig</code> is left to an invalid config, no volume array is expected to follow, and the command acts as a simple spatialization toggle.</p>
+<p class="calibre7">This command can fail for the following reasons:</p><ul class="calibre8">
+<li class="calibre9">AK_InvalidParameter: <code class="calibre14">listenerID</code> is outside the valid range, <code class="calibre14">channelConfig</code> is invalid, incomplete volumes array after the command</li>
+<li class="calibre9">AK_InsufficientMemory: Not enough memory to process the command</li>
+<li class="calibre9">AK_IDNotFound: <code class="calibre14">gameObjectID</code> is not a registered game object ID.</li>
+</ul>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="_ak_command_types_8h_a001b78645b8b0335c0dd2e128cca2cfd_split_001.html#a001b78645b8b0335c0dd2e128cca2cfda7030c079fc10a94cb71f3a98ef265e45" title="See AkCmd_SetListenerSpatialization.">AkCommand_SetListenerSpatialization</a></li>
+<li class="calibre9"><a class="pcalibre el" href="_ak_command_buffer_8h_a7512f07e3e8f24cf4ed15bebf3a6392e_split_000.html#a7512f07e3e8f24cf4ed15bebf3a6392e">AK_CommandBuffer_AddArray</a></li>
+<li class="calibre9"><a class="pcalibre el" href="soundengine_listeners_split_012.html#soundengine_listeners_spatial">Volume Offset and Spatialization</a> </li>
+</ul>
+</dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_ak_command_types_8h_source_split_000.html#l00416">416</a> of file <a class="pcalibre el" href="_ak_command_types_8h_source_split_000.html">AkCommandTypes.h</a>.</p>
+</div></div><!-- contents -->
+
+
+</body></html>

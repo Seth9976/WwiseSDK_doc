@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Sound Engine Source Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_4"><a class="pcalibre1 anchor" id="iaksourceeffect_getenvelope"></a>
+AK::IAkSourcePlugin::GetEnvelope()</h2>
+<p class="calibre7">This method is called to get an estimate of the normalized amplitude envelope value, between 0 and 1, that a source plugin will generate at the next call to Execute(). In the current version of Wwise, it is used for HDR processing, where the algorithm uses estimates of the envelope to attenuate softer sounds accordingly. This feature is optional: if you return 1 (default), the attenuation of softer sounds will be constant when your plugin is used under an HDR bus.</p>
+<p class="calibre7">If you decide to implement it, ensure that it returns the normalized envelope value, that is, that you know the value of the peak of the waveform that you are about to generate, or that amplitude envelope and gain are decoupled so that you may return only the current value of the envelope.</p>
+</div></div></div></body></html>

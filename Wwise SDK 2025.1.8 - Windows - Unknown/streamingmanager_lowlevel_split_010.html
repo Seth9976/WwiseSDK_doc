@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Low-Level I/O</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_9"><a class="pcalibre1 anchor" id="streamingmanager_lowlevel_interface_otherconsiderations"></a>
+Other Considerations</h2>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="streamingmanager_lowlevel_interface_otherconsiderations_getblocksize"></a>
+Block Size (GetBlockSize())</h3>
+<p class="calibre7">As mentioned before, users of the Stream Manager must take low-level I/O constraints on allowed transfer sizes into account. The most common constraint is that these sizes be a multiple of some value. This value is returned by <a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_a5018552d455ddc2a95b727fc543aac9e_split_000.html#a5018552d455ddc2a95b727fc543aac9e">AK::StreamMgr::IAkLowLevelIOHook::GetBlockSize()</a> for a given file descriptor. For example, a file opened in Windows® with the FILE_FLAG_NO_BUFFERING flag must be read with sizes that are a multiple of the sector size. The <a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_a5018552d455ddc2a95b727fc543aac9e_split_000.html#a5018552d455ddc2a95b727fc543aac9e">AK::StreamMgr::IAkLowLevelIOHook::GetBlockSize()</a> method returns the sector size. If, on the other hand, a Win32 file is not opened with that flag, <a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_a5018552d455ddc2a95b727fc543aac9e_split_000.html#a5018552d455ddc2a95b727fc543aac9e">AK::StreamMgr::IAkLowLevelIOHook::GetBlockSize()</a> should return 1, so as not to constrain clients of the Stream Manager.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="caution.gif"/></td><td class="calibre17"><b class="calibre13">Caution:</b> <a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_a5018552d455ddc2a95b727fc543aac9e_split_000.html#a5018552d455ddc2a95b727fc543aac9e">AK::StreamMgr::IAkLowLevelIOHook::GetBlockSize()</a> must never return 0. </td></tr>
+</tbody></table>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="tip.gif"/></td><td class="calibre17"><b class="calibre13">Tip:</b> The burden of dealing with the low-level block size constraint is passed to the client of the Stream Manager. Larger block size values result in more wasted streaming data by the sound engine. You should use a low-level block size of 1 unless the platform's I/O system has specific alignment constraints or unless it helps you improve I/O bandwidth performance significantly. </td></tr>
+</tbody></table>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="streamingmanager_lowlevel_interface_otherconsiderations_getdesc"></a>
+Profiling</h3>
+<p class="calibre7"><a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_a06860cb1211c2ebd5c49f4429cc66a0b_split_000.html#a06860cb1211c2ebd5c49f4429cc66a0b">AK::StreamMgr::IAkLowLevelIOHook::GetDeviceDesc()</a> is used for profiling in Wwise. The information provided by the default implementation of the Low-Level I/O is what is actually seen in Wwise when profiling.</p>
+<p class="calibre7"><a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_a885d39fdd78da3748f78e176615fb6ea_split_000.html#a885d39fdd78da3748f78e176615fb6ea">AK::StreamMgr::IAkLowLevelIOHook::GetDeviceData()</a> is similar, but it is called at every profiling frame. The value it returns appears in the Custom Parameter column of the Streaming Device tab.</p>
+</div></div></div></body></html>

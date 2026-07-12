@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::IAkMixerPluginContext::GetAnonymousConnections</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="class_a_k_1_1_i_ak_mixer_plugin_context_a4e1f287753cfecb1d08f88980f733f92_split_000.html#a4e1f287753cfecb1d08f88980f733f92" class="pcalibre1 anchor">◆ </a></span>GetAnonymousConnections()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="calibre3">
+  <tbody class="calibre4"><tr class="calibre16">
+  <td class="calibre17">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">virtual <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::IAkMixerPluginContext::GetAnonymousConnections </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> </td>
+          <td class="paramname"><em class="calibre59">in_uNumChannels</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> </td>
+          <td class="paramname"><em class="calibre59">in_uSpeakerIndexToQuery</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> * </td>
+          <td class="paramname"><em class="calibre59">out_pNeighborIndices</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> &amp; </td>
+          <td class="paramname"><em class="calibre59">io_uNumNeighbors</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="calibre17">
+<span><span>pure virtual</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Retrieve the list of connected neighbors for a single speaker within a registered anonymous configuration. This function is useful for anonymous configurations that use a 3D VBAP for panning. It queries the triangulation mesh created by the sound engine to determine the spatial relationship between speakers.</p>
+<p class="calibre7">You may call this function with out_pNeighborIndices set to NULL to get the required number of neighbors in io_uNumNeighbors, in order to allocate your array correctly. If out_pNeighborIndices is not NULL, the array is filled with up to io_uNumNeighbors indices.</p>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">AK_Success if the anonymous configuration was found and the query was successful. </dd>
+<dd class="calibre24">
+AK_Fail if no anonymous configuration matching in_uNumChannels has been registered for this plugin context. </dd>
+<dd class="calibre24">
+AK_InvalidParameter if in_uSpeakerIndexToQuery is out of bounds. </dd>
+<dd class="calibre24">
+AK_InsufficientMemory if not enough memory is available to calculate the list of connections </dd></dl>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><a class="pcalibre el" href="class_a_k_1_1_i_ak_mixer_plugin_context_a34798c9b84c516c80967adabf7c30524_split_000.html#a34798c9b84c516c80967adabf7c30524">IAkMixerPluginContext::RegisterAnonymousConfig</a> </dd>
+<dd class="calibre24">
+<a class="pcalibre el" href="class_a_k_1_1_i_ak_mixer_plugin_context_ad4b4511df5923ad9f35874b85fa8926d_split_000.html#ad4b4511df5923ad9f35874b85fa8926d">IAkMixerPluginContext::UnregisterAnonymousConfig</a> </dd>
+<dd class="calibre24">
+<a class="pcalibre el" href="class_a_k_1_1_i_ak_mixer_plugin_context_a0d39528d0bf01ec4e08bc20956dfce2c_split_000.html#a0d39528d0bf01ec4e08bc20956dfce2c">IAkMixerPluginContext::ComputePositioning</a> </dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_uNumChannels</td><td class="calibre17">Number of channels of the anonymous configuration being queried. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_uSpeakerIndexToQuery</td><td class="calibre17">Speaker index to get neighbors for. </td></tr>
+    <tr class="calibre16"><td class="paramname">out_pNeighborIndices</td><td class="calibre17">Array of neighbor indices to fill or NULL to query the size needed. </td></tr>
+    <tr class="calibre16"><td class="paramname">io_uNumNeighbors</td><td class="calibre17">In: size of the array. Out: number of neighbors written, or required size. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AkCmd_SA_SetPortalObstructionAndOcclusion Struct Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_1">Detailed Description</h2>
+<div class="calibre2"><p class="calibre7">Set the obstruction and occlusion value for a portal that has been registered with Spatial Audio. Portal obstruction simulates objects that block the direct sound path between the portal and the listener, but allows indirect sound to pass around the obstacle. For example, use portal obstruction when a piece of furniture blocks the line of sight of the portal opening. Portal obstruction is applied to the connection between the emitter and the listener, and only affects the dry signal path. Portal occlusion simulates a complete blockage of both the direct and indirect sound through a portal. For example, use portal occlusion for opening or closing a door or window. Portal occlusion is applied to the connection between the emitter and the first room in the chain, as well as the connection between the emitter and listener. Portal occlusion affects both the dry and wet (reverberant) signal paths. If you are using built-in game parameters to drive RTPCs, the obstruction and occlusion values set here do not affect the RTPC values. This behavior is intentional and occurs because RTPCs only provide one value per game object, but a single game object can have multiple paths through different Portals, each with different obstruction and occlusion values. To apply detailed obstruction to specific sound paths but not others, use <code class="calibre14"><a class="pcalibre el" href="struct_ak_cmd___s_a___set_game_object_to_portal_obstruction_split_000.html">AkCmd_SA_SetGameObjectToPortalObstruction</a></code> and <code class="calibre14"><a class="pcalibre el" href="struct_ak_cmd___s_a___set_portal_to_portal_obstruction_split_000.html">AkCmd_SA_SetPortalToPortalObstruction</a></code>. To apply occlusion and obstruction to the direct line of sight between the emitter and listener use <code class="calibre14"><a class="pcalibre el" href="struct_ak_cmd___set_object_obstruction_and_occlusion_split_000.html">AkCmd_SetObjectObstructionAndOcclusion</a></code>.</p>
+<p class="calibre7">This command can fail for the following reasons:</p><ul class="calibre8">
+<li class="calibre9">AK_InvalidParameter: <code class="calibre14">portalID</code> is not valid, or <code class="calibre14">obstruction</code> / <code class="calibre14">occlusion</code> values are out of range.</li>
+<li class="calibre9">AK_IDNotFound: <code class="calibre14">portalID</code> is not a registered portal.</li>
+</ul>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="_ak_command_types_8h_a001b78645b8b0335c0dd2e128cca2cfd_split_001.html#a001b78645b8b0335c0dd2e128cca2cfda41645e1bc17a24982eb5b4a5bf3e29ec">AkCommand_SA_SetPortalObstructionAndOcclusion</a></li>
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_cmd___s_a___set_game_object_to_portal_obstruction_split_000.html">AkCmd_SA_SetGameObjectToPortalObstruction</a></li>
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_cmd___s_a___set_portal_to_portal_obstruction_split_000.html">AkCmd_SA_SetPortalToPortalObstruction</a></li>
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_cmd___set_object_obstruction_and_occlusion_split_000.html">AkCmd_SetObjectObstructionAndOcclusion</a> </li>
+</ul>
+</dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_ak_command_types_8h_source_split_002.html#l01601">1601</a> of file <a class="pcalibre el" href="_ak_command_types_8h_source_split_000.html">AkCommandTypes.h</a>.</p>
+</div></div><!-- contents -->
+
+
+</body></html>

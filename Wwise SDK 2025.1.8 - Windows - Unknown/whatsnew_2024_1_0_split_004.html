@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2024.1.0</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="generic_perf_changes_2024_1"></a>
+Performance Changes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-61061</b> Updated the following Effects or Sources to use the Bookmark Allocator: AK Convolution Reverb, Flanger, Guitar Distortion, Harmonizer, Pitch Shifter, RoomVerb, Time Stretch, Stereo Delay, SoundSeed Air Wind, SoundSeed Air Woosh, and Synth One. This eliminates many temporary allocations that these plug-ins incurred during every tick of their execution.</li>
+<li class="calibre9"><b class="calibre13">WG-63811</b> <code class="calibre14">AK BusTask</code> jobs for buses that are processing without any input connections from a playing voice, such as handling the tail of a reverb effect, no longer have any dependencies on the <code class="calibre14">CAkLEngine::PostRunVpls</code> job before starting execution. This will allow for Job Worker Functions to continue running after the <code class="calibre14">AK SwVoice</code> and <code class="calibre14">AK HwVoice</code> jobs complete, which should reduce the overall wall-clock time of the sound engine tick.</li>
+<li class="calibre9"><b class="calibre13">WG-67233</b> Converted the Gain Effect from an In-Place Effect to an In-Place Object Processor. This means it is now instantiated only once per Audio Objects bus, as opposed to once per Audio Object. Also, the processing now only affects the cumulative gain of the Audio Object when possible, instead of applying the gain to the object signal directly. This saves some memory and can significantly improve performance of the effect when used on Audio Objects buses.</li>
+<li class="calibre9"><b class="calibre13">WG-70681</b> WAQL compilation is now cached. Doing the same query multiple times is faster.</li>
+<li class="calibre9"><b class="calibre13">WG-71033</b> Improved the performance of List Views when displaying queries with high row and column counts.</li>
+<li class="calibre9"><b class="calibre13">WG-71688</b> Optimized the computation of reflection paths by validating the n best potential paths when the paths sorting feature is enabled.</li>
+</ul>
+</div></div></div></body></html>

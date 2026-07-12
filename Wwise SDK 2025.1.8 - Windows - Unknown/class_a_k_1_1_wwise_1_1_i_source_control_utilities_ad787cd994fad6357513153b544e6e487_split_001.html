@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK.Wwise::ISourceControlUtilities::CreateFileStatusListControl</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="class_a_k_1_1_wwise_1_1_i_source_control_utilities_ad787cd994fad6357513153b544e6e487_split_000.html#ad787cd994fad6357513153b544e6e487" class="pcalibre1 anchor">◆ </a></span>CreateFileStatusListControl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="calibre3">
+  <tbody class="calibre4"><tr class="calibre16">
+  <td class="calibre17">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">virtual void AK.Wwise::ISourceControlUtilities::CreateFileStatusListControl </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype">HWND </td>
+          <td class="paramname"><em class="calibre59">in_hWndParent</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">UINT </td>
+          <td class="paramname"><em class="calibre59">in_idStatic</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">const WCHAR ** </td>
+          <td class="paramname"><em class="calibre59">in_ppFilenameList</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">unsigned int </td>
+          <td class="paramname"><em class="calibre59">in_uiFilenameListCount</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="calibre17">
+<span><span>pure virtual</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Create a <a class="pcalibre el" href="namespace_a_k_split_000.html" title="Definition of data structures for AkAudioObject.">AK</a> style list control with 3 columns:</p><ul class="calibre8">
+<li class="calibre9">Filename</li>
+<li class="calibre9">Status</li>
+<li class="calibre9">Owner You must create a static control in the resources delimitating the region of the list control and pass the control ID of it. <dl class="section"><dt class="calibre23">Note</dt><dd class="calibre24">DestroyFileStatusListControl must be called when handling WM_DESTROY in WindowProc </dd></dl>
+<dl class="section"><dt class="calibre23">Warning</dt><dd class="calibre24">This function is not thread-safe. </dd></dl>
+</li>
+</ul>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_hWndParent</td><td class="calibre17">The parent dialog to create the list control </td></tr>
+    <tr class="calibre16"><td class="paramname">in_idStatic</td><td class="calibre17">The ID of the placeholder static control, which will also be the ID of the list control after the creation </td></tr>
+    <tr class="calibre16"><td class="paramname">in_ppFilenameList</td><td class="calibre17">The list of files to show in the list </td></tr>
+    <tr class="calibre16"><td class="paramname">in_uiFilenameListCount</td><td class="calibre17">the number of files in the in_ppFilenameList array </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak.wwise.core.mediaPool.get</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="ak_wwise_core_mediapool_getArguments"></a>
+Arguments</h1>
+<p class="calibre7"></p><table class="doxtable">
+<tbody class="calibre4"><tr class="calibre16">
+<th class="calibre46">Name </th><th class="calibre46">Type </th><th class="calibre46">Description  </th></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">searchText</b> </td><td class="calibre36">string </td><td class="calibre36">The text for the fuzzy search in the Media Pool. The search is case-insensitive. When not specified, all files matching the specified filter and specified databases are returned.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">databases</b> </td><td class="calibre36">array </td><td class="calibre36">The list of databases to include. If not specified, all databases are included.   </td></tr>
+<tr class="calibre16">
+<td rowspan="4" class="calibre36">databases <b class="calibre13">[...]</b> </td><td class="calibre36"/><td class="calibre36"><p class="starttd">The ID (GUID) or path of the database to include in the search. For the database representing the project originals, use the path '\Databases\Project Originals'. </p>
+<p class="endtd">Any of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">The name of the object qualified by its type or Short ID in the form of type:name or Global:shortId. Only object types that have globally-unique names or Short Ids are supported. Ex: Event:Play_Sound_01, Global:245489792   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">A project path to a Wwise object, including the category and the work-unit. For example: \Containers\Default Work Unit\New Sound SFX.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">filters</b> </td><td class="calibre36">array </td><td class="calibre36">The list of filters to apply. When not specified, no filters are applied.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">filters <b class="calibre13">[...]</b> </td><td class="calibre36">object </td><td class="calibre36">The filter to apply to the search.   </td></tr>
+<tr class="calibre16">
+<td rowspan="4" class="calibre36">filters[...].<b class="calibre13">type</b> * </td><td class="calibre36">string </td><td class="calibre36"><p class="starttd">The type of the filter. </p>
+<p class="endtd">Any of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">field</b> : Filter by a specific field in the Media Pool. See ak.core.mediaPool.getFields for the list of supported fields.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">audioDescription</b> : Filter by description of the desired audio content. You can also specify a weight for the filter.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">audioSimilarity</b> : Filter by audio similarity, which find files that are similar to the audio file at the specified path. You can also specify a weight for the filter.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">filters[...].<b class="calibre13">weight</b> </td><td class="calibre36">number </td><td class="calibre36">The weight of the filter. Normally as decimal value between 0 and 1. The higher the weight, the more important the filter is in the search results. If not specified, a default weight of 1 is used. The weight is only used for audio similarity filters.   </td></tr>
+<tr class="calibre16">
+<td rowspan="13" class="calibre36">filters[...].<b class="calibre13">field</b> </td><td class="calibre36"/><td class="calibre36"><p class="starttd">The name of the field by which to filter. Possible fields include standard WAV fields, file system fields, extracted audio features, and metadata fields from the IXML chunk. The supported fields depend on files in the Media Pool databases. See ak.core.mediaPool.getFields for the list of supported fields. Use this property when the type is 'field'. </p>
+<p class="endtd">Any of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">Filename</b> : The name of the file, including the extension.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">WAV/Duration</b> : The duration of the file in seconds.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">WAV/Sample Rate</b> : The sample rate of the audio file in Hz.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">WAV/Bit Depth</b> : The bit depth of the audio file. Possible values are 8, 16, 24, or 32.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">WAV/Channels</b> : The number of channels of the audio file.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">WAV/Channel Configuration</b> : The channel configuration of the audio file, such as '1.0', '2.0', '5.1', '7.1.4', etc.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">WAV/Data Size</b> : The size of the audio data in bytes.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">WAV/Loop Start</b> : The position in seconds where the audio file loop starts.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">WAV/Loop End</b> : The position in seconds where the audio file loops back to the start.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">WAV/Marker Count</b> : The number of markers in the audio file.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">WAV/Samples</b> : The number of samples in the audio file, for one channel.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">Other fields found in the IXML chunk of the file. Use ak.core.mediaPool.getFields to get the list of supported fields.   </td></tr>
+<tr class="calibre16">
+<td rowspan="11" class="calibre36">filters[...].<b class="calibre13">operator</b> </td><td class="calibre36">string </td><td class="calibre36"><p class="starttd">The type of operator to use to evaluate a field value. Supported operators vary by field type (numeric or text). Use this property when the type is 'field'. </p>
+<p class="endtd">One of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">equals</b> : The field value is exactly equal to the specified value.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">notEquals</b> : The field value is not equal to the specified value.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">contains</b> : The field value contains the specified text (case-sensitive). Text value only.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">startsWith</b> : The field value begins with the specified text. Text value only.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">endsWith</b> : The field value ends with the specified text. Text value only.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">matchesRegex</b> : The field value matches the specified regular expression. Text value only.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">lessThan</b> : The numeric field value is less than the specified value. Numeric value only.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">greaterThan</b> : The numeric field value is greater than the specified value. Numeric value only.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">lessThanOrEqual</b> : The numeric field value is less than or equal to the specified value. Numeric value only.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">greaterThanOrEqual</b> : The numeric field value is greater than or equal to the specified value. Numeric value only.   </td></tr>
+<tr class="calibre16">
+<td rowspan="5" class="calibre36">filters[...].<b class="calibre13">value</b> * </td><td class="calibre36"/><td class="calibre36"><p class="starttd"></p>
+<p class="endtd">Any of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">The value to which to compare the field if the field is a text value.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">number </td><td class="calibre36">The value to which to compare the field if the field is a numeric value.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">The description text to use when the filter type is audio description.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">The path to an audio file when the filter type is audio similarity.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">maxResults</b> </td><td class="calibre36">integer </td><td class="calibre36">The maximum number of results to return. If not specified, a maximum 1000 files are returned.   </td></tr>
+</tbody></table>
+<p class="calibre7"></p>
+<p class="calibre7"><a class="pcalibre el" href="ak_wwise_core_mediapool_get_args_schema_split_000.html">Arguments Schema</a></p>
+</div></div></div></body></html>

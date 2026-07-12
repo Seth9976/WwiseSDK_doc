@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Using the Command Line</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="bankscommandline_commandline"></a>
+Wwise Command Line</h1>
+<p class="calibre7">There are two distinct ways to call WwiseConsole.exe, the Wwise command line executable, depending on whether you run it on Windows or Mac.</p>
+<dl class="calibre7"><dt class="calibre23">On Windows</dt><dd class="calibre24">For Windows, WwiseConsole.exe is called directly under "%WWISEROOT%\Authoring\x64\Release\bin". Command-line parameters should follow this basic structure, where <code class="calibre14">operation</code> and <code class="calibre14">arguments</code> are mandatory: </dd></dl>
+<dl class="calibre7"><dt class="calibre23"></dt><dd class="calibre24"><div class="fragment"><div class="line">WwiseConsole.exe operation [arguments] [--option1 [parameters]] [--option2 [parameters]] ...</div>
+</div><!-- fragment --></dd></dl>
+<dl class="calibre7"><dt class="calibre23">On Mac</dt><dd class="calibre24">For Mac, WwiseConsole.exe is called indirectly via the WwiseConsole.sh shell script.</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Invoke the WwiseConsole.sh shell script from the Terminal by passing the same command line arguments as its Windows counterpart using either Unix or Windows style paths:</dt><dd class="calibre24"></dd></dl>
+<div class="fragment"><div class="line">MAC:~ username$ /Path/to/Authoring/Wwise.app/Contents/Tools/WwiseConsole.sh operation [arguments] [--option1 [parameters]] [--option2 [parameters]]</div>
+</div><!-- fragment --><p class="calibre7">Any string parameter containing spaces should be wrapped in quotation marks. All path parameters must be specified using only backslashes, with no trailing backslashes.</p>
+</div></div></div></body></html>

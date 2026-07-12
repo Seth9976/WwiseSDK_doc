@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Authoring Plug-in Library Format</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="wwiseplugin_authoring"></a>
+Authoring Plug-in Structure</h1>
+<p class="calibre7">The Wwise Authoring plug-in comes in two parts: a mandatory backend part, implementing the logic behind how the properties of the plug-in are written to SoundBanks and manages any custom data. A frontend part is optional and is created as a separate class. The latter part is responsible for implementing custom graphical user interface. Both parts are added to the plug-in container independently with the <code class="calibre14">AK_ADD_PLUGIN_CLASS_TO_CONTAINER</code> macro.</p>
+<p class="calibre7">Details on how to implement those two parts are described in more details in the following sections:</p>
+<ul class="calibre8">
+<li class="calibre9"><a class="pcalibre el" href="wwiseplugin_backend_split_000.html">Backend of an Authoring Plug-in</a> : Implements the <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_a989b8417cedde33d928b90171491fcc5_split_000.html#a989b8417cedde33d928b90171491fcc5" title="Latest version of the C++ AudioPlugin interface.">AK::Wwise::Plugin::AudioPlugin</a></code> class</li>
+<li class="calibre9"><a class="pcalibre el" href="wwiseplugin_frontend_split_000.html">Frontend of an Authoring Plug-in</a> : Implements a frontend class such as <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_a5d74c88aa83c4e608fb75d1ac5555c9b_split_000.html#a5d74c88aa83c4e608fb75d1ac5555c9b" title="Latest version of the C++ GUIWindows interface.">AK::Wwise::Plugin::GUIWindows</a></code> </li>
+</ul>
+<p class="calibre7">See also <a class="pcalibre el" href="plugin_backend_model_split_000.html">Model of an Authoring Plug-in</a> to learn how to work with the plug-in properties.</p>
+</div></div></div></body></html>

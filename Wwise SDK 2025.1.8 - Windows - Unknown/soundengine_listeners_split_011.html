@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integrating Listeners</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_10"><a class="pcalibre1 anchor" id="soundengine_listeners_multi_capturingsources"></a>
+Multiple Listeners: Capturing Sources</h2>
+<p class="calibre7">Each listener spawns a mixing graph. For each source, distance and cone attenuation are computed individually relative to each listener on which they are active.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="soundengine_listeners_multi_capturingsources_attenuation"></a>
+Volume Attenuation Management</h3>
+<p class="calibre7">When multiple listeners capture a source, the source is mixed successively in each bus instance corresponding to its respective listener. As it is mixed, the attenuation volume is applied independently for each listener.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="soundengine_listeners_multi_capturingsources_lpfattenuation"></a>
+LPF Attenuation Management</h3>
+<p class="calibre7">As opposed to attenuation volume, attenuation LPF and HPF are applied directly on sources; therefore, Wwise has to choose a single value based on all emitter-listener associations for a given source. Here is how the sound engine computes the final low pass filter to apply on each source:</p><ol class="calibre26">
+<li class="calibre9">For each listener on which this source is active:<ol class="calibre27">
+<li class="calibre9">Compute the LPF based on distance between the source and this listener.</li>
+<li class="calibre9">Compute the LPF based on angle between the source and this listener.</li>
+<li class="calibre9">Keep the highest of the two values.</li>
+</ol>
+</li>
+<li class="calibre9">Take the lowest value among all the listeners, and add the object's LPF (regular value and RTPC).</li>
+</ol>
+<p class="calibre7">In the example detailed in the following table, the value for listener 0 is max( 10, 40 ) = 40, and the value for listener 1 is max( 50, 10 ) = 50. The lowest of the two is 40, which is then added to the object's value of 5 to produce the final value, 45:</p>
+<table border="1" cellpadding="0" cellspacing="0" width="800px" class="calibre28">
+<tbody class="calibre4"><tr class="calibre16">
+<td colspan="2" class="calibre17"><b class="calibre13"><div class="calibre18" style="text-align:center">Listener 0</div></b> </td><td colspan="2" class="calibre17"><b class="calibre13"><div class="calibre18" style="text-align:center">Listener 1</div></b> </td><td rowspan="2" class="calibre17"><b class="calibre13"><div class="calibre18" style="text-align:center">Object</div></b> </td><td rowspan="2" class="calibre17"><b class="calibre13"><div class="calibre18" style="text-align:center">Final LPF for<br class="calibre10"/>
+the source</div></b>  </td></tr>
+<tr class="calibre16">
+<td class="calibre17"><b class="calibre13"><div class="calibre18" style="text-align:center">Cone LPF</div></b> </td><td class="calibre17"><b class="calibre13"><div class="calibre18" style="text-align:center">Radius LPF</div></b> </td><td class="calibre17"><b class="calibre13"><div class="calibre18" style="text-align:center">Cone LPF</div></b> </td><td class="calibre17"><b class="calibre13"><div class="calibre18" style="text-align:center">Radius LPF</div></b>  </td></tr>
+<tr class="calibre16">
+<td class="calibre29">10 </td><td class="calibre29">40 </td><td class="calibre29">50 </td><td class="calibre29">10 </td><td class="calibre29">5 </td><td class="calibre29">45  </td></tr>
+</tbody></table>
+</div></div></div></body></html>

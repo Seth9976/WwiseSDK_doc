@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2021.1.13</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="generic_behavior_changes_2021_1_13"></a>
+Behavior Changes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-64106</b> The <a class="pcalibre el" href="_ak_callback_types_8h_ae7a5e30e1402c7cf90d1b47420911676_split_001.html#ae7a5e30e1402c7cf90d1b47420911676a97caf890959d744c1c088d19c2d02e11">AkGlobalCallbackLocation_Init</a> callback is now issued before the <code class="calibre14">AK::EventMgr</code> thread is started, or before any calls to <code class="calibre14">CAkAudioMgr::RenderAudio</code>. Most notably, this ensures that <a class="pcalibre el" href="_ak_callback_types_8h_ae7a5e30e1402c7cf90d1b47420911676_split_001.html#ae7a5e30e1402c7cf90d1b47420911676a97caf890959d744c1c088d19c2d02e11">AkGlobalCallbackLocation_Init</a> callbacks are issued before <a class="pcalibre el" href="_ak_callback_types_8h_ae7a5e30e1402c7cf90d1b47420911676_split_001.html#ae7a5e30e1402c7cf90d1b47420911676af13fd05bf61f00e37dde9b34e8e14a98">AkGlobalCallbackLocation_Begin</a> and any other callbacks issued during audio rendering.</li>
+</ul>
+</div></div></div></body></html>

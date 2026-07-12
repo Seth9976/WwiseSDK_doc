@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak.wwise.core.log.addItem Arguments Schema</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2"><h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="section_ak_wwise_core_log_additem_argsSchema"></a>
+Schema</h1>
+<div class="fragment"><div class="line">{</div>
+<div class="line">    "type": "object",</div>
+<div class="line">    "properties": {</div>
+<div class="line">        "message": {</div>
+<div class="line">            "type": "string",</div>
+<div class="line">            "description": "The text of the message to add."</div>
+<div class="line">        },</div>
+<div class="line">        "severity": {</div>
+<div class="line">            "type": "string",</div>
+<div class="line">            "description": "The severity of the message to add. Default is 'Message'.\\n The severity level of the log entry.",</div>
+<div class="line">            "oneOf": [</div>
+<div class="line">                {</div>
+<div class="line">                    "enum": [</div>
+<div class="line">                        "Message"</div>
+<div class="line">                    ],</div>
+<div class="line">                    "description": "Does not affect the integrity of the current operation."</div>
+<div class="line">                },</div>
+<div class="line">                {</div>
+<div class="line">                    "enum": [</div>
+<div class="line">                        "Warning"</div>
+<div class="line">                    ],</div>
+<div class="line">                    "description": "Might affect the integrity of the current operation."</div>
+<div class="line">                },</div>
+<div class="line">                {</div>
+<div class="line">                    "enum": [</div>
+<div class="line">                        "Error"</div>
+<div class="line">                    ],</div>
+<div class="line">                    "description": "Affects the integrity of the current operation."</div>
+<div class="line">                },</div>
+<div class="line">                {</div>
+<div class="line">                    "enum": [</div>
+<div class="line">                        "Fatal Error"</div>
+<div class="line">                    ],</div>
+<div class="line">                    "description": "Prevents the completion of the current operation."</div>
+<div class="line">                }</div>
+<div class="line">            ]</div>
+<div class="line">        },</div>
+<div class="line">        "channel": {</div>
+<div class="line">            "type": "string",</div>
+<div class="line">            "description": "The channel on which to add the message. Default is 'general'.\\n The log channel. This corresponds to different tabs in the Logs view.",</div>
+<div class="line">            "enum": [</div>
+<div class="line">                "soundbankGenerate",</div>
+<div class="line">                "conversion",</div>
+<div class="line">                "copyPlatformSettings",</div>
+<div class="line">                "waapi",</div>
+<div class="line">                "projectLoad",</div>
+<div class="line">                "general",</div>
+<div class="line">                "sourceControl",</div>
+<div class="line">                "lua"</div>
+<div class="line">            ]</div>
+<div class="line">        }</div>
+<div class="line">    },</div>
+<div class="line">    "required": [</div>
+<div class="line">        "message"</div>
+<div class="line">    ],</div>
+<div class="line">    "additionalProperties": false</div>
+<div class="line">}</div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

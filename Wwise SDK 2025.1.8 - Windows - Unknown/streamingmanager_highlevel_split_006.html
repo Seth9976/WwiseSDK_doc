@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>High-Level Stream Manager API Description</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_5"><a class="pcalibre1 anchor" id="streamingmanager_highlevel_api_interface_streamdestruction"></a>
+Stream Destruction</h2>
+<p class="calibre7">Both types of stream objects define a Destroy() method. You need to call this method to free the resources used by the stream. After doing so, you must not use the object again.</p>
+<table border="1" cellpadding="5" cellspacing="0" class="calibre38">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre17"><p class="starttd"><b class="calibre13">Default Streaming Manager Information</b><br class="calibre10"/>
+<br class="calibre10"/>
+ In the default implementation of the stream manager, <a class="pcalibre el" href="class_a_k_1_1_i_ak_std_stream_aaa6bca57f4a01a98dff95f68b1320403_split_000.html#aaa6bca57f4a01a98dff95f68b1320403">AK::IAkStdStream::Destroy()</a> and <a class="pcalibre el" href="class_a_k_1_1_i_ak_auto_stream_a7371eb45a24988fc3d5372bc15c77db7_split_000.html#a7371eb45a24988fc3d5372bc15c77db7">AK::IAkAutoStream::Destroy()</a> are simply used to set a flag on the stream object. Actual destruction is performed later, by the I/O thread. Every time it wakes up, it inspects all the open streams, finds the next stream for which an I/O request will be issued to the Low-Level I/O, and cleans up all dead streams. It is only at this point that memory will be freed, and <a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_a7a50a7a5fa624691d7bb7608753dc096_split_000.html#a7a50a7a5fa624691d7bb7608753dc096">AK::StreamMgr::IAkLowLevelIOHook::Close()</a> (where the file handle is released) will be called.</p>
+<p class="calibre7">Stream objects that are scheduled for destruction signal the I/O thread so that they get freed as soon as no more I/O transfers they own are pending in the Low-Level I/O.</p>
+<p class="endtd">If stream profiling is occurring, the I/O thread waits for the monitoring thread to give its approval before disposing of the stream object. The monitoring thread performs a profiling pass every 200 ms. </p>
+</td></tr>
+</tbody></table>
+</div></div></div></body></html>

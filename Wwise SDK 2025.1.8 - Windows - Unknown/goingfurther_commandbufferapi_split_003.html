@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Increasing simulation data throughput with the Command Buffer API</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_2"><a class="pcalibre1 anchor" id="goingfurther_commandbufferapi_construct_extra"></a>
+Extra payload data</h2>
+<p class="calibre7">Some commands require additional payload data of variable size. For example, the <code class="calibre14">AkCommand_SetListeners</code> command must be followed by an array of listener IDs. The number of listeners can vary based on the needs of the game.</p>
+<p class="calibre7">To add a variable-sized payload to a command, first add the command with <code class="calibre14">AK_CommandBuffer_Add</code>, then add the variable-sized payload with the appropriate function based on the payload's type:</p>
+<ul class="calibre8">
+<li class="calibre9">For strings, use <code class="calibre14">AK_CommandBuffer_AddString</code>. This function associates a name with a game object, which is useful during profiling.</li>
+<li class="calibre9">For arrays of simple data types, use <code class="calibre14">AK_CommandBuffer_AddArray</code>. This function is used for commands with a "number of items" field, such as <code class="calibre14"><a class="pcalibre el" href="struct_ak_cmd___set_listeners_split_000.html">AkCmd_SetListeners</a></code> and <code class="calibre14"><a class="pcalibre el" href="struct_ak_cmd___set_multiple_positions_split_000.html">AkCmd_SetMultiplePositions</a></code>.</li>
+<li class="calibre9">For external sources, use <code class="calibre14">AK_CommandBuffer_AddExternalSources</code>. This function is used exclusively for <code class="calibre14">AkCommand_PostEvent</code>.</li>
+<li class="calibre9">For Wwise Acoustics geometry data, use <code class="calibre14">AK_CommandBuffer_AddGeometry</code>. This function is used exclusively for <code class="calibre14">AkCommand_SA_SetGeometry</code>.</li>
+</ul>
+<p class="calibre7">For example, the following code adds a <code class="calibre14">AkCommand_SetListeners</code> command with three listener IDs:</p>
+<div class="fragment"><div class="line"><a class="pcalibre code" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> listenerIDs[3] = { 200, 300, 400 };</div>
+<div class="line"><a class="pcalibre code" href="struct_ak_cmd___set_listeners_split_000.html">AkCmd_SetListeners</a>* pCmd = (<a class="pcalibre code" href="struct_ak_cmd___set_listeners_split_000.html">AkCmd_SetListeners</a>*)<a class="pcalibre code" href="_ak_command_buffer_8h_af47a12700e1cd382114958c3d9c31211_split_000.html#af47a12700e1cd382114958c3d9c31211">AK_CommandBuffer_Add</a>(buffer, <a class="pcalibre code" href="_ak_command_types_8h_a001b78645b8b0335c0dd2e128cca2cfd_split_001.html#a001b78645b8b0335c0dd2e128cca2cfda28d2e0777e20fd3e1041437522db6431">AkCommand_SetListeners</a>);</div>
+<div class="line">pCmd-&gt;<a class="pcalibre code" href="struct_ak_cmd___set_listeners_aa7fa22efa253000ec63e28b01b86f962_split_000.html#aa7fa22efa253000ec63e28b01b86f962">gameObjectID</a> = 100;</div>
+<div class="line">pCmd-&gt;<a class="pcalibre code" href="struct_ak_cmd___set_listeners_a24f52ff397bfea59fbbbc0fb179d9ee4_split_000.html#a24f52ff397bfea59fbbbc0fb179d9ee4">numListenerIDs</a> = 3;</div>
+<div class="line"><a class="pcalibre code" href="_ak_command_buffer_8h_a7512f07e3e8f24cf4ed15bebf3a6392e_split_000.html#a7512f07e3e8f24cf4ed15bebf3a6392e">AK_CommandBuffer_AddArray</a>(buffer, <span class="keyword">sizeof</span>(<a class="pcalibre code" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a>), pCmd-&gt;<a class="pcalibre code" href="struct_ak_cmd___set_listeners_a24f52ff397bfea59fbbbc0fb179d9ee4_split_000.html#a24f52ff397bfea59fbbbc0fb179d9ee4">numListenerIDs</a>, listenerIDs);</div>
+</div><!-- fragment --><p class="calibre7">If you do not add extra payload data to a command that requires it, the command fails with an <code class="calibre14">AK_InvalidParameter</code> result. To learn whether a particular command requires extra payload data, refer to the documentation of the command.</p>
+</div></div></div></body></html>

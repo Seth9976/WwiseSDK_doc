@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak_wwise_plugin_notifications_monitor_v1::NotifyMonitorData</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="structak__wwise__plugin__notifications__monitor__v1_ab2bbe58092e334737fd2a3fb7ab902ec_split_000.html#ab2bbe58092e334737fd2a3fb7ab902ec" class="pcalibre1 anchor">◆ </a></span>NotifyMonitorData</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">void(* ak_wwise_plugin_notifications_monitor_v1::NotifyMonitorData) (struct <a class="pcalibre el" href="structak__wwise__plugin__notifications__monitor__instance__v1_split_000.html">ak_wwise_plugin_notifications_monitor_instance_v1</a> *in_this, <a class="pcalibre el" href="_ak_typedefs_8h_a8a4d0aa5dba6f9922d6b7b3e48958b24_split_000.html#a8a4d0aa5dba6f9922d6b7b3e48958b24">AkTimeMs</a> in_iTimeStamp, const <a class="pcalibre el" href="struct_a_k_1_1_wwise_1_1_plugin_1_1_monitor_data_split_000.html">AK::Wwise::Plugin::MonitorData</a> *in_pMonitorDataArray, unsigned int in_uMonitorDataArraySize, bool in_bIsRealtime)</td>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+
+<p class="calibre7">Received a new Monitor Data blob. </p>
+<p class="calibre7">Called when an instance of the run-time component of the plug-in sends data using <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_context_base_a417bd7aecedf5ed80a47615f053694d1_split_000.html#a417bd7aecedf5ed80a47615f053694d1">AK::IAkEffectPluginContext::PostMonitorData()</a></code>, and this plug-in's settings are being displayed in a window. Because multiple run-time instances may exist for a single authoring tool plug-in, the data is batched together and passed at the end of the frame.</p>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_this</td><td class="calibre17">Current instance of this interface. </td></tr>
+    <tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_iTimeStamp</td><td class="calibre17">Timestamp of the data (in milliseconds). </td></tr>
+    <tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_pMonitorDataArray</td><td class="calibre17">Array of blobs of data. </td></tr>
+    <tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_uMonitorDataArraySize</td><td class="calibre17">Number of elements in array 'in_pMonitorDataArray'. </td></tr>
+    <tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_bIsRealtime</td><td class="calibre17">true if monitoring in real time, false if scrubbing through profiler history. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_notifications_8h_source.html#l00076">76</a> of file <a class="pcalibre el" href="_notifications_8h_source.html">Notifications.h</a>.</p>
+
+<p class="calibre7">Referenced by <a class="pcalibre el" href="_notifications_8h_source.html#l00139">AK.Wwise::Plugin::V1::Notifications::Monitor::Interface::Interface()</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

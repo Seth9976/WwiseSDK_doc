@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Sound Engine Object Processor Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_15"><a class="pcalibre1 anchor" id="soundengine_plugins_objectprocessor_metadata_cumulativegain"></a>
+Cumulative Gain Metadata</h2>
+<p class="calibre7">An Audio Object carries with it the cumulative gain that has been applied upstream, such as the setting of a source's Volume, or changes in gain from busses and connections between busses. In a simple scenario, with no Effects or Object Processors, this means the gain of an Audio Object isn't applied to its audio signal until it's finally mixed down into a speaker bed, or sent to the system output as an Audio Object. This results in an audio mix that changes smoothly by avoiding ramping gains to an Audio Object's audio signal multiple times in a frame, especially when Audio Objects are created and destroyed due to Game Objects adding or removing positions.</p>
+<p class="calibre7">Support for this metadata is optional for Object Processors and enabled by setting <code class="calibre14">IAkPluginInfo::bUsesGainAttribute</code> to true in the Object Processor's implementation of <code class="calibre14">IAkPlugin::GetPluginInfo</code>. If bUsesGainAttribute is left to false, then all audio buffers passed to Execute will have the cumulative gain of the Audio Object applied before execution, and the gain passed to the Object Processor will be neutral. However, if bUsesGainAttribute is set to true, then the audio buffers will not be modified, and the cumulative gain may be a non-unit value. This allows the Object Processor to acknowledge the gain as needed, and also modify the cumulative gain of the Audio Object as desired.</p>
+<p class="calibre7">If the cumulative gain of the Audio Object is to be modified, take note that the value is an <code class="calibre14"><a class="pcalibre el" href="struct_ak_ramp_split_000.html" title="Volume ramp specified by end points &quot;previous&quot; and &quot;next&quot;.">AkRamp</a></code>, and continuity of the fNext value on one frame to the fPrev value on the next frame is not automatically handled by the sound engine. That is, if an Object Processor intends to modify fNext on one frame, then the same modification must be applied to fPrev on the next frame. If this is not managed properly, there may be audio glitches, or discontinuities in the audio signal, when some other part of the audio pipeline has to consume the Audio Object's gain.</p>
+</div></div></div></body></html>

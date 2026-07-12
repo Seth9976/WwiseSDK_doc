@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak_wwise_plugin_undo_group_close_action</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="group__global_ga49b0af3e4205b935aa476d7ab1c9f65c_split_000.html#ga49b0af3e4205b935aa476d7ab1c9f65c" class="pcalibre1 anchor">◆ </a></span>ak_wwise_plugin_undo_group_close_action</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">enum <a class="pcalibre el" href="group__global_ga49b0af3e4205b935aa476d7ab1c9f65c_split_000.html#ga49b0af3e4205b935aa476d7ab1c9f65c">ak_wwise_plugin_undo_group_close_action</a></td>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+
+<p class="calibre7">Action to apply once this undo group is closed. </p>
+<p class="calibre7">The goal of an undo group is to keep a list of actions being executed that can be undone (for example, a property set modification). Once the operations are all done, this indicates what should be done with the internal operations.</p>
+<ul class="calibre8">
+<li class="calibre9"><a class="pcalibre el" href="group__global_ga49b0af3e4205b935aa476d7ab1c9f65c_split_001.html#gga49b0af3e4205b935aa476d7ab1c9f65ca7b066ecc400936abe8602ec9deb27e5f">AK_WWISE_PLUGIN_UNDO_GROUP_CLOSE_ACTION_APPLY</a> : The usual operation is to open an undo group, and then close and apply the group to the undo stack. This provides a valid Undo/Redo label, as well as a description of all the operations that need to be done.</li>
+<li class="calibre9"><a class="pcalibre el" href="group__global_ga49b0af3e4205b935aa476d7ab1c9f65c_split_001.html#gga49b0af3e4205b935aa476d7ab1c9f65cacd212f32bc852fcb9abc5a44bf906776">AK_WWISE_PLUGIN_UNDO_GROUP_CLOSE_ACTION_APPLY_FIRST_EVENT_NAME</a> and AK_WWISE_PLUGIN_UNDO_GROUP_CLOSE_ACTION_APPLY_LAST_EVENT_NAME are convenience operations, where the Undo operation title is retrieved from either the first or the last event's name, instead of hard-coding it ourselves.</li>
+<li class="calibre9"><a class="pcalibre el" href="group__global_ga49b0af3e4205b935aa476d7ab1c9f65c_split_001.html#gga49b0af3e4205b935aa476d7ab1c9f65cac2211c2692785e248eaa51ffd5e4c0dd">AK_WWISE_PLUGIN_UNDO_GROUP_CLOSE_ACTION_CANCEL</a> cancels the undo operations. It happens when an abnormal termination occurs, such as an error, or the user cancelling a lengthy operation. Since the operation states aren't known, you are responsible to handle the stored undo yourself, and manually revert all operations first before closing the action. An example of this operation is doing a slider drag event, where the user presses the Escape key instead of doing a Mouse Up. Effectively, all the inner operations will simply be cancelled by storing the initial value before doing the cancel operation on close.</li>
+<li class="calibre9"><a class="pcalibre el" href="group__global_ga49b0af3e4205b935aa476d7ab1c9f65c_split_001.html#gga49b0af3e4205b935aa476d7ab1c9f65cab2808bcde599ec2d8622deb9ddb449f3">AK_WWISE_PLUGIN_UNDO_GROUP_CLOSE_ACTION_CLOSE</a> temporarily closes the undo state, leaving it possible to reopen it later. This is useful during lengthy processes, such as a user dragging a slider. You are expected to temporarily close the undo group when going out of scope, and reopening it when receiving a new system mouse drag event in this particular example. </li>
+</ul>
+<table class="calibre3">
+<tbody class="calibre4"><tr class="calibre16"><th colspan="2" class="calibre35">Enumerator</th></tr><tr class="calibre16"><td class="calibre17"><a id="gga49b0af3e4205b935aa476d7ab1c9f65cab2808bcde599ec2d8622deb9ddb449f3" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_UNDO_GROUP_CLOSE_ACTION_CLOSE </td><td class="calibre17"><p class="calibre7">Close this group session (going out of scope), but do not apply it yet. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga49b0af3e4205b935aa476d7ab1c9f65ca7b066ecc400936abe8602ec9deb27e5f" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_UNDO_GROUP_CLOSE_ACTION_APPLY </td><td class="calibre17"><p class="calibre7">Close this group session permanently, and apply its operations to the englobing group. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga49b0af3e4205b935aa476d7ab1c9f65cacd212f32bc852fcb9abc5a44bf906776" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_UNDO_GROUP_CLOSE_ACTION_APPLY_FIRST_EVENT_NAME </td><td class="calibre17"><p class="calibre7">Same than AK_WWISE_PLUGIN_UNDO_GROUP_CLOSE_ACTION_APPLY, but copies the name of the first inner undo event as the name. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga49b0af3e4205b935aa476d7ab1c9f65ca9b23a997b9bde905fbb6a1282a601f93" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_UNDO_GROUP_CLOSE_ACTION_APPLY_LAST_EVENT_NAME </td><td class="calibre17"><p class="calibre7">Same than AK_WWISE_PLUGIN_UNDO_GROUP_CLOSE_ACTION_APPLY, but copies the name of the last inner undo event as the name. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga49b0af3e4205b935aa476d7ab1c9f65cac2211c2692785e248eaa51ffd5e4c0dd" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_UNDO_GROUP_CLOSE_ACTION_CANCEL </td><td class="calibre17"><p class="calibre7">Close this group session permanently, and cancel all its internal operations. Undo operations are not applied. </p>
+</td></tr>
+</tbody></table>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_plugin_def_8h_source.html#l00537">537</a> of file <a class="pcalibre el" href="_plugin_def_8h_source.html">PluginDef.h</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

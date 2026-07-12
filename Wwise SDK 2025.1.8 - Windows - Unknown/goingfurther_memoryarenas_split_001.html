@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Configuration and Tuning of AkMemoryArenas</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="goingfurther_memoryarenas_overview"></a>
+Overview of AkMemoryArena</h1>
+<p class="calibre7">AkMemoryArena acts as a general-purpose memory allocator, with all memory allocations put into one of four separate heaps based on their size: Small, Medium, Large, or Huge.</p>
+<p class="calibre7">Small allocations are any allocation that is 256 bytes or smaller. This threshold is not configurable. These are managed in a “Small-block allocator” (“SBA”) heap. The SBA manages all allocations in spans consisting of fixed-sized blocks of memory, which allows for consistent behavior with regards to memory fragmentation. Each span is of a configurable size, and these spans are allocated from the parent Medium or Large heap. The SBA is initialized with an initial region of memory, which reduces the amount of overhead used for allocations in the SBA heap. Normally, memory allocations in the AkMemoryArena, across all size classes, require 16 bytes of overhead, which is used for allocation metadata. However, SBA allocations inside the initial region do not require any such overhead. For example, if a normal SBA span is 16 kibibytes in size, and has been configured to handle allocations that are 64 bytes in size, then the span can handle approximately 200 blocks of memory, each 80 bytes in size. However, if the same 16 kibibyte span is allocated inside the initial region, it can handle approximately 250 blocks of memory, each 64 bytes in size.</p>
+<p class="calibre7">Medium and Large allocations are larger than 256 bytes in size, but smaller than the value of <code class="calibre14">AkMemoryArenaSettings::uAllocSizeLarge</code> or <code class="calibre14">AkMemoryArenaSettings::uAllocSizeHuge</code>. The heaps used for the Medium and Large allocations use an algorithm based on the Two-Level Segregated Fit (“TLSF”) algorithm. As a result, these heaps are able to offer allocations and frees with O(1) performance. These heaps use a good-fit memory allocation policy to determine where allocations should be placed. However, unlike the original TLSF algorithm, the TLSF heap used by the AkMemoryArena also allows new spans of memory to be requested over time as memory needs increase, without requiring the new memory span to be contiguous with other spans of memory. The TLSF heap also releases the memory when all constituent allocations have been freed. When Medium or Large allocations are requested, the TLSF heap first attempts to find a free block of memory in the initial Base span of memory, and if a free block is not available, it then attempts to find a free block of memory among the already mapped Medium or Large spans. If a free block is still not available, then a request for a new span in the Huge allocation heap is made and added to the list of Medium or Large spans. Similarly, when a span no longer has any allocations, it is considered “Unused”. After a certain number of spans are unused, they are released to the system.</p>
+<p class="calibre7">Huge allocations are any allocation that is too large to fit in the Medium or Large heaps. These allocations are placed in separate spans and do not share memory with other allocations. In addition, memory for Huge spans is never reused or cached over time, that is, once the constituent memory allocation is freed, the span is released immediately.</p>
+</div></div></div></body></html>

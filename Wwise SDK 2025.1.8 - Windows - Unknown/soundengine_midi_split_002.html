@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integration Details - MIDI</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="soundengine_midi_integrating"></a>
+Integrating MIDI Events in Your Game</h1>
+<p class="calibre7">The <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ab24b5dc8bd4d1adbdc6aa5c98d94d946_split_000.html#ab24b5dc8bd4d1adbdc6aa5c98d94d946">AK::SoundEngine::PostMIDIOnEvent</a> "PostMIDIOnEvent" function queues MIDI events in the sound engine. The function takes as arguments:</p><ul class="calibre8">
+<li class="calibre9">the MIDI event.</li>
+<li class="calibre9">an Event ID.</li>
+<li class="calibre9">a Game Object ID.</li>
+<li class="calibre9">a Playing ID.</li>
+</ul>
+<p class="calibre7">The sound engine groups posted MIDI events into sequences. Each sequence is identified by the following:</p><ul class="calibre8">
+<li class="calibre9">a Game Object ID; a function parameter,</li>
+<li class="calibre9">a Playing ID; a function parameter,</li>
+<li class="calibre9">a Wwise Object ID; obtained from the target object of each play action in the event corresponding to event ID. See <a class="pcalibre el" href="integrating_elements_events.html">Integrating Events</a> for more details regarding Events.</li>
+</ul>
+<p class="calibre7">Thus, it is possible to post the same MIDI event(s) to multiple targets simultaneously. For example, suppose we have:</p><ul class="calibre8">
+<li class="calibre9">event EV1, which has play actions for both Wwise Objects W0 and W1,</li>
+<li class="calibre9">event EV2, which has a play action for Wwise Object W0.</li>
+</ul>
+<p class="calibre7">If we post MIDI event ME1 to EV1 with Game Object GO, then the sound engine will add MIDI event ME1 to the MIDI sequences W0-GO-PID1 and W1-GO-PID1, where PID1 is the Playing ID returned by PostMIDIOnEvent. If we then post MIDI event ME2 to event EV2, the sound engine will add MIDI event ME2 to the MIDI sequence W0-GO-PID2.</p>
+<p class="calibre7">Calls to <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ab24b5dc8bd4d1adbdc6aa5c98d94d946_split_000.html#ab24b5dc8bd4d1adbdc6aa5c98d94d946">AK::SoundEngine::PostMIDIOnEvent</a> add MIDI events to the MIDI sequences. However, no processing is done until the <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_afe54af0f5be38be061e8a3c7d7642bb1_split_000.html#afe54af0f5be38be061e8a3c7d7642bb1">AK::SoundEngine::RenderAudio</a> function has been called. Each call to <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_afe54af0f5be38be061e8a3c7d7642bb1_split_000.html#afe54af0f5be38be061e8a3c7d7642bb1">AK::SoundEngine::RenderAudio</a> processes the message queue, and may produce any number of audio frames; depending on how much time has elapsed since the previous call to RenderAudio. For each frame processed by RenderAudio, the sound engine advances all MIDI sequences by one frame.</p>
+</div></div></div></body></html>

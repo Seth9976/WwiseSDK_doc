@@ -1,0 +1,237 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Plug-in Packaging Format for the Audiokinetic Launcher</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_3"><a class="pcalibre1 anchor" id="plugin_packaging_bundle_metadata"></a>
+Bundle metadata</h2>
+<p class="calibre7">The bundle.json file contained in the bundle should be structured as follows (all fields are mandatory unless specified).</p>
+<div class="fragment"><div class="line">{</div>
+<div class="line">    <span class="stringliteral">"id"</span>: string, <span class="comment">// Unique identifier of this bundle. Id must be unique across all existing plugins and versions. To avoid conflicts, use the company name, plugin name and version and build number in the Id. For example: audiokinetic_convolutionreverb_2017.2.3_4877</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="stringliteral">"name"</span>: string, <span class="comment">// Name displayed in the Audiokinetic Launcher for this bundle</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="stringliteral">"tag"</span>: string, <span class="comment">// Tag uniquely identifying the plug-in (format [0-9A-z_]+, 50 characters maximum)</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="stringliteral">"description"</span>: string, <span class="comment">// Description displayed in the Audiokinetic Launcher for this bundle</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="stringliteral">"image"</span>: string, <span class="comment">// Base64 representation of an image to be displayed in the Audiokinetic Launcher for this bundle (PNG, JPEG or GIF)</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="stringliteral">"vendor"</span>: string, <span class="comment">// Vendor name displayed in the Audiokinetic Launcher for this bundle</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="stringliteral">"type"</span>: <span class="stringliteral">"plugin"</span>, <span class="comment">// Type of this bundle, must be "plugin"</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Data that is specific to this bundle type</span></div>
+<div class="line">    <span class="stringliteral">"productDependentData"</span>: {</div>
+<div class="line">        <span class="comment">// Version of Wwise this bundle was built against.</span></div>
+<div class="line">        <span class="comment">// See AK_OLDEST_SUPPORTED_WWISESDK_VERSION to know the compatibility of your plug-in.</span></div>
+<div class="line">        <span class="stringliteral">"targetWwiseVersion"</span>: {</div>
+<div class="line">            <span class="stringliteral">"year"</span>: number,</div>
+<div class="line">            <span class="stringliteral">"major"</span>: number</div>
+<div class="line">        }</div>
+<div class="line">    },</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Version of this bundle</span></div>
+<div class="line">    <span class="stringliteral">"version"</span>: {</div>
+<div class="line">        <span class="stringliteral">"year"</span>: number,</div>
+<div class="line">        <span class="stringliteral">"major"</span>: number,</div>
+<div class="line">        <span class="stringliteral">"minor"</span>: number,</div>
+<div class="line">        <span class="stringliteral">"build"</span>: number</div>
+<div class="line">    },</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// List of files to be installed for this bundle</span></div>
+<div class="line">    <span class="stringliteral">"files"</span>: [</div>
+<div class="line">        {</div>
+<div class="line">            <span class="stringliteral">"id"</span>: string, <span class="comment">// Unique identifier</span></div>
+<div class="line">            <span class="stringliteral">"sha1"</span>: string, <span class="comment">// SHA1 of the file</span></div>
+<div class="line">            <span class="stringliteral">"size"</span>: number, <span class="comment">// Size of the file (in bytes)</span></div>
+<div class="line">            <span class="stringliteral">"sourceName"</span>: string, <span class="comment">// Name of the file</span></div>
+<div class="line">            <span class="stringliteral">"uncompressedSize"</span>: number, <span class="comment">// Uncompressed size of the file (in bytes)</span></div>
+<div class="line"> </div>
+<div class="line">            <span class="comment">// List of groups for which this file should be installed (refer to the table below for the complete list of groups plug-ins have access to)</span></div>
+<div class="line">            <span class="stringliteral">"groups"</span>: [</div>
+<div class="line">                {</div>
+<div class="line">                    <span class="stringliteral">"groupId"</span>: string, <span class="comment">// Unique identifier of the group</span></div>
+<div class="line">                    <span class="stringliteral">"groupValueId"</span>: <span class="keywordtype">string</span> <span class="comment">// Unique identifier of the group's value field</span></div>
+<div class="line">                },</div>
+<div class="line">                ...</div>
+<div class="line">            ]</div>
+<div class="line">        },</div>
+<div class="line">        ...</div>
+<div class="line">    ],</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// List of EULAs associated with this bundle</span></div>
+<div class="line">    <span class="stringliteral">"eulas"</span>: [</div>
+<div class="line">        {</div>
+<div class="line">            <span class="stringliteral">"displayName"</span>: string, <span class="comment">// Name displayed in the Audiokinetic Launcher for this EULA</span></div>
+<div class="line">            <span class="stringliteral">"displayContent"</span>: string, <span class="comment">// Text displayed in the Audiokinetic Launcher for this EULA</span></div>
+<div class="line">            <span class="stringliteral">"id"</span>: <span class="keywordtype">string</span> <span class="comment">// Unique identifier of this EULA</span></div>
+<div class="line">        },</div>
+<div class="line">        ...</div>
+<div class="line">    ],</div>
+<div class="line">     </div>
+<div class="line">    <span class="comment">// Labels displayed next to this bundle</span></div>
+<div class="line">    <span class="stringliteral">"labels"</span>: [</div>
+<div class="line">        {</div>
+<div class="line">            <span class="stringliteral">"class"</span>: string, <span class="comment">// Style class applied to this label (default, primary, success, info, warning, danger)</span></div>
+<div class="line">            <span class="stringliteral">"displayName"</span>: <span class="keywordtype">string</span> <span class="comment">// Name displayed in the Audiokinetic Launcher for this label</span></div>
+<div class="line">        },</div>
+<div class="line">        ...</div>
+<div class="line">    ],</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Online documentation links for this bundle</span></div>
+<div class="line">    <span class="stringliteral">"links"</span>: [</div>
+<div class="line">        {</div>
+<div class="line">            <span class="stringliteral">"displayName"</span>: string, <span class="comment">// Name displayed in the Audiokinetic Launcher for this link</span></div>
+<div class="line">            <span class="stringliteral">"id"</span>: string, <span class="comment">// Unique identifier of this link</span></div>
+<div class="line">            <span class="stringliteral">"url"</span>: <span class="keywordtype">string</span> <span class="comment">// Target URL of this link</span></div>
+<div class="line">        },</div>
+<div class="line">        ...</div>
+<div class="line">    ],</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Local documentation files for this bundle</span></div>
+<div class="line">    <span class="stringliteral">"documentation"</span>: [</div>
+<div class="line">        {</div>
+<div class="line">            <span class="stringliteral">"displayName"</span>: string, <span class="comment">// Name displayed in the Audiokinetic Launcher for this documentation file</span></div>
+<div class="line">            <span class="stringliteral">"filePath"</span>: string, <span class="comment">// Path to the documentation file</span></div>
+<div class="line">            <span class="stringliteral">"language"</span>: <span class="stringliteral">"en"</span> | <span class="stringliteral">"ja"</span> | <span class="stringliteral">"zh"</span> <span class="comment">// Language of the documentation file</span></div>
+<div class="line">        },</div>
+<div class="line">        ...</div>
+<div class="line">    ]</div>
+<div class="line">}</div>
+</div><!-- fragment --><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> <b class="calibre13">Unique Plug-in Identifier</b><br class="calibre10"/>
+ To avoid conflicts with other plug-ins, it is mandatory to encode the following information in the plug-in unique identifier:<ul class="calibre8">
+<li class="calibre9">vendor's name</li>
+<li class="calibre9">plug-in's name</li>
+<li class="calibre9">complete version</li>
+<li class="calibre9">build number </li>
+</ul>
+</td></tr>
+</tbody></table>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="plugin_packaging_bundle_groups"></a>
+Bundle groups</h3>
+<p class="calibre7">Each file specified in the bundle.json must be linked to one or multiple groups. This information will be used by the Audiokinetic Launcher to determine if a given file has to be installed according to the context.</p>
+<table border="1" cellpadding="10" cellspacing="0" width="400px" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre17"><b class="calibre13"><div class="calibre18" style="text-align:center">groupId</div></b> </td><td class="calibre17"><p class="starttd"></p><div class="calibre18" style="text-align:center"><b class="calibre13">groupValueId</b></div><p class="calibre7"> </p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre17">Packages </td><td class="calibre17"><p class="starttd">Authoring <br class="calibre10"/>
+ SDK  </p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre17">DeploymentPlatforms </td><td class="calibre17"><p class="starttd">(<em class="calibre11">Please refer to the DeploymentPlatforms column in <a class="pcalibre el" href="plugin_packaging_split_002.html#plugin_packaging_defs">Definitions</a></em>.) </p>
+<p class="endtd"></p>
+</td></tr>
+</tbody></table>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="plugin_packaging_json_example"></a>
+Example</h3>
+<p class="calibre7">Continuing from our previous example, here is the corresponding bundle.json for a plug-in bundle supporting the Wwise Authoring as well as the Linux_x32 and Linux_x64 Wwise SDK platforms; it comes with English documentation:</p>
+<div class="fragment"><div class="line">{</div>
+<div class="line">    <span class="stringliteral">"id"</span>: <span class="stringliteral">"PluginAuthor_PluginName_2017.1.0_0"</span>,</div>
+<div class="line">    <span class="stringliteral">"name"</span>: <span class="stringliteral">"PluginName"</span>,</div>
+<div class="line">    <span class="stringliteral">"description"</span>: <span class="stringliteral">"PluginName is an awesome Wwise plug-in that does XYZ."</span>,</div>
+<div class="line">    <span class="stringliteral">"image"</span>: <span class="stringliteral">"data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="</span>,</div>
+<div class="line">    <span class="stringliteral">"vendor"</span>: <span class="stringliteral">"PluginAuthor"</span>,</div>
+<div class="line">    <span class="stringliteral">"type"</span>: <span class="stringliteral">"plugin"</span>,</div>
+<div class="line">    <span class="stringliteral">"version"</span>: {</div>
+<div class="line">        <span class="stringliteral">"year"</span>: 2017,</div>
+<div class="line">        <span class="stringliteral">"major"</span>: 1,</div>
+<div class="line">        <span class="stringliteral">"minor"</span>: 0,</div>
+<div class="line">        <span class="stringliteral">"build"</span>: 0</div>
+<div class="line">    },</div>
+<div class="line">    <span class="stringliteral">"productDependentData"</span>: {</div>
+<div class="line">        <span class="stringliteral">"targetWwiseVersion"</span>: {</div>
+<div class="line">            <span class="stringliteral">"year"</span>: 2017,</div>
+<div class="line">            <span class="stringliteral">"major"</span>: 1</div>
+<div class="line">        }</div>
+<div class="line">    },</div>
+<div class="line">    <span class="stringliteral">"files"</span>: [</div>
+<div class="line">        {</div>
+<div class="line">            <span class="stringliteral">"id"</span>: <span class="stringliteral">"Authoring.tar.xz"</span>,</div>
+<div class="line">            <span class="stringliteral">"sha1"</span>: <span class="stringliteral">"2ab1fb750b2d4c6f9ad8f4c0b8966fe866a676c4"</span>,</div>
+<div class="line">            <span class="stringliteral">"size"</span>: 7450993,</div>
+<div class="line">            <span class="stringliteral">"uncompressedSize"</span>: 74509930,</div>
+<div class="line">            <span class="stringliteral">"sourceName"</span>: <span class="stringliteral">"Authoring.tar.xz"</span>,</div>
+<div class="line">            <span class="stringliteral">"groups"</span>: [</div>
+<div class="line">                {</div>
+<div class="line">                    <span class="stringliteral">"groupId"</span>: <span class="stringliteral">"Packages"</span>,</div>
+<div class="line">                    <span class="stringliteral">"groupValueId"</span>: <span class="stringliteral">"Authoring"</span></div>
+<div class="line">                }</div>
+<div class="line">            ]</div>
+<div class="line">        },</div>
+<div class="line">        {</div>
+<div class="line">            <span class="stringliteral">"id"</span>: <span class="stringliteral">"SDK.tar.xz"</span>,</div>
+<div class="line">            <span class="stringliteral">"sha1"</span>: <span class="stringliteral">"4e86453b2541ce4f3400778f932c850fd09cc0ff"</span>,</div>
+<div class="line">            <span class="stringliteral">"size"</span>: 503316,</div>
+<div class="line">            <span class="stringliteral">"uncompressedSize"</span>: 5033160,</div>
+<div class="line">            <span class="stringliteral">"sourceName"</span>: <span class="stringliteral">"SDK.tar.xz"</span>,</div>
+<div class="line">            <span class="stringliteral">"groups"</span>: [</div>
+<div class="line">                {</div>
+<div class="line">                    <span class="stringliteral">"groupId"</span>: <span class="stringliteral">"Packages"</span>,</div>
+<div class="line">                    <span class="stringliteral">"groupValueId"</span>: <span class="stringliteral">"SDK"</span></div>
+<div class="line">                }</div>
+<div class="line">            ]</div>
+<div class="line">        },</div>
+<div class="line">        {</div>
+<div class="line">            <span class="stringliteral">"id"</span>: <span class="stringliteral">"SDK_Linux.tar.xz"</span>,</div>
+<div class="line">            <span class="stringliteral">"sha1"</span>: <span class="stringliteral">"9cb1b7db241e476c4024d43aed46c2b17beee366"</span>,</div>
+<div class="line">            <span class="stringliteral">"size"</span>: 263682,</div>
+<div class="line">            <span class="stringliteral">"uncompressedSize"</span>: 2636820,</div>
+<div class="line">            <span class="stringliteral">"sourceName"</span>: <span class="stringliteral">"SDK_Linux_x32_Debug.tar.xz"</span>,</div>
+<div class="line">            <span class="stringliteral">"groups"</span>: [</div>
+<div class="line">                {</div>
+<div class="line">                    <span class="stringliteral">"groupId"</span>: <span class="stringliteral">"Packages"</span>,</div>
+<div class="line">                    <span class="stringliteral">"groupValueId"</span>: <span class="stringliteral">"SDK"</span></div>
+<div class="line">                },</div>
+<div class="line">                {</div>
+<div class="line">                    <span class="stringliteral">"groupId"</span>: <span class="stringliteral">"DeploymentPlatforms"</span>,</div>
+<div class="line">                    <span class="stringliteral">"groupValueId"</span>: <span class="stringliteral">"Linux"</span></div>
+<div class="line">                }</div>
+<div class="line">            ]</div>
+<div class="line">        }</div>
+<div class="line">    ],</div>
+<div class="line">    <span class="stringliteral">"eulas"</span>: [</div>
+<div class="line">        {</div>
+<div class="line">            <span class="stringliteral">"displayName"</span>: <span class="stringliteral">"PluginName"</span>,</div>
+<div class="line">            <span class="stringliteral">"displayContent"</span>: <span class="stringliteral">"PluginName is provided for free on an \"as is\" basis. As such, ..."</span>,</div>
+<div class="line">            <span class="stringliteral">"id"</span>: <span class="stringliteral">"EULA"</span></div>
+<div class="line">        }</div>
+<div class="line">    ],</div>
+<div class="line">    <span class="stringliteral">"labels"</span>: [</div>
+<div class="line">        {</div>
+<div class="line">            <span class="stringliteral">"class"</span>: <span class="stringliteral">"info"</span>,</div>
+<div class="line">            <span class="stringliteral">"displayName"</span>: <span class="stringliteral">"Alpha"</span></div>
+<div class="line">        }</div>
+<div class="line">    ],</div>
+<div class="line">    <span class="stringliteral">"links"</span>: [</div>
+<div class="line">        {</div>
+<div class="line">            <span class="stringliteral">"displayName"</span>: <span class="stringliteral">"Release Notes"</span>,</div>
+<div class="line">            <span class="stringliteral">"id"</span>: <span class="stringliteral">"ReleaseNotes"</span>,</div>
+<div class="line">            <span class="stringliteral">"url"</span>: <span class="stringliteral">"https://example.com"</span></div>
+<div class="line">        }</div>
+<div class="line">    ],</div>
+<div class="line">    <span class="stringliteral">"documentation"</span>: [</div>
+<div class="line">        {</div>
+<div class="line">            <span class="stringliteral">"displayName"</span>: <span class="stringliteral">"User Guide"</span>,</div>
+<div class="line">            <span class="stringliteral">"filePath"</span>: <span class="stringliteral">"Authoring/Help/PluginName_UserGuide.pdf"</span>,</div>
+<div class="line">            <span class="stringliteral">"language"</span>: <span class="stringliteral">"en"</span></div>
+<div class="line">        }</div>
+<div class="line">    ]</div>
+<div class="line">}</div>
+</div><!-- fragment --></div></div></div></body></html>

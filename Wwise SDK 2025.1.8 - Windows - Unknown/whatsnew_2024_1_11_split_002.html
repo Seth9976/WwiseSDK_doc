@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2024.1.11</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="generic_bugs_2024_1_11"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-80651</b> Fixed: (Acoustics) Removed invalid AKASSERT(m_referencedPortalEdges.IsEmpty() == m_portalEdgeIndex.IsEmpty()) in <code class="calibre14">AkGeometryInstance::UnindexPortalEdgeGeoemtry</code>.</li>
+<li class="calibre9"><b class="calibre13">WG-80938</b> Fixed: Error Reporter sometimes fails to report the operating system.</li>
+<li class="calibre9"><b class="calibre13">WG-81140</b> Fixed: Leaking file streams when Profiler connection is lost during Live Media Transfers.</li>
+<li class="calibre9"><b class="calibre13">WG-81208</b> Fixed: In the Game Object 3D Viewer, in perspective mode, the camera zooms out further each time the <b class="calibre13">Frame All</b> button is clicked.</li>
+<li class="calibre9"><b class="calibre13">WG-81264</b> Fixed: (Acoustics) Missing diffraction behind Portals when Rooms have Geometry but don't enable <code class="calibre14"><a class="pcalibre el" href="struct_ak_geometry_instance_params_a30ef95f856b020642d4a45d43c3df86d_split_000.html#a30ef95f856b020642d4a45d43c3df86d">AkGeometryInstanceParams::UseForReflectionAndDiffraction</a></code>.</li>
+<li class="calibre9"><b class="calibre13">WG-81283</b> Fixed: Setting reflection order to 0 doesn't always clear the reflection paths.</li>
+<li class="calibre9"><b class="calibre13">WG-81417</b> Fixed: Possible crash when scrolling a Performance Monitor view that has been shrunk vertically.</li>
+<li class="calibre9"><b class="calibre13">WG-81454</b> Fixed: (Acoustics) Miscalculation in the number of Poral rays necessary to achieve sufficient coverage.</li>
+<li class="calibre9"><b class="calibre13">WG-81497</b> Fixed: Crash when using ReaWwise or using WAAPI topics and WAQL.</li>
+<li class="calibre9"><b class="calibre13">WG-81526</b> Fixed: Perforce proceeds with submitting changes when cancelling the Description dialog.</li>
+<li class="calibre9"><b class="calibre13">WG-81666</b> Fixed: Incorrect behavior in <code class="calibre14"><a class="pcalibre el" href="class_ak_ring_buffer_a3b264d7bc0dc1ca8db8296e799ac4de4_split_000.html#a3b264d7bc0dc1ca8db8296e799ac4de4">AkRingBuffer::ReadDataFromRing</a></code> when underlying item sizes are larger than one byte.</li>
+<li class="calibre9"><b class="calibre13">WG-81704</b> Fixed: Reverb Zone with Geometry has Room transmission loss applied to the emitter's direct path over transition region.</li>
+<li class="calibre9"><b class="calibre13">WG-81705</b> Fixed: Reverb Zone with no Geometry puts Room transmission loss on emitter.</li>
+<li class="calibre9"><b class="calibre13">WG-82011</b> Fixed: Crash in stochastic ray when using path sorting.</li>
+</ul>
+</div></div></div></body></html>

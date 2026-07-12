@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::IAkGlobalPluginContext::RegisterPlugin</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="class_a_k_1_1_i_ak_global_plugin_context_a2d94926901ecc43539d808af05fe6732_split_000.html#a2d94926901ecc43539d808af05fe6732" class="pcalibre1 anchor">◆ </a></span>RegisterPlugin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="calibre3">
+  <tbody class="calibre4"><tr class="calibre16">
+  <td class="calibre17">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">virtual <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::IAkGlobalPluginContext::RegisterPlugin </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_enums_8h_af1a95e76b0e2a003e7edb2ad6f4043f4_split_000.html#af1a95e76b0e2a003e7edb2ad6f4043f4">AkPluginType</a> </td>
+          <td class="paramname"><em class="calibre59">in_eType</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> </td>
+          <td class="paramname"><em class="calibre59">in_ulCompanyID</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> </td>
+          <td class="paramname"><em class="calibre59">in_ulPluginID</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_i_ak_plugin_8h_a5fb143c8d06bc9df4c0a4ced1d7a7859_split_000.html#a5fb143c8d06bc9df4c0a4ced1d7a7859">AkCreatePluginCallback</a> </td>
+          <td class="paramname"><em class="calibre59">in_pCreateFunc</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_i_ak_plugin_8h_adb99175b686d5a1fb37b722312b3cb37_split_000.html#adb99175b686d5a1fb37b722312b3cb37">AkCreateParamCallback</a> </td>
+          <td class="paramname"><em class="calibre59">in_pCreateParamFunc</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="calibre17">
+<span><span>pure virtual</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Register a plug-in with the sound engine and set the callback functions to create the plug-in and its parameter node. </p><dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="soundengine_plugins_split_002.html#register_effects">Plug-in Static Registration</a></li>
+<li class="calibre9"><a class="pcalibre el" href="plugin_xml_split_000.html">Wwise Plug-in XML Description Files</a> </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">AK_Success if successful, AK_InvalidParameter if invalid parameters were provided or Ak_Fail otherwise. Possible reasons for an AK_Fail result are:<ul class="calibre25">
+<li class="calibre9">Insufficient memory to register the plug-in</li>
+<li class="calibre9">Plug-in ID already registered </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Remarks</dt><dd class="calibre24">Codecs and plug-ins must be registered before loading banks that use them.<br class="calibre10"/>
+Loading a bank referencing an unregistered plug-in or codec will result in a load bank success, but the plug-ins will not be used. More specifically, playing a sound that uses an unregistered effect plug-in will result in audio playback without applying the said effect. If an unregistered source plug-in is used by an event's audio objects, posting the event will fail. </dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_eType</td><td class="calibre17">Plug-in type (for example, source or effect) </td></tr>
+    <tr class="calibre16"><td class="paramname">in_ulCompanyID</td><td class="calibre17">Company identifier (as declared in the plug-in description XML file) </td></tr>
+    <tr class="calibre16"><td class="paramname">in_ulPluginID</td><td class="calibre17">Plug-in identifier (as declared in the plug-in description XML file) </td></tr>
+    <tr class="calibre16"><td class="paramname">in_pCreateFunc</td><td class="calibre17">Pointer to the plug-in's creation function </td></tr>
+    <tr class="calibre16"><td class="paramname">in_pCreateParamFunc</td><td class="calibre17">Pointer to the plug-in's parameter node creation function </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

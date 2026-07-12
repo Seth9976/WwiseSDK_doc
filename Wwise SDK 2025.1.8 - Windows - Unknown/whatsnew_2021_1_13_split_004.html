@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2021.1.13</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="generic_community_bugs_2021_1_13"></a>
+Fixes for Community-Reported Bugs</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-61704</b> Fixed: Meter plug-in doesn't meter properly when on objects in the Actor-Mixer hierarchy.</li>
+<li class="calibre9"><b class="calibre13">WG-61946</b> Fixed: Some memory addresses are not sufficiently aligned.</li>
+<li class="calibre9"><b class="calibre13">WG-63559</b> Fixed: Possible crash when playing back a 3D-positioned LFE-only source while 3D Audio is enabled.</li>
+<li class="calibre9"><b class="calibre13">WG-63588</b> Fixed: Possible crash when opening a project that has a circular reference between a Music Event Cue and an Event.</li>
+<li class="calibre9"><b class="calibre13">WG-63817</b> Fixed: Project file <code class="calibre14">AutoDetectedSampleRates.cache</code> grows when no new files are introduced.</li>
+<li class="calibre9"><b class="calibre13">WG-63852</b> Fixed: Stack overflow in <code class="calibre14">CAkSpeakerPan::ComputeSN3DphericalHarmonics</code> when panning some audio to a 5th-order ambisonic bus.</li>
+<li class="calibre9"><b class="calibre13">WG-64285</b> Fixed: Bus and auxiliary bus properties are affected by RTPCs/States set on an ancestor object. This bug occurs in Wwise Authoring only.</li>
+<li class="calibre9"><b class="calibre13">WG-64287</b> Fixed: Crashes or memory stomps while Wwise Profiler is connected to a game.</li>
+<li class="calibre9"><b class="calibre13">WG-64478</b> Fixed: Unintended object ID reassignment during Work Unit reload. Such changes occur when an object is moved from one Work Unit to another.</li>
+<li class="calibre9"><b class="calibre13">WG-64495</b> Fixed: Crash during <code class="calibre14">Ak3DAudioMixer::TriageAndMix</code> in low-memory scenarios.</li>
+<li class="calibre9"><b class="calibre13">WG-64496</b> Fixed: Music Switch Containers are not packaged into SoundBanks correctly when the container includes a switch target that is not a child of the container in the project hierarchy.</li>
+<li class="calibre9"><b class="calibre13">WG-64669</b> Fixed: Deadlock in Transitions of a Music Playlist Container that do not validate essential property values.</li>
+<li class="calibre9"><b class="calibre13">WG-64683</b> Fixed: SoundBank GameSync exclusions don't work with Interactive Music objects.</li>
+<li class="calibre9"><b class="calibre13">WG-64842</b> Fixed: Wwise crash when the Project Load Log contains certain messages.</li>
+<li class="calibre9"><b class="calibre13">WG-64849</b> Fixed: Some bus structures with Listener Relative Routing can create situations where two Master Audio Busses erroneously send to the same Output Device twice in one tick, resulting in lost audio or other errors.</li>
+<li class="calibre9"><b class="calibre13">WG-64898</b> Fixed: Music Stinger parent object(s) not packaged in SoundBanks.</li>
+</ul>
+</div></div></div></body></html>

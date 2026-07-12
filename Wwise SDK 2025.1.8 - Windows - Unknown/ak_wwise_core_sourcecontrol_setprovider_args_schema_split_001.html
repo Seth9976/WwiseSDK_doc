@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak.wwise.core.sourceControl.setProvider Arguments Schema</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2"><h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="section_ak_wwise_core_sourcecontrol_setprovider_argsSchema"></a>
+Schema</h1>
+<div class="fragment"><div class="line">{</div>
+<div class="line">    "type": "object",</div>
+<div class="line">    "properties": {</div>
+<div class="line">        "provider": {</div>
+<div class="line">            "type": "string",</div>
+<div class="line">            "description": "Source control provider. Allowed values \u00e2\u20ac\u2039\u00e2\u20ac\u2039are Perforce, Subversion, any other source control supported or an empty string. An empty value is the equivalent of choosing No Control Source in the UI."</div>
+<div class="line">        },</div>
+<div class="line">        "server": {</div>
+<div class="line">            "type": "string",</div>
+<div class="line">            "description": "Server name or address. Default value is localhost."</div>
+<div class="line">        },</div>
+<div class="line">        "port": {</div>
+<div class="line">            "type": "string",</div>
+<div class="line">            "description": "Server port. This value is required for Perforce."</div>
+<div class="line">        },</div>
+<div class="line">        "username": {</div>
+<div class="line">            "type": "string",</div>
+<div class="line">            "description": "User name. This value is required for Perforce."</div>
+<div class="line">        },</div>
+<div class="line">        "password": {</div>
+<div class="line">            "type": "string",</div>
+<div class="line">            "description": "User password or ticket. This value is required for Perforce."</div>
+<div class="line">        },</div>
+<div class="line">        "workspace": {</div>
+<div class="line">            "type": "string",</div>
+<div class="line">            "description": "Workspace name. This value is required for Perforce."</div>
+<div class="line">        },</div>
+<div class="line">        "host": {</div>
+<div class="line">            "type": "string",</div>
+<div class="line">            "description": "Host name. This value is required for Perforce."</div>
+<div class="line">        }</div>
+<div class="line">    },</div>
+<div class="line">    "required": [</div>
+<div class="line">        "provider"</div>
+<div class="line">    ],</div>
+<div class="line">    "additionalProperties": false</div>
+<div class="line">}</div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

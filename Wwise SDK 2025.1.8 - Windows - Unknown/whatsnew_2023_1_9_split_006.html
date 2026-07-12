@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2023.1.9</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_5"><a class="pcalibre1 anchor" id="generic_community_bugs_2023_1_9"></a>
+Fixes for Community-Reported Bugs</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-61228</b> Fixed: Possible crash when changing the inclusions of a SoundBank.</li>
+<li class="calibre9"><b class="calibre13">WG-70578</b> Fixed: (Spatial Audio) Crash when the last geometry associated with a room is removed.</li>
+<li class="calibre9"><b class="calibre13">WG-72385</b> Fixed: Aux Bus rename isn't applied if the bus' parent is also an Aux Bus.</li>
+<li class="calibre9"><b class="calibre13">WG-74466</b> Fixed: (Spatial Audio) All portals in a scene are updated when any geometry or geometry instance changes, even if it is far away or unrelated. This can cause 1-frame spikes in % CPU usage.</li>
+<li class="calibre9"><b class="calibre13">WG-74498</b> Fixed: Crash when inspecting a source whose original sound file has been deleted.</li>
+<li class="calibre9"><b class="calibre13">WG-74513</b> Fixed: (WAAPI) <code class="calibre14"><a class="pcalibre el" href="ak_wwise_core_soundbank_generate_split_000.html">ak.wwise.core.soundbank.generate</a></code> returns a different GUID for auto-defined SoundBanks on each SoundBank generation.</li>
+<li class="calibre9"><b class="calibre13">WG-74515</b> Fixed: Unreachable code in <code class="calibre14">AkVariantBase.h</code>.</li>
+<li class="calibre9"><b class="calibre13">WG-74773</b> Fixed: Loudness meter reports erroneous values when two or more loudness meters are assigned to the same bus.</li>
+<li class="calibre9"><b class="calibre13">WG-74891</b> Fixed: (WAAPI) New object created by copy and paste while subscribing to topic <code class="calibre14"><a class="pcalibre el" href="ak_wwise_core_object_created_split_000.html">ak.wwise.core.object.created</a></code> with return accessor "duration" cannot be played.</li>
+<li class="calibre9"><b class="calibre13">WG-74930</b> Fixed: Running Wwise Authoring at the same time as another game using Trigger Effects on the DualSense gamepad causes the game-provided Trigger Effects to be disabled or to repeatedly engage and disengage.</li>
+<li class="calibre9"><b class="calibre13">WG-74957</b> Fixed: (Spatial Audio) Portal path distances to rooms with no geometry are incorrect while using a distance probe.</li>
+<li class="calibre9"><b class="calibre13">WG-75108</b> Fixed: Music Segment duration not updated when adding or removing Music Tracks.</li>
+<li class="calibre9"><b class="calibre13">WG-75183</b> Fixed: Integration Demo Visual Studio solutions fail to build when the path to its location contains a whitespace.</li>
+<li class="calibre9"><b class="calibre13">WG-75207</b> Fixed: Possible deadlock upon termination of sound engine when <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a55e99fc6cc6be2f93c4599e6e1bd1c0d_split_000.html#a55e99fc6cc6be2f93c4599e6e1bd1c0d">AK::SoundEngine::StartProfilerCapture</a></code> is used.</li>
+<li class="calibre9"><b class="calibre13">WG-75305</b> Fixed: Compilation error in <code class="calibre14"><a class="pcalibre el" href="_ak_bit_funcs_8h_split_000.html">AkBitFuncs.h</a></code> when compiling using <code class="calibre14">clang-cl</code>.</li>
+<li class="calibre9"><b class="calibre13">WG-75348</b> Fixed: Some public SDK headers fail to compile on Visual Studio when warning level <code class="calibre14">/W4</code> is used.</li>
+</ul>
+</div></div></div></body></html>

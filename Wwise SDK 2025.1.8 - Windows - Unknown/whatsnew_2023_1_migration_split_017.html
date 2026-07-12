@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2023.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_16"><a class="pcalibre1 anchor" id="spatialaudio_revisedwetpath"></a>
+(Spatial Audio) Revised Room and Portal Wet Path Signal Model</h1>
+<p class="calibre7">Attenuation, Occlusion, Obstruction, Transmission Loss, and Diffraction of the wet path are now applied to the Emitter-Room connection, using the attenuation specified on the emitter. Attenuation curves on Room Auxiliary Busses no longer have any effect and need to be moved to the source sound. The output of a Room Auxiliary Bus is always 0db unless modified in the project or through the API.</p>
+<p class="calibre7">Diffraction on the wet path is now calculated per emitter, based on the paths between the emitter and the listener. Wet path diffraction cannot exceed dry path diffraction.</p>
+<p class="calibre7">Geometric Transmission Loss now applies to the wet path, using the maximum Transmission Loss value of all surfaces intersected by the ray between the emitter and the listener. Room Transmission Loss is the minimum value between all possible paths from the emitter to the listener. The Transmission Loss for a single path is the maximum value of the Transmission Loss of all Rooms on that path.</p>
+<p class="calibre7">Rays in the the Room-Listener connection are now only used for spatialization and do not contribute to the volume of the connection. Therefore, they no longer appear in the Voice Inspector.</p>
+<p class="calibre7">An emitter that has the <b class="calibre13">Enable Game-Defined Sends</b> check box selected now sends to its own Room's bus as well as all adjacent Rooms that have active paths back to the listener. If an emitter is in the same Room as the listener, it sends to all adjacent rooms.</p>
+<p class="calibre7"><code class="calibre14"><a class="pcalibre el" href="struct_ak_spatial_audio_init_settings_a733e7d1ef6c4bf44af5bd55369ab4a3f_split_000.html#a733e7d1ef6c4bf44af5bd55369ab4a3f" title="Set to 1 to only allow emitters to send directly to their current room, and to the room a listener is...">AkSpatialAudioInitSettings::uMaxEmitterRoomAuxSends</a></code> has been added to limit the number of Emitter-Room connections to adjacent Rooms created per emitter. The default value of 0 disables the limit. If a limit is set, the most prominent sends are kept, based on spread to adjacent portals from the emitters perspective. A limit of 1 sends exclusively to the Room the emitter is in, and to the Room an emitter is transitioning to, while in a portal.</p>
+</div></div></div></body></html>

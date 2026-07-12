@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Sound Engine Object Processor Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_16"><a class="pcalibre1 anchor" id="soundengine_plugins_objectprocessor_metadata_3dtransform"></a>
+On 3D Transformations</h2>
+<p class="calibre7">If the spatialization mode <code class="calibre14">AkAudioObject::positioning.behavioral.spatMode</code> is 3D (<code class="calibre14">AK_SpatializationMode_PositionOnly</code> or <code class="calibre14">AK_SpatializationMode_PositionAndOrientation</code>), the 3D position is transformed (translated and rotated) such that it is relative to the game object (listener) associated to the bus in which it travels. For example, a sound may be positioned at (2, 0, 0); when it is processed by an Audio Object bus associated to a listener at (10, 0, 0), the resulting Audio Object will be positioned at (-8, 0, 0). Object Processors on this bus will "see" the Audio Object as being located at (-8, 0, 0).</p>
+<p class="calibre7">The coordinate system in Wwise is left-handed and the default orientation's front vector points towards Z and the top vector points towards Y, as defined in <a class="pcalibre el" href="_ak_common_defs_8h_split_000.html">AkCommonDefs.h</a>.</p>
+<div class="fragment"><div class="line"><span class="comment">/// Default listener transform.</span></div>
+<div class="line"><span class="comment"></span><span class="preprocessor">#define AK_DEFAULT_LISTENER_POSITION_X (0.0f)               // at coordinate system's origin</span></div>
+<div class="line"><span class="preprocessor">#define AK_DEFAULT_LISTENER_POSITION_Y (0.0f)</span></div>
+<div class="line"><span class="preprocessor">#define AK_DEFAULT_LISTENER_POSITION_Z (0.0f)</span></div>
+<div class="line"><span class="preprocessor">#define AK_DEFAULT_LISTENER_FRONT_X    (0.0f)               // looking toward Z,</span></div>
+<div class="line"><span class="preprocessor">#define AK_DEFAULT_LISTENER_FRONT_Y    (0.0f)</span></div>
+<div class="line"><span class="preprocessor">#define AK_DEFAULT_LISTENER_FRONT_Z    (1.0f)</span></div>
+<div class="line"><span class="preprocessor">#define AK_DEFAULT_TOP_X               (0.0f)               // top towards Y</span></div>
+<div class="line"><span class="preprocessor">#define AK_DEFAULT_TOP_Y               (1.0f)</span></div>
+<div class="line"><span class="preprocessor">#define AK_DEFAULT_TOP_Z               (0.0f)</span></div>
+</div><!-- fragment --><p class="calibre7">With the <a class="pcalibre el" href="soundengine_plugins_objectprocessor_split_010.html#soundengine_plugins_objectprocessor_outofplace_binauralizer">Software Binauralizer</a>, for example, input objects have been rotated prior to reaching the plug-in, such that positive Z is to the front of the listener, positive X is to its right, and so on. This is also why the service <a class="pcalibre el" href="class_a_k_1_1_i_ak_mixer_plugin_context_a0d39528d0bf01ec4e08bc20956dfce2c_split_000.html#a0d39528d0bf01ec4e08bc20956dfce2c">AK::IAkMixerPluginContext::ComputePositioning</a> used in that example does not take the listener's orientation: it assumes default orientation.</p>
+<p class="calibre7">In the <a class="pcalibre el" href="soundengine_plugins_objectprocessor_split_011.html#soundengine_plugins_objectprocessor_outofplace_panner">3D Panner</a> example above, (-0.707, 0, 0.707) thus points at 45 degrees towards the front left of the game object associated to the hosting bus.</p>
+</div></div></div></body></html>

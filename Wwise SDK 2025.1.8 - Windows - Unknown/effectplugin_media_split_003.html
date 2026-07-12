@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Adding Media to an Audio Plug-in</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_2"><a class="pcalibre1 anchor" id="effectplugin_media_definition"></a>
+Plug-in Definition</h2>
+<p class="calibre7">In the plug-in definition file (the plug-in XML file), ensure that the <code class="calibre14">CanReferenceDataFile</code> element is set to <code class="calibre14">true</code>.</p>
+<div class="fragment"><div class="line">&lt;PluginModule&gt;</div>
+<div class="line">    &lt;EffectPlugin Name=<span class="stringliteral">"YOUR_PLUGIN"</span> CompanyID=<span class="stringliteral">"???"</span> PluginID=<span class="stringliteral">"???"</span>&gt;</div>
+<div class="line">        &lt;<a class="pcalibre code" href="namespace_a_k_1_1_wwise_1_1_plugin_a69141ebf4159597c1e76aad07862c823_split_000.html#a69141ebf4159597c1e76aad07862c823">PluginInfo</a> MenuPath=<span class="stringliteral">"???"</span>&gt;</div>
+<div class="line">            &lt;PlatformSupport&gt;</div>
+<div class="line">                &lt;Platform Name=<span class="stringliteral">"Windows"</span>&gt;</div>
+<div class="line">...</div>
+<div class="line">                    &lt;CanReferenceDataFile&gt;<span class="keyword">true</span>&lt;/CanReferenceDataFile&gt;</div>
+<div class="line">                &lt;/Platform&gt;</div>
+<div class="line">                &lt;Platform Name=<span class="stringliteral">"XboxOne"</span>&gt;</div>
+<div class="line">...</div>
+<div class="line">                    &lt;CanReferenceDataFile&gt;<span class="keyword">true</span>&lt;/CanReferenceDataFile&gt;</div>
+<div class="line">                &lt;/Platform&gt;</div>
+</div><!-- fragment --></div></div></div></body></html>

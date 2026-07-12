@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AkCmd_SA_SetRoom Struct Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_1">Detailed Description</h2>
+<div class="calibre2"><p class="calibre7">Add or update a room. Rooms are used to connect portals and define an orientation for oriented reverbs. This function may be called multiple times with the same ID to update the parameters of the room. </p><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="warning.gif"/></td><td class="calibre17"><b class="calibre13">Warning:</b> The ID (<code class="calibre14">roomID</code>) must be chosen in the same manner as <code class="calibre14">AkGameObjectID's</code>, as they are in the same ID-space. The spatial audio lib manages the registration/unregistration of internal game objects for rooms that use these IDs and, therefore, must not collide. Also, the room ID must not be in the reserved range (AkUInt64)(-32) to (AkUInt64)(-2) inclusively. You may, however, explicitly add the default room ID <code class="calibre14">AK_OUTDOORS_ROOM_ID</code> (-1) in order to customize its <a class="pcalibre el" href="struct_ak_room_params_split_000.html" title="Parameters passed to SetRoom.">AkRoomParams</a>, to provide a valid auxiliary bus, for example.</td></tr>
+</tbody></table>
+<p class="calibre7">Optionally, you can associate a name to the room for profiling purposes. Call AK_CommandBuffer_AddString after adding the command to attach a name to the room: </p><pre class="fragment">auto cmd = (AkCmd_SA_SetRoom*)AK_CommandBuffer_Add(buffer, AkCommand_SA_SetRoom);
+// Fill command...
+AK_CommandBuffer_AddString(buffer, "Bedroom 1");
+</pre><p class="calibre7">This command can fail for the following reasons:</p><ul class="calibre8">
+<li class="calibre9">AK_InvalidParameter: <code class="calibre14">roomID</code> is outside the valid range</li>
+<li class="calibre9">AK_InsufficientMemory: Not enough memory to complete the operation.</li>
+</ul>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="_ak_command_types_8h_a001b78645b8b0335c0dd2e128cca2cfd_split_001.html#a001b78645b8b0335c0dd2e128cca2cfdabd09c21c56c233f2e066d563ef805e60">AkCommand_SA_SetRoom</a></li>
+<li class="calibre9"><a class="pcalibre el" href="_ak_command_buffer_8h_a6b6d59f7fb356dc8f2ed3488e3bf0392_split_000.html#a6b6d59f7fb356dc8f2ed3488e3bf0392">AK_CommandBuffer_AddString</a></li>
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_room_i_d_split_000.html">AkRoomID</a></li>
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_room_params_split_000.html">AkRoomParams</a></li>
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_cmd___s_a___remove_room_split_000.html">AkCmd_SA_RemoveRoom</a> </li>
+</ul>
+</dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_ak_command_types_8h_source_split_002.html#l01530">1530</a> of file <a class="pcalibre el" href="_ak_command_types_8h_source_split_000.html">AkCommandTypes.h</a>.</p>
+</div></div><!-- contents -->
+
+
+</body></html>

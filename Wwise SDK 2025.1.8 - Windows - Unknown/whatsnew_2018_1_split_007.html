@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2018.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_6"><a class="pcalibre1 anchor" id="bugs_2018_1"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-14241</b> Fixed: Automatic vertical scrollbar broken in the Project Explorer and Sequence Container Playlist Editor.</li>
+<li class="calibre9"><b class="calibre13">WG-26272</b> Fixed: Cannot use Select All (Ctrl+A) in Notes field.</li>
+<li class="calibre9"><b class="calibre13">WG-35007</b> Fixed: Positioning icon in Schematic View does not update properly.</li>
+<li class="calibre9"><b class="calibre13">WG-35027</b> Fixed: <em class="calibre11">Recording</em> status still displays after the Wwise Recorder plug-in recording is complete, if the file extension is invalid.</li>
+<li class="calibre9"><b class="calibre13">WG-35460</b> Fixed: <code class="calibre14">StopAll</code> performance issues.</li>
+<li class="calibre9"><b class="calibre13">WG-35615</b> Fixed: When connecting to Unreal the floor plane in the Game Object 3D Viewer does not match that in Unreal.</li>
+<li class="calibre9"><b class="calibre13">WG-36156</b> Fixed: Bus icon not enabled when pressing Shift for a master Audio Bus selection.</li>
+<li class="calibre9"><b class="calibre13">WG-36407</b> Fixed: Source and Conversion view's Original Size and Duration columns do not reflect the "trimmed" region of the audio file.</li>
+<li class="calibre9"><b class="calibre13">WG-36424</b> Fixed: (WAAPI) <code class="calibre14">ak.wwise.waapi.getSchema</code> call is missing required argument.</li>
+<li class="calibre9"><b class="calibre13">WG-36693</b> Fixed: No sound when playing a MIDI clip whose target's Work Unit has been unloaded/reloaded.</li>
+<li class="calibre9"><b class="calibre13">WG-36751</b> Fixed: (WAAPI) Opening a view through <code class="calibre14">ak.wwise.ui.commands.execute</code> hides that view if already open.</li>
+<li class="calibre9"><b class="calibre13">WG-36998</b> Fixed: Crash in Multi Editor when selecting All Parents on top-level Physical Folder and the Default Work Unit directly under it.</li>
+<li class="calibre9"><b class="calibre13">WG-37300</b> Fixed: (WAAPI) Connection failures on Mac.</li>
+<li class="calibre9"><b class="calibre13">WG-37346</b> Fixed: Wwise assert during SoundBank generation of dropped platform.</li>
+<li class="calibre9"><b class="calibre13">WG-37426</b> Fixed: Broken Value Distribution table scrollbar in the Profiler Statistics.</li>
+<li class="calibre9"><b class="calibre13">WG-37491</b> Fixed: The Master-Mixer Console does not gray out Auxiliary Busses' bypassed Effects.</li>
+<li class="calibre9"><b class="calibre13">WG-37531</b> Fixed: (iOS) Assert (AkSinkApple.cpp) when interrupting the sink.</li>
+<li class="calibre9"><b class="calibre13">WG-37577</b> Fixed: Blend Container x-axis does not update immediately when the range of the assigned RTPC changes.</li>
+<li class="calibre9"><b class="calibre13">WG-37621</b> Fixed: Compilation errors when including some Wwise SDK headers along with some AkAutobahn headers in the same C++ file.</li>
+<li class="calibre9"><b class="calibre13">WG-37637</b> Fixed: The Mixing Desk's shortcut menu does not use the selected objects.</li>
+<li class="calibre9"><b class="calibre13">WG-37679</b> Fixed: Some properties in the States tab have an invalid range when using the slider.</li>
+<li class="calibre9"><b class="calibre13">WG-37695</b> Fixed: Warnings in the Integration Demo.</li>
+<li class="calibre9"><b class="calibre13">WG-37878</b> Fixed: Reflect outputs garbage when used with anonymous channel configurations.</li>
+<li class="calibre9"><b class="calibre13">WG-37997</b> Fixed: Wwise crash during undo/redo of swap from modulator to RTPC.</li>
+<li class="calibre9"><b class="calibre13">WG-38021</b> Fixed: Tooltips not shown when hovering over controls in trees and lists.</li>
+<li class="calibre9"><b class="calibre13">WG-38118</b> Fixed: (WAAPI with Mac) Multiple failed calls during project load.</li>
+<li class="calibre9"><b class="calibre13">WG-38144</b> Fixed: (WAAPI)(Mac) When running both the client and server on Mac, the client cannot reconnect if the server is restarted (close then reopen Wwise), even if the client is restarted.</li>
+<li class="calibre9"><b class="calibre13">WG-38170</b> Fixed: <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a9b71daa02c5d398d08c9eb0643d52555_split_000.html#a9b71daa02c5d398d08c9eb0643d52555">AK::SoundEngine::SetScalingFactor</a> affects spread and focus in the inverse direction. Scaling values above 1 should make perceived distance smaller instead of larger.</li>
+<li class="calibre9"><b class="calibre13">WG-38337</b> Fixed: (Mac) Clicking on an undocked view does not bring it on top of other undocked views.</li>
+<li class="calibre9"><b class="calibre13">WG-38340</b> Fixed: (Mac) Entering invalid characters when renaming an object in the Project Explorer does not prompt the edit field again.</li>
+<li class="calibre9"><b class="calibre13">WG-38359</b> Fixed: (WAAPI) <code class="calibre14">audioSource:maxDurationSource</code> does not work with Sound Voice objects.</li>
+<li class="calibre9"><b class="calibre13">WG-38412</b> Fixed: (WAAPI) <code class="calibre14">ak.wwise.core.audio.importTabDelimited</code> returns non-standard details field in the error. Refer to <a class="pcalibre el" href="whatsnew_2018_1_migration_split_005.html#waapi_migration_error">WAAPI ak.wwise.core.audio.importTabDelimited error format changed</a> for more information.</li>
+<li class="calibre9"><b class="calibre13">WG-38422</b> Fixed: Peak Limiter allows output to exceed specified level.</li>
+<li class="calibre9"><b class="calibre13">WG-38449</b> Fixed: Keyboard shortcut commands within the Event Editor, such as Find in Project Explorer, go to the Event instead of the Action's Target.</li>
+<li class="calibre9"><b class="calibre13">WG-38451</b> Fixed: Long, multichannel ADPCM files (10 minutes or more) do not play when streamed.</li>
+<li class="calibre9"><b class="calibre13">WG-38455</b> Fixed: The Wwise Project Zipper does not include some project files, such as WCUSTOMPROPERTIES, that it should.</li>
+<li class="calibre9"><b class="calibre13">WG-38580</b> Fixed: A sound that is diffracted through a Portal pops instantly to 0 diffraction when the listener enters the Portal region.</li>
+<li class="calibre9"><b class="calibre13">WG-38582</b> Fixed: Output Bus filters not bypassed if set and then unset.</li>
+<li class="calibre9"><b class="calibre13">WG-38619</b> Fixed: Memory leak in Vorbis decoder under low memory conditions.</li>
+<li class="calibre9"><b class="calibre13">WG-38678</b> Fixed: Crash in States tab context menu, "Clear States".</li>
+<li class="calibre9"><b class="calibre13">WG-38726</b> Fixed: Game Object 3D Viewer's numerical position text is hard to read.</li>
+<li class="calibre9"><b class="calibre13">WG-38734</b> Fixed: Crash when playing an empty Event via SoundFrame.</li>
+<li class="calibre9"><b class="calibre13">WG-38780</b> Fixed: Crash in the Wwise authoring tool when monitoring a game's spatial audio data and the game runs out of memory in the monitoring pool.</li>
+<li class="calibre9"><b class="calibre13">WG-38783</b> Fixed: Out-of-memory crash in the Spatial Audio lib.</li>
+<li class="calibre9"><b class="calibre13">WG-38824</b> Fixed: Exception thrown by <code class="calibre14">AkMotionSink::Init</code> on Xbox One.</li>
+<li class="calibre9"><b class="calibre13">WG-38859</b> Symbols were removed from Lumin libraries in release configuration.</li>
+<li class="calibre9"><b class="calibre13">WG-38904</b> Fixed: Crash in Game Object 3D Viewer when saving project.</li>
+<li class="calibre9"><b class="calibre13">WG-38933</b> Fixed: NaNs introduced into the positioning system (showing up as <em class="calibre11">-nan(ind)</em> in the Obs/Occ tab) when the listener is directly in the middle of a Portal.</li>
+</ul>
+<p class="calibre7"><br class="calibre10"/>
+ </p><dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="whatsnew_2018_1_new_features_split_000.html">New Features Overview 2018.1</a></li>
+<li class="calibre9"><a class="pcalibre el" href="whatsnew_2018_1_migration_split_000.html">Important Migration Notes 2018.1</a></li>
+<li class="calibre9"><a class="pcalibre el" href="reference_platform_2018_1_split_000.html">Platform Requirements 2018.1</a> </li>
+</ul>
+</dd></dl>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

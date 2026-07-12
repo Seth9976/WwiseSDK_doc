@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2025.1.8</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="generic_behavior_changes_2025_1_8"></a>
+Behavior Changes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-83821</b> To support future Wwise development, the Init SoundBank now automatically includes plug-in media that's referenced by any Effect plug-in on the Main Audio Bus, or any other top-level Audio Bus in the Busses hierarchy. For example, if you have an AK Convolution Reverb Effect on the Main Audio Bus, the Init SoundBank will now include the converted impulse response for that Effect. To minimize duplication of media across SoundBanks that include Audio Busses, SoundBanks will now exclude Main Audio Busses from their content.</li>
+</ul>
+</div></div></div></body></html>

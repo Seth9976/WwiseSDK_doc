@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2023.1.10</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_4"><a class="pcalibre1 anchor" id="generic_community_bugs_2023_1_10"></a>
+Fixes for Community-Reported Bugs</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-68248</b> Fixed: Possible crash when changing an override property after using the Multi Editor.</li>
+<li class="calibre9"><b class="calibre13">WG-70813</b> Fixed: Profiler Session is locked by system for too long after connecting to a file.</li>
+<li class="calibre9"><b class="calibre13">WG-72481</b> Fixed: Music Switch Container and Dialogue Event associations are lost when reloading a Switch or State Work Unit.</li>
+<li class="calibre9"><b class="calibre13">WG-72740</b> Fixed: Crash when Audio Device fails re-initialization while an out-of-place object processor Effect is placed on the Master Audio Bus.</li>
+<li class="calibre9"><b class="calibre13">WG-72935</b> Fixed: (WAAPI) Deadlock when calling <code class="calibre14"><a class="pcalibre el" href="ak_wwise_core_soundbank_generate_split_000.html">ak.wwise.core.soundbank.generate</a></code> with pre or post-generation steps also using WAAPI.</li>
+<li class="calibre9"><b class="calibre13">WG-74723</b> Fixed: Custom property range is limited to 16 bits when using Integer type for a property.</li>
+<li class="calibre9"><b class="calibre13">WG-75091</b> Fixed: (Spatial Audio) An assert is triggered when a Portal is aligned in certain configurations, or when invalid transform data is passed to the Portal parameters.</li>
+<li class="calibre9"><b class="calibre13">WG-75240</b> Fixed: Missing fade-in on Random Containers and Sequence Containers when using sample-accurate transitions.</li>
+<li class="calibre9"><b class="calibre13">WG-75246</b> Fixed: Wrong ExternalSourcesOutputRoot tag in <code class="calibre14">PlatformInfo.xml</code> when generating SoundBanks from the command line and overriding output paths.</li>
+<li class="calibre9"><b class="calibre13">WG-75326</b> Fixed: Meter Effect plug-in sporadically calculates an output value of zero when processing Audio Objects and running in RMS Mode.</li>
+<li class="calibre9"><b class="calibre13">WG-75526</b> Fixed: Possible crash when changing the Music Transition Source Type or Destination Type on a root transition.</li>
+<li class="calibre9"><b class="calibre13">WG-75577</b> Fixed: When metering Audio Objects busses, the order of the meters for each audio object can change inconsistently when audio objects start or stop playing.</li>
+<li class="calibre9"><b class="calibre13">WG-75655</b> Fixed: Sending signals to the Motion output device with an amplitude greater than 0db causes final vibrations to be chaotic.</li>
+<li class="calibre9"><b class="calibre13">WG-75798</b> Fixed: Possible crash when loading a project or disconnecting from a game.</li>
+<li class="calibre9"><b class="calibre13">WG-75801</b> Fixed: Possible crash when deleting a Music Playlist Container.</li>
+<li class="calibre9"><b class="calibre13">WG-75902</b> Fixed: Misleading warning message "Unknown/Dead game object ID used in function" <code class="calibre14">ExecuteActionOnEvent</code> and <code class="calibre14">SeekOnEvent</code> when passing AK_INVALID_GAME_OBJECT as a game object.</li>
+<li class="calibre9"><b class="calibre13">WG-76047</b> Fixed: Event Actions Set LPF and Set HPF have no effect when executed from Wwise Authoring. </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

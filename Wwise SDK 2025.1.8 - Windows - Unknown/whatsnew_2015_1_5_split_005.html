@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2015.1.5</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_4"><a class="pcalibre1 anchor" id="bugs_2015_1_5"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-28472</b> Fixed: Crash in XAudio2 when unplugging headphones.</li>
+<li class="calibre9"><b class="calibre13">WG-28589</b> Fixed: (Mac) Memory Leak detected in IntegrationDemo.</li>
+<li class="calibre9"><b class="calibre13">WG-28628</b> Fixed: Xbox controller doesn't work with latest XInput DLL.</li>
+<li class="calibre9"><b class="calibre13">WG-28637</b> Fixed: (iOS) Memory Leak (deferred I/O thread).</li>
+<li class="calibre9"><b class="calibre13">WG-28641</b> Fixed: Wwise calls source control GetFileStatus during command line operations.</li>
+<li class="calibre9"><b class="calibre13">WG-28661</b> Fixed: MIDI CC messages are sometimes ignored.</li>
+<li class="calibre9"><b class="calibre13">WG-28662</b> Fixed: Switches driven by game parameters were erroneously overridden when editing from the authoring tool.</li>
+<li class="calibre9"><b class="calibre13">WG-28672</b> Fixed: Do not push Bypass effect check box value if an RTPC is applied to it when connecting on your game.</li>
+<li class="calibre9"><b class="calibre13">WG-28682</b> Fixed: (tvOS) 0 channels are detected when initializing sound engine with "Dolby Surround" option.</li>
+<li class="calibre9"><b class="calibre13">WG-28732</b> Fixed: Attenuation Editor crash when viewing Game Objects.</li>
+<li class="calibre9"><b class="calibre13">WG-28746</b> Fixed: Profiler crash when disabling listener data.</li>
+<li class="calibre9"><b class="calibre13">WG-28750</b> Fixed: Convolution Reverb: imprecision in XML persistence causes converted file hash change at project reload.</li>
+<li class="calibre9"><b class="calibre13">WG-28754</b> Fixed: Rare crash when calling <a class="pcalibre el" href="namespace_a_k_1_1_comm_a94e307d2974b89cc4fbc8ab0fef20d2f_split_000.html#a94e307d2974b89cc4fbc8ab0fef20d2f">AK::Comm::Term()</a>.</li>
+<li class="calibre9"><b class="calibre13">WG-28755</b> Fixed: (PS4) Out-of-memory crash during ATRAC9 decoding.</li>
+<li class="calibre9"><b class="calibre13">WG-28800</b> Fixed: Possible crash when preparing data on incomplete Switch container.</li>
+<li class="calibre9"><b class="calibre13">WG-28849</b> Fixed: File Packager sources are missing <em class="calibre11">Migrate6to7.cs</em> file.</li>
+<li class="calibre9"><b class="calibre13">WG-28861</b> Fixed: Motion Busses cannot be deleted or renamed.</li>
+<li class="calibre9"><b class="calibre13">WG-28873</b> Fixed: Add function to retrieve communication errors (<a class="pcalibre el" href="namespace_a_k_1_1_comm_ab257079d30e10185e37ca7e146b386b2_split_000.html#ab257079d30e10185e37ca7e146b386b2">AK::Comm::GetLastError()</a>).</li>
+<li class="calibre9"><b class="calibre13">WG-28896</b> Fixed: Prefetch media may be selected to play for a non-streamed sound, even when the full media for the same sound is also available, depending on the order of loading.</li>
+<li class="calibre9"><b class="calibre13">WG-28912</b> Fixed: (PS4) ASSERT when profiling and disconnecting the network cable.</li>
+<li class="calibre9"><b class="calibre13">WG-28919</b> Fixed: Crash when re-initializing the sound engine from scratch after <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_afc66d31bf5c6425d841ca3510e2d0539_split_000.html#afc66d31bf5c6425d841ca3510e2d0539">Suspend()</a>.</li>
+<li class="calibre9"><b class="calibre13">WG-28923</b> Fixed: <code class="calibre14">CustomGlobalOpeningCmd</code> and <code class="calibre14">CustomGlobalClosingCmd</code> options have no effect when invoking WwiseCLI.</li>
+<li class="calibre9"><b class="calibre13">WG-28970</b> Fixed: (PS4) ASSERT when transitioning from one state to another during ATRAC9 decoding.</li>
+<li class="calibre9"><b class="calibre13">WG-28994</b> Fixed: When the SoundBank thread is disabled (bUseSoundBankMgrThread = false), <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ac91406bc2fe061e4248cb448207b5a64_split_000.html#ac91406bc2fe061e4248cb448207b5a64">UnloadBank()</a>/ClearBanks() calls return immediately, even if media is still in use; this results in a race condition.</li>
+<li class="calibre9"><b class="calibre13">WG-28996</b> Fixed: Switch track transitions truncate fade-in.</li>
+<li class="calibre9"><b class="calibre13">WG-29010</b> Fixed: (PS4) Possible crash when an ATRAC9 stream is starving near loop points.</li>
+<li class="calibre9"><b class="calibre13">WG-29048</b> Fixed: The File Packager does not generate RSX file packages.</li>
+<li class="calibre9"><b class="calibre13">WG-29065</b> Fixed: SoundBank creation log message ID 10's severity cannot be modified.</li>
+<li class="calibre9"><b class="calibre13">WG-29070</b> Fixed: (Xbox One) Seeking in an XMA file can occasionally result in a hang due to unresponsive hardware.</li>
+<li class="calibre9"><b class="calibre13">WG-29078</b> Fixed: Divide by zero in AkResampler.cpp with extreme pitch values.</li>
+<li class="calibre9"><b class="calibre13">WG-29085</b> Fixed: An occasional crash in the File Packager. </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

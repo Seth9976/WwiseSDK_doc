@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Loading Banks</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_15"><a class="pcalibre1 anchor" id="soundengine_banks_clearing"></a>
+Clearing Banks</h1>
+<p class="calibre7">Calling the <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ab934f98a6622976d24e0a096911eb0c8_split_000.html#ab934f98a6622976d24e0a096911eb0c8">AK::SoundEngine::ClearBanks()</a></code> function is useful when you want to reset the content of the sound engine. Note that you do not have to call <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ab934f98a6622976d24e0a096911eb0c8_split_000.html#ab934f98a6622976d24e0a096911eb0c8">ClearBanks()</a></code> before calling <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_comm_a94e307d2974b89cc4fbc8ab0fef20d2f_split_000.html#a94e307d2974b89cc4fbc8ab0fef20d2f">SoundEngine::Term()</a></code>. <code class="calibre14">ClearBanks</code> internally calls <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_af9648460be2ed1a0093ff09b42ef36f5_split_000.html#af9648460be2ed1a0093ff09b42ef36f5">AK::SoundEngine::ClearPreparedEvents</a></code>.</p>
+<p class="calibre7">After this function is called:</p><ul class="calibre8">
+<li class="calibre9">All sounds stop playing.</li>
+<li class="calibre9">All banks are unloaded, including the initialization bank.</li>
+<li class="calibre9">All State management information is cleared, because it was part of the initialization bank.</li>
+</ul>
+</div></div></div></body></html>

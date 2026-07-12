@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integration Details - Environments and Game-defined Auxiliary Sends</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="soundengine_environments_listener_id"></a>
+Auxiliary Sends and Listener Game Objects</h1>
+<p class="calibre7">Every instance of a bus in the Wwise sound engine is associated with a game object. When we create an aux send, we create a listener-emitter association in the sound engine, with a specific aux bus as the target. The positions of the emitter and listener game objects are used in the source and target audio node to spatialize the sound (if the sound is set to 3D in the authoring tool). When defining an aux send, it is often desirable to use the same listener for the target aux bus as has already been assigned for the direct output of the source audio node – that is the listener(s) that have been assigned via <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a2f85a55c38afa2e0dbc6172a7bec91d1_split_000.html#a2f85a55c38afa2e0dbc6172a7bec91d1">SetListeners()</a></code> or <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a4fe9102cd3cb2b59dda5d3d635dc49fe_split_000.html#a4fe9102cd3cb2b59dda5d3d635dc49fe">SetDefaultListeners()</a></code>. To facilitate this behaviour, and to avoid having to remember which game object has already been associated to which listener, one may simply pass <code class="calibre14">AK_INVALID_GAME_OBJECT</code> as the <code class="calibre14">listenerID</code>.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> It is important to fill out the <code class="calibre14">listenerID</code> field in the <code class="calibre14"><a class="pcalibre el" href="struct_ak_aux_send_value_split_000.html" title="Auxiliary bus sends information per game object per given auxiliary bus.">AkAuxSendValue</a></code> structure. Leaving it uninitialized will result in undefined behaviour. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

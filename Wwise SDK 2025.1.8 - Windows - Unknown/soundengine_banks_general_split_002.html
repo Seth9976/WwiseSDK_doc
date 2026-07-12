@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>General Information</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_1"><a class="pcalibre1 anchor" id="soundengine_banks_general_type_init"></a>
+Initialization Bank</h2>
+<p class="calibre7">There is only one Initialization bank for each project. It is automatically created when Wwise generates the SoundBanks and is named "Init.bnk". This special bank contains general project information, including:</p><ul class="calibre8">
+<li class="calibre9">Bus hierarchy</li>
+<li class="calibre9">States</li>
+<li class="calibre9">Switches</li>
+<li class="calibre9">RTPCs</li>
+<li class="calibre9">Bus Effects</li>
+</ul>
+<p class="calibre7">The Initialization bank is language-independent, so only one is generated for all languages.</p>
+<p class="calibre7">The Initialization bank must be the first bank loaded when starting a game. If it is not loaded first, the SoundBanks may not load. The Initialization bank cannot be unloaded if any other SoundBank is still loaded. The initialization bank is loaded in the same way as the SoundBanks.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> Loading the initialization bank for a project that uses source, effect, or codec plug-ins will fail if these plug-ins have not been previously registered with the sound engine. Refer to <a class="pcalibre el" href="soundengine_integration_plugins_split_000.html">Integration Details - Plug-Ins</a> and <a class="pcalibre el" href="integrating_elements_codecs_split_000.html">Integrating Codec Plug-Ins</a> for information concerning plug-in registration. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak_wwise_plugin_sink_devices_v1::GetDeviceID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="structak__wwise__plugin__sink__devices__v1_ad322757eaa29d389f70cc8a313d61149_split_000.html#ad322757eaa29d389f70cc8a313d61149" class="pcalibre1 anchor">◆ </a></span>GetDeviceID</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">uint32_t(* ak_wwise_plugin_sink_devices_v1::GetDeviceID) (const struct <a class="pcalibre el" href="structak__wwise__plugin__sink__devices__instance__v1_split_000.html">ak_wwise_plugin_sink_devices_instance_v1</a> *in_this, int in_num)</td>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+
+<p class="calibre7">Get a device ID for the device number in_num. </p>
+<p class="calibre7">Provided by your plug-in, this should return a uint32_t that can be understood by the Sound Engine part of your sink plug-in. It must not return duplicates or pointers, and the value should be applicable to the GetName call based on the same in_num.</p>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_this</td><td class="calibre17">Current instance of this interface. </td></tr>
+    <tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_num</td><td class="calibre17">Device number, from zero to the value, as retrieved by GetCount. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">uint32_t Device ID for the interface in_num.</dd></dl>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><a class="pcalibre el" href="structak__wwise__plugin__sink__devices__v1_affe92d49a2287df1a99fb0df541b9f79_split_000.html#affe92d49a2287df1a99fb0df541b9f79">GetCount</a> for a discussion on providing data in a multithread-aware environment. </dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_sink_devices_8h_source.html#l00142">142</a> of file <a class="pcalibre el" href="_sink_devices_8h_source.html">SinkDevices.h</a>.</p>
+
+<p class="calibre7">Referenced by <a class="pcalibre el" href="_sink_devices_8h_source.html#l00206">AK.Wwise::Plugin::V1::SinkDevices::Interface::Interface()</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

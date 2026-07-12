@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Propagation Paths in the Rooms and Portals Signal Model</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_5"><a class="pcalibre1 anchor" id="spatial_audio_roomsportals_paths_erlrrevisited"></a>
+Emitter-Room and Room-Listener Connections, Revisited</h1>
+<p class="calibre7">Attenuation, as well as Occlusion, Obstruction, Transmission Loss and Diffraction of the wet path is applied on the Emitter-Room connection, using the attenuation specified on the Emitter. Setting an attenuation on a Room bus will have no effect.</p>
+<p class="calibre7">The following table describes the paths of the Emitter-Room Connection.</p>
+<table border="1" cellpadding="1" cellspacing="0" width="800px" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<th class="calibre35">Path Type (Number)</th><th class="calibre35">Characteristics </th></tr>
+<tr class="calibre16">
+<td class="calibre17">Transmission/Line-of-sight (1) </td><td class="calibre17"><ul class="calibre8">
+<li class="calibre9">
+<b class="calibre13">Distance</b>: Straight line from Emitter to Listener </li>
+<li class="calibre9">
+<b class="calibre13">Transmission Loss</b>: Maximum of loss of occluding geometry, or of Room's Transmission Loss </li>
+<li class="calibre9">
+<b class="calibre13">Diffraction</b>: 0 for Emitter's Room. Portal Diffraction for some adjacent Rooms </li>
+<li class="calibre9">
+<b class="calibre13">Spread</b>: 0 (irrelevant) </li>
+</ul>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre17">Diffraction (N) </td><td class="calibre17"><ul class="calibre8">
+<li class="calibre9">
+<b class="calibre13">Distance</b>: Diffraction path's length </li>
+<li class="calibre9">
+<b class="calibre13">Diffraction</b>: Sum of Portal Diffraction and diffraction on geometry edges </li>
+<li class="calibre9">
+<b class="calibre13">Spread</b>: 0 (irrelevant) </li>
+</ul>
+</td></tr>
+</tbody></table>
+<p class="calibre7">The following table describes the paths of the Room-Listener Connection.</p>
+<table border="1" cellpadding="1" cellspacing="0" width="800px" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<th class="calibre35">Path Type (Number)</th><th class="calibre35">Characteristics </th></tr>
+<tr class="calibre16">
+<td class="calibre17">Transmission/Line-of-sight (1) </td><td class="calibre17"><ul class="calibre8">
+<li class="calibre9">
+<b class="calibre13">Distance</b>: 0 (applied to the Emitter-Room connection) </li>
+<li class="calibre9">
+<b class="calibre13">Transmission Loss</b>: 0 (applied to the Emitter-Room connection) </li>
+<li class="calibre9">
+<b class="calibre13">Spread</b>: Based on the Room's extent (see <a class="pcalibre el" href="spatial_audio_roomsportals_apiconfig_split_003.html#spatial_audio_roomsportals_apiconfigroomgeometry">Setting up Room Geometry</a>) </li>
+</ul>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre17">Diffraction (N) </td><td class="calibre17"><ul class="calibre8">
+<li class="calibre9">
+<b class="calibre13">Distance</b>: 0 (applied to the Emitter-Room connection) </li>
+<li class="calibre9">
+<b class="calibre13">Diffraction</b>: 0 (applied to the Emitter-Room connection) </li>
+<li class="calibre9">
+<b class="calibre13">Spread</b>: Emitter's (from the sound's Attenuation, or from the game object radius (see <a class="pcalibre el" href="spatial_audio_roomsportals_apioverview_split_015.html#spatial_audio_roomsportals_spreadgameobjectspread">Game Object Spread</a>), further clamped by the Portal's aperture </li>
+</ul>
+</td></tr>
+</tbody></table>
+<p class="calibre7">The following image shows both connections in the Voice Inspector. The highlighted section shows the paths in the Emitter-Room connection, where distance attenuation, Transmission Loss, and diffraction are applied. Paths embedded in the Room-Listener connection are not displayed here.</p>
+<div class="calibre2">
+<img alt="" src="rays_er_rl__details_annotated.png" class="inline"/>
+</div>
+<table border="1" cellpadding="1" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre17"><div class="calibre2">
+<img alt="" src="callout1.png" class="inline"/>
+</div>
+ </td><td class="calibre17">Room-Listener connection  </td></tr>
+<tr class="calibre16">
+<td class="calibre17"><div class="calibre2">
+<img alt="" src="callout2.png" class="inline"/>
+</div>
+ </td><td class="calibre17">Emitter-Room connection  </td></tr>
+</tbody></table>
+</div></div></div></body></html>

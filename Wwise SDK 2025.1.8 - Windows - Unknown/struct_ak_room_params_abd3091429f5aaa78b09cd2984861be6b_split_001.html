@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AkRoomParams::RoomGameObj_KeepRegistered</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="struct_ak_room_params_abd3091429f5aaa78b09cd2984861be6b_split_000.html#abd3091429f5aaa78b09cd2984861be6b" class="pcalibre1 anchor">◆ </a></span>RoomGameObj_KeepRegistered</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">bool AkRoomParams::RoomGameObj_KeepRegistered</td>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">If set to true, the room game object is registered on calling <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_ab991cec1e8c9f4d2721fea2d37b285c8_split_000.html#ab991cec1e8c9f4d2721fea2d37b285c8">SetRoom()</a></code>, and not released until the room is deleted or removed with <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_a130a8d8fba48b2207aab063ce9ac729c_split_000.html#a130a8d8fba48b2207aab063ce9ac729c">RemoveRoom()</a></code>. If set to false, Spatial Audio registers the room object only when it is needed by the sound propagation system for the purposes of reverb, and unregisters the game object when all reverb tails are finished. We recommend that you set RoomGameObj_KeepRegistered to true if you use RTPCs on the room game object, if you call <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a9b71daa02c5d398d08c9eb0643d52555_split_000.html#a9b71daa02c5d398d08c9eb0643d52555">SetScalingFactor()</a></code>, or call <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a41e9ef8d42951871fe4a8ae58a29a68e_split_000.html#a41e9ef8d42951871fe4a8ae58a29a68e">PostEvent()</a></code> for the purpose of ambience or room tones. </p><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> The room game object can be accessed through the ID that is passed to <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_ab991cec1e8c9f4d2721fea2d37b285c8_split_000.html#ab991cec1e8c9f4d2721fea2d37b285c8">SetRoom()</a></code> and the <code class="calibre14"><a class="pcalibre el" href="struct_ak_room_i_d_abe791f0510a62ba13d02ca5e35d3b4eb_split_000.html#abe791f0510a62ba13d02ca5e35d3b4eb" title="Conversion function used to convert AkRoomID's to AkGameObjectIDs.">AkRoomID::AsGameObjectID()</a></code> method. Posting an event on the room game object uses automatic room game object placement by Spatial Audio so that when the listener is inside the room, the sound comes from all around the listener, and when the listener is outside the room, the sound comes from the portal(s). Typically, this would be used for surround ambience beds or room tones. For point source sounds, use separate game objects that are registered as Spatial Audio emitters. <dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_room_params_a07f3e05103b351f449673dfff361aa71_split_000.html#a07f3e05103b351f449673dfff361aa71">AkRoomParams::RoomGameObj_AuxSendLevelToSelf</a></li>
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_room_i_d_split_000.html">AkRoomID</a> </li>
+</ul>
+</dd></dl>
+</td></tr>
+</tbody></table>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_ak_spatial_audio_types_8h_source_split_000.html#l00771">771</a> of file <a class="pcalibre el" href="_ak_spatial_audio_types_8h_source_split_000.html">AkSpatialAudioTypes.h</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

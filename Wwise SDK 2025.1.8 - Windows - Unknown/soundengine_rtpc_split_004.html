@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integration Details - RTPCs</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_3"><a class="pcalibre1 anchor" id="soundengine_rtpc_pergameobject"></a>
+RTPCs and Game Objects</h2>
+<p class="calibre7">RTPCs can be used to modify the behavior of game objects by affecting a Sound SFX, a Sound Voice, a container or a Property Container. Switches can also be modified through the use of RTPCs (refer to <a class="pcalibre el" href="soundengine_switch_split_004.html#soundengine_switch_driving">Driving Switches</a>).</p>
+<p class="calibre7">You can set a global RTPC value for all unassigned game objects with one function call. To do this, call the <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ab0e4ddefe5ea550b2f356edaa5a49a26_split_000.html#ab0e4ddefe5ea550b2f356edaa5a49a26">AK::SoundEngine::SetRTPCValue()</a> method using AK_INVALID_GAME_OBJECT as game object ID, or without specifying an AkGameObjectID parameter. However, once the sound object receives a call to this method using valid AkRtpcID and AkGameObjectID inputs, the game object is considered assigned and will no longer be affected by the global RTPC value.</p>
+</div></div></div></body></html>

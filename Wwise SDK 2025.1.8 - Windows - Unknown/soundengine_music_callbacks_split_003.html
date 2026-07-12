@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integration Details - Music Callbacks</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="soundengine_music_playlist_callbacks"></a>
+How to Use Music Playlist Callbacks</h1>
+<p class="calibre7">The callback function described above may also be used to manually manage a music playlist's next item selection. This is done by adding the following flag.</p>
+<div class="fragment"><div class="line"><a class="pcalibre code" href="_ak_callback_types_8h_a948c083ff18dc4c8dfe1d32cb0eb6732_split_001.html#a948c083ff18dc4c8dfe1d32cb0eb6732aec46a37d9cfdef25777042feaf56e265">AK_MusicPlaylistSelect</a>          = 0x0040    <span class="comment">// Callback triggered when music playlist container must select the next item to play.</span></div>
+</div><!-- fragment --><p class="calibre7">Upon reception of this type of event, the callback function must typecast the parameter <code class="calibre14">in_pCallbackInfo</code> to type <a class="pcalibre el" href="struct_ak_music_playlist_callback_info_split_000.html">AkMusicPlaylistCallbackInfo</a>.</p>
+<div class="fragment"><div class="line"><span class="comment">/// Callback information structure corresponding to Ak_MusicPlaylistSelect</span></div>
+<div class="line"><span class="comment"></span><span class="keyword">struct </span><a class="pcalibre code" href="struct_ak_music_playlist_callback_info_split_000.html">AkMusicPlaylistCallbackInfo</a> : <span class="keyword">public</span> <a class="pcalibre code" href="struct_ak_event_callback_info_split_000.html">AkEventCallbackInfo</a></div>
+<div class="line">{</div>
+<div class="line">    <a class="pcalibre code" href="_ak_typedefs_8h_a9270609771369ea575443fe080bbe9c3_split_000.html#a9270609771369ea575443fe080bbe9c3">AkPlayingID</a> <a class="pcalibre code" href="struct_ak_music_playlist_callback_info_a4015338108567c652d091d526a694775_split_000.html#a4015338108567c652d091d526a694775">playlistID</a>;         <span class="comment">///&lt; ID of active node in music playlist container</span></div>
+<div class="line"><span class="comment"></span>    <a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> <a class="pcalibre code" href="struct_ak_music_playlist_callback_info_adef75376a27daf80e948ecc7d2c20eb8_split_000.html#adef75376a27daf80e948ecc7d2c20eb8">uNumPlaylistItems</a>;     <span class="comment">///&lt; Number of items in playlist node (may be segments or other playlists)</span></div>
+<div class="line"><span class="comment"></span>    <a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> <a class="pcalibre code" href="struct_ak_music_playlist_callback_info_a21553360a102b37444487bfe6b7f8f90_split_000.html#a21553360a102b37444487bfe6b7f8f90">uPlaylistSelection</a>;    <span class="comment">///&lt; Selection: set by sound engine, modified by callback function (if not in range 0 &lt;= uPlaylistSelection &lt; uNumPlaylistItems then ignored)</span></div>
+<div class="line"><span class="comment"></span>    <a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> <a class="pcalibre code" href="struct_ak_music_playlist_callback_info_a2d245ddc4450970aa843904cf5faf474_split_000.html#a2d245ddc4450970aa843904cf5faf474">uPlaylistItemDone</a>;     <span class="comment">///&lt; Playlist node done: set by sound engine, modified by callback function (if set to anything but 0 then the current playlist item is done, and uPlaylistSelection is ignored)</span></div>
+<div class="line"><span class="comment"></span>};</div>
+</div><!-- fragment --><p class="calibre7">The active playlist node is indicated by the member <code class="calibre14">playlistID</code>. The sound engine selects the next item in the playlist node to play prior to the callback function call. The selection is contained in the members <code class="calibre14">uPlaylistSelection</code> and <code class="calibre14">uPlaylistItemDone</code>. If <code class="calibre14">uPlaylistItemDone</code> is set to 0 then <code class="calibre14">uPlaylistSelection</code> determines the next item to play in the playlist node. If <code class="calibre14">uPlaylistItemDone</code> is not set to 0 then the current playlist node is to end (the parent node will then become the active node). Both members <code class="calibre14">uPlaylistSelection</code> and <code class="calibre14">uPlaylistItemDone</code> may be changed by the callback function.</p>
+</div></div></div></body></html>

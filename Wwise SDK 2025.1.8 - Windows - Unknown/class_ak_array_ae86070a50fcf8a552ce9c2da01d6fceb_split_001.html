@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AkArray::Reserve</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="class_ak_array_ae86070a50fcf8a552ce9c2da01d6fceb_split_000.html#ae86070a50fcf8a552ce9c2da01d6fceb" class="pcalibre1 anchor">◆ </a></span>Reserve()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T , class ARG_T , class TAlloc  = ArrayPoolDefault, class TGrowBy  = AkGrowByPolicy_DEFAULT, class TMovePolicy  = AkAssignmentMovePolicy&lt;T&gt;&gt; </div>
+<table class="calibre3">
+  <tbody class="calibre4"><tr class="calibre16">
+  <td class="calibre17">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> <a class="pcalibre el" href="class_ak_array_split_000.html">AkArray</a>&lt; T, ARG_T, TAlloc, TGrowBy, TMovePolicy &gt;::Reserve </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> </td>
+          <td class="paramname"><em class="calibre59">in_ulReserve</em></td><td class="calibre17">)</td>
+          <td class="calibre17"/>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="calibre17">
+<span><span>inline</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Ensure preallocation of a number of items.</p>
+<p class="calibre7"><a class="pcalibre el" href="class_ak_array_ae86070a50fcf8a552ce9c2da01d6fceb_split_000.html#ae86070a50fcf8a552ce9c2da01d6fceb">Reserve()</a> won't change the <a class="pcalibre el" href="class_ak_array_a4223a70f7c9d2f560916f69542c33e3a_split_000.html#a4223a70f7c9d2f560916f69542c33e3a" title="Returns the numbers of items in the array.">Length()</a> of the array and does nothing if in_ulReserve is smaller or equal to current <a class="pcalibre el" href="class_ak_array_a4c95963cb0e4ee11693ddaedbc10d1b8_split_000.html#a4c95963cb0e4ee11693ddaedbc10d1b8">Reserved()</a> size.</p>
+<p class="calibre7">If an allocation occurs, i.e. <code class="calibre14">in_ulReserve &gt; <a class="pcalibre el" href="class_ak_array_a4c95963cb0e4ee11693ddaedbc10d1b8_split_000.html#a4c95963cb0e4ee11693ddaedbc10d1b8">Reserved()</a></code>, all iterators and all references to the array elements are invalidated.</p>
+<dl class="calibre7"><dt class="calibre23">Note</dt><dd class="calibre24">When template parameter <code class="calibre14">TGrowBy = <a class="pcalibre el" href="struct_ak_grow_by_policy___no_grow_split_000.html">AkGrowByPolicy_NoGrow</a></code>, <a class="pcalibre el" href="class_ak_array_ae86070a50fcf8a552ce9c2da01d6fceb_split_000.html#ae86070a50fcf8a552ce9c2da01d6fceb">Reserve()</a> shall only be called if the current reserved size is zero. It should normally only be called once on init.</dd>
+<dd class="calibre24">
+When template parameter <code class="calibre14">TGrowBy = <a class="pcalibre el" href="struct_ak_grow_by_policy___proportional_split_000.html">AkGrowByPolicy_Proportional</a></code>, inappropriate calls to <a class="pcalibre el" href="class_ak_array_ae86070a50fcf8a552ce9c2da01d6fceb_split_000.html#ae86070a50fcf8a552ce9c2da01d6fceb">Reserve()</a>, e.g. calling it before every <a class="pcalibre el" href="class_ak_array_a9cbeb53af564b1de4d3bc94027beb533_split_000.html#a9cbeb53af564b1de4d3bc94027beb533">AddLast()</a>, may increase the number of reallocations and result in decreased performance. </dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_ak_array_8h_source.html#l00531">531</a> of file <a class="pcalibre el" href="_ak_array_8h_source.html">AkArray.h</a>.</p>
+
+<p class="calibre7">Referenced by <a class="pcalibre el" href="_ak_array_8h_source.html#l00548">AkArray&lt; T_MAPSTRUCT *, T_MAPSTRUCT *, ArrayPoolDefault, AkGrowByPolicy_NoGrow &gt;::ReserveExtra()</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Packaging Your Plug-in for the Audiokinetic Launcher</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="effect_plugin_tools_packaging_additional_files"></a>
+Packaging Additional Files With Your Plug-in</h1>
+<p class="calibre7">Additional files can be packaged with any platform using either the <b class="calibre13">–additional-artifacts</b> flag or the <b class="calibre13">–additional-artifacts-file</b> flag.</p>
+<p class="calibre7">When using the <b class="calibre13">–additional-artifacts-file</b> flag, a JSON file listing the paths of additional files to package must be provided. The target paths must be relative to the root of your Wwise installation and the source paths must be relative to the root of the plug-in directory.</p>
+<p class="calibre7">For example, this is the command-line from the previous section: it is updated to package an additional DLL file with the Windows_vc160 and Authoring platforms: </p><div class="fragment"><div class="line">python "%WWISEROOT%/Scripts/Build/Plugins/wp.py" package Common --version=XXXX.X.X.X</div>
+<div class="line">python "%WWISEROOT%/Scripts/Build/Plugins/wp.py" package Documentation --version=XXXX.X.X.X</div>
+<div class="line">python "%WWISEROOT%/Scripts/Build/Plugins/wp.py" package Windows_vc160 --version=XXXX.X.X.X --additional-artifacts-file=additional_artifacts.json</div>
+<div class="line">python "%WWISEROOT%/Scripts/Build/Plugins/wp.py" package Authoring --version=XXXX.X.X.X --additional-artifacts-file=additional_artifacts.json</div>
+<div class="line">python "%WWISEROOT%/Scripts/Build/Plugins/wp.py" generate-bundle --version=XXXX.X.X.X</div>
+</div><!-- fragment --><p class="calibre7">The <b class="calibre13">additional_artifacts.json</b> file used in the previous example is located at the root of the plug-in directory and has the following content (assuming that <code class="calibre14">lib/Debug/library.dll</code> and <code class="calibre14">lib/Release/library.dll</code> exist in the plug-in directory): </p><div class="fragment"><div class="line">{</div>
+<div class="line">    "Authoring": [</div>
+<div class="line">        {</div>
+<div class="line">            "Authoring/x64/Release/bin/Plugins": ["lib/Release/library.dll"]</div>
+<div class="line">        }</div>
+<div class="line">    ],</div>
+<div class="line">    "Windows_vc160": [</div>
+<div class="line">        {</div>
+<div class="line">            "SDK/Win32_vc160/Debug/bin": ["/lib/Debug/library.dll"],</div>
+<div class="line">            "SDK/Win32_vc160/Release/bin": ["/lib/Release/library.dll"],</div>
+<div class="line">            "SDK/x64_vc160/Debug/bin": ["lib/Debug/library.dll"],</div>
+<div class="line">            "SDK/x64_vc160/Release/bin": ["lib/Release/library.dll"]</div>
+<div class="line">        }</div>
+<div class="line">    ],</div>
+<div class="line">}</div>
+</div><!-- fragment --><p class="calibre7">The <b class="calibre13">–additional-artifacts</b> flag behaves similarly, but only accepts a single path at a time (the flag must be specified multiple times to package more than one additional file).</p>
+<p class="calibre7">Finally, the same <b class="calibre13">additional_artifacts.json</b> file can be used to package other files that are located in the project directory. Specify a destination -&gt; sources entry, instead of a path. As stated previously, the destination path must be relative to the root of your Wwise installation and source paths must be relative to the root of the plug-in directory. Here is a new version of the previous Authoring platform example, which now extends to package <b class="calibre13">Factory</b> <b class="calibre13">Assets</b> and <b class="calibre13">Help</b> files: </p><div class="fragment"><div class="line">{</div>
+<div class="line">    "Authoring": [</div>
+<div class="line">        {</div>
+<div class="line">            "Authoring/x64/Release/bin/Plugins": ["lib/Release/library.dll"]</div>
+<div class="line">            "Authoring/Help/&lt;PluginName&gt;": ["Help/*.pdf"],</div>
+<div class="line">            "Authoring/Data/Factory Assets/&lt;PluginName&gt;": [</div>
+<div class="line">                "FactoryAssets/*.wproj",</div>
+<div class="line">                "FactoryAssets/*.xml"</div>
+<div class="line">            ]</div>
+<div class="line">        }</div>
+<div class="line">    ],</div>
+<div class="line">    "Windows_vc160": [</div>
+<div class="line">        {</div>
+<div class="line">            "SDK/Win32_vc160/Debug/bin": ["/lib/Debug/library.dll"],</div>
+<div class="line">            "SDK/Win32_vc160/Release/bin": ["/lib/Release/library.dll"],</div>
+<div class="line">            "SDK/x64_vc160/Debug/bin": ["lib/Debug/library.dll"],</div>
+<div class="line">            "SDK/x64_vc160/Release/bin": ["lib/Release/library.dll"]</div>
+<div class="line">        }</div>
+<div class="line">    ],</div>
+<div class="line">}</div>
+</div><!-- fragment --><p class="calibre7">The additional artifacts file presented above can further be used to facilitate the copy of files from the project root to the root of your Wwise installation. The destination -&gt; sources entries can be copied using the <b class="calibre13">–copy-artifacts</b> flag. This option will skip packaging altogether and simply copy the files.</p>
+<p class="calibre7">Next section: <a class="pcalibre el" href="effectplugin_tools_factoryassets.html">Creating Factory Assets for Your Plug-in</a> </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Migrating a pre-2021.1 Authoring Plug-in</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="plugin_21_1_migration_changes_removals"></a>
+API Changes and Removals</h1>
+<p class="calibre7">A few methods that were deemed obsolete were removed from the API in 2021.1. Some other methods were not removed, but reworked by renaming and/or changing their arguments to make them clearer or easier to use.</p>
+<ul class="calibre8">
+<li class="calibre9"><code class="calibre14">AK::Wwise::IAudioPlugin::SetPluginPropertySet()</code> : Removed (obsolete)</li>
+<li class="calibre9"><code class="calibre14">AK::Wwise::IAudioPlugin::SetPluginObjectStore()</code> : Removed (obsolete)</li>
+<li class="calibre9"><code class="calibre14">AK::Wwise::IAudioPlugin::SetPluginObjectMedia()</code> : Removed (obsolete)</li>
+<li class="calibre9"><code class="calibre14">AK::Wwise::IAudioPlugin::Destroy()</code> : Removed (obsolete)</li>
+<li class="calibre9"><code class="calibre14">AK::Wwise::IAudioPlugin::IsPlayable()</code> : Removed (unused)</li>
+<li class="calibre9"><code class="calibre14">AK::Wwise::IAudioPlugin::GetPluginMediaConverterInterface()</code> : Removed. Replaced by a standalone <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_aca00f70c566ab8b103a983d07890f430_split_000.html#aca00f70c566ab8b103a983d07890f430" title="Latest version of the C++ MediaConverter interface.">AK::Wwise::Plugin::MediaConverter</a></code> interface.</li>
+<li class="calibre9"><code class="calibre14">AK::Wwise::IAudioPlugin::CopyInto()</code> -&gt; <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_custom_data_a72ae7aacdfaf7739f0f47762f82b915a_split_000.html#a72ae7aacdfaf7739f0f47762f82b915a" title="Copy the plug-in's custom data from another instance of the same plug-in.">AK::Wwise::Plugin::CustomData::InitFromInstance()</a></code> : Renamed, argument changed. The logic has been reversed to resemble other <code class="calibre14">Init</code> methods as they are mutually exclusive.</li>
+<li class="calibre9"><code class="calibre14">AK::Wwise::IAudioPlugin::Load()</code> -&gt; <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_custom_data_a98ef6df5fb929064e5bb3ffef29a1e10_split_000.html#a98ef6df5fb929064e5bb3ffef29a1e10" title="Load the custom data structure from the provided Work Unit's XML.">AK::Wwise::Plugin::CustomData::InitFromWorkunit()</a></code> : Renamed</li>
+<li class="calibre9"><code class="calibre14">AK::Wwise::IAudioPlugin::Delete()</code> -&gt; <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_custom_data_a4d67d63dcec584535d1faa0ec093b86d_split_000.html#a4d67d63dcec584535d1faa0ec093b86d" title="OnDelete function is called when the user presses the &quot;delete&quot; button on a plug-in.">AK::Wwise::Plugin::CustomData::OnDelete()</a></code> : Renamed</li>
+</ul>
+<p class="calibre7">Not listed are methods that have had non-optional pointer arguments changed to references.</p>
+</div></div></div></body></html>

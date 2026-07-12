@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Rooms and Portals Overview</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_11"><a class="pcalibre1 anchor" id="spatial_audio_roomsportals_aboutgameobjects_roomsandportals"></a>
+Room Game Object Behavior</h1>
+<p class="calibre7">Wwise Acoustics registers one Game Object per Room to Wwise. The positions associated with a Room's Game Object, as seen in the Game Object 3D Viewer, are calculated by Wwise Acoustics based on the paths to that room. Rooms do not use the positions set by <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a789e25bda32d1e11849afb6584942455_split_000.html#a789e25bda32d1e11849afb6584942455">AK::SoundEngine::SetPosition</a></code>.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="warning.gif"/></td><td class="calibre17"><b class="calibre13">Warning:</b> Do not change this Game Object's position or aux send values. </td></tr>
+</tbody></table>
+<p class="calibre7">When the listener is in a Room, the Room's Game Object is moved so that it follows the listener. Thus, the distance between the Room and the Listener object is approximately 0. However, its orientation is maintained to that which is specified in the Room settings (<code class="calibre14"><a class="pcalibre el" href="struct_ak_room_params_split_000.html" title="Parameters passed to SetRoom.">AkRoomParams</a></code>). See <a class="pcalibre el" href="spatial_audio_roomsportals_wwisesetup_split_002.html#spatial_audio_roomsportals_using3dreverbs">Setting Up a Room Auxiliary Bus in Wwise</a> for a discussion on the orientation of 3D busses.</p>
+<p class="calibre7">When the listener is outside of a Room, that Room's Game Object adopts the positions of its Portals. More precisely, it is placed on the plane that represents the Portal's center, at the point that is closest to the listener. This can be verified by looking at the Room's Game Object, as seen in the image of the 3D Game Object Profiler in <a class="pcalibre el" href="spatial_audio_roomsportals_apioverview_split_005.html#spatial_audio_roomsportals_aboutgameobjects_emitters">Virtual Positioning and Diffraction Through Portals</a>.</p>
+<p class="calibre7">For multiple Portals, a Room's game object is assigned multiple positions in <code class="calibre14">MultiPosition_MultiDirection</code> mode for the same reason as with emitters.</p>
+</div></div></div></body></html>

@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::IAkPlugin::RelocateMedia</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="class_a_k_1_1_i_ak_plugin_aa63887024a5f2e2ff8f1fb98e864e129_split_000.html#aa63887024a5f2e2ff8f1fb98e864e129" class="pcalibre1 anchor">◆ </a></span>RelocateMedia()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="calibre3">
+  <tbody class="calibre4"><tr class="calibre16">
+  <td class="calibre17">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">virtual <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::IAkPlugin::RelocateMedia </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_a6a754f6e0ddd97ae59f3aae854cde270_split_000.html#a6a754f6e0ddd97ae59f3aae854cde270">AkUInt8</a> * </td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_a6a754f6e0ddd97ae59f3aae854cde270_split_000.html#a6a754f6e0ddd97ae59f3aae854cde270">AkUInt8</a> * </td>
+          <td class="paramname"> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="calibre17">
+<span><span>inline</span><span>virtual</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Some plug-ins are accessing Media from the <a class="pcalibre el" href="namespace_a_k_1_1_wwise_split_000.html">Wwise</a> sound bank system. If the <a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_split_000.html">IAkPlugin</a> object is not using media, this function will not be used. If the <a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_split_000.html">IAkPlugin</a> object is using media, the RelocateMedia feature can be optionally implemented. When this function is being called, the <a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_split_000.html">IAkPlugin</a> object must make the required changes to remove all referenced from the old memory pointer (previously obtained by GetPluginMedia() (and offsets to) to not access anymore the content of the old memory data and start using the newly provided pointer instead. The change must be done within the function <a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_aa63887024a5f2e2ff8f1fb98e864e129_split_000.html#aa63887024a5f2e2ff8f1fb98e864e129">RelocateMedia()</a>. After this call, the memory space in in_pOldInMemoryData will be invalidated and cannot be used safely anymore.</p>
+<p class="calibre7">This function will not be called if SupportMediaRelocation returned false.</p>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_a0f93c3ed9f133524d8c2b36a00876152_split_000.html#a0f93c3ed9f133524d8c2b36a00876152">AK::IAkPlugin::SupportMediaRelocation</a> </li>
+</ul>
+</dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_i_ak_plugin_8h_source_split_001.html#l00859">859</a> of file <a class="pcalibre el" href="_i_ak_plugin_8h_source_split_000.html">IAkPlugin.h</a>.</p>
+
+<p class="calibre7">References <a class="pcalibre el" href="_ak_enums_8h_source_split_000.html#l00033">AK_NotImplemented</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

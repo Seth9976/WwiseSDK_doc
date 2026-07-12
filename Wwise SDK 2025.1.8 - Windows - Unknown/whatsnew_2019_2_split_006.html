@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2019.2</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_5"><a class="pcalibre1 anchor" id="misc_2019_2"></a>
+Miscellaneous Changes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-32483</b> (XBox One) Removed unnecessary dependency on dxguid.lib on Windows and Xbox One.</li>
+<li class="calibre9"><b class="calibre13">WG-32511</b> SoundBank generation and audio file conversion can now write files with paths that exceed MAX_PATH (260 characters) on Windows 10, given that long paths are enabled on the machine. Click <a href="https://docs.microsoft.com/en-us/windows/win32/fileio/naming-a-file#enable-long-paths-in-windows-10-version-1607-and-later" target="_blank" class="pcalibre calibre12">here</a> for more details.</li>
+<li class="calibre9"><b class="calibre13">WG-34568</b> Project backups located under .backup now have their directory named using the "YYYY-MM-DD-hh-mm-ss" convention.</li>
+<li class="calibre9"><b class="calibre13">WG-40340</b> Fixed: General log message category descriptions are now more consistent.</li>
+<li class="calibre9"><b class="calibre13">WG-41520</b> Improved project load time.</li>
+<li class="calibre9"><b class="calibre13">WG-42408</b> Unicode encoded as UTF-8 is now the only supported format for text file output (SoundBank content TXT file, header file):<ul class="calibre15">
+<li class="calibre9">The built-in macro ContentFileFormat has been deprecated and now always provides the value "Unicode".</li>
+<li class="calibre9">The SoundFrame SoundBank generation setting AK::SoundFrame::SoundBankGenerationSettings::eContentTxtFileFormat is now ignored and defaults to AK::SoundFrame::SoundBankContentTxtFileFormat_UNICODE.</li>
+</ul>
+</li>
+<li class="calibre9"><b class="calibre13">WG-43241</b> Work Unit format for MIDI file references has been changed.</li>
+<li class="calibre9"><b class="calibre13">WG-43367</b> Build: Migrated to the latest version of Premake5.</li>
+<li class="calibre9"><b class="calibre13">WG-43563</b> The View menu has been re-organized into sub menus.</li>
+<li class="calibre9"><b class="calibre13">WG-43578</b> The Lumin Integration Demo source code is now packaged with Wwise, when installed through the Launcher.</li>
+<li class="calibre9"><b class="calibre13">WG-43935</b> A compile-time debugging tool has been added, in order to write Voice Inspector data to a text file in Release libraries.</li>
+<li class="calibre9"><b class="calibre13">WG-44169</b> (Xbox One) Direct3D 12 is now the rendering API for the Integration Demo.</li>
+<li class="calibre9"><b class="calibre13">WG-44331</b> The Game Object 3D viewer now includes a list of game objects and its associated watches.</li>
+<li class="calibre9"><b class="calibre13">WG-45004</b> Added a new SoundBank Post Generation Step macro:  that expands the path to the CopyStreamedFiles executable.</li>
+<li class="calibre9"><b class="calibre13">WG-45767</b> The Project Launcher window is no longer shown in Wwise Authoring while a project is loading.</li>
+<li class="calibre9"><b class="calibre13">WG-46008</b> Reflect Factory Assets now include an Auxiliary Bus preset and a Reflect effect ready to be used.</li>
+<li class="calibre9"><b class="calibre13">WG-46647</b> Lowered the default colour dB thresholds in the 3D meter.</li>
+<li class="calibre9"><b class="calibre13">WG-46699</b> Removed unused "Output Data" type from list, in the Profiler Settings.</li>
+<li class="calibre9"><b class="calibre13">WG-46849</b> The Wwise User Guide PDF has been removed. You can find the same content online and in the Help CHM.</li>
+</ul>
+</div></div></div></body></html>

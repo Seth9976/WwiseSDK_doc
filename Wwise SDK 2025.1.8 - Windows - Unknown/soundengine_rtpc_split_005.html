@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integration Details - RTPCs</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_4"><a class="pcalibre1 anchor" id="soundengine_rtpc_buses"></a>
+RTPCs and Busses</h2>
+<p class="calibre7">In Wwise, some bus parameters can be modified by RTPCs. In general, most usages of RTPCs on bus parameters will require calls to the <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ab0e4ddefe5ea550b2f356edaa5a49a26_split_000.html#ab0e4ddefe5ea550b2f356edaa5a49a26">AK::SoundEngine::SetRTPCValue()</a> method be made with the AK_INVALID_GAME_OBJECT parameter, as explained in <a class="pcalibre el" href="soundengine_rtpc_split_004.html#soundengine_rtpc_pergameobject">RTPCs and Game Objects</a>. This will give all busses a value for that RTPC.</p>
+<p class="calibre7">However, if your project uses <a href="https://www.audiokinetic.com/library/edge/?source=Help&amp;id=applying_positioning_to_busses" target="_blank" class="pcalibre calibre12">3D Positioning for busses</a>, you might want to give specific values to each bus. In this case, provide the Game Object/Listener attached to the bus to the <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ab0e4ddefe5ea550b2f356edaa5a49a26_split_000.html#ab0e4ddefe5ea550b2f356edaa5a49a26">AK::SoundEngine::SetRTPCValue()</a> function.</p>
+</div></div></div></body></html>

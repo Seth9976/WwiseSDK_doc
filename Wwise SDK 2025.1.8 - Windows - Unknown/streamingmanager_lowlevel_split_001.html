@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Low-Level I/O</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="streamingmanager_lowlevel_intro"></a>
+Introduction</h1>
+<p class="calibre7">The Low-Level I/O system is specific to Audiokinetic's implementation of the Stream Manager. Its interfaces are defined in <em class="calibre11">&lt;Wwise Installation&gt;/SDK/include/AK/SoundEngine/AkStreamMgrModule.h</em>.</p>
+<p class="calibre7">The Low-Level I/O system has two purposes:</p><ul class="calibre8">
+<li class="calibre9">Resolving file location.</li>
+<li class="calibre9">Abstracting actual I/O transfers.</li>
+</ul>
+<p class="calibre7">One and only one object that implements <a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_file_location_resolver_split_000.html">AK::StreamMgr::IAkFileLocationResolver</a>, referred to as the File Location Resolver, must be registered to the Stream Manager (using <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_stream_mgr_ab5c2340963ac5ff81e49969b74ef2520_split_000.html#ab5c2340963ac5ff81e49969b74ef2520">AK::StreamMgr::SetFileLocationResolver()</a></code>). To open a standard or automatic stream, the Stream Manager will call <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_file_location_resolver_a5c7515d84fe8b7ce1e1c06690447673d_split_000.html#a5c7515d84fe8b7ce1e1c06690447673d">AK::StreamMgr::IAkFileLocationResolver::GetNextPreferredDevice()</a></code> to find which streaming device is likely to have the file. Streaming devices are created and registered in the Stream Manager using <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_stream_mgr_a64a22d377d25137222fbb66ff21965d5_split_000.html#a64a22d377d25137222fbb66ff21965d5">AK::StreamMgr::CreateDevice()</a></code>.</p>
+<p class="calibre7">For each streaming device, a low-level I/O hook must be provided. This I/O hook implements <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_split_000.html">AK::StreamMgr::IAkLowLevelIOHook</a></code> and is responsible for communicating with the platform's I/O API and handles the unique properties and behavior of that physical device. Whenever a streaming device needs to perform an I/O transfer, it calls the low-level I/O hook's <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_a9bc325405bc17c0a5105d0a53981b186_split_000.html#a9bc325405bc17c0a5105d0a53981b186">AK::StreamMgr::IAkLowLevelIOHook::BatchRead()</a></code>, or <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_a8f5041a24e395784437a62cdd2140505_split_000.html#a8f5041a24e395784437a62cdd2140505">AK::StreamMgr::IAkLowLevelIOHook::BatchWrite()</a></code> method. No direct call to a platform's I/O API is ever issued from the High-Level Stream Manager. Together, the File Location Resolver and I/O hooks constitute the Low-Level I/O system.</p>
+<p class="calibre7">The following figure illustrates the Low-Level I/O system interfaces and how they are viewed by the default Stream Manager.</p>
+<div class="calibre2">
+<img alt="" src="lowlevelio.png" class="inline"/>
+</div>
+<p class="calibre7">Game titles need to implement Low-Level I/O interfaces to resolve file location and perform actual I/O transfers. The easiest and most efficient way to integrate the Wwise sound engine's I/O management in your game is to use the default implementation of the Stream Manager and implement a Low-Level I/O system. From there, you can perform native file reads, or you can route the I/O requests to your own I/O management technology.</p>
+<p class="calibre7">Wwise's SDK includes default implementations for the Low-Level I/O. It can be used as is, or as a starting point to implement your own. Refer to the <a class="pcalibre el" href="streamingmanager_lowlevel_split_011.html#streamingmanager_lowlevel_default_implementation_walkthrough">Sample Default Implementation Walkthrough</a> section for a detailed overview of the Low-Level I/O samples.</p>
+</div></div></div></body></html>

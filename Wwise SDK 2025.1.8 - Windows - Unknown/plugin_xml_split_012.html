@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Wwise Plug-in XML Description Files</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_11"><a class="pcalibre1 anchor" id="wwiseplugin_objectstore"></a>
+Inner Objects</h2>
+<p class="calibre7">The <code class="calibre14">InnerTypes</code> section defines the possible Inner Object Types that you can instantiate and use inside your plug-in. You can define multiple <code class="calibre14">InnerType</code> inside the <code class="calibre14">InnerTypes</code> section. Each <code class="calibre14">InnerType</code> must have a unique name, and plug-in ID. The <code class="calibre14">InnerType</code> section contains a <code class="calibre14">Properties</code> section, in which you can define properties in the exact same way you would define plug-in properties.</p>
+<p class="calibre7">The Inner Types are practical whenever you need to have multiple instances of an object in your plug-in. For example, you could define the Inner Type <code class="calibre14">Band</code> for an EQ plug-in, when you have a variable number of EQ bands. Each band would have the same property definition, with different values for each band.</p>
+<div class="fragment"><div class="line">&lt;PluginModule&gt;</div>
+<div class="line">    &lt;EffectPlugin ...&gt;</div>
+<div class="line">        &lt;<a class="pcalibre code" href="namespace_a_k_1_1_wwise_1_1_plugin_a69141ebf4159597c1e76aad07862c823_split_000.html#a69141ebf4159597c1e76aad07862c823">PluginInfo</a> ...&gt;</div>
+<div class="line">            ...</div>
+<div class="line">        &lt;/<a class="pcalibre code" href="namespace_a_k_1_1_wwise_1_1_plugin_a69141ebf4159597c1e76aad07862c823_split_000.html#a69141ebf4159597c1e76aad07862c823">PluginInfo</a>&gt;</div>
+<div class="line">        &lt;Properties&gt;</div>
+<div class="line">            ...</div>
+<div class="line">        &lt;/Properties&gt;</div>
+<div class="line">        &lt;InnerTypes&gt;</div>
+<div class="line">            &lt;InnerType Name=<span class="stringliteral">"Band"</span> CompanyID=<span class="stringliteral">"X"</span> PluginID=<span class="stringliteral">"Y"</span>&gt;</div>
+<div class="line">                &lt;Properties&gt;</div>
+<div class="line">                    ...</div>
+<div class="line">                &lt;/Properties&gt;</div>
+<div class="line">            &lt;/InnerType&gt;</div>
+<div class="line">        &lt;/InnerTypes&gt;</div>
+<div class="line">    &lt;/EffectPlugin&gt;</div>
+</div><!-- fragment --><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> The properties of Inner Types do not support RTPCs. Therefore, you can't use the <code class="calibre14">SupportRTPCType</code> attribute and <code class="calibre14">AudioEnginePropertyID</code> element. </td></tr>
+</tbody></table>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> <code class="calibre14">InnerTypes</code> are only supported inside audio plug-ins. </td></tr>
+</tbody></table>
+<p class="calibre7">To manipulate the Inner Type instances (Inner Objects) in your plug-in code, you need to request the service by deriving <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_aa75f21542f68316133473c611537a0b9_split_000.html#aa75f21542f68316133473c611537a0b9" title="Latest version of the requested C++ ObjectStore interface.">AK::Wwise::Plugin::RequestObjectStore</a></code> in your plug-in class and using the <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_aa1a4c71b6a4959d8e06f9e3cc976c749_split_000.html#aa1a4c71b6a4959d8e06f9e3cc976c749">AK::Wwise::Plugin::ObjectStore</a></code> <code class="calibre14">m_objectStore</code> member. The <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_aa1a4c71b6a4959d8e06f9e3cc976c749_split_000.html#aa1a4c71b6a4959d8e06f9e3cc976c749">AK::Wwise::Plugin::ObjectStore</a></code> interface provides functions for creating and deleting inner objects (<code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_object_store_a1a507782ef4fee515e91df6426c6fd88_split_000.html#a1a507782ef4fee515e91df6426c6fd88" title="Creates a new inner property set.">AK::Wwise::Plugin::ObjectStore::CreatePropertySet</a></code> and <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_object_store_aac799692bc78125ac4d2ef8c70b5997a_split_000.html#aac799692bc78125ac4d2ef8c70b5997a" title="Frees the inner property set.">AK::Wwise::Plugin::ObjectStore::DeletePropertySet</a></code>). Inner Objects' properties are manipulated using the PropertySet interface (see <a class="pcalibre el" href="plugin_backend_model_split_001.html#wwiseplugin_propertyset">Property Set</a>).</p>
+<p class="calibre7">When objects are created, they must be stored in a named list using the insertion (<code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_object_store_a23316a944101ac1a01d331fd6c187606_split_000.html#a23316a944101ac1a01d331fd6c187606" title="Inserts an inner property set into the specified list at the specified position.">AK::Wwise::Plugin::ObjectStore::InsertPropertySet</a></code>) and removal (<code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_object_store_a7bea99b254754de1c3bdc148e38762da_split_000.html#a7bea99b254754de1c3bdc148e38762da" title="Removes an inner property set from any list, without deleting the object itself.">AK::Wwise::Plugin::ObjectStore::RemovePropertySet</a></code>) functions. For example, you could create an inner object of type <code class="calibre14">Band</code>, and store it in the <code class="calibre14">BandList:</code> </p>
+<div class="fragment"><div class="line"><span class="comment">// Create a new band</span></div>
+<div class="line"><a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v2_1_1_property_set_split_000.html">AK::Wwise::Plugin::PropertySet</a>* pBand = m_objectStore-&gt;CreatePropertySet(<span class="stringliteral">"Band"</span>);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Insert the new band in the "BandList" (at the end)</span></div>
+<div class="line">m_objectStore-&gt;InsertPropertySet(<span class="stringliteral">"BandList"</span>, (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>)-1, pBand);</div>
+</div><!-- fragment --><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> An inner object can only be stored in a single list at any one time. </td></tr>
+</tbody></table>
+<p class="calibre7">The persistence in the project Work Units is automatically handled by Wwise. However, you must implement the serialization of the inner objects in the SoundBanks and for the Sound Engine data. You must serialize the inner objects inside <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_custom_data_a6740b8fc3bfeec655cfcbe5fd69e1b98_split_000.html#a6740b8fc3bfeec655cfcbe5fd69e1b98" title="Obtains parameters that will be sent to the sound engine when Wwise is connected.">AK::Wwise::Plugin::CustomData::GetPluginData</a></code> and <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_audio_plugin_ae59a3955718ed3bbde0521da21cd8539_split_000.html#ae59a3955718ed3bbde0521da21cd8539" title="Obtains parameters that will be written to a bank.">AK::Wwise::Plugin::AudioPlugin::GetBankParameters</a></code>.</p>
+<p class="calibre7">When you add inner objects to the object store, the associated Undo mechanism is automatically created in Wwise. You don't need to implement the undo system on your side. However, to support undo events correctly, you need to update your user interface only at the reception of notifications from the framework.</p>
+</div></div></div></body></html>

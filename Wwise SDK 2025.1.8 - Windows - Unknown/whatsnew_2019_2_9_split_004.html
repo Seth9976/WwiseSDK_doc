@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2019.2.9</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="generic_bugs_2019_2_9"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-30459</b> Fixed: (Mac Authoring) Option key is not mapped to Alt key.</li>
+<li class="calibre9"><b class="calibre13">WG-46388</b> Fixed: A non-required dependency forcing to link with Commcentral.lib when profiling while not using it.</li>
+<li class="calibre9"><b class="calibre13">WG-47359</b> Fixed: Query Editor criteria searching attenuations don't work with busses.</li>
+<li class="calibre9"><b class="calibre13">WG-49139</b> Fixed: Volume contribution from SetGameObjectAuxSendValues is not shown in the Voice Inspector if AK_INVALID_GAME_OBJECT_ID (indicating Global scope) is passed to the <a class="pcalibre el" href="struct_ak_aux_send_value_a185a87e879e5a602446b07252bdd8519_split_000.html#a185a87e879e5a602446b07252bdd8519" title="Game object ID of the listener associated with this send. Use AK_INVALID_GAME_OBJECT as a wildcard to...">AkAuxSendValue::listenerID</a> field.</li>
+<li class="calibre9"><b class="calibre13">WG-50072</b> Fixed: Spatial Audio: CPU spikes when the listener changes rooms, for large Room and Portal networks.</li>
+<li class="calibre9"><b class="calibre13">WG-52013</b> Fixed: Momentary UI freeze in Authoring when certain DirectInput devices are connected to the computer.</li>
+<li class="calibre9"><b class="calibre13">WG-52033</b> Fixed: Performance degrades over time in the Capture Log view.</li>
+<li class="calibre9"><b class="calibre13">WG-52070</b> Fixed: Mastering Suite graphs are not properly refreshed when reopening the plug-in after changes have been made outside the GUI.</li>
+<li class="calibre9"><b class="calibre13">WG-52243</b> Fixed: Possible crash when using the Opus codec with specific content.</li>
+<li class="calibre9"><b class="calibre13">WG-52286</b> Fixed: Live editing of panner X-Y from busses is erratic.</li>
+<li class="calibre9"><b class="calibre13">WG-52342</b> Fixed: Memory leak when terminating the sound engine while there are SetSpeakerAngles or SetListenerSpatialization messages still in the message queue.</li>
+<li class="calibre9"><b class="calibre13">WG-52513</b> Fixed: Crash when requesting a pause operation on a delayed operation that was already paused once.</li>
+<li class="calibre9"><b class="calibre13">WG-52534</b> Fixed: Crash when loading certain .prof files.</li>
+<li class="calibre9"><b class="calibre13">WG-52563</b> Fixed: Sound leak when using Opus and Effects with tails.</li>
+<li class="calibre9"><b class="calibre13">WG-52588</b> Fixed: Wrong hash in localized SoundBank metadata files.</li>
+<li class="calibre9"><b class="calibre13">WG-52592</b> Fixed: Advanced Profiler's Loaded Media tab does not resolve file names.</li>
+<li class="calibre9"><b class="calibre13">WG-52606</b> Fixed: SoundBank generation with an iZotope Hybrid Reverb Effect with invalid WAV file can lead to a crash.</li>
+<li class="calibre9"><b class="calibre13">WG-52643</b> Fixed: <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_memory_mgr_a570a4ed4f667c187d21a821d846f4567_split_000.html#a570a4ed4f667c187d21a821d846f4567">AK::MemoryMgr::Init</a></code> does not allow <code class="calibre14"><a class="pcalibre el" href="struct_ak_mem_settings_split_000.html">AkMemSettings</a>:: pfSizeOfMemory</code> to be nullptr with a custom allocator.</li>
+<li class="calibre9"><b class="calibre13">WG-52654</b> Fixed: Memory Manager reports out-of-memory errors when a system requests an allocation of size 0.</li>
+<li class="calibre9"><b class="calibre13">WG-52657</b> Fixed: Custom attachment mixer plug-in GUI is not working.</li>
+<li class="calibre9"><b class="calibre13">WG-52664</b> Fixed: The PluginName field in a Work Unit's XML is lost when changing the Preset(Name) or Mode in the Effects list.</li>
+<li class="calibre9"><b class="calibre13">WG-52689</b> Fixed: Authoring Audio Preferences dialog does not list connected controllers for Motion Bus.</li>
+<li class="calibre9"><b class="calibre13">WG-52761</b> Fixed: Reserved memory total not accurate.</li>
+<li class="calibre9"><b class="calibre13">WG-52804</b> Fixed: Crankcase REV source plug-in hangs when shifting to first gear when Clutch RPM Spike is 0.</li>
+<li class="calibre9"><b class="calibre13">WG-52805</b> Fixed: A memory corruption crash when profiling a game with the Voice Inspector that plays a sound with more than 255 listener-emitter pairs.</li>
+<li class="calibre9"><b class="calibre13">WG-52817</b> Fixed: Recorder plug-in writes invalid WAV file header when recording is still active on call to Sound Engine <a class="pcalibre el" href="namespace_a_k_1_1_comm_a94e307d2974b89cc4fbc8ab0fef20d2f_split_000.html#a94e307d2974b89cc4fbc8ab0fef20d2f">Term()</a>.</li>
+<li class="calibre9"><b class="calibre13">WG-52853</b> Fixed: (Mastering Suite) Faders only appear to support integer values. </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

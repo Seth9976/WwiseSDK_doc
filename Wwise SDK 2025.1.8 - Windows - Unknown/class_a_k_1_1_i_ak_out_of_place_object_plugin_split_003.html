@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::IAkOutOfPlaceObjectPlugin Class Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_2">Detailed Description</h2>
+<div class="calibre2"><p class="calibre7">Out-of-place Object Processor plug-in interface. Implement this interface when your plugin returns <a class="pcalibre el" href="struct_ak_plugin_info_abb27da271e4dc15b9b3ef9cb3316cfd3_split_000.html#abb27da271e4dc15b9b3ef9cb3316cfd3" title="Plug-in can process audio objects. They must implement IAkInPlaceObjectPlugin or IAkOutOfPlaceObjectP...">AkPluginInfo::bCanProcessObjects</a> set to true and <a class="pcalibre el" href="struct_ak_plugin_info_a70fb541431bdc08cdb490a926ccc3ee4_split_000.html#a70fb541431bdc08cdb490a926ccc3ee4" title="Buffer usage (in-place or not). If true, and the plug-in is an insert effect, it should implement IAk...">AkPluginInfo::bIsInPlace</a> set to false. With out-of-place object processors, the set of output objects is different than that of the input objects. Out-of-place object processors typically create their own output objects using IAkEffectPluginContext::CreateObject. Alternatively, an output object is created by the host bus if the channel configuration returned from Init is not of type AK_ChannelConfigType_Objects. Only out-of-place object processors may create output objects or change the output channel configuration. <br class="calibre10"/>
+ </p>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_i_ak_plugin_8h_source_split_001.html#l00962">962</a> of file <a class="pcalibre el" href="_i_ak_plugin_8h_source_split_000.html">IAkPlugin.h</a>.</p>
+</div></div><!-- contents -->
+
+
+</body></html>

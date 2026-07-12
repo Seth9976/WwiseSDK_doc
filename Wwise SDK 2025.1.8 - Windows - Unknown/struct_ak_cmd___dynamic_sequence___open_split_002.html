@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AkCmd_DynamicSequence_Open Struct Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_1">Detailed Description</h2>
+<div class="calibre2"><p class="calibre7">Open a new Dynamic Sequence.</p>
+<p class="calibre7">If <code class="calibre14">AK_DynamicSequenceSelect</code> bit is set in <code class="calibre14">flags</code>, the dynamic sequence uses the callback for determining the next item to play. If this bit is not set, then the dynamic sequence uses the Playlist to determine the next item to play (C++-only API).</p>
+<p class="calibre7">This command can fail for the following reasons:</p><ul class="calibre8">
+<li class="calibre9">AK_InvalidParameter: <code class="calibre14">playingID</code> is an invalid ID or <code class="calibre14">type</code> is not a valid dynamic sequence type.</li>
+<li class="calibre9">AK_InsufficientMemory: Not enough memory to process the command.</li>
+<li class="calibre9">AK_IDNotFound: <code class="calibre14">gameObjectID</code> was specified but is not registered.</li>
+<li class="calibre9">AK_ResourceInUse: <code class="calibre14">playingID</code> was already used for a previous entry.</li>
+</ul>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="_ak_command_types_8h_a001b78645b8b0335c0dd2e128cca2cfd_split_001.html#a001b78645b8b0335c0dd2e128cca2cfda716005c85cf0d59989839e210ac0accc" title="See AkCmd_DynamicSequence_Open.">AkCommand_DynamicSequence_Open</a></li>
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_1_1_dynamic_sequence_ab6daddd96e109dc7669889733ce4f2cc_split_000.html#ab6daddd96e109dc7669889733ce4f2cc">AK::SoundEngine::DynamicSequence::Open</a> </li>
+</ul>
+</dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_ak_command_types_8h_source_split_001.html#l00797">797</a> of file <a class="pcalibre el" href="_ak_command_types_8h_source_split_000.html">AkCommandTypes.h</a>.</p>
+</div></div><!-- contents -->
+
+
+</body></html>

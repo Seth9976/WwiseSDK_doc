@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::SoundEngine::SendPluginCustomGameData</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="namespace_a_k_1_1_sound_engine_a25efe2a9b18ad130f4fc4c0c3599ec30_split_000.html#a25efe2a9b18ad130f4fc4c0c3599ec30" class="pcalibre1 anchor">◆ </a></span>SendPluginCustomGameData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_sound_engine_export_8h_ac6e96d34dfc0e12f9aaa7a47f4e9c322_split_000.html#ac6e96d34dfc0e12f9aaa7a47f4e9c322">AKSOUNDENGINE_API</a> <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::SoundEngine::SendPluginCustomGameData </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_a8341fa4d01d2fa852c3cc410401b04dc_split_000.html#a8341fa4d01d2fa852c3cc410401b04dc">AkUniqueID</a> </td>
+          <td class="paramname"><em class="calibre59">in_busID</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> </td>
+          <td class="paramname"><em class="calibre59">in_gameObjectID</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_enums_8h_af1a95e76b0e2a003e7edb2ad6f4043f4_split_000.html#af1a95e76b0e2a003e7edb2ad6f4043f4">AkPluginType</a> </td>
+          <td class="paramname"><em class="calibre59">in_eType</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> </td>
+          <td class="paramname"><em class="calibre59">in_uCompanyID</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> </td>
+          <td class="paramname"><em class="calibre59">in_uPluginID</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">const void * </td>
+          <td class="paramname"><em class="calibre59">in_pData</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> </td>
+          <td class="paramname"><em class="calibre59">in_uSizeInBytes</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Sends custom game data to a plug-in that resides on a bus (effect plug-in) or a voice (source plug-in). Data will be copied and stored into a separate list. Previous entry is deleted when a new one is sent. Sets the data pointer to NULL to clear item from the list. </p><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> The plug-in type and ID are passed and matched with plugins set on the desired bus. This means that multiple instances of the same plug-in on a given bus' effect chain will always receive the same data. </td></tr>
+</tbody></table>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">AK_Success if data was sent successfully. </dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_busID</td><td class="calibre17">Bus ID. For source plug-ins, specify AK_INVALID_UNIQUE_ID. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_gameObjectID</td><td class="calibre17">Game Object ID. Pass AK_INVALID_GAME_OBJECT to send custom data with global scope. Game object scope supersedes global scope, as with RTPCs. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_eType</td><td class="calibre17">Plug-in type (for example, source or effect) </td></tr>
+    <tr class="calibre16"><td class="paramname">in_uCompanyID</td><td class="calibre17">Company identifier (as declared in the plug-in description XML file) </td></tr>
+    <tr class="calibre16"><td class="paramname">in_uPluginID</td><td class="calibre17">Plug-in identifier (as declared in the plug-in description XML file) </td></tr>
+    <tr class="calibre16"><td class="paramname">in_pData</td><td class="calibre17">The data blob </td></tr>
+    <tr class="calibre16"><td class="paramname">in_uSizeInBytes</td><td class="calibre17">Size of data </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

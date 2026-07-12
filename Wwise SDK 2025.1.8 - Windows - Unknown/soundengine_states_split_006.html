@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integration Details - States</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_5"><a class="pcalibre1 anchor" id="soundengine_states_driving"></a>
+Driving States</h1>
+<p class="calibre7">You have two options to drive states: The SDK <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a68dc9be195962c671b82fbb354b68cc5_split_000.html#a68dc9be195962c671b82fbb354b68cc5">AK::SoundEngine::SetState()</a></code> function, and the action "SetState" generated in Wwise. However, using both at once in the same state is problematic. For example, if sound designers introduce SetState Actions inside the Events they create while audio programmers drive States using the SDK <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a68dc9be195962c671b82fbb354b68cc5_split_000.html#a68dc9be195962c671b82fbb354b68cc5">AK::SoundEngine::SetState()</a></code> function, the States may become difficult to control. We strongly recommend that sound designers and audio programmers decide how the actual States will be driven, either for each State Group or for the entire project. Both ways can be used at once, if there is agreement on how States will change. For example, the audio programmers can initialize States using the SDK <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a68dc9be195962c671b82fbb354b68cc5_split_000.html#a68dc9be195962c671b82fbb354b68cc5">SetState()</a></code> function, but leave the State to be driven by Events for the rest of the game.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="tip.gif"/></td><td class="calibre17"><b class="calibre13">Tip:</b> If a state behavior is the same for many sounds, you can give those sounds a common parent (such as a Property Container) and put the state settings there, instead of duplicating them in each sound. This will make it faster for the sound designer to edit settings. It will also reduce the memory required for storing state parameters, since they will be stored in one place instead of many. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

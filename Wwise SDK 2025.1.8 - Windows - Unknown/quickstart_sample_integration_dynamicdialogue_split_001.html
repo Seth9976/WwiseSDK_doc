@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Quick Start Sample Integration - Dynamic Dialogue</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2"><h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="soundengine_integration_dynamicdialogue"></a>
+Dynamic Dialogue Example</h1>
+<p class="calibre7">The following code plays back a single dialogue event inside of a dynamic sequence:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="pcalibre code" href="_ak_dynamic_dialogue_8h_split_000.html">AK/SoundEngine/Common/AkDynamicDialogue.h</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="pcalibre code" href="_ak_dynamic_sequence_8h_split_000.html">AK/SoundEngine/Common/AkDynamicSequence.h</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line">(...)</div>
+<div class="line"> </div>
+<div class="line">{</div>
+<div class="line">    <span class="comment">// Open a dynamic sequence using the appropriate game object.</span></div>
+<div class="line">    </div>
+<div class="line">    <a class="pcalibre code" href="_ak_typedefs_8h_a9270609771369ea575443fe080bbe9c3_split_000.html#a9270609771369ea575443fe080bbe9c3">AkPlayingID</a> sequenceID = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_1_1_dynamic_sequence_ab6daddd96e109dc7669889733ce4f2cc_split_000.html#ab6daddd96e109dc7669889733ce4f2cc">AK::SoundEngine::DynamicSequence::Open</a>( GAME_OBJECT_ID_HUMAN );</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Add a single dialogue event to the playlist of the dynamic sequence. </span></div>
+<div class="line">    </div>
+<div class="line">    {</div>
+<div class="line">        <span class="comment">// Resolve dialogue event into an audio node ID based on the specified argument path.</span></div>
+<div class="line"> </div>
+<div class="line">        <span class="keyword">const</span> <span class="keywordtype">char</span> * argPath[3] = { <span class="comment">// Following the order of Arguments:</span></div>
+<div class="line">            <span class="stringliteral">"Unit_A"</span>,               <span class="comment">// "Units"</span></div>
+<div class="line">            <span class="stringliteral">"RescueHostage"</span>,        <span class="comment">// "Objectives"</span></div>
+<div class="line">            <span class="stringliteral">"Completed"</span> };          <span class="comment">// "ObjectiveStatus"</span></div>
+<div class="line">        </div>
+<div class="line">        <a class="pcalibre code" href="_ak_typedefs_8h_a8341fa4d01d2fa852c3cc410401b04dc_split_000.html#a8341fa4d01d2fa852c3cc410401b04dc">AkUniqueID</a> nodeID = </div>
+<div class="line">            <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_1_1_dynamic_dialogue_a18385d0523eb14ff57bd4ea9f18c08f6_split_000.html#a18385d0523eb14ff57bd4ea9f18c08f6">AK::SoundEngine::DynamicDialogue::ResolveDialogueEvent</a>( <span class="stringliteral">"Objective_Status"</span>, argPath, 3 );</div>
+<div class="line"> </div>
+<div class="line">        <span class="comment">// Add audio node ID to dynamic sequence playlist.</span></div>
+<div class="line">        </div>
+<div class="line">        <a class="pcalibre code" href="class_a_k_1_1_sound_engine_1_1_dynamic_sequence_1_1_playlist_split_000.html">AK::SoundEngine::DynamicSequence::Playlist</a> * pPlaylist = </div>
+<div class="line">            <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_1_1_dynamic_sequence_af72d304486f19cc81d24c4488c6ea652_split_000.html#af72d304486f19cc81d24c4488c6ea652">AK::SoundEngine::DynamicSequence::LockPlaylist</a>( sequenceID );</div>
+<div class="line">            </div>
+<div class="line">        pPlaylist-&gt;<a class="pcalibre code" href="class_a_k_1_1_sound_engine_1_1_dynamic_sequence_1_1_playlist_a9155f633c7fdda4283d318d89c2cd4bb_split_000.html#a9155f633c7fdda4283d318d89c2cd4bb">Enqueue</a>( nodeID );</div>
+<div class="line">        </div>
+<div class="line">        <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_1_1_dynamic_sequence_aa7b7bbc2b6158423a0006682b44b40c5_split_000.html#aa7b7bbc2b6158423a0006682b44b40c5">AK::SoundEngine::DynamicSequence::UnlockPlaylist</a>( sequenceID );</div>
+<div class="line">    }</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Play the dynamic sequence.</span></div>
+<div class="line"> </div>
+<div class="line">    <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_1_1_dynamic_sequence_ae2ac4c400d0145c6c25e050d752064bd_split_000.html#ae2ac4c400d0145c6c25e050d752064bd">AK::SoundEngine::DynamicSequence::Play</a>( sequenceID );</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Close the dynamic sequence. The dynamic sequence will play until finished and then</span></div>
+<div class="line">    <span class="comment">// deallocate itself automatically. </span></div>
+<div class="line"> </div>
+<div class="line">    <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_1_1_dynamic_sequence_ab204d963f6b81abc102a6d6b8272b591_split_000.html#ab204d963f6b81abc102a6d6b8272b591">AK::SoundEngine::DynamicSequence::Close</a>( sequenceID );</div>
+<div class="line">}</div>
+</div><!-- fragment --><p class="calibre7">Refer to <a class="pcalibre el" href="soundengine_dynamicdialogue_split_000.html">Integration Details - Dynamic Dialogue</a> for more information. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_1_1_dynamic_dialogue_a18385d0523eb14ff57bd4ea9f18c08f6_html_a18385d0523eb14ff57bd4ea9f18c08f6"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_1_1_dynamic_dialogue_a18385d0523eb14ff57bd4ea9f18c08f6_split_000.html#a18385d0523eb14ff57bd4ea9f18c08f6" class="pcalibre calibre12">AK::SoundEngine::DynamicDialogue::ResolveDialogueEvent</a></div><div class="calibre2">AKSOUNDENGINE_API AkUniqueID ResolveDialogueEvent(AkUniqueID in_eventID, AkArgumentValueID *in_aArgumentValues, AkUInt32 in_uNumArguments, AkPlayingID in_idSequence=AK_INVALID_PLAYING_ID, AkCandidateCallbackFunc in_candidateCallbackFunc=NULL, void *in_pCookie=NULL)</div></div>
+<div class="ttc" id="a_ak_typedefs_8h_a8341fa4d01d2fa852c3cc410401b04dc_html_a8341fa4d01d2fa852c3cc410401b04dc"><div class="calibre2"><a href="_ak_typedefs_8h_a8341fa4d01d2fa852c3cc410401b04dc_split_000.html#a8341fa4d01d2fa852c3cc410401b04dc" class="pcalibre calibre12">AkUniqueID</a></div><div class="calibre2">AkUInt32 AkUniqueID</div><div class="calibre2">Unique 32-bit ID.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_typedefs_8h_source.html#l00031" class="pcalibre calibre12">AkTypedefs.h:31</a></div></div>
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_1_1_dynamic_sequence_af72d304486f19cc81d24c4488c6ea652_html_af72d304486f19cc81d24c4488c6ea652"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_1_1_dynamic_sequence_af72d304486f19cc81d24c4488c6ea652_split_000.html#af72d304486f19cc81d24c4488c6ea652" class="pcalibre calibre12">AK::SoundEngine::DynamicSequence::LockPlaylist</a></div><div class="calibre2">AKSOUNDENGINE_API Playlist * LockPlaylist(AkPlayingID in_playingID)</div></div>
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_1_1_dynamic_sequence_ae2ac4c400d0145c6c25e050d752064bd_html_ae2ac4c400d0145c6c25e050d752064bd"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_1_1_dynamic_sequence_ae2ac4c400d0145c6c25e050d752064bd_split_000.html#ae2ac4c400d0145c6c25e050d752064bd" class="pcalibre calibre12">AK::SoundEngine::DynamicSequence::Play</a></div><div class="calibre2">AKSOUNDENGINE_API AKRESULT Play(AkPlayingID in_playingID, AkTimeMs in_uTransitionDuration=0, AkCurveInterpolation in_eFadeCurve=AkCurveInterpolation_Linear)</div></div>
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_1_1_dynamic_sequence_ab6daddd96e109dc7669889733ce4f2cc_html_ab6daddd96e109dc7669889733ce4f2cc"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_1_1_dynamic_sequence_ab6daddd96e109dc7669889733ce4f2cc_split_000.html#ab6daddd96e109dc7669889733ce4f2cc" class="pcalibre calibre12">AK::SoundEngine::DynamicSequence::Open</a></div><div class="calibre2">AKSOUNDENGINE_API AkPlayingID Open(AkGameObjectID in_gameObjectID, AkUInt32 in_uFlags=0, AkCallbackFunc in_pfnCallback=NULL, void *in_pCookie=NULL, AkDynamicSequenceType in_eDynamicSequenceType=AkDynamicSequenceType_SampleAccurate)</div></div>
+<div class="ttc" id="aclass_a_k_1_1_sound_engine_1_1_dynamic_sequence_1_1_playlist_a9155f633c7fdda4283d318d89c2cd4bb_html_a9155f633c7fdda4283d318d89c2cd4bb"><div class="calibre2"><a href="class_a_k_1_1_sound_engine_1_1_dynamic_sequence_1_1_playlist_a9155f633c7fdda4283d318d89c2cd4bb_split_000.html#a9155f633c7fdda4283d318d89c2cd4bb" class="pcalibre calibre12">AK::SoundEngine::DynamicSequence::Playlist::Enqueue</a></div><div class="calibre2">AkForceInline AKRESULT Enqueue(AkUniqueID in_audioNodeID, AkTimeMs in_msDelay=0, void *in_pCustomInfo=NULL, AkUInt32 in_cExternals=0, AkExternalSourceInfo *in_pExternalSources=NULL)</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_dynamic_sequence_8h_source.html#l00083" class="pcalibre calibre12">AkDynamicSequence.h:83</a></div></div>
+<div class="ttc" id="a_ak_dynamic_dialogue_8h_html"><div class="calibre2"><a href="_ak_dynamic_dialogue_8h_split_000.html" class="pcalibre calibre12">AkDynamicDialogue.h</a></div></div>
+<div class="ttc" id="a_ak_dynamic_sequence_8h_html"><div class="calibre2"><a href="_ak_dynamic_sequence_8h_split_000.html" class="pcalibre calibre12">AkDynamicSequence.h</a></div></div>
+<div class="ttc" id="aclass_a_k_1_1_sound_engine_1_1_dynamic_sequence_1_1_playlist_html"><div class="calibre2"><a href="class_a_k_1_1_sound_engine_1_1_dynamic_sequence_1_1_playlist_split_000.html" class="pcalibre calibre12">AK::SoundEngine::DynamicSequence::Playlist</a></div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_dynamic_sequence_8h_source.html#l00077" class="pcalibre calibre12">AkDynamicSequence.h:79</a></div></div>
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_1_1_dynamic_sequence_aa7b7bbc2b6158423a0006682b44b40c5_html_aa7b7bbc2b6158423a0006682b44b40c5"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_1_1_dynamic_sequence_aa7b7bbc2b6158423a0006682b44b40c5_split_000.html#aa7b7bbc2b6158423a0006682b44b40c5" class="pcalibre calibre12">AK::SoundEngine::DynamicSequence::UnlockPlaylist</a></div><div class="calibre2">AKSOUNDENGINE_API AKRESULT UnlockPlaylist(AkPlayingID in_playingID)</div></div>
+<div class="ttc" id="a_ak_typedefs_8h_a9270609771369ea575443fe080bbe9c3_html_a9270609771369ea575443fe080bbe9c3"><div class="calibre2"><a href="_ak_typedefs_8h_a9270609771369ea575443fe080bbe9c3_split_000.html#a9270609771369ea575443fe080bbe9c3" class="pcalibre calibre12">AkPlayingID</a></div><div class="calibre2">AkUInt32 AkPlayingID</div><div class="calibre2">A unique identifier generated whenever a PostEvent is called (or when a Dynamic Sequence is created)....</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_typedefs_8h_source.html#l00034" class="pcalibre calibre12">AkTypedefs.h:34</a></div></div>
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_1_1_dynamic_sequence_ab204d963f6b81abc102a6d6b8272b591_html_ab204d963f6b81abc102a6d6b8272b591"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_1_1_dynamic_sequence_ab204d963f6b81abc102a6d6b8272b591_split_000.html#ab204d963f6b81abc102a6d6b8272b591" class="pcalibre calibre12">AK::SoundEngine::DynamicSequence::Close</a></div><div class="calibre2">AKSOUNDENGINE_API AKRESULT Close(AkPlayingID in_playingID)</div></div>
+
+
+</body></html>

@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Getting Started with WAQL</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_6"><a class="pcalibre1 anchor" id="waql_gs_select_objects"></a>
+Selecting Objects</h1>
+<p class="calibre7">Now that we are able to make a WAQL query from different sources, let's try to select objects. Selecting objects allows you to obtain other objects from the initial sequence of objects.</p>
+<p class="calibre7">Type the following query in the List View:</p>
+<p class="calibre7"><code class="calibre14">$ "\Containers\Default Work Unit" select children</code></p>
+<p class="calibre7">This takes the Default Work Unit and returns all direct children of it.</p>
+<p class="calibre7">Let's try to obtain even more objects:</p>
+<p class="calibre7"><code class="calibre14">$ "\Containers\Default Work Unit" select descendants</code></p>
+<p class="calibre7">This time, all descendants of the Default Work Unit will be obtained in the results. The descendants include all children, taken recursively.</p>
+<p class="calibre7">Additional exercises:</p>
+<ul class="calibre8">
+<li class="calibre9">Try to select parent</li>
+<li class="calibre9">Try to select multiple elements separated with commas</li>
+<li class="calibre9">Try adding a <b class="calibre13">select</b> statement to a <b class="calibre13">where</b> query from the first sections</li>
+<li class="calibre9">Try adding <b class="calibre13">where</b> statements at the end of the select queries</li>
+<li class="calibre9">Try to select outputbus</li>
+</ul>
+</div></div></div></body></html>

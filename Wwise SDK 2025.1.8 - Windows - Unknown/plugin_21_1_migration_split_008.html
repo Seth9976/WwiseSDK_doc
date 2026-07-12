@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Migrating a pre-2021.1 Authoring Plug-in</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_7"><a class="pcalibre1 anchor" id="plugin_21_1_migration_porting_services"></a>
+Common Use Cases for Requests</h1>
+<p class="calibre7">While the <code class="calibre14">PropertySet</code> component request is made implicitly by the <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_a989b8417cedde33d928b90171491fcc5_split_000.html#a989b8417cedde33d928b90171491fcc5" title="Latest version of the C++ AudioPlugin interface.">AK::Wwise::Plugin::AudioPlugin</a></code> interface because it is typically needed in the context of <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_audio_plugin_ae59a3955718ed3bbde0521da21cd8539_split_000.html#ae59a3955718ed3bbde0521da21cd8539" title="Obtains parameters that will be written to a bank.">AK::Wwise::Plugin::AudioPlugin::GetBankParameters()</a></code>, other components and services are optional and can be requested manually by subclassing any of the available <code class="calibre14">AK::Wwise::Plugin::Request[...]</code> classes (refer to <a class="pcalibre el" href="plugin_dll_split_003.html#wwiseplugin_authoring_request">Request Components and Services</a>). When the plug-in provides an implementation to the Authoring application, the interface is not prefixed by <code class="calibre14">Request</code>. For example, this is the case for <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_a6397b4db19f43bd157d4851720f838af_split_000.html#a6397b4db19f43bd157d4851720f838af" title="Latest version of the C++ Source interface.">AK::Wwise::Plugin::Source</a></code>, <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_afd1d6878bfb9cc5c27a1741a7a9cd5d1_split_000.html#afd1d6878bfb9cc5c27a1741a7a9cd5d1" title="Latest version of the C++ SinkDevices interface.">AK::Wwise::Plugin::SinkDevices</a></code> and <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_a6f10eb912f168dc570304ae3ee97ec6f_split_000.html#a6f10eb912f168dc570304ae3ee97ec6f" title="Latest version of the C++ PropertyDisplayName interface.">AK::Wwise::Plugin::PropertyDisplayName</a></code>.</p>
+<p class="calibre7">The following is a list of common use cases in the original API and the corresponding services that need to be requested to obtain the same features in the new API.</p>
+</div></div></div></body></html>

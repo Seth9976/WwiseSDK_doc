@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Properties XML Description</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="wwiseplugin_xml_userinterface"></a>
+UserInterface</h1>
+<p class="calibre7">The <code class="calibre14">UserInterface</code> element defines attribute that relates to user interface behavior and appearance. The following attributes are all optional and can be set on the <code class="calibre14">UserInterface</code> element:</p>
+<ul class="calibre8">
+<li class="calibre9">
+<code class="calibre14">DisplayName</code> (<b class="calibre13">type:</b> string, <b class="calibre13">default:</b> empty): (Deprecated) Defines the display name of the Property, to be displayed at many places in Wwise. This attribute is replaced by the DisplayName attribute defined in the <code class="calibre14">Property</code> or <code class="calibre14">Reference</code> element. </li>
+<li class="calibre9">
+<code class="calibre14">Decimals</code> (<b class="calibre13">type:</b> integer, <b class="calibre13">default:</b> 0): Defines the number of digits to display after the decimal point. This value must be a non-negative integer number. If set to 0, then no decimal digits and no point will be displayed.  </li>
+<li class="calibre9">
+<code class="calibre14">Step</code> (<b class="calibre13">type:</b> float, <b class="calibre13">default:</b> 1): Defines the amount by which the numeric value changes when moving a slider. This value can be an integer or decimal number, depending on the type of property the control is bound to.  </li>
+<li class="calibre9">
+<code class="calibre14">Fine</code> (<b class="calibre13">type:</b> float, <b class="calibre13">default:</b> 1): Defines the amount by which the numeric value changes when moving a slider while holding the SHIFT key. This value can be an integer or decimal number, depending on the type of property the control is bound to.  </li>
+<li class="calibre9">
+<p class="starttd"><code class="calibre14">SliderType</code> (<b class="calibre13">type:</b> integer, <b class="calibre13">default:</b> 0): Defines the mapping of the values across a slider range.</p>
+<ul class="calibre15">
+<li class="calibre9">0: Linear (default)</li>
+<li class="calibre9">1: Pseudo-Logarithmic, from -96.3 dB to 0 dB</li>
+<li class="calibre9">2: Pseudo-Logarithmic, from -96.3 dB to 96.3 dB</li>
+<li class="calibre9">4: Pseudo-Logarithmic, from 20 Hz to 20000 Hz</li>
+<li class="calibre9">5: Pseudo-Logarithmic, from 20 Hz to 12000 Hz</li>
+<li class="calibre9">6: Pseudo-Logarithmic, from -96.3 dB to 12 dB</li>
+<li class="calibre9">11: Pseudo-Logarithmic, from 0.02 Hz to 20000 Hz</li>
+<li class="calibre9">12: Pseudo-Logarithmic, from 0.02 Hz to 20 Hz</li>
+<li class="calibre9">15: Pseudo-Logarithmic, from -24 dB to 24 dB</li>
+<li class="calibre9">16: Pseudo-Logarithmic, from -96.3 dB to 24 dB</li>
+</ul>
+</li>
+<li class="calibre9">
+<code class="calibre14">Mid</code> (<b class="calibre13">type:</b> float, <b class="calibre13">default:</b> 0): Defines the value in the [min,max] range that is considered neutral. This value affects the drawing of a slider control.  </li>
+<li class="calibre9">
+<code class="calibre14">UIMin</code> (<b class="calibre13">type:</b> float, <b class="calibre13">default:</b> Range's Min): Defines the minimum value that can initially be set by using the slider. If this value is greater than the one specified with the <code class="calibre14">Min</code> attribute, then the user can force it to a lower value by entering a value that is smaller than the one specified by this attribute, thus enlarging the range of the control.  </li>
+<li class="calibre9">
+<code class="calibre14">UIMax</code> (<b class="calibre13">type:</b> float, <b class="calibre13">default:</b> Range's Max): Defines the maximum value that can initially be set by using the slider. If this value is lower than the one specified with the <code class="calibre14">Max</code> attribute, then the user can force it to a larger value by entering a value that is larger than the one specified by this attribute, thus enlarging the range of the control.  </li>
+<li class="calibre9">
+<code class="calibre14">AutoUpdate</code> (<b class="calibre13">type:</b> boolean, <b class="calibre13">default:</b> false): Defines if the value is updated while moving a slider. Set this attribute to <code class="calibre14">false</code> when updating the value too often because of audio performance glitches.  </li>
+<li class="calibre9">
+<code class="calibre14">LRMixDisplay</code> (<b class="calibre13">type:</b> boolean, <b class="calibre13">default:</b> false): Defines if the value is shown as a special Left-Right balance range style. The value range must be between -100 and +100 and map to a Left to Right balance/mix, where 0 is the Center. </li>
+<li class="calibre9">
+<p class="starttd"><code class="calibre14">ControlClass</code> (<b class="calibre13">type:</b> string, <b class="calibre13">default:</b> empty): Defines the user interface control that must be used for the property in views such as the List View or the Multi Editor. Possible values are:</p>
+<ul class="calibre15">
+<li class="calibre9">ColorPicker: A color picker.</li>
+<li class="calibre9">ReadOnlyText: The value of the property is read-only in the user interface.</li>
+</ul>
+</li>
+<li class="calibre9">
+<p class="starttd"><code class="calibre14">DropDown</code> (<b class="calibre13">type:</b> string, <b class="calibre13">default:</b> empty): When used with a numerical enumeration (for example, <code class="calibre14">Enumeration</code> of type int16), this allows you to specify how each value of the <code class="calibre14">Enumeration</code> will be represented in the menu. Possible values are:</p>
+<ul class="calibre15">
+<li class="calibre9">Menu: Displays a shortcut menu for the corresponding enum values instead of a drop down. The path of the menu is defined by the <code class="calibre14">DisplayName</code> of the <code class="calibre14">Value</code> in the <code class="calibre14">Enumeration</code>. For example, a <code class="calibre14">DisplayName</code> of value "/Bus Volume/Reset Bus Volume" will display a menu with Bus Volume in which the submenu Reset Bus Volume, once clicked, will set the property to the value 14.</li>
+<li class="calibre9">CurveIn: For corresponding values 0 to 8, it displays a curve (positive slope) for the following functions: Logarithmic (Base 3), Sine, Logarithmic (Base 1.41), Inverted S-Curve, Linear, S-Curve, Exponential (Base 1.41), Reciprocal Sine, and Exponential (Base 3).</li>
+<li class="calibre9">CurveOut: For corresponding values 0 to 8, it displays a curve (negative slope) for the following functions: Logarithmic (Base 3), Sine, Logarithmic (Base 1.41), Inverted S-Curve, Linear, S-Curve, Exponential (Base 1.41), Reciprocal Sine, and Exponential (Base 3). </li>
+</ul>
+</li>
+</ul>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="tip.gif"/></td><td class="calibre17"><b class="calibre13">Tip:</b> The purpose of the <code class="calibre14">UIMin</code> and <code class="calibre14">UIMax</code> attributes is to make the initial range of the control's slider more usable in cases where the property range is really big. If one of your properties has a big theoretical range, but in general users will use a more restricted range, use the <code class="calibre14">Min/<code class="calibre14">Max</code> attributes</code> to set the <em class="calibre11">real</em> range, and the <code class="calibre14">UIMin/<code class="calibre14">UIMax</code> attributes</code> to set the initial range of the slider. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

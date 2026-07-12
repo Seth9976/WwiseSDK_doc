@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Building Your Project for the Different Wwise Platforms</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="effectplugin_tools_adding_target"></a>
+Adding a Target Platform</h1>
+<p class="calibre7">Target platforms can be added at any point during the development of your plug-in. This is done by premaking and building a platform. You will at least want to build one platform and, if you build for <code class="calibre14">Authoring</code>, you'll probably also want to build the <code class="calibre14">Documentation</code>. This will install the documentation for the plug-in properties, which is shown in the <b class="calibre13">Property</b> <b class="calibre13">Help</b> panel when a property is selected.</p>
+<p class="calibre7">For example, run the following in a command-line to premake and build the Windows_vc160 and Authoring platforms: </p><div class="fragment"><div class="line">python "%WWISEROOT%/Scripts/Build/Plugins/wp.py" premake Windows_vc160</div>
+<div class="line">python "%WWISEROOT%/Scripts/Build/Plugins/wp.py" premake Authoring</div>
+<div class="line">python "%WWISEROOT%/Scripts/Build/Plugins/wp.py" build Windows_vc160 -c Release -x x64</div>
+<div class="line">python "%WWISEROOT%/Scripts/Build/Plugins/wp.py" build Authoring -c Release -x x64 -t vc160</div>
+<div class="line">python "%WWISEROOT%/Scripts/Build/Plugins/wp.py" build Documentation</div>
+</div><!-- fragment --></div></div></div></body></html>

@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2015.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="api_changes_2015_1"></a>
+API Changes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-23258</b> Migrated iOS audio session service support to AVFoundation for better app audio session handling. This affects audio session interruption callback and sound engine initialization, and also offers new features supported by AVFoundation. Removed ListenToAudioSessionInterruption() API.</li>
+<li class="calibre9"><b class="calibre13">WG-26235</b> Added <a class="pcalibre el" href="struct_ak_init_settings_a31218fafe5dea9bca79b979cfb1e6fb2_split_000.html#a31218fafe5dea9bca79b979cfb1e6fb2" title="Use a Wwise-owned thread for processing audio. If set to false, audio processing will occur only insi...">AkInitSettings::bUseLEngineThread</a> parameter, which disables the audio rendering thread to allow custom scheduling.</li>
+<li class="calibre9"><b class="calibre13">WG-26577</b> Removed PlayAudioInput() for plug-in API.</li>
+<li class="calibre9"><b class="calibre13">WG-26909</b> Exposed per-emitter-listener pair attenuation to mixer plug-ins.</li>
+<li class="calibre9"><b class="calibre13">WG-26935</b> Exposed PostMonitorMessage() to plug-ins via IAkPluginContext.</li>
+<li class="calibre9"><b class="calibre13">WG-26973</b> Exposed output device ID to plug-ins via IAkPluginContextBase.</li>
+<li class="calibre9"><b class="calibre13">WG-27009</b> Added new mixer plug-in hook before metering, which lets mixer plug-ins present different data to meters and output busses.</li>
+<li class="calibre9"><b class="calibre13">WG-27280</b> Exposed PS4's main output handle.</li>
+</ul>
+</div></div></div></body></html>

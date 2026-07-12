@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2025.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_17"><a class="pcalibre1 anchor" id="waapi_objectlist_structure"></a>
+WAAPI Object Lists</h2>
+<p class="calibre7">This table identifies the pertinent changes when using ak.wwise.core.object.set to construct the object lists.</p>
+<table border="1" cellpadding="1" cellspacing="0" width="800px" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre17"><b class="calibre13">Old style</b></td><td class="calibre17"><b class="calibre13">New style</b> </td></tr>
+<tr class="calibre16">
+<td class="calibre17">"@Arguments": [object1, object2]</td><td class="calibre17"><p class="starttd">"@Arguments": [{"type": "ArgumentsSlot", "name": "", "@Argument": object1}, {"type": "ArgumentsSlot", "name": "", "@Argument": object2}] </p>
+<p class="calibre7"><b class="calibre13">Note</b>: This applies to Dialogue Event objects.</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre17">"@Arguments": [object1, object2]</td><td class="calibre17"><p class="starttd">"@Arguments": [{"type": "MusicArgumentsSlot", "name": "", "@Argument": object1}, {"type": "MusicArgumentsSlot", "name": "", "@Argument": object2}] </p>
+<p class="calibre7"><b class="calibre13">Note</b>: This applies to Music Switch Container objects.</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre17">"@EntryPath": [object1, object2]</td><td class="calibre17">"@EntryPath": [{"type": "EntryPathSlot", "name": "", "@EntryPathObject": object1}, {"type": "EntryPathSlot", "name": "", "@EntryPathObject": object2}] </td></tr>
+<tr class="calibre16">
+<td class="calibre17">"@Metadata": [object1, object2]</td><td class="calibre17">"@Metadata": [{"type": "MetadataSlot", "name": "", "@Metadata": object1}, {"type": "MetadataSlot", "name": "", "@Metadata": object2}] </td></tr>
+<tr class="calibre16">
+<td class="calibre17">"@Playlist": [object1, object2]</td><td class="calibre17">"@Playlist": [{"type": "PlaylistSlot", "name": "", "@PlaylistObject": object1}, {"type": "PlaylistSlot", "name": "", "@PlaylistObject": object2}] </td></tr>
+</tbody></table>
+</div></div></div></body></html>

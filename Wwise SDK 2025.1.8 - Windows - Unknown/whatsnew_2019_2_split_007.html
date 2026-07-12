@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2019.2</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_6"><a class="pcalibre1 anchor" id="bugs_2019_2"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-18324</b> Fixed: Markers were dropped when sounds were sent to virtual voices.</li>
+<li class="calibre9"><b class="calibre13">WG-31209</b> Fixed: Possible crash when posting an event with a registered marker callback.</li>
+<li class="calibre9"><b class="calibre13">WG-37436</b> Fixed: A -6dB drop would occur in directional ambisonic channels with 3D spatialization of multiple game object positions in MultiDirection mode.</li>
+<li class="calibre9"><b class="calibre13">WG-38048</b> Fixed: Incorrect value reported in the Capture Log when running out of memory for monitoring notifications.</li>
+<li class="calibre9"><b class="calibre13">WG-39283</b> Fixed: Sliders and faders did not work correctly when using a touch screen or over remote desktop.</li>
+<li class="calibre9"><b class="calibre13">WG-40719</b> Fixed: Multiple New Project menus could be opened simultaneously.</li>
+<li class="calibre9"><b class="calibre13">WG-41122</b> Fixed: Dark, Light and Classic skins have been reworked to address inconsistencies and to share code between them.</li>
+<li class="calibre9"><b class="calibre13">WG-41801</b> Fixed: In the Source Editor, the Delete Marker and Edit Marker Label... options no longer appear when right-clicking on a cue or the play cursor.</li>
+<li class="calibre9"><b class="calibre13">WG-41932</b> Fixed: Sound Engine Query functions: GetState, GetSwitch, and GetRTPCValue now return Ak_IDNotFound when the provided ID doesn't exist.</li>
+<li class="calibre9"><b class="calibre13">WG-42061</b> Fixed: Tool-tips did not always appear when moving the mouse over the Voice Graph nodes in the Advanced Profiler.</li>
+<li class="calibre9"><b class="calibre13">WG-42110</b> Fixed: Copy and paste operations in the Capture Log using the Context Menu did not keep the correct order of rows.</li>
+<li class="calibre9"><b class="calibre13">WG-42489</b> Fixed: Crashes or corrupted audio when initializing certain output types, such as Pad_Output, with incompatible speaker configurations.</li>
+<li class="calibre9"><b class="calibre13">WG-42538</b> Fixed: The Log Settings dialog now uses a more intuitive ignore mechanism.</li>
+<li class="calibre9"><b class="calibre13">WG-42604</b> Fixed: Flashing window when converting audio files no longer occurs.</li>
+<li class="calibre9"><b class="calibre13">WG-42990</b> Fixed: Inaccuracy with height channels (x.x.2 and x.x.4) encoding to ambisonics.</li>
+<li class="calibre9"><b class="calibre13">WG-43022</b> Fixed: Max Attenuation was reported in the SoundbankInfo file, for objects that did not have any active attenuation.</li>
+<li class="calibre9"><b class="calibre13">WG-43028</b> Fixed: Negative ID values used for some languages in IncrementalSoundBankData.xml.</li>
+<li class="calibre9"><b class="calibre13">WG-43093</b> Fixed: Splitters in views and dialogs sometime behave strangely when being resized.</li>
+<li class="calibre9"><b class="calibre13">WG-43414</b> Fixed: Certain Spread/Focus values could result in an inaccurate contraction of the sound field.</li>
+<li class="calibre9"><b class="calibre13">WG-43436</b> Fixed: The JSON metadata file for SoundBanks is now properly formatted.</li>
+<li class="calibre9"><b class="calibre13">WG-43441</b> Fixed: Timing issues in Wwise Authoring could occur when a sound was playing while the sound engine was reinitialized.</li>
+<li class="calibre9"><b class="calibre13">WG-43535</b> Fixed: Keyboard Shortcuts conflict warnings are now more consistent for Custom Commands.</li>
+<li class="calibre9"><b class="calibre13">WG-43539</b> Fixed: Rare crash in Wwise when playing a Music Container with an invalid Music Transition.</li>
+<li class="calibre9"><b class="calibre13">WG-43547</b> Fixed: <a class="pcalibre el" href="struct_ak_thread_properties_aaeda98445d886143bf52af06abe59f97_split_000.html#aaeda98445d886143bf52af06abe59f97" title="Affinity mask.">AkThreadProperties::dwAffinityMask</a> was ignored on Linux.</li>
+<li class="calibre9"><b class="calibre13">WG-43704</b> Fixed: Sound is not properly reset when inspecting Blend Containers, while in-game.</li>
+<li class="calibre9"><b class="calibre13">WG-43782</b> Fixed: The static properties: User Send Volume and Game Send Volume, were ignoring the Override checkbox.</li>
+<li class="calibre9"><b class="calibre13">WG-43790</b> Fixed: A crash could occur on window layout operations.</li>
+<li class="calibre9"><b class="calibre13">WG-43867</b> Fixed: Pressing ESC just after clicking the Settings icon in the Performance Monitor could make the window disappear.</li>
+<li class="calibre9"><b class="calibre13">WG-43884</b> Fixed: The view sizes in certain factory layouts could cause important warning messages to be hidden in the user interface.</li>
+<li class="calibre9"><b class="calibre13">WG-43916</b> Fixed: In the light skin user interface, the contrast of waveforms has been improved in the Source Editor.</li>
+<li class="calibre9"><b class="calibre13">WG-43982</b> Fixed: Wwise Authoring could crash if a drawing event was left in the queue.</li>
+<li class="calibre9"><b class="calibre13">WG-44081</b> Fixed: Adding a new platform sometimes added an unexpected MediaID to media assets.</li>
+<li class="calibre9"><b class="calibre13">WG-44188</b> Fixed: A crash could occur when dragging an object from the list in the Advanced Profiler / Voices tab to the object filter in the Voices tab.</li>
+<li class="calibre9"><b class="calibre13">WG-44348</b> Fixed: Added a check for FLT_MAX in SetRTPCValue.  This is only valid in Debug mode or when CHECK_VALID_INPUT is defined.</li>
+<li class="calibre9"><b class="calibre13">WG-44489</b> Fixed: Possible assertion in AddPowerVbap2d, when an emitter was exactly on top of a listener.</li>
+<li class="calibre9"><b class="calibre13">WG-44503</b> Fixed: Certain Notes fields were not displayed correctly in Wwise Authoring, on macOS.</li>
+<li class="calibre9"><b class="calibre13">WG-44891</b> Fixed: A Probability slider was active for a non-existing dialog.  </li>
+<li class="calibre9"><b class="calibre13">WG-45002</b> Fixed: A crash could occur when editing a playing curve.</li>
+<li class="calibre9"><b class="calibre13">WG-45158</b> Fixed: On rare occasions, several consecutive Pause All and Resume All Events could lead to stuck MIDI notes.</li>
+<li class="calibre9"><b class="calibre13">WG-45415</b> Fixed: An IR display issue could occur in Wwise Convolution Reverb.</li>
+<li class="calibre9"><b class="calibre13">WG-45621</b> Fixed: A performance issue could occur when resizing the Game Object 3D Viewer.</li>
+<li class="calibre9"><b class="calibre13">WG-45631</b> Fixed: When playing multiple instances of the same sound, the secondary play heads were not displayed correctly in the Source Editor.</li>
+<li class="calibre9"><b class="calibre13">WG-45648</b> Fixed: Objects with unlinked properties were sometimes assigned a wrong value for linked platforms, when adding a new platform to the project.</li>
+<li class="calibre9"><b class="calibre13">WG-45729</b> Fixed: External Sources Conversion errors regarding the wsources file were not reported in WwiseCLI.</li>
+<li class="calibre9"><b class="calibre13">WG-45748</b> Fixed: A channel configuration display issue could occur in the 3D Meter.</li>
+<li class="calibre9"><b class="calibre13">WG-45800</b> Fixed: Incorrect migration of some Query structures when migrating from version 2017.1.x or older.</li>
+<li class="calibre9"><b class="calibre13">WG-45956</b> Fixed: Playback issues related to buffer length could occur on nonstandard audio system configurations.</li>
+<li class="calibre9"><b class="calibre13">WG-46038</b> Fixed: Loading a Work Unit after loading a project would tag the other Work Units in the Project as dirty.</li>
+<li class="calibre9"><b class="calibre13">WG-46101</b> Fixed: When loading a large Wwise project, the title bar could flicker.</li>
+<li class="calibre9"><b class="calibre13">WG-46116</b> Fixed: Initializing an XAudio2 or DirectSound sink with no channelconfig provided, on a device configured as quadrophonic in Windows, would create a 5.1 audio output, not a 4.0 audio output.</li>
+<li class="calibre9"><b class="calibre13">WG-46222</b> Fixed: (WAAPI) When using WAAPI over HTTP, the % character in return values would cause data corruption.</li>
+<li class="calibre9"><b class="calibre13">WG-46231</b> Fixed: Crashes and assertions could occur while loading a project, minimizing a window or when disconnecting a remote desktop session with an active 3D Viewer.</li>
+<li class="calibre9"><b class="calibre13">WG-46318</b> Fixed: A crash could occur in <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a55ec524ec77d4364df819495dee3ef5e_split_000.html#a55ec524ec77d4364df819495dee3ef5e">AK::SoundEngine::RegisterResourceMonitorCallback</a> when <a class="pcalibre el" href="namespace_a_k_1_1_memory_mgr_split_000.html">AK::MemoryMgr</a> was not initialized.</li>
+<li class="calibre9"><b class="calibre13">WG-46560</b> Fixed: Memory consumption was prohibitive when using the Game Object 3D Viewer.</li>
+<li class="calibre9"><b class="calibre13">WG-46658</b> Fixed: The alignment of AkAllocaSIMD is now always 16 bytes when supplied with a compile time constant as the required size.</li>
+<li class="calibre9"><b class="calibre13">WG-46752</b> Fixed: Framerate drop issues could occur in 3D Meter.</li>
+<li class="calibre9"><b class="calibre13">WG-46911</b> Fixed: The 3D Spherical Meters could not initialize correctly if multiple Meters views were active.</li>
+<li class="calibre9"><b class="calibre13">WG-46912</b> Fixed: Flickering could occur in the Property Editor when navigating from a Folder to a Container.</li>
+<li class="calibre9"><b class="calibre13">WG-46985</b> A freeze loop could occur when performing seek operations in very long Opus files.</li>
+<li class="calibre9"><b class="calibre13">WG-47113</b> Fixed: Rare crash when profiling in Wwise Authoring with Voice inspector data enabled.</li>
+<li class="calibre9"><b class="calibre13">WG-47141</b> Rare crash with States modifying plugin properties.</li>
+<li class="calibre9"><b class="calibre13">WG-47142</b> Rare crash when using 3D Busses and unloading all SoundBanks.</li>
+<li class="calibre9"><b class="calibre13">WG-47181</b> Fixed: (Stadia) Some plug-ins were not working when using dynamic libraries.</li>
+</ul>
+<p class="calibre7">
+ </p><dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="whatsnew_2019_2_new_features_split_000.html">New Features Overview 2019.2</a></li>
+<li class="calibre9"><a class="pcalibre el" href="whatsnew_2019_2_migration_split_000.html">Important Migration Notes 2019.2</a></li>
+<li class="calibre9"><a class="pcalibre el" href="reference_platform_2019_2_split_000.html">Platform Requirements 2019.2</a> </li>
+</ul>
+</dd></dl>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

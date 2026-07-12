@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2025.1.1 Beta 2</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="generic_feature_changes_2025_1_1"></a>
+New Features</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-25832</b> Added Mute and Solo buttons to the RTPC page.</li>
+<li class="calibre9"><b class="calibre13">WG-62401</b> Added option to create unit test infrastructure when creating a plug-in project.</li>
+<li class="calibre9"><b class="calibre13">WG-74681</b> Added new sound engine API <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a6d56f27f517874afd7efd14d5e1e5abb_split_000.html#a6d56f27f517874afd7efd14d5e1e5abb">AK::SoundEngine::ResetBusConfig</a></code>. If you are using <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_aa4da48bc7fe7adc10f42272f62fd33fe_split_000.html#aa4da48bc7fe7adc10f42272f62fd33fe">AK::SoundEngine::SetBusConfig</a></code> in your game runtime, you can use the new API to revert the bus's channel config back to the value initially set when loading SoundBanks.</li>
+<li class="calibre9"><b class="calibre13">WG-75373</b> Increased the number of available bands for the Parametric EQ Effect from 3 to 8. Also added the ability to specify slopes for the Low Pass Filter and High Pass Filter, which are performed by running the filters multiple times in succession.</li>
+<li class="calibre9"><b class="calibre13">WG-75635</b> Added <code class="calibre14">SetOutputVolume</code>, <code class="calibre14">SetPanningRule</code>, and <code class="calibre14">SetSpeakerAngles</code> commands to Command Buffer API.</li>
+<li class="calibre9"><b class="calibre13">WG-76533</b> Added <code class="calibre14">SetEffect</code> and <code class="calibre14">SetBusConfig</code> commands to Command Buffer API.</li>
+<li class="calibre9"><b class="calibre13">WG-77247</b> The waveform column in the Media Pool now displays the waveform of multi-channel sounds as a mixdown.</li>
+<li class="calibre9"><b class="calibre13">WG-77838</b> Properties in the Reflect editor are now organized in groups, and there is a new Favorites category, similar to the Property Editor.</li>
+<li class="calibre9"><b class="calibre13">WG-77843</b> Added <b class="calibre13">Auto-Play on Selection</b> option to the Transport in Media Pool.</li>
+<li class="calibre9"><b class="calibre13">WG-77999</b> (Acoustics) When using the new automatic clustering feature, emitters are now clustered according to the room they reside in.</li>
+<li class="calibre9"><b class="calibre13">WG-78079</b> Added buttons to the Media Pool Databases tab to create databases and virtual folders.</li>
+<li class="calibre9"><b class="calibre13">WG-78508</b> Creating a new filter in the Media Pool now automatically displays the Filters page.</li>
+</ul>
+</div></div></div></body></html>

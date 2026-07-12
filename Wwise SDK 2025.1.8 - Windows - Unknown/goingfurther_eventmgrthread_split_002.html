@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Optimizing CPU usage</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="goingfurther_bankmgrthread"></a>
+Bank Manager Thread</h1>
+<p class="calibre7">By default, the Wwise Sound Engine processes bank loading, unloading, and preparation in a dedicated thread named <code class="calibre14">AK::BankManager</code>, controlled by the <code class="calibre14"><a class="pcalibre el" href="struct_ak_platform_init_settings_a1cd3a496ea65bcdb6ace3b43b211e25f_split_000.html#a1cd3a496ea65bcdb6ace3b43b211e25f" title="Bank manager threading properties (its default priority is AK_THREAD_PRIORITY_NORMAL)">AkPlatformInitSettings::threadBankManager</a></code> parameters. This thread is automatically signalled whenever the client calls a bank operation such as <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">AK::SoundEngine::LoadBank</a></code> or <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a2e6ebb779470b43d78984c27f6a0c238_split_000.html#a2e6ebb779470b43d78984c27f6a0c238">AK::SoundEngine::PrepareEvent</a></code>. The synchronous versions of these calls block until the Bank Manager thread finishes processing the requested operation and then returns the result. The asynchronous versions of these calls put the operation in a queue for the thread to process later. When the Bank Manager thread processes an asynchronous request, it calls the <code class="calibre14">AkBankCallbackFunc</code> function to send a notification about the result.</p>
+<p class="calibre7">To disable the thread, set <code class="calibre14"><a class="pcalibre el" href="struct_ak_init_settings_a3f9f40766762c100b829467ffaa31b24_split_000.html#a3f9f40766762c100b829467ffaa31b24" title="Use a Wwise-owned thread for loading sound banks. If set to false, bank-loading will occur only insid...">AkInitSettings::bUseSoundBankMgrThread</a></code> to <code class="calibre14">false</code>. This mode has two effects:</p>
+<ul class="calibre8">
+<li class="calibre9">Synchronous bank operations are executed on the calling thread.</li>
+<li class="calibre9">Asynchronous bank operations are executed after the client calls <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a1bb80e2fe3b8051fb9ece6dc9bb1fbb6_split_000.html#a1bb80e2fe3b8051fb9ece6dc9bb1fbb6">AK::SoundEngine::ProcessBanks</a></code>.</li>
+</ul>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="caution.gif"/></td><td class="calibre17"><b class="calibre13">Caution:</b> In this mode, <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a1bb80e2fe3b8051fb9ece6dc9bb1fbb6_split_000.html#a1bb80e2fe3b8051fb9ece6dc9bb1fbb6">AK::SoundEngine::ProcessBanks</a></code> and synchronous bank operations are not thread-safe. The Sound Engine expects a single thread to perform these calls. </td></tr>
+</tbody></table>
+<p class="calibre7"><code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a1bb80e2fe3b8051fb9ece6dc9bb1fbb6_split_000.html#a1bb80e2fe3b8051fb9ece6dc9bb1fbb6">AK::SoundEngine::ProcessBanks</a></code> must be called once per game frame after all asynchronous bank operations have been requested.</p>
+</div></div></div></body></html>

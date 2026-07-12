@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Audiokinetic Stream Manager Initialization Settings</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_5"><a class="pcalibre1 anchor" id="streamingmanager_settings_defmanagerinit_device_fTargetAutoStmBufferLength"></a>
+Target Buffering Length</h2>
+<p class="calibre7"><a class="pcalibre el" href="struct_ak_device_settings_af396c1626da7df1bbb6d9129e132b02f_split_000.html#af396c1626da7df1bbb6d9129e132b02f" title="Targetted automatic stream buffer length (ms). When a stream reaches that buffering,...">AkDeviceSettings::fTargetAutoStmBufferLength</a> is a heuristic for a device’s I/O scheduler. It applies to automatic streams only. It specifies the ideal buffering time that should be reached, per stream, in milliseconds. The Stream Manager performs I/O for a given stream until that buffering length is met. The time value translates into buffer size using the stream’s throughput heuristic. For example, a 16-bit stereo sound sampled at 44.1 kHz requires a throughput of 172.3 KB/s. If the target buffer length is set to 380 ms, the target buffer size for this stream will be about 64 KB. With more buffering, streams are less likely to starve. On the other hand, the I/O scheduler will be busier and use more CPU, and a larger amount of memory in the streaming I/O pool. The optimal value depends mainly on the low-level storage device bandwidth and the amount of memory available for streaming. Fast devices should use a smaller buffering length, whereas slower devices, or devices whose throughput has a large standard deviation (due to seeking, for example) should use a larger value. When all automatic streams reach their target buffering length, and there is no pending standard streaming operation, the I/O scheduler becomes idle.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="tip.gif"/></td><td class="calibre17"><b class="calibre13">Tip:</b> The ideal target buffering length is proportional to the time at which your low-level device transfers data. Try to specify the lowest value possible without having source starvation notifications appear in the Wwise Profiler, under reasonable conditions, with a sufficiently large I/O memory size. Once this is done, you may reduce the I/O memory size to the peak usage value. </td></tr>
+</tbody></table>
+<p class="calibre7">Default: 380 ms.</p>
+</div></div></div></body></html>

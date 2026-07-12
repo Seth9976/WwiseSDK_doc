@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AkCmd_SetMultipleObstructionAndOcclusion Struct Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_1">Detailed Description</h2>
+<div class="calibre2"><p class="calibre7">Sets a game object's obstruction and occlusion value for objects with multiple positions. This command differs from AkCommand_SetObjectObstructionAndOcclusion as a list of obstruction/occlusion pair is provided and each obstruction/occlusion pair will affect the corresponding position defined at the same index. </p><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> In the case the number of obstruction/occlusion pairs is smaller than the number of positions, remaining positions' obstruction/occlusion values are set to 0.0. </td></tr>
+</tbody></table>
+<p class="calibre7">The Sound Engine expects an array of <code class="calibre14"><a class="pcalibre el" href="struct_ak_obstruction_occlusion_values_split_000.html" title="Obstruction/occlusion pair for a position.">AkObstructionOcclusionValues</a></code> objects after the command. The number of items must correspond to the value of <code class="calibre14">numValues</code>. For example: </p><pre class="fragment">AkObstructionOcclusionValues values[2]; // Initialize array as required
+auto cmd = (AkCmd_SetMultipleObstructionAndOcclusion*)AK_CommandBuffer_Add(buffer, AkCommand_SetMultipleObstructionAndOcclusion);
+cmd-&gt;numValues = 2;
+AK_CommandBuffer_AddArray(buffer, sizeof(AkObstructionOcclusionValues), cmd-&gt;numValues, values);
+</pre><p class="calibre7">This command can fail for the following reasons:</p><ul class="calibre8">
+<li class="calibre9">AK_InvalidParameter: <code class="calibre14">emitterID</code> is not a valid game object ID, incomplete array after the command, or obstruction/occlusion values are outside the accepted range</li>
+<li class="calibre9">AK_InsufficientMemory: Not enough memory to complete the operation</li>
+<li class="calibre9">AK_IDNotFound: <code class="calibre14">emitterID</code> is not a registered game object ID.</li>
+</ul>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="_ak_command_types_8h_a001b78645b8b0335c0dd2e128cca2cfd_split_001.html#a001b78645b8b0335c0dd2e128cca2cfdadd3a1055f0c89a3c9f1b9a253b162569" title="See AkCmd_SetMultipleObstructionAndOcclusion.">AkCommand_SetMultipleObstructionAndOcclusion</a></li>
+<li class="calibre9"><a class="pcalibre el" href="_ak_command_buffer_8h_a7512f07e3e8f24cf4ed15bebf3a6392e_split_000.html#a7512f07e3e8f24cf4ed15bebf3a6392e">AK_CommandBuffer_AddArray</a></li>
+<li class="calibre9"><a class="pcalibre el" href="soundengine_obsocc_split_000.html">Obstruction and Occlusion with Game-defined Auxiliary Sends</a></li>
+<li class="calibre9"><a class="pcalibre el" href="soundengine_environments_split_000.html">Integration Details - Environments and Game-defined Auxiliary Sends</a> </li>
+</ul>
+</dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_ak_command_types_8h_source_split_001.html#l00533">533</a> of file <a class="pcalibre el" href="_ak_command_types_8h_source_split_000.html">AkCommandTypes.h</a>.</p>
+</div></div><!-- contents -->
+
+
+</body></html>

@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2019.1.2</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_5"><a class="pcalibre1 anchor" id="bugs_2019_1_2"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-40466</b> Fixed: (Switch) Wwise Motion plug-in crash on device disconnection.</li>
+<li class="calibre9"><b class="calibre13">WG-40897</b> Fixed: Sorting in the Multi Editor via the Value column.</li>
+<li class="calibre9"><b class="calibre13">WG-41506</b> Fixed: Auto-scroll won't stop when dragging a rectangle in the Project Explorer.</li>
+<li class="calibre9"><b class="calibre13">WG-41796</b> Fixed: Opus incorrectly converts 1.1 channel source to stereo under certain conditions.</li>
+<li class="calibre9"><b class="calibre13">WG-42339</b> Fixed: Attenuation volume sticks to current value when a sound's attenuation is disabled via RTPC while playing, instead of resetting to 0dB.</li>
+<li class="calibre9"><b class="calibre13">WG-42340</b> Fixed: Soundbanks containing CrankCaseAudio REV data were sometimes not binary identical at each generation. <br class="calibre10"/>
+ Fixed: Overall stability fixes.</li>
+<li class="calibre9"><b class="calibre13">WG-42436</b> Fixed: Missing unregistration to a global callback that could lead to errors when re initializing the sound engine twice.</li>
+<li class="calibre9"><b class="calibre13">WG-42488</b> Fixed: (UWP) Gamepad vibration would persist for several seconds after Motion output was removed.</li>
+<li class="calibre9"><b class="calibre13">WG-42510</b> Fixed: Rare occurrence of Debug Assert in AkMidiCtx.cpp.</li>
+<li class="calibre9"><b class="calibre13">WG-42525</b> Fixed: (macOS) Audio loss when another application acquires Bluetooth audio input.</li>
+<li class="calibre9"><b class="calibre13">WG-42769</b> Fixed: Auxiliary send values reported by the voice inspector for the same auxiliary bus object with two different listeners.</li>
+<li class="calibre9"><b class="calibre13">WG-42992</b> Fixed: (Magic Leap) Opus codec and Granular Synth plug-in were erroneously reported unavailable by Wwise.</li>
+<li class="calibre9"><b class="calibre13">WG-43025</b> Fixed: <a class="pcalibre el" href="namespace_microsoft_split_000.html">Microsoft</a> Spatial Sound Platform output plug-in causes audio crackling if output device is not configured to be 48 kHz.</li>
+<li class="calibre9"><b class="calibre13">WG-43064</b> Fixed: Wwise freezes on AAC conversion.</li>
+<li class="calibre9"><b class="calibre13">WG-43083</b> Fixed: For a continuous Blend Container where a sound was active in multiple zones of the same Blend Track, the sound was also considered active in between the zones.</li>
+<li class="calibre9"><b class="calibre13">WG-43113</b> Fixed: Crash when loading project with invalid Music Switch Container or Dialogue Event arguments.</li>
+<li class="calibre9"><b class="calibre13">WG-43146</b> Fixed: <a class="pcalibre el" href="namespace_microsoft_split_000.html">Microsoft</a> Spatial Sound Platform Output plugin caused audio crackling if audio thread was not pumped at a regular rate. <br class="calibre10"/>
+ Fixed: Audio from <a class="pcalibre el" href="namespace_microsoft_split_000.html">Microsoft</a> Spatial Sound Platform Output plugin was not routed to the correct output device.</li>
+<li class="calibre9"><b class="calibre13">WG-43149</b> Fixed: Crash when connecting to a game during playback of a Random Container with trigger rate and 3D paths enabled.</li>
+<li class="calibre9"><b class="calibre13">WG-43172</b> Fixed: When the listener in Spatial Audio is changed via <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_ae7fb9da6f767410842d1a47097fc8913_split_000.html#ae7fb9da6f767410842d1a47097fc8913">AK::SpatialAudio::RegisterListener()</a></code>, existing rooms are not updated to send to the new listener.</li>
+<li class="calibre9"><b class="calibre13">WG-43230</b> Fixed: (PS4) Deadlock in the SCE Audio 3D Object Panner plug-in.</li>
+<li class="calibre9"><b class="calibre13">WG-43238</b> Fixed: Custom Attenuation loses its owner (Used By field in the Attenuation Editor).</li>
+<li class="calibre9"><b class="calibre13">WG-43265</b> Fixed: Import dialog limiting the number of imported files on Mac.</li>
+<li class="calibre9"><b class="calibre13">WG-43271</b> Fixed: Division by zero in Crankcase REV causing an infinite loop.</li>
+<li class="calibre9"><b class="calibre13">WG-43315</b> Fixed: When using the Advanced Profiler in tab split, the right or bottom panel did not always update when changing the cursor position.</li>
+<li class="calibre9"><b class="calibre13">WG-43336</b> Fixed: Rare crash while generating banks.</li>
+<li class="calibre9"><b class="calibre13">WG-43350</b> Fixed: Rendered Effects are instantiated in the sound engine when Wwise is connected.</li>
+<li class="calibre9"><b class="calibre13">WG-43368</b> Fixed: Crash in Izotope Trash Box effect when the engine is using a number of sample per buffer that is not a power of two.</li>
+<li class="calibre9"><b class="calibre13">WG-43404</b> Fixed: WwiseCLI could suffer significant performance degradation (startup time) when starting several instances at the same time.</li>
+<li class="calibre9"><b class="calibre13">WG-43412</b> Fixed: Effects were not rendered if there was a State Group controlling either the Bypass Effect x or Bypass All, or one of the Effect's properties.</li>
+<li class="calibre9"><b class="calibre13">WG-43426</b> Fixed: Collapsing selected items in Contents Editor while Multi-Editor is open was taking too long.</li>
+<li class="calibre9"><b class="calibre13">WG-43438</b> Fixed: Plug-ins generated with wp.py cannot build when located on a different drive than WWISEROOT%.</li>
+<li class="calibre9"><b class="calibre13">WG-43440</b> Fixed: The "None" part of a Path in an Interactive Music Switch Container is incorrectly interpreted as a wildcard ("*"). Important note: SoundBanks must be re-generated to fix the issue.</li>
+<li class="calibre9"><b class="calibre13">WG-43459</b> Fixed: Occasional crash when editing events that contain Post Event actions.</li>
+<li class="calibre9"><b class="calibre13">WG-43480</b> Fixed: Severe delay when connecting to a game with a large bus hierarchy.</li>
+<li class="calibre9"><b class="calibre13">WG-43496</b> Fixed: Assert when adding or removing output devices.</li>
+<li class="calibre9"><b class="calibre13">WG-43528</b> Fixed: Help was not displayed for effect and source plug-ins.</li>
+<li class="calibre9"><b class="calibre13">WG-43545</b> Fixed: Crash when loading a 2019.1 project that has Motion in it, with a Wwise installation that doesn't have the Motion plug-in.</li>
+<li class="calibre9"><b class="calibre13">WG-43550</b> Fixed: Some UI elements were not updating on changes of State Group assignment.</li>
+<li class="calibre9"><b class="calibre13">WG-43555</b> Fixed: Rare memory leak and assert in sound engine.</li>
+<li class="calibre9"><b class="calibre13">WG-43586</b> Fixed: Project change notifications are not always shown when doing file operations outside of Wwise.</li>
+<li class="calibre9"><b class="calibre13">WG-43600</b> Fixed: States are not applied to "Enable Attenuation" on playback.</li>
+<li class="calibre9"><b class="calibre13">WG-43683</b> Fixed: Rare debug assert when playing a MIDI music clip.</li>
+<li class="calibre9"><b class="calibre13">WG-43814</b> Fixed wrong application of static values in-game on Exclusive RTPCs upon Wwise connection.</li>
+<li class="calibre9"><b class="calibre13">WG-43956</b> Fixed: Multiple Asserts when adding a new platform by copying settings from another one.</li>
+<li class="calibre9"><b class="calibre13">WG-43522</b> (Linux) PulseAudio is now the default System Sink on Linux.</li>
+</ul>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="reference_platform_2019_1_2_split_000.html">Platform Requirements 2019.1.2</a> </li>
+</ul>
+</dd></dl>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

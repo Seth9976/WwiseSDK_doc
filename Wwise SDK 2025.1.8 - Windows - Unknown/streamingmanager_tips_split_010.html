@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>I/O Tips, Troubleshooting and Optimization</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_9"><a class="pcalibre1 anchor" id="streamingmanager_tips_streammgrmemorypool"></a>
+Reducing the Stream Manager Pool Memory Usage</h2>
+<p class="calibre7">The Stream Manager memory pool is used for small object allocations: device and stream objects, transfer structures, storage for asynchronous file opening, stream memory look-up tables, and so on. The typical size required for this pool is quite small, but ideally, ensure that you never run out of memory in this pool. This would provoke unrecoverable I/O failures. Note that most of it is allocated when devices are created.</p>
+<p class="calibre7">The following settings will decrease the memory required from the Stream Manager pool:</p><ul class="calibre8">
+<li class="calibre9">Decrease the maximum number of concurrent requests (<a class="pcalibre el" href="struct_ak_device_settings_af49f8b3af816b58296e952b20de2d7a3_split_000.html#af49f8b3af816b58296e952b20de2d7a3" title="Maximum number of transfers that can be sent simultaneously to the Low-Level I/O.">AkDeviceSettings::uMaxConcurrentIO</a>);</li>
+<li class="calibre9">Disable the stream cache (<a class="pcalibre el" href="struct_ak_device_settings_aaa0e8dc2b18f827559aaf8672705dd49_split_000.html#aaa0e8dc2b18f827559aaf8672705dd49" title="If true, the device attempts to reuse I/O buffers that have already been streamed from disk....">AkDeviceSettings::bUseStreamCache</a>);</li>
+<li class="calibre9">Execute synchronous file opens (refer to <a class="pcalibre el" href="streamingmanager_lowlevel_split_004.html#streamingmanager_lowlevel_location_deferred_open">Deferred Opening</a> for more details);</li>
+<li class="calibre9">Limit the number of streams opened at the same time. </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

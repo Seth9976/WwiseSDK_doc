@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>New Features Overview 2018.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_18"><a class="pcalibre1 anchor" id="geo_diffraction"></a>
+Geometric Diffraction</h2>
+<p class="calibre7">The spatial audio geometry API:</p><ul class="calibre8">
+<li class="calibre9">Calculates paths around world geometry and determines how much a sound from an emitter must diffract to reach the listener.</li>
+<li class="calibre9">Is rendered in the same manner as with the Rooms and Portals API - either by using obstruction (Volume, LPF, and HPF processing per sound path) or by binding it to an RTPC.</li>
+<li class="calibre9">Can be used in conjunction with Rooms and Portals. The geometric API models diffraction with greater detail that would be possible using Portals alone, whereas Rooms and Portals offer broad strokes with lower CPU utilization.</li>
+<li class="calibre9">Client-side visibility ray-testing is no longer necessary to determine obstruction values when using geometric diffraction on a spatial audio emitter.</li>
+</ul>
+<div class="calibre2">
+<img alt="" src="diffraction_screenshot.png" class="inline"/>
+</div>
+</div></div></div></body></html>

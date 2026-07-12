@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak_wwise_plugin_gui_windows_v1::WindowProc</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="structak__wwise__plugin__gui__windows__v1_a61a4925c4d1df3c0cb1d05b35b5bbc46_split_000.html#a61a4925c4d1df3c0cb1d05b35b5bbc46" class="pcalibre1 anchor">◆ </a></span>WindowProc</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">bool(* ak_wwise_plugin_gui_windows_v1::WindowProc) (struct <a class="pcalibre el" href="structak__wwise__plugin__gui__windows__instance__v1_split_000.html">ak_wwise_plugin_gui_windows_instance_v1</a> *in_this, <a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_a5a9328b141630d1de228c92e81e9034d_split_000.html#a5a9328b141630d1de228c92e81e9034d">AK::Wwise::Plugin::eDialog</a> in_eDialog, HWND in_hWnd, uint32_t in_message, WPARAM in_wParam, LPARAM in_lParam, LRESULT *out_lResult)</td>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+
+<p class="calibre7">Window message handler for dialogs. </p>
+<p class="calibre7">This is very similar to a standard WIN32 window procedure.</p>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_this</td><td class="calibre17">Current instance of this interface. </td></tr>
+    <tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_eDialog</td><td class="calibre17">The dialog type. </td></tr>
+    <tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_hWnd</td><td class="calibre17">The window handle of the dialog. </td></tr>
+    <tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_message</td><td class="calibre17">The incoming message. This is a standard Windows message ID (ex. WM_PAINT). </td></tr>
+    <tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_wParam</td><td class="calibre17">The WPARAM of the message (see MSDN). </td></tr>
+    <tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_lParam</td><td class="calibre17">The LPARAM of the message (see MSDN). </td></tr>
+    <tr class="calibre16"><td class="calibre17">[out]</td><td class="paramname">out_lResult</td><td class="calibre17">The returned value if the message has been processed (it is only considered if the method also returns true). </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">True if the message has been processed by the plug-in, False otherwise</dd></dl>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="plugin_frontend_windows_split_003.html#wwiseplugin_dialogcode">Dialog Acquisition</a> </li>
+</ul>
+</dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_g_u_i_windows_8h_source.html#l00154">154</a> of file <a class="pcalibre el" href="_g_u_i_windows_8h_source.html">GUIWindows.h</a>.</p>
+
+<p class="calibre7">Referenced by <a class="pcalibre el" href="_g_u_i_windows_8h_source.html#l00229">AK.Wwise::Plugin::V1::GUIWindows::Interface::Interface()</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

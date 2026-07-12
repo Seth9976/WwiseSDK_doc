@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>New Features Overview 2021.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_2"><a class="pcalibre1 anchor" id="features_21_1_audio_bus_audio_objects"></a>
+Audio Bus: Audio Objects</h2>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="features_21_1_bus_config_audio_objects"></a>
+Bus Configuration: Audio Objects</h3>
+<p class="calibre7">A new option called Audio Objects has been added to the list of available Audio Bus and Aux Bus Configurations. Setting the Bus Configuration to Audio Objects enables the processing of sounds routed to that particular bus individually, using their 3D information and custom Metadata.</p>
+<div class="calibre2">
+<img alt="" src="busconfigaudioobjects.png" class="inline"/>
+</div>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="features_21_1__bus_status_icons"></a>
+Bus Status: Icons</h3>
+<p class="calibre7">A suite of icons has been added to indicate the status of an Audio Bus or Auxiliary Bus at-a-glance. These icons are seen in the Project Explorer Master-Mixer Hierarchy and in some of the profiling views. The bus status icons represent the authored processing status of busses and provide a way to understand the mixing or Audio Object flow through to the Master Audio Bus.</p>
+<div class="calibre2">
+<img alt="" src="busstatusicons.png" class="inline"/>
+</div>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="features_21_1_bus_status_processing"></a>
+Bus Status: Processing, Bus, and Output Configuration</h3>
+<p class="calibre7">Busses in the Master-Mixer Hierarchy have been updated to present aspects of their Bus status to aid in the understanding of authored properties. Specifically, information about the Processing status, Bus Configuration, and Output Configuration is reflected in the Bus Status (Authoring) group in the General Settings Tab of the Property Editor. This information is updated while authoring, as well as when connected and profiling. It helps to expose the effect of a bus on the sounds routed through it.</p>
+<div class="calibre2">
+<img alt="" src="busconfigstatusnotmixing.png" class="inline"/>
+</div>
+<p class="calibre7"> <br class="calibre10"/>
+ </p><div class="calibre2">
+<img alt="" src="busconfigstatusprocessing.png" class="inline"/>
+</div>
+<p class="calibre7"> <br class="calibre10"/>
+ </p><div class="calibre2">
+<img alt="" src="busconfigstatusaudioobjects.png" class="inline"/>
+</div>
+<p class="calibre7">Additional information is presented when the mouse hovers over the Processing field. This tooltip lists aspects of the bus that contribute to the Processing status.</p>
+<p class="calibre7">These include:</p><ul class="calibre8">
+<li class="calibre9">Is a Master bus</li>
+<li class="calibre9">Is an Auxiliary bus</li>
+<li class="calibre9">Has an RTPC on bus volume</li>
+<li class="calibre9">Has an explicit Channel Configuration</li>
+<li class="calibre9">Has an Auxiliary Send</li>
+<li class="calibre9">Has Effects</li>
+<li class="calibre9">Has Listener Relative Routing</li>
+<li class="calibre9">Has Speaker Panning set to Balance-Fade</li>
+<li class="calibre9">Has HDR</li>
+<li class="calibre9">Has a Mixer Plugin.</li>
+</ul>
+<div class="calibre2">
+<img alt="" src="busstatusauthoring.png" class="inline"/>
+</div>
+</div></div></div></body></html>

@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::SoundEngine::PrepareBank</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="namespace_a_k_1_1_sound_engine_a7d92b3c386cd60e76be54ca69f051c09_split_000.html#a7d92b3c386cd60e76be54ca69f051c09" class="pcalibre1 anchor">◆ </a></span>PrepareBank() <span class="permalink">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_sound_engine_export_8h_ac6e96d34dfc0e12f9aaa7a47f4e9c322_split_000.html#ac6e96d34dfc0e12f9aaa7a47f4e9c322">AKSOUNDENGINE_API</a> <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::SoundEngine::PrepareBank </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a21e0dbb1f9aebfc22fdd88634dc1067b_split_000.html#a21e0dbb1f9aebfc22fdd88634dc1067b">AK::SoundEngine::PreparationType</a> </td>
+          <td class="paramname"><em class="calibre59">in_PreparationType</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">const char * </td>
+          <td class="paramname"><em class="calibre59">in_pszString</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ae775cb922db262649dbbaa3fa8117d83_split_000.html#ae775cb922db262649dbbaa3fa8117d83">AK::SoundEngine::AkBankContent</a> </td>
+          <td class="paramname"><em class="calibre59">in_uFlags</em> = <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ae775cb922db262649dbbaa3fa8117d83_split_001.html#ae775cb922db262649dbbaa3fa8117d83a7f8df10e1bee34e8a2d30e191c32084e">AkBankContent_All</a></code>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_a365fb591a961a6db1e5eb9a1a18dc555_split_000.html#a365fb591a961a6db1e5eb9a1a18dc555">AkBankType</a> </td>
+          <td class="paramname"><em class="calibre59">in_bankType</em> = <code class="calibre14"><a class="pcalibre el" href="_ak_enums_8h_a53237f7d5d95d0b7547549dc0cdd3207_split_001.html#a53237f7d5d95d0b7547549dc0cdd3207af8f3522168778f083e00dbd3ce444002">AkBankType_User</a></code> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">This function will load the Events, structural content, and optionally, the media content from the SoundBank. If the flag AkBankContent_All is specified, <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a7d92b3c386cd60e76be54ca69f051c09_split_000.html#a7d92b3c386cd60e76be54ca69f051c09">PrepareBank()</a> will load the media content from the bank; but, as opposed to <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">LoadBank()</a>, the media will be loaded one media item at a time instead of in one contiguous memory block. Using <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a7d92b3c386cd60e76be54ca69f051c09_split_000.html#a7d92b3c386cd60e76be54ca69f051c09">PrepareBank()</a>, alone or in combination with <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a2e6ebb779470b43d78984c27f6a0c238_split_000.html#a2e6ebb779470b43d78984c27f6a0c238">PrepareEvent()</a>, will prevent in-memory duplication of media at the cost of some memory fragmentation. Calling this function specifying the flag AkBankContent_StructureOnly will load only the structural part (including events) of this bank, allowing using <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a2e6ebb779470b43d78984c27f6a0c238_split_000.html#a2e6ebb779470b43d78984c27f6a0c238">PrepareEvent()</a> to load media on demand. <br class="calibre10"/>
+ </p><dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="soundengine_banks_loading_split_013.html#soundengine_banks_preparingbanks">Preparing Banks</a></li>
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">AK::SoundEngine::LoadBank()</a></code></li>
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a21e0dbb1f9aebfc22fdd88634dc1067b_split_000.html#a21e0dbb1f9aebfc22fdd88634dc1067b">AK::SoundEngine::PreparationType</a></code> </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Remarks</dt><dd class="calibre24"><code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a7d92b3c386cd60e76be54ca69f051c09_split_000.html#a7d92b3c386cd60e76be54ca69f051c09">PrepareBank()</a></code>, when called with the flag <code class="calibre14">AkBankContent_StructureOnly</code>, requires additional calls to <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a2e6ebb779470b43d78984c27f6a0c238_split_000.html#a2e6ebb779470b43d78984c27f6a0c238">PrepareEvent()</a></code> to load the media for each event. <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a2e6ebb779470b43d78984c27f6a0c238_split_000.html#a2e6ebb779470b43d78984c27f6a0c238">PrepareEvent()</a></code>, however, is unable to access media content contained within SoundBanks and requires that the media be available as loose files in the file system. This flag may be useful to implement multiple loading configurations; for example, a game may have a tool mode that uses <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a2e6ebb779470b43d78984c27f6a0c238_split_000.html#a2e6ebb779470b43d78984c27f6a0c238">PrepareEvent()</a></code> to load loose files on-demand and, also, a game mode that uses <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">LoadBank()</a></code> to load the bank in entirety. </dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_PreparationType</td><td class="calibre17">Preparation type ( Preparation_Load or Preparation_Unload ) </td></tr>
+    <tr class="calibre16"><td class="paramname">in_pszString</td><td class="calibre17">Name of the bank to Prepare/Unprepare. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_uFlags</td><td class="calibre17">Structures only (including events) or all content. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_bankType</td><td class="calibre17">Type of the bank to Prepare/Unprepare. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

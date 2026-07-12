@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2022.1.4</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="generic_community_bugs_2022_1_4"></a>
+Fixes for Community-Reported Bugs</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-61946</b> Fixed: Some memory addresses are not sufficiently aligned.</li>
+<li class="calibre9"><b class="calibre13">WG-63863</b> Fixed: (WAAPI) Not all dialogs are suppressed in automation mode when doing import operations on a project under source control.</li>
+<li class="calibre9"><b class="calibre13">WG-64015</b> Fixed: Crash when issuing multiple close commands to Wwise during a Perforce source control operation.</li>
+<li class="calibre9"><b class="calibre13">WG-64424</b> Fixed: Adding an RTPC curve using a built-in parameter on a playing sound causes the effect of the curve to be incorrectly accumulated.</li>
+<li class="calibre9"><b class="calibre13">WG-64495</b> Fixed: Crash during <code class="calibre14">Ak3DAudioMixer::TriageAndMix</code> in low-memory scenarios.</li>
+<li class="calibre9"><b class="calibre13">WG-64496</b> Fixed: Music Switch Containers are not packaged into SoundBanks correctly when the container includes a switch target that is not a child of the container in the project hierarchy.</li>
+<li class="calibre9"><b class="calibre13">WG-64632</b> Fixed: Possible crash when clicking an object in Project Explorer.</li>
+<li class="calibre9"><b class="calibre13">WG-64669</b> Fixed: Deadlock in Transitions of a Music Playlist Container that do not validate essential property values.</li>
+<li class="calibre9"><b class="calibre13">WG-64683</b> Fixed: SoundBank GameSync exclusions don't work with Interactive Music objects.</li>
+<li class="calibre9"><b class="calibre13">WG-64849</b> Fixed: Some bus structures with Listener Relative Routing can create situations where two Master Audio Busses erroneously send to the same Output Device twice in one tick, resulting in lost audio or other errors.</li>
+<li class="calibre9"><b class="calibre13">WG-64881</b> Fixed: Possible deadlock in <code class="calibre14">AK::JobMgr::Internal::JobPool_initEntry</code>.</li>
+<li class="calibre9"><b class="calibre13">WG-64898</b> Fixed: Music Stinger parent object(s) not packaged in SoundBanks.</li>
+<li class="calibre9"><b class="calibre13">WG-64919</b> Fixed: Crash due to invalid memory access in <code class="calibre14">CAkURenderer::RemoveFromActiveNodes</code> after performing Stop All action.</li>
+<li class="calibre9"><b class="calibre13">WG-64949</b> Fixed: Continuous Switch Containers sometimes leave an extra sound playing when the initial switch isn't set before initial playback. Also, when two different instances are playing on the same game object, switching results in only one instance playing on the switch. </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

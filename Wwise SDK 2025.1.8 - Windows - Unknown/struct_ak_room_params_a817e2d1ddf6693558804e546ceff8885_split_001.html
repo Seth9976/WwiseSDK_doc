@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AkRoomParams::ReverbAuxBus</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="struct_ak_room_params_a817e2d1ddf6693558804e546ceff8885_split_000.html#a817e2d1ddf6693558804e546ceff8885" class="pcalibre1 anchor">◆ </a></span>ReverbAuxBus</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_typedefs_8h_a90cfd84c4feec568941a46c13aa964e0_split_000.html#a90cfd84c4feec568941a46c13aa964e0">AkAuxBusID</a> AkRoomParams::ReverbAuxBus</td>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">The reverb aux bus that is associated with this room. <br class="calibre10"/>
+ When Spatial Audio is told that a game object is in a particular room via SetGameObjectInRoom, a send to this aux bus will be created to model the reverb of the room. Using a combination of Rooms and Portals, Spatial Audio manages which game object the aux bus is spawned on, and what control gain is sent to the bus. <br class="calibre10"/>
+ When a game object is inside a connected portal, as defined by the portal's orientation and extent vectors, both this aux send and the aux send of the adjacent room are active. Spatial audio modulates the control value for each send based on the game object's position, in relation to the portal's z-azis and extent, to crossfade the reverb between the two rooms. If more advanced control of reverb is desired, SetGameObjectAuxSendValues can be used to add additional sends on to a game object.</p><ul class="calibre8">
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_a3f080206f12c04b3464838cb18c43f4e_split_000.html#a3f080206f12c04b3464838cb18c43f4e">AK::SpatialAudio::SetGameObjectInRoom</a></li>
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_af960fca0239e219b9d08c2659fe9e5d4_split_000.html#af960fca0239e219b9d08c2659fe9e5d4">AK::SoundEngine::SetGameObjectAuxSendValues</a> </li>
+</ul>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_ak_spatial_audio_types_8h_source_split_000.html#l00699">699</a> of file <a class="pcalibre el" href="_ak_spatial_audio_types_8h_source_split_000.html">AkSpatialAudioTypes.h</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

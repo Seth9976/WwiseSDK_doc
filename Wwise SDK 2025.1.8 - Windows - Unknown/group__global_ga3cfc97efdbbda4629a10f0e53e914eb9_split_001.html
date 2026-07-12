@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak_wwise_plugin_property_set_braces_values</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="group__global_ga3cfc97efdbbda4629a10f0e53e914eb9_split_000.html#ga3cfc97efdbbda4629a10f0e53e914eb9" class="pcalibre1 anchor">◆ </a></span>ak_wwise_plugin_property_set_braces_values</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">enum <a class="pcalibre el" href="group__global_ga3cfc97efdbbda4629a10f0e53e914eb9_split_000.html#ga3cfc97efdbbda4629a10f0e53e914eb9">ak_wwise_plugin_property_set_braces_values</a></td>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+
+<p class="calibre7">Bitfield values of brace types, used to delay or avoid certain actions normally triggered as a result of a property set mutation. </p>
+<ul class="calibre8">
+<li class="calibre9"><a class="pcalibre el" href="group__global_ga3cfc97efdbbda4629a10f0e53e914eb9_split_001.html#gga3cfc97efdbbda4629a10f0e53e914eb9a6dff872c6af8fb5f681332bef9926c58">AK_WWISE_PLUGIN_PROPERTY_SET_BRACES_NO_NOTIFY</a> : Do not notify of changes</li>
+<li class="calibre9"><a class="pcalibre el" href="group__global_ga3cfc97efdbbda4629a10f0e53e914eb9_split_001.html#gga3cfc97efdbbda4629a10f0e53e914eb9ab38bef13078d1c5551ed26629a62920c">AK_WWISE_PLUGIN_PROPERTY_SET_BRACES_NO_UNDO_EVENTS</a> : Do not create undo events</li>
+<li class="calibre9"><a class="pcalibre el" href="group__global_ga3cfc97efdbbda4629a10f0e53e914eb9_split_001.html#gga3cfc97efdbbda4629a10f0e53e914eb9a2d3687f237127acb70930ab25721d775">AK_WWISE_PLUGIN_PROPERTY_SET_BRACES_SET_VALUE</a> : Collapse set values notifications once the brace is closed</li>
+<li class="calibre9"><a class="pcalibre el" href="group__global_ga3cfc97efdbbda4629a10f0e53e914eb9_split_001.html#gga3cfc97efdbbda4629a10f0e53e914eb9ad88f6db345109a3b576a42832153ee88">AK_WWISE_PLUGIN_PROPERTY_SET_BRACES_REORDER_CHILDREN</a> : Children are being reordered</li>
+<li class="calibre9"><a class="pcalibre el" href="group__global_ga3cfc97efdbbda4629a10f0e53e914eb9_split_001.html#gga3cfc97efdbbda4629a10f0e53e914eb9a8c890977bfa84797f378e909e75066f7">AK_WWISE_PLUGIN_PROPERTY_SET_BRACES_DISABLE_PROPERTY_CONSTRAINTS</a> : Disable property constraints</li>
+<li class="calibre9"><a class="pcalibre el" href="group__global_ga3cfc97efdbbda4629a10f0e53e914eb9_split_001.html#gga3cfc97efdbbda4629a10f0e53e914eb9aa950b9a5fe6890beb0816607483361a7">AK_WWISE_PLUGIN_PROPERTY_SET_BRACES_NO_DIRTY</a> : Inhibit the project's dirty state</li>
+<li class="calibre9"><a class="pcalibre el" href="group__global_ga3cfc97efdbbda4629a10f0e53e914eb9_split_001.html#gga3cfc97efdbbda4629a10f0e53e914eb9a495faffff7fa5e3a9b86e9bb8b247624">AK_WWISE_PLUGIN_PROPERTY_SET_BRACES_CREATE_PROPERTY_ON_SET_VALUE</a> : Create a new property when an unknown property is set</li>
+<li class="calibre9"><a class="pcalibre el" href="group__global_ga3cfc97efdbbda4629a10f0e53e914eb9_split_001.html#gga3cfc97efdbbda4629a10f0e53e914eb9ac740cc44214287bc9ae50b8bfcb87265">AK_WWISE_PLUGIN_PROPERTY_SET_BRACES_CHANGE_TO_EXISTING_VALUE_TYPE</a> : Allow a property type change if the provided type differs from its current type</li>
+<li class="calibre9"><a class="pcalibre el" href="group__global_ga3cfc97efdbbda4629a10f0e53e914eb9_split_001.html#gga3cfc97efdbbda4629a10f0e53e914eb9a82ad89401e7643e3db226f15e9acdf90">AK_WWISE_PLUGIN_PROPERTY_SET_BRACES_LOADING</a> : Indicates the object is being loaded</li>
+<li class="calibre9"><a class="pcalibre el" href="group__global_ga3cfc97efdbbda4629a10f0e53e914eb9_split_001.html#gga3cfc97efdbbda4629a10f0e53e914eb9a48784d71f3015ddf7cc7def725db76ad">AK_WWISE_PLUGIN_PROPERTY_SET_BRACES_UNLOADING</a> : Indicates the object is being unloaded</li>
+<li class="calibre9"><a class="pcalibre el" href="group__global_ga3cfc97efdbbda4629a10f0e53e914eb9_split_001.html#gga3cfc97efdbbda4629a10f0e53e914eb9af6b7ca3eb4b0186443eb76b4d7d8b934">AK_WWISE_PLUGIN_PROPERTY_SET_BRACES_DELETING</a> : Indicates the object is being deleted</li>
+<li class="calibre9"><a class="pcalibre el" href="group__global_ga3cfc97efdbbda4629a10f0e53e914eb9_split_001.html#gga3cfc97efdbbda4629a10f0e53e914eb9afa248dae2ff331d3a544ea0fae47a0f0">AK_WWISE_PLUGIN_PROPERTY_SET_BRACES_SET_OBJECT_LIST</a> : Collapse the final set object list once the last brace is closed</li>
+</ul>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v2_1_1_property_set_a639f4f509cdc7e21a55ee6e267628c1a_split_000.html#a639f4f509cdc7e21a55ee6e267628c1a" title="Open one or more brace that denotes the start of a change.">AK::Wwise::Plugin::PropertySet::OpenBraces</a></li>
+<li class="calibre9"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v2_1_1_property_set_ac789793b55569eb816c76a18749d62d6_split_000.html#ac789793b55569eb816c76a18749d62d6" title="Close one or more brace that denotes the end of a change.">AK::Wwise::Plugin::PropertySet::CloseBraces</a> </li>
+</ul>
+</dd></dl>
+<table class="calibre3">
+<tbody class="calibre4"><tr class="calibre16"><th colspan="2" class="calibre35">Enumerator</th></tr><tr class="calibre16"><td class="calibre17"><a id="gga3cfc97efdbbda4629a10f0e53e914eb9a6dff872c6af8fb5f681332bef9926c58" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_PROPERTY_SET_BRACES_NO_NOTIFY </td><td class="calibre17"/></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga3cfc97efdbbda4629a10f0e53e914eb9ab38bef13078d1c5551ed26629a62920c" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_PROPERTY_SET_BRACES_NO_UNDO_EVENTS </td><td class="calibre17"/></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga3cfc97efdbbda4629a10f0e53e914eb9a2d3687f237127acb70930ab25721d775" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_PROPERTY_SET_BRACES_SET_VALUE </td><td class="calibre17"/></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga3cfc97efdbbda4629a10f0e53e914eb9ad88f6db345109a3b576a42832153ee88" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_PROPERTY_SET_BRACES_REORDER_CHILDREN </td><td class="calibre17"/></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga3cfc97efdbbda4629a10f0e53e914eb9a8c890977bfa84797f378e909e75066f7" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_PROPERTY_SET_BRACES_DISABLE_PROPERTY_CONSTRAINTS </td><td class="calibre17"/></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga3cfc97efdbbda4629a10f0e53e914eb9aa950b9a5fe6890beb0816607483361a7" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_PROPERTY_SET_BRACES_NO_DIRTY </td><td class="calibre17"/></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga3cfc97efdbbda4629a10f0e53e914eb9a495faffff7fa5e3a9b86e9bb8b247624" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_PROPERTY_SET_BRACES_CREATE_PROPERTY_ON_SET_VALUE </td><td class="calibre17"/></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga3cfc97efdbbda4629a10f0e53e914eb9ac740cc44214287bc9ae50b8bfcb87265" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_PROPERTY_SET_BRACES_CHANGE_TO_EXISTING_VALUE_TYPE </td><td class="calibre17"/></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga3cfc97efdbbda4629a10f0e53e914eb9a82ad89401e7643e3db226f15e9acdf90" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_PROPERTY_SET_BRACES_LOADING </td><td class="calibre17"/></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga3cfc97efdbbda4629a10f0e53e914eb9a48784d71f3015ddf7cc7def725db76ad" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_PROPERTY_SET_BRACES_UNLOADING </td><td class="calibre17"/></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga3cfc97efdbbda4629a10f0e53e914eb9af6b7ca3eb4b0186443eb76b4d7d8b934" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_PROPERTY_SET_BRACES_DELETING </td><td class="calibre17"/></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga3cfc97efdbbda4629a10f0e53e914eb9afa248dae2ff331d3a544ea0fae47a0f0" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_PROPERTY_SET_BRACES_SET_OBJECT_LIST </td><td class="calibre17"/></tr>
+</tbody></table>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_plugin_def_8h_source.html#l00566">566</a> of file <a class="pcalibre el" href="_plugin_def_8h_source.html">PluginDef.h</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

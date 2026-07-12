@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>I/O Tips, Troubleshooting and Optimization</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_6"><a class="pcalibre1 anchor" id="streamingmanager_tips_troubleshooting_sourcestarvation"></a>
+Troubleshooting Source Starvation</h2>
+<p class="calibre7">Source (I/O) starvation occurs whenever streaming data was not sent to the Stream Manager within the required deadline. An error notification appears in the capture log of the profiler, along with the name/ID of the starving audio source.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="streamingmanager_tips_troubleshooting_sourcestarvation_causes"></a>
+Causes of Source Starvation</h3>
+<p class="calibre7">Source starvation may not be caused by bad I/O settings, but for other reasons instead:</p>
+<p class="calibre7">1) Interactive music: Streaming objects of the Containers hierarchy are scheduled ahead of time, and require that streaming data be ready on time. This look-ahead time is a property of each music track. If starvation occurs with interactive music, it may be because the look-ahead time you have specified is not large enough.</p>
+<p class="calibre7">2) Zero-latency streaming: If you check the "Zero Latency" option in sounds and music tracks properties, the beginning of the streaming file is stored into soundbanks. When you post an event to play them, they start playing immediately, using the data that was stored in the soundbank (prefetched data). But if they run out of prefetched data before the following part of their file has been streamed from disk, source starvation occurs. In such a case, increase the prefetch length.</p>
+<p class="calibre7">Sounds of the Containers hierarchy that are not marked as "Zero-Latency" never start playing before their target buffering length is reached. The time it takes to reach the target buffering constitutes the initial latency of the sound. So if starvation occurs with these sounds, it is probably due to improper or unbalanced I/O conditions.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="streamingmanager_tips_troubleshooting_sourcestarvation_memory"></a>
+Insufficient I/O Memory</h3>
+<p class="calibre7">Apart from asking more throughput than your device can provide, the main cause of starvation is to run out of I/O memory. When the I/O memory pool is full, the streaming device stops sending transfer requests to the low-level I/O. Check the I/O memory usage in the Streaming Devices tab of the profiler.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="streamingmanager_tips_troubleshooting_sourcestarvation_workload"></a>
+Excessive Workload</h3>
+<p class="calibre7">If source starvation is generalized in some situations, and is not specific to some streams, it may be because you are asking too much audio data than what your I/O device can provide. Don't forget that you need to share its bandwidth with other assets of the game. The preferred way of limiting the burden of audio on I/O is to limit the number of streams using the data-driven features of Wwise, like instance limiting and virtual voices.</p>
+<p class="calibre7">Starvation may also be caused if your target buffering is too small. In the Streams tab, pay attention to the Buffering Status and the amount of referenced memory (Ref. Memory). If the Buffering Status bar is gray most of the time (that is, it meets the target), but the referenced memory often drops to 0, it probably means that your target buffering is too small: the I/O thread is mostly idle, but buffering is insufficient to make up for the time it takes to read a buffer from disk once the I/O scheduler decided to post an I/O request.</p>
+<p class="calibre7">On the other hand, if the Buffering Status bar is orange or blue (depending on the theme) for streams that should be in steady state (that is, that have already started playing), it means that the low-level I/O device is too slow to service them. Note that it could also be because there is no more available memory in the I/O pool (check the Streaming Devices tab), or because the scheduler is waiting for the concurrent I/O request count to drop below <a class="pcalibre el" href="struct_ak_device_settings_af49f8b3af816b58296e952b20de2d7a3_split_000.html#af49f8b3af816b58296e952b20de2d7a3" title="Maximum number of transfers that can be sent simultaneously to the Low-Level I/O.">AkDeviceSettings::uMaxConcurrentIO</a>.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="streamingmanager_tips_troubleshooting_sourcestarvation_other"></a>
+Starvation Occurring Systematically in the Presence of Certain Streams</h3>
+<p class="calibre7">Sometimes, source starvation may occur systematically in the presence of certain streams.</p>
+<p class="calibre7">The total throughput required for a streaming device to correctly service all audio streams is balanced between them using heuristics based on their compression format, sample rate, number of channels, and so on. However, some variable bitrate codecs (like Vorbis) sometimes pull more I/O data that they initially declared, during seeking for example, and sometimes also at loop boundaries. If this occurs with seeking, try using a smaller seek table block size in the conversion settings. Note that seeking also occurs in interactive music and with the "From Elapsed Time" virtual voice behavior.</p>
+<p class="calibre7">Otherwise, it can also be caused by a file being far away on disk. Use the platform's tools (or the File Packager utility if you use file packages) to optimize file placement on disk by minimizing seeks at run-time.</p>
+<p class="calibre7">You may also compensate for these throughput requirement spikes by increasing the target buffering length (but watch out for increased I/O memory usage).</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="streamingmanager_tips_troubleshooting_sourcestarvation_moretips"></a>
+More Tips</h3>
+<p class="calibre7">If you stream small looping sounds, it may be useful to enable caching (<a class="pcalibre el" href="struct_ak_device_settings_aaa0e8dc2b18f827559aaf8672705dd49_split_000.html#aaa0e8dc2b18f827559aaf8672705dd49" title="If true, the device attempts to reuse I/O buffers that have already been streamed from disk....">AkDeviceSettings::bUseStreamCache</a>). This will help save bandwidth and I/O memory.</p>
+<p class="calibre7">Also, avoid wasting bandwidth with DVD/HDD devices. If you use a deferred device, watch for cancelled transfers (in the Streaming Devices tab of the profiler). Reducing the maximum number of concurrent transfers (<a class="pcalibre el" href="struct_ak_device_settings_af49f8b3af816b58296e952b20de2d7a3_split_000.html#af49f8b3af816b58296e952b20de2d7a3" title="Maximum number of transfers that can be sent simultaneously to the Low-Level I/O.">AkDeviceSettings::uMaxConcurrentIO</a>) should help.</p>
+</div></div></div></body></html>

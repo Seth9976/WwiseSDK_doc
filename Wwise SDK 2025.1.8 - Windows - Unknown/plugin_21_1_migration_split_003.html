@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Migrating a pre-2021.1 Authoring Plug-in</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="plugin_21_1_migration_container"></a>
+Changes to Plug-in Registration</h1>
+<p class="calibre7">In the original API, the Authoring part of the plug-in registered itself by calling <code class="calibre14">AK::Wwise::RegisterWwisePlugin</code>, which made the plug-in inject <code class="calibre14">g_pAKPluginList</code> into the loaded WwiseSoundEngine DLL.</p>
+<p class="calibre7">In the new API, Wwise Authoring manages the registration process. Plug-in dynamic libraries now expose plug-ins as entries listed in a plug-in container that Wwise Authoring retrieves with the exported <code class="calibre14">GetPluginContainer${ContainerName}</code> function. Each plug-in entry in the container is an instance of <code class="calibre14"><a class="pcalibre el" href="structak__wwise__plugin__info_split_000.html">ak_wwise_plugin_info</a></code> that describes an Authoring plug-in and associates an Authoring plug-in class with a corresponding Sound Engine plug-in class.</p>
+<p class="calibre7">As a result of this change, the Sound Engine plug-in part can no longer use the single <code class="calibre14">AkCreatePlugin</code> instantiation function. Instead, it must define one <code class="calibre14">AK::Registration</code> instance per plug-in, typically using the <code class="calibre14">AK_IMPLEMENT_PLUGIN_FACTORY</code> macro. A plug-in registration requires dedicated factory functions, so porting an <code class="calibre14">AkCreatePlugin</code> function requires it to be split into plug-in specific functions, for example <code class="calibre14">CreatePlugin1FX</code>, <code class="calibre14">CreatePlugin1Params</code>, <code class="calibre14">CreatePlugin2Source</code>, <code class="calibre14">CreatePlugin2Params</code>, and so on.</p>
+<p class="calibre7">Refer to <a class="pcalibre el" href="plugin_dll_split_001.html#wwiseplugin_container">Library Plug-in Container</a> for instructions on how to set up the plug-in container in the Authoring plug-in part.</p>
+</div></div></div></body></html>

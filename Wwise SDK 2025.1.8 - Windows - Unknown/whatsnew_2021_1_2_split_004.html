@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2021.1.2</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="generic_perf_changes_2021_1_2"></a>
+Performance Changes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-54125</b> Spatial Audio - Optimized path computation between portals and game objects so that the shortest possible path is computed.</li>
+<li class="calibre9"><b class="calibre13">WG-54472</b> Improved performance of Effects that use biquad filters, such as low-pass filters, Parametric EQ, and Reflect. The results are as follows:<ul class="calibre15">
+<li class="calibre9">Throughput performance of mono processing improved by up to 2.5x.</li>
+<li class="calibre9">Throughput performance of stereo processing improved by up to 1.3x.</li>
+<li class="calibre9">Throughput performance of 7.1 and ambisonic processing improved by up to 2.2x.</li>
+</ul>
+</li>
+<li class="calibre9"><b class="calibre13">WG-54505</b> Improved SoundEngine performance when <code class="calibre14"><a class="pcalibre el" href="struct_ak_init_settings_a0ffc62cdbb07d0c8ebb2440fd177625b_split_000.html#a0ffc62cdbb07d0c8ebb2440fd177625b" title="Debug setting: Enable checks for out-of-range (and NAN) floats in the processing code....">AkInitSettings::bDebugOutOfRangeCheckEnabled</a></code> is enabled. Enabling this feature now increases CPU usage by a factor of 1.05-1.10x, instead of increasing CPU usage by a factor of 1.50x-3.00x, allowing it to be enabled in more scenarios.</li>
+</ul>
+</div></div></div></body></html>

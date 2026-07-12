@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2018.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="api_changes_2018_1"></a>
+API Changes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-33741</b> Changed the geometry API. See <a class="pcalibre el" href="whatsnew_2018_1_migration_split_007.html#geometry_api">Using the geometry API in 2018.1</a> for more details.</li>
+<li class="calibre9"><b class="calibre13">WG-36398</b> Removed deprecated field 'priority' from <code class="calibre14"><a class="pcalibre el" href="struct_ak_room_params_split_000.html" title="Parameters passed to SetRoom.">AkRoomParams</a></code>.</li>
+<li class="calibre9"><b class="calibre13">WG-36741</b> Motion sink plug-in fallback to the dummy output when the device is not compatible. This fix introduces the new error code Ak_DeviceNotCompatible. Returning this error code in the initialization of a sink plug-in will force the usage of the dummy sink.</li>
+<li class="calibre9"><b class="calibre13">WG-36986</b> Renamed <code class="calibre14">SetPortalObstruction()</code> to <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_a41b9dee6e3af84e5ce3075319e16740d_split_000.html#a41b9dee6e3af84e5ce3075319e16740d">SetPortalObstructionAndOcclusion()</a></code>, and <code class="calibre14">SetEmitterObstruction()</code> to <code class="calibre14">SetEmitterObstructionAndOcclusion()</code>. The new occlusion values are passed on to the sound engine and affect both the wet and dry path, in a manner similar to <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a1b3e18a25b405e55ba82de9b70cd11ba_split_000.html#a1b3e18a25b405e55ba82de9b70cd11ba">SetObjectObstructionAndOcclusion()</a></code>.</li>
+<li class="calibre9"><b class="calibre13">WG-37745</b> Added <code class="calibre14"><a class="pcalibre el" href="struct_ak_init_settings_a27a65e61a3a2e55f537ae434a0f84549_split_000.html#a27a65e61a3a2e55f537ae434a0f84549">AkInitSettings::eFloorPlane</a></code> to permit the specification of the floor plane to be used in Wwise authoring when connecting to the game. Possible values are <code class="calibre14">AkFloorPlane_X-Z</code> (the default), <code class="calibre14">AkFloorPlane_X-Y</code> and <code class="calibre14">AkFloorPlane_Y-Z</code>. Users of Unreal Engine who do not use Audiokinetic's integration should consider setting this value to <code class="calibre14">AkFloorPlane_XY</code> before calling <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a9a26da64092b97243844df77cbcdbf5f_split_000.html#a9a26da64092b97243844df77cbcdbf5f">AK::SoundEngine::Init</a></code>.</li>
+<li class="calibre9"><b class="calibre13">WG-38367</b> <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_global_plugin_context_a1cbd90dbcb3c0e69a8c80fd4aefc822c_split_000.html#a1cbd90dbcb3c0e69a8c80fd4aefc822c">AK::IAkGlobalPluginContext::RegisterGlobalCallback()</a></code> now requires the plug-in IDs (Type, Company, Plug-in) to register the callback's performance within the plug-in timer. <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ade293d3ed101fe494ead6dffb1c682fb_split_000.html#ade293d3ed101fe494ead6dffb1c682fb">AK::SoundEngine::RegisterGlobalCallback()</a></code> can optionally accept plug-in IDs to register a plug-in.</li>
+<li class="calibre9"><b class="calibre13">WG-38844</b> Spatial Audio's <code class="calibre14">QueryIndirectPaths</code> and <code class="calibre14">AkSoundPathInfo</code> were respectively renamed to <a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_a6788472cabeb8911c60559a1f06addb0_split_000.html#a6788472cabeb8911c60559a1f06addb0">QueryReflectionPaths</a> and <code class="calibre14"><a class="pcalibre el" href="struct_ak_reflection_path_info_split_000.html" title="Structure for retrieving information about the indirect paths of a sound that have been calculated vi...">AkReflectionPathInfo</a></code>.</li>
+</ul>
+</div></div></div></body></html>

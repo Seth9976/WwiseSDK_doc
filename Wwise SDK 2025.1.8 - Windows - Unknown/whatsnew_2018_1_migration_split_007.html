@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2018.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_6"><a class="pcalibre1 anchor" id="geometry_api"></a>
+Using the geometry API in 2018.1</h2>
+<p class="calibre7">For 2018.1, the geometry API has been changed in order to streamline the data, and provide a more convenient and compact representation. Note the following changes:</p><ul class="calibre8">
+<li class="calibre9">Vertices are now defined in a separate array from the triangles, and each triangle in the triangle array references indices in the vertex array.</li>
+<li class="calibre9">Each triangle also includes an index to an <a class="pcalibre el" href="struct_ak_acoustic_surface_split_000.html">AkAcousticSurface</a> structure, which defines the acoustic texture, description string, and reflector channel mask.</li>
+<li class="calibre9">The correspondence between acoustic surfaces and triangles is up to the user. For example, the user may choose to have one surface for each triangle, a single surface for all triangles, or something in between.</li>
+<li class="calibre9">Defining acoustic surfaces is optional. If it is not desired to customize the acoustic properties of a surface, the triangles may be left as AK_INVALID_SURFACE and NULL may be passed into <a class="pcalibre el" href="struct_ak_geometry_params_af7b6645b9c4b14eb2a81bd4179c946ca_split_000.html#af7b6645b9c4b14eb2a81bd4179c946ca">AkGeometryParams::Surfaces</a> and <a class="pcalibre el" href="struct_ak_geometry_params_a7da0be30513e79a77de79c6650944fab_split_000.html#a7da0be30513e79a77de79c6650944fab" title="Number of of AkTriangleInfo structures in in_pTriangleInfo and number of AkTriIdx's in in_infoMap.">AkGeometryParams::NumSurfaces</a> set to zero.</li>
+</ul>
+</div></div></div></body></html>

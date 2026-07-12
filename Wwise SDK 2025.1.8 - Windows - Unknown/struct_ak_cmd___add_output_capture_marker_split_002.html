@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AkCmd_AddOutputCaptureMarker Struct Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_1">Detailed Description</h2>
+<div class="calibre2"><p class="calibre7">Adds text or binary marker in captured audio output file.</p>
+<p class="calibre7">The Sound Engine expects either a string or binary data to follow this command. For example, to add a text marker: </p><pre class="fragment">auto cmd = (AkCmd_AddOutputCaptureMarker*)AK_CommandBuffer_Add(buffer, AkCommand_AddOutputCaptureMarker);
+cmd-&gt;samplePos = AK_INVALID_SAMPLE_POS;
+cmd-&gt;markerDataSize = strlen("my marker") + 1;
+AK_CommandBuffer_AddString(buffer, "my marker");
+</pre><p class="calibre7">To add a binary data marker: </p><pre class="fragment">auto cmd = (AkCmd_AddOutputCaptureMarker*)AK_CommandBuffer_Add(buffer, AkCommand_AddOutputCaptureMarker);
+cmd-&gt;samplePos = AK_INVALID_SAMPLE_POS;
+cmd-&gt;markerDataSize = sizeof(data);
+AK_CommandBuffer_AddArray(buffer, sizeof(data), 1, data);
+</pre><p class="calibre7">This command can fail for the following reasons:</p><ul class="calibre8">
+<li class="calibre9"><code class="calibre14">AK_InvalidParameter</code> if <code class="calibre14">markerDataSize</code> is 0 or there is no marker data following the command</li>
+</ul>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="_ak_command_types_8h_a001b78645b8b0335c0dd2e128cca2cfd_split_001.html#a001b78645b8b0335c0dd2e128cca2cfda32b68ae6b1020f48263203dd7c413de4" title="See AkCmd_AddOutputCaptureMarker.">AkCommand_AddOutputCaptureMarker</a></li>
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a3d481445752b1fb91e9a1ac4ae815342_split_000.html#a3d481445752b1fb91e9a1ac4ae815342">AK::SoundEngine::AddOutputCaptureMarker</a> </li>
+</ul>
+</dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_ak_command_types_8h_source_split_002.html#l01182">1182</a> of file <a class="pcalibre el" href="_ak_command_types_8h_source_split_000.html">AkCommandTypes.h</a>.</p>
+</div></div><!-- contents -->
+
+
+</body></html>

@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Optimizing CPU usage</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_5"><a class="pcalibre1 anchor" id="eventmgrthread_jobmgr_best_practices"></a>
+Best Practices When Using the Job Manager</h2>
+<p class="calibre7">Here are a few recommendations on how best to utilize the Job Manager.</p>
+<ol class="calibre26">
+<li class="calibre9">Do not create threads on-demand when new worker requests come in. Creating new threads is an expensive operation on most systems. Instead, pre-allocate a pre-determined number of threads before the Sound Engine is initialized, and distribute worker requests among those threads.</li>
+<li class="calibre9">Do not use more worker threads than are necessary to achieve sufficient parallelization of Sound Engine jobs. In some cases, the overhead of requesting workers may result in lost CPU time that would be more effectively used for other tasks. As well, increasing the number of workers may increase the total amount of memory that the Sound Engine requests, due to the use of thread-local caches in memory allocators or other systems in the Sound Engine.</li>
+<li class="calibre9">On game-engine worker threads that support execution of jobs, it is recommended to call <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_memory_mgr_a76b450a2f472f5d9bc61aa1c3ed9a722_split_000.html#a76b450a2f472f5d9bc61aa1c3ed9a722">AK::MemoryMgr::InitForThread</a></code> and <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_memory_mgr_a3c47d8b70c74b631184ad9ea34c6f942_split_000.html#a3c47d8b70c74b631184ad9ea34c6f942">AK::MemoryMgr::TermForThread</a></code> when initializing and terminating the threads, in order to ensure proper initialization and termination of thread-local memory resources. It is also recommended to call <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_memory_mgr_a325a7f2aa771d1f25e280441cb77151d_split_000.html#a325a7f2aa771d1f25e280441cb77151d">AK::MemoryMgr::TrimForThread</a></code> when entering a period of inactivity after running the worker function, in order to free up any thread-local memory resources which may not be utilized again in the near future.</li>
+<li class="calibre9">On platforms where the number of CPU cores is fixed and known in advance, set worker thread affinities so each thread stays on the same CPU core. Making sure that audio work does not move across CPU cores during execution is desirable to avoid refreshing CPU caches when a thread migrates to a different core.</li>
+<li class="calibre9">On systems with multiple Clusters or Core Complexes (CCX), set thread affinities so worker threads and the audio rendering thread all run on the same CCX in order to improve cache coherency across cores.</li>
+<li class="calibre9">On systems with Simultaneous Multi-Threading (SMT), set thread affinities so worker threads run on separate physical cores, instead of sharing the same core, to reduce competition on CPU resources.</li>
+<li class="calibre9">If you wish to change the maximum number of workers that the sound engine may request without reinitializing the sound engine, you can do so with <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_af7de321b80032844caf2bed23c47c87e_split_000.html#af7de321b80032844caf2bed23c47c87e">AK::SoundEngine::SetJobMgrMaxActiveWorkers</a></code>. This can be useful to dynamically respond to changes in your title's operating conditions, or to more easily experiment and profile different configurations for multi-threaded work.</li>
+</ol>
+<p class="calibre7">The recommendations above must be weighed against the other needs of the game. The Job Manager remains a good way to increase overall throughput of the Sound Engine even if some of these recommendations are not followed.</p>
+</div></div></div></body></html>

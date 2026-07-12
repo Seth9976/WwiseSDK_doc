@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2016.2</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="behavior_changes_2016_2"></a>
+Behavior Changes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-30995</b> (PS4) SCE Audio3d Passthrough mode now takes precedence over Bypass mode.</li>
+<li class="calibre9"><b class="calibre13">WG-31009</b> Wwise Authoring: "Listener Data" and "Output Data" are now enabled by default in the monitoring option (for new users only, existing users keep their current preferences).</li>
+<li class="calibre9"><b class="calibre13">WG-31021</b> Changed Center and LFE channels' weighting for convolution downmix, making it constant power. The result is now similar to that of RoomVerb. In 5.1 configurations, a 0 dB input level for Center is equivalent to -6 dB in the previous version. The resulting level of a stereo convolution with a mono impulse response had twice the power of a stereo convolution with a stereo impulse response. The former has been fixed, and is thus 3 dB quieter than the previous version.</li>
+<li class="calibre9"><b class="calibre13">WG-31196</b> Convolution Reverb downmixes input signal to mono unless otherwise set using the new <b class="calibre13">Input Spread</b> control.</li>
+</ul>
+</div></div></div></body></html>

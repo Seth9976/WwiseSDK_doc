@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Terminate the Different Modules of the Sound Engine</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2"><h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="termination_intro"></a>
+Introduction</h1>
+<p class="calibre7">When your game is ready to exit and does not require audio anymore, terminate the modules that were initialized earlier except Spatial Audio, which does not require manual termination. Our sample program uses the following function to group all of the termination code:</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> TermSoundEngine()</div>
+<div class="line">{</div>
+<div class="line">    ... Termination will be done here ...</div>
+<div class="line">}</div>
+</div><!-- fragment --><p class="calibre7">Termination will be done in the reverse order compared to initialization.</p>
+</div></div></div></body></html>

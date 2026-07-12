@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Adding Media to an Audio Plug-in</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="effectplugin_media_authoring"></a>
+Wwise Authoring Plug-in</h1>
+<h2 class="calibre31"><a class="pcalibre1 anchor" id="effectplugin_media_managing"></a>
+Managing Plug-in Media</h2>
+<p class="calibre7">You can request the Object Media service by deriving <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_a0d8a1c4d25d025d4614f072197956e60_split_000.html#a0d8a1c4d25d025d4614f072197956e60" title="Latest version of the requested C++ ObjectMedia interface.">AK::Wwise::Plugin::RequestObjectMedia</a></code> in your plug-in backend. This will provide the member <code class="calibre14">m_objectMedia</code> to access the methods of the service. To receive notifications about the object media, such as when it has been changed by the user, derive from <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_1_1_notifications_ad0a911acd3094f2ebc4ba43d1421c16d_split_000.html#ad0a911acd3094f2ebc4ba43d1421c16d" title="Latest version of the C++ ObjectMedia notification interface.">AK::Wwise::Plugin::Notifications::ObjectMedia</a></code> and override the <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_notifications_1_1_object_media___aeeade48f5038593806cbe55ee2204135_split_000.html#aeeade48f5038593806cbe55ee2204135" title="This function is called by Wwise when any of the plug-in media changes.">AK::Wwise::Plugin::Notifications::ObjectMedia::NotifyPluginMediaChanged()</a></code> method.</p>
+<div class="fragment"><div class="line"><span class="keyword">class </span>MyPluginBackend</div>
+<div class="line">:   <span class="keyword">public</span> <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_audio_plugin_split_000.html">AK::Wwise::Plugin::AudioPlugin</a></div>
+<div class="line">,   <span class="keyword">public</span> <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_plugin_1_1_requested_host_interface_3_01_object_media_01_4_split_000.html">AK::Wwise::Plugin::RequestObjectMedia</a></div>
+<div class="line">,   <span class="keyword">public</span> <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_notifications_1_1_object_media___split_000.html">AK::Wwise::Plugin::Notifications::ObjectMedia</a></div>
+<div class="line">,   <span class="keyword">public</span> <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_plugin_1_1_requested_host_interface_3_01_host_01_4_split_000.html">AK::Wwise::Plugin::RequestHost</a></div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordtype">void</span> <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_notifications_1_1_object_media___aeeade48f5038593806cbe55ee2204135_split_000.html#aeeade48f5038593806cbe55ee2204135">NotifyPluginMediaChanged</a>()<span class="keyword"> override</span></div>
+<div class="line"><span class="keyword">    </span>{</div>
+<div class="line">        <span class="comment">// React to change</span></div>
+<div class="line">        <span class="comment">// ...</span></div>
+<div class="line"> </div>
+<div class="line">        <span class="comment">// Notify Wwise the data needs to be reconverted</span></div>
+<div class="line">        m_host.NotifyInternalDataChanged(</div>
+<div class="line">            <a class="pcalibre code" href="class_a_k_1_1_i_ak_plugin_param_a7d4422a73ca832f64edc0465e59be771_split_000.html#a7d4422a73ca832f64edc0465e59be771">AK::IAkPluginParam::ALL_PLUGIN_DATA_ID</a>,</div>
+<div class="line">            <span class="keyword">true</span> <span class="comment">/* in_bMakeProjectDirty */</span></div>
+<div class="line">        );</div>
+<div class="line">    }</div>
+<div class="line">};</div>
+</div><!-- fragment --><p class="calibre7">You can import media files by calling <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_object_media_aecc2d90460e0c684e027504f9fffe647_split_000.html#aecc2d90460e0c684e027504f9fffe647" title="Requests to set the specified file as a data input file.">AK::Wwise::Plugin::ObjectMedia::SetMediaSource()</a></code> . When importing media, it will be copied to the plug-in's "Originals" directory and will be managed completely by Wwise. To add a plug-in media file at index 0:</p>
+<div class="fragment"><div class="line">m_pObjMedia-&gt;SetMediaSource( pszFilename, 0, bReplace );</div>
+</div><!-- fragment --><p class="calibre7">Override the function <code class="calibre14">NotifyPluginMediaChanged</code> to be notified when the plug-in data changes. <code class="calibre14">NotifyPluginMediaChanged</code> is triggered by any modifications to the media source.</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> NotifyPluginMediaChanged()<span class="keyword"> override</span></div>
+<div class="line"><span class="keyword"></span>{</div>
+<div class="line">    <span class="comment">// React to changes</span></div>
+<div class="line">    <span class="comment">// ...</span></div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Notify Wwise the data needs to be reconverted</span></div>
+<div class="line">    m_pPSet-&gt;NotifyInternalDataChanged( <a class="pcalibre code" href="class_a_k_1_1_i_ak_plugin_param_a7d4422a73ca832f64edc0465e59be771_split_000.html#a7d4422a73ca832f64edc0465e59be771">AK::IAkPluginParam::ALL_PLUGIN_DATA_ID</a> );</div>
+<div class="line">}</div>
+</div><!-- fragment --><p class="calibre7">Refer to documentation of functions of <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_a0325d70f4523c31f1b4f5dc8acdf3e2b_split_000.html#a0325d70f4523c31f1b4f5dc8acdf3e2b" title="Latest version of the C++ ObjectMedia interface.">AK::Wwise::Plugin::ObjectMedia</a></code> for more information.</p>
+</div></div></div></body></html>

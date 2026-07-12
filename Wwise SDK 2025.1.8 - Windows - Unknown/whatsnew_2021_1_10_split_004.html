@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2021.1.10</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="generic_community_bugs_2021_1_10"></a>
+Fixes for Community-Reported Bugs</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-59458</b> Fixed: Audio distortion when using more than one Mastering Suite plug-in in a single project.</li>
+<li class="calibre9"><b class="calibre13">WG-59586</b> Fixed: Possible crash when using a slider to adjust a convolution reverb property.</li>
+<li class="calibre9"><b class="calibre13">WG-59913</b> Fixed: Crash when calling <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a0439f61753f31e6b5bb0b42a140ad598_split_000.html#a0439f61753f31e6b5bb0b42a140ad598">AK::SoundEngine::StopAll</a></code> right after <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ab934f98a6622976d24e0a096911eb0c8_split_000.html#ab934f98a6622976d24e0a096911eb0c8">AK::SoundEngine::ClearBanks</a></code> while MIDI music contexts are playing.</li>
+<li class="calibre9"><b class="calibre13">WG-59929</b> Fixed: Portal obstruction does not affect room tones.</li>
+<li class="calibre9"><b class="calibre13">WG-60215</b> Fixed: Audio Input plug-in does not produce sound in Wwise Authoring.</li>
+<li class="calibre9"><b class="calibre13">WG-60243</b> Fixed: Crash when audio device is disconnected for a long time.</li>
+<li class="calibre9"><b class="calibre13">WG-60352</b> Fixed: Effect plug-ins are packaged in SoundBanks for unlinked platforms.</li>
+<li class="calibre9"><b class="calibre13">WG-60373</b> Fixed: (Spatial Audio) A room tone that propagates to the listener's room through two possible paths, while traversing different intermediate rooms, is only heard through the shorter of the two paths.</li>
+<li class="calibre9"><b class="calibre13">WG-60415</b> Fixed: Cannot import audio files using unicode characters on macOS.</li>
+<li class="calibre9"><b class="calibre13">WG-60576</b> Fixed: Crash when reloading a State Group Work Unit while a Music Switch Container is in the Property Editor.</li>
+<li class="calibre9"><b class="calibre13">WG-60592</b> Fixed: Crash when using Modulators that use RTPCs bound to built-in properties.</li>
+<li class="calibre9"><b class="calibre13">WG-60618</b> Fixed: Errors reported by Address Sanitizer for <code class="calibre14">AK::DeviceEnumeratorHelper()</code> function.</li>
+<li class="calibre9"><b class="calibre13">WG-60699</b> Fixed: Crash when opening a project when colors are set on Music Clips.</li>
+<li class="calibre9"><b class="calibre13">WG-60739</b> Fixed: Custom Properties are not accessible in WAQL when they are defined under the project.</li>
+<li class="calibre9"><b class="calibre13">WG-60823</b> Fixed: Crash when using the curve menu on the Audio Source Editor after the source is changed in an external editor.</li>
+<li class="calibre9"><b class="calibre13">WG-60946</b> Fixed: Importing an additional audio file source using WAAPI or tab-delimited import does not set the source as active.</li>
+<li class="calibre9"><b class="calibre13">WG-61077</b> Fixed: Crash when playing a Music Switch Container using a Switch Group linked to an RTPC with a built-in value (distance, for example). </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

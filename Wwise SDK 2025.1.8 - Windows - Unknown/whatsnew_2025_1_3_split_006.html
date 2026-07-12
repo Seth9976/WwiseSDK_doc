@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2025.1.3</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_5"><a class="pcalibre1 anchor" id="generic_bugs_2025_1_3"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-62600</b> Fixed: Artifacts in profiling views when they auto-scroll.</li>
+<li class="calibre9"><b class="calibre13">WG-67504</b> Fixed: (Acoustics) Room output normalization is shown as a volume in the Voice Graph but does not appear as a contribution in the Voice Inspector.</li>
+<li class="calibre9"><b class="calibre13">WG-69934</b> Fixed: Aux Busses that are referenced by one or more user-defined Soundbanks also have an auto-defined Soundbank when auto-defined Soundbanks are enabled.</li>
+<li class="calibre9"><b class="calibre13">WG-73871</b> Fixed: Opening a lot of Object Tabs can cause Wwise Authoring to hang.</li>
+<li class="calibre9"><b class="calibre13">WG-74243</b> Fixed: No tooltip when hovering over remote platform connection status.</li>
+<li class="calibre9"><b class="calibre13">WG-74536</b> Fixed: Wwise Authoring locks after opening a project without closing the warning that it's open in multiple instances of Wwise.</li>
+<li class="calibre9"><b class="calibre13">WG-76692</b> Fixed: Entries in the Advanced Profiler's Voices tab are missing an Event ID on remote connect.</li>
+<li class="calibre9"><b class="calibre13">WG-77038</b> Fixed: (WAQL) Some WAQL queries cause unstable results.</li>
+<li class="calibre9"><b class="calibre13">WG-77566</b> Fixed: Parts of Game Object 3D Viewer camera toolbar appear in adjacent Selection Property pane.</li>
+<li class="calibre9"><b class="calibre13">WG-78139</b> Fixed: When files are removed, the Media Pool search index maintenance sometimes deletes other entries.</li>
+<li class="calibre9"><b class="calibre13">WG-78166</b> Fixed: Media Pool Filters list always fully expands when adding or removing filters.</li>
+<li class="calibre9"><b class="calibre13">WG-78201</b> Fixed: Assert "CanDestroy" in <code class="calibre14">AK::StreamMgr::Term</code>, called at sound engine termination.</li>
+<li class="calibre9"><b class="calibre13">WG-78345</b> Fixed: Assert when reloading a Work Unit that contains a Blend Track.</li>
+<li class="calibre9"><b class="calibre13">WG-78429</b> Fixed: In Media Pool, selecting multiple metadata fields and clicking <b class="calibre13">Add Field as Filter</b> creates only one filter.</li>
+<li class="calibre9"><b class="calibre13">WG-78614</b> Fixed: (Acoustics) Short sounds played with TriggerRate occasionally update with incorrect Spatial Audio properties.</li>
+<li class="calibre9"><b class="calibre13">WG-78769</b> Fixed: Playback cursor jumps around when toggling the <b class="calibre13">Loop</b> check box in Media Pool while playing a sound.</li>
+<li class="calibre9"><b class="calibre13">WG-78773</b> Fixed: In the Media Pool Audio Preview/Region Selector pane, the second of adjacent regions doesn't play.</li>
+<li class="calibre9"><b class="calibre13">WG-78781</b> Fixed: In the Media Pool Audio Preview/Region Selector shortcut menu, <b class="calibre13">Select All File Markers Regions</b> doesn't select all regions.</li>
+<li class="calibre9"><b class="calibre13">WG-78791</b> Fixed: Media Pool doesn't find files when the extension ".wav" is typed in the search field.</li>
+<li class="calibre9"><b class="calibre13">WG-78846</b> Fixed: Unnecessary Live Media Transfer when using streaming files smaller than their prefetch value.</li>
+<li class="calibre9"><b class="calibre13">WG-78922</b> Fixed: A pinned Reference View is updated when clicking <b class="calibre13">Find All References</b>.</li>
+<li class="calibre9"><b class="calibre13">WG-78970</b> Fixed: In Media Pool, the Play button is not blue when playing.</li>
+<li class="calibre9"><b class="calibre13">WG-79257</b> Fixed: When zooming in on the Media Pool's Audio Preview/Region Selector waveform, region icons and handles appear outside of their region.</li>
+<li class="calibre9"><b class="calibre13">WG-79263</b> Fixed: (Mac Authoring) Imported files are not scheduled for analysis upon import.</li>
+<li class="calibre9"><b class="calibre13">WG-79377</b> Fixed: In Media Pool, buttons at the bottom of the view overlap with the WAV information.</li>
+<li class="calibre9"><b class="calibre13">WG-79378</b> Fixed: Ambisonic files are not downmixed in a way that allows region detection in Media Pool.</li>
+<li class="calibre9"><b class="calibre13">WG-79380</b> Fixed: Audio Similarity filter option in Media Pool is unavailable when selecting multiple WAV files.</li>
+<li class="calibre9"><b class="calibre13">WG-79515</b> Fixed: Double-clicking a hidden object in the 3D Game Object List clears the previous selection.</li>
+<li class="calibre9"><b class="calibre13">WG-79837</b> Fixed: Wwise Authoring is unresponsive during Live Media Transfer of large media assets.</li>
+<li class="calibre9"><b class="calibre13">WG-79848</b> Fixed: Selecting multiple Effects in the Property Editor and pressing the Delete key doesn't delete the Effects.</li>
+<li class="calibre9"><b class="calibre13">WG-79861</b> Fixed: With multiple objects selected in the Project Explorer, <b class="calibre13">Find Similar in Media Pool</b> is unavailable in the shortcut menu.</li>
+<li class="calibre9"><b class="calibre13">WG-79871</b> Fixed: Motion plug-in repeatedly outputs monitoring messages after an audio device configuration change.</li>
+<li class="calibre9"><b class="calibre13">WG-79874</b> Fixed: Transitions tab's <b class="calibre13">Find in List</b> button displays "TION" instead of "X".</li>
+<li class="calibre9"><b class="calibre13">WG-79906</b> Fixed: (Acoustics) In the Game Object 3D Viewer, Room direct paths are visible.</li>
+<li class="calibre9"><b class="calibre13">WG-79912</b> Fixed: (Acoustics) Capture Log is missing information for <code class="calibre14">SetListeners</code>, <code class="calibre14">SetDefaultListeners</code>, and <code class="calibre14">SetGameObjectAuxSendValues</code>.</li>
+<li class="calibre9"><b class="calibre13">WG-79922</b> Fixed: Similar Sound Search results are affected by commas and whitespace in the search string.</li>
+<li class="calibre9"><b class="calibre13">WG-79943</b> Fixed: Some buttons don't have mouse feedback on hover.</li>
+<li class="calibre9"><b class="calibre13">WG-79945</b> Fixed: Clicking <b class="calibre13">Files</b> or <b class="calibre13">Regions</b> in Media Pool overrides the destination object in the Audio File Importer.</li>
+<li class="calibre9"><b class="calibre13">WG-79964</b> Fixed: (Acoustics) Diffraction paths from a Room are sometimes absent in the Game Object 3D Viewer when the Room has multiple Portals, some of which are disabled.</li>
+<li class="calibre9"><b class="calibre13">WG-79971</b> Fixed: In Game Object 3D Viewer, reflection path diffraction % is still displayed when <b class="calibre13">Diffraction %</b> is deselected.</li>
+<li class="calibre9"><b class="calibre13">WG-79973</b> Fixed: (Acoustics) Diffraction path nodes are sometimes assigned 0% diffraction when the node is on geometry that's in between two Portals.</li>
+<li class="calibre9"><b class="calibre13">WG-79974</b> Fixed: (Acoustics) The diffraction coefficient is incorrectly calculated on paths with coincident diffraction points.</li>
+<li class="calibre9"><b class="calibre13">WG-79999</b> Fixed: In the 3D Viewer toolbar, the Labels(Text) category is less intuitive than other categories.</li>
+<li class="calibre9"><b class="calibre13">WG-80000</b> Fixed: Difficult to show/hide all objects in the 3D Game Object List.</li>
+<li class="calibre9"><b class="calibre13">WG-80040</b> Fixed: (Acoustics) Display of image sources in the Game Object 3D Viewer is affected by the <b class="calibre13">Show Reflection Paths</b> option.</li>
+<li class="calibre9"><b class="calibre13">WG-80063</b> Fixed: Object Tab doesn't update correctly when inspecting multiple modulators in succession.</li>
+<li class="calibre9"><b class="calibre13">WG-80081</b> Fixed: Capture Log filtering doesn't work for API calls.</li>
+<li class="calibre9"><b class="calibre13">WG-80083</b> Fixed: Spread cone visible in the Game Object 3D Viewer when there is not supposed to be any spread.</li>
+<li class="calibre9"><b class="calibre13">WG-80105</b> Fixed: An active Mixing Session is unloaded after changing the user interface font or font size and after reloading the project.</li>
+<li class="calibre9"><b class="calibre13">WG-80114</b> Fixed: In the Sample Project, some music transitions are broken.</li>
+<li class="calibre9"><b class="calibre13">WG-80131</b> Fixed: Instability when pressing Ctrl+F4 while scrubbing a fader.</li>
+<li class="calibre9"><b class="calibre13">WG-80143</b> Fixed: Sidechain Send and Sidechain Receive Effects ramp from a gain of 0db to the target volume on their initial audio render pass.</li>
+<li class="calibre9"><b class="calibre13">WG-80165</b> Fixed: Toggling of Effect's Inclusion check box has no impact.</li>
+<li class="calibre9"><b class="calibre13">WG-80167</b> Fixed: (Acoustics) Incorrect acoustic parameters on paths involving more than one portal.</li>
+<li class="calibre9"><b class="calibre13">WG-80170</b> Fixed: (Acoustics) Diffraction paths are occasionally dropped when moving between Rooms with load balancing enabled.</li>
+<li class="calibre9"><b class="calibre13">WG-80192</b> Fixed: Attempting to post an error message in the termination of a source plug-in can result in a crash.</li>
+<li class="calibre9"><b class="calibre13">WG-80193</b> Fixed: Flicker in Mixing Desk controls for objects with custom object color.</li>
+<li class="calibre9"><b class="calibre13">WG-80200</b> Fixed: Crash when clicking on the right edge of the 3D Viewer.</li>
+<li class="calibre9"><b class="calibre13">WG-80244</b> Fixed: Media Pool's <b class="calibre13">Create new 'Media Pool Database'</b> buttons are not available after opening the view.</li>
+<li class="calibre9"><b class="calibre13">WG-80284</b> Fixed: Deleting a Media Pool database doesn't cancel queued analysis tasks for files in that database.</li>
+<li class="calibre9"><b class="calibre13">WG-80285</b> Fixed: It's possible to import a MIDI file into a non-music object.</li>
+<li class="calibre9"><b class="calibre13">WG-80292</b> Fixed: <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a25efe2a9b18ad130f4fc4c0c3599ec30_split_000.html#a25efe2a9b18ad130f4fc4c0c3599ec30">AK::SoundEngine::SendPluginCustomGameData</a></code> crashes when sending large data buffers.</li>
+<li class="calibre9"><b class="calibre13">WG-80310</b> Fixed: Unnecessary media analysis tasks are created for macOS resource fork files. For example, <code class="calibre14">._XXXX.wav</code>.</li>
+<li class="calibre9"><b class="calibre13">WG-80315</b> Fixed: It's not possible to import a WAV file as a Music Segment using Ctrl+drag.</li>
+<li class="calibre9"><b class="calibre13">WG-80325</b> Fixed: In the Audio File Importer, <b class="calibre13">Music Segment</b> appears twice in the Object Type/Action list.</li>
+<li class="calibre9"><b class="calibre13">WG-80410</b> Fixed: Acoustic Paths from multiposition emitters are the same selection objects.</li>
+<li class="calibre9"><b class="calibre13">WG-80438</b> Fixed: Waveform not displayed correctly in AK Convolution Reverb graph view.</li>
+<li class="calibre9"><b class="calibre13">WG-80489</b> Fixed: Work Units that include the Reflect plug-in might become invalid after migration to Wwise 2025.1.</li>
+<li class="calibre9"><b class="calibre13">WG-80517</b> Fixed: Possible crash when enabling Similar Sound Search on ADM files.</li>
+<li class="calibre9"><b class="calibre13">WG-80545</b> Fixed: (Acoustics) The direct path is sometimes rendered with 0% transmission loss despite going through a wall.</li>
+<li class="calibre9"><b class="calibre13">WG-80596</b> Fixed: Possible crash when reloading a project while the Audio File Importer is open.</li>
+<li class="calibre9"><b class="calibre13">WG-80599</b> Fixed: The Media Pool <b class="calibre13">Import Selected Region(s)</b> shortcut menu item is duplicated when an object named Default Work Unit, that isn't an actual Default Work Unit, is selected in the Project Explorer.</li>
+<li class="calibre9"><b class="calibre13">WG-80607</b> Fixed: Possible crash when reloading a Wwise project.</li>
+<li class="calibre9"><b class="calibre13">WG-80613</b> Fixed: (Acoustics) Diffraction paths become unstable when portals overlap diffraction edges.</li>
+<li class="calibre9"><b class="calibre13">WG-80648</b> Fixed: ASSERT in AkSAEmitterToListenerTask</li>
+<li class="calibre9"><b class="calibre13">WG-80652</b> Fixed: Crash in <code class="calibre14">AkSAListenerToPortalTask::Execute</code>.</li>
+<li class="calibre9"><b class="calibre13">WG-80680</b> Fixed: (Acoustics) When a sound with Diffraction and Transmission enabled is stopped and then started again, it's sometimes rendered without diffraction and transmission.</li>
+<li class="calibre9"><b class="calibre13">WG-80758</b> Fixed: Crash when inspecting a Sound SFX or Sound Voice after removing it from a playlist in a Sequence Container.</li>
+<li class="calibre9"><b class="calibre13">WG-80761</b> Fixed: (Acoustics) Paths though portals can sometimes be rendered with 0% diffraction, if they exceed the maximum node count of 8.</li>
+<li class="calibre9"><b class="calibre13">WG-80861</b> Fixed: Crash when loading profiling sessions.</li>
+<li class="calibre9"><b class="calibre13">WG-80898</b> Fixed: (Acoustics) Crash when executing a cancelled task after unregistering a game object when using path selection (uMaxGlobalReflectionPaths greater than 0).</li>
+<li class="calibre9"><b class="calibre13">WG-80954</b> Fixed : Rare authoring crash when modifying audio descriptions for sMedia Pool imilarity search.</li>
+<li class="calibre9"><b class="calibre13">WG-81060</b> Fixed: During a transition from two active filters to just one, the active filter does not behave correctly.</li>
+<li class="calibre9"><b class="calibre13">WG-81073</b> Fixed: Menu to switch between "Bar and Beats" and "Seconds" in music segment no longer appears.</li>
+<li class="calibre9"><b class="calibre13">WG-81142</b> Fixed: Shelf filter migration can break Attenuation ShareSets in some Work Units with non-standard formatting.</li>
+<li class="calibre9"><b class="calibre13">WG-81202</b> Fixed : Updating already imported original media content would lead to ID collisions and the wrong converted media being packaged in soundbanks.</li>
+</ul>
+</div></div></div></body></html>

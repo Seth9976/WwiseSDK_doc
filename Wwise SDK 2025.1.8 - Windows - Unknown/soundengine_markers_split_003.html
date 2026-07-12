@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integrating Markers</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_2"><a class="pcalibre1 anchor" id="soundengine_markers_fileformat_cueChunk"></a>
+Cue Chunks</h2>
+<p class="calibre7">The cue chunk format is used to store marker positions that indicate points of interest in a .wav file.</p>
+<div class="fragment"><div class="line">Offset  Bytes   Description         Value</div>
+<div class="line">0x00    4       Chunk ID            <span class="stringliteral">"cue "</span> (0x63756520)</div>
+<div class="line">0x04    4       Chunk Data Size     Depends on the number of cue points</div>
+<div class="line">0x08    4       <a class="pcalibre code" href="namespace_a_k_1_1_profiling_i_d_ad10a3840e843bd5b5b72163cdea07fa9_split_001.html#ad10a3840e843bd5b5b72163cdea07fa9aba0440f1c7a314dd1c9839e33e5906c8">Num</a> Cue Points      Number of cue points in list</div>
+<div class="line">0x0c    Cue Points</div>
+</div><!-- fragment --><div class="fragment"><div class="line"><span class="preprocessor">#define CueID 'cue '  </span><span class="comment">/* chunk ID for cue chunk */</span><span class="preprocessor"></span></div>
+<div class="line"><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line">  ID        chunkID;</div>
+<div class="line">  <span class="keywordtype">long</span>      chunkSize;</div>
+<div class="line">  <span class="keywordtype">long</span>      dwCuePoints;</div>
+<div class="line">  CuePoint  points[];</div>
+<div class="line">} CueChunk;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line">  <span class="keywordtype">long</span>    dwIdentifier;</div>
+<div class="line">  <span class="keywordtype">long</span>    dwPosition;</div>
+<div class="line">  ID      fccChunk;</div>
+<div class="line">  <span class="keywordtype">long</span>    dwChunkStart;</div>
+<div class="line">  <span class="keywordtype">long</span>    dwBlockStart;</div>
+<div class="line">  <span class="keywordtype">long</span>    dwSampleOffset;</div>
+<div class="line">} CuePoint;</div>
+</div><!-- fragment --></div></div></div></body></html>

@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integration Details - GetSourcePlayPosition</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="soundengine_query_pos_example"></a>
+Example</h1>
+<p class="calibre7">The following piece of code illustrates the <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ae0b469d9fb8a099b40f52f004882d283_split_000.html#ae0b469d9fb8a099b40f52f004882d283">AK::SoundEngine::GetSourcePlayPosition()</a> method's usage:</p>
+<div class="fragment"><div class="line">(...)</div>
+<div class="line"><span class="keyword">static</span> <a class="pcalibre code" href="_ak_typedefs_8h_a9270609771369ea575443fe080bbe9c3_split_000.html#a9270609771369ea575443fe080bbe9c3">AkPlayingID</a> g_markersPlayingID = 0;</div>
+<div class="line">(...)</div>
+<div class="line"> </div>
+<div class="line">(...)</div>
+<div class="line"> </div>
+<div class="line">g_markersPlayingID = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a41e9ef8d42951871fe4a8ae58a29a68e_split_000.html#a41e9ef8d42951871fe4a8ae58a29a68e">AK::SoundEngine::PostEvent</a>( AK::EVENTS::PLAY_MARKERS_TEST, GAME_OBJECT_ID_MARKERS );</div>
+<div class="line"> </div>
+<div class="line">(...)</div>
+<div class="line"> </div>
+<div class="line"><a class="pcalibre code" href="_ak_typedefs_8h_a8a4d0aa5dba6f9922d6b7b3e48958b24_split_000.html#a8a4d0aa5dba6f9922d6b7b3e48958b24">AkTimeMs</a> uPosition = 0;</div>
+<div class="line"><span class="comment">// Somewhere in your game loop (happens periodically):</span></div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_ae0b469d9fb8a099b40f52f004882d283_split_000.html#ae0b469d9fb8a099b40f52f004882d283">AK::SoundEngine::GetSourcePlayPosition</a>( g_markersPlayingID, &amp;uPosition );</div>
+<div class="line"><span class="comment">// Now handle lip synchronization by using uPosition</span></div>
+</div><!-- fragment --></div></div></div></body></html>

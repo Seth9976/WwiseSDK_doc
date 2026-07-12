@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>High-Level Stream Manager API Description</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_10"><a class="pcalibre1 anchor" id="streamingmanager_highlevel_standardstreams_heuristics"></a>
+Heuristics</h2>
+<p class="calibre7">Heuristics of standard streams are specified on a per-operation basis.</p>
+<p class="calibre7"><a class="pcalibre el" href="class_a_k_1_1_i_ak_std_stream_a2b12fb0cd1beb3c1d77c8206a8b5796d_split_000.html#a2b12fb0cd1beb3c1d77c8206a8b5796d">AK::IAkStdStream::Read()</a> and <a class="pcalibre el" href="class_a_k_1_1_i_ak_std_stream_af983e5aec5edd20b88a6b01e466d8779_split_000.html#af983e5aec5edd20b88a6b01e466d8779">AK::IAkStdStream::Write()</a> require a priority and a deadline (in milliseconds) for the operation. Typically, the Stream Manager will favor operations that have a short deadline. When the application requires more I/O bandwidth than what the storage device can provide, it favors streams that have high priority. Specifying a deadline of zero means that data is needed now, so I/O is already late. In that case, it will be serviced before any other streams that have a lower priority.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><p class="starttd"><b class="calibre13">Note:</b> The sound engine's Bank Manager is a user of standard streams. It reads and parses SoundBank data in its own buffer. A method is exposed in the sound engine API to specify an average throughput and priority of bank loading: <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ab8f05d2ee628529bb2bde9dab2d56047_split_000.html#ab8f05d2ee628529bb2bde9dab2d56047">AK::SoundEngine::SetBankLoadIOSettings()</a>. (Refer to Banks in the Wwise Sound Engine for more information. ) The Bank Manager calls <a class="pcalibre el" href="class_a_k_1_1_i_ak_std_stream_a2b12fb0cd1beb3c1d77c8206a8b5796d_split_000.html#a2b12fb0cd1beb3c1d77c8206a8b5796d">AK::IAkStdStream::Read()</a>, parses data when it completes, and reads. It uses the priority given as an argument of that method. It computes the operation's deadline from the user-specified throughput: </p><div class="fragment"><div class="line">fDeadline = uBufferSize / fUserSpecifiedThroughput;</div>
+</div><!-- fragment --><p class="endtd">Deadlines of standard stream operations and average throughput of automatic streams are equivalent for the Stream Manager's I/O scheduler. Users of the sound engine can thus tweak the burden of bank loading on I/O with that of audio streams, and other streams in the game. </p>
+</td></tr>
+</tbody></table>
+</div></div></div></body></html>

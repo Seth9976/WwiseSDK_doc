@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Handling User Music (BGM) and DVR</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="setup_bgm_dvr_authoring"></a>
+Setting up Background Music in the Authoring tool</h1>
+<p class="calibre7">In the authoring tool, you will need to route your music objects to a separate Main Audio Bus than the default or primary one. In most projects, this means creating a brand new Main Audio Bus (right click on the Busses Hierarchy's Work Unit and select Add &gt; Child). By default, all busses are routed to the System output. Change the Audio Device ShareSet to point to the DVR output.</p>
+<p class="calibre7">Don't forget that not all platforms support a DVR. You will need to Unlink the Audio Device property to point to the System output for those platforms. Alternatively, unlink the Output Bus property of the music objects.</p>
+</div></div></div></body></html>

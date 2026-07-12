@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integration Details - RTPCs</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_5"><a class="pcalibre1 anchor" id="soundengine_rtpc_effects"></a>
+RTPCs and Plug-Ins</h2>
+<p class="calibre7">In Wwise, RTPCs can affect the properties of effect and source plug-ins, such as their reverb levels, pitch, or low pass cut-off frequencies. For the RTPC value to correctly affect these properties on busses using the plug-in, the same scenarios explained above in <a class="pcalibre el" href="soundengine_rtpc_split_005.html#soundengine_rtpc_buses">RTPCs and Busses</a> will apply.</p>
+<p class="calibre7">If the plug-ins are used in Container objects or your project, they will always be played on a Game Object. Most of the time <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ab0e4ddefe5ea550b2f356edaa5a49a26_split_000.html#ab0e4ddefe5ea550b2f356edaa5a49a26">AK::SoundEngine::SetRTPCValue()</a> method should be made with a valid AkGameObjectID value. However, it is still possible to only set a global default value for all Game Objects that don't have one specified directly by using AK_INVALID_GAME_OBJECT.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> It is important to note the difference between setting global RTPC values, and setting RTPC values per game object. If a Wwise object playing sounds, such as a switch container, is affected by RTPCs, it is important to make calls to the <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ab0e4ddefe5ea550b2f356edaa5a49a26_split_000.html#ab0e4ddefe5ea550b2f356edaa5a49a26">AK::SoundEngine::SetRTPCValue()</a> method with a valid AkGameObjectID value. On playback, if no such game object-specific value has been set, the sound engine will look for a global RTPC value that will have been set by calling <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ab0e4ddefe5ea550b2f356edaa5a49a26_split_000.html#ab0e4ddefe5ea550b2f356edaa5a49a26">AK::SoundEngine::SetRTPCValue()</a> with the AK_INVALID_GAME_OBJECT parameter or with no specified game object. If this global value does not exist, the sound engine will use the Game Parameter's default value as specified in the Wwise authoring application. </td></tr>
+</tbody></table>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="caution.gif"/></td><td class="calibre17"><b class="calibre13">Caution:</b> Note that it is possible to use the same RTPC for sounds, buses, and effects. This may result in unexpected behavior, and we recommend you use different RTPCs for game objects, buses, and effects. For example, in a racing game, you might have set a default RPM value on the engines of ten cars. At the same time, a low pass filter on the bus playing the cars' engine sounds could be applied. If you follow this recommendation, it will be easier for you to identify the source of the low pass filter effect. </td></tr>
+</tbody></table>
+<p class="calibre7">For an example of integrating RTPCs, refer to <a class="pcalibre el" href="quickstart_sample_integration_rtpc_split_001.html#soundengine_integration_rtpc">RTPC Example</a>. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_ab0e4ddefe5ea550b2f356edaa5a49a26_html_ab0e4ddefe5ea550b2f356edaa5a49a26"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_ab0e4ddefe5ea550b2f356edaa5a49a26_split_000.html#ab0e4ddefe5ea550b2f356edaa5a49a26" class="pcalibre calibre12">AK::SoundEngine::SetRTPCValue</a></div><div class="calibre2">AKSOUNDENGINE_API AKRESULT SetRTPCValue(AkRtpcID in_rtpcID, AkRtpcValue in_value, AkGameObjectID in_gameObjectID=AK_INVALID_GAME_OBJECT, AkTimeMs in_uValueChangeDuration=0, AkCurveInterpolation in_eFadeCurve=AkCurveInterpolation_Linear, bool in_bBypassInternalValueInterpolation=false)</div></div>
+<div class="ttc" id="a_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_html_a352a1eb6955fa208062e40a9ccdd2560"><div class="calibre2"><a href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560" class="pcalibre calibre12">AkGameObjectID</a></div><div class="calibre2">AkUInt64 AkGameObjectID</div><div class="calibre2">Game object ID.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_typedefs_8h_source.html#l00039" class="pcalibre calibre12">AkTypedefs.h:39</a></div></div>
+<div class="ttc" id="a_ak_constants_8h_a82290a98a9cf7901722a69a590aeee34_html_a82290a98a9cf7901722a69a590aeee34"><div class="calibre2"><a href="_ak_constants_8h_a82290a98a9cf7901722a69a590aeee34_split_000.html#a82290a98a9cf7901722a69a590aeee34" class="pcalibre calibre12">AK_INVALID_GAME_OBJECT</a></div><div class="calibre2">static const AkGameObjectID AK_INVALID_GAME_OBJECT</div><div class="calibre2">Invalid game object (may also mean all game objects)</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_constants_8h_source.html#l00033" class="pcalibre calibre12">AkConstants.h:33</a></div></div>
+<div class="ttc" id="a_ak_typedefs_8h_a86459d5c3b5e6055cc885b833661f140_html_a86459d5c3b5e6055cc885b833661f140"><div class="calibre2"><a href="_ak_typedefs_8h_a86459d5c3b5e6055cc885b833661f140_split_000.html#a86459d5c3b5e6055cc885b833661f140" class="pcalibre calibre12">AkRtpcValue</a></div><div class="calibre2">AkReal32 AkRtpcValue</div><div class="calibre2">Real time parameter control value.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_typedefs_8h_source.html#l00053" class="pcalibre calibre12">AkTypedefs.h:53</a></div></div>
+<div class="ttc" id="a_ak_typedefs_8h_a77a3b6fec7d9181ef8e5bae2b37b80d0_html_a77a3b6fec7d9181ef8e5bae2b37b80d0"><div class="calibre2"><a href="_ak_typedefs_8h_a77a3b6fec7d9181ef8e5bae2b37b80d0_split_000.html#a77a3b6fec7d9181ef8e5bae2b37b80d0" class="pcalibre calibre12">AkRtpcID</a></div><div class="calibre2">AkUInt32 AkRtpcID</div><div class="calibre2">Real time parameter control ID.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_typedefs_8h_source.html#l00052" class="pcalibre calibre12">AkTypedefs.h:52</a></div></div>
+<div class="ttc" id="a_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_html_a64f7d1f79613cc4dcc49a4efba6caa63"><div class="calibre2"><a href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63" class="pcalibre calibre12">AKRESULT</a></div><div class="calibre2">AKRESULT</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_enums_8h_source_split_000.html#l00031" class="pcalibre calibre12">AkEnums.h:32</a></div></div>
+
+
+</body></html>

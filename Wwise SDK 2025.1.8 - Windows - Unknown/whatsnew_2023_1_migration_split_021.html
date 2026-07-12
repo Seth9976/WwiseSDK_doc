@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2023.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_20"><a class="pcalibre1 anchor" id="source_controle_sdk_update"></a>
+New Source Control Methods in SDK</h1>
+<p class="calibre7">The new <code class="calibre14">ISourceControl::Connect()</code> and <code class="calibre14">ISourceControl::Disconnect()</code> methods support source control login from the <code class="calibre14">ak.wwise.core.sourceControl.setProvider</code> WAAPI function. To ensure compatibility with this version of Wwise, you must add these methods to your <code class="calibre14">ISourceControl</code> and rebuild its plug-in.</p>
+<p class="calibre7">If your source control implementation does not support connections, these methods return <code class="calibre14">OperationResult_NotImplemented</code>.</p>
+</div></div></div></body></html>

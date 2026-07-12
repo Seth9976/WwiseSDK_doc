@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2021.1.2</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_4"><a class="pcalibre1 anchor" id="generic_bugs_2021_1_2"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-53415</b> Fixed: Wwise uses max CPU when capturing if Performance Monitor is showing Loudness Meter data without opening Loudness Meter view.</li>
+<li class="calibre9"><b class="calibre13">WG-53606</b> Fixed: Multiple Windows Explorer windows open when using Open Containing Folder.</li>
+<li class="calibre9"><b class="calibre13">WG-53734</b> Fixed: Possible crash in CAkMultiBandEQ and CAkPitchShifterFX under low-memory conditions.</li>
+<li class="calibre9"><b class="calibre13">WG-53739</b> Fixed: Crash when using Audio Device Effects in low-memory scenarios.</li>
+<li class="calibre9"><b class="calibre13">WG-53751</b> Fixed: Hang when calling <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a596df07185afdcb66a83e034ea0e32eb_split_000.html#a596df07185afdcb66a83e034ea0e32eb">AK::SoundEngine::GetSpeakerConfiguration</a></code> when Init.bnk is not loaded successfully.</li>
+<li class="calibre9"><b class="calibre13">WG-54053</b> Fixed: Possible crash when using a Remote Desktop Connection and changing the remote audio settings.</li>
+<li class="calibre9"><b class="calibre13">WG-54061</b> Fixed: Crash when profiling and loading a SoundBank that is already loaded.</li>
+<li class="calibre9"><b class="calibre13">WG-54062</b> Fixed: Potential crash when terminating the Sound Engine when using Ambisonic channel configurations.</li>
+<li class="calibre9"><b class="calibre13">WG-54075</b> Fixed: Memory leak under low memory conditions with function <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ab24b5dc8bd4d1adbdc6aa5c98d94d946_split_000.html#ab24b5dc8bd4d1adbdc6aa5c98d94d946">AK::SoundEngine::PostMIDIOnEvent</a> </code>.</li>
+<li class="calibre9"><b class="calibre13">WG-54200</b> Fixed: AKSIMD_TESTZERO_V8F32 did not check if the entire vector provided was equal to zero.</li>
+<li class="calibre9"><b class="calibre13">WG-54375</b> Fixed: Error is not reported when user data passed to <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_split_000.html">AK::SoundEngine</a></code> API calls is too large.</li>
+<li class="calibre9"><b class="calibre13">WG-54408</b> Fixed: Possible Wwise Authoring crash when connecting to a game using the "Profile Only" option.</li>
+<li class="calibre9"><b class="calibre13">WG-54500</b> Fixed: A Room's Extent only represents the volume of its associated Geometry if this Geometry is associated with the Room.</li>
+<li class="calibre9"><b class="calibre13">WG-54513</b> Fixed: Crash in Wwise when playing a Blend Container after deleting one of its associated Blend Tracks.</li>
+<li class="calibre9"><b class="calibre13">WG-54555</b> Fixed: Spatial Audio - Portal Path Validation CPU and Spatial Audio - Path Validation CPU sometimes report a value higher than the reported Spatial Audio - CPU.</li>
+<li class="calibre9"><b class="calibre13">WG-54570</b> Fixed: (Spatial Audio) When transitioning through a portal into a room with many other portals connected to the same room, extraneous paths and sound positions are observed.</li>
+<li class="calibre9"><b class="calibre13">WG-54584</b> Fixed: (Spatial Audio) Sound paths from a room/portal to the listener are sometimes not visible in the Game Object 3D Viewer.</li>
+<li class="calibre9"><b class="calibre13">WG-54603</b> Fixed: WwiseConsole slowdown due to excessive file usage.</li>
+<li class="calibre9"><b class="calibre13">WG-54621</b> Fixed: Wwise version name not shown on splash screen.</li>
+<li class="calibre9"><b class="calibre13">WG-54661</b> Fixed: Crash when opening the Help from the Effect Editor when no Effect is shown in the view.</li>
+<li class="calibre9"><b class="calibre13">WG-54670</b> Fixed: Voice Inspector reported values (Volume, LPF, and HPF) are not always updated.</li>
+<li class="calibre9"><b class="calibre13">WG-54671</b> Fixed: Ampersands (&amp;) are not displayed properly in the Effects list of the ShareSets tab in the Project Explorer.</li>
+<li class="calibre9"><b class="calibre13">WG-54831</b> Fixed: Spatial Audio counters in the Performance Monitor are not reset to 0 when the Spatial Audio plug-in is not running.</li>
+<li class="calibre9"><b class="calibre13">WG-54840</b> Fixed: "Z" slider is missing from Speaker Panner view.</li>
+</ul>
+</div></div></div></body></html>

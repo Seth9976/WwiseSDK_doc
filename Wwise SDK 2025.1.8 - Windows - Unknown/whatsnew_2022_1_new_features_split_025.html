@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>New Features Overview 2022.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_24"><a class="pcalibre1 anchor" id="features_22_1_sdk"></a>
+SDK</h1>
+<h2 class="calibre31"><a class="pcalibre1 anchor" id="features_22_1_TPP"></a>
+Third-Person Listener</h2>
+<p class="calibre7">When implementing audio in a game or simulation that uses a third-person perspective (TPP), it’s not always obvious where to place the Listener Game Object; while some would suggest the position of the camera, others prefer the position of the character controlled by the player. The new Distance Probe, available as an optional counterpart to a Listener Game Object, offers the best of both worlds.</p>
+<p class="calibre7">When a Distance Probe is assigned to a Listener, the attenuation distance applied to all sounds routed to the Listener is based on the distance between the Distance Probe and the Emitter Game Object. Panning, spatialization, spread, and focus are always based on the position and orientation of the Listener Game Object, regardless of whether or not a Distance Probe is assigned. With this decoupling of distance using the Distance Probe, you can dynamically control what is heard by the player in different gameplay scenarios.</p>
+<p class="calibre7">Additionally:</p>
+<ul class="calibre8">
+<li class="calibre9">Each Listener Game Object can have zero or one Game Objects set as the Distance Probe.</li>
+<li class="calibre9">A single Game Object can be the Distance Probe for multiple Listeners.</li>
+<li class="calibre9">Assigning a Listener to be its own Distance Probe is equivalent to setting the Distance Probe to none.</li>
+</ul>
+</div></div></div></body></html>

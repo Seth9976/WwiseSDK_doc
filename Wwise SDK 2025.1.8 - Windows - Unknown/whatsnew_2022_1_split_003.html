@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2022.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="generic_behavior_changes_2022_1"></a>
+Behavior Changes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-47808</b> Mouse wheel zoom and scroll modifiers have changed for ease of use. Most graphics-based views, like the RTPC editor, Music Segment Editor, and Source Editor, have the following new mouse wheel behavior. Note, when the mouse is over the vertical axis, all inputs affect the opposite plane. For example, Ctrl+Mouse wheel results in a vertical zoom instead of horizontal.<ul class="calibre15">
+<li class="calibre9">Mouse wheel: Horizontal scroll</li>
+<li class="calibre9">Ctrl+Mouse wheel: Horizontal zoom</li>
+<li class="calibre9">Shift+Mouse wheel: Vertical scroll</li>
+<li class="calibre9">Ctrl+Shift+Mouse wheel: Vertical zoom</li>
+</ul>
+</li>
+<li class="calibre9"><b class="calibre13">WG-52328</b> (WAAPI) Added topics ak.wwise.core.profiler.gameObjectRegistered, ak.wwise.core.profiler.gameObjectUnregistered, and ak.wwise.core.profiler.gameObjectReset to allow subscription to notifications about the state of game objects.</li>
+<li class="calibre9"><b class="calibre13">WG-52778</b> Mute and Solo buttons now use non-bold text icons so the implicitly muted/soloed modes are easier to identify.</li>
+<li class="calibre9"><b class="calibre13">WG-53884</b> The monitoring queue no longer drops monitoring messages when it's full. Instead, the queue waits for the reader to make room for new messages. This may lead to some voice starvation when profiling. Voice starvation is more likely to occur during the startup of the Profiler and if many data types are selected in the Profiler Settings.</li>
+<li class="calibre9"><b class="calibre13">WG-54026</b> The command "Profiler/Set Keyboard Focus to Text Filter" has been removed. It has been replaced by the more general "View/Search in Current View", which serves the same purpose. In addition to the Profiler views, this new command supports Text Filter in RTPC and Attenuation tabs. It also works in the Project Explorer, List View, and Schematic View.</li>
+<li class="calibre9"><b class="calibre13">WG-54052</b> In the List View and Schematic View, selecting <b class="calibre13">Show in List View</b>/<b class="calibre13">Show in Schematic View</b> in the shortcut menu of objects, now creates a WAQL query for those objects in the Search field. It is also now possible to drag and drop objects from the List View or Schematic View onto the Search field to search for those objects only as a WAQL query.</li>
+<li class="calibre9"><b class="calibre13">WG-54205</b> The new color of an unloaded Work Unit was not being saved. To avoid this issue, the SetColor command is now disabled on unloaded Work Units.</li>
+<li class="calibre9"><b class="calibre13">WG-54703</b> Common Multi Editor properties, such as Color and Inclusion, are now in a Common group. Voice properties and Bus properties are now inside their own respective groups.</li>
+<li class="calibre9"><b class="calibre13">WG-54820</b> When a WAAPI <a class="pcalibre el" href="ak_wwise_core_object_create_split_000.html">ak.wwise.core.object.create</a> operation fails, all changes made to the project during its execution will be reverted.</li>
+<li class="calibre9"><b class="calibre13">WG-55850</b> Sounds that end with a low-pass filter active no longer have audio glitches, or discontinuities, that could result from the low-pass filter's tail.</li>
+<li class="calibre9"><b class="calibre13">WG-56382</b> It is now possible to run a command using a keyboard shortcut when the cursor is in an edit field (for example, a search field). Note that commands involving editing control keys, such as Left arrow and Insert, will not be executed: key mapping priority will still be given to the editing capabilities.</li>
+<li class="calibre9"><b class="calibre13">WG-56404</b> Obstruction and diffraction can now be applied on top of each other, instead of one at a time.</li>
+<li class="calibre9"><b class="calibre13">WG-56612</b> Selecting <b class="calibre13">Show in List View</b> in the shortcut menu of an object now brings keyboard focus to the Search field in the List View when it opens.</li>
+<li class="calibre9"><b class="calibre13">WG-56816</b> Editing in text and numeric fields is now more consistent. Bringing the keyboard focus to a field automatically selects the text in the field. You can enter or exit Editing mode in a field by pressing Enter. The Notes field is exited by pressing Ctrl+Enter.</li>
+<li class="calibre9"><b class="calibre13">WG-57307</b> Meter plug-in output value calculation has been modified. In Peak mode, the peak value across all channels is now consistently used. In RMS mode, the results are now more consistent across channel configurations for a given source signal. The level difference might affect the mix of existing projects when using the Meter for side-chaining.</li>
+<li class="calibre9"><b class="calibre13">WG-57355</b> Plug-in DataWriter’s WriteString function no longer adds 4 bytes at the end of the string.</li>
+<li class="calibre9"><b class="calibre13">WG-57394</b> Balance-Fade Speaker Panning loudness now matches that of Direct Assignment, which means it is louder than before for sounds with a channel count larger than 1. Refer to <a class="pcalibre el" href="whatsnew_2022_1_migration_split_024.html#loudness_changes_2022_1">Loudness Changes</a> for more details.</li>
+<li class="calibre9"><b class="calibre13">WG-57686</b> Multiple Control Surface Binding views can now be open at the same time. And you can now activate/deactivate Control Surface Sessions from these views and deactivate them from the Control Surface Toolbar.</li>
+<li class="calibre9"><b class="calibre13">WG-57857</b> Compressor and Expander gain reduction value calculation has been modified: the results are now more consistent across channel configurations for a given source signal. The level difference might affect the mix of existing projects.</li>
+<li class="calibre9"><b class="calibre13">WG-58042</b> Source control status is now shown in the File Manager for source files and generated files.</li>
+<li class="calibre9"><b class="calibre13">WG-58603</b> (Spatial Audio) Diffraction paths that exceed 100% diffraction, or paths that exceed the maximum attenuation distance of all currently playing sounds, are no longer passed to the sound engine for rendering. Furthermore, they are no longer displayed in the Game Object 3D Viewer, unless a debug display option is enabled. Note that both distance attenuation and diffraction curves are expected to be designed so that they taper to an inaudible level to prevent discontinuities.</li>
+<li class="calibre9"><b class="calibre13">WG-58711</b> When executing a command (for example, Show in List View) when the Multi Editor is the current view and contains multiple objects, the command now uses the objects contained in the Multi Editor.</li>
+<li class="calibre9"><b class="calibre13">WG-60241</b> Mouse wheel zoom and scroll modifiers have changed for ease of use. The Mixing Desk now has the following behavior:<ul class="calibre15">
+<li class="calibre9">Mouse wheel: Vertical scroll</li>
+<li class="calibre9">Ctrl+Mouse wheel: Horizontal zoom</li>
+<li class="calibre9">Shift+MouseWheel: Horizontal scroll</li>
+</ul>
+</li>
+<li class="calibre9"><b class="calibre13">WG-60288</b> (Spatial Audio) Removed usage of <code class="calibre14">AK::SpatialAudio::String</code> from the Spatial Audio API and replaced it with standard c-strings to prevent memory allocation inside the Sound Engine from external code. Furthermore, the strings have been removed from the <a class="pcalibre el" href="struct_ak_room_params_split_000.html" title="Parameters passed to SetRoom.">AkRoomParams</a> and <a class="pcalibre el" href="struct_ak_portal_params_split_000.html" title="Parameters passed to SetPortal.">AkPortalParams</a> structs in favor of passing them directly into their respective functions. This eliminates the need for constructor, copy, and destructor methods in the parameter structs and simplifies client code.</li>
+<li class="calibre9"><b class="calibre13">WG-60440</b> Changed the default value of <code class="calibre14"><a class="pcalibre el" href="struct_ak_init_settings_a2438a18ece872c83175f70d7f70d659b_split_000.html#a2438a18ece872c83175f70d7f70d659b" title="Number of samples per audio frame (256, 512, 1024, or 2048).">AkInitSettings::uNumSamplesPerFrame</a></code> to 512 on all platforms. This increases out-of-the-box CPU usage in Wwise slightly but significantly reduces the total audio latency in the sound engine. It is still recommended to tune "Samples Per Frame" and "Number of Refills In Voice" to balance your game's total audio latency against the available computing resources.</li>
+<li class="calibre9"><b class="calibre13">WG-60762</b> (Spatial Audio) Early reflection volume set using <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_a691784b217ba9ccd30e6513dedb924e6_split_000.html#a691784b217ba9ccd30e6513dedb924e6">AK::SpatialAudio::SetEarlyReflectionsVolume</a></code> now applies to image sources set using <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_aab4d85317c62724c00d25ba8913fb503_split_000.html#aab4d85317c62724c00d25ba8913fb503">AK::SpatialAudio::SetImageSource</a></code> as well as reflections calculated from geometry.</li>
+<li class="calibre9"><b class="calibre13">WG-60985</b> The units of the Time To First Reflection variable are changed from seconds to milliseconds. Game Parameters previously mapped to this variable must now range over units of milliseconds instead of seconds.</li>
+<li class="calibre9"><b class="calibre13">WG-61126</b> Improved Crankcase Audio REV 2 ADPCM Decoder to remove a hiss from low amplitude samples.</li>
+<li class="calibre9"><b class="calibre13">WG-61755</b> Event Actions can no longer modify Effect bypasses on objects that do not specify Effects. An object specifies Effects if it has no parent object or it explicitly overrides the Effect list.</li>
+</ul>
+</div></div></div></body></html>

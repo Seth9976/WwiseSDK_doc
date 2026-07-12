@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Quick Start Sample Integration - Banks</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2"><h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="soundengine_integration_banks"></a>
+Bank Integration Example</h1>
+<p class="calibre7">As explained in <a class="pcalibre el" href="concept_banks.html">Understanding Banks</a>, there are two types of banks: Initialization banks, and SoundBanks. There is one initialization bank for each Wwise project, and it must be loaded before any other bank. There may be any number of SoundBanks in the project, and some of them might exist for multiple languages.</p>
+<p class="calibre7">The following code begins by setting the base path and language-specific subdirectory in the Low-Level I/O module. If you are overriding this module or the whole Streaming Manager, this code will need to be adapted as needed. Refer to <a class="pcalibre el" href="streamingdevicemanager_split_000.html">Streaming / Stream Manager</a> for more information.</p>
+<p class="calibre7">The code then loads the initialization bank, which by default is named "Init.bnk". If you decide to rename the file, the code must be updated accordingly.</p>
+<p class="calibre7">Finally, this code loads the "Car.bnk", "Human.bnk" and "MarkerTest.bnk" soundbanks. In our sample project, these contain events such as <code class="calibre14">Play_Engine</code>, <code class="calibre14">Stop_Engine</code> and <code class="calibre14">Play_Hello</code>.</p>
+<div class="fragment"><div class="line"><span class="comment">// Bank file names</span></div>
+<div class="line"><span class="preprocessor">#define BANKNAME_INIT L"Init.bnk"</span></div>
+<div class="line"><span class="preprocessor">#define BANKNAME_CAR L"Car.bnk"</span></div>
+<div class="line"><span class="preprocessor">#define BANKNAME_HUMAN L"Human.bnk"</span></div>
+<div class="line"><span class="preprocessor">#define BANKNAME_MARKERTEST L"MarkerTest.bnk"</span></div>
+<div class="line"> </div>
+<div class="line">(...)</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">//</span></div>
+<div class="line"><span class="comment">// Setup banks path</span></div>
+<div class="line"><span class="comment">//</span></div>
+<div class="line"> </div>
+<div class="line">g_lowLevelIO.SetBasePath( <a class="pcalibre code" href="_platforms_2_windows_2_ak_types_8h_ab37c4500d1c5377b3f54077b8222dde7_split_000.html#ab37c4500d1c5377b3f54077b8222dde7">AKTEXT</a>(<span class="stringliteral">"../../../samples/IntegrationDemo/WwiseProject/GeneratedSoundBanks/Windows/"</span>) );</div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_stream_mgr_ae4820886baae734dd90177a49a2be1eb_split_000.html#ae4820886baae734dd90177a49a2be1eb">AK::StreamMgr::SetCurrentLanguage</a>( <a class="pcalibre code" href="_platforms_2_windows_2_ak_types_8h_ab37c4500d1c5377b3f54077b8222dde7_split_000.html#ab37c4500d1c5377b3f54077b8222dde7">AKTEXT</a>(<span class="stringliteral">"English(US)"</span>) );</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">//</span></div>
+<div class="line"><span class="comment">// Load banks synchronously (from file name).</span></div>
+<div class="line"><span class="comment">//</span></div>
+<div class="line"> </div>
+<div class="line"><a class="pcalibre code" href="_ak_typedefs_8h_a472a3d18cbb0c4f081b3b619e4a2f349_split_000.html#a472a3d18cbb0c4f081b3b619e4a2f349">AkBankID</a> bankID; <span class="comment">// Not used. These banks can be unloaded with their file name.</span></div>
+<div class="line"><a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> eResult = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">AK::SoundEngine::LoadBank</a>( BANKNAME_INIT, bankID );</div>
+<div class="line">assert( eResult == <a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_001.html#a64f7d1f79613cc4dcc49a4efba6caa63ad7c47fea3da641e7422573c6a13dc35e">AK_Success</a> );</div>
+<div class="line">eResult = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">AK::SoundEngine::LoadBank</a>( BANKNAME_CAR, bankID );</div>
+<div class="line">assert( eResult == <a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_001.html#a64f7d1f79613cc4dcc49a4efba6caa63ad7c47fea3da641e7422573c6a13dc35e">AK_Success</a> );</div>
+<div class="line">eResult = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">AK::SoundEngine::LoadBank</a>( BANKNAME_HUMAN, bankID );</div>
+<div class="line">assert( eResult == <a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_001.html#a64f7d1f79613cc4dcc49a4efba6caa63ad7c47fea3da641e7422573c6a13dc35e">AK_Success</a> );</div>
+<div class="line">eResult = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">AK::SoundEngine::LoadBank</a>( BANKNAME_MARKERTEST, bankID );</div>
+<div class="line">assert( eResult == <a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_001.html#a64f7d1f79613cc4dcc49a4efba6caa63ad7c47fea3da641e7422573c6a13dc35e">AK_Success</a> );</div>
+</div><!-- fragment --><p class="calibre7">Refer to <a class="pcalibre el" href="soundengine_banks.html">Integration Details - Banks</a> for more information regarding Banks in the sound engine, and <a class="pcalibre el" href="streamingmanager_lowlevel_split_002.html#streamingmanager_lowlevel_location">File Location Resolving</a> for information on localization.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> This sample code comes from the Sound Engine Integration Sample Project available in the <a class="pcalibre el" href="samplecode_split_000.html">Samples</a> section. Refer to <a class="pcalibre el" href="soundengine_integration_samplecode_split_000.html">Integration Demo Sample</a> for more information. </td></tr>
+</tbody></table>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<div class="ttc" id="a_ak_typedefs_8h_a472a3d18cbb0c4f081b3b619e4a2f349_html_a472a3d18cbb0c4f081b3b619e4a2f349"><div class="calibre2"><a href="_ak_typedefs_8h_a472a3d18cbb0c4f081b3b619e4a2f349_split_000.html#a472a3d18cbb0c4f081b3b619e4a2f349" class="pcalibre calibre12">AkBankID</a></div><div class="calibre2">AkUInt32 AkBankID</div><div class="calibre2">Run time bank ID.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_typedefs_8h_source.html#l00054" class="pcalibre calibre12">AkTypedefs.h:54</a></div></div>
+<div class="ttc" id="anamespace_a_k_1_1_stream_mgr_ae4820886baae734dd90177a49a2be1eb_html_ae4820886baae734dd90177a49a2be1eb"><div class="calibre2"><a href="namespace_a_k_1_1_stream_mgr_ae4820886baae734dd90177a49a2be1eb_split_000.html#ae4820886baae734dd90177a49a2be1eb" class="pcalibre calibre12">AK::StreamMgr::SetCurrentLanguage</a></div><div class="calibre2">AKSOUNDENGINE_API AKRESULT SetCurrentLanguage(const AkOSChar *in_pszLanguageName)</div></div>
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_html_a95f8f6841a618ec3d5e51a30a1614e13"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13" class="pcalibre calibre12">AK::SoundEngine::LoadBank</a></div><div class="calibre2">AKSOUNDENGINE_API AKRESULT LoadBank(const char *in_pszString, AkBankID &amp;out_bankID, AkBankType in_bankType=AkBankType_User)</div></div>
+<div class="ttc" id="a_platforms_2_windows_2_ak_types_8h_ab37c4500d1c5377b3f54077b8222dde7_html_ab37c4500d1c5377b3f54077b8222dde7"><div class="calibre2"><a href="_platforms_2_windows_2_ak_types_8h_ab37c4500d1c5377b3f54077b8222dde7_split_000.html#ab37c4500d1c5377b3f54077b8222dde7" class="pcalibre calibre12">AKTEXT</a></div><div class="calibre2">#define AKTEXT(x)</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_platforms_2_windows_2_ak_types_8h_source.html#l00163" class="pcalibre calibre12">AkTypes.h:163</a></div></div>
+<div class="ttc" id="a_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_html_a64f7d1f79613cc4dcc49a4efba6caa63"><div class="calibre2"><a href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63" class="pcalibre calibre12">AKRESULT</a></div><div class="calibre2">AKRESULT</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_enums_8h_source_split_000.html#l00031" class="pcalibre calibre12">AkEnums.h:32</a></div></div>
+<div class="ttc" id="a_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_html_a64f7d1f79613cc4dcc49a4efba6caa63ad7c47fea3da641e7422573c6a13dc35e"><div class="calibre2"><a href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_001.html#a64f7d1f79613cc4dcc49a4efba6caa63ad7c47fea3da641e7422573c6a13dc35e" class="pcalibre calibre12">AK_Success</a></div><div class="calibre2">@ AK_Success</div><div class="calibre2">The operation was successful.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_enums_8h_source_split_000.html#l00034" class="pcalibre calibre12">AkEnums.h:34</a></div></div>
+
+
+</body></html>

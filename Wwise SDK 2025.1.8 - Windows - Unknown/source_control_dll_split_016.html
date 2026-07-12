@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Source Control Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_15"><a class="pcalibre1 anchor" id="source_control_dll_creation_object_execution"></a>
+Exposing Source Control Operations in Contextual Menus</h2>
+<p class="calibre7">When Wwise users choose an operation from a contextual menu, Wwise first calls the <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_a1cb1c283baf8b61df030a862dd2dc880_split_000.html#a1cb1c283baf8b61df030a862dd2dc880" title="Gets the operation effect on the file(s) involved in the operation.">AK::Wwise::ISourceControl::GetOperationEffect( DWORD in_dwOperationID )</a> method. The parameter is the operation ID corresponding to the operation. The implementation of this method returns a mask made of one or many values of the <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_a5a211138d467837ead81bfa7446aa31b_split_000.html#a5a211138d467837ead81bfa7446aa31b" title="The operation's effect on the file(s) involved.">AK::Wwise::ISourceControl::OperationEffect</a> enumeration. Wwise uses the return value to learn if it must ask users to save their projects before continuing with the source control operation. Operations such as update, rename, revert, and delete modify the contents of the local files. Operations such as commit and check-in modify the contents of the file on the server.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="warning.gif"/></td><td class="calibre17"><b class="calibre13">Warning:</b> Not returning information about the effect of an operation on a file may lead to frustration for Wwise users. When a file changes on the hard drive during a source control operation, Wwise detects the change and asks the user to reload the project. If users had pending changes (that is, the project is dirty) and are asked to reload, their changes are lost. If users revert the changes to a file that is dirty, choose not to reload the project, and then save the changes, they may overwrite the newly-updated file. <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_a1cb1c283baf8b61df030a862dd2dc880_split_000.html#a1cb1c283baf8b61df030a862dd2dc880" title="Gets the operation effect on the file(s) involved in the operation.">AK::Wwise::ISourceControl::GetOperationEffect</a> uses the information returned to avoid such situations by forcing users to save. </td></tr>
+</tbody></table>
+<p class="calibre7">After successfully calling the first method, Wwise calls the AK::Wwise::ISourceControl::DoOperation( DWORD in_dwOperationID, const StringList&amp; in_rFilenameList ) method. The first parameter is the operation ID corresponding to the operation. The second parameter is the list of selected files. The implementation of this method uses the AK::Wwise::ISourceControlOperationProgress interface to display a progress dialog. For more information, refer to <a class="pcalibre el" href="source_control_dll_split_011.html#source_control_dll_creation_progress">Implementing the Source Control Operation Progress Interface</a>.</p>
+</div></div></div></body></html>

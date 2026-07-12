@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak.wwise.core.profiler.captureLog.itemAdded Publish Schema</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2"><h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="section_ak_wwise_core_profiler_capturelog_itemadded_publishSchema"></a>
+Schema</h1>
+<div class="fragment"><div class="line">{</div>
+<div class="line">    "type": "object",</div>
+<div class="line">    "properties": {</div>
+<div class="line">        "type": {</div>
+<div class="line">            "type": "string",</div>
+<div class="line">            "description": "The entry type. Equivalent to the Type column in the Capture Log."</div>
+<div class="line">        },</div>
+<div class="line">        "time": {</div>
+<div class="line">            "type": "integer",</div>
+<div class="line">            "description": "The time at which the event occurred. This is the elapsed time in milliseconds since the initialization of the sound engine.\\n Integer 32-bit.",</div>
+<div class="line">            "minimum": -2147483648,</div>
+<div class="line">            "maximum": 2147483647</div>
+<div class="line">        },</div>
+<div class="line">        "objectId": {</div>
+<div class="line">            "type": "string",</div>
+<div class="line">            "pattern": "^\\{[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}\\}$",</div>
+<div class="line">            "description": "The ID (GUID) of the object for the entry.\\n An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}."</div>
+<div class="line">        },</div>
+<div class="line">        "objectName": {</div>
+<div class="line">            "type": "string",</div>
+<div class="line">            "description": "The name of the object for the entry."</div>
+<div class="line">        },</div>
+<div class="line">        "objectShortId": {</div>
+<div class="line">            "type": "integer",</div>
+<div class="line">            "description": "The short ID (32-bit) of the object for the entry.\\n Unsigned Integer 32-bit.",</div>
+<div class="line">            "minimum": 0,</div>
+<div class="line">            "maximum": 4294967295</div>
+<div class="line">        },</div>
+<div class="line">        "gameObjectId": {</div>
+<div class="line">            "type": "integer",</div>
+<div class="line">            "description": "The game object ID for the entry.\\n A game object ID, unsigned integer 64-bit.",</div>
+<div class="line">            "minimum": 0,</div>
+<div class="line">            "maximum": 18446744073709551615</div>
+<div class="line">        },</div>
+<div class="line">        "gameObjectName": {</div>
+<div class="line">            "type": "string",</div>
+<div class="line">            "description": "The game object name for the entry."</div>
+<div class="line">        },</div>
+<div class="line">        "playingId": {</div>
+<div class="line">            "type": "integer",</div>
+<div class="line">            "description": "The playing ID for the entry.\\n Unsigned Integer 32-bit.",</div>
+<div class="line">            "minimum": 0,</div>
+<div class="line">            "maximum": 4294967295</div>
+<div class="line">        },</div>
+<div class="line">        "description": {</div>
+<div class="line">            "type": "string",</div>
+<div class="line">            "description": "The description for the entry. Equivalent to the Description column in the Capture Log."</div>
+<div class="line">        },</div>
+<div class="line">        "severity": {</div>
+<div class="line">            "type": "string",</div>
+<div class="line">            "description": "The severity level of the log entry.",</div>
+<div class="line">            "oneOf": [</div>
+<div class="line">                {</div>
+<div class="line">                    "enum": [</div>
+<div class="line">                        "Normal"</div>
+<div class="line">                    ],</div>
+<div class="line">                    "description": "Normal execution."</div>
+<div class="line">                },</div>
+<div class="line">                {</div>
+<div class="line">                    "enum": [</div>
+<div class="line">                        "Message"</div>
+<div class="line">                    ],</div>
+<div class="line">                    "description": "Shown in yellow in the capture log."</div>
+<div class="line">                },</div>
+<div class="line">                {</div>
+<div class="line">                    "enum": [</div>
+<div class="line">                        "Error"</div>
+<div class="line">                    ],</div>
+<div class="line">                    "description": "Shown in red in the capture log."</div>
+<div class="line">                }</div>
+<div class="line">            ]</div>
+<div class="line">        },</div>
+<div class="line">        "errorCodeName": {</div>
+<div class="line">            "type": "string",</div>
+<div class="line">            "description": "The error code name for the entry."</div>
+<div class="line">        }</div>
+<div class="line">    },</div>
+<div class="line">    "required": [</div>
+<div class="line">        "time",</div>
+<div class="line">        "type",</div>
+<div class="line">        "description",</div>
+<div class="line">        "severity"</div>
+<div class="line">    ],</div>
+<div class="line">    "additionalProperties": false</div>
+<div class="line">}</div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

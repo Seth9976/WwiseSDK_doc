@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2022.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_11"><a class="pcalibre1 anchor" id="source_control_improved_performance"></a>
+Improved Performance</h2>
+<p class="calibre7">File Manager now offers a better user experience, especially with large lists of files. To speed up the update of the rows, a new function has been added to fetch both the status and the icon of the file in a single call:</p>
+<ul class="calibre8">
+<li class="calibre9"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_acddafee15f9c40453fdc2c881bb77d3e_split_000.html#acddafee15f9c40453fdc2c881bb77d3e">AK::Wwise::ISourceControl::GetFileStatusAndIcons</a></li>
+</ul>
+<p class="calibre7">Additionally, most of the <code class="calibre14">GetFileStatus</code> and <code class="calibre14">GetFileStatusIcons</code> calls are now asynchronous, leaving the user free to interact with the interface while the source control fetches the information.</p>
+</div></div></div></body></html>

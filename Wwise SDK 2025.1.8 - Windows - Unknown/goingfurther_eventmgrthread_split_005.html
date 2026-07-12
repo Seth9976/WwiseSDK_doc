@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Optimizing CPU usage</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_4"><a class="pcalibre1 anchor" id="eventmgrthread_jobmgr_scheduler"></a>
+Integrating with a Game Engine's Existing Job Scheduler</h2>
+<p class="calibre7">The Wwise Sound Engine's Job Manager is designed to work in tandem with existing job schedulers to achieve co-operative multi-tasking. Game engines that already have a job scheduler should implement the <b class="calibre13">worker request function</b> in a way that schedules the execution of the <b class="calibre13">worker function</b> within their existing job system.</p>
+<p class="calibre7">When calling the <b class="calibre13">worker function</b>, the game engine's job scheduler can specify a timeout in microseconds. This is to prevent the Sound Engine from taking too much CPU time on the calling thread. Past this timeout, the <b class="calibre13">worker function</b> will stop and request an additional worker if more jobs were available for execution. This allows the execution of other, possibly higher-priority game engine work on this thread.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> Care must be taken when delaying the execution of the <b class="calibre13">worker function</b> or limiting the execution time of Sound Engine work, as this can lead to voice starvation. When integrating Sound Engine jobs into an existing job scheduler, it is recommended to treat audio rendering jobs as high-priority work. </td></tr>
+</tbody></table>
+<p class="calibre7">For game engines that don't already have a job scheduler, a sample implementation of such a scheduler is provided in the SDK samples under <code class="calibre14">SDK/samples/SoundEngine/Common/AkJobWorkerMgr.[h,cpp]</code>. This sample provides a great starting point for concurrent execution of audio rendering jobs. Additionally, IntegrationDemo provides code demonstrating how this sample implementation can be integrated in an actual end-user application.</p>
+</div></div></div></body></html>

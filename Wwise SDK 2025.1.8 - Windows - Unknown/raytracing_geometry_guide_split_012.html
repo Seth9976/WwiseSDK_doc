@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Ray Tracing Engine Geometry Guide</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_11"><a class="pcalibre1 anchor" id="raytracing_geometry_guide_load_balancing_FAQ"></a>
+Load Balancing FAQ</h2>
+<ul class="calibre8">
+<li class="calibre9">
+<p class="starttd">Does load balancing cause delays?</p>
+<p class="calibre7">Not exactly. It can introduce a "delay" in updating path information, but does not add latency to the audio signal. For instance, the same rays might be used until the next update. The paths are still computed at each frame, but are not validated at each frame. This means that some paths might be less accurate. For instance, specular reflection positions might be slightly inaccurate.</p>
+<p class="endli"></p>
+</li>
+<li class="calibre9">
+<p class="starttd">Does the load balancing improve the average CPU performance?</p>
+<p class="calibre7">Although load balancing primarily focuses on decreasing CPU peaks, it can also decrease CPU averages because it prevents the same type of task from appearing in the queue multiple times. If a task is in the queue, it must be executed before another task of the same type can be added to the queue.</p>
+<p class="endli"></p>
+</li>
+<li class="calibre9">
+<p class="starttd">Does load balancing improve CPU performance when there is only one emitter?</p>
+<p class="calibre7">Not significantly. Path validation is the most CPU-intensive Wwise Acoustics task. Given that one path validation task is executed for each emitter, load balancing is more appropriate for situations that involve several emitters. However, it can slightly improve single-emitter scenarios by preventing redundant computations.</p>
+<p class="endli"></p>
+</li>
+</ul>
+</div></div></div></body></html>

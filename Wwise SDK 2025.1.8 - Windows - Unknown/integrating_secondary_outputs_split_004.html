@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integrating Secondary Outputs</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="secondary_output_examples"></a>
+Examples</h1>
+<p class="calibre7">All code examples below assume the following declarations: </p><div class="fragment"><div class="line"><span class="comment">// The examples below assume these game object IDs are already registered.</span></div>
+<div class="line"><span class="keyword">const</span> <a class="pcalibre code" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> POW_GAME_OBJECT = 100;  <span class="comment">// Emitter game object for the "Pow!" sound</span></div>
+<div class="line"><span class="keyword">const</span> <a class="pcalibre code" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> PIF_GAME_OBJECT = 150;  <span class="comment">// Emitter game object for the "Pif!" sound</span></div>
+<div class="line"><span class="keyword">const</span> <a class="pcalibre code" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> MY_LISTENER1 = 200;     <span class="comment">// Listener game object for the first player's controller speaker</span></div>
+<div class="line"><span class="keyword">const</span> <a class="pcalibre code" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> MY_LISTENER2 = 300;     <span class="comment">// Listener game object for the second player's controller speaker</span></div>
+<div class="line"><span class="keyword">const</span> <a class="pcalibre code" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> MY_MAIN_LISTENER = 400; <span class="comment">// MY_MAIN_LISTENER is the default listener you normally use, defined by AK::SoundEngine::SetDefaultListeners.</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Platform-specific IDs for the controller speaker devices.</span></div>
+<div class="line"><span class="comment">// To resolve these, on Windows you can use AK::GetDeviceIDFromName.</span></div>
+<div class="line"><a class="pcalibre code" href="_ak_typedefs_8h_a8341fa4d01d2fa852c3cc410401b04dc_split_000.html#a8341fa4d01d2fa852c3cc410401b04dc">AkUniqueID</a> firstPlayerDeviceID;</div>
+<div class="line"><a class="pcalibre code" href="_ak_typedefs_8h_a8341fa4d01d2fa852c3cc410401b04dc_split_000.html#a8341fa4d01d2fa852c3cc410401b04dc">AkUniqueID</a> secondPlayerDeviceID;</div>
+</div><!-- fragment --><p class="calibre7">The code samples below apply to all platforms. The only platform-specific bit concerns how <code class="calibre14">firstPlayerDeviceID</code> and <code class="calibre14">secondPlayerDeviceID</code> are obtained. Refer to <a class="pcalibre el" href="default_audio_devices_split_008.html#obtaining_device_id">Targeting Specific System Devices</a> to learn how to resolve device IDs for your target platform.</p>
+<p class="calibre7"><b class="calibre13">Sound on one game controller output:</b> </p><div class="fragment"><div class="line"><span class="comment">// Add a secondary output connected to the speaker endpoint for player 0.</span></div>
+<div class="line"><a class="pcalibre code" href="struct_ak_output_settings_split_000.html">AkOutputSettings</a> outputSettings(<span class="stringliteral">"Game Controller Speaker"</span>, firstPlayerDeviceID);</div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a15ab79f954a307902f529d8ccde8ad48_split_000.html#a15ab79f954a307902f529d8ccde8ad48">AK::SoundEngine::AddOutput</a>(outputSettings);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Play an Event. In the Wwise project, this sound must be routed to a master bus that is set to output in "Game Controller Speaker" (or any sub-bus).</span></div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a41e9ef8d42951871fe4a8ae58a29a68e_split_000.html#a41e9ef8d42951871fe4a8ae58a29a68e">AK::SoundEngine::PostEvent</a>(<span class="stringliteral">"Play_Pow"</span>, POW_GAME_OBJECT);</div>
+</div><!-- fragment --><p class="calibre7"><b class="calibre13">Same sound on two different controllers:</b> </p><div class="fragment"><div class="line"><a class="pcalibre code" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> listenerArray1[] = { MY_LISTENER1 };</div>
+<div class="line"><a class="pcalibre code" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> listenerArray2[] = { MY_LISTENER2 };</div>
+<div class="line"><a class="pcalibre code" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> listenerArrayBoth[] = { MY_LISTENER1, MY_LISTENER2 };</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Add a secondary output connected to the speaker output for player 0, associated with listener #1.</span></div>
+<div class="line"><a class="pcalibre code" href="struct_ak_output_settings_split_000.html">AkOutputSettings</a> outputSettings1(<span class="stringliteral">"Game Controller Speaker"</span>, firstPlayerDeviceID);</div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a15ab79f954a307902f529d8ccde8ad48_split_000.html#a15ab79f954a307902f529d8ccde8ad48">AK::SoundEngine::AddOutput</a>(outputSettings1, NULL, listenerArray1, 1);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Add a secondary output connected to the speaker output for player 1, associated with listener #2.</span></div>
+<div class="line"><a class="pcalibre code" href="struct_ak_output_settings_split_000.html">AkOutputSettings</a> outputSettings2(<span class="stringliteral">"Game Controller Speaker"</span>, secondPlayerDeviceID);</div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a15ab79f954a307902f529d8ccde8ad48_split_000.html#a15ab79f954a307902f529d8ccde8ad48">AK::SoundEngine::AddOutput</a>(outputSettings2, NULL, listenerArray2, 1);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Set a game object to emit sound to the listener 1(player 0) and 2 (player 1).</span></div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a2f85a55c38afa2e0dbc6172a7bec91d1_split_000.html#a2f85a55c38afa2e0dbc6172a7bec91d1">AK::SoundEngine::SetListeners</a>(POW_GAME_OBJECT, listenerArrayBoth, 2);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Play an Event. In the Wwise project, this sound must be routed to a master bus that is set to output in "Game Controller Speaker" (or any sub-bus).</span></div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a41e9ef8d42951871fe4a8ae58a29a68e_split_000.html#a41e9ef8d42951871fe4a8ae58a29a68e">AK::SoundEngine::PostEvent</a>(<span class="stringliteral">"Play_Pow"</span>, POW_GAME_OBJECT);</div>
+</div><!-- fragment --><p class="calibre7"><b class="calibre13">Different sounds on two different controllers:</b> </p><div class="fragment"><div class="line"><a class="pcalibre code" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> listenerArray1[] = { MY_LISTENER1 };</div>
+<div class="line"><a class="pcalibre code" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> listenerArray2[] = { MY_LISTENER2 };</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Add a secondary output connected to the speaker output for player 0, associated with listener #1.</span></div>
+<div class="line"><a class="pcalibre code" href="struct_ak_output_settings_split_000.html">AkOutputSettings</a> outputSettings1(<span class="stringliteral">"Game Controller Speaker"</span>, firstPlayerDeviceID);</div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a15ab79f954a307902f529d8ccde8ad48_split_000.html#a15ab79f954a307902f529d8ccde8ad48">AK::SoundEngine::AddOutput</a>(outputSettings1, NULL, listenerArray1, 1);</div>
+<div class="line"><a class="pcalibre code" href="struct_ak_output_settings_split_000.html">AkOutputSettings</a> outputSettings2(<span class="stringliteral">"Game Controller Speaker"</span>, secondPlayerDeviceID);</div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a15ab79f954a307902f529d8ccde8ad48_split_000.html#a15ab79f954a307902f529d8ccde8ad48">AK::SoundEngine::AddOutput</a>(outputSettings2, NULL, listenerArray2, 1);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Set a game object to emit sound to the proper listeners.</span></div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a2f85a55c38afa2e0dbc6172a7bec91d1_split_000.html#a2f85a55c38afa2e0dbc6172a7bec91d1">AK::SoundEngine::SetListeners</a>(POW_GAME_OBJECT, listenerArray1, 1);</div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a2f85a55c38afa2e0dbc6172a7bec91d1_split_000.html#a2f85a55c38afa2e0dbc6172a7bec91d1">AK::SoundEngine::SetListeners</a>(PIF_GAME_OBJECT, listenerArray2, 1);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Play an Event. In the Wwise project, this sound must be routed to a master bus which is set to output in "Game Controller Speaker" (or any sub-bus).</span></div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a41e9ef8d42951871fe4a8ae58a29a68e_split_000.html#a41e9ef8d42951871fe4a8ae58a29a68e">AK::SoundEngine::PostEvent</a>(<span class="stringliteral">"Play_Pow"</span>, POW_GAME_OBJECT);</div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a41e9ef8d42951871fe4a8ae58a29a68e_split_000.html#a41e9ef8d42951871fe4a8ae58a29a68e">AK::SoundEngine::PostEvent</a>(<span class="stringliteral">"Play_Pif"</span>, PIF_GAME_OBJECT);</div>
+</div><!-- fragment --><p class="calibre7"><b class="calibre13">Same sound on one game controller output and on the TV:</b> </p><div class="fragment"><div class="line"><span class="comment">// Add a secondary output connected to the speaker output for player 0, associated with listener #1.</span></div>
+<div class="line"><a class="pcalibre code" href="struct_ak_output_settings_split_000.html">AkOutputSettings</a> outputSettings1(<span class="stringliteral">"Game Controller Speaker"</span>, firstPlayerDeviceID);</div>
+<div class="line"><a class="pcalibre code" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> listenerArray1[] = { MY_LISTENER1 };</div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a15ab79f954a307902f529d8ccde8ad48_split_000.html#a15ab79f954a307902f529d8ccde8ad48">AK::SoundEngine::AddOutput</a>(outputSettings1, NULL, listenerArray1, 1);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Set a game object to emit sound to the listener 0 (TV) and 1 (controller for first player).</span></div>
+<div class="line"><a class="pcalibre code" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> listenerArrayWithDefault[] = { MY_MAIN_LISTENER, MY_LISTENER1 };</div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a2f85a55c38afa2e0dbc6172a7bec91d1_split_000.html#a2f85a55c38afa2e0dbc6172a7bec91d1">AK::SoundEngine::SetListeners</a>(POW_GAME_OBJECT, listenerArrayWithDefault, 2);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Play an Event.  </span></div>
+<div class="line"><span class="comment">// In the Wwise project, this sound must be routed to a master bus that is set to output in "Game Controller Speaker" (or any sub-bus).</span></div>
+<div class="line"><span class="comment">// Also, this sound must have an Auxiliary send routed to the Main Audio Bus.</span></div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a41e9ef8d42951871fe4a8ae58a29a68e_split_000.html#a41e9ef8d42951871fe4a8ae58a29a68e">AK::SoundEngine::PostEvent</a>(<span class="stringliteral">"Play_Pow"</span>, POW_GAME_OBJECT);</div>
+</div><!-- fragment --><p class="calibre7">You can find a working example of multiple output management in the <a class="pcalibre el" href="soundengine_integration_samplecode_split_000.html">Integration Demo Sample</a>, in the DemoMotion page (multi-player), and in the BGMDemo page (DVR/BGM management).</p>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="default_audio_devices_split_000.html">Default Wwise Audio Devices</a></li>
+<li class="calibre9"><a class="pcalibre el" href="default_audio_devices_split_008.html#obtaining_device_id">Targeting Specific System Devices</a> </li>
+</ul>
+</dd></dl>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<div class="ttc" id="a_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_html_a352a1eb6955fa208062e40a9ccdd2560"><div class="calibre2"><a href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560" class="pcalibre calibre12">AkGameObjectID</a></div><div class="calibre2">AkUInt64 AkGameObjectID</div><div class="calibre2">Game object ID.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_typedefs_8h_source.html#l00039" class="pcalibre calibre12">AkTypedefs.h:39</a></div></div>
+<div class="ttc" id="astruct_ak_output_settings_html"><div class="calibre2"><a href="struct_ak_output_settings_split_000.html" class="pcalibre calibre12">AkOutputSettings</a></div><div class="calibre2">Platform-independent initialization settings of output devices.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_sound_engine_types_8h_source.html#l00229" class="pcalibre calibre12">AkSoundEngineTypes.h:230</a></div></div>
+<div class="ttc" id="a_ak_typedefs_8h_a8341fa4d01d2fa852c3cc410401b04dc_html_a8341fa4d01d2fa852c3cc410401b04dc"><div class="calibre2"><a href="_ak_typedefs_8h_a8341fa4d01d2fa852c3cc410401b04dc_split_000.html#a8341fa4d01d2fa852c3cc410401b04dc" class="pcalibre calibre12">AkUniqueID</a></div><div class="calibre2">AkUInt32 AkUniqueID</div><div class="calibre2">Unique 32-bit ID.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_typedefs_8h_source.html#l00031" class="pcalibre calibre12">AkTypedefs.h:31</a></div></div>
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_a2f85a55c38afa2e0dbc6172a7bec91d1_html_a2f85a55c38afa2e0dbc6172a7bec91d1"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_a2f85a55c38afa2e0dbc6172a7bec91d1_split_000.html#a2f85a55c38afa2e0dbc6172a7bec91d1" class="pcalibre calibre12">AK::SoundEngine::SetListeners</a></div><div class="calibre2">AKSOUNDENGINE_API AKRESULT SetListeners(AkGameObjectID in_emitterGameObj, const AkGameObjectID *in_pListenerGameObjs, AkUInt32 in_uNumListeners)</div></div>
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_a15ab79f954a307902f529d8ccde8ad48_html_a15ab79f954a307902f529d8ccde8ad48"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_a15ab79f954a307902f529d8ccde8ad48_split_000.html#a15ab79f954a307902f529d8ccde8ad48" class="pcalibre calibre12">AK::SoundEngine::AddOutput</a></div><div class="calibre2">AKSOUNDENGINE_API AKRESULT AddOutput(const AkOutputSettings &amp;in_Settings, AkOutputDeviceID *out_pDeviceID=NULL, const AkGameObjectID *in_pListenerIDs=NULL, AkUInt32 in_uNumListeners=0)</div></div>
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_a41e9ef8d42951871fe4a8ae58a29a68e_html_a41e9ef8d42951871fe4a8ae58a29a68e"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_a41e9ef8d42951871fe4a8ae58a29a68e_split_000.html#a41e9ef8d42951871fe4a8ae58a29a68e" class="pcalibre calibre12">AK::SoundEngine::PostEvent</a></div><div class="calibre2">AKSOUNDENGINE_API AkPlayingID PostEvent(AkUniqueID in_eventID, AkGameObjectID in_gameObjectID, AkUInt32 in_uFlags=0, AkCallbackFunc in_pfnCallback=NULL, void *in_pCookie=NULL, AkUInt32 in_cExternals=0, AkExternalSourceInfo *in_pExternalSources=NULL, AkPlayingID in_PlayingID=AK_INVALID_PLAYING_ID)</div></div>
+
+
+</body></html>

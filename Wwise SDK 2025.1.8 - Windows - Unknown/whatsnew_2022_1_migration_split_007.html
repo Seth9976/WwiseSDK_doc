@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2022.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_6"><a class="pcalibre1 anchor" id="reflect_simplified_migration_2022"></a>
+Removal of a Reflect Plug-in Curve</h1>
+<p class="calibre7">The Reflect plug-in's Distance Attenuation (Emitter vs. Listener) curve has been removed. Previously, this curve allowed you to define an attenuation of the Reflect plug-in's output volume dependent on the distance between the listener and emitter game objects. Then and now, the same behavior could be achieved using the distance-driven volume attenuation curve of an Attenuation ShareSet placed on the Reflect Auxiliary Bus. For this reason, when migrating a project to Wwise 2022.1, a new Attenuation ShareSet is automatically created for any non-flat Distance Attenuation (Emitter vs. Listener) curve on a Reflect Effect.</p>
+<p class="calibre7">Each newly created Attenuation ShareSet is added to the corresponding Reflect Auxiliary Bus if no other attenuation was set prior to the migration. This ensures that the Reflect Effect behaves the same way as before. If a Reflect Auxiliary Bus has more than one Reflect Effect with such a curve, only one of the new Attenuation ShareSets is added.</p>
+<p class="calibre7">With this new design, there is a clear distinction between the attenuation curves, which are driven by the position of an emitter, and the Reflect effect curves, which which are driven by the position of an image source.</p>
+</div></div></div></body></html>

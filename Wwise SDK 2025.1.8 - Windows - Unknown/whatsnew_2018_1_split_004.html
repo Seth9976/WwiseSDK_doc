@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2018.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="behavior_changes_2018_1"></a>
+Behavior Changes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-35918</b> For Blend and Switch Containers, Wwise now sorts by name Blend Tracks, Switches, and States shown in the Contents Editor.</li>
+<li class="calibre9"><b class="calibre13">WG-36327</b> Seeking on a Vorbis sound without a seek table fails but no longer stops the sound.</li>
+<li class="calibre9"><b class="calibre13">WG-36399</b> When moving or copying an object within the Interactive Music Hierarchy, Wwise no longer copies the music stingers of the object's ancestors.</li>
+<li class="calibre9"><b class="calibre13">WG-36689</b> Scope and Delay are no longer default columns of the Event Editor's Action list.</li>
+<li class="calibre9"><b class="calibre13">WG-36762</b> Objects in the Project Explorer that are not included now have a disabled icon.</li>
+<li class="calibre9"><b class="calibre13">WG-36787</b> Modified the opening position of the Randomizer to be closer to the cursor.</li>
+<li class="calibre9"><b class="calibre13">WG-37227</b> Remove DC Offset is now turned off by default for newly created Wwise projects.</li>
+<li class="calibre9"><b class="calibre13">WG-37243</b> Expanding and collapsing nodes in the Project Explorer with the + and - keys now works with multi-selection.</li>
+<li class="calibre9"><b class="calibre13">WG-37454</b> When loading banks, Wwise validates memory alignment data on user-provided memory pools.</li>
+<li class="calibre9"><b class="calibre13">WG-38197</b> (WAAPI) An <code class="calibre14">ak.wwise.ui.project.open</code> WAAPI call or opening a project in the UI now prevents further WAAPI calls for the full duration of the project open operation. You can subscribe to <code class="calibre14">ak.wwise.core.project.loaded</code> to be notified when the project has been loaded successfully.</li>
+<li class="calibre9"><b class="calibre13">WG-38207</b> Diffraction angles were previously reported in degrees to both the Game Object 3D Viewer and to the built-in diffraction RTPC. In order to be consistent with the obstruction value that is set by diffraction, we have changed the unit across the board to be normalized within the range 0-100%. RTPCs that are bound to diffraction will be scaled to the 0-100 range, and you will see % reported in the Game Object Profiler, as we do within the Reflect plug-in for diffracted reflections.</li>
+<li class="calibre9"><b class="calibre13">WG-38443</b> Diffraction values across multiple Portals now sum together to produce the final diffraction value that is sent to the sound engine (via obstruction or RTPC value). If the resulting value is greater than 100, then the value is clamped. Previously, the maximum value was taken. <br class="calibre10"/>
+</li>
+<li class="calibre9"><b class="calibre13">WG-38456</b> Enabled partial bank backward compatibility. Starting from 2017.2.7 (and 2018.1), banks from versions that were generated from 2016.1 and after will be accepted if they were containing only media content. Note that the backward compatibility is not guaranteed if the media was plug-in media.</li>
+</ul>
+</div></div></div></body></html>

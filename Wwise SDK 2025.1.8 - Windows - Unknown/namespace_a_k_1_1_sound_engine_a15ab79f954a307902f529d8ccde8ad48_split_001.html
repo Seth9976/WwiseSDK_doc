@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::SoundEngine::AddOutput</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="namespace_a_k_1_1_sound_engine_a15ab79f954a307902f529d8ccde8ad48_split_000.html#a15ab79f954a307902f529d8ccde8ad48" class="pcalibre1 anchor">◆ </a></span>AddOutput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_sound_engine_export_8h_ac6e96d34dfc0e12f9aaa7a47f4e9c322_split_000.html#ac6e96d34dfc0e12f9aaa7a47f4e9c322">AKSOUNDENGINE_API</a> <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::SoundEngine::AddOutput </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype">const <a class="pcalibre el" href="struct_ak_output_settings_split_000.html">AkOutputSettings</a> &amp; </td>
+          <td class="paramname"><em class="calibre59">in_Settings</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_ab608859e8c575f46ce18433e32aa2ccd_split_000.html#ab608859e8c575f46ce18433e32aa2ccd">AkOutputDeviceID</a> * </td>
+          <td class="paramname"><em class="calibre59">out_pDeviceID</em> = <code class="calibre14">NULL</code>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">const <a class="pcalibre el" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> * </td>
+          <td class="paramname"><em class="calibre59">in_pListenerIDs</em> = <code class="calibre14">NULL</code>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> </td>
+          <td class="paramname"><em class="calibre59">in_uNumListeners</em> = <code class="calibre14">0</code> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Adds an output to the sound engine. Use this to add controller-attached headphones, controller speakers, DVR output, etc. <br class="calibre10"/>
+ The in_Settings parameter contains an Audio Device shareset to specify the output plugin to use and a device ID to specify the instance, if necessary (e.g. which game controller).</p>
+<p class="calibre7">Like most functions of <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_split_000.html">AK::SoundEngine</a>, AddOutput is asynchronous. A successful return code merely indicates that the request is properly queued. Error codes returned by this function indicate various invalid parameters. To know if this function succeeds or not, and the failure code, register an AkDeviceStatusCallbackFunc callback with RegisterAudioDeviceStatusCallback.</p>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><a class="pcalibre el" href="struct_ak_output_settings_split_000.html" title="Platform-independent initialization settings of output devices.">AkOutputSettings</a> for more details. </dd>
+<dd class="calibre24">
+<a class="pcalibre el" href="integrating_secondary_outputs_split_000.html">Integrating Secondary Outputs</a> </dd>
+<dd class="calibre24">
+<a class="pcalibre el" href="default_audio_devices_split_000.html">Default Wwise Audio Devices</a> </dd>
+<dd class="calibre24">
+<a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a3f31beb89a4f3ef42475b0849020abe3_split_000.html#a3f31beb89a4f3ef42475b0849020abe3">AK::SoundEngine::RegisterAudioDeviceStatusCallback</a> </dd>
+<dd class="calibre24">
+AK::AkDeviceStatusCallbackFunc </dd></dl>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">The following codes are returned directly from the function, as opposed to the AkDeviceStatusCallback<ul class="calibre25">
+<li class="calibre9"><code class="calibre14">AK_NotImplemented:</code> Feature not supported, some platforms don't have other outputs.</li>
+<li class="calibre9"><code class="calibre14">AK_InvalidParameter:</code> Out of range parameters or unsupported parameter combinations (see parameter list below).</li>
+<li class="calibre9"><code class="calibre14">AK_IDNotFound:</code> The audioDeviceShareset on in_settings doesn't exist. Possibly, the Init bank isn't loaded yet or was not updated with latest changes.</li>
+<li class="calibre9"><code class="calibre14">AK_DeviceNotReady:</code> The idDevice on in_settings doesn't match with a valid hardware device. Either the device doesn't exist or is disabled. Disconnected devices (headphones) are not considered "not ready" therefore won't cause this error.</li>
+<li class="calibre9"><code class="calibre14">AK_NotInitialized:</code> If <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a9a26da64092b97243844df77cbcdbf5f_split_000.html#a9a26da64092b97243844df77cbcdbf5f">AK::SoundEngine::Init</a> was not called or if the Init.bnk was not loaded before the call.</li>
+<li class="calibre9"><code class="calibre14">AK_Success:</code> Parameters are valid.</li>
+</ul>
+</dd></dl>
+<p class="calibre7">The following codes are returned from the callback.</p><ul class="calibre8">
+<li class="calibre9"><code class="calibre14">AK_InsufficientMemory</code> : Not enough memory to complete the operation.</li>
+<li class="calibre9"><code class="calibre14">AK_IDNotFound:</code> The audioDeviceShareset on in_settings doesn't exist. Possibly, the Init bank isn't loaded yet or was not updated with latest changes.</li>
+<li class="calibre9"><code class="calibre14">AK_PluginNotRegistered:</code> The audioDeviceShareset exists but the plug-in it refers to is not installed or statically linked with the game.</li>
+<li class="calibre9"><code class="calibre14">AK_NotCompatible:</code> The hardware does not support this type of output. <a class="pcalibre el" href="namespace_a_k_1_1_wwise_split_000.html">Wwise</a> will try to use the System output instead, and a separate callback will fire when that completes.</li>
+<li class="calibre9"><code class="calibre14">AK_DeviceNotCompatible:</code> The hardware does not support this type of output. <a class="pcalibre el" href="namespace_a_k_1_1_wwise_split_000.html">Wwise</a> will NOT fallback to any other type of output.</li>
+<li class="calibre9"><code class="calibre14">AK_Fail:</code> Generic code for any non-permanent conditions (e.g. disconnection) that prevent the use of the output. <a class="pcalibre el" href="namespace_a_k_1_1_wwise_split_000.html">Wwise</a> has created the output and sounds will be routed to it, but this output is currently silent until the temporary condition resolves.</li>
+<li class="calibre9"><code class="calibre14">AK_NoDistinctListener:</code> Outputs of the same type (same ShareSet, like controller speakers) must have distinct Listeners to make a proper routing. This doesn't happen if there is only one output of that type. </li>
+</ul>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_Settings</td><td class="calibre17">Creation parameters for this output. <a class="pcalibre el" href="struct_ak_output_settings_split_000.html">AkOutputSettings</a> </td></tr>
+    <tr class="calibre16"><td class="paramname">out_pDeviceID</td><td class="calibre17">(Optional) Output ID to use with all other Output management functions. Leave to NULL if not required. <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_adc0d4b9a62088bc4cebf8cf95672b132_split_000.html#adc0d4b9a62088bc4cebf8cf95672b132">AK::SoundEngine::GetOutputID</a> </td></tr>
+    <tr class="calibre16"><td class="paramname">in_pListenerIDs</td><td class="calibre17">Specific listener(s) to attach to this device. If specified, only the sounds routed to game objects linked to those listeners will play in this device. It is necessary to have separate listeners if multiple devices of the same type can coexist (e.g. controller speakers) If not specified, sound routing simply obey the associations between Master Busses and Audio Devices setup in the <a class="pcalibre el" href="namespace_a_k_1_1_wwise_split_000.html">Wwise</a> Project. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_uNumListeners</td><td class="calibre17">The number of elements in the in_pListenerIDs array. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

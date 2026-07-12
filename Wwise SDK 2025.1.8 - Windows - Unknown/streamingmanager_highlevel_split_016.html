@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>High-Level Stream Manager API Description</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_15"><a class="pcalibre1 anchor" id="streamingmanager_highlevel_autostreams_creationsetings"></a>
+Creation Settings</h2>
+<p class="calibre7">Automatic streams are instantiated with more settings than standard streams, among them constraints on buffer sizes and heuristics. These settings help the Stream Manager allocate optimal amounts of memory and prioritize data transfer requests.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="streamingmanager_highlevel_autostreams_creationsetings_bufferconstraints"></a>
+Buffer Constraints</h3>
+<p class="calibre7">Some settings are memory-related constraints specified by the user. The buffer size can be specified directly. If you wish to let the Stream Manager choose the buffer size but stay within limits, you can specify a minimal buffer size or block size, or both. The buffer size will be a multiple of that block size.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="tip.gif"/></td><td class="calibre17"><b class="calibre13">Tip:</b> Buffer constraints are optional, and should generally not be used in so that the Stream Manager may manage its streaming memory optimally. The sound engine uses buffer constraints when it uses decoding hardware on some platforms. These decoders typically need to access 2 buffers at a time, with a specific byte alignment (block size) and minimum buffer size. </td></tr>
+</tbody></table>
+<table border="1" cellpadding="5" cellspacing="0" class="calibre38">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre17"><p class="starttd"><b class="calibre13">Default Streaming Manager Information</b><br class="calibre10"/>
+<br class="calibre10"/>
+ The current implementation does not allow custom automatic stream buffer sizes to exceed the device granularity. (Refer to <a class="pcalibre el" href="streamingmanager_settings_split_000.html">Audiokinetic Stream Manager Initialization Settings</a> for more details on granularity. )</p>
+<p class="endtd"></p>
+</td></tr>
+</tbody></table>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="streamingmanager_highlevel_autostreams_creationsetings_heuristics"></a>
+Heuristics</h3>
+<p class="calibre7">Heuristics must be provided to help the Stream Manager perform scheduling and memory allocation. Automatic streams heuristics are specified per-stream, at creation time, and are very important for optimal behavior. They can be queried and changed anytime through <a class="pcalibre el" href="class_a_k_1_1_i_ak_auto_stream_a8017b864cb413b545e685b2fa1acfe65_split_000.html#a8017b864cb413b545e685b2fa1acfe65">AK::IAkAutoStream::GetHeuristics()</a> and <a class="pcalibre el" href="class_a_k_1_1_i_ak_auto_stream_a0991f4a2b25e6c2fcf5fc4e04cfeaebc_split_000.html#a0991f4a2b25e6c2fcf5fc4e04cfeaebc">AK::IAkAutoStream::SetHeuristics()</a>.</p>
+<ul class="calibre8">
+<li class="calibre9">Throughput: The average throughput translates as a deadline for the I/O scheduler, since it knows how much data it has already available for a given stream. It is equivalent to the standard stream's per-operation deadline heuristic.</li>
+<li class="calibre9">Priority: This is generally used when the application requires more I/O bandwidth than what the storage device can provide. In that case, the Stream Manager will try to fulfill requests of streams with higher priority. It is equivalent to the standard stream's per-operation priority heuristic.</li>
+<li class="calibre9">Looping: You can specify looping positions in a stream that loops. This helps the Stream Manager in managing its memory. If the loop is released, it is a good practice to set that heuristic back to "non-looping" (set uLoopEnd to 0). Note that this is only a heuristic: the stream position shall not be changed unless the client called <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a789e25bda32d1e11849afb6584942455_split_000.html#a789e25bda32d1e11849afb6584942455">SetPosition()</a>. However, unexpected position changes in regard to looping heuristics will typically result in data flushing.</li>
+<li class="calibre9">uMinClientBuffers: This indicates how many buffers the client plans to hold at the same time. Typically, you should hold one buffer at a time. Sometimes it may be required to hold 2 buffers at a time. In this case, set uMinClientBuffers to 2. The Stream Manager should try to buffer your stream with at least (uMinClientBuffers + 1) buffers. Note that specifying 0 for uMinClientBuffers (default value) is equivalent to 1.</li>
+</ul>
+</div></div></div></body></html>

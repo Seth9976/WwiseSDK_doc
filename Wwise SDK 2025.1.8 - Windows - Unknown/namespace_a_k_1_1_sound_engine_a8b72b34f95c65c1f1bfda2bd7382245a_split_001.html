@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::SoundEngine::GetContainerHistory</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="namespace_a_k_1_1_sound_engine_a8b72b34f95c65c1f1bfda2bd7382245a_split_000.html#a8b72b34f95c65c1f1bfda2bd7382245a" class="pcalibre1 anchor">◆ </a></span>GetContainerHistory()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_sound_engine_export_8h_ac6e96d34dfc0e12f9aaa7a47f4e9c322_split_000.html#ac6e96d34dfc0e12f9aaa7a47f4e9c322">AKSOUNDENGINE_API</a> <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::SoundEngine::GetContainerHistory </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="class_a_k_1_1_i_write_bytes_split_000.html">AK::IWriteBytes</a> * </td>
+          <td class="paramname"><em class="calibre59">in_pBytes</em></td><td class="calibre17">)</td>
+          <td class="calibre17"/>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Saves the playback history of container structures. This function will write history data for all currently loaded containers and instantiated game objects (for example, current position in Sequence Containers and previously played elements in Random Containers). </p><dl class="calibre7"><dt class="calibre23">Remarks</dt><dd class="calibre24">This function acquires the main audio lock, and may block the caller for several milliseconds. </dd></dl>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><code class="calibre14">AK_Success</code> when successful</li>
+<li class="calibre9"><code class="calibre14">AK_Fail</code> is in_pBytes could not be parsed (corruption or data is truncated) </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a82aa3d070f13f556e501df4992e10323_split_000.html#a82aa3d070f13f556e501df4992e10323">AK::SoundEngine::SetContainerHistory()</a></code> </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_pBytes</td><td class="calibre17">Pointer to <a class="pcalibre el" href="class_a_k_1_1_i_write_bytes_split_000.html">IWriteBytes</a> interface used to save the history. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

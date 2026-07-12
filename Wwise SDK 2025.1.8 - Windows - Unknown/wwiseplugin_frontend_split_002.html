@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Frontend of an Authoring Plug-in</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_1"><a class="pcalibre1 anchor" id="fx_postmonitordata_receiving"></a>
+Receiving Monitoring Data</h2>
+<p class="calibre7">Monitoring data is received by the Authoring part of the plug-in. Here are the steps of this process:</p>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">Receiving</b>: The Authoring part of the plug-in receives monitoring data through the method <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_notifications_1_1_monitor_aaa00d3622c1d400d5150261b0f7820f1_split_000.html#aaa00d3622c1d400d5150261b0f7820f1" title="Received a new Monitor Data blob.">AK::Wwise::Plugin::Notifications::Monitor::NotifyMonitorData()</a></code>, which must be implemented from the <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_1_1_notifications_a3693c119618107df7c86de8a4a887320_split_000.html#a3693c119618107df7c86de8a4a887320" title="Latest version of the C++ Monitor notification interface.">AK::Wwise::Plugin::Notifications::Monitor</a></code> interface component. The monitoring data received is an array of <code class="calibre14"><a class="pcalibre el" href="struct_a_k_1_1_wwise_1_1_plugin_1_1_monitor_data_split_000.html">AK::Wwise::Plugin::MonitorData</a></code>. Each <code class="calibre14">MonitorData</code> element corresponds to a playing instance that was posted on a certain game object. This array may be filtered by the Authoring application to provide only context-relevant instances to the plug-in frontend.</li>
+<li class="calibre9"><b class="calibre13">Deserialization</b>: The implementation of <code class="calibre14">NotifyMonitorData</code> should deserialize the monitoring data to extract the information needed for each <code class="calibre14">MonitorData</code> instance. This information can then be used to update GUI controls that inform the user on the plug-in state.</li>
+</ul>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_notifications_1_1_monitor_aaa00d3622c1d400d5150261b0f7820f1_split_000.html#aaa00d3622c1d400d5150261b0f7820f1" title="Received a new Monitor Data blob.">AK::Wwise::Plugin::Notifications::Monitor::NotifyMonitorData()</a></code> is called on the main UI thread of the Authoring, therefore long running jobs should be avoided so as to not cause the application to become unresponsive. </td></tr>
+</tbody></table>
+<p class="calibre7">The following code example shows how to implement <code class="calibre14">NotifyMonitorData</code> and deserialize the monitoring data:</p>
+<div class="fragment"><div class="line"><span class="keyword">class </span>FrontendSourcePlugin</div>
+<div class="line">:   <span class="keyword">public</span> <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_g_u_i_windows_split_000.html">AK::Wwise::Plugin::GUIWindows</a></div>
+<div class="line">,   <span class="keyword">public</span> <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_notifications_1_1_monitor_split_000.html">AK::Wwise::Plugin::Notifications::Monitor</a></div>
+<div class="line">{ <span class="comment">/*...*/</span> };</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> FrontendSourcePlugin::NotifyMonitorData(</div>
+<div class="line">    <a class="pcalibre code" href="_ak_typedefs_8h_a8a4d0aa5dba6f9922d6b7b3e48958b24_split_000.html#a8a4d0aa5dba6f9922d6b7b3e48958b24">AkTimeMs</a> in_iTimeStamp,</div>
+<div class="line">    <span class="keyword">const</span> <a class="pcalibre code" href="struct_a_k_1_1_wwise_1_1_plugin_1_1_monitor_data_split_000.html">AK::Wwise::Plugin::MonitorData</a>* in_pMonitorDataArray,</div>
+<div class="line">    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> in_uMonitorDataArraySize,</div>
+<div class="line">    <span class="keywordtype">bool</span> in_bIsRealtime)<span class="keyword"> override</span></div>
+<div class="line"><span class="keyword"></span>{</div>
+<div class="line">    <span class="comment">// == Deserialize the monitoring data</span></div>
+<div class="line">    <span class="comment">// Using the first instance as reference for the number of channels</span></div>
+<div class="line">    <a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> uNumChannels = *((<a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> *) in_pMonitorDataArray[0].pData);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; in_uMonitorDataArraySize; ++i)</div>
+<div class="line">    {</div>
+<div class="line">        <a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> * pData = (<a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> *) in_pMonitorDataArray[i].pData;</div>
+<div class="line">        <a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> uInstanceNumChannels = *pData++;</div>
+<div class="line">        <span class="keywordflow">if</span> (uInstanceNumChannels != uNumChannels)</div>
+<div class="line">            <span class="keywordflow">continue</span>; <span class="comment">// Different from reference, ignore</span></div>
+<div class="line"> </div>
+<div class="line">        <a class="pcalibre code" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a> fChannelPeaks[MAX_NUM_CHANNELS];</div>
+<div class="line">        memcpy( fChannelPeaks, pData, uNumChannels * <span class="keyword">sizeof</span>( <a class="pcalibre code" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a> ) );</div>
+<div class="line"> </div>
+<div class="line">        <span class="comment">// Do something with the peak, e.g., update meters</span></div>
+<div class="line">        ...</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+</div><!-- fragment --><p class="calibre7">It can be challenging to support multiple <code class="calibre14">MonitorData</code> instances when providing metering content or per-instance statistics. To simplify requirements, you may ignore some elements from the <code class="calibre14">MonitoringData</code> array depending on edge cases, such as when some elements have a different speaker configuration. You may also choose to aggregate the monitoring data, such as by taking the maximum value out of the levels reported in each element when metering.</p>
+<p class="calibre7">Object processors are a derivative of audio plug-ins that process buffers belonging to distinct objects, and so provide monitoring data for multiple objects in a single <code class="calibre14">MonitorData</code>. Because the monitoring data is opaque to Wwise, <code class="calibre14">MonitorData</code> cannot provide information on objects: it is up to the implementer of the serialization strategy to include this information in the monitoring data, if it is relevant. Moreover, this means that unlike in the Sound Engine part of the plug-in, the Authoring plug-in type is not different for an object processor and the format of the monitoring data is a contract between the Sound Engine and the Authoring part of the plug-in. For more information on object processors, refer to <a class="pcalibre el" href="soundengine_plugins_objectprocessor_split_000.html">Creating Sound Engine Object Processor Plug-ins</a>.</p>
+</div></div></div></body></html>

@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integrating Wwise Motion</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_10"><a class="pcalibre1 anchor" id="single_player_setup"></a>
+Setup for a single player</h2>
+<p class="calibre7">First, as with any other plug-in, you need to include the corresponding file and link the library (for Wwise native development only, not required for Unity). </p><div class="fragment"><div class="line"><span class="preprocessor">#include "<a class="pcalibre code" href="_ak_motion_sink_factory_8h_split_000.html">AkMotionSinkFactory.h</a>"</span>            <span class="comment">//Link to AkMotionSink.lib</span></div>
+</div><!-- fragment --><p class="calibre7">Next, add another output with the Wwise Motion Audio Device ShareSet name from the Wwise project, in this case "Wwise_Motion". The output ID is 0 to ensure that the first connected game controller is used.</p>
+<div class="fragment"><div class="line"><a class="pcalibre code" href="struct_ak_output_settings_split_000.html">AkOutputSettings</a> outputSettings(<span class="stringliteral">"Wwise_Motion"</span>, 0); </div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a15ab79f954a307902f529d8ccde8ad48_split_000.html#a15ab79f954a307902f529d8ccde8ad48">AK::SoundEngine::AddOutput</a>(outputSettings);</div>
+</div><!-- fragment --><p class="calibre7">Next, play an Event. In the Wwise project, the "Play_Explosion" Event is linked to a Sound SFX that is routed to a bus that has "Wwise_Motion" ShareSet assigned as its Audio Device. </p><div class="fragment"><div class="line"><a class="pcalibre code" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> explosionGO = 100;</div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a895ed0f83a0dea8fc284491c0ee0152c_split_000.html#a895ed0f83a0dea8fc284491c0ee0152c">AK::SoundEngine::RegisterGameObj</a>(explosionGO, <span class="stringliteral">"Explosion"</span>);</div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a41e9ef8d42951871fe4a8ae58a29a68e_split_000.html#a41e9ef8d42951871fe4a8ae58a29a68e">AK::SoundEngine::PostEvent</a>(<span class="stringliteral">"Play_Explosion"</span>, explosionGO);</div>
+</div><!-- fragment --></div></div></div></body></html>

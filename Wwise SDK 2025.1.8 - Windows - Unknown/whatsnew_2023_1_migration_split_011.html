@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2023.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_10"><a class="pcalibre1 anchor" id="updating_custom_mixer_plugin"></a>
+Updating Custom Mixer Plug-ins</h2>
+<p class="calibre7">You must convert Mixer plug-ins to Effect plug-ins:</p>
+<ul class="calibre8">
+<li class="calibre9">The plug-in must implement the <code class="calibre14">IAkOutOfPlaceObjectPlugin</code> interface, which replaces the previous <code class="calibre14">IAkMixerEffectPlugin</code> interface.</li>
+<li class="calibre9">Move the code that was previously located in the <code class="calibre14">ConsumeInput</code> function to the <code class="calibre14">Execute</code> function.</li>
+<li class="calibre9">Replace the Attachables node in the plug-in XML file with a MetadataPlugin node. A MetadataPlugin node is a <a href="https://www.audiokinetic.com/library/edge/?source=SDK&amp;id=plugin_xml.html#wwiseplugin_xml_effectplugin_sourceplugin_tags" target="_blank" class="pcalibre calibre12">Plug-in Type Element</a>.</li>
+</ul>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> The <code class="calibre14">in_objects.ppObjects[i]-&gt;arCustomMetadata</code> contains the metadata that is passed to the function. This effectively replaces the removed <code class="calibre14">GetInputParam</code> function. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

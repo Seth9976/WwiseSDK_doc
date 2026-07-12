@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Geometric Room Distance on Direct Paths</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="spatial_audio_roomsportals_distance_reverbzones"></a>
+Reverb Zones and Distance</h1>
+<p class="calibre7">If a Reverb Zone is created with only transparent surfaces, then a Reverb Zone behaves the same way as a standard Room when it comes to distance. However, the distance into or out of a Reverb Zone is measured from its Transition Regions, which are only the surfaces that have a transmission loss of 0. As a result, any surface of a Reverb Zone that is not used as part of its Transition Region (a surface that is opaque, not completely transparent) blocks direct distance calculations. In this way, Reverb Zones provide extra control over the measurement of direct path distance.</p>
+<p class="calibre7">In the following image, the solid orange line represents surfaces from which distance cannot be measured.</p>
+<div class="calibre2">
+<img alt="" src="distance_05_opaque_walls.jpg" class="inline"/>
+</div>
+<p class="calibre7">The distance-blocking effect does not apply to the area where a Reverb Zone's opaque surface intersects with either a portal or another Room. You can use a portal through an opaque surface to bridge two spaces that measure distance differently. The portal opening is a valid place from which to measure distance, just like the transition region.</p>
+<p class="calibre7">In the following image, the solid orange line is broken by the bounding box of a portal, where the portal opening represents a space from which distance can be measured:</p>
+<div class="calibre2">
+<img alt="" src="distance_06_portal_gap.jpg" class="inline"/>
+</div>
+<p class="calibre7">The same principles apply when a Reverb Zone's opaque surfaces overlap with or touch another Room: the part of an opaque surface that intersects with another Room can no longer block distance measurements to the outside of the combined shape. This behavior occurs because, as mentioned earlier, the distance to outside is measured from the perimeter of the whole shape, and some parts of the Reverb Zone that block distance are no longer part of the perimeter of the shape. The surfaces of a normal (non-Reverb Zone) Room do not have this blocking property, so any standard Room surface that forms part of the perimeter of a group of overlapping Rooms is always a valid place from which to measure distance.</p>
+<p class="calibre7">In the following image, a standard Room on the left shares a surface with a Reverb Zone on the right. The shared wall would normally be an opaque surface that blocks distance measurements, but in this case it is not part of the perimeter of the whole structure:</p>
+<div class="calibre2">
+<img alt="" src="distance_07_rz_escape.jpg" class="inline"/>
+</div>
+<p class="calibre7">The following image shows how overlapping Rooms affect the perimeter:</p>
+<div class="calibre2">
+<img alt="" src="distance_08_rz_escape_2.jpg" class="inline"/>
+</div>
+</div></div></div></body></html>

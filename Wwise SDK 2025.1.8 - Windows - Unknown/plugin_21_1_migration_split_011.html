@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Migrating a pre-2021.1 Authoring Plug-in</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_10"><a class="pcalibre1 anchor" id="plugin_21_1_migration_porting_services_media"></a>
+Object Media and Media Converter</h2>
+<p class="calibre7">Plug-in data meant to be handled as media, typically audio files that can be encoded during a source conversion process, could be supported by implementing <code class="calibre14">AK::Wwise::IAudioPlugin::SetPluginObjectMedia()</code> and <code class="calibre14">AK::Wwise::IAudioPlugin::GetPluginMediaConverterInterface()</code>. These, along with the management of media objects, have been centralized in the <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_a0325d70f4523c31f1b4f5dc8acdf3e2b_split_000.html#a0325d70f4523c31f1b4f5dc8acdf3e2b" title="Latest version of the C++ ObjectMedia interface.">AK::Wwise::Plugin::ObjectMedia</a></code>. Object media methods are implemented directly inside the plug-in class. The media converter, which is still optional, is a separate interface to implement: <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_aca00f70c566ab8b103a983d07890f430_split_000.html#aca00f70c566ab8b103a983d07890f430" title="Latest version of the C++ MediaConverter interface.">AK::Wwise::Plugin::MediaConverter</a></code>.</p>
+<p class="calibre7">Refer to <a class="pcalibre el" href="effectplugin_media_split_000.html">Adding Media to an Audio Plug-in</a> for details on how to use these interfaces.</p>
+</div></div></div></body></html>

@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::SoundEngine::GetDeviceList</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="namespace_a_k_1_1_sound_engine_a23f4ba2897d9d5ea6161137a47a80360_split_000.html#a23f4ba2897d9d5ea6161137a47a80360" class="pcalibre1 anchor">◆ </a></span>GetDeviceList() <span class="permalink">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_sound_engine_export_8h_ac6e96d34dfc0e12f9aaa7a47f4e9c322_split_000.html#ac6e96d34dfc0e12f9aaa7a47f4e9c322">AKSOUNDENGINE_API</a> <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::SoundEngine::GetDeviceList </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_a8341fa4d01d2fa852c3cc410401b04dc_split_000.html#a8341fa4d01d2fa852c3cc410401b04dc">AkUniqueID</a> </td>
+          <td class="paramname"><em class="calibre59">in_audioDeviceShareSetID</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> &amp; </td>
+          <td class="paramname"><em class="calibre59">io_maxNumDevices</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="struct_ak_device_description_split_000.html">AkDeviceDescription</a> * </td>
+          <td class="paramname"><em class="calibre59">out_deviceDescriptions</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Returns a listing of the current devices for a given sink plug-in, including Device ID, friendly name, and state. </p><dl class="calibre7"><dt class="calibre23">Remarks</dt><dd class="calibre24">This call is only valid for sink plug-ins that support device enumeration. Prerequisites:<ul class="calibre25">
+<li class="calibre9">The plug-in must have been initialized by loading the init bank or by calling <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a76f5a73cef0320693507a8488007efef_split_000.html#a76f5a73cef0320693507a8488007efef">AK::SoundEngine::RegisterPlugin</a>.</li>
+<li class="calibre9">The audio device shareset must have been loaded from a soundbank, and a physical device recognized by this plug-in must exist in the system.</li>
+</ul>
+</dd></dl>
+<p class="calibre7">The built-in audio devices (System, Communication, Headphones, Personal, Pad Speaker) all support enumeration, on all platforms. The only <a class="pcalibre el" href="namespace_a_k_1_1_wwise_split_000.html">Wwise</a> plug-in that support device enumeration is Motion, for the Windows platform only. Note that it is optional to implement device enumeration on custom sink plug-ins. </p><dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">AK_NotImplemented if the sink plug-in does not implement device enumeration AK_PluginNotRegistered if the plug-in has not been registered yet either by loading the init bank or by calling RegisterPluginDLL. </dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_audioDeviceShareSetID</td><td class="calibre17">In: The audio device shareset ID for which to list the sink plug-in devices. </td></tr>
+    <tr class="calibre16"><td class="paramname">io_maxNumDevices</td><td class="calibre17">In: The length of the out_deviceDescriptions array. Out: If out_deviceDescriptions is not-null, this will be set to the number of entries in out_deviceDescriptions that was populated. If out_deviceDescriptions is null, this will be set to the number of devices that may be available. </td></tr>
+    <tr class="calibre16"><td class="paramname">out_deviceDescriptions</td><td class="calibre17">The output array of device descriptions. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::SoundEngine::Query::GetRTPCValue</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="namespace_a_k_1_1_sound_engine_1_1_query_a9c6fcd3a81e3d1dd4a05aa22658533f5_split_000.html#a9c6fcd3a81e3d1dd4a05aa22658533f5" class="pcalibre1 anchor">◆ </a></span>GetRTPCValue() <span class="permalink">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_sound_engine_export_8h_ac6e96d34dfc0e12f9aaa7a47f4e9c322_split_000.html#ac6e96d34dfc0e12f9aaa7a47f4e9c322">AKSOUNDENGINE_API</a> <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::SoundEngine::Query::GetRTPCValue </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype">const char * </td>
+          <td class="paramname"><em class="calibre59">in_pszRtpcName</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> </td>
+          <td class="paramname"><em class="calibre59">in_gameObjectID</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_a9270609771369ea575443fe080bbe9c3_split_000.html#a9270609771369ea575443fe080bbe9c3">AkPlayingID</a> </td>
+          <td class="paramname"><em class="calibre59">in_playingID</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_a86459d5c3b5e6055cc885b833661f140_split_000.html#a86459d5c3b5e6055cc885b833661f140">AkRtpcValue</a> &amp; </td>
+          <td class="paramname"><em class="calibre59">out_rValue</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_1_1_query_a59744f5b2f507550a0484fb228934f54_split_000.html#a59744f5b2f507550a0484fb228934f54">RTPCValue_type</a> &amp; </td>
+          <td class="paramname"><em class="calibre59">io_rValueType</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Get the value of a real-time parameter control (by ID) An RTPC can have a any combination of a global value, a unique value for each game object, or a unique value for each playing ID. <br class="calibre10"/>
+ The value requested is determined by RTPCValue_type, in_gameObjectID and in_playingID. <br class="calibre10"/>
+ If a value at the requested scope (determined by RTPCValue_type) is not found, the value that is available at the the next broadest scope will be returned, and io_rValueType will be changed to indicate this. </p><dl class="calibre7"><dt class="calibre23">Note</dt><dd class="calibre24">When looking up RTPC values via playing ID (ie. io_rValueType is RTPC_PlayingID), in_gameObjectID can be set to a specific game object (if it is available to the caller) to use as a fall back value. If the game object is unknown or unavailable, AK_INVALID_GAME_OBJECT can be passed in in_gameObjectID, and the game object will be looked up via in_playingID. <br class="calibre10"/>
+ However in this case, it is not possible to retrieve a game object value as a fall back value if the playing id does not exist. It is best to pass in the game object if possible. </dd>
+<dd class="calibre24">
+Contrary to most AK::Query functions, GetRTPCValue does not block. This means that GetRTPCValue does not wait for all previous API to be completed (which may take several milliseconds), and instead returns the current value. Therefore calling SetRTPCValue, RenderAudio and then GetRTPCValue might not immediately give the value set by SetRTPCValue. </dd></dl>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9">AK_Success if succeeded</li>
+<li class="calibre9">AK_IDNotFound if the RTPC does not exist</li>
+<li class="calibre9">AK_InvalidID if the GameObject does not exist. </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="soundengine_rtpc_split_000.html">Integration Details - RTPCs</a></li>
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_1_1_query_a59744f5b2f507550a0484fb228934f54_split_000.html#a59744f5b2f507550a0484fb228934f54">RTPCValue_type</a> </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_pszRtpcName</td><td class="calibre17">String name of the RTPC </td></tr>
+    <tr class="calibre16"><td class="paramname">in_gameObjectID</td><td class="calibre17">Associated game object ID, ignored if io_rValueType is RTPCValue_Global. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_playingID</td><td class="calibre17">Associated playing ID, ignored if io_rValueType is not RTPC_PlayingID. </td></tr>
+    <tr class="calibre16"><td class="paramname">out_rValue</td><td class="calibre17">Value returned </td></tr>
+    <tr class="calibre16"><td class="paramname">io_rValueType</td><td class="calibre17">In/Out value, the user must specify the requested type. The function will return in this variable the type of the returned value. ); </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

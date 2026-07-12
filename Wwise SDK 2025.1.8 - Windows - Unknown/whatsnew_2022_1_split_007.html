@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2022.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_6"><a class="pcalibre1 anchor" id="generic_community_bugs_2022_1"></a>
+Fixes for Community-Reported Bugs</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-26295</b> Fixed: GetFileStatus performance issue in File Manager dialog box.</li>
+<li class="calibre9"><b class="calibre13">WG-39471</b> Fixed: Renamed Wwise Authoring object "AudioSource" to "AudioFileSource" to avoid error returned by <a class="pcalibre el" href="ak_wwise_core_object_get_split_000.html">ak.wwise.core.object.get</a>.</li>
+<li class="calibre9"><b class="calibre13">WG-42166</b> Fixed: Clicking an already selected object doesn't load it in the Transport Control or Property Editor.</li>
+<li class="calibre9"><b class="calibre13">WG-44005</b> Fixed: (WAAPI) <a class="pcalibre el" href="ak_wwise_core_audio_import_split_000.html">ak.wwise.core.audio.import</a> doesn't respect all importLocation arguments.</li>
+<li class="calibre9"><b class="calibre13">WG-46888</b> Fixed: RTPC tab graph view zoom resets every time a curve is clicked.</li>
+<li class="calibre9"><b class="calibre13">WG-47131</b> Fixed: Can't copy and paste states from one object to another.</li>
+<li class="calibre9"><b class="calibre13">WG-52612</b> Fixed: Environment Variables in Command Add-ons are not automatically expanded.</li>
+<li class="calibre9"><b class="calibre13">WG-54050</b> Fixed: Typo in name of "IsZeroLantency" property of Music Tracks and sound objects. Corrected to "IsZeroLatency".</li>
+<li class="calibre9"><b class="calibre13">WG-54582</b> Fixed: Event Editor Target column doesn't show the parent name for States and Switches.</li>
+<li class="calibre9"><b class="calibre13">WG-54746</b> Fixed: Folders with a dot in the name are not recognized as folders in File Manager.</li>
+<li class="calibre9"><b class="calibre13">WG-55001</b> Fixed: (WAAPI) <a class="pcalibre el" href="ak_wwise_core_object_delete_split_000.html">ak.wwise.core.object.delete</a> and <a class="pcalibre el" href="ak_wwise_core_audio_import_split_000.html">ak.wwise.core.audio.import</a> are missing from the WAAPI headers for JavaScript and TypeScript.</li>
+<li class="calibre9"><b class="calibre13">WG-55033</b> Fixed: No errors reported when loading a Music Track that contains Music Clips without an Audio Source.</li>
+<li class="calibre9"><b class="calibre13">WG-55669</b> Fixed: Loudness Meter's layout makes it hard to reduce the size of the view without losing frequently-used areas.</li>
+<li class="calibre9"><b class="calibre13">WG-56405</b> Fixed: Copying and pasting contents from the Project Explorer to an external editor doesn't maintain the same sorting order as in the Project Explorer.</li>
+<li class="calibre9"><b class="calibre13">WG-56408</b> Fixed: Wwise Sound Engine communication code can over-allocate memory when another application accidentally connects to its network ports.</li>
+<li class="calibre9"><b class="calibre13">WG-57212</b> Fixed: <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ad455f291883c352a87b5b03da64549aa_split_000.html#ad455f291883c352a87b5b03da64549aa">AK::SoundEngine::SetOutputDeviceEffect</a></code> produces a "Device not found error" when specifying the Audio Device ShareSet but using the default hardware ID (0), even when there is an appropriate device.</li>
+<li class="calibre9"><b class="calibre13">WG-57251</b> Fixed: (WAAPI) Import fails when using base64 content and Perforce.</li>
+<li class="calibre9"><b class="calibre13">WG-57838</b> Fixed: Output level is reduced with AK Convolution Reverb inserted on a bus that has height channels.</li>
+<li class="calibre9"><b class="calibre13">WG-57840</b> Fixed: In List View and Contents Editor, pressing the left arrow key does not always collapse the parent object when it is not currently visible.</li>
+<li class="calibre9"><b class="calibre13">WG-58452</b> Fixed: Improved the previous "No Valid Switch" error message returned when trying to set and use invalid or unspecified switches that were not provided with a Default Switch value.</li>
+<li class="calibre9"><b class="calibre13">WG-58464</b> Fixed: Voice Monitor graph view zoom is reset upon starting a new capture.</li>
+<li class="calibre9"><b class="calibre13">WG-59203</b> Fixed: Wwise can't connect to a Perforce server with graph support enabled. Added new option in Perforce settings.</li>
+<li class="calibre9"><b class="calibre13">WG-59422</b> Fixed: Crash when combining finite Sequence Containers that have Trigger rate transitions with Blend Containers that have Initial Delays.</li>
+<li class="calibre9"><b class="calibre13">WG-60369</b> Fixed: (Mac Authoring) External Editors and Command Add-ons fail to execute.</li>
+<li class="calibre9"><b class="calibre13">WG-60410</b> Fixed: Authoring crash when missing Crankcase Audio REV 2 plug-in dependencies.</li>
+<li class="calibre9"><b class="calibre13">WG-60577</b> Fixed: Crash when deleting a Music Track while its volume slider is active.</li>
+<li class="calibre9"><b class="calibre13">WG-60602</b> Fixed: Out-of-bounds memory access when encoding very small (&lt;960 samples) sources with WEM Opus.</li>
+<li class="calibre9"><b class="calibre13">WG-60821</b> Fixed: Possible crash in Recorder plug-in when interacting with UI while recording starts.</li>
+<li class="calibre9"><b class="calibre13">WG-60863</b> Fixed: The Help or F1 button in the Metadata Editor does not open the Help.</li>
+<li class="calibre9"><b class="calibre13">WG-60945</b> Fixed: Game-Defined Auxiliary Sends don't get regular updates from RTPCs on busses.</li>
+<li class="calibre9"><b class="calibre13">WG-60959</b> Fixed: Encoding of WEM Opus media produces slightly different results across AMD and Intel CPUs. Note that while the newly generated media will be different than before, the old encodings of WEM Opus media are still supported.</li>
+<li class="calibre9"><b class="calibre13">WG-60969</b> Fixed: (Spatial Audio) Any emitter using diffraction can become inaudible when the listener position overlaps a portal.</li>
+<li class="calibre9"><b class="calibre13">WG-61127</b> Fixed: Crash in <code class="calibre14">CAkListener::MultiDirectionGainCorrectionForObjects</code> during low-memory scenarios.</li>
+<li class="calibre9"><b class="calibre13">WG-61508</b> Fixed: SoundBank metadata Max attenuation for Events does not take Post Event actions into account.</li>
+<li class="calibre9"><b class="calibre13">WG-61634</b> Fixed: Crash when inspecting an RTPC or State from the Multi Editor or the default plug-in property list.</li>
+<li class="calibre9"><b class="calibre13">WG-61655</b> Fixed: Calling <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a81521a4611d3891c499ec9c5eb421ac2_split_000.html#a81521a4611d3891c499ec9c5eb421ac2">AK::SoundEngine::ReplaceOutput</a></code> with an Audio Device ShareSet of 0 can cause audio loss if the old output Audio Device is connected to multiple audio busses.</li>
+<li class="calibre9"><b class="calibre13">WG-61682</b> Fixed: Sound volume goes to multiples hundreds of dB when the same RTPC is used in a Blend Container and children of that Blend Container.</li>
+<li class="calibre9"><b class="calibre13">WG-61706</b> Fixed: Crash when Opus sounds start in virtual mode.</li>
+<li class="calibre9"><b class="calibre13">WG-61727</b> Fixed: A nested Music Switch Container doesn't switch to the correct child when the parent Switch Container has an active Transition with a positive Offset.</li>
+<li class="calibre9"><b class="calibre13">WG-62014</b> Fixed: Playback of External Sources and some streams while <code class="calibre14"><a class="pcalibre el" href="struct_ak_init_settings_a0ffc62cdbb07d0c8ebb2440fd177625b_split_000.html#a0ffc62cdbb07d0c8ebb2440fd177625b" title="Debug setting: Enable checks for out-of-range (and NAN) floats in the processing code....">AkInitSettings::bDebugOutOfRangeCheckEnabled</a></code> is enabled creates false errors indicating invalid audio data.</li>
+</ul>
+<p class="calibre7"><br class="calibre10"/>
+ </p><dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="whatsnew_2022_1_new_features_split_000.html">New Features Overview 2022.1</a></li>
+<li class="calibre9"><a class="pcalibre el" href="whatsnew_2022_1_migration_split_000.html">Important Migration Notes 2022.1</a> </li>
+</ul>
+</dd></dl>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2017.2</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="api_changes_2017_2"></a>
+API Changes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-34172</b> Normalized most plug-in names. For example, AudioInput is now AkAudioInput, Sine is AkSineTone, and ToneGen is AkToneGen.</li>
+<li class="calibre9"><b class="calibre13">WG-34172</b> Added the <em class="calibre11">Source</em> suffix to source plug-in libraries. For example, AkSynthOne is now AkSynthOneSource.</li>
+<li class="calibre9"><b class="calibre13">WG-34172</b> The Visual Studio property sheets for Authoring plug-ins have been renamed from PropertySheets\AuthoringRelease.props to PropertySheets\Win32\NDebug_vc120Auth.props, and from PropertySheets\AuthoringDebug.props to PropertySheets\Win32\Debug_vc120Auth.props.</li>
+<li class="calibre9"><b class="calibre13">WG-34198</b> Overhauled Spatial Audio:<ul class="calibre15">
+<li class="calibre9">Removed <code class="calibre14">Term</code>.</li>
+<li class="calibre9">Removed <code class="calibre14">CalcOcclusionAndVirtualPositions</code> and embedded its functionality inside <code class="calibre14">AK::SpatialAudio::SetPosition</code>.</li>
+<li class="calibre9">Renamed <code class="calibre14">SetEmitterPosition</code> to <code class="calibre14">AK::SpatialAudio::SetPosition</code> with new parameters.</li>
+<li class="calibre9">Renamed <code class="calibre14">AddGeometrySet</code> to <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_a0cada36fab682ebb3005a79dd05a5640_split_000.html#a0cada36fab682ebb3005a79dd05a5640">SetGeometry</a></code>.</li>
+<li class="calibre9">Renamed <code class="calibre14">AddImageSource</code> to <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_aab4d85317c62724c00d25ba8913fb503_split_000.html#aab4d85317c62724c00d25ba8913fb503">SetImageSource</a></code>, with new helper class <code class="calibre14"><a class="pcalibre el" href="struct_ak_image_source_settings_split_000.html" title="Settings for individual image sources.">AkImageSourceSettings</a></code> wrapping <code class="calibre14"><a class="pcalibre el" href="struct_ak_reflect_image_source_split_000.html">AkReflectImageSource</a></code>.</li>
+<li class="calibre9">Renamed <code class="calibre14">AddRoom</code> and <code class="calibre14">AddPortal</code> to <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_ab991cec1e8c9f4d2721fea2d37b285c8_split_000.html#ab991cec1e8c9f4d2721fea2d37b285c8">SetRoom</a></code> and <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_aeffa58bec3569a1bac5feac3e0c370d9_split_000.html#aeffa58bec3569a1bac5feac3e0c370d9">SetPortal</a></code>, with new parameters in <code class="calibre14"><a class="pcalibre el" href="struct_ak_room_params_split_000.html" title="Parameters passed to SetRoom.">AkRoomParams</a></code> and <code class="calibre14"><a class="pcalibre el" href="struct_ak_portal_params_split_000.html" title="Parameters passed to SetPortal.">AkPortalParams</a></code>.</li>
+</ul>
+</li>
+<li class="calibre9"><b class="calibre13">WG-34337</b> As part of the Motion refactoring, removed the following:<ul class="calibre15">
+<li class="calibre9">The function <code class="calibre14">AK::SoundEngine::SetListenerPipeline</code> </li>
+<li class="calibre9">The class <code class="calibre14">IAkMotionMixBus</code> </li>
+<li class="calibre9">And the namespace <code class="calibre14">AK::MotionEngine</code>, which included the functions <code class="calibre14">AddPlayerMotionDevice</code>, <code class="calibre14">RemovePlayerMotionDevice</code>, <code class="calibre14">SetPlayerListener</code>, and <code class="calibre14">SetPlayerVolume</code>.</li>
+</ul>
+</li>
+<li class="calibre9"><b class="calibre13">WG-34541</b> The <code class="calibre14"><a class="pcalibre el" href="struct_ak_reflect_image_source_split_000.html">AkReflectImageSource</a></code> struct was modified such that its fields were moved into sub-structures <code class="calibre14"><a class="pcalibre el" href="struct_ak_image_source_params_split_000.html">AkImageSourceParams</a></code>, <code class="calibre14"><a class="pcalibre el" href="struct_ak_image_source_texture_split_000.html">AkImageSourceTexture</a></code> and <code class="calibre14"><a class="pcalibre el" href="struct_ak_image_source_name_split_000.html" title="Data used to describe one image source in Reflect.">AkImageSourceName</a></code>.</li>
+<li class="calibre9"><b class="calibre13">WG-34650</b> As part of the Output Management refactoring, renamed <code class="calibre14">AddSecondaryOutput</code> and <code class="calibre14">RemoveSecondaryOutput</code> to <code class="calibre14">AddOutput</code> and <code class="calibre14">RemoveOutput</code>, with different parameters. <code class="calibre14">GetSpeakerConfiguration</code>, <code class="calibre14">GetPanningRule</code>, <code class="calibre14">SetPanningRule</code>, <code class="calibre14">GetSpeakerAngles</code>, <code class="calibre14">GetSpeakerAngles</code>, and <code class="calibre14">SetSpeakerAngles</code> changed parameters. Removed idAudioDevice from <a class="pcalibre el" href="struct_ak_platform_init_settings_split_000.html">AkPlatformInitSettings</a> and replaced it by <a class="pcalibre el" href="struct_ak_output_settings_a0e145d97af362b7f3267b64ca0e38054_split_000.html#a0e145d97af362b7f3267b64ca0e38054">AkOutputSettings.idDevice</a> in <a class="pcalibre el" href="struct_ak_init_settings_split_000.html">AkInitSettings</a>. AkAudioOutputType was removed entirely. See <a class="pcalibre el" href="whatsnew_2017_2_migration_split_003.html#secondary_output_migration">Breaking changes in audio output management, secondary outputs, and sink plug-ins</a> for more information.</li>
+</ul>
+<p class="calibre7"><b class="calibre13">Please read <a class="pcalibre el" href="whatsnew_2017_2_migration_split_000.html">Important Migration Notes 2017.2</a> thoroughly for more information about the necessary changes to the game code while upgrading to 2017.2.</b></p>
+</div></div></div></body></html>

@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Defining Command Add-ons</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_3"><a class="pcalibre1 anchor" id="defining_custom_commands_variables"></a>
+Argument Variables</h2>
+<p class="calibre7">Zero to many variables can be used in the <code class="calibre14">args</code> field (program arguments). Variables provide a way to access information from the selected objects. For example, you could retrieve an object id and pass it as an argument. Variables also provide a way to access property values from the selected objects, including Custom Properties values. To learn more about Custom Properties, refer to <a class="pcalibre el" href="defining_custom_properties_split_000.html">Defining Custom Properties</a>.</p>
+<p class="calibre7">For a complete list of possible expressions in variables, refer to the <b class="calibre13">Object Expressions</b> and <b class="calibre13">Value Expressions</b> sections in <a class="pcalibre el" href="waql_reference_split_000.html">Wwise Authoring Query Language (WAQL) Reference</a>.</p>
+<p class="calibre7">When the selection is multiple, refer to <code class="calibre14">startMode</code> to learn how these variables are resolved.</p>
+<p class="calibre7"><b class="calibre13">Examples:</b> </p><table border="1" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<th class="calibre35">Variable</th><th class="calibre35">Type</th><th class="calibre35">Description </th></tr>
+<tr class="calibre16">
+<td class="calibre17">${id}</td><td class="calibre17">string</td><td class="calibre17">The object ID (GUID). </td></tr>
+<tr class="calibre16">
+<td class="calibre17">${name}</td><td class="calibre17">string</td><td class="calibre17">The object name. </td></tr>
+<tr class="calibre16">
+<td class="calibre17">${notes}</td><td class="calibre17">string</td><td class="calibre17">The object notes. </td></tr>
+<tr class="calibre16">
+<td class="calibre17">${type}</td><td class="calibre17">string</td><td class="calibre17">The object type. Refer to <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for more information on the types available. </td></tr>
+<tr class="calibre16">
+<td class="calibre17">${path}</td><td class="calibre17">string</td><td class="calibre17">The object path from the project root. Ex: '\\Containers\\Default Work Unit\\Sound1' </td></tr>
+<tr class="calibre16">
+<td class="calibre17">${filePath}</td><td class="calibre17">string</td><td class="calibre17">The path to the file containing the object. The path can be a Work Unit file, or a project file. </td></tr>
+<tr class="calibre16">
+<td class="calibre17">${originalWavFilePath}</td><td class="calibre17">string</td><td class="calibre17">Absolute path to the original WAV file. Only valid for Sound object, Audio Source objects, and audio files. </td></tr>
+<tr class="calibre16">
+<td class="calibre17">${convertedWemFilePath}</td><td class="calibre17">string</td><td class="calibre17">Absolute path to the converted WEM file. Specify the platform in the options. Only valid for Sound and Audio Source objects. </td></tr>
+<tr class="calibre16">
+<td class="calibre17">${soundbankBnkFilePath}</td><td class="calibre17">string</td><td class="calibre17">Absolute path to the generated SoundBank file associated with the SoundBank object. Only valid for SoundBank objects. </td></tr>
+<tr class="calibre16">
+<td class="calibre17">${workunitIsDirty}</td><td class="calibre17">boolean</td><td class="calibre17">True if a Work Unit or a Project (wproj file) is dirty, meaning it is modified but not saved. </td></tr>
+<tr class="calibre16">
+<td class="calibre17">${Volume}</td><td class="calibre17">string</td><td class="calibre17">The Voice Volume. </td></tr>
+<tr class="calibre16">
+<td class="calibre17">${OutputBus.name}</td><td class="calibre17">string</td><td class="calibre17">The Output Bus name. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

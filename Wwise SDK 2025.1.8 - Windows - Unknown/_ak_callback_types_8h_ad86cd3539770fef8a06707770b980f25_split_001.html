@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AkCaptureCallbackFunc</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="_ak_callback_types_8h_ad86cd3539770fef8a06707770b980f25_split_000.html#ad86cd3539770fef8a06707770b980f25" class="pcalibre1 anchor">◆ </a></span>AkCaptureCallbackFunc</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">typedef void( * AkCaptureCallbackFunc) (<a class="pcalibre el" href="class_ak_audio_buffer_split_000.html">AkAudioBuffer</a> &amp;in_CaptureBuffer, <a class="pcalibre el" href="_ak_typedefs_8h_ab608859e8c575f46ce18433e32aa2ccd_split_000.html#ab608859e8c575f46ce18433e32aa2ccd">AkOutputDeviceID</a> in_idOutput, void *in_pCookie)</td>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Callback prototype used for audio capture callback registration. This callback will be called at the end of each audio frame for each output device that has been registered. </p><dl class="calibre7"><dt class="calibre23">Remarks</dt><dd class="calibre24">This callback will be executed on the main audio thread during real-time rendering and will be executed on the thread that <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_afe54af0f5be38be061e8a3c7d7642bb1_split_000.html#afe54af0f5be38be061e8a3c7d7642bb1">AK::SoundEngine::RenderAudio</a> is called from when offline rendering is enabled. </dd>
+<dd class="calibre24">
+The processing time in the callback function should be minimal. Having too much processing time could cause voice starvation during real-time rendering. </dd>
+<dd class="calibre24">
+Note that a callback registered with <code class="calibre14">in_idOutput</code> equal to <code class="calibre14">AK_INVALID_OUTPUT_DEVICE_ID</code>, will receive the <code class="calibre14">AkOutputDeviceID</code> associated with the main output device. </dd>
+<dd class="calibre24">
+The captured audio in the buffer is interleaved. Use <code class="calibre14"><a class="pcalibre el" href="class_ak_audio_buffer_a8b3f75d4e95d5ce9af0b4573fae87510_split_000.html#a8b3f75d4e95d5ce9af0b4573fae87510">AkAudioBuffer::GetInterleavedData</a></code> to access it. Avoid using functions from the de-interleaved interface such as <code class="calibre14"><a class="pcalibre el" href="class_ak_audio_buffer_ad2bc3b8ddd61eaa0c111798d5f9e8c9c_split_000.html#ad2bc3b8ddd61eaa0c111798d5f9e8c9c">AkAudioBuffer::GetChannel</a></code>. </dd></dl>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_afe54af0f5be38be061e8a3c7d7642bb1_split_000.html#afe54af0f5be38be061e8a3c7d7642bb1">AK::SoundEngine::RenderAudio()</a></li>
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a25dabf28198a55f9c11ab74e640be331_split_000.html#a25dabf28198a55f9c11ab74e640be331">AK::SoundEngine::RegisterCaptureCallback()</a></li>
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_acc0738332d393048d352d1ca6d92b355_split_000.html#acc0738332d393048d352d1ca6d92b355">AK::SoundEngine::UnregisterCaptureCallback()</a></li>
+<li class="calibre9"><a class="pcalibre el" href="soundengine_plugins_split_017.html#fx_audiobuffer_struct">Accessing Data Using AkAudioBuffer Structure</a> </li>
+</ul>
+</dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_ak_callback_types_8h_source.html#l00456">456</a> of file <a class="pcalibre el" href="_ak_callback_types_8h_source.html">AkCallbackTypes.h</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

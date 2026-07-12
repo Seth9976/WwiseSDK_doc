@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>New Features Overview 2015.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_11"><a class="pcalibre1 anchor" id="whatsnew_2015_1_new_feature_pin_to_cache"></a>
+Pin to cache</h1>
+<p class="calibre7">A new API has been added to Wwise to allow the user to have more precise control over audio data in the streaming cache. By calling <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ae98b64113d2b9bd2e63adef8cee96805_split_000.html#ae98b64113d2b9bd2e63adef8cee96805">PinEventInStreamCache()</a>, the user can request that certain events have their media ‘pinned’ into stream cache, so that it is ready and can be played with zero latency when needed. If the data is not already in cache when <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ae98b64113d2b9bd2e63adef8cee96805_split_000.html#ae98b64113d2b9bd2e63adef8cee96805">PinEventInStreamCache()</a> is called, then the data will be streamed in with a low priority automatic stream. The length, in milliseconds, of each media file that is pinned can be customized using the prefetch slider in the Wwise authoring tool. The data will stay in memory until the user releases the media by calling <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a09d2491e7ad56454b3720f182b09549a_split_000.html#a09d2491e7ad56454b3720f182b09549a">UnpinEventInStreamCache()</a>. <br class="calibre10"/>
+</p>
+</div></div></div></body></html>

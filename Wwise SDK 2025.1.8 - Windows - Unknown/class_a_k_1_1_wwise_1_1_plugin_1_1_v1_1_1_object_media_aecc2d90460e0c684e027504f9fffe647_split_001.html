@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK.Wwise::Plugin::V1::ObjectMedia::SetMediaSource</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_object_media_aecc2d90460e0c684e027504f9fffe647_split_000.html#aecc2d90460e0c684e027504f9fffe647" class="pcalibre1 anchor">◆ </a></span>SetMediaSource()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="calibre3">
+  <tbody class="calibre4"><tr class="calibre16">
+  <td class="calibre17">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">bool AK.Wwise::Plugin::V1::ObjectMedia::SetMediaSource </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype">const <a class="pcalibre el" href="_platforms_2_windows_2_ak_types_8h_af48843ed095e0ea7dd05bd1b64070664_split_000.html#af48843ed095e0ea7dd05bd1b64070664">AkOSChar</a> * </td>
+          <td class="paramname"><em class="calibre59">in_pszFilePathToImport</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">unsigned int </td>
+          <td class="paramname"><em class="calibre59">in_Index</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">bool </td>
+          <td class="paramname"><em class="calibre59">in_bReplace</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="calibre17">
+<span><span>inline</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+
+<p class="calibre7">Requests to set the specified file as a data input file. </p>
+<p class="calibre7">This will copy the file in the project under the file name specified in in_pszFilePathToImport, and create or replace a Media <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_source_split_000.html" title="Wwise API for general Audio Plug-in's backend.">Source</a> at the given index.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> You must add up indexes sequentially. If you have 0-14 indexes, adding a new one at 40 will create it at 15. If you want to have empty spaces for indexes, add empty media sources with a nullptr in_pszFilePathToImport sequentially. Pass <code class="calibre14">(unsigned int)-1</code> as the in_Index to insert at the end of the list. </td></tr>
+</tbody></table>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="warning.gif"/></td><td class="calibre17"><b class="calibre13">Warning:</b> You should not put the same file in two different indexes. </td></tr>
+</tbody></table>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_pszFilePathToImport</td><td class="calibre17">(Optional) File path. Can be nullptr if the plug-in generates this file, or if the file is not yet available. </td></tr>
+    <tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_Index</td><td class="calibre17">Media source index. If higher than or equal to the current media source count, will add a new index. </td></tr>
+    <tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_bReplace</td><td class="calibre17">True to replace a file under the same name. False will succeed if the file already exists. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">true if succeeded. </dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_host_object_media_8h_source.html#l00347">347</a> of file <a class="pcalibre el" href="_host_object_media_8h_source.html">HostObjectMedia.h</a>.</p>
+
+<p class="calibre7">References <a class="pcalibre el" href="_plugin_info_generator_8h_source.html#l00089">AK.Wwise::Plugin::CBaseInterfaceGlue&lt; CHostObjectMedia &gt;::g_cinterface</a>, <a class="pcalibre el" href="_plugin_helpers_8h_source.html#l00079">MKBOOL</a>, and <a class="pcalibre el" href="_host_object_media_8h_source.html#l00083">ak_wwise_plugin_host_object_media_v1::SetMediaSource</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

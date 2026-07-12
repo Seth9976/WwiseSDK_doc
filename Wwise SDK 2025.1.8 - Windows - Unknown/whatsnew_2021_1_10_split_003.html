@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2021.1.10</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="generic_bugs_2021_1_10"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-58695</b> Fixed: Possible crash when removing Voice Data profiling data and doing Start Capture.</li>
+<li class="calibre9"><b class="calibre13">WG-59298</b> Fixed: Changes to the volume matrix in the <code class="calibre14">AK_SpeakerVolumeMatrix</code> callback only take effect on the next audio frame.</li>
+<li class="calibre9"><b class="calibre13">WG-59312</b> Fixed: Audio Objects that are mixed to a Main Mix or Passthrough Mix on the Output Device have an audible crackle due to discontinuous panning when the Audio Object position changes.</li>
+<li class="calibre9"><b class="calibre13">WG-59864</b> Fixed: Wwise undo commands stop working if the client is closed while using WAAPI scripts.</li>
+<li class="calibre9"><b class="calibre13">WG-60068</b> Fixed: The visual size of the spread circle is wrong in the Audio Object 3D View when using Focus and Spread at the same time with mono sounds.</li>
+<li class="calibre9"><b class="calibre13">WG-60103</b> Fixed: Memory leak when running the sound engine while allocating a new effect.</li>
+<li class="calibre9"><b class="calibre13">WG-60348</b> Fixed: <code class="calibre14">SetGameObjectRadius</code> API call does not return its Game Object ID.</li>
+<li class="calibre9"><b class="calibre13">WG-60428</b> Fixed: 4-channel Audio Objects that are sent to the output device as individual System Audio Objects have improper positioning.</li>
+<li class="calibre9"><b class="calibre13">WG-60510</b> Fixed: <code class="calibre14">ComputeSphericalVBAPGains</code> returns slightly inaccurate volumes.</li>
+<li class="calibre9"><b class="calibre13">WG-60564</b> Fixed: Possible memory leaks when memory allocations fail while registering game objects.</li>
+<li class="calibre9"><b class="calibre13">WG-60579</b> Fixed: <code class="calibre14">SetGameObjectToPortalObstruction</code> and <code class="calibre14">SetPortalToPortalObstruction</code> objects and values are not printed to API Calls.</li>
+<li class="calibre9"><b class="calibre13">WG-60686</b> Fixed: Property Editor does not refresh correctly when viewing a Music Switch Container after a Work Unit is reloaded.</li>
+<li class="calibre9"><b class="calibre13">WG-60833</b> Fixed: Time Stretch effect on virtual voice (play from elapsed time) can cause CPU spike with certain Pitch values.</li>
+<li class="calibre9"><b class="calibre13">WG-60861</b> Fixed: Crash when sending empty <code class="calibre14"><a class="pcalibre el" href="struct_ak_acoustic_surface_split_000.html">AkAcousticSurface</a></code> names.</li>
+<li class="calibre9"><b class="calibre13">WG-60899</b> Fixed: Crash in Query Editor when Column Configuration includes "Sizes Preview/Total Size".</li>
+<li class="calibre9"><b class="calibre13">WG-60919</b> Fixed: Cannot paste a music clip after cutting it in the Music Segment Editor.</li>
+<li class="calibre9"><b class="calibre13">WG-60938</b> Fixed: Incorrect samples produced in the tail of a Time Stretch effect.</li>
+<li class="calibre9"><b class="calibre13">WG-60967</b> Fixed: Wwise leaks memory when copying or cutting Music Event Cues.</li>
+</ul>
+</div></div></div></body></html>

@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integrating Wwise Motion</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_5"><a class="pcalibre1 anchor" id="motion_authoring_setup"></a>
+Wwise Authoring Setup</h2>
+<p class="calibre7">To be able to send either sound or motion data to a device, you need to add the licensed Wwise Motion Audio Device to the Audio Device folder of your Wwise project, located in the Audio tab of the Project Explorer. The Wwise Motion Audio Device is the plug-in used by the sound engine to interface with a motion-ready device. It is also crucial to assign the Wwise Motion Audio Device to a top level Audio Bus. <b class="calibre13">The term <em class="calibre11">motion bus</em> denotes a top-level Audio Bus with a Wwise Motion Audio Device assigned to it.</b> It is good practice to use a single motion bus hierarchy in your project for easier troubleshooting and monitoring. You can then set the Output Bus of any Sound SFX to a motion bus to create haptic feedback. Usually the Sound SFX elements that use a motion bus also use a Motion source. To simultaneously have audio and motion, a Sound SFX needs to have at least one motion bus and one Audio Bus, either as the Output Bus or as an Auxiliary Bus.</p>
+</div></div></div></body></html>

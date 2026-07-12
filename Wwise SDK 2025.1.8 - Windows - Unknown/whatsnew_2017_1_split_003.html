@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2017.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="api_changes_2017_1"></a>
+API Changes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-30778</b> <code class="calibre14"><a class="pcalibre el" href="struct_ak_platform_init_settings_a2bf6f000f256b146d6cd36401a234b85_split_000.html#a2bf6f000f256b146d6cd36401a234b85" title="Sampling Rate. Default is 48000 Hz. Use 24000hz for low quality. Any positive reasonable sample rate ...">AkPlatformInitSettings::uSampleRate</a></code> now replaces <code class="calibre14">AkPlatformInitSettings::eAudioQuality</code>, which was limiting the sample rate on Windows platforms to 48,000 or 24,000 Hz. The sample rate can now be set to a custom value.</li>
+<li class="calibre9"><b class="calibre13">WG-31985</b> The <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a54c3c9fa5266b2f2e6d823c52329b2f0_split_000.html#a54c3c9fa5266b2f2e6d823c52329b2f0">AK::SoundEngine::GetSourcePlayPositions()</a></code> function has a new behavior and validation of arguments:<ul class="calibre15">
+<li class="calibre9">The number of entries in the position array may be specified with a value of 0, in which case only it is adjusted; the position array is not updated.</li>
+<li class="calibre9">If the number of entries is specified as 0, the pointer for the position array may be NULL.</li>
+</ul>
+</li>
+<li class="calibre9"><b class="calibre13">WG-31988</b> (UWP) <code class="calibre14">AK::ThreadEmulation</code> has been removed; the sound engine now uses native threads. Exposed ideal processor as <code class="calibre14">AkThreadProperties::processorNumber</code>.</li>
+<li class="calibre9"><b class="calibre13">WG-32374</b> <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a25efe2a9b18ad130f4fc4c0c3599ec30_split_000.html#a25efe2a9b18ad130f4fc4c0c3599ec30">AK::SoundEngine::SendPluginCustomGameData</a></code> does not require the Effect slot number anymore. On the other hand, it asks for the target plug-in ID.</li>
+</ul>
+</div></div></div></body></html>

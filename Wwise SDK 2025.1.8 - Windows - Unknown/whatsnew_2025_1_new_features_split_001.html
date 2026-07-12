@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>New Features Overview 2025.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2"><h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="features_25_1_ue"></a>
+User Experience</h1>
+<h2 class="calibre31"><a class="pcalibre1 anchor" id="features_25_1_media_pool"></a>
+Media Pool</h2>
+<p class="calibre7">The Media Pool view is where you can search, organize, and select your audio files to import into Wwise. This is invaluable if you have downloaded Strata libraries or are working with third-party sound libraries. These libraries often contain large numbers of files, which can make it time-consuming to find what you need. You can add these library folders to Media Pool databases, and then search for and audition your files directly in Wwise. You can also apply filters as search criteria to further refine the list of results.</p>
+<p class="calibre7">After you find the files you want, you can audition them in the Transport area of the Media Pool. Additionally, you can modify the playback properties while auditioning the files and optionally apply these changes when you import them. The Media Pool allows you to import your final selections into your Wwise project, completing the workflow all in the same view, in Wwise. From the Wwise menu bar, click <b class="calibre13">Project &gt; Media Pool</b> (Ctrl+P) to open the view.</p>
+<div class="calibre2">
+<img alt="" src="mediapool_overview.png" class="inline"/>
+</div>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="features_25_1_db"></a>
+Databases</h3>
+<p class="calibre7">The Databases tab includes the Project Originals folder and the User Databases folder, where you can create User Databases and define the paths to folders that contain audio files. Additionally, you can organize User Databases by grouping them in Virtual Folders and assigning a different color to each one. Use the check boxes to include or exclude folders or databases from the search results.</p>
+<div class="calibre2">
+<img alt="" src="mp_databases_tab.png" class="inline"/>
+</div>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="features_25_1_db_settings"></a>
+Database Settings</h3>
+<p class="calibre7">In the Media Pool Database Settings dialog, you can add and remove database folders. You can also rescan databases, which recursively scans the tracked folders for all audio files and adds metadata and extracted audio features to the cache. Audio files in your <code class="calibre14">Originals</code> directory are scanned regularly.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="features_25_1_filter"></a>
+Filters</h3>
+<p class="calibre7">Use the Filters tab to add, delete, and modify filters that can be included or excluded to refine search results. For Field filters, you can specify which field the filter is operating on, the type of filtering operation, and the text or numeric value of the filter. You can also filter by similar sound or type a description of the sound to filter by. For more information, see <a class="pcalibre el" href="whatsnew_2025_1_new_features_split_001.html#features_25_1_similar_sound">Similar Sound Search</a>.</p>
+<div class="calibre2">
+<img alt="" src="mp_filters_tab.png" class="inline"/>
+</div>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="features_25_1_search"></a>
+Search</h3>
+<p class="calibre7">With the <b class="calibre13">Selected Fields</b> search type selected, use the search bar at the top of the Results pane to find specific audio files. As you type, the Media Pool searches the metadata in the database files and displays matches in the Results pane.</p>
+<div class="calibre2">
+<img alt="" src="mp_search.png" class="inline"/>
+</div>
+<p class="calibre7">The Search field supports the following operators to help you pinpoint results:</p><ul class="calibre8">
+<li class="calibre9"><b class="calibre13">Exact Phrase</b>: Use double quotes to find a specific phrase (e.g., "footstep medium").</li>
+<li class="calibre9"><b class="calibre13">Exclude Words</b>: Use a hyphen or exclamation mark to remove unwanted results (e.g., "footstep !concrete").<ul class="calibre15">
+<li class="calibre9">Exact phrases can also be excluded</li>
+</ul>
+</li>
+</ul>
+<p class="calibre7">To select which Metadata fields to search, click the gear icon to the right of the Search field. The Filename field is selected by default.</p>
+<p class="calibre7">Optionally, you can select the <b class="calibre13">Audio Description</b> search type and then type a description of a sound in the search bar. For more information, see <a class="pcalibre el" href="whatsnew_2025_1_new_features_split_001.html#features_25_1_similar_sound">Similar Sound Search</a>.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="features_25_1_results"></a>
+Results</h3>
+<p class="calibre7">The Results pane displays a list of audio files based on your search and filter criteria. The best matches appear at the top of the list. Use the Results shortcut menu to add audio files to the Audio File Importer or to import them directly into the Default Work Unit in your project. You can also change the order of the columns and configure them to display various Metadata Fields, Search Score, and Waveform.</p>
+<div class="calibre2">
+<img alt="" src="mp_results.png" class="inline"/>
+</div>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="features_25_1_metadata"></a>
+Metadata</h3>
+<p class="calibre7">The Metadata pane displays all discovered metadata for a selected file. When you create a database and specify a path on your local drive or network drive, the Media Pool caches the metadata for each file. Caching this metadata facilitates fast searches through your libraries and allows you to filter results precisely. Metadata Fields can be added as a column or filter using the shortcut menu when selecting a Metadata Field.</p>
+<div class="calibre2">
+<img alt="" src="mp_metadata_field.png" class="inline"/>
+</div>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="features_25_1_transport"></a>
+Transport Properties</h3>
+<p class="calibre7">When auditioning files in the Media Pool, you can use the Transport properties to modify Volume, Pitch, Low-pass Filter, and High-pass Filter. The Loop check box loops playback within detected regions. You can apply any of these changes when importing the file.</p>
+<div class="calibre2">
+<img alt="" src="mp_transport.png" class="inline"/>
+</div>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="features_25_1_preview"></a>
+Audio Preview/Region Selector</h3>
+<p class="calibre7">The Audio Preview/Region Selector pane allows you to preview and play back audio. You can also select regions and add files to the Audio File Importer. When files are imported, a corresponding object is created in the project. If multiple regions are selected, an object is created for each region. You can manually select regions by clicking and dragging on the waveform or by clicking the markers embedded in the audio file. Hold Ctrl or Shift to select multiple regions. When you enable the <b class="calibre13">Auto-select detected regions</b> button, regions are automatically selected based on the measured energy of the audio content. You can edit regions by dragging the blue boxes.</p>
+<div class="calibre2">
+<img alt="" src="mp_auto_preview.png" class="inline"/>
+</div>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> Manual edits to selected regions are not persisted when you select a different file in the Results pane. </td></tr>
+</tbody></table>
+<p class="calibre7">When you import a region, the entire audio file is imported to the project <code class="calibre14">Originals</code> folder and objects are created in the project at the Object Destination with the selected region applied as trim start and trim end on the audio file source. When you import more than one region, each region is saved with a number appended to the object name. For example, if you import three regions in the same file, each region is saved as an object with "_01", "_02", and "_03" appended to the end of each object name.</p>
+<p class="calibre7">Click <b class="calibre13">Files</b> or <b class="calibre13">Regions</b> to populate the Audio File Importer, where the Object Type and Object Destination can be further specified.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="features_25_1_similar_sound"></a>
+Similar Sound Search</h3>
+<p class="calibre7">Similar Sound Search allows you to search for sounds in your Media Pool databases using either a text query or a reference audio clip. This removes the need for keyword tagging and time-consuming manual navigation through vast sound libraries. It was designed specifically for sound effects and discovers unexpected matches that would be difficult to find using conventional search methods. For example, a sound labeled "smashing fruit" might be found as a match for the query "footsteps in mud."</p>
+<p class="calibre7">In particular, Similar Sound Search allows for:</p>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">Text-to-audio retrieval</b>: In the list to the right of the Search field, select <b class="calibre13">Audio Description</b> and then type a description of the desired sound. Results are chosen based only on their audio content.</li>
+<li class="calibre9"><b class="calibre13">Audio-to-audio retrieval</b>: Right-click any file in the Results pane and click <b class="calibre13">Find Similar</b>. The sonic qualities of the file are used as a reference to find similar results.</li>
+</ul>
+<p class="calibre7">In both cases, Similar Sound Search provides a new way to find audio, even if it was recorded for a different purpose. These two techniques enrich traditional filtering, which depends on metadata, extending the possibilities of existing sound libraries.</p>
+<p class="calibre7">Similar Sound Search uses a non-generative machine learning model to place audio and text into a shared search space where sounds are grouped by acoustic and semantic similarity. It is an optional package you can add to Wwise using the Audiokinetic Launcher.</p>
+</div></div></div></body></html>

@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::IAkPluginContextBase::GetOutputID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="class_a_k_1_1_i_ak_plugin_context_base_a34644116256a32c1ea4763411502aded_split_000.html#a34644116256a32c1ea4763411502aded" class="pcalibre1 anchor">◆ </a></span>GetOutputID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="calibre3">
+  <tbody class="calibre4"><tr class="calibre16">
+  <td class="calibre17">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">virtual <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::IAkPluginContextBase::GetOutputID </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> &amp; </td>
+          <td class="paramname"><em class="calibre59">out_uOutputID</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_ad1d16d137b445ef6f7c2dd5ff1c9a6d8_split_000.html#ad1d16d137b445ef6f7c2dd5ff1c9a6d8">AkPluginID</a> &amp; </td>
+          <td class="paramname"><em class="calibre59">out_uDevicePlugin</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"> const</td>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="calibre17">
+<span><span>pure virtual</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Identify the output device into which the data processed by this plugin will end up. Applicable to plug-ins instantiated as bus effects and to sink plugins. Plug-ins instantiated in the Containers hierarchy (i.e. on voices) return AK_NotCompatible. </p><dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24">integrating_secondary_outputs </dd></dl>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">The device type and unique identifier. AK_Success if successful, AK_NotCompatible otherwise. </dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">out_uOutputID</td><td class="calibre17">Device identifier, when multiple devices of the same type are possible. </td></tr>
+    <tr class="calibre16"><td class="paramname">out_uDevicePlugin</td><td class="calibre17">Device plugin ID. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

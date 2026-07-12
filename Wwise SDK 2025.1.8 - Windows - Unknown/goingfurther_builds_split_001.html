@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Build Configuration</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2"><h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="wwise_sdk_build_config"></a>
+Introduction</h1>
+<p class="calibre7">The Wwise sound engine SDK ships with three build configurations: debug, profile and release.</p>
+<p class="calibre7">The <code class="calibre14">Debug</code> version of the sound engine is a non-optimized build configuration with extra debugging information such as asserts and debug output strings. We do not recommend using this configuration because the performance hit is significant. Nevertheless, if problems occur during the initial part of the integration process, this build can be useful to validate the integration work.</p>
+<p class="calibre7">The <code class="calibre14">Profile</code> version of the sound engine is an optimized build that provides communication support to Wwise. This configuration is intended for use in the day-to-day development process. Due to its communications features, it should not be used for the final retail version of a game.</p>
+<p class="calibre7">Finally, the <code class="calibre14">Release</code> version of the sound engine is an optimized build without communication support. The preprocessor definition <code class="calibre14">AK_OPTIMIZED</code> must be defined at compile time when using this configuration. The CommunicationCentral library should also be removed from the link dependencies. This build configuration provides the best performance of all three configurations and should be used for the final retail build.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> On Windows, if a project requires the use of the static version of the C runtime library (/MT or /MTd), it should link with the Wwise libraries in the <code class="calibre14">Debug(StaticCRT)</code>, <code class="calibre14">Profile(StaticCRT)</code> and <code class="calibre14">Release(StaticCRT)</code> folders instead of the standard configurations. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

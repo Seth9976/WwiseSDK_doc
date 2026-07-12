@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK.Wwise::Plugin::V1::FrontendModel::Connect</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_frontend_model_a2561b9d053d07593815361e89610404c_split_000.html#a2561b9d053d07593815361e89610404c" class="pcalibre1 anchor">◆ </a></span>Connect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="calibre3">
+  <tbody class="calibre4"><tr class="calibre16">
+  <td class="calibre17">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">bool AK.Wwise::Plugin::V1::FrontendModel::Connect </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="group__global_ga8b203f1b0ef4a48d2cee97d89eaae042_split_000.html#ga8b203f1b0ef4a48d2cee97d89eaae042">ak_wwise_plugin_widget</a> * </td>
+          <td class="paramname"><em class="calibre59">in_widget</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">const char * </td>
+          <td class="paramname"><em class="calibre59">in_name</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_frontend_model_a2dc493bb044bd8785ba87f68faa6f315_split_000.html#a2dc493bb044bd8785ba87f68faa6f315">GenericCallback</a> </td>
+          <td class="paramname"><em class="calibre59">in_handler</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">void * </td>
+          <td class="paramname"><em class="calibre59">in_userData</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="calibre17">
+<span><span>inline</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+
+<p class="calibre7">Connects a signal to a handler taking some user-defined data. </p>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_widget</td><td class="calibre17">Pointer to the widget. </td></tr>
+    <tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_name</td><td class="calibre17">Name of the signal. </td></tr>
+    <tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_handler</td><td class="calibre17">Static function of the form 'void StaticHandler(void* in_owner, ArgsT... in_args, void* in_data)'. </td></tr>
+    <tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_userData</td><td class="calibre17">Pointer to user-defined data. This is forwarded to the handler when the signal gets emitted. The user must perform the necessary casts in the handler. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">True if the signal isn't already connected and was successfully connected. </dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_host_frontend_model_8h_source.html#l00452">452</a> of file <a class="pcalibre el" href="_host_frontend_model_8h_source.html">HostFrontendModel.h</a>.</p>
+
+<p class="calibre7">References <a class="pcalibre el" href="_host_frontend_model_8h_source.html#l00227">ak_wwise_plugin_host_frontend_model_v1::Connect</a>, and <a class="pcalibre el" href="_plugin_info_generator_8h_source.html#l00089">AK.Wwise::Plugin::CBaseInterfaceGlue&lt; CHostFrontendModel &gt;::g_cinterface</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

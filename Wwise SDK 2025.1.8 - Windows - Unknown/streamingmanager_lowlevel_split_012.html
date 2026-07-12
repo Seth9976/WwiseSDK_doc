@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Low-Level I/O</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_11"><a class="pcalibre1 anchor" id="streamingmanager_lowlevel_default_implementation_walkthrough_overview"></a>
+Classes Overview</h2>
+<p class="calibre7">The figure below is a class diagram that represents the Low-Level I/O samples and their relation with the Low-Level I/O API.</p>
+<div class="calibre2">
+<img alt="" src="lowlevelio_samples.png" class="inline"/>
+</div>
+<p class="calibre7">CAkDefaultIOHookDeferred implements the File Location Resolver API (<code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_file_location_resolver_split_000.html">AK::StreamMgr::IAkFileLocationResolver</a></code>) and the deferred I/O hook (<code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_split_000.html">AK::StreamMgr::IAkLowLevelIOHook</a></code>). This implementation can be used in a single-device I/O system. <b class="calibre13">CAkDefaultIOHookDeferred::Init()</b> creates a streaming device in the Stream Manager, passing it the device settings, and store the returned device ID.</p>
+<p class="calibre7">Also, this device registers itself to the Stream Manager as the one and only File Location Resolver. But, this is <b class="calibre13">only if</b> there is not already a File Location Resolver registered to the Stream Manager.</p>
+<p class="calibre7">The following figure is a block diagram that represents a single-device I/O system. "Low-Level IO" is any class that implements the File Location Resolver API as well as one of the I/O hook APIs. It can be any of these sample classes:</p><ul class="calibre8">
+<li class="calibre9">CAkDefaultIOHookDeferred</li>
+<li class="calibre9">CAkFilePackageIOHookDeferred</li>
+</ul>
+<div class="calibre2">
+<img alt="" src="lowlevelio_singledevice.gif" class="inline"/>
+</div>
+<p class="calibre7">Here is how you would initialize the I/O system with <b class="calibre13">CAkDefaultIOHookDeferred</b> used alone (without error handling).</p>
+<div class="fragment"><div class="line"><span class="comment">// Create the Stream Manager.</span></div>
+<div class="line"><a class="pcalibre code" href="struct_ak_stream_mgr_settings_split_000.html">AkStreamMgrSettings</a> stmSettings;</div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_stream_mgr_a50fe8111fcb883651390fab6e9dc5ebc_split_000.html#a50fe8111fcb883651390fab6e9dc5ebc">AK::StreamMgr::GetDefaultSettings</a>( stmSettings );</div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_stream_mgr_af9d67dd0e502e5603a2921099916e2ab_split_000.html#af9d67dd0e502e5603a2921099916e2ab">AK::StreamMgr::Create</a>( stmSettings );</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Create a streaming device.</span></div>
+<div class="line"><a class="pcalibre code" href="struct_ak_device_settings_split_000.html">AkDeviceSettings</a> deviceSettings;</div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_stream_mgr_a7d01e09a9bb6b6d34c2bb8f4c8995214_split_000.html#a7d01e09a9bb6b6d34c2bb8f4c8995214">AK::StreamMgr::GetDefaultDeviceSettings</a>( deviceSettings );</div>
+<div class="line"> </div>
+<div class="line">CAkDefaultIOHookDeferred lowLevelIO;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Init registers lowLevelIO as the File Location Resolver if it was not already defined, and creates a streaming device.</span></div>
+<div class="line">lowLevelIO.Init( deviceSettings );</div>
+</div><!-- fragment --><p class="calibre7">The File Location Resolver implementation inside the device uses the services of <b class="calibre13">CAkFileLocationBase</b>, from which it also inherits. For more details on the file location strategy implemented in <b class="calibre13">CAkFileLocationBase</b>, refer to <a class="pcalibre el" href="streamingmanager_lowlevel_split_013.html#streamingmanager_lowlevel_default_implementation_walkthrough_file_location">Basic File Location</a> below.</p>
+<p class="calibre7">Read section <a class="pcalibre el" href="streamingmanager_lowlevel_split_014.html#streamingmanager_lowlevel_default_implementation_walkthrough_hook_deferred">Deferred I/O Hook Walkthrough</a> below for more details on the implementation of the default deferred I/O hook.</p>
+<p class="calibre7">There is another class, written as a template, which adds the ability to manage file packages to classes that implement both <a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_file_location_resolver_split_000.html">AK::StreamMgr::IAkFileLocationResolver</a> and <a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_split_000.html">AK::StreamMgr::IAkLowLevelIOHook</a> (like <b class="calibre13">CAkDefaultIOHookDeferred</b>). It is <b class="calibre13">CAkFilePackageLowLevelIO&lt;&gt;</b>. File packages are files that are created using the <a class="pcalibre el" href="namespace_a_k_split_000.html" title="Definition of data structures for AkAudioObject.">AK</a> File Packager utility. Refer to section <a class="pcalibre el" href="streamingmanager_lowlevel_split_016.html#streamingmanager_lowlevel_filepackage_implementation_walkthrough">Sample File Package Low-Level I/O Implementation Walkthrough</a> below for more information about file package handling in the Low-Level I/O. Class <b class="calibre13">CAkFilePackageIOHookDeferred</b> is a concrete definition of <b class="calibre13">CAkDefaultIOHookDeferred</b>, enhanced with file package management.</p>
+<p class="calibre7">If you want to implement an I/O system with more than one device, you need to register a separate File Location Resolver to the Stream Manager, which task is to dispatch management of files to appropriate devices. The SDK provides a canvas to implement this functionality: <b class="calibre13">CAkDefaultLowLevelIODispatcher</b>. Refer to <a class="pcalibre el" href="streamingmanager_lowlevel_split_015.html#streamingmanager_lowlevel_default_implementation_walkthrough_multidevice">Multi-Device I/O System</a> for more details on multi-device I/O systems.</p>
+</div></div></div></body></html>

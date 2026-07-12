@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::SoundEngine::RegisterBusVolumeCallback</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="namespace_a_k_1_1_sound_engine_adc878481e54793302e90f59d1c90202f_split_000.html#adc878481e54793302e90f59d1c90202f" class="pcalibre1 anchor">◆ </a></span>RegisterBusVolumeCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_sound_engine_export_8h_ac6e96d34dfc0e12f9aaa7a47f4e9c322_split_000.html#ac6e96d34dfc0e12f9aaa7a47f4e9c322">AKSOUNDENGINE_API</a> <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::SoundEngine::RegisterBusVolumeCallback </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_a8341fa4d01d2fa852c3cc410401b04dc_split_000.html#a8341fa4d01d2fa852c3cc410401b04dc">AkUniqueID</a> </td>
+          <td class="paramname"><em class="calibre59">in_busID</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_callback_types_8h_a71c3284146db2a0b9f8a76c17813514a_split_000.html#a71c3284146db2a0b9f8a76c17813514a">AkBusCallbackFunc</a> </td>
+          <td class="paramname"><em class="calibre59">in_pfnCallback</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">void * </td>
+          <td class="paramname"><em class="calibre59">in_pCookie</em> = <code class="calibre14">NULL</code> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Registers a callback to allow the game to modify or override the volume to be applied at the output of an audio bus. The callback must be registered once per bus ID. Call with <code class="calibre14">in_pfnCallback = NULL</code> to unregister. </p><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> The bus in_busID needs to be a mixing bus.</td></tr>
+</tbody></table>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> The callback function will not be called for the Main Audio Bus, since the output of this bus is not a bus, but is instead an Audio Device.</td></tr>
+</tbody></table>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="goingfurther_speakermatrixcallback.html">Advanced Mix Customization Using the Speaker Matrix Callback</a></li>
+<li class="calibre9"><a class="pcalibre el" href="soundengine_environments_split_000.html">Integration Details - Environments and Game-defined Auxiliary Sends</a></li>
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_speaker_volume_matrix_callback_info_split_000.html">AkSpeakerVolumeMatrixCallbackInfo</a></li>
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_mixer_input_context_split_000.html" title="Interface to retrieve information about an input of a mix connection (for processing during the Speak...">AK::IAkMixerInputContext</a></code></li>
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_mixer_plugin_context_split_000.html" title="Interface to retrieve contextual information for a mixer.">AK::IAkMixerPluginContext</a></code> </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><code class="calibre14">AK_Success</code> if successful</li>
+<li class="calibre9"><code class="calibre14">AK_IDNotFound</code> if the bus is not found</li>
+<li class="calibre9"><code class="calibre14">AK_NotInitialized</code> if the sound engine is not initialized</li>
+<li class="calibre9"><code class="calibre14">AK_InsufficientMemory</code> if there is not enough memory to complete the operation </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_busID</td><td class="calibre17">Bus ID, as obtained by GetIDFromString( bus_name ). </td></tr>
+    <tr class="calibre16"><td class="paramname">in_pfnCallback</td><td class="calibre17">Callback function. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_pCookie</td><td class="calibre17">User cookie. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

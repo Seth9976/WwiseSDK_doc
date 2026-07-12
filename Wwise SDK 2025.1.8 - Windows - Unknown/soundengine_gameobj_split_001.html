@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integration Details - Game Objects</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="soundengine_gameobj_assoc"></a>
+Game Object Associations</h1>
+<p class="calibre7">Every Event triggered in the sound engine is associated with a game object. All Event Actions are associated with the game object passed as a parameter of the <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a41e9ef8d42951871fe4a8ae58a29a68e_split_000.html#a41e9ef8d42951871fe4a8ae58a29a68e">AK::SoundEngine::PostEvent()</a></code> function, if they target a specific game object. If Event Actions do not target a game object, they ignore the game object specified. If an Action affects a single game object, but the game object specified in <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a41e9ef8d42951871fe4a8ae58a29a68e_split_000.html#a41e9ef8d42951871fe4a8ae58a29a68e">AK::SoundEngine::PostEvent()</a></code> is not valid, the Action is not executed.</p>
+<p class="calibre7">Every game object can have an associated 3D position, a Switch for every existing Switch Group, an RTPC value for each RTPC, and multiple values (for example, a volume) that can be set on a specific item (Sound SFX, Property Container, bus, and so on) for a specific game object. The sound engine stores this information until the game object associated with these values is unregistered.</p>
+</div></div></div></body></html>

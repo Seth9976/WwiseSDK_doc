@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2024.1.0</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="generic_behavior_changes_2024_1"></a>
+Behavior Changes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-61023</b> <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a2e6ebb779470b43d78984c27f6a0c238_split_000.html#a2e6ebb779470b43d78984c27f6a0c238">PrepareEvent()</a></code> now prepares the Plug-in media of objects in the Actor-Mixer and Interactive Music hierarchies.</li>
+<li class="calibre9"><b class="calibre13">WG-62679</b> Changed camera navigation controls in the Game Object 3D Viewer. Perspective cameras now support first-person navigation with WSAD or arrow keys. As such, the first-person camera has been deprecated along with listener cameras.</li>
+<li class="calibre9"><b class="calibre13">WG-66102</b> Panning Ambisonic sources to multichannel destinations, and panning of multichannel sources to Ambisonic destinations, have undergone significant corrections to their loudness, in order to achieve better consistency across a variety of mixing scenarios. For example, panning a 5th-order Ambisonic signal to a 7.1.4 surround bus used to be 9db quieter than panning a 1st-order Ambisonic source to the same 7.1.4 surround bus. Now the loudness for both scenarios should be similar. Some corrections to overall mixes may be required, but in many cases this should be a removal of corrections that were introduced in order to account for the previous error. This change also includes a modification to how ambisonics are mixed to stereo outputs, to improve the consistency with how Ambisonics are panned to other channel configs.</li>
+<li class="calibre9"><b class="calibre13">WG-68207</b> Looping of ADPCM files is now sample-accurate.</li>
+<li class="calibre9"><b class="calibre13">WG-69416</b> Added the error message "Number of simultaneous active playback critically high" when the sound engine detects that some continuous playbacks are stacking.</li>
+<li class="calibre9"><b class="calibre13">WG-71672</b> Play directly now only works on sound objects when not connected to a remote sound engine.</li>
+<li class="calibre9"><b class="calibre13">WG-72072</b> In object-based configurations, the bus metering callback is now called once for the entire bus if <code class="calibre14">AK_EnableBusMeter_KPower</code> is set, and once per Audio Object for other <code class="calibre14">AkMeteringFlags</code> values.</li>
+<li class="calibre9"><b class="calibre13">WG-72312</b> Converting media to a sample rate above 48 kHz is now supported. The Max Sample Rate setting of "None" is migrated to "48000", which is the new default. Applying Max Sample Rate of "None" now results in higher sample rates being preserved when targeting PCM and ADPCM codecs.</li>
+<li class="calibre9"><b class="calibre13">WG-72341</b> Added a new fade time parameter to Reflect, allowing image sources to fade in and out when they are added dynamically. Likewise, when an image source is removed, it fades out.</li>
+<li class="calibre9"><b class="calibre13">WG-72540</b> Renamed the Auro 9.1 channel configuration to 5.1.4.</li>
+</ul>
+</div></div></div></body></html>

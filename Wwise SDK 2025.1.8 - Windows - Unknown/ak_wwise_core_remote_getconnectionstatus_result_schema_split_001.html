@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak.wwise.core.remote.getConnectionStatus Result Schema</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2"><h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="section_ak_wwise_core_remote_getconnectionstatus_resultSchema"></a>
+Schema</h1>
+<div class="fragment"><div class="line">{</div>
+<div class="line">    "type": "object",</div>
+<div class="line">    "properties": {</div>
+<div class="line">        "isConnected": {</div>
+<div class="line">            "type": "boolean",</div>
+<div class="line">            "description": "Indicates if the Wwise Authoring application is connected to a Wwise Sound Engine process."</div>
+<div class="line">        },</div>
+<div class="line">        "status": {</div>
+<div class="line">            "type": "string",</div>
+<div class="line">            "description": "The current connection status in text."</div>
+<div class="line">        },</div>
+<div class="line">        "console": {</div>
+<div class="line">            "type": "object",</div>
+<div class="line">            "properties": {</div>
+<div class="line">                "name": {</div>
+<div class="line">                    "type": "string",</div>
+<div class="line">                    "description": "Name of the remote console as returned by the executable."</div>
+<div class="line">                },</div>
+<div class="line">                "platform": {</div>
+<div class="line">                    "type": "string",</div>
+<div class="line">                    "description": "Platform of the remote console as returned by the executable."</div>
+<div class="line">                },</div>
+<div class="line">                "customPlatform": {</div>
+<div class="line">                    "type": "string",</div>
+<div class="line">                    "description": "Platform, as defined in the project platforms of the remote console, as returned by the executable."</div>
+<div class="line">                },</div>
+<div class="line">                "host": {</div>
+<div class="line">                    "type": "string",</div>
+<div class="line">                    "description": "The IPv4 of the connected host. This can also be a file path if Wwise is connected to a local file (profiler session)."</div>
+<div class="line">                },</div>
+<div class="line">                "appName": {</div>
+<div class="line">                    "type": "string",</div>
+<div class="line">                    "description": "The name of the connected application as returned by the executable."</div>
+<div class="line">                }</div>
+<div class="line">            },</div>
+<div class="line">            "required": [</div>
+<div class="line">                "name",</div>
+<div class="line">                "platform",</div>
+<div class="line">                "customPlatform",</div>
+<div class="line">                "host",</div>
+<div class="line">                "appName"</div>
+<div class="line">            ],</div>
+<div class="line">            "description": "Describe the remote process."</div>
+<div class="line">        }</div>
+<div class="line">    },</div>
+<div class="line">    "required": [</div>
+<div class="line">        "isConnected",</div>
+<div class="line">        "status"</div>
+<div class="line">    ],</div>
+<div class="line">    "additionalProperties": false</div>
+<div class="line">}</div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

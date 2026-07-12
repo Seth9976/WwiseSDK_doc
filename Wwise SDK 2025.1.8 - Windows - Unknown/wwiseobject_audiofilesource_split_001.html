@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AudioFileSource</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="wwiseobject_audiofilesource_objectbase_properties"></a>
+Properties, References, Lists</h1>
+<p class="calibre7"></p><table class="doxtable">
+<tbody class="calibre4"><tr class="calibre16">
+<th class="calibre46">Name</th><th class="calibre46">Display Name</th><th class="calibre46">Type</th><th class="calibre46">Default</th><th class="calibre46">Restriction</th><th class="calibre46">Is Visible</th><th class="calibre46">Supported RTPC Type</th><th class="calibre46">Supports Link/Unlink </th></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">ChannelConfigOverride</b></td><td class="calibre36">Channel Configuration Override</td><td class="calibre36">int64</td><td class="calibre36">0</td><td class="calibre36">None</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">Color</b></td><td class="calibre36">Color</td><td class="calibre36">int16</td><td class="calibre36">0</td><td class="calibre36">[ 0 , 26 ]</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">Conversion</b></td><td class="calibre36">Conversion Settings</td><td class="calibre36">Reference</td><td class="calibre36"> </td><td class="calibre36"><p class="starttd"><b class="calibre13">Possible types :</b> </p>
+<table border="1" class="calibre49">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre36">Conversion</td></tr>
+</tbody></table>
+<p class="endtd"></p>
+</td><td class="calibre36">true</td><td class="calibre36"> </td><td class="calibre36">  </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">CrossfadeDuration</b></td><td class="calibre36">Crossfade Duration</td><td class="calibre36">Real64</td><td class="calibre36">0</td><td class="calibre36">[ 0 , 60000 ]</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">CrossfadeShape</b></td><td class="calibre36">Crossfade Shape</td><td class="calibre36">int16</td><td class="calibre36">1</td><td class="calibre36"><p class="starttd"><b class="calibre13">Possible values :</b> </p>
+<table border="1" class="calibre49">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre36">Value </td><td class="calibre36">Display Name  </td></tr>
+<tr class="calibre16">
+<td class="calibre36">0</td><td class="calibre36">Logarithmic (Base 3)</td></tr>
+<tr class="calibre16">
+<td class="calibre36">1</td><td class="calibre36">Sine</td></tr>
+<tr class="calibre16">
+<td class="calibre36">2</td><td class="calibre36">Logarithmic (Base 1.41)</td></tr>
+<tr class="calibre16">
+<td class="calibre36">3</td><td class="calibre36">Inverted S-Curve</td></tr>
+<tr class="calibre16">
+<td class="calibre36">4</td><td class="calibre36">Linear</td></tr>
+<tr class="calibre16">
+<td class="calibre36">6</td><td class="calibre36">S-Curve</td></tr>
+<tr class="calibre16">
+<td class="calibre36">7</td><td class="calibre36">Exponential (Base 1.41)</td></tr>
+<tr class="calibre16">
+<td class="calibre36">8</td><td class="calibre36">Reciprocal Sine</td></tr>
+<tr class="calibre16">
+<td class="calibre36">9</td><td class="calibre36">Exponential (Base 3)</td></tr>
+</tbody></table>
+<p class="endtd"></p>
+</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">FadeInDuration</b></td><td class="calibre36">Fade-in Duration</td><td class="calibre36">Real64</td><td class="calibre36">0</td><td class="calibre36">[ 0 , 3600 ]</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">FadeInShape</b></td><td class="calibre36">Fade-in Curve</td><td class="calibre36">int16</td><td class="calibre36">1</td><td class="calibre36"><p class="starttd"><b class="calibre13">Possible values :</b> </p>
+<table border="1" class="calibre49">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre36">Value </td><td class="calibre36">Display Name  </td></tr>
+<tr class="calibre16">
+<td class="calibre36">0</td><td class="calibre36">Logarithmic (Base 3)</td></tr>
+<tr class="calibre16">
+<td class="calibre36">1</td><td class="calibre36">Sine</td></tr>
+<tr class="calibre16">
+<td class="calibre36">2</td><td class="calibre36">Logarithmic (Base 1.41)</td></tr>
+<tr class="calibre16">
+<td class="calibre36">3</td><td class="calibre36">Inverted S-Curve</td></tr>
+<tr class="calibre16">
+<td class="calibre36">4</td><td class="calibre36">Linear</td></tr>
+<tr class="calibre16">
+<td class="calibre36">6</td><td class="calibre36">S-Curve</td></tr>
+<tr class="calibre16">
+<td class="calibre36">7</td><td class="calibre36">Exponential (Base 1.41)</td></tr>
+<tr class="calibre16">
+<td class="calibre36">8</td><td class="calibre36">Reciprocal Sine</td></tr>
+<tr class="calibre16">
+<td class="calibre36">9</td><td class="calibre36">Exponential (Base 3)</td></tr>
+</tbody></table>
+<p class="endtd"></p>
+</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">FadeOutDuration</b></td><td class="calibre36">Fade-out Duration</td><td class="calibre36">Real64</td><td class="calibre36">0</td><td class="calibre36">[ 0 , 3600 ]</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">FadeOutShape</b></td><td class="calibre36">Fade-out Curve</td><td class="calibre36">int16</td><td class="calibre36">8</td><td class="calibre36"><p class="starttd"><b class="calibre13">Possible values :</b> </p>
+<table border="1" class="calibre49">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre36">Value </td><td class="calibre36">Display Name  </td></tr>
+<tr class="calibre16">
+<td class="calibre36">0</td><td class="calibre36">Logarithmic (Base 3)</td></tr>
+<tr class="calibre16">
+<td class="calibre36">1</td><td class="calibre36">Sine</td></tr>
+<tr class="calibre16">
+<td class="calibre36">2</td><td class="calibre36">Logarithmic (Base 1.41)</td></tr>
+<tr class="calibre16">
+<td class="calibre36">3</td><td class="calibre36">Inverted S-Curve</td></tr>
+<tr class="calibre16">
+<td class="calibre36">4</td><td class="calibre36">Linear</td></tr>
+<tr class="calibre16">
+<td class="calibre36">6</td><td class="calibre36">S-Curve</td></tr>
+<tr class="calibre16">
+<td class="calibre36">7</td><td class="calibre36">Exponential (Base 1.41)</td></tr>
+<tr class="calibre16">
+<td class="calibre36">8</td><td class="calibre36">Reciprocal Sine</td></tr>
+<tr class="calibre16">
+<td class="calibre36">9</td><td class="calibre36">Exponential (Base 3)</td></tr>
+</tbody></table>
+<p class="endtd"></p>
+</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">HdrEnvelope</b></td><td class="calibre36">HDR Envelope</td><td class="calibre36">Real64</td><td class="calibre36">0</td><td class="calibre36">[ 0 , 1 ]</td><td class="calibre36">false</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">LoopBegin</b></td><td class="calibre36">Loop Start</td><td class="calibre36">Real64</td><td class="calibre36">-0.001</td><td class="calibre36">None</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">LoopEnd</b></td><td class="calibre36">Loop End</td><td class="calibre36">Real64</td><td class="calibre36">-0.001</td><td class="calibre36">None</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">MarkerDetectionSensitivity</b></td><td class="calibre36">Marker Detection Sensitivity</td><td class="calibre36">Real64</td><td class="calibre36">0</td><td class="calibre36">[ 0 , 100 ]</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">MarkerInputMode</b></td><td class="calibre36">Marker Input Mode</td><td class="calibre36">int16</td><td class="calibre36">0</td><td class="calibre36"><p class="starttd"><b class="calibre13">Possible values :</b> </p>
+<table border="1" class="calibre49">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre36">Value </td><td class="calibre36">Display Name  </td></tr>
+<tr class="calibre16">
+<td class="calibre36">0</td><td class="calibre36">Import From File</td></tr>
+<tr class="calibre16">
+<td class="calibre36">1</td><td class="calibre36">Detect From Transients</td></tr>
+<tr class="calibre16">
+<td class="calibre36">2</td><td class="calibre36">Manual Markers</td></tr>
+</tbody></table>
+<p class="endtd"></p>
+</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">Markers</b></td><td class="calibre36">Markers</td><td class="calibre36">List</td><td class="calibre36"> </td><td class="calibre36"><p class="starttd"><b class="calibre13">Possible types :</b> </p>
+<table border="1" class="calibre49">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre36">Marker</td></tr>
+</tbody></table>
+<p class="endtd"></p>
+</td><td class="calibre36"> </td><td class="calibre36"> </td><td class="calibre36">  </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">OverrideColor</b></td><td class="calibre36">Override Color</td><td class="calibre36">bool</td><td class="calibre36">false</td><td class="calibre36">None</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">OverrideConversion</b></td><td class="calibre36">Override Conversion Settings</td><td class="calibre36">bool</td><td class="calibre36">false</td><td class="calibre36">None</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">OverrideWavLoop</b></td><td class="calibre36">Override WAV Loop Points</td><td class="calibre36">bool</td><td class="calibre36">false</td><td class="calibre36">None</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">TrimBegin</b></td><td class="calibre36">Trim Start</td><td class="calibre36">Real64</td><td class="calibre36">-0.001</td><td class="calibre36">None</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">TrimEnd</b></td><td class="calibre36">Trim End</td><td class="calibre36">Real64</td><td class="calibre36">-0.001</td><td class="calibre36">None</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">VolumeOffset</b></td><td class="calibre36">Make-Up Gain</td><td class="calibre36">Real64</td><td class="calibre36">0</td><td class="calibre36">[ -24 , +24 ]</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">true </td></tr>
+</tbody></table>
+ <p class="calibre7"></p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

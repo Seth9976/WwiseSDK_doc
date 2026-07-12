@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AkCmd_SA_SetReverbZone Struct Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_1">Detailed Description</h2>
+<div class="calibre2"><p class="calibre7">Use a Room as a Reverb Zone. <code class="calibre14"><a class="pcalibre el" href="struct_ak_cmd___s_a___set_reverb_zone_split_000.html">AkCmd_SA_SetReverbZone</a></code> establishes a parent-child relationship between two Rooms and allows for sound propagation between them as if they were the same Room, without the need for a connecting Portal. Setting a Room as a Reverb Zone is useful in situations where two or more acoustic environments are not easily modeled as closed rooms connected by portals. Possible uses for Reverb Zones include: a covered area with no walls, a forested area within an outdoor space, or any situation where multiple reverb effects are desired within a common space. Reverb Zones have many advantages compared to standard Game-Defined Auxiliary Sends. They are part of the Diffuse Propagation Path, and form reverb chains with other Rooms; they are spatialized according to their 3D extent; <br class="calibre10"/>
+ they are also subject to other acoustic phenomena simulated in Wwise Spatial Audio, such as diffraction and transmission. A parent Room may have multiple Reverb Zones, but a Reverb Zone can only have a single Parent. If a Room is already assigned to a parent Room, it will first be removed from the old parent (exactly as if <a class="pcalibre el" href="struct_ak_cmd___s_a___remove_reverb_zone_split_000.html">AkCmd_SA_RemoveReverbZone</a> was used) before then being assigned to the new parent Room. A Room can not be its own parent. The Reverb Zone and its parent are both Rooms, and as such, must be specified using <a class="pcalibre el" href="struct_ak_cmd___s_a___set_room_split_000.html">AkCmd_SA_SetRoom</a>. If <a class="pcalibre el" href="struct_ak_cmd___s_a___set_reverb_zone_split_000.html">AkCmd_SA_SetReverbZone</a> is sent before <a class="pcalibre el" href="struct_ak_cmd___s_a___set_room_split_000.html">AkCmd_SA_SetRoom</a>, and either of the two rooms do not yet exist, placeholder Rooms with default parameters are created. They should be subsequently parametrized with <a class="pcalibre el" href="struct_ak_cmd___s_a___set_room_split_000.html">AkCmd_SA_SetRoom</a>.</p>
+<p class="calibre7">To set which Reverb Zone a Game Object is in, use the <a class="pcalibre el" href="struct_ak_cmd___s_a___set_game_object_in_room_split_000.html">AkCmd_SA_SetGameObjectInRoom</a> API, and pass the Reverb Zone's Room ID. In Wwise Spatial Audio, a Game Object can only ever be inside a single room, and Reverb Zones are no different in this regard. </p><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><p class="starttd"><b class="calibre13">Note:</b> The automatically created 'outdoors' Room is commonly used as a parent Room for Reverb Zones, since they often model open spaces. To attach a Reverb zone to outdoors, set <code class="calibre14">AK_OUTDOORS_ROOM_ID</code> as the <code class="calibre14">parentRoomID</code> argument. Like all Rooms, the 'outdoors' Room can be parameterized (for example, to assign a reverb bus) by specifying <code class="calibre14">AK_OUTDOORS_ROOM_ID</code> in a <a class="pcalibre el" href="struct_ak_cmd___s_a___set_room_split_000.html">AkCmd_SA_SetRoom</a> command./// This command can fail for the following reasons:</p>
+<p class="calibre7">This command can fail for the following reasons:</p><ul class="calibre8">
+<li class="calibre9">AK_InvalidParameter: <code class="calibre14">reverbZoneRoomID</code> or <code class="calibre14">parentRoomID</code> are not valid room IDs, or they are the same value.</li>
+<li class="calibre9">AK_InsufficientMemory: Not enough memory to complete the operation.</li>
+</ul>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="_ak_command_types_8h_a001b78645b8b0335c0dd2e128cca2cfd_split_001.html#a001b78645b8b0335c0dd2e128cca2cfda86d714befda425a13f49fda43a4135ac">AkCommand_SA_SetReverbZone</a></li>
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_room_i_d_split_000.html">AkRoomID</a></li>
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_cmd___s_a___set_room_split_000.html">AkCmd_SA_SetRoom</a></li>
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_cmd___s_a___remove_room_split_000.html">AkCmd_SA_RemoveRoom</a></li>
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_cmd___s_a___remove_reverb_zone_split_000.html">AkCmd_SA_RemoveReverbZone</a></li>
+<li class="calibre9"><a class="pcalibre el" href="_ak_spatial_audio_types_8h_a62ad8b5b6e2398f717a9c4a4beb8b144_split_000.html#a62ad8b5b6e2398f717a9c4a4beb8b144">AK_OUTDOORS_ROOM_ID</a> </li>
+</ul>
+</dd></dl>
+</td></tr>
+</tbody></table>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_ak_command_types_8h_source_split_002.html#l01698">1698</a> of file <a class="pcalibre el" href="_ak_command_types_8h_source_split_000.html">AkCommandTypes.h</a>.</p>
+</div></div><!-- contents -->
+
+
+</body></html>

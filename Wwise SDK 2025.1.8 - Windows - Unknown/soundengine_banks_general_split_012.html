@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>General Information</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_11"><a class="pcalibre1 anchor" id="soundengine_banks_general_identification_using_names"></a>
+Using SoundBank Names</h2>
+<p class="calibre7">One of the settings available in Wwise for generating SoundBanks is the "Use SoundBank names" option. It affects how banks are loaded in the sound engine, regarding I/O and file system.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="warning.gif"/></td><td class="calibre17"><p class="starttd"><b class="calibre13">Warning:</b> When using the default implementation of the Low-Level IO provided in the SDK (<code class="calibre14">CAkDefaultLowLevelIO</code>, see <a class="pcalibre el" href="samplecode_split_008.html#samplecode_integration_defaultlowlevelio">Default Low-Level I/O Implementation</a>), the following limitations apply:</p>
+<ul class="calibre8">
+<li class="calibre9">If <em class="calibre11">Use SoundBank names</em> was checked, then only the name-based versions of <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">LoadBank()</a></code> (the ones with a string parameter) will work.</li>
+<li class="calibre9">If <em class="calibre11">Use SoundBank names</em> was unchecked, then only the ID-based versions of <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">LoadBank()</a></code> (the ones with an <code class="calibre14">AkBankID</code> parameter) will work.</li>
+</ul>
+<p class="endtd">However, when using the file package-based Low-Level IO (<code class="calibre14">CAkFilePackageLowLevelIO</code>, see <a class="pcalibre el" href="streamingmanager_lowlevel_split_016.html#streamingmanager_lowlevel_filepackage_implementation_walkthrough">Sample File Package Low-Level I/O Implementation Walkthrough</a>), you may use both overloads of <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">LoadBank()</a></code>, regardless of the <em class="calibre11">Use SoundBank names</em> setting. </p>
+</td></tr>
+</tbody></table>
+</div></div></div></body></html>

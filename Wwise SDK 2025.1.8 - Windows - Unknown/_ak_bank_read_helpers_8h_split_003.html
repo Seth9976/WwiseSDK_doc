@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK/Tools/Common/AkBankReadHelpers.h File Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table class="calibre3">
+<tbody class="calibre4"><tr class="calibre16"><td colspan="2" class="calibre17"><h2 class="calibre21" id="calibre_pb_2"><a class="pcalibre1 anchor" id="func-members"></a>
+Functions</h2></td></tr>
+<tr class="calibre16"><td class="memtemplparams" colspan="2">template&lt;typename T , typename std::enable_if&lt; std::is_fundamental&lt; T &gt;::value||std::is_enum&lt; T &gt;::value, bool &gt;::type  = true&gt; </td></tr>
+<tr class="calibre16"><td class="memtemplitemleft">T </td><td class="memtemplitemright"><a class="pcalibre el" href="namespace_a_k_a2eec40204264e1de9dc544696a0a723f_split_000.html#a2eec40204264e1de9dc544696a0a723f">AK::ReadUnaligned</a> (const <a class="pcalibre el" href="_ak_numeral_types_8h_a6a754f6e0ddd97ae59f3aae854cde270_split_000.html#a6a754f6e0ddd97ae59f3aae854cde270">AkUInt8</a> *in_pVal)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memtemplparams" colspan="2">template&lt;typename T , typename std::enable_if&lt; std::is_fundamental&lt; T &gt;::value||std::is_enum&lt; T &gt;::value, bool &gt;::type  = true&gt; </td></tr>
+<tr class="calibre16"><td class="memtemplitemleft">void </td><td class="memtemplitemright"><a class="pcalibre el" href="namespace_a_k_a01491bfff846cdedfde144b44f8ba45d_split_000.html#a01491bfff846cdedfde144b44f8ba45d">AK::WriteUnaligned</a> (<a class="pcalibre el" href="_ak_numeral_types_8h_a6a754f6e0ddd97ae59f3aae854cde270_split_000.html#a6a754f6e0ddd97ae59f3aae854cde270">AkUInt8</a> *out_pVal, const T in_val)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memtemplparams" colspan="2">template&lt;typename T , typename std::enable_if&lt; std::is_class&lt; T &gt;::value, bool &gt;::type  = true&gt; </td></tr>
+<tr class="calibre16"><td class="memtemplitemleft">void </td><td class="memtemplitemright"><a class="pcalibre el" href="namespace_a_k_a5e1e105a0e624d4b5998668786b9eddb_split_000.html#a5e1e105a0e624d4b5998668786b9eddb">AK::WriteUnaligned</a> (<a class="pcalibre el" href="_ak_numeral_types_8h_a6a754f6e0ddd97ae59f3aae854cde270_split_000.html#a6a754f6e0ddd97ae59f3aae854cde270">AkUInt8</a> *out_pVal, const T &amp;in_val)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memtemplparams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="calibre16"><td class="memtemplitemleft">T </td><td class="memtemplitemright"><a class="pcalibre el" href="namespace_a_k_af3f9275781a5ff20cf5b7adf136cb510_split_000.html#af3f9275781a5ff20cf5b7adf136cb510">AK::ReadBankData</a> (<a class="pcalibre el" href="_ak_numeral_types_8h_a6a754f6e0ddd97ae59f3aae854cde270_split_000.html#a6a754f6e0ddd97ae59f3aae854cde270">AkUInt8</a> *&amp;in_rptr)</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Read data from bank and advance pointer.  <a href="namespace_a_k_af3f9275781a5ff20cf5b7adf136cb510_split_000.html#af3f9275781a5ff20cf5b7adf136cb510" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memtemplparams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="calibre16"><td class="memtemplitemleft">T </td><td class="memtemplitemright"><a class="pcalibre el" href="namespace_a_k_a5b317b41042b34c0cca22dfb3f56e0eb_split_000.html#a5b317b41042b34c0cca22dfb3f56e0eb">AK::ReadVariableSizeBankData</a> (<a class="pcalibre el" href="_ak_numeral_types_8h_a6a754f6e0ddd97ae59f3aae854cde270_split_000.html#a6a754f6e0ddd97ae59f3aae854cde270">AkUInt8</a> *&amp;in_rptr)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">char * </td><td class="memitemright"><a class="pcalibre el" href="namespace_a_k_a5924b0008326f24e29cb9bdeb9f611c0_split_000.html#a5924b0008326f24e29cb9bdeb9f611c0">AK::ReadBankStringUtf8</a> (<a class="pcalibre el" href="_ak_numeral_types_8h_a6a754f6e0ddd97ae59f3aae854cde270_split_000.html#a6a754f6e0ddd97ae59f3aae854cde270">AkUInt8</a> *&amp;in_rptr, <a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> &amp;out_uStringSize)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

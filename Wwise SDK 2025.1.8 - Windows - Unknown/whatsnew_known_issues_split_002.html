@@ -1,0 +1,214 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Known Issues and Limitations</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="section_whatsnew_known_issues"></a>
+Wwise Known Issues</h1>
+<p class="calibre7">The following list describes the relevant outstanding issues that could not be resolved in this version of Wwise.</p>
+<ul class="calibre8">
+<li class="calibre9">Audio Files <br class="calibre10"/>
+<ul class="calibre15">
+<li class="calibre9"><b class="calibre13">WG-11260</b>: Audio from file with too many markers fails to play. If the marker data chunk in the file header is larger than the granularity of the file streaming, the code fails to read the header.</li>
+<li class="calibre9"><b class="calibre13">WG-54888</b>: Audio file paths are case insensitive: it is undefined which representation will be used as reference in output files.</li>
+<li class="calibre9"><b class="calibre13">WG-68171</b>: A marker set at the very end of an audio file can fail to be processed by the sound engine depending on the sample rate of the converted audio file.</li>
+</ul>
+</li>
+<li class="calibre9">Contents Editor<ul class="calibre15">
+<li class="calibre9"><b class="calibre13">WG-14785</b>: Objects displayed in the Contents Editor are not sorted alphabetically, which can make it difficult to find objects quickly.</li>
+</ul>
+</li>
+<li class="calibre9">Conversion Settings ShareSets<ul class="calibre15">
+<li class="calibre9"><b class="calibre13">WG-67907</b>: There are no Factory Conversion Settings ShareSets for the Opus audio file format. If you need to use Opus, you have to create your own Conversion Settings ShareSet in Wwise Authoring.</li>
+</ul>
+</li>
+<li class="calibre9">Decoded SoundBanks<ul class="calibre15">
+<li class="calibre9"><b class="calibre13">WG-30133</b>: (tvOS only) It is not possible to save locally decoded SoundBanks.</li>
+</ul>
+</li>
+<li class="calibre9">Game Object 3D Viewer<ul class="calibre15">
+<li class="calibre9"><b class="calibre13">WG-16246</b>: The Game Sync Monitor doesn't update as expected until you add or remove a watch from the Watches list.</li>
+<li class="calibre9"><b class="calibre13">WG-45998</b>: Maximizing the Authoring on a HIDPI monitor set as secondary monitor will cause the Game Object 3d Viewer to go entirely black. Setting the HIDPI monitor as the primary monitor prevents this issue.</li>
+</ul>
+</li>
+<li class="calibre9">Interactive Music<ul class="calibre15">
+<li class="calibre9"><b class="calibre13">WG-14711</b>: Two 'bar', 'beat' or 'grid' notifications may be sent in a row at segment synchronization points.</li>
+<li class="calibre9"><b class="calibre13">WG-15728</b>: When a transition segment is added to the Any to Any transition and then removed, the music segment and corresponding media file is still included in the SoundBank, in error.</li>
+<li class="calibre9"><b class="calibre13">WG-16269</b>: Effect tails are trimmed when effects are inserted in interactive music objects (Music Segments, Music Switch Containers, and Music Playlist Containers).</li>
+</ul>
+</li>
+<li class="calibre9">Integration Demo<ul class="calibre15">
+<li class="calibre9"><b class="calibre13">WG-40445</b>: The Android Gradle project for IntegrationDemo will fail to build if located under a path containing spaces (such as "Program Files").</li>
+</ul>
+</li>
+<li class="calibre9">Keyboard Shortcut manager<ul class="calibre15">
+<li class="calibre9"><b class="calibre13">WG-19947</b>: OS keyboard shortcuts using the "Windows" key can't be remapped in Wwise.</li>
+</ul>
+</li>
+<li class="calibre9">Motion<ul class="calibre15">
+<li class="calibre9"><b class="calibre13">WG-14852</b>: Motion FX objects do not work as expected within a Dialogue Event.</li>
+<li class="calibre9"><b class="calibre13">WG-38787</b>: Xbox One controllers are not working properly in the authoring tool due to compatibility issues between the controller and the Windows driver. We suggest using Xbox 360 controllers instead.</li>
+<li class="calibre9"><b class="calibre13">WG-69519</b>: On macOS and iOS-based devices, the Motion output device drops the first few audio frames of non-zero vibration data in order to reduce CPU usage.</li>
+<li class="calibre9"><b class="calibre13">WG-69092</b>: On Windows, using the Motion output on an XInput controller connected over bluetooth may result in significant degradation in performance or audio crackling due to voice starvation, which can vary significantly from user to user. You can observe this issue in the CPU Timeline or other profiling tools, which might show that CAkLEngine::SoftwarePerformEpilogue takes a long time to be executed. Some observed symptoms include the following:<ul class="calibre30">
+<li class="calibre9">The function takes an extra 2 milliseconds per tick to execute</li>
+<li class="calibre9">The function takes up to 8 milliseconds to execute if called more than 120 times per second, which can happen if <a class="pcalibre el" href="struct_ak_init_settings_a2438a18ece872c83175f70d7f70d659b_split_000.html#a2438a18ece872c83175f70d7f70d659b" title="Number of samples per audio frame (256, 512, 1024, or 2048).">AkInitSettings::uNumSamplesPerFrame</a> is set to a value lower than 400.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="calibre9">Multi-Channel Creator<ul class="calibre15">
+<li class="calibre9"><b class="calibre13">WG-16302</b>: Sample loop markers within a source file are not kept in the multi-channel files generated by the Multi-Channel Creator.</li>
+</ul>
+</li>
+<li class="calibre9">Obstruction/Occlusion<ul class="calibre15">
+<li class="calibre9"><b class="calibre13">WG-15678</b>: When updating the Obstruction/Occlusion curves in Wwise while connected to a game, the curve information is not propagated to the game, as expected.</li>
+</ul>
+</li>
+<li class="calibre9">Offline Rendering<ul class="calibre15">
+<li class="calibre9"><b class="calibre13">WG-57383</b>: If you enable the offline rendering sample script before play mode has been entered, there will be no sound. If you enable it after play mode has been entered, you will hear audio being rendered, however, it will be choppy.</li>
+<li class="calibre9"><b class="calibre13">WG-57403</b>: The main output device remains silent after disabling offline rendering without restarting the sound engine.</li>
+</ul>
+</li>
+<li class="calibre9">Playback Limit <br class="calibre10"/>
+<ul class="calibre15">
+<li class="calibre9"><b class="calibre13">WG-15124</b>: Playback limit involving Motion busses may continue to be applied even though it is grayed out in the Wwise application.</li>
+<li class="calibre9"><b class="calibre13">WG-43108</b>: Playing the same sound on the same game object repeatedly while:<ul class="calibre30">
+<li class="calibre9">using "offset priority by &lt;X&gt; at max distance", and</li>
+<li class="calibre9">the game object is in motion, and</li>
+<li class="calibre9">the number of sound instances is already over the specified limit can end up killing the newest or oldest inaccurately. This is a side effect of an optimization system that prevents the accumulation of new sound instances triggered by the user that would flood the system with instances that, in the end, would not play.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="calibre9">Profiler <br class="calibre10"/>
+<ul class="calibre15">
+<li class="calibre9"><b class="calibre13">WG-15476</b>: Error message missing in the profiler when Wwise detects two similar media files that don't have the same size.</li>
+<li class="calibre9"><b class="calibre13">WG-15617</b>: When an error occurs in the profiler, Wwise displays the Event ID, but not the Event name.</li>
+</ul>
+</li>
+<li class="calibre9">Property Editor<ul class="calibre15">
+<li class="calibre9"><b class="calibre13">WG-41324</b>: Changing properties that turn a non-mixing bus into a mixing one (and vice-versa) while a sound is playing through it may cause volumes to be updated incorrectly. Restarting playback fixes the issue.</li>
+</ul>
+</li>
+<li class="calibre9">RTPCs<ul class="calibre15">
+<li class="calibre9"><b class="calibre13">WG-14506</b>: Audio glitches may occur when using a Peak Limiter as well as a Parametric EQ that has an output level driven by an RTPC.</li>
+<li class="calibre9"><b class="calibre13">WG-43798</b>: Audio glitches may occur while transitioning the volumes from multiple control positions very abruptly in different directions (quieter and louder); it may result in a momentarily non constant gain. For example, if a sound is under the influence of 2 volume transitions, where one is going from 0dB to +50dB and the other one is going from 0dB to -50 dB in a very short amount of time (few ms), the transition frame gain may not be accurately 0dB.</li>
+</ul>
+</li>
+<li class="calibre9">SDK/Sound Engine <br class="calibre10"/>
+<ul class="calibre15">
+<li class="calibre9"><b class="calibre13">WG-15501</b>: Memory address may be reused by Switch container after a game object is unregistered causing Wwise to play a different sound than is expected.</li>
+<li class="calibre9"><b class="calibre13">WG-16185</b>: Speaker volume matrix callback is not called for 2D sounds in IsInitiallyUnderThreshold.</li>
+</ul>
+</li>
+<li class="calibre9">Source Plug-ins<ul class="calibre15">
+<li class="calibre9"><b class="calibre13">WG-16232</b>: Clipping may occur when using the Pink or Red noise color setting within the Soundseed Air Woosh source plug-in.</li>
+</ul>
+</li>
+<li class="calibre9">Source Control<ul class="calibre15">
+<li class="calibre9"><b class="calibre13">WG-15558</b>: When using the Perforce plug-in, the file history scrolls unnecessarily as the information is received.</li>
+<li class="calibre9"><b class="calibre13">WG-15559</b>: When using the Perforce plug-in, the history returned by P4 truncates the description removing useful information.</li>
+<li class="calibre9"><b class="calibre13">WG-16257</b>: Wwise may crash when loading a work unit that includes an audio source with a space at the beginning of its filename.</li>
+<li class="calibre9"><b class="calibre13">WG-20587</b>: Issues may arise when creating nested Work Units whose path on disk exceeds MAX_PATH (255) characters.</li>
+</ul>
+</li>
+</ul>
+<p class="calibre7">The following list describes the limitations specific to this version of the Wwise Authoring Tool for Mac®.</p>
+<ul class="calibre8">
+<li class="calibre9">Audio File Importer:<ul class="calibre15">
+<li class="calibre9"><b class="calibre13">WG-23920</b>: Mac Authoring Tool: Cannot import WAV files in Wwise using CTRL-Drag and Drop/CTRL-SHIFT Drag and Drop.</li>
+</ul>
+</li>
+<li class="calibre9">Audio File Management:<ul class="calibre15">
+<li class="calibre9"><b class="calibre13">WG-24779</b>: Mac Authoring Tool: Prevent moving WAV files outside the "Originals" folder and give an error message.</li>
+</ul>
+</li>
+<li class="calibre9">Crankcase Audio REV:<ul class="calibre15">
+<li class="calibre9"><b class="calibre13">WG-29775</b>: Mac Authoring Tool: Users cannot use Crankcase Audio REV.</li>
+</ul>
+</li>
+<li class="calibre9">Custom Commands:<ul class="calibre15">
+<li class="calibre9"><b class="calibre13">WG-58714</b>: Mac Authoring Tool: Cannot redirect output of Unix programs.</li>
+</ul>
+</li>
+<li class="calibre9">Keyboard Shortcuts:<ul class="calibre15">
+<li class="calibre9"><b class="calibre13">WG-25129</b>: Mac Authoring Tool: Wwise keyboard shortcuts are broken when using the Japanese "Romaji" and "Katakana" input sources.</li>
+</ul>
+</li>
+<li class="calibre9">Layout/Toolbar/View:<ul class="calibre15">
+<li class="calibre9"><b class="calibre13">WG-22214</b>: Mac Authoring Tool: Wwise layouts get messed up when you use the Mac OS X window management buttons.</li>
+<li class="calibre9"><b class="calibre13">WG-22217</b>: Mac Authoring Tool: White borders appear when you display/resize a floating view.</li>
+</ul>
+</li>
+<li class="calibre9">Mac OS X version specifics:<ul class="calibre15">
+<li class="calibre9"><b class="calibre13">WG-25990</b>: Mac Authoring Tool: When connecting a Bluetooth or HDMI audio device, the audio doesn't switch automatically to the new device.</li>
+</ul>
+</li>
+<li class="calibre9">Motion:<ul class="calibre15">
+<li class="calibre9"><b class="calibre13">WG-22220</b>: Mac Authoring Tool: Wwise CRASH when you close the Wwise Motion Generator Source Editor.</li>
+</ul>
+</li>
+<li class="calibre9">Platforms:<ul class="calibre15">
+<li class="calibre9"><b class="calibre13">WG-22234</b>: Mac Authoring Tool: Select "Mac" as default platform on Mac OS X.</li>
+</ul>
+</li>
+<li class="calibre9">Projects:<ul class="calibre15">
+<li class="calibre9"><b class="calibre13">WG-22237</b>: Mac Authoring Tool: Cannot open a Wwise project by double-clicking the *.WPROJ file.</li>
+</ul>
+</li>
+<li class="calibre9">Project Explorer:<ul class="calibre15">
+<li class="calibre9"><b class="calibre13">WG-24807</b>: Mac Authoring Tool: Object name color doesn't update automatically in the Project Explorer when you delete a WAV file in the MacOS Finder.</li>
+</ul>
+</li>
+<li class="calibre9">Project Settings:<ul class="calibre15">
+<li class="calibre9"><b class="calibre13">WG-22244</b>: Mac Authoring Tool: Source Control plug-ins (Perforce and Subversion) are not supported.</li>
+</ul>
+</li>
+<li class="calibre9">RTPCs:<ul class="calibre15">
+<li class="calibre9"><b class="calibre13">WG-22231</b>: Mac Authoring Tool: There's no anti-aliasing on RTPC curves.</li>
+</ul>
+</li>
+<li class="calibre9">SoundBanks:<ul class="calibre15">
+<li class="calibre9"><b class="calibre13">WG-24974</b>: Mac Authoring Tool: Edit box content does not update properly when you edit the SoundBanks Path or Pre/Post Generation Steps.</li>
+<li class="calibre9"><b class="calibre13">WG-26291</b>: Mac Authoring Tool: The File Packager is not supported on Mac.</li>
+<li class="calibre9"><b class="calibre13">WG-60466</b>: Mac Authoring Tool: Unix programs are not supported in Pre/Post Generation Steps.</li>
+<li class="calibre9"><b class="calibre13">WG-65713</b>: Auto-defined SoundBanks do not support Dynamic Dialogue Events. Dynamic Dialogue Events must be placed in user-defined SoundBanks.</li>
+</ul>
+</li>
+<li class="calibre9">SoundBank Manager:<ul class="calibre15">
+<li class="calibre9"><b class="calibre13">WG-22243</b>: Mac Authoring Tool: Pressing the ESC key in the SoundBank Manager User Settings dialog clears its content instead of closing it.</li>
+</ul>
+</li>
+<li class="calibre9">Audio Definition Model Support (Experimental)<ul class="calibre15">
+<li class="calibre9">Bed channel order must follow the Dolby Atmos Master profile (see <a href="https://professionalsupport.dolby.com/s/article/Dolby-Atmos-ADM-Profile-specification?language=en_US" target="_blank" class="pcalibre calibre12">Dolby Atmos ADM Profile specification</a>). The height channels in the 7.0.2 and 7.1.2 bed configurations are interpreted as Front height channels.</li>
+<li class="calibre9">The panning algorithm used for 3D positioning in the Wwise sound engine produces different results than the Cartesian Point Source Panner used in Dolby Atmos, especially with sounds close to the listener.</li>
+<li class="calibre9">Width, Height, and Depth are linearly mapped to Spread, and Spread corresponds to an object in which all three components are 1.0.</li>
+<li class="calibre9">The ADM audio data is treated as a multi-channel Anonymous configuration by Effects inserted on the Sound or Clip.</li>
+<li class="calibre9">The following metadata is not supported:<ul class="calibre30">
+<li class="calibre9">Screen Scaling</li>
+<li class="calibre9">Screen Edge Lock</li>
+<li class="calibre9">Channel Lock</li>
+<li class="calibre9">Divergence</li>
+<li class="calibre9">Zone Exclusion</li>
+<li class="calibre9">Gain</li>
+<li class="calibre9">Diffuse </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

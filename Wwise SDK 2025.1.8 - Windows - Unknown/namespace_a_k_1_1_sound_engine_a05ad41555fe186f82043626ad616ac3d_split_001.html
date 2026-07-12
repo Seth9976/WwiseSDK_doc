@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::SoundEngine::GetSourceStreamBuffering</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="namespace_a_k_1_1_sound_engine_a05ad41555fe186f82043626ad616ac3d_split_000.html#a05ad41555fe186f82043626ad616ac3d" class="pcalibre1 anchor">◆ </a></span>GetSourceStreamBuffering()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_sound_engine_export_8h_ac6e96d34dfc0e12f9aaa7a47f4e9c322_split_000.html#ac6e96d34dfc0e12f9aaa7a47f4e9c322">AKSOUNDENGINE_API</a> <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::SoundEngine::GetSourceStreamBuffering </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_a9270609771369ea575443fe080bbe9c3_split_000.html#a9270609771369ea575443fe080bbe9c3">AkPlayingID</a> </td>
+          <td class="paramname"><em class="calibre59">in_PlayingID</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_a8a4d0aa5dba6f9922d6b7b3e48958b24_split_000.html#a8a4d0aa5dba6f9922d6b7b3e48958b24">AkTimeMs</a> &amp; </td>
+          <td class="paramname"><em class="calibre59">out_buffering</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">bool &amp; </td>
+          <td class="paramname"><em class="calibre59">out_bIsBuffering</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Gets the stream buffering of the sources associated with this playing ID, obtained from <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a41e9ef8d42951871fe4a8ae58a29a68e_split_000.html#a41e9ef8d42951871fe4a8ae58a29a68e">PostEvent()</a>. Notes:</p><ul class="calibre8">
+<li class="calibre9">You need to pass AK_EnableGetSourceStreamBuffering to <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a41e9ef8d42951871fe4a8ae58a29a68e_split_000.html#a41e9ef8d42951871fe4a8ae58a29a68e">PostEvent()</a> in order to use this function, otherwise it returns AK_Fail, even if the playing ID is valid.</li>
+<li class="calibre9">The sources stream buffering is updated at every audio frame. If there are multiple sources associated with this playing ID, the value returned corresponds to the least buffered source.</li>
+<li class="calibre9">The returned buffering status out_bIsBuffering will be true If any of the sources associated with the playing ID are actively being buffered. It will be false if all of them have reached the end of file, or have reached a state where they are buffered enough and streaming is temporarily idle.</li>
+<li class="calibre9">Purely in-memory sources are excluded from this database. If all sources are in-memory, <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a05ad41555fe186f82043626ad616ac3d_split_000.html#a05ad41555fe186f82043626ad616ac3d">GetSourceStreamBuffering()</a> will return AK_PlayingIDNotFound.</li>
+<li class="calibre9">The returned buffering amount and state is not completely accurate with some hardware-accelerated codecs. In such cases, the amount of stream buffering is generally underestimated. On the other hand, it is not guaranteed that the source will be ready to produce data at the next audio frame even if out_bIsBuffering has turned to false. <dl class="section"><dt class="calibre23">Returns</dt><dd class="calibre24"></dd></dl>
+</li>
+<li class="calibre9"><code class="calibre14">AK_Success</code> if successful.</li>
+<li class="calibre9"><code class="calibre14">AK_PlayingIDNotFound</code> if the source data associated with this playing ID is not found, for example if <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a41e9ef8d42951871fe4a8ae58a29a68e_split_000.html#a41e9ef8d42951871fe4a8ae58a29a68e">PostEvent()</a> was not called with AK_EnableGetSourceStreamBuffering, or if the header was not parsed. <dl class="section"><dt class="calibre23">See also</dt><dd class="calibre24"></dd></dl>
+</li>
+<li class="calibre9"><a class="pcalibre el" href="concept_events.html">Understanding Events</a> </li>
+</ul>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_PlayingID</td><td class="calibre17">Playing ID returned by <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a41e9ef8d42951871fe4a8ae58a29a68e_split_000.html#a41e9ef8d42951871fe4a8ae58a29a68e">AK::SoundEngine::PostEvent()</a></code> </td></tr>
+    <tr class="calibre16"><td class="paramname">out_buffering</td><td class="calibre17">Returned amount of buffering (in ms) of the source (or one of the sources) associated with that playing ID </td></tr>
+    <tr class="calibre16"><td class="paramname">out_bIsBuffering</td><td class="calibre17">Returned buffering status of the source(s) associated with that playing ID </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>I/O Tips, Troubleshooting and Optimization</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_4"><a class="pcalibre1 anchor" id="streamingmanager_tips_multipledevices"></a>
+Using Multiple Devices</h1>
+<p class="calibre7">Generally, you should use a different streaming device for each physical device (DVD, HDD, RAM/VRAM, and so on). The first reason is that each streaming device runs in a separate thread, which is mandatory if you don't want transfer requests to be serialized among your physical devices. It would be inefficient to wait for a DVD read before issuing an HDD read. The second reason is that optimal settings are usually different for each device.</p>
+<p class="calibre7">When using multiple devices, you need a dispatcher. Refer to <a class="pcalibre el" href="streamingmanager_lowlevel_split_015.html#streamingmanager_lowlevel_default_implementation_walkthrough_multidevice">Multi-Device I/O System</a> for more details on implementing a system with multiple devices.</p>
+<p class="calibre7">Dispatching requires that you know which files should be opened from which device. The preferred solution is to use file packages. After generating soundbanks, soundbanks and streamed audio files can be packed together in various file packages using the File Packager. Each file package is meant to be loaded in a specific device. At run-time, a simple dispatcher could query each device until one of them accepts to open the file. This is what the default dispatcher does (see AkDefaultLowLevelIODispatcher.h/cpp in the samples of the SDK). With this technique, you may even implement fallback mechanisms. For example, try to load a file from the RAM/VRAM device, and if it does not work, load it from the DVD.</p>
+<p class="calibre7">Note that file dispatching/device assignation must be synchronous: you cannot defer it, so ensure that it is fast. File package look up implemented in the samples of the SDK is fast, because it uses a binary search algorithm.</p>
+</div></div></div></body></html>

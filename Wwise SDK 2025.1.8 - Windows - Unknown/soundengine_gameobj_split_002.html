@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integration Details - Game Objects</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="soundengine_gameobj_reg"></a>
+Registering Game Objects</h1>
+<p class="calibre7">Before you can use game objects, you must register them. When you no longer need the game objects, unregister them. If you leave them registered, the memory used to store this information (3DPosition, RTPCs, Switches, and so on) is wasted.</p>
+<p class="calibre7">Two versions of the <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a895ed0f83a0dea8fc284491c0ee0152c_split_000.html#a895ed0f83a0dea8fc284491c0ee0152c">AK::SoundEngine::RegisterGameObj()</a></code> function exist:</p>
+<div class="fragment"><div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a895ed0f83a0dea8fc284491c0ee0152c_split_000.html#a895ed0f83a0dea8fc284491c0ee0152c">AK::SoundEngine::RegisterGameObj</a>( <a class="pcalibre code" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> in_gameObjectID );</div>
+</div><!-- fragment --><p class="calibre7">and</p>
+<div class="fragment"><div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a895ed0f83a0dea8fc284491c0ee0152c_split_000.html#a895ed0f83a0dea8fc284491c0ee0152c">AK::SoundEngine::RegisterGameObj</a>( <a class="pcalibre code" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> in_gameObjectID, <span class="keyword">const</span> <span class="keywordtype">char</span> * in_pszObjName );</div>
+</div><!-- fragment --><p class="calibre7">The second version of the function is for monitoring purposes. It displays the real name associated with objects that are playing. In <code class="calibre14">AK_OPTIMIZED</code> mode, the second version ignores the object name.</p>
+<p class="calibre7">You can use either of the following two functions to unregister game objects:</p>
+<div class="fragment"><div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_af53445c959103c84ea50c17d665f254a_split_000.html#af53445c959103c84ea50c17d665f254a">AK::SoundEngine::UnregisterGameObj</a>( <a class="pcalibre code" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> in_gameObjectID );</div>
+</div><!-- fragment --><p class="calibre7">and</p>
+<div class="fragment"><div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a60be51486f9221e38962232911ef190a_split_000.html#a60be51486f9221e38962232911ef190a">AK::SoundEngine::UnregisterAllGameObj</a>();</div>
+</div><!-- fragment --><p class="calibre7"><code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a60be51486f9221e38962232911ef190a_split_000.html#a60be51486f9221e38962232911ef190a">AK::SoundEngine::UnregisterAllGameObj()</a></code> performs a complete clean-up of all parameters currently set for every game object and removes all game object associations. <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_af53445c959103c84ea50c17d665f254a_split_000.html#af53445c959103c84ea50c17d665f254a">UnregisterGameObj()</a></code> does the same thing but only for a single game object. After a game object is unregistered, you must register it again before you can reuse it.</p>
+<p class="calibre7">For an example of game object integration, refer to <a class="pcalibre el" href="quickstart_sample_integration_gameobjects_split_001.html#soundengine_integration_gameobj">Game Object Example</a>.</p>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="soundengine_3dpositions_split_001.html#soundengine_3dpositions_realworld">Setting a Game Object's Position</a> </li>
+</ul>
+</dd></dl>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<div class="ttc" id="a_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_html_a352a1eb6955fa208062e40a9ccdd2560"><div class="calibre2"><a href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560" class="pcalibre calibre12">AkGameObjectID</a></div><div class="calibre2">AkUInt64 AkGameObjectID</div><div class="calibre2">Game object ID.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_typedefs_8h_source.html#l00039" class="pcalibre calibre12">AkTypedefs.h:39</a></div></div>
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_a60be51486f9221e38962232911ef190a_html_a60be51486f9221e38962232911ef190a"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_a60be51486f9221e38962232911ef190a_split_000.html#a60be51486f9221e38962232911ef190a" class="pcalibre calibre12">AK::SoundEngine::UnregisterAllGameObj</a></div><div class="calibre2">AKSOUNDENGINE_API AKRESULT UnregisterAllGameObj()</div></div>
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_a895ed0f83a0dea8fc284491c0ee0152c_html_a895ed0f83a0dea8fc284491c0ee0152c"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_a895ed0f83a0dea8fc284491c0ee0152c_split_000.html#a895ed0f83a0dea8fc284491c0ee0152c" class="pcalibre calibre12">AK::SoundEngine::RegisterGameObj</a></div><div class="calibre2">AKSOUNDENGINE_API AKRESULT RegisterGameObj(AkGameObjectID in_gameObjectID)</div></div>
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_af53445c959103c84ea50c17d665f254a_html_af53445c959103c84ea50c17d665f254a"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_af53445c959103c84ea50c17d665f254a_split_000.html#af53445c959103c84ea50c17d665f254a" class="pcalibre calibre12">AK::SoundEngine::UnregisterGameObj</a></div><div class="calibre2">AKSOUNDENGINE_API AKRESULT UnregisterGameObj(AkGameObjectID in_gameObjectID)</div></div>
+
+
+</body></html>

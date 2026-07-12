@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Optimizing CPU usage</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="eventmgrthread_query_functions"></a>
+Using Query API Functions</h1>
+<p class="calibre7">Certain <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_1_1_query_split_000.html">AK::SoundEngine::Query</a> functions can cause CPU spikes. To minimize wasted CPU time and ensure optimal performance, we recommend that you follow these guidelines:</p><ul class="calibre8">
+<li class="calibre9">Use the Query functions in development builds and avoid using them in production builds.</li>
+<li class="calibre9">If it is necessary to use Query functions, use them inside SoundEngine global callbacks (see <a href="https://www.audiokinetic.com/library/edge/?source=SDK&amp;id=_ak_callback_8h_ae7a5e30e1402c7cf90d1b47420911676.html" target="_blank" class="pcalibre calibre12">AkGlobalCallbackLocation</a>). For example, if you have to read RTPC values, put the code in AkGlobalCallbackLocation_BeginRender or AkGlobalCallbackLocation_EndRender.</li>
+</ul>
+</div></div></div></body></html>

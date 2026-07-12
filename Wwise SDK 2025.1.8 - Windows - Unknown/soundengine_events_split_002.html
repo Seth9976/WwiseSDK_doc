@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integration Details - Events</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="soundengine_events_integrating"></a>
+Integrating Events in Your Game</h1>
+<p class="calibre7">The <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a41e9ef8d42951871fe4a8ae58a29a68e_split_000.html#a41e9ef8d42951871fe4a8ae58a29a68e">AK::SoundEngine::PostEvent</a> "PostEvent()" function queues Events to be processed, and can identify events either by their ID or by their name. It should be called by your game's code whenever an event needs to be triggered.</p>
+<p class="calibre7">However, no event is processed until the <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_afe54af0f5be38be061e8a3c7d7642bb1_split_000.html#afe54af0f5be38be061e8a3c7d7642bb1">AK::SoundEngine::RenderAudio</a> "RenderAudio()" function has been called. Calling <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_afe54af0f5be38be061e8a3c7d7642bb1_split_000.html#afe54af0f5be38be061e8a3c7d7642bb1">AK::SoundEngine::RenderAudio</a> "RenderAudio()" once per game frame is a good practice.</p>
+<p class="calibre7">When <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_afe54af0f5be38be061e8a3c7d7642bb1_split_000.html#afe54af0f5be38be061e8a3c7d7642bb1">AK::SoundEngine::RenderAudio</a> "RenderAudio()" is called:</p><ul class="calibre8">
+<li class="calibre9">The sound engine begins processing all the events that have been posted since the last call to <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_afe54af0f5be38be061e8a3c7d7642bb1_split_000.html#afe54af0f5be38be061e8a3c7d7642bb1">AK::SoundEngine::RenderAudio</a> "RenderAudio()".</li>
+<li class="calibre9">In addition, new 3D Positions, switches, states, and RTPC values are made available.</li>
+</ul>
+<p class="calibre7">Events will be processed in the exact order in which they were posted by the game. Actions within an event will be processed in the order in which they appear in Wwise.</p>
+<p class="calibre7">As much as possible, all events posted in the same frame will be processed at the same time, with the exception of the actions that contain delays, which will be of course executed later.</p>
+<p class="calibre7">If for any reason, the <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_afe54af0f5be38be061e8a3c7d7642bb1_split_000.html#afe54af0f5be38be061e8a3c7d7642bb1">AK::SoundEngine::RenderAudio</a> "RenderAudio()" function is not called for a long period (such as several frames), streaming sounds will continue playing normally, but no new events will be launched and no new positioning will be applied until the next time <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_afe54af0f5be38be061e8a3c7d7642bb1_split_000.html#afe54af0f5be38be061e8a3c7d7642bb1">AK::SoundEngine::RenderAudio</a> "RenderAudio()" is called.</p>
+</div></div></div></body></html>

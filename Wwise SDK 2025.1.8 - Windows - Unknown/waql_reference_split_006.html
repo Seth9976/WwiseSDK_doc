@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Wwise Authoring Query Language (WAQL) Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_5"><a class="pcalibre1 anchor" id="waql_boolean_operators"></a>
+Boolean Operators</h2>
+<p class="calibre7">Evaluate a boolean expression and return true or false. </p><table class="doxtable">
+<tbody class="calibre4"><tr class="calibre16">
+<th class="calibre46">Conditional and Logical Operators </th><th class="calibre46">Description </th><th class="calibre46">Examples </th></tr>
+<tr class="calibre16">
+<td colspan="1" class="calibre36"><p class="starttd"></p>
+<p class="calibre7">=</p>
+<p class="endtd"></p>
+</td><td colspan="1" class="calibre36">Compares two values; either string, numerical, or boolean. </td><td colspan="1" class="calibre36"><p class="starttd"></p>
+<p class="calibre7">$ where name = "Hello"<br class="calibre10"/>
+$ from type sound where volume = -1 <br class="calibre10"/>
+$ from type sound where inclusion = true</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td colspan="1" class="calibre36">!= </td><td colspan="1" class="calibre36">Compares two values; either string, numerical, or boolean. </td><td colspan="1" class="calibre36"><p class="starttd"></p>
+<p class="calibre7">$ where name != "Hello"<br class="calibre10"/>
+$ from type sound where volume != -1 <br class="calibre10"/>
+$ from type sound where inclusion != true</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td colspan="1" class="calibre36"><p class="starttd"></p>
+<p class="calibre7">&lt;<br class="calibre10"/>
+&lt;=<br class="calibre10"/>
+&gt;<br class="calibre10"/>
+&gt;=</p>
+<p class="endtd"></p>
+</td><td colspan="1" class="calibre36">Compares two numerical values. </td><td colspan="1" class="calibre36"><p class="starttd"></p>
+<p class="calibre7">$ from type sound where volume &lt; 0<br class="calibre10"/>
+$ from type sound where volume &gt; -3 and volume &lt; 0</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td colspan="1" class="calibre36">: </td><td colspan="1" class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Compares two string values and returns true if a word partially matches, starting with the specified text.</p>
+<p class="calibre7"></p>
+<p class="calibre7">Wildcards can also be used to match the end of a word.</p>
+<p class="endtd"></p>
+</td><td colspan="1" class="calibre36"><p class="starttd"></p>
+<p class="calibre7">$ where name : "Hello"<br class="calibre10"/>
+$ where name : "Hel"<br class="calibre10"/>
+$ where name : "*ello"</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td colspan="1" class="calibre36">= /<b class="calibre13">REGEX</b>/ </td><td colspan="1" class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns true if the specified regular expression matches the current string.</p>
+<p class="calibre7"></p>
+<p class="calibre7">ECMAScript regular expressions are used.</p>
+<p class="endtd"></p>
+</td><td colspan="1" class="calibre36">$ where name = /Hello/<br class="calibre10"/>
+$ where name = /llo$/<br class="calibre10"/>
+$ where name = /[a-z][0-9]/ </td></tr>
+<tr class="calibre16">
+<td colspan="1" class="calibre36">! </td><td colspan="1" class="calibre36">Negates an expression. </td><td colspan="1" class="calibre36"><p class="starttd"></p>
+<p class="calibre7">$ where ! (name = "Hello")<br class="calibre10"/>
+$ from type sound where ! (volume &lt; -3)</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td colspan="1" class="calibre36">and </td><td colspan="1" class="calibre36">Combines two expressions into their conjunction. </td><td colspan="1" class="calibre36"><p class="starttd"></p>
+<p class="calibre7">$ from type sound where name = "Hello" and volume = 0<br class="calibre10"/>
+$ from type sound where volume &gt; -3 and volume &lt; 0</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td colspan="1" class="calibre36">or </td><td colspan="1" class="calibre36">Combines two expressions into their disjunction. </td><td colspan="1" class="calibre36"><p class="starttd"></p>
+<p class="calibre7">$ where name = "Hello" or name = "Hi"<br class="calibre10"/>
+$ from type sound where volume = -3 or volume = 0</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td colspan="1" class="calibre36">() </td><td colspan="1" class="calibre36">Specifies the order of logical operations on expressions. </td><td colspan="1" class="calibre36"><p class="starttd"></p>
+<p class="calibre7">$ from type sound where (volume = -3 or volume = 0) and (name = "Hello" or name = "Hi")</p>
+<p class="endtd"></p>
+</td></tr>
+</tbody></table>
+<p class="calibre7"></p>
+</div></div></div></body></html>

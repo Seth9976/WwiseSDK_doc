@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>New Features Overview 2018.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_19"><a class="pcalibre1 anchor" id="Wwise_Reflect"></a>
+Wwise Reflect - Diffracted Reflections</h1>
+<p class="calibre7"><br class="calibre10"/>
+</p>
+<ul class="calibre8">
+<li class="calibre9">Diffraction of reflection paths are modeled in two ways to solve common issues with the feature set since its introduction in Wwise 2017.1, notably that image sources could suddenly become visible or invisible, causing an instantaneous change in audibility. <br class="calibre10"/>
+</li>
+<li class="calibre9">Non-specular reflections are modeled at the edge of surfaces, providing a smooth fade into the secular region. <br class="calibre10"/>
+</li>
+<li class="calibre9">Reflections that are obstructed by another surface can be diffracted in a manner similar to the direct path, providing a smooth fade into the visible region.</li>
+</ul>
+<p class="calibre7">An emitter and listener between two reflective walls:</p>
+<ul class="calibre8">
+<li class="calibre9">First with two specular reflections: <br class="calibre10"/>
+ <div class="calibre2">
+<img alt="" src="specular.png" class="inline"/>
+</div>
+ <br class="calibre10"/>
+</li>
+<li class="calibre9">And second with two non-specular reflections: <br class="calibre10"/>
+ <div class="calibre2">
+<img alt="" src="non-specular.png" class="inline"/>
+</div>
+ <br class="calibre10"/>
+</li>
+</ul>
+</div></div></div></body></html>

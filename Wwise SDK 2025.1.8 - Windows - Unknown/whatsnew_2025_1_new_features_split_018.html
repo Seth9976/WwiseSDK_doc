@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>New Features Overview 2025.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_17"><a class="pcalibre1 anchor" id="features_25_1_sa_acoustics"></a>
+Spatial Audio: Acoustics</h1>
+<h2 class="calibre31"><a class="pcalibre1 anchor" id="features_25_1_dsf"></a>
+Dual-Shelf Filter</h2>
+<p class="calibre7">The addition of a dual-shelf filter (DSF) supports physical accuracy while producing a more realistic perspective of distant sounds. The DSF is also well-suited for situations where tone control is preferred over the more dramatic filtering effects that the LPF provides. The DSF combines low and high shelf filters into one filter with computational complexity equivalent to that of LPF or HPF. This filter has characteristics that better approximate acoustic effects like diffraction and works well with attenuation curves. When used as part of diffraction or obstruction, DSF creates a more natural filtering experience. In early feedback gathered during Alpha testing, developers found the Dual Shelf Filter faster to set up, applicable across different content types, and better suited for the realistic representation of sound propagation over distance.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="features_25_1_hfg"></a>
+High-Frequency Gain</h3>
+<p class="calibre7">High-frequency gain is the main control parameter of the DSF. Changing this parameter changes the gain of the high-frequency band. The following figures show the effect of the filter with varying gain. Note that gains can also be positive, resulting in a boost in the high-frequency band as opposed to an attenuation.</p>
+<div class="calibre2">
+<img alt="" src="high_frequency_gain.png" class="inline"/>
+</div>
+<p class="calibre7"> <br class="calibre10"/>
+ </p><div class="calibre2">
+<img alt="" src="dsf_response_by_gain.gif" class="inline"/>
+</div>
+<p class="calibre7">The following properties change the high-frequency gain:</p>
+<ul class="calibre8">
+<li class="calibre9">Output Bus</li>
+</ul>
+<div class="calibre2">
+<img alt="" src="dsf_output_bus.png" class="inline"/>
+</div>
+<ul class="calibre8">
+<li class="calibre9">Game-Defined Auxiliary Sends</li>
+</ul>
+<div class="calibre2">
+<img alt="" src="dsf_aux_send.png" class="inline"/>
+</div>
+<ul class="calibre8">
+<li class="calibre9">Attenuation ShareSets</li>
+</ul>
+<div class="calibre2">
+<img alt="" src="dsf_att_sharesets.png" class="inline"/>
+</div>
+<ul class="calibre8">
+<li class="calibre9">Reflect plug-in</li>
+</ul>
+<div class="calibre2">
+<img alt="" src="dsf_reflect.png" class="inline"/>
+</div>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="features_25_1_dsf_emp"></a>
+DSF Emphasis</h3>
+<p class="calibre7">The DSF Emphasis property changes the shape of the DSF transition region. Its range is -1 to +1 and its default is 0.</p>
+<p class="calibre7">The following graphs show the effect of DSF Emphasis in various settings. In the first graph, the high-frequency gain is set to -20 dB. In the second graph, the high-frequency gain is set to +10 dB.</p>
+<div class="calibre2">
+<img alt="" src="dsf_emphasis_one.png" class="inline"/>
+</div>
+<p class="calibre7"> <br class="calibre10"/>
+ </p><div class="calibre2">
+<img alt="" src="dsf_emphasis_two.png" class="inline"/>
+</div>
+<p class="calibre7"> <br class="calibre10"/>
+ </p><div class="calibre2">
+<img alt="" src="dsf_gain_minus20.gif" class="inline"/>
+</div>
+<p class="calibre7"> <br class="calibre10"/>
+ </p><div class="calibre2">
+<img alt="" src="dsf_gain_plus10.gif" class="inline"/>
+</div>
+<p class="calibre7"> <br class="calibre10"/>
+ Higher DSF Emphasis results in a greater filtering effect, that is, greater attenuation in the mid-band frequencies.</p>
+<p class="calibre7">DSF Emphasis is a global property that you can change in the Project Settings.</p>
+<div class="calibre2">
+<img alt="" src="dsf_project_setting.png" class="inline"/>
+</div>
+<p class="calibre7">DSF behavior is additive. When multiple DSFs are present along a signal's path, the high-frequency gains are summed. For example, if a voice goes through a distance DSF with -2 dB high-frequency gain, and then a diffraction DSF with -1 dB high-frequency gain, and then finally goes through the Output Bus DSF with -3 dB high-frequency gain, the effective high-frequency gain is -6 dB. Moreover, as an optimization, the sound engine only processes one DSF with a high-frequency gain of -6 dB, as opposed to processing three different DSF instances.</p>
+</div></div></div></body></html>

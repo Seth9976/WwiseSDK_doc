@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Managing and Querying the Media Pool</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="waapi_mediapool_query"></a>
+Querying the Media Pool</h1>
+<p class="calibre7">When querying the Media Pool, you can search for audio files based on various criteria such as names, metadata fields, or audio features. You can filter results by specific fields and values.</p>
+<p class="calibre7">To query the Media Pool, use <a class="pcalibre el" href="ak_wwise_core_mediapool_get_split_000.html">ak.wwise.core.mediaPool.get</a>.</p>
+<p class="calibre7">Queries executed through WAAPI can define the following arguments:</p><ul class="calibre8">
+<li class="calibre9"><b class="calibre13">searchText</b>: The text to search for in the audio files.</li>
+<li class="calibre9"><b class="calibre13">databases</b>: A list of Media Pool databases to search within, identified by name or GUID. If not specified, all databases are included.</li>
+<li class="calibre9"><b class="calibre13">maxResults</b>: The maximum number of results to return, as an integer. If not specified, the maximum is 1000.</li>
+<li class="calibre9"><b class="calibre13">filters</b>: A list of filters to apply to the search. The following filter types are supported:<ul class="calibre15">
+<li class="calibre9"><b class="calibre13">Field</b>: Filters files by the value of the specified field. This filter requires an <code class="calibre14">operator</code> and a <code class="calibre14">value</code>.<ul class="calibre30">
+<li class="calibre9">Supported text operators: <code class="calibre14">"equals"</code>, <code class="calibre14">"notEquals"</code>, <code class="calibre14">"contains"</code>, <code class="calibre14">"startsWith"</code>, <code class="calibre14">"endsWith"</code>, <code class="calibre14">"matchesRegex"</code>.</li>
+<li class="calibre9">Supported numeric operators: <code class="calibre14">"equals"</code>, <code class="calibre14">"notEquals"</code>, <code class="calibre14">"lessThan"</code>, <code class="calibre14">"greaterThan"</code>, <code class="calibre14">"lessThanOrEqual"</code>, <code class="calibre14">"greaterThanOrEqual"</code>.</li>
+</ul>
+</li>
+<li class="calibre9"><b class="calibre13">Audio Similarity</b>: Finds files that are audibly similar to an audio file at the specified path. You can set a <code class="calibre14">weight</code> (0-1) to influence its importance in the search.</li>
+<li class="calibre9"><b class="calibre13">Audio Description</b>: Finds files based on a natural language description of the desired audio content. You can set a <code class="calibre14">weight</code> (0-1) to influence its importance.</li>
+</ul>
+</li>
+</ul>
+<p class="calibre7">See <a class="pcalibre el" href="ak_wwise_core_mediapool_get_split_005.html#ak_wwise_core_mediapool_get_examples">Examples</a> for examples of Media Pool queries.</p>
+</div></div></div></body></html>

@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Using the Geometry API for Simulating Diffraction and Transmission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="spatial_audio_apigeometry_diffract_geometry_settings_transmission"></a>
+Setting Up Geometry for Transmission</h1>
+<p class="calibre7">There are no additional steps required to set up geometry for sound transmission, however it may be desirable to adjust the transmission loss coefficient for various geometry types. For example, a concrete structure is likely to block almost all sound transmission, whereas geometry composed of plywood may block significantly less sound.</p>
+<p class="calibre7">Each <code class="calibre14"><a class="pcalibre el" href="struct_ak_triangle_split_000.html" title="Triangle for a spatial audio mesh.">AkTriangle</a></code> in the <code class="calibre14"><a class="pcalibre el" href="struct_ak_geometry_params_ab808e7f98df0ca947216913c388f1713_split_000.html#ab808e7f98df0ca947216913c388f1713">AkGeometryParams::Triangles</a></code> array contains <code class="calibre14"><a class="pcalibre el" href="struct_ak_triangle_aefb228938046af58e01307605f391171_split_000.html#aefb228938046af58e01307605f391171">AkTriangle::surface</a></code>, an index into the <code class="calibre14"><a class="pcalibre el" href="struct_ak_geometry_params_af7b6645b9c4b14eb2a81bd4179c946ca_split_000.html#af7b6645b9c4b14eb2a81bd4179c946ca">AkGeometryParams::Surfaces</a></code> array. The <code class="calibre14"><a class="pcalibre el" href="struct_ak_acoustic_surface_ab0ec8a6eee25b28b4f8b9e91dbff17da_split_000.html#ab0ec8a6eee25b28b4f8b9e91dbff17da">AkAcousticSurface::transmissionLoss</a></code> field describes how much transmission loss to apply to a sound transmitting though a triangle that references it. It is expressed as a value between 0 and 1. The transmission loss is converted to a percentage and then used to evaluate Wwise curves. The final volume attenuation and filter value applied to a sound with a given transmission loss will depend on the curves defined in the project. By default, the project transmission curve is used. Custom transmission curves can be created in the Attenuation ShareSet added to the sound. Transmission loss may also be applied as a built-in parameter and can be mapped to an RTPC.</p>
+</div></div></div></body></html>

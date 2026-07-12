@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integration Details - Triggers</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="soundengine_trigger_callingtriggers"></a>
+Calling Triggers with AK::SoundEngine::PostTrigger()</h1>
+<p class="calibre7">There are two ways to call a trigger from the SDK: using strings (Unicode and Ansi), or using IDs.</p>
+<p class="calibre7">Using strings makes code more readable and is suitable during development time, or when working in an environment that normally uses strings. Using IDs avoids Wwise from having to hash the names at runtime.</p>
+<p class="calibre7">Calling a trigger from the SDK is done as follows:</p>
+<div class="fragment"><div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a1cd4b83f1a684a70e009cc9d81bbe57a_split_000.html#a1cd4b83f1a684a70e009cc9d81bbe57a">AK::SoundEngine::PostTrigger</a>(</div>
+<div class="line">    L<span class="stringliteral">"TriggerName"</span>,</div>
+<div class="line">    myGameObject1</div>
+<div class="line">);</div>
+</div><!-- fragment --><p class="calibre7">or</p>
+<div class="fragment"><div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a1cd4b83f1a684a70e009cc9d81bbe57a_split_000.html#a1cd4b83f1a684a70e009cc9d81bbe57a">AK::SoundEngine::PostTrigger</a>(</div>
+<div class="line">    AK::TRIGGERS::TRIGGER_NAME,</div>
+<div class="line">    myGameObject1</div>
+<div class="line">);</div>
+</div><!-- fragment --></div></div></div></body></html>

@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2017.1.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="bugs_2017_1_1"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-33074</b> "Default" Game Object of Emitter-Listener tab can no longer be added to Watches tab.</li>
+<li class="calibre9"><b class="calibre13">WG-33554</b> Fixed: Enable positioning option not available from the Mixing Desk.</li>
+<li class="calibre9"><b class="calibre13">WG-33565</b> Fixed: Attenuation still displayed in 3D Game Object viewer even if bus is 2D enabled.</li>
+<li class="calibre9"><b class="calibre13">WG-33794</b> Fixed: Exiting Wwise while calling WAAPI sometimes causes the Wwise.exe process to continue running even after closing the main window.</li>
+<li class="calibre9"><b class="calibre13">WG-33845</b> Fixed: Channel Configuration Override combo box in Multi Editor does not always update when changing selection to a mixed-value.</li>
+<li class="calibre9"><b class="calibre13">WG-33956</b> Fixed: Container with Sample accurate transition having children containers with Trigger rate transitions can cause crash.</li>
+<li class="calibre9"><b class="calibre13">WG-34020</b> Fixed: Wwise can spend a lot of time in the 'Collecting SoundBank information' stage of SoundBank generation involving music objects.</li>
+<li class="calibre9"><b class="calibre13">WG-34023</b> Fixed: No sound in game after re-registering listeners.</li>
+<li class="calibre9"><b class="calibre13">WG-34024</b> Fixed: The Bus Voice Properties are incorrectly applied twice, when a child object overrides to the same output bus as its parent Blend Container.</li>
+<li class="calibre9"><b class="calibre13">WG-34028</b> Fixed: (PS4) Rare deadlock during soak test (of more than 12 hours).</li>
+<li class="calibre9"><b class="calibre13">WG-34097</b> Fixed: (Mac) Importing Factory Assets into Integration Demo causes freeze if the project is opened directly via the Launcher.</li>
+<li class="calibre9"><b class="calibre13">WG-34103</b> Fixed: Crash in Convolution Reverb when using an 1.1 (Center + LFE) impulse response on a stereo voice.</li>
+<li class="calibre9"><b class="calibre13">WG-34119</b> Fixed: API profiler reports invalid data when calling Spatial Audio aux sends API with 0 sends.</li>
+<li class="calibre9"><b class="calibre13">WG-34159</b> Fixed: Wwise deletes English keyboard layout if English keyboard layout is not default for Windows user.</li>
+<li class="calibre9"><b class="calibre13">WG-34206</b> Fixed: Acoustic texture presets should not be packaged in the banks.</li>
+<li class="calibre9"><b class="calibre13">WG-34207</b> Fixed: Sink plug-in failure does not revert to default sinks, resulting in silence.</li>
+<li class="calibre9"><b class="calibre13">WG-34208</b> Fixed: Calling <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a4fe9102cd3cb2b59dda5d3d635dc49fe_split_000.html#a4fe9102cd3cb2b59dda5d3d635dc49fe">SetDefaultListeners()</a></code> does not correctly update sounds that are currently playing; sounds become inaudible.</li>
+<li class="calibre9"><b class="calibre13">WG-34210</b> Fixed: Memory corruption when routing mono to LFE bus and 2D positioning with panner enabled.</li>
+<li class="calibre9"><b class="calibre13">WG-34214</b> Fixed: Callback never called after being registered with <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_adc878481e54793302e90f59d1c90202f_split_000.html#adc878481e54793302e90f59d1c90202f">RegisterBusVolumeCallback()</a></code>.</li>
+<li class="calibre9"><b class="calibre13">WG-34221</b> Fixed: Crash on shutdown when destroying static object of type <code class="calibre14">CAkConnectedListeners</code>.</li>
+<li class="calibre9"><b class="calibre13">WG-34226</b> Fixed: Harmonizer Effect can generate illegal values in the audio signal under specific conditions.</li>
+<li class="calibre9"><b class="calibre13">WG-34243</b> Fixed: (Switch) Performance issue at the start of Opus decoding.</li>
+<li class="calibre9"><b class="calibre13">WG-34273</b> Fixed: (Switch) Sink not honoring <code class="calibre14"><a class="pcalibre el" href="struct_ak_output_settings_a5b546b6116a91f422fc0f61615159c06_split_000.html#a5b546b6116a91f422fc0f61615159c06">AkInitSettings::settingsMainOutput::channelConfig</a></code>.</li>
+<li class="calibre9"><b class="calibre13">WG-34284</b> Fixed: (Android) Division by zero on initialization on specific hardware (mobiistar, Nova, Play Spark).</li>
+<li class="calibre9"><b class="calibre13">WG-34344</b> Fixed: Crash when sorting Loaded Media column in Profiler.</li>
+<li class="calibre9"><b class="calibre13">WG-34349</b> Fixed: (PS4) Assert after failing to create hardware instance.</li>
+<li class="calibre9"><b class="calibre13">WG-34350</b> Fixed: Potential stack overflow if using <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_global_plugin_context_af398a343e7d94e08f763544f923a3078_split_000.html#af398a343e7d94e08f763544f923a3078">AK::IAkGlobalPluginContext::ComputeWeightedAmbisonicsDecodingFromSampledSphere</a></code> with very large number of points.</li>
+<li class="calibre9"><b class="calibre13">WG-34354</b> Fixed: (PS4) Missing dependency in the PS4 documentation - <code class="calibre14">libSceAjm_stub_weak</code>.</li>
+<li class="calibre9"><b class="calibre13">WG-34376</b> Fixed: Crash in Multi Editor while editing Wwise values.</li>
+<li class="calibre9"><b class="calibre13">WG-34378</b> Fixed: Null memory access crash report in the Game Object Profiler.</li>
+</ul>
+<p class="calibre7">
+ </p><dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="reference_platform_2017_1_1_split_000.html">Platform Requirements 2017.1.1</a> </li>
+</ul>
+</dd></dl>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

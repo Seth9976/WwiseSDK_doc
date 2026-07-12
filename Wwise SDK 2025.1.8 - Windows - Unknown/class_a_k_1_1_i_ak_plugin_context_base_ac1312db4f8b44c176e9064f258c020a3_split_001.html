@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::IAkPluginContextBase::GetPluginCustomGameData</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="class_a_k_1_1_i_ak_plugin_context_base_ac1312db4f8b44c176e9064f258c020a3_split_000.html#ac1312db4f8b44c176e9064f258c020a3" class="pcalibre1 anchor">◆ </a></span>GetPluginCustomGameData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="calibre3">
+  <tbody class="calibre4"><tr class="calibre16">
+  <td class="calibre17">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">virtual void AK::IAkPluginContextBase::GetPluginCustomGameData </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype">void *&amp; </td>
+          <td class="paramname"><em class="calibre59">out_rpData</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> &amp; </td>
+          <td class="paramname"><em class="calibre59">out_rDataSize</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="calibre17">
+<span><span>pure virtual</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Return the pointer and size of the game data corresponding to the specified index, sent by the game using <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a25efe2a9b18ad130f4fc4c0c3599ec30_split_000.html#a25efe2a9b18ad130f4fc4c0c3599ec30">AK::SoundEngine::SendPluginCustomGameData()</a>. The pointer returned will be NULL if the game data is inexistent. When this function is called and returns a valid data pointer, the data can only be used by this instance of the plugin and is guaranteed to be valid only during the frame. </p>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">out_rpData</td><td class="calibre17">Pointer to the data </td></tr>
+    <tr class="calibre16"><td class="paramname">out_rDataSize</td><td class="calibre17">size of the data returned in bytes. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

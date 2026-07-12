@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Tips to Reduce Memory Usage</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="goingfurther_optimizingmempools_reducing_memory_media"></a>
+Media Memory (SoundBanks)</h1>
+<p class="calibre7">The amount of memory taken by SoundBanks is mostly dictated by the sound data in it. Controlling the amount of memory used by your media can be done through:</p><ul class="calibre8">
+<li class="calibre9">Splitting big SoundBanks with lots of sound structures and Events into smaller SoundBanks. Load and unload dynamically as needed.</li>
+<li class="calibre9">Streaming more sounds from disk (Sounds' properties). Sounds that are latency-sensitive can use prefetch media, which can be pre-loaded, or be streamed into cache on-demand using the PinEventInStreamCache API.</li>
+<li class="calibre9">Using the <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a2e6ebb779470b43d78984c27f6a0c238_split_000.html#a2e6ebb779470b43d78984c27f6a0c238">PrepareEvent()</a> API.</li>
+<li class="calibre9">Compressing the audio more (Conversion Settings, codec, and so on).</li>
+<li class="calibre9">Using a lower sampling rate. Also look at the Automatic Sample Rate Detection feature of the Conversion Settings.</li>
+<li class="calibre9">Replacing wind-type sounds with a Soundseed Wind/Woosh plug-in equivalent. Wind ambiance tends to be long loops, which can take a lot of media space. Blades woosh, propellers, wind rushing in a car with open windows, ventilation noises, and so on can be modelled with this plug-in. Also consider non-windy applications: any noisy sound could be modeled. <b class="calibre13">Examples:</b> Ocean waves or the sound of a highway in the distance.</li>
+</ul>
+</div></div></div></body></html>

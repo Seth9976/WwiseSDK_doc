@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AkCmd_ControlOutputCapture Struct Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_1">Detailed Description</h2>
+<div class="calibre2"><p class="calibre7">Starts or stops recording the sound engine audio output.</p>
+<p class="calibre7">The capture system outputs a wav file per current output device of the sound engine. If more than one device is active, the system will create multiple files in the same output directory and will append numbers at the end of the provided filename.</p>
+<p class="calibre7">If no device is running yet, the command will return success AK_Success despite doing nothing. Use <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a3f31beb89a4f3ef42475b0849020abe3_split_000.html#a3f31beb89a4f3ef42475b0849020abe3">AK::SoundEngine::RegisterAudioDeviceStatusCallback</a> to get notified when devices are created/destructed.</p>
+<dl class="calibre7"><dt class="calibre23">Remarks</dt><dd class="calibre24">The sound engine opens a stream for writing using <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_stream_mgr_a1de2a7935a2d3cddb71e7cc7f48effd6_split_000.html#a1de2a7935a2d3cddb71e7cc7f48effd6">AK::IAkStreamMgr::CreateStd()</a></code>. If you are using the default implementation of the Stream Manager, file opening is executed in your implementation of the Low-Level IO interface <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_a0abfde848b599b5e5b8e8ed63dc8b555_split_000.html#a0abfde848b599b5e5b8e8ed63dc8b555">AK::StreamMgr::IAkLowLevelIOHook::BatchOpen()</a></code>. The following <a class="pcalibre el" href="struct_ak_file_system_flags_split_000.html" title="File system flags for file descriptors mapping.">AkFileSystemFlags</a> are passed: uCompanyID = AKCOMPANYID_AUDIOKINETIC and uCodecID = AKCODECID_PCM, and the AkOpenMode is AK_OpenModeWriteOvrwr. See <a class="pcalibre el" href="streamingmanager_lowlevel_split_002.html#streamingmanager_lowlevel_location">File Location Resolving</a> for more details on managing the deployment of your Wwise generated data.</dd></dl>
+<p class="calibre7">When <code class="calibre14">isEnabled</code> is set, the Sound Engine expects a string to follow the command representing the name of the file to write. For example: </p><pre class="fragment">auto cmd = (AkCmd_ControlOutputCapture*)AK_CommandBuffer_Add(buffer, AkCommand_ControlOutputCapture);
+cmd-&gt;isEnabled = 1;
+AK_CommandBuffer_AddString(buffer, "myrecording.wav");
+</pre><p class="calibre7">This command can fail for the following reasons:</p><ul class="calibre8">
+<li class="calibre9"><code class="calibre14">AK_InvalidParameter</code> if no valid file name follows the command when starting output capture. <dl class="section"><dt class="calibre23">See also</dt><dd class="calibre24"></dd></dl>
+</li>
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_acad2fdfa60860a790b678fa4bd078540_split_000.html#acad2fdfa60860a790b678fa4bd078540">AK::SoundEngine::StartOutputCapture</a></li>
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a6dd95ae4196e90674edf3a0ee21b3974_split_000.html#a6dd95ae4196e90674edf3a0ee21b3974">AK::SoundEngine::StopOutputCapture</a></li>
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_stream_mgr_ab5c2340963ac5ff81e49969b74ef2520_split_000.html#ab5c2340963ac5ff81e49969b74ef2520">AK::StreamMgr::SetFileLocationResolver</a></li>
+<li class="calibre9"><a class="pcalibre el" href="streamingdevicemanager_split_000.html">Streaming / Stream Manager</a></li>
+<li class="calibre9"><a class="pcalibre el" href="streamingmanager_lowlevel_split_002.html#streamingmanager_lowlevel_location">File Location Resolving</a></li>
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a3f31beb89a4f3ef42475b0849020abe3_split_000.html#a3f31beb89a4f3ef42475b0849020abe3">AK::SoundEngine::RegisterAudioDeviceStatusCallback</a> </li>
+</ul>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_ak_command_types_8h_source_split_002.html#l01155">1155</a> of file <a class="pcalibre el" href="_ak_command_types_8h_source_split_000.html">AkCommandTypes.h</a>.</p>
+</div></div><!-- contents -->
+
+
+</body></html>

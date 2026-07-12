@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Wwise Plug-in Dialog Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_6"><a class="pcalibre1 anchor" id="wwiseplugin_dialog_guide_poptable"></a>
+How to Bind Regular Controls to Properties</h2>
+<p class="calibre7">Checkboxes and radio buttons can be associated to your plug-in's properties so these are updated when the user acts on the controls, and vice-versa, without extra code on your side.</p>
+<p class="calibre7">To do so, you must create a "populate table" using macros defined in <a class="pcalibre el" href="_plugin_8h_split_000.html" title="Wwise Authoring Plug-ins - Main include file.">AK/Wwise/Plugin.h</a>:</p>
+<div class="fragment"><div class="line"><a class="pcalibre code" href="_g_u_i_windows_8h_ace7e697c1d8a310c9794cf05ce8ce1d8_split_000.html#ace7e697c1d8a310c9794cf05ce8ce1d8">AK_WWISE_PLUGIN_GUI_WINDOWS_BEGIN_POPULATE_TABLE</a>(PropertyTable)</div>
+<div class="line">    <a class="pcalibre code" href="_g_u_i_windows_8h_af6140142c9fe6ff132aee5ad0fde1caf_split_000.html#af6140142c9fe6ff132aee5ad0fde1caf">AK_WWISE_PLUGIN_GUI_WINDOWS_POP_ITEM</a>(IDC_CHECK_SWEEPFREQ, szSweepFreq)</div>
+<div class="line">    <a class="pcalibre code" href="_g_u_i_windows_8h_af6140142c9fe6ff132aee5ad0fde1caf_split_000.html#af6140142c9fe6ff132aee5ad0fde1caf">AK_WWISE_PLUGIN_GUI_WINDOWS_POP_ITEM</a>(IDC_RADIO_FREQSWEEPLIN, szSweepFreqType)</div>
+<div class="line">    (... insert other items here...)</div>
+<div class="line"><a class="pcalibre code" href="_g_u_i_windows_8h_a286a575e82a4a1b002ff737b186d4c76_split_000.html#a286a575e82a4a1b002ff737b186d4c76">AK_WWISE_PLUGIN_GUI_WINDOWS_END_POPULATE_TABLE</a>()</div>
+</div><!-- fragment --><p class="calibre7">You start with the <a class="pcalibre el" href="_g_u_i_windows_8h_ace7e697c1d8a310c9794cf05ce8ce1d8_split_000.html#ace7e697c1d8a310c9794cf05ce8ce1d8" title="Starts a new property-control bindings table.">AK_WWISE_PLUGIN_GUI_WINDOWS_BEGIN_POPULATE_TABLE()</a> macro, which has a single parameter, an identifier for the table. It must be a valid C++ identifier, and must be unique within the scope where it is defined. This is the same identifier you will use when setting the populate table <em class="calibre11">out</em> parameter in your implementation of <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_g_u_i_windows_a21b81136769b185c244ada93e6767f14_split_000.html#a21b81136769b185c244ada93e6767f14" title="Retrieves the plug-in dialog parameters.">AK::Wwise::Plugin::GUIWindows::GetDialog()</a> (Refer to <a class="pcalibre el" href="plugin_frontend_windows_split_003.html#wwiseplugin_dialogcode">Dialog Acquisition</a> for more information).</p>
+<p class="calibre7">You then use the <a class="pcalibre el" href="_g_u_i_windows_8h_af6140142c9fe6ff132aee5ad0fde1caf_split_000.html#af6140142c9fe6ff132aee5ad0fde1caf" title="Declares an association between a control and a property within a property-control bindings table.">AK_WWISE_PLUGIN_GUI_WINDOWS_POP_ITEM()</a> macro to associate controls to properties. Each control that must be bound to a property needs an <a class="pcalibre el" href="_g_u_i_windows_8h_af6140142c9fe6ff132aee5ad0fde1caf_split_000.html#af6140142c9fe6ff132aee5ad0fde1caf" title="Declares an association between a control and a property within a property-control bindings table.">AK_WWISE_PLUGIN_GUI_WINDOWS_POP_ITEM()</a> entry in the table. The first parameter of this macro is the ID of the control in your dialog. The second parameter is the name of the property, as defined in your plug-in's XML definition file. Refer to <a class="pcalibre el" href="plugin_xml_properties_split_001.html#wwiseplugin_xml_properties_tag">Properties Element</a> for more information on property names.</p>
+<p class="calibre7">Checkboxes can be associated to properties of type <code class="calibre14">bool</code>. Property value <code class="calibre14">true</code> corresponds to a checked control, while property value <code class="calibre14">false</code> corresponds to an unchecked control.</p>
+<p class="calibre7">Radio buttons can be associated to properties of type <code class="calibre14">int32</code>. Each radio button in a control group corresponds to a specific value. The first radio button in the group corresponds to value 0, the second to value 1, the third to value 2, and so on. Two things must be carefully set for the radio buttons to work as expected: The radio buttons' tab order, and control grouping.</p>
+<p class="calibre7">To view the tab order while editing your dialog in the Microsoft Development Environment Dialog Editor, open the Format menu, and choose Tab Order. Numbers corresponding to the tab order will appear near each control. To change that order, click on the control that should be first, then on the control that should be second, and so on, until all controls are ordered as needed. When you are done, return to the Format menu and choose Tab Order again to turn that option off.</p>
+<p class="calibre7">To group controls together, set the <em class="calibre11">Group</em> property of the first radio button to <em class="calibre11">True</em> in the Properties window of the Microsoft Development Environment. Set the <em class="calibre11">Group</em> property to <em class="calibre11">False</em> for the other radio buttons of the same group.</p>
+<p class="calibre7">Refer to the Microsoft Development Environment documentation for more information regarding tab order, control groups, and the Dialog Editor in general.</p>
+<p class="calibre7">Once all the <a class="pcalibre el" href="_g_u_i_windows_8h_af6140142c9fe6ff132aee5ad0fde1caf_split_000.html#af6140142c9fe6ff132aee5ad0fde1caf" title="Declares an association between a control and a property within a property-control bindings table.">AK_WWISE_PLUGIN_GUI_WINDOWS_POP_ITEM()</a> entries are defined, use the <a class="pcalibre el" href="_g_u_i_windows_8h_a286a575e82a4a1b002ff737b186d4c76_split_000.html#a286a575e82a4a1b002ff737b186d4c76" title="Ends the declaration of a property-control bindings table.">AK_WWISE_PLUGIN_GUI_WINDOWS_END_POPULATE_TABLE()</a> macro to end the declaration of your populate table.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="tip.gif"/></td><td class="calibre17"><b class="calibre13">Tip:</b> You can put this declaration in the same CPP file as your <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_g_u_i_windows_a21b81136769b185c244ada93e6767f14_split_000.html#a21b81136769b185c244ada93e6767f14" title="Retrieves the plug-in dialog parameters.">AK::Wwise::Plugin::GUIWindows::GetDialog()</a> implementation, since that's the only place you will need to access it. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

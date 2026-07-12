@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2021.1.13</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="generic_bugs_2021_1_13"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-61540</b> Fixed: Crash in <code class="calibre14">AkDevice::BaseCaptureCallbackStruct::ConvertForCapture</code> when trying to use ref RegisterCaptureCallback with 5th-order ambisonic output. Note that capturing 4th-order or 5th-order ambisonic output still outputs only 3rd-order FuMa-encoded ambisonics.</li>
+<li class="calibre9"><b class="calibre13">WG-61974</b> Fixed: Voice Inspector sometimes fails to display attenuation contributions when scrubbing the timeline.</li>
+<li class="calibre9"><b class="calibre13">WG-63879</b> Fixed: Inaccurate data in Voice Inspector's Contribution List when dragging the timeline cursor at a resolution smaller than the audio frame.</li>
+<li class="calibre9"><b class="calibre13">WG-63880</b> Fixed: Voice Inspector doesn't snap to proper time when moving time cursor backwards with the timeline zoomed in.</li>
+<li class="calibre9"><b class="calibre13">WG-63882</b> Fixed: Crash in AkPath.cpp when terminating engine in low-memory conditions</li>
+<li class="calibre9"><b class="calibre13">WG-63956</b> Fixed: Possible crash while loading SoundBank Init.bnk under low memory conditions.</li>
+<li class="calibre9"><b class="calibre13">WG-64172</b> Fixed: Crash in <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a90f8c91937038615480db2b57ce2279e_split_000.html#a90f8c91937038615480db2b57ce2279e">AK::SoundEngine::Term</a></code> when streamed sounds with the 3D User positioning option are playing at termination time.</li>
+<li class="calibre9"><b class="calibre13">WG-64365</b> Fixed: Crashes or other errors occur in low-memory situations during playback of Random Containers or Music Playlists set to Random Continuous or Random Step.</li>
+<li class="calibre9"><b class="calibre13">WG-64503</b> Fixed: (Mac Authoring) WwiseConsole incorrectly handles UNIX absolute paths.</li>
+<li class="calibre9"><b class="calibre13">WG-64504</b> Fixed: Music Clip property curves are not deleted when the corresponding Work Unit is unloaded.</li>
+<li class="calibre9"><b class="calibre13">WG-64585</b> Fixed: Inadvertent changes to assigned Media IDs after reloading Work Units.</li>
+<li class="calibre9"><b class="calibre13">WG-64781</b> Fixed: SoundBanks do not contain a music object's MIDI target hierarchy when the MIDI target is specified by the music object's ancestry.</li>
+<li class="calibre9"><b class="calibre13">WG-64839</b> Fixed: Cannot build Authoring plug-ins without MFC.</li>
+<li class="calibre9"><b class="calibre13">WG-64957</b> Fixed: Media ID validation is done slightly too late during project load. This only impacts local playback in Wwise Authoring.</li>
+<li class="calibre9"><b class="calibre13">WG-64982</b> Fixed: Missing tooltips when hovering over list headers.</li>
+</ul>
+</div></div></div></body></html>

@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AkWwiseErrorHandler::AddTranslator</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="class_ak_wwise_error_handler_a8db07d6427522acd2a284803783e115a_split_000.html#a8db07d6427522acd2a284803783e115a" class="pcalibre1 anchor">◆ </a></span>AddTranslator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="calibre3">
+  <tbody class="calibre4"><tr class="calibre16">
+  <td class="calibre17">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">static void AkWwiseErrorHandler::AddTranslator </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="class_ak_error_message_translator_split_000.html">AkErrorMessageTranslator</a> * </td>
+          <td class="paramname"><em class="calibre59">in_errorMessageTranslator</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">bool </td>
+          <td class="paramname"><em class="calibre59">in_overridePreviousTranslator</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="calibre17">
+<span><span>static</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Set the m_currentMessageTranslator to the given translator. The added translator can either override previously added translator, or attach them to itself. In the case overridePreviousTranslator is true, the responsibility of deleting all the translator previously attached to the m_currentMessageTranslator will fall back to the class that created them. Also, the given translator can override all previous translator(s) except the DefaultErrorMessageTranslator, which will always be attached to the given translator. </p><dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_errorMessageTranslator</td><td class="calibre17">The new translator that should be used by the error handler </td></tr>
+    <tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_overridePreviousTranslator</td><td class="calibre17">Whether or not the given translator should override previously set translator(s) </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

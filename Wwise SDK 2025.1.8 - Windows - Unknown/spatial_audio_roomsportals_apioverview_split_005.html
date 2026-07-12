@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Rooms and Portals Overview</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_4"><a class="pcalibre1 anchor" id="spatial_audio_roomsportals_aboutgameobjects_emitters"></a>
+Virtual Positioning and Diffraction Through Portals</h1>
+<p class="calibre7">When you set the Wwise Acoustics <code class="calibre14"><a class="pcalibre el" href="struct_ak_spatial_audio_init_settings_a7b44a84de6c25d0abe4004c1c264aa13_split_000.html#a7b44a84de6c25d0abe4004c1c264aa13" title="An emitter that is diffracted through a portal or around geometry will have its apparent or virtual p...">AkSpatialAudioInitSettings::bCalcEmitterVirtualPosition</a></code> initialization setting, the positions of the emitters located in Rooms that are adjacent to the listener are modified so that they seem to appear from the diffracted angle, if applicable. In the following image of the 3D Game Object Profiler, the listener (<em class="calibre11">Listener L</em>) is on the right of the Portal and the "real" emitter is on the lower left (<em class="calibre11">Emitter E</em>). Spatial Audio thus repositions the emitter to the upper left, so that the apparent position seems to come from the corner, all while respecting the traveled distance. The listener is about 45 degrees into the shadow zone of the Portal edge, resulting in a diffraction factor of about 27%.</p>
+<div class="calibre2">
+<img alt="" src="objects_position.png" class="inline"/>
+</div>
+<p class="calibre7">When there are multiple Portals connecting two Room, Wwise Acoustics can assign multiple positions to an emitter (one per Portal). The <code class="calibre14">MultiPosition_MultiDirection</code> mode is used, so that enabling or disabling a Portal does not affect the perceived volume of other Portals.</p>
+</div></div></div></body></html>

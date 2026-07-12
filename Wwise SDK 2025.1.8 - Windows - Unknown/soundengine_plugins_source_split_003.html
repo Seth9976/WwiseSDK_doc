@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Sound Engine Source Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_2"><a class="pcalibre1 anchor" id="iaksourceeffect_getduration"></a>
+AK::IAkSourcePlugin::GetDuration()</h2>
+<p class="calibre7">This method is called by the sound engine after initialization time to determine the approximate duration of the source for the purpose of processing crossfades during sound transitions. The estimated duration of the source should be returned in milliseconds. If looping is applied with a finite number of iterations, the returned duration should correspond to the total duration, considering how many sound iterations will be played. When infinite looping is selected or when the duration of the source is unknown the returned duration should be zero. Note that the number of loop iterations retrieved through <a class="pcalibre el" href="class_a_k_1_1_i_ak_source_plugin_context_ae73724b7c8024b0d2aa2f90559702ebc_split_000.html#ae73724b7c8024b0d2aa2f90559702ebc">AK::IAkSourcePluginContext::GetNumLoops()</a> when infinite looping is selected is always zero.</p>
+<div class="fragment"><div class="line"><span class="comment">// Get the duration of the source in milliseconds.</span></div>
+<div class="line"><a class="pcalibre code" href="_ak_typedefs_8h_a8a4d0aa5dba6f9922d6b7b3e48958b24_split_000.html#a8a4d0aa5dba6f9922d6b7b3e48958b24">AkTimeMs</a> CAkDCOffset::GetDuration( )<span class="keyword"> const</span></div>
+<div class="line"><span class="keyword"></span>{</div>
+<div class="line">    <span class="keywordflow">return</span> m_DurationHandler.GetDuration() * 1000.f; </div>
+<div class="line">}</div>
+</div><!-- fragment --><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> If RTPC parameters change the duration of the plug-in, the crossfade transition may not last the expected duration. </td></tr>
+</tbody></table>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> The easiest way to handle most time elapsed management (including looping) for a source plug-in is to use the <a class="pcalibre el" href="class_ak_f_x_duration_handler_split_000.html">AkFXDurationHandler</a> service as shown in the Sine plug-in example (<a class="pcalibre el" href="samplecode_split_000.html">Samples</a>). </td></tr>
+</tbody></table>
+</div></div></div></body></html>

@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2017.2.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_4"><a class="pcalibre1 anchor" id="bugs_2017_2_1"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-34346</b> Fixed: Failure to load IR in Convolution Reverb if the directory of the Wwise project path contains foreign (to the OS language) characters.</li>
+<li class="calibre9"><b class="calibre13">WG-34842</b> Fixed: Drastic changes in speed of sound can cause glitches in Reflect.</li>
+<li class="calibre9"><b class="calibre13">WG-34954</b> Fixed: The Reflect Effect Editor cursor order in the graph is confusing.</li>
+<li class="calibre9"><b class="calibre13">WG-35079</b> Fixed: The Reflect Effect Editor status of reflections mute/solo is persisted when disconnecting game.</li>
+<li class="calibre9"><b class="calibre13">WG-35415</b> Fixed: Possible to accumulate stale obstruction/occlusion entries that are visible in the Obs/Occ profiler tab.</li>
+<li class="calibre9"><b class="calibre13">WG-35485</b> Fixed: Ambisonics is incompatible with multi-positioned game objects in MultiDirection mode.</li>
+<li class="calibre9"><b class="calibre13">WG-35803</b> Fixed: Can no longer reparent, rename, or move the default Audio Device ShareSet ("System").</li>
+<li class="calibre9"><b class="calibre13">WG-35810</b> Fixed: The name in the Game Object column of the Capture Log for (Set/Add/Remove) DefaultListener messages will be empty.</li>
+<li class="calibre9"><b class="calibre13">WG-35850</b> Fixed: No cursor displayed in the Reflect Effect Editor curve when the reflections are beyond the Max Distance.</li>
+<li class="calibre9"><b class="calibre13">WG-35860</b> Fixed: <code class="calibre14">AK::SpatialAudio::SetEmitterAuxSendValues</code> has no effect if the emitter is unregistered in the same frame.</li>
+<li class="calibre9"><b class="calibre13">WG-35894</b> Fixed: User-defined positioning does not support emitter rotation consistently when Follow Listener Orientation is not checked.</li>
+<li class="calibre9"><b class="calibre13">WG-35929</b> Fixed: Switch Music Tracks transition at or after exit cue.</li>
+<li class="calibre9"><b class="calibre13">WG-36006</b> Fixed: All busses except a master Audio bus can be reparented.</li>
+<li class="calibre9"><b class="calibre13">WG-36009</b> Fixed: Effect Bypass on Auxiliary Bus driven by RTPC ignored on bus initialization.</li>
+<li class="calibre9"><b class="calibre13">WG-36076</b> Fixed: Bad handling of game object data may inject garbage in positioning code.</li>
+<li class="calibre9"><b class="calibre13">WG-36094</b> Fixed: Crash when viewing the Audio Preferences dialog without an Audio Device enabled.</li>
+<li class="calibre9"><b class="calibre13">WG-36119</b> Fixed: Remote connections that are not permitted due to a version mismatch are showing an incorrect minor version in the Status column of the Remote Connections dialog.</li>
+<li class="calibre9"><b class="calibre13">WG-36130</b> Fixed: <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ae60a85c95e6a263c2bf1155f6d3887d1_split_000.html#ae60a85c95e6a263c2bf1155f6d3887d1">ResetRTPCValue()</a></code> fails when immediately preceded by <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ab0e4ddefe5ea550b2f356edaa5a49a26_split_000.html#ab0e4ddefe5ea550b2f356edaa5a49a26">SetRTPCValue()</a></code> on an interpolated game parameter.</li>
+<li class="calibre9"><b class="calibre13">WG-36138</b> Fixed: (PS4, Switch) Crash in Wwise Motion Generator when soloing a left or right trigger curve with current platform.</li>
+<li class="calibre9"><b class="calibre13">WG-36141</b> Fixed: <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_adf34d8d0405ddb7d10b4c5c63db13e5b_split_000.html#adf34d8d0405ddb7d10b4c5c63db13e5b">Ak::SoundEngine::SetBusDevice()</a></code> doesn't work.</li>
+<li class="calibre9"><b class="calibre13">WG-36153</b> Fixed: The initial name of a new bus when parenting a top-level bus will start with "New Master Bus", not "New Audio Bus".</li>
+<li class="calibre9"><b class="calibre13">WG-36160</b> Fixed: Crash when failed to initialize a DirectSound Sink.</li>
+<li class="calibre9"><b class="calibre13">WG-36169</b> Fixed: It's possible to create children (Work Units and Virtual Folders) of the Master-Mixer Hierarchy top-level Work Unit.</li>
+<li class="calibre9"><b class="calibre13">WG-36173</b> Fixed: Inconsistent 3D positioning in rare cases where the emitter is exactly aligned with the listener's front vector.</li>
+<li class="calibre9"><b class="calibre13">WG-36176</b> Fixed: Reflect curve colors inconsistent with those of the authoring tool.</li>
+<li class="calibre9"><b class="calibre13">WG-36220</b> Fixed: <code class="calibre14">SetSpeakerAngle()</code> returns "Device not found" for main device.</li>
+<li class="calibre9"><b class="calibre13">WG-36223</b> Fixed: Crash when deleting a State Group then inspecting a bus using the State Group.</li>
+<li class="calibre9"><b class="calibre13">WG-36253</b> Fixed: Reflect Effect Editor refresh issue when image source is moving above and under Max Distance.</li>
+<li class="calibre9"><b class="calibre13">WG-36288</b> Fixed: With Spatial Audio, game objects for the listener's room are positioned one unit away from listener instead of being coincident.</li>
+<li class="calibre9"><b class="calibre13">WG-36293</b> Fixed: In Reflect, there are issues with selection when the graph has many cursors.</li>
+<li class="calibre9"><b class="calibre13">WG-36300</b> Fixed: In the Voices Graph, the connection to a parent Auxiliary Bus is displayed as a dotted line.</li>
+<li class="calibre9"><b class="calibre13">WG-36341</b> Fixed: WAV files in 32-bit integer PCM format are not imported correctly.</li>
+<li class="calibre9"><b class="calibre13">WG-36355</b> Fixed: SCE Audio3d Object Panner does not work with multiple positions.</li>
+<li class="calibre9"><b class="calibre13">WG-36394</b> Fixed: Imported WAV files that are in a subfolder of .../Originals/SFX are imported (copied) in .../Originals/SFX.</li>
+<li class="calibre9"><b class="calibre13">WG-36408</b> Fixed: Event Editor: Can't set decimals in the Game Parameter Value.</li>
+</ul>
+<p class="calibre7">
+ </p><dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="reference_platform_2017_2_1_split_000.html">Platform Requirements 2017.2.1</a> </li>
+</ul>
+</dd></dl>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

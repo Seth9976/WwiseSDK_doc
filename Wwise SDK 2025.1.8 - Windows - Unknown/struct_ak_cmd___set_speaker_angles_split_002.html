@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AkCmd_SetSpeakerAngles Struct Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_1">Detailed Description</h2>
+<div class="calibre2"><p class="calibre7">Sets speaker angles of the specified device. Speaker angles are used for 3D positioning of sounds over standard configurations. Note that the current version of Wwise only supports positioning on the plane.</p>
+<p class="calibre7">The Sound Engine expects an array of loudspeaker pair angles after the command (in degrees relative to azimuth ]0,180]). For example: </p><pre class="fragment">auto cmd = (AkCmd_SetSpeakerAngles*)AK_CommandBuffer_Add(buffer, AkCommand_SetSpeakerAngles);
+cmd-&gt;idOutput = 0;
+cmd-&gt;fHeightAngle = 30.0f;
+cmd-&gt;uNumAngles = myAngles.size();
+AK_CommandBuffer_AddArray(buffer, sizeof(AkReal32), myAngles.size(), myAngles.data());
+</pre><p class="calibre7">The speaker angles are expressed as an array of loudspeaker pairs, in degrees, relative to azimuth ]0,180], for a 7.1 speaker configuration. Supported loudspeaker setups are always symmetric; the center speaker is always in the middle and thus not specified by angles. Angles must be set in ascending order. </p><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b><ul class="calibre8">
+<li class="calibre9">This command requires the minimum speaker angle between any pair of speakers to be at least 5 degrees.</li>
+<li class="calibre9">When setting angles for a 5.1 speaker layout, we recommend that you select an angle for the SL and SR channels, then subtract 15 degrees for in_pfSpeakerAngles[1] and add 15 degrees for in_pfSpeakerAngles[2] to set the arc appropriately. </li>
+</ul>
+</td></tr>
+</tbody></table>
+<p class="calibre7">Typical usage:</p><ul class="calibre8">
+<li class="calibre9">Initialize the sound engine and/or add secondary output(s).</li>
+<li class="calibre9">Get number of speaker angles and their value into an array using <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a02ad46cabd64c04e8be198bfdc44be6b_split_000.html#a02ad46cabd64c04e8be198bfdc44be6b">GetSpeakerAngles()</a>.</li>
+<li class="calibre9">Modify the angles and call <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_afaf319902f00bbf38fbff9129086d912_split_000.html#afaf319902f00bbf38fbff9129086d912">SetSpeakerAngles()</a>. <dl class="section"><dt class="calibre23">Warning</dt><dd class="calibre24">This command only applies to configurations (or subset of these configurations) that are standard and whose speakers are on the plane (2D).</dd></dl>
+This command can fail for the following reasons:</li>
+<li class="calibre9"><code class="calibre14">AK_InvalidParameter</code> when one of the angle values is NaN or Inf, or if one of the parameter is invalid. Check the debug log.</li>
+<li class="calibre9"><code class="calibre14">AK_IDNotFound</code> if <code class="calibre14">outputID</code> refers to a non-existent device</li>
+<li class="calibre9"><code class="calibre14">AK_InsufficientMemory</code> if there is not enough memory to complete the operation.</li>
+</ul>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="_ak_command_types_8h_a001b78645b8b0335c0dd2e128cca2cfd_split_001.html#a001b78645b8b0335c0dd2e128cca2cfdaa41934308a8d68a347574bdc560648c4" title="See AkCmd_SetSpeakerAngles.">AkCommand_SetSpeakerAngles</a></li>
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_afaf319902f00bbf38fbff9129086d912_split_000.html#afaf319902f00bbf38fbff9129086d912">AK::SoundEngine::SetSpeakerAngles</a> </li>
+</ul>
+</dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_ak_command_types_8h_source_split_002.html#l01117">1117</a> of file <a class="pcalibre el" href="_ak_command_types_8h_source_split_000.html">AkCommandTypes.h</a>.</p>
+</div></div><!-- contents -->
+
+
+</body></html>

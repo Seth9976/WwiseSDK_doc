@@ -1,0 +1,312 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::Monitor Namespace Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table class="calibre3">
+<tbody class="calibre4"><tr class="calibre16"><td colspan="2" class="calibre17"><h2 class="calibre21" id="calibre_pb_2"><a class="pcalibre1 anchor" id="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="calibre16"><td class="memitemleft">enum  </td><td class="memitemright"><a class="pcalibre el" href="namespace_a_k_1_1_monitor_a75374a589b6f43efc84d695d101698de_split_000.html#a75374a589b6f43efc84d695d101698de">ErrorLevel</a> { <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a75374a589b6f43efc84d695d101698de_split_001.html#a75374a589b6f43efc84d695d101698deaee28799e81b7e83ec8ab0b17e53f77ba">ErrorLevel_Message</a> = (1&lt;&lt;0), 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a75374a589b6f43efc84d695d101698de_split_001.html#a75374a589b6f43efc84d695d101698dea5ccf555451d95ff984cbc2fe232af184">ErrorLevel_Error</a> = (1&lt;&lt;1), 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a75374a589b6f43efc84d695d101698de_split_001.html#a75374a589b6f43efc84d695d101698deaf17032088a0c4630d81b6878088a0a50">ErrorLevel_All</a> = ErrorLevel_Message | ErrorLevel_Error
+ }</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">ErrorLevel.  <a href="namespace_a_k_1_1_monitor_a75374a589b6f43efc84d695d101698de_split_000.html#a75374a589b6f43efc84d695d101698de" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">enum  </td><td class="memitemright"><a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_000.html#a0e821a3df59a73288d040def2778cd7c">ErrorCode</a> { <br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca7cccf7bb50c7babf38192e130476c860">ErrorCode_NoError</a> = 0, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca3a7cf234807d4579907329d2b29083fc">ErrorCode_FileNotFound</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cad0c6a80b11cf26d3c6842c420a9c1464">ErrorCode_CannotOpenFile</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca42cf22e34fd5f7d67b2cb23947859d28">ErrorCode_CannotStartStreamNoMemory</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca016d102878ed99a9d68791b4a26df80c">ErrorCode_IODeviceStr</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca8284835548ed146ad4f6768791c6f5b2">ErrorCode_IncompatibleIOSettings</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca658499e8a4ea0c5fcfcbb38bbcf4a9cc">ErrorCode_PluginUnsupportedChannelConfiguration</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cab2305deca3e79350609890d0a436bee0">ErrorCode_PluginMediaUnavailable</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca614b521c14144cbdf459c08c632ceb6e">ErrorCode_PluginInitialisationFailed</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca4968ac205b0983922914d259bd21a748">ErrorCode_PluginProcessingFailed</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cad6056aea3dc3df81d2482504bc3ee4e1">ErrorCode_PluginExecutionInvalid</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca99630771c32627a86215ce0b54dab480">ErrorCode_PluginAllocationFailed</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca99f2dbd10097d4faafe7265e03e98e94">ErrorCode_VorbisSeekTableRecommended</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7caf3a2d5b2c8c10f79f5f310b98e9cf1fd">ErrorCode_VorbisDecodeError</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cafd68632e15e66159850af3d58e55ecc1">ErrorCode_ATRAC9DecodeFailed</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7caf6666c5d10f945346e34c4f13fbdd46e">ErrorCode_ATRAC9LoopSectionTooSmall</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cac2c2fed8e9d03375c4de6e3725a405bd">ErrorCode_InvalidAudioFileHeader</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca023829ae82128f864ef7081e5b5900c3">ErrorCode_AudioFileHeaderTooLarge</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cad867d414f83e98a362a2068030d58eef">ErrorCode_LoopTooSmall</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca098b895cc563a12c67fe83cbaa016170">ErrorCode_TransitionNotAccurateChannel</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cac79b2c4aa8c9a2ad0c890146e19bcd4a">ErrorCode_TransitionNotAccuratePluginMismatch</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca3a15a77f85a03cd468d09e8a04cb6fbf">ErrorCode_TransitionNotAccurateRejectedByPlugin</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca4cc9c65c467e6a514dec9e4bb1bf2f3f">ErrorCode_TransitionNotAccurateStarvation</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca2c6fde1bd44ce232f0cb6ee63ab23d39">ErrorCode_TransitionNotAccurateCodecError</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca70580cb30b3aa0dcead1258dabe9bf23">ErrorCode_NothingToPlay</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7caa63cbff18643621f790825dd1ca6e9cc">ErrorCode_PlayFailed</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cac383c7f6efb9620411afb31a5ce9da25">ErrorCode_StingerCouldNotBeScheduled</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cabc4b5d03a539bd9c0e235f86e7a6d27b">ErrorCode_TooLongSegmentLookAhead</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca4f66b86168221ba12783214dd13ac4bb">ErrorCode_CannotScheduleMusicSwitch</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7caf3c3609d4799c77022dcd02a328641e1">ErrorCode_TooManySimultaneousMusicSegments</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cad4cc2d7255826999facf6368f9935f8e">ErrorCode_PlaylistStoppedForEditing</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca4bfd75b080a39e9f0e753e359361d2b5">ErrorCode_MusicClipsRescheduledAfterTrackEdit</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca7819aa1a07f597cc6f82b94b5770aa18">ErrorCode_CannotPlaySource_Create</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7caaab309fc2b5bf005b687c5815dc88cd8">ErrorCode_CannotPlaySource_VirtualOff</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca0773cbac3341899f5ac1fc3cfa867818">ErrorCode_CannotPlaySource_TimeSkip</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca6289e9b4689f73d6109492154e1e3265">ErrorCode_CannotPlaySource_InconsistentState</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca4e63203ee2ce8921978f82b1f8e43f61">ErrorCode_MediaNotLoaded</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cac1d0ee61c241933e2da681627b16b3fe">ErrorCode_VoiceStarving</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca6032f1aa3ba96db55ee1b3b1bfb57bd8">ErrorCode_StreamingSourceStarving</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca0caa78b5e96e1c568fa2efba52991341">ErrorCode_PluginNotRegistered</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cab1c9a688b07d00c694f3bbbe0ad19f76">ErrorCode_CodecNotRegistered</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca537217efa9fc5ccb17274271273aece6">ErrorCode_PluginVersionMismatch</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cade1afaf7173a145f6734fd7dc90fa615">ErrorCode_EventIDNotFound</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca002f12100e5e2c19304c83339d24e065">ErrorCode_InvalidGroupID</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca2c9269f346b6040cee82390f093216a9">ErrorCode_SelectedNodeNotAvailable</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca012a76a3ee01a3dac8d5913fb16f3c17">ErrorCode_SelectedMediaNotAvailable</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7caa41218bbcafd54ea89c735189eef950b">ErrorCode_NoValidSwitch</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7caed19137cbf636ad369d7bf94738f35b1">ErrorCode_BankLoadFailed</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca297d4be9f0364cacad73b714b7dfad35">ErrorCode_ErrorWhileLoadingBank</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca8412d44099dafe2a13f9b2c05fd5b832">ErrorCode_InsufficientSpaceToLoadBank</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cab8e63e39bcc48d7c7498f83e15f969ed">ErrorCode_LowerEngineCommandListFull</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca7458c7525ed517075e5445f941bcf391">ErrorCode_SeekNoMarker</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cad5e94dea06c246f10c3491f832c28af4">ErrorCode_CannotSeekContinuous</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7caf455a5294e527a4838d28b3681edc4d4">ErrorCode_SeekAfterEof</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca82201f81026ffe2a7628d0fd718688bb">ErrorCode_UnknownGameObject</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cac7a4cb626ed25d71ca3b4485f5d453e4">ErrorCode_GameObjectNeverRegistered</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca019641a0004483156a5a6e62985c9aa1">ErrorCode_DeadGameObject</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7caae79086ae3a77c48d44602de8a906e0c">ErrorCode_GameObjectIsNotEmitter</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca664968fb56bc038640363d479148093d">ErrorCode_ExternalSourceNotResolved</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7caefa032cf98ed70a4fb9386b6d9b1629e">ErrorCode_FileFormatMismatch</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cadcd5c016a7751becab71fe905bffcb16">ErrorCode_CommandQueueFull</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cacedefc39b3a745160b87dfb206859694">ErrorCode_CommandTooLarge</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca681d2ad97fa96e267f9d80093efe7f7c">ErrorCode_ModulatorScopeError_Inst</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7caca75edc9a8ecc668ffb969d3d01fa7df">ErrorCode_ModulatorScopeError_Obj</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca167f01510c2d01d5b112e1c6b28129bd">ErrorCode_SeekAfterEndOfPlaylist</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca6898a8a41dcf9b40ff227373e5b2d594">ErrorCode_OpusRequireSeekTable</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7caf3ec3eb3237e6ed219ea084e8aec57a7">ErrorCode_OpusDecodeError</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cace22f68b00a3fcf35ba1fe2396bbfc9e">ErrorCode_SourcePluginNotFound</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca023e46a15699491ccd47af35f4e7feea">ErrorCode_VirtualVoiceLimit</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7caf8e17d0fad9ca0b8a92bd642ea1a9246">ErrorCode_NotEnoughMemoryToStart</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca2ac1160205ed1ccd976c37aff86157df">ErrorCode_UnknownOpusError</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cad7fa98e668ba36de1436b67ebb4938ea">ErrorCode_AudioDeviceInitFailure</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cab8bcc9b6cb7c36fe3a8ef75ad7eff1ae">ErrorCode_AudioDeviceRemoveFailure</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca29c7f90a1a7931e5380cef90ff7b6e0f">ErrorCode_AudioDeviceNotFound</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca233cc52d89a95fdb0846d4105ace37fa">ErrorCode_AudioDeviceNotValid</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca2cdec99863a9e0955cd05d5ed0aa8db5">ErrorCode_SpatialAudio_ListenerAutomationNotSupported</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cae0917868b53d59823def625053cc4cfc">ErrorCode_MediaDuplicationLength</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca1c4b34d11e46fe2ff86e5b016ad03c75">ErrorCode_HwVoicesSystemInitFailed</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7caa89d75e23408d3fea262a9d43ea36e78">ErrorCode_HwVoicesDecodeBatchFailed</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca267580051a5e96b216dcbbc4955823ec">ErrorCode_HwVoiceLimitReached</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca983d5ce4d11aaeca46decabb2b636904">ErrorCode_HwVoiceInitFailed</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cabe3bb3b4c0d30c4ec6831dde98a3ce95">ErrorCode_OpusHWCommandFailed</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca10aa2ce3c3ecc65c4e259e647a0e343e">ErrorCode_AddOutputListenerIdWithZeroListeners</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca12d9b4deb3ea080c79db07ce36d83416">ErrorCode_3DObjectLimitExceeded</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cad95bf19de15788fc8c4c00035ee3547b">ErrorCode_OpusHWFatalError</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca9954a500f9ae29be58164f5914c6fe2b">ErrorCode_OpusHWDecodeUnavailable</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca00624a3180d63e7c75ed41d94ca1016f">ErrorCode_OpusHWTimeout</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca51fbbc46318562132369fba65bca3524">ErrorCode_SystemAudioObjectsUnavailable</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca54ff5a35eb13e1d6b9dad5b32c1b58b3">ErrorCode_AddOutputNoDistinctListener</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca23815a7834c1b7c41c5078be17096998">ErrorCode_PluginCannotRunOnObjectConfig</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca804a33fd1a983f4f9436a51e2d619047">ErrorCode_SpatialAudio_ReflectionBusError</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7caaf5ba5a3baf5616c7b0d8ca6c862ca66">ErrorCode_VorbisHWDecodeUnavailable</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca576b5c27d24be8eb5a911639218af6b3">ErrorCode_ExternalSourceNoMemorySize</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7caf25ad1b4286f3ec937dc1f0a62745bc1">ErrorCode_MonitorQueueFull</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca7ee8270d44081e8194c43099d99e9f85">ErrorCode_MonitorMsgTooLarge</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca6e5ee47ebe9051e0705b7933201d188c">ErrorCode_NonCompliantDeviceMemory</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cacdec2aa918dfdc46c9d98dade8475444">ErrorCode_JobWorkerFuncCallMismatch</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cac7f76472922b3c83e4d299c133c59097">ErrorCode_JobMgrOutOfMemory</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca199d805668705e25e652b69ef3b455b6">ErrorCode_InvalidFileSize</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cab955c08df26c01f2d7261e158ee82b50">ErrorCode_PluginMsg</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7caeac4589091391110b5c4d00c94da5add">ErrorCode_SinkOpenSL</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7caa4d008af423e0936651c417f1c207489">ErrorCode_AudioOutOfRange</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7caa447ba170dc2001ca578af4b3e9184e1">ErrorCode_AudioOutOfRangeOnBus</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7caf8f319c1dcb13492cb20d803803a08cf">ErrorCode_AudioOutOfRangeOnBusFx</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cab1bef1547501e94fb1984e723c446446">ErrorCode_AudioOutOfRangeRay</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cabb30f15719b9a53d23e2a6fd67622e6c">ErrorCode_UnknownDialogueEvent</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca65d5a0fc6b44eaf43480be9d8b9d1906">ErrorCode_FailedPostingEvent</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca993986e2450d8181cf19444da15ecc10">ErrorCode_OutputDeviceInitializationFailed</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cad725ca74b0cf44986681147d994f8546">ErrorCode_UnloadBankFailed</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cac4e6f7c649120e950872d0daae2bed3b">ErrorCode_PluginFileNotFound</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7caf78558505393c9f3c063d0dbbe4cf122">ErrorCode_PluginFileIncompatible</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7caf905c4ab26b8d8e54285ef3ffd668351">ErrorCode_PluginFileNotEnoughMemoryToStart</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca2ff1403116fea0a74e6e14cf19c9f89b">ErrorCode_PluginFileInvalid</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca03e02c4c680ea2416583bb46a6ead5cf">ErrorCode_PluginFileRegisterFailed</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cafc446d1d039c746a1c1889272ba8ba91">ErrorCode_UnknownArgument</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca4010614b3def9f4f4360972176d9ca81">ErrorCode_DynamicSequenceAlreadyClosed</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca20eb800f3502cc8e89a86ee32af089c1">ErrorCode_PendingActionDestroyed</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7caea4636da49c67b8768cc103c2cc64e96">ErrorCode_CrossFadeTransitionIgnored</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca9cf22933d4b64182d13e0186c678f775">ErrorCode_MusicRendererSeekingFailed</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca51b9126719f8cd6351472876c0ac2015">ErrorCode_DynamicSequenceIdNotFound</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7caf1a60244fc052435834dc611b59af8aa">ErrorCode_BusNotFoundByName</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cadb0143c45ab6ea97b50f9c552a97061b">ErrorCode_AudioDeviceShareSetNotFound</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca0d8ab9ea3ed745662d9646239157c10c">ErrorCode_AudioDeviceShareSetNotFoundByName</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca0e369420fe13afe38fd1925cf1e82736">ErrorCode_SoundEngineTooManyGameObjects</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca857707b1b8d3806d6974c1e7d881bda9">ErrorCode_SoundEngineTooManyPositions</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7caadac8c2a79bc8878098f70065cc0bb4c">ErrorCode_SoundEngineCantCallOnChildBus</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7caf6a85a449c96e8f2c10e373e10fff5cb">ErrorCode_SoundEnginePlayingIdNotFound</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca8b0b988561219d14bdb84f645e76e748">ErrorCode_SoundEngineInvalidTransform</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca89c00c045c100019bad279db1c704f55">ErrorCode_SoundEngineTooManyEventPosts</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cac09d7b40644c0af2200383df9dd59737">ErrorCode_AudioSubsystemStoppedResponding</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cae8e84db63d3457fbc9caf8602feff5fd">ErrorCode_NotEnoughMemInFunction</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca632499ab43c673d9a57fb5a7adbc77c1">ErrorCode_FXNotFound</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca16577c9810bd191fdc0fd63792659cd1">ErrorCode_AudioNodeNotFound</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca05abea17262a176fdd8c1a0c4de292ce">ErrorCode_SetBusConfigUnsupported</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca53ba5b06f88e44806c8ab64640b0323f">ErrorCode_BusNotFound</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca8099b28272a36486cdce2ca6b28f3181">ErrorCode_MismatchingMediaSize</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca8b40716bbce36d8721fd90a91cb7ffd8">ErrorCode_IncompatibleBankVersion</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cade74c9c1dd62995b5e723b4ca07ffbe6">ErrorCode_UnexpectedPrepareGameSyncsCall</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca2af1158489531a6b1de9b817b3db3397">ErrorCode_LoadingBankMismatch</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca9616c793be0b8fc1140d428d16ef3850">ErrorCode_ProxyObjectMismatch</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cabdd76bcf64fa2722ae4fbd24b0c310dc">ErrorCode_ProxyObjectMemory</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cadd8e21ea9273ebd6580622b3328cbb81">ErrorCode_MasterBusStructureNotLoaded</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca603accbea7f9da910fe4472ba951478f">ErrorCode_TooManyChildren</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7caa97f26b01927e42b7fca1aabae49f36d">ErrorCode_BankContainUneditableEffect</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca32b9d41d015f2eec91224205066ab20d">ErrorCode_MemoryAllocationFailed</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cade76bc68a308a4adf9674e1977bc1e27">ErrorCode_InvalidFloatPriority</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cae75c42b7384f269e95b5c68049a09373">ErrorCode_SoundLoadFailedInsufficientMemory</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca31befc2b60c09d5fe545a7f39b245c49">ErrorCode_NXDeviceRegistrationFailed</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7caca1e7d3a9fdf947df3145dc3176a06e2">ErrorCode_MixPluginOnObjectBus</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca49996a0362eb3a3b42b20a668e48b11e">ErrorCode_MissingMusicNodeParent</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca05ff819dc90a1629af35729c6824fa99">ErrorCode_HardwareOpusDecoderError</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca6948b41e42b95037b461dac2cecc0b3e">ErrorCode_SetGeometryTooManyTriangleConnected</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca536fed17982fa48d9e95d156c961fa7a">ErrorCode_SetGeometryTriangleTooLarge</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7caa04afc54f30195e69c1271bde207aba0">ErrorCode_SetGeometryFailed</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca66c3eff2bb629dc2aa016f30e39a9aa4">ErrorCode_RemovingGeometrySetFailed</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca52d7304912de871fa981796c0b8b9a70">ErrorCode_SetGeometryInstanceFailed</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca8a15e8bece787e1cac4eda236529f633">ErrorCode_RemovingGeometryInstanceFailed</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7caf0f8176679b7acf1f9d7005382f4e047">ErrorCode_RevertingToDefaultAudioDevice</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7caae1ee16e0d83705224276fbf7af8761b">ErrorCode_RevertingToDummyAudioDevice</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca81bebb6266e9d636416dd5fbecd6a335">ErrorCode_AudioThreadSuspended</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7caeb98f5fcaace81fc54bf532a2af6945f">ErrorCode_AudioThreadResumed</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca1c8395ed38e0e4b3c8981311555c587a">ErrorCode_ResetPlaylistActionIgnoredGlobalScope</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cab5af880d28313cf67a56dc2155b416e8">ErrorCode_ResetPlaylistActionIgnoredContinuous</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca373d9d8fe1513862b4db35462de013df">ErrorCode_PlayingTriggerRateNotSupported</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cadb422661555b719b279a778f8096918f">ErrorCode_SetGeometryTriangleIsSkipped</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca12918d45333d40293eb2a5bc31f6e4ac">ErrorCode_SetGeometryInstanceInvalidTransform</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca847e66679c9522ff66e6dda755708d15">ErrorCode_SetGameObjectRadiusSizeError</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca6ca274beff6b6362942d477980635269">ErrorCode_SetPortalNonDistinctRoom</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cad191c1bb875581389a26abb1dcbe1ef3">ErrorCode_SetPortalInvalidExtent</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca2e2a1adef1a991b301614fb268d4966a">ErrorCode_SpatialAudio_PortalNotFound</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7caa130a4ff7fa3b5d1b82ec7d000fbca39">ErrorCode_InvalidFloatInFunction</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca49cb0d13c2f7299608c1a33df0b540d1">ErrorCode_FLTMAXNotSupported</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7caf9e4ed30eb7f7d876db869834e7d3ee8">ErrorCode_CannotInitializeAmbisonicChannelConfiguration</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca426914be6d6c652d092897e295d40db9">ErrorCode_CannotInitializePassthrough</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca7a9296105ce3f8cbd0ebb9197bc879ef">ErrorCode_3DAudioUnsupportedSize</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca961885889cc84d2a244d490790e99a16">ErrorCode_AmbisonicNotAvailable</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7caba8142b8921e5e81d4de8eddb74762df">ErrorCode_NoAudioDevice</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca7de6d695b91709f85ece62c5d21334a6">ErrorCode_Support</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cac6d45525e0ff3e324a470d5c56df37f8">ErrorCode_ReplayMessage</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cab3804c9adb268485b9a97ec635e0f800">ErrorCode_GameMessage</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cabfe8c9f79209442872c4a4ef04e287f5">ErrorCode_TestMessage</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca0b7dead4b663d5c185db1604aa45a26c">ErrorCode_TranslatorStandardTagTest</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca28845aeb31eb4ab9e496d111296d3c63">ErrorCode_TranslatorWwiseTagTest</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca9a118d6e41746eb3ba95c8994829bfee">ErrorCode_TranslatorStringSizeTest</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca163e7626f505d58f0ae1e6230ff77ae5">ErrorCode_InvalidParameter</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca107067fa326815f1f7b235059fef0241">ErrorCode_MaxAudioObjExceeded</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cadff0a7f327bb4775a3ee39a1a5fd3426">ErrorCode_MMSNotEnabled</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cadae0ab76755636a8405e7a347edec877">ErrorCode_NotEnoughSystemObj</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca88cb41c9a8d6effb86003c0553a9789a">ErrorCode_NotEnoughSystemObjWin</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7caa4f31bfb5286728ee98731eb5889b3e7">ErrorCode_TransitionNotAccurateSourceTooShort</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca615ddc1d55cbc5557bedd0deecd2e61e">ErrorCode_AlreadyInitialized</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca86aea97e8149de2f349c43c755a825b3">ErrorCode_WrongNumberOfArguments</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca35fa52e1479440b83ac6fa2e722d3360">ErrorCode_DataAlignement</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cab84bfe3b7bbd6dde4a08266d8f79f635">ErrorCode_PluginMsgWithShareSet</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca6a0b1c5f2cd3288bad078911ce21d920">ErrorCode_SoundEngineNotInit</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca002ec7f5def2e76d677f6e3b8cf8ca51">ErrorCode_NoDefaultSwitch</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca49e80794987d8630ea47a7bf1b271c55">ErrorCode_CantSetBoundSwitch</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cabb3b60632ec28bda35eec30781e3b489">ErrorCode_IODeviceInitFailed</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca5a0fe41763d1b306f610578d765d6da2">ErrorCode_SwitchListEmpty</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca8539e2428d9d6950092c7915e733af0b">ErrorCode_NoSwitchSelected</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cafa4c9b36f9f26646dc8af6b5ae5f8716">ErrorCode_FilePermissionError</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cab1137f7978d58b2397f53634a2ce8550">ErrorCode_SetEffectOnRendered</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca4e95caa0a1ef72393553909b4ebaa6d1">ErrorCode_GeometryNotWatertight</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca5ae756df2bf4ecf2eba17b85fc5029ed">ErrorCode_CannotInitialize3DAudio</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca1f39eae12839f1f95c6c6b5058709a42">ErrorCode_CannotInitializeInputCallbacks</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cabc91c06906efb118989abd5c04a9807d">ErrorCode_CannotConnectAVAudioEngineSource</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7caf32e0db48a56902efcfc354205a0cb13">ErrorCode_ChannelConfigRequestDenied</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca486435dd8b53e1c97b3511a5884f6234">ErrorCode_MediaUpdatedFromWwise</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca6d8525f61e3023e0c90a115deb9d8d31">ErrorCode_MediaErrorFromWwise</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7caacbd41161d50419aa7708939f3671f60">ErrorCode_OutputAlreadyExists</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca295620826945dd0b7bd261163fed2b11">ErrorCode_UnknownStateGroup</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca16497c070323a2c8fe8de2f132b2568a">ErrorCode_MediaErrorWwiseMRUFull</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca4bfd7833455b610e2ec0f1524fddd6d0">ErrorCode_AudioOut2ContextCreateError</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca25ad7e7863ed87eb96a0bb966dd747d7">ErrorCode_AudioOut2UserCreateError</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca05ad90e23be6893bcf2ad97b9d12e0f2">ErrorCode_FeedbackOnAudioObjectsBus</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca1b8b2b0d55853b4209e9a32e2c4c47f7">ErrorCode_SpatialAudio_SiblingPortal</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca7593da86aaafb03c6a4f1d762e508522">ErrorCode_ActivityPlayback_Warning</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca26cc8decfe285762a8f9cd0ee67ac660">ErrorCode_CannotPlaySource_FileAccess</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca0fc2f47b4557927b6168a45334220785">ErrorCode_MediaDiscrepancy</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cab981de3e223e082b49dc7e85e26b4407">ErrorCode_WwiseIODisconnected</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca1f259dff25739d1046e8e263ef7dabcc">ErrorCode_WwiseIODisconnectedStr</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cac63e66ce935ac5ac5226c3e56ea8dca7">ErrorCode_IODevice</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7caa279106257d74d46ff09adc80eb96f30">ErrorCode_InvalidCommand</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca9a8ab9f08c1e23cc248097340d010413">ErrorCode_PlayingIDAlreadyExists</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca22cc5894f989bcce32943cadc6a04685">ErrorCode_IOStreamLeak</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7cac952eb18a8f95e2df55d24f0b01b3955">ErrorCode_SetSidechainMixConfigInvalid</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca43fd9969f46475bbd6add10358fc2e2d">ErrorCode_NodeNotCompatibleWithMidi</a>, 
+<a class="pcalibre el" href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_001.html#a0e821a3df59a73288d040def2778cd7ca80b91745c9568e018f7e31d52ed561a1">Num_ErrorCodes</a>
+<br class="calibre10"/>
+ }</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">ErrorCode.  <a href="namespace_a_k_1_1_monitor_a0e821a3df59a73288d040def2778cd7c_split_000.html#a0e821a3df59a73288d040def2778cd7c" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+</tbody></table></div></body></html>

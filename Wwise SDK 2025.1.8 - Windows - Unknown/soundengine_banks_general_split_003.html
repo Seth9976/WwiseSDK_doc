@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>General Information</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_2"><a class="pcalibre1 anchor" id="soundengine_banks_general_type_soundbanks"></a>
+SoundBanks</h2>
+<p class="calibre7">Each SoundBank may contain:</p><ul class="calibre8">
+<li class="calibre9">Event definitions</li>
+<li class="calibre9">Sound structure information (sound, container, music object, and so on)</li>
+<li class="calibre9">Media:<ul class="calibre15">
+<li class="calibre9">Sound data (for in-memory sounds)</li>
+<li class="calibre9">Prefetched sound data (for zero-latency streamed sounds)</li>
+<li class="calibre9">References to streamed audio files (file ID)</li>
+</ul>
+</li>
+</ul>
+<p class="calibre7">After the Initialization bank has been loaded, SoundBanks can be loaded and unloaded anytime during the game. It is your responsibility to ensure that the bank containing an event is loaded before the event is triggered. If an event is posted before its corresponding bank is loaded, the event will not execute.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="caution.gif"/></td><td class="calibre17"><b class="calibre13">Caution:</b> SoundBanks require information that is stored in the initialization bank. Therefore, your game must use an initialization bank and SoundBanks that are generated from the same Wwise project. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Source Control Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_17"><a class="pcalibre1 anchor" id="source_control_dll_creation_object_creation"></a>
+Allowing for the Creation and Modification of Files in Wwise</h2>
+<p class="calibre7">File creation and modification happens when a Wwise user does the following:</p><ul class="calibre8">
+<li class="calibre9">Creates a new work unit</li>
+<li class="calibre9">Imports audio sources</li>
+<li class="calibre9">Saves the project</li>
+<li class="calibre9">Edits the audio source in an external editor.</li>
+</ul>
+<p class="calibre7">When any of these situations arises, Wwise calls the <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_aba7d81dda40d38b6c8bb81d190b846f7_split_000.html#aba7d81dda40d38b6c8bb81d190b846f7">AK::Wwise::ISourceControl::PreCreateOrModify( const StringList&amp; in_rFilenameList, CreateOrModifyOperation in_eOperation, bool&amp; out_rContinue )</a> and <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_a9fb467f0d5dbcb386290f53a81bb8dc5_split_000.html#a9fb467f0d5dbcb386290f53a81bb8dc5">AK::Wwise::ISourceControl::PostCreateOrModify( const StringList&amp; in_rFilenameList, CreateOrModifyOperation in_eOperation, bool&amp; out_rContinue )</a> methods. The first parameter is the list of names of the files that are to be created or modified. The second parameter is a flag defining the operation that will be performed. Since you can perform either operation on any of the files listed, you must use the bitwise AND operator to compare the second parameter with a predefined flag. For example, to know if some files were created, do the following:</p>
+<div class="fragment"><div class="line"><span class="keywordflow">if</span> ( in_eOperation &amp; CreateOrModifyOperation_Create )</div>
+<div class="line">{</div>
+<div class="line">    <span class="comment">// Do operations</span></div>
+<div class="line">}</div>
+</div><!-- fragment --><p class="calibre7">The third parameter of the <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_aba7d81dda40d38b6c8bb81d190b846f7_split_000.html#aba7d81dda40d38b6c8bb81d190b846f7">AK::Wwise::ISourceControl::PreCreateOrModify()</a> and <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_a9fb467f0d5dbcb386290f53a81bb8dc5_split_000.html#a9fb467f0d5dbcb386290f53a81bb8dc5">AK::Wwise::ISourceControl::PostCreateOrModify()</a> functions is set by the plug-in to inform Wwise to continue or stop the current operation. This parameter is mostly used by calls to the <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_aba7d81dda40d38b6c8bb81d190b846f7_split_000.html#aba7d81dda40d38b6c8bb81d190b846f7">AK::Wwise::ISourceControl::PreCreateOrModify()</a> method.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="tip.gif"/></td><td class="calibre17"><b class="calibre13">Tip:</b> We recommend that these two methods be used to perform operations that are specific to your source control system. For example, you could use the <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_aba7d81dda40d38b6c8bb81d190b846f7_split_000.html#aba7d81dda40d38b6c8bb81d190b846f7">AK::Wwise::ISourceControl::PreCreateOrModify()</a> method to perform Perforce's <em class="calibre11">checkout</em> operation, or the <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_a9fb467f0d5dbcb386290f53a81bb8dc5_split_000.html#a9fb467f0d5dbcb386290f53a81bb8dc5">AK::Wwise::ISourceControl::PostCreateOrModify()</a> method to add files which are not on the server yet. The first method is always called before file creation or modification, and the second one is always called after such an operation. This feature can be used to implement a layer of security in your plug-in. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

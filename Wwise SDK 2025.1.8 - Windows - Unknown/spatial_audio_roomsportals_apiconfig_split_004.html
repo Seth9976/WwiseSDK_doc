@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Rooms and Portals API Configuration</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="spatial_audio_roomsportals_apiconfigsetmultiplepositions"></a>
+Sound Emitters with Multiple Positions</h1>
+<p class="calibre7">When using <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_aec6be4dca0249557ea2680b755bd218a_split_000.html#aec6be4dca0249557ea2680b755bd218a">AK::SoundEngine::SetMultiplePositions</a></code>, Wwise Acoustics performs various calculations including reflections, diffraction and transmission for each sound position passed to the API.</p>
+<p class="calibre7">There are a few important points to note when using <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_aec6be4dca0249557ea2680b755bd218a_split_000.html#aec6be4dca0249557ea2680b755bd218a">AK::SoundEngine::SetMultiplePositions</a></code> on Game Objects that use Room sends, because a given Game Object can only be assigned to a single Room at a given time (using <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_a3f080206f12c04b3464838cb18c43f4e_split_000.html#a3f080206f12c04b3464838cb18c43f4e">AK::SpatialAudio::SetGameObjectInRoom</a></code>). This limitation arises from the constraint that all sound positions must have the same Auxiliary send configuration inside the Sound Engine.</p>
+<p class="calibre7">All sound paths that are calculated from an emitter's position are done so with respect to the (single) requested Room. For this reason, in the case that a sound position is outside the (game-defined) boundary of the Room set via <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_a3f080206f12c04b3464838cb18c43f4e_split_000.html#a3f080206f12c04b3464838cb18c43f4e">AK::SpatialAudio::SetGameObjectInRoom</a></code>, the resulting sound path will most likely be erroneous.</p>
+<p class="calibre7">In addition, if the Game Object is transitioning through a Portal, Wwise Acoustics takes the average of all sound positions passed to <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_aec6be4dca0249557ea2680b755bd218a_split_000.html#aec6be4dca0249557ea2680b755bd218a">AK::SoundEngine::SetMultiplePositions</a></code> and uses it to calculate a cross-fade between the two Rooms.</p>
+<p class="calibre7">For this reason, it is recommended that the game also use the average sound position to derive Room containment and pass the resulting Room ID to <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_a3f080206f12c04b3464838cb18c43f4e_split_000.html#a3f080206f12c04b3464838cb18c43f4e">AK::SpatialAudio::SetGameObjectInRoom</a></code>.</p>
+</div></div></div></body></html>

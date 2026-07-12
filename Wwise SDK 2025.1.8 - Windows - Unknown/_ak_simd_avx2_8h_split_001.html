@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK/SoundEngine/Platforms/SSE/AkSimdAvx2.h File Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table class="calibre3">
+<tbody class="calibre4"><tr class="calibre16"><td colspan="2" class="calibre17"><h2 class="calibre21" id="calibre_pb_0"><a class="pcalibre1 anchor" id="define-members"></a>
+Macros</h2></td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_simd_avx2_8h_a5fd8e7b5f053c0d45434bbb4c18a2f09_split_000.html#a5fd8e7b5f053c0d45434bbb4c18a2f09">_GATHER_SIM_FETCH</a>(_x)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_simd_avx2_8h_a5fd8e7b5f053c0d45434bbb4c18a2f09_split_000.html#a5fd8e7b5f053c0d45434bbb4c18a2f09">_GATHER_SIM_FETCH</a>(_x)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td colspan="2" class="calibre17"><div class="groupheader">AKSIMD shuffling</div></td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_simd_avx2_8h_a83376bb93ba210cb81a89d17af08157e_split_000.html#a83376bb93ba210cb81a89d17af08157e">AKSIMD_SHUFFLEB_V8I32</a>(a,  b)   _mm256_shuffle_epi8(a, b)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_simd_avx2_8h_a7d760eb72afba63c469996adfb6ba763_split_000.html#a7d760eb72afba63c469996adfb6ba763">AKSIMD_BLEND_V16I16</a>(a,  b,  i)   _mm256_blend_epi16(a, b, i)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_simd_avx2_8h_ad063b3d4a7887244f9ce3c1699043543_split_000.html#ad063b3d4a7887244f9ce3c1699043543">AKSIMD_INSERT_V2I128</a>(a,  m128,  idx)   _mm256_inserti128_si256(a, m128, idx)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_simd_avx2_8h_aac56c1759af66622643bf3b0f870c663_split_000.html#aac56c1759af66622643bf3b0f870c663">AKSIMD_PERMUTE_2X128_V8I32</a>(a,  b,  i)   _mm256_permute2x128_si256(a, b, i)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_simd_avx2_8h_a473c8fee1b50a405707d17a49cabe40b_split_000.html#a473c8fee1b50a405707d17a49cabe40b">AKSIMD_DEINTERLEAVELANES_LO_V8I32</a>(a,  b)   <a class="pcalibre el" href="_ak_simd_avx2_8h_aac56c1759af66622643bf3b0f870c663_split_000.html#aac56c1759af66622643bf3b0f870c663">AKSIMD_PERMUTE_2X128_V8I32</a>(a, b, AKSIMD_PERMUTE128(2, 0))</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Selects the lower of each of the 128b lanes in a and b to be the result ( B A ), ( D C ) -&gt; ( C A )  <a href="_ak_simd_avx2_8h_a473c8fee1b50a405707d17a49cabe40b_split_000.html#a473c8fee1b50a405707d17a49cabe40b" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_simd_avx2_8h_ade6587a0488db010074b2b67e7bdd9b1_split_000.html#ade6587a0488db010074b2b67e7bdd9b1">AKSIMD_DEINTERLEAVELANES_HI_V8I32</a>(a,  b)   <a class="pcalibre el" href="_ak_simd_avx2_8h_aac56c1759af66622643bf3b0f870c663_split_000.html#aac56c1759af66622643bf3b0f870c663">AKSIMD_PERMUTE_2X128_V8I32</a>(a, b, AKSIMD_PERMUTE128(3, 1))</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Selects the higher of each of the 128b lanes in a and b to be the result ( B A ), ( D C) -&gt; ( D B )  <a href="_ak_simd_avx2_8h_ade6587a0488db010074b2b67e7bdd9b1_split_000.html#ade6587a0488db010074b2b67e7bdd9b1" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_simd_avx2_8h_a3aebf9527f76618da9dbe397b8602c22_split_000.html#a3aebf9527f76618da9dbe397b8602c22">AKSIMD_PERMUTE_4X64_V8F32</a>(a,  i)   _mm256_castpd_ps(_mm256_permute4x64_pd(_mm256_castps_pd(a), i))</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td colspan="2" class="calibre17"><div class="groupheader">AKSIMD conversion</div></td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_simd_avx2_8h_abb80b762d3d967b8312fa2d320ad66e7_split_000.html#abb80b762d3d967b8312fa2d320ad66e7">AKSIMD_CONVERT_V8I16_TO_V8I32</a>(__vec__)   _mm256_cvtepi16_epi32( (__vec__) )</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Converts the eight signed 16b integer values of a to signed 32-bit integer values.  <a href="_ak_simd_avx2_8h_abb80b762d3d967b8312fa2d320ad66e7_split_000.html#abb80b762d3d967b8312fa2d320ad66e7" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td colspan="2" class="calibre17"><div class="groupheader">AKSIMD integer arithmetic</div></td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_simd_avx2_8h_a92240b2618adb0466919fd098a94a767_split_000.html#a92240b2618adb0466919fd098a94a767">AKSIMD_ADD_V8I32</a>(a,  b)   _mm256_add_epi32( a, b )</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Adds the eight integer values of a and b.  <a href="_ak_simd_avx2_8h_a92240b2618adb0466919fd098a94a767_split_000.html#a92240b2618adb0466919fd098a94a767" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_simd_avx2_8h_a0bf3e61f0742d56afb9a0f4f4e9df3ee_split_000.html#a0bf3e61f0742d56afb9a0f4f4e9df3ee">AKSIMD_CMPLT_V8I32</a>(a,  b)   _mm256_castsi256_ps(_mm256_cmpgt_epi32( b, a ))</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_simd_avx2_8h_aad1c74aea36a9e45980a4ecae7561870_split_000.html#aad1c74aea36a9e45980a4ecae7561870">AKSIMD_CMPGT_V8I32</a>(a,  b)   _mm256_castsi256_ps(_mm256_cmpgt_epi32( a, b ))</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_simd_avx2_8h_a8bc08d6f85af6a1afad74b45e67a71af_split_000.html#a8bc08d6f85af6a1afad74b45e67a71af">AKSIMD_OR_V8I32</a>(a,  b)   _mm256_or_si256(a,b)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_simd_avx2_8h_a4fe2d9ea21ec3dcc84061ba6a01bee8d_split_000.html#a4fe2d9ea21ec3dcc84061ba6a01bee8d">AKSIMD_XOR_V8I32</a>(a,  b)   _mm256_xor_si256(a,b)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_simd_avx2_8h_a6c65d479f3743e94d47c430c7db18fea_split_000.html#a6c65d479f3743e94d47c430c7db18fea">AKSIMD_SUB_V8I32</a>(a,  b)   _mm256_sub_epi32(a,b)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_simd_avx2_8h_a3c94736571c9bd8a1e2075b34253fd7f_split_000.html#a3c94736571c9bd8a1e2075b34253fd7f">AKSIMD_AND_V8I32</a>(__a__,  __b__)   _mm256_and_si256( (__a__), (__b__) )</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_simd_avx2_8h_ab44986077237ba7b31fa8725bb1c3ec6_split_000.html#ab44986077237ba7b31fa8725bb1c3ec6">AKSIMD_MULLO_V8I32</a>(a,  b)   _mm256_mullo_epi32(a, b)</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Multiplies each 32-bit int value of a by b and returns the lower 32b of the result (no overflow or clamp)  <a href="_ak_simd_avx2_8h_ab44986077237ba7b31fa8725bb1c3ec6_split_000.html#ab44986077237ba7b31fa8725bb1c3ec6" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_simd_avx2_8h_a97b33598411d17e1f90d369a689c7fef_split_000.html#a97b33598411d17e1f90d369a689c7fef">AKSIMD_MULLO16_V8I32</a>(a,  b)   _mm256_mullo_epi16(a, b)</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Multiplies the low 16bits of a by b and stores it in V8I32 (no overflow)  <a href="_ak_simd_avx2_8h_a97b33598411d17e1f90d369a689c7fef_split_000.html#a97b33598411d17e1f90d369a689c7fef" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_simd_avx2_8h_a62a3a0ecab60ac31d5560dd84e92d2ea_split_000.html#a62a3a0ecab60ac31d5560dd84e92d2ea">AKSIMD_SUB_V16I16</a>(a,  b)   _mm256_sub_epi16( a, b )</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Subtracts each 16b integer of a by b.  <a href="_ak_simd_avx2_8h_a62a3a0ecab60ac31d5560dd84e92d2ea_split_000.html#a62a3a0ecab60ac31d5560dd84e92d2ea" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_simd_avx2_8h_aa7b54e2d91e04a5bfa01175ea2c74b7b_split_000.html#aa7b54e2d91e04a5bfa01175ea2c74b7b">AKSIMD_CMPGT_V16I16</a>(__a__,  __b__)   _mm256_cmpgt_epi16( (__a__), (__b__) )</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td colspan="2" class="calibre17"><div class="groupheader">AKSIMD packing / unpacking</div></td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_simd_avx2_8h_a671fcffa08ee9bb5e6777bc3450a7925_split_000.html#a671fcffa08ee9bb5e6777bc3450a7925">AKSIMD_UNPACKLO_VECTOR16I16</a>(a,  b)   _mm256_unpacklo_epi16( a, b )</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_simd_avx2_8h_ae8c0dbb254b9fae1544e3eed5d2efef6_split_000.html#ae8c0dbb254b9fae1544e3eed5d2efef6">AKSIMD_UNPACKHI_VECTOR16I16</a>(a,  b)   _mm256_unpackhi_epi16( a, b )</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_simd_avx2_8h_ab18e6aa052715512a1250a5a95e844c7_split_000.html#ab18e6aa052715512a1250a5a95e844c7">AKSIMD_PACKS_V8I32</a>(a,  b)   _mm256_packs_epi32( a, b )</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td colspan="2" class="calibre17"><div class="groupheader">AKSIMD shifting</div></td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_simd_avx2_8h_aadb70b4f334aacfc72033e728670a250_split_000.html#aadb70b4f334aacfc72033e728670a250">AKSIMD_SHIFTLEFT_V8I32</a>(__vec__,  __shiftBy__)   	_mm256_slli_epi32( (__vec__), (__shiftBy__) )</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_simd_avx2_8h_a30ab216268ccf8afafee6870e7a53b1a_split_000.html#a30ab216268ccf8afafee6870e7a53b1a">AKSIMD_SHIFTLEFT16_V8I32</a>(__vec__)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_simd_avx2_8h_a94c86c6408230d88e37589f754422d37_split_000.html#a94c86c6408230d88e37589f754422d37">AKSIMD_SHIFTRIGHT_V8I32</a>(__vec__,  __shiftBy__)   	_mm256_srli_epi32( (__vec__), (__shiftBy__) )</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_simd_avx2_8h_a34c7e70fbf238437569890b284932366_split_000.html#a34c7e70fbf238437569890b284932366">AKSIMD_SHIFTRIGHTARITH_V8I32</a>(__vec__,  __shiftBy__)   	_mm256_srai_epi32( (__vec__), (__shiftBy__) )</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+</tbody></table></div></body></html>

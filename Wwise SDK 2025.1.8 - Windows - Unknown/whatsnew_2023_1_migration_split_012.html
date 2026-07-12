@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2023.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_11"><a class="pcalibre1 anchor" id="router_mixer_plugin_migration"></a>
+AK Channel Router Plug-in Migration</h2>
+<p class="calibre7">The AK Channel Router plug-in has been transformed from a Mixer plug-in to an Effect plug-in, which is inserted in the Effects tab of the Property Editor. The Effect can only be inserted on a bus that has its <b class="calibre13">Bus Configuration</b> set to <b class="calibre13">Audio Objects</b>.</p>
+<p class="calibre7">The Audio Objects bus configuration has two notable properties:</p><ul class="calibre8">
+<li class="calibre9">Some Effects that were already present on the bus might be incompatible with this bus configuration. Refer to <a href="https://www.audiokinetic.com/library/edge/?source=Help&amp;id=using_effects_with_audio_objects" target="_blank" class="pcalibre calibre12">Using Effects with Audio Objects</a> for more information.</li>
+<li class="calibre9">This type of bus configuration cannot be applied to top-level busses.</li>
+</ul>
+<p class="calibre7">The migration removes all instances of the Ak Channel Router Mixer plug-in but doesn't automatically replace them with an AK Channel Router Effect plug-in. You must manually add the AK Channel Router Effect to the appropriate busses. A new type of metadata, Channel Router Settings, replaces the existing AttachableMixerInput of the Ak Channel Router Mixer plug-in. The migration removes all instances of AttachableMixerInput and replaces them with the new metadata.</p>
+</div></div></div></body></html>

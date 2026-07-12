@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2017.2.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="feature_changes_2017_2_1"></a>
+New Features</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-27339</b> Added support for SSL with Perforce plug-in.</li>
+<li class="calibre9"><b class="calibre13">WG-36178</b> Spatial Audio - diffraction modeling: An additional distance multiplier is now applied to diffracted sounds. This multiplier has been added to simulate the phenomenon whereby diffracted sound waves decay faster than incident sound waves. Two new parameters have been added to the <code class="calibre14"><a class="pcalibre el" href="struct_ak_spatial_audio_init_settings_split_000.html" title="Initialization settings of the spatial audio module.">AkSpatialAudioInitSettings</a></code> to customize this behavior: <code class="calibre14">fDiffractionShadowAttenFactor</code> and <code class="calibre14">fDiffractionShadowDegrees</code>. See the for <code class="calibre14"><a class="pcalibre el" href="struct_ak_spatial_audio_init_settings_split_000.html" title="Initialization settings of the spatial audio module.">AkSpatialAudioInitSettings</a></code> API documentation for more details. If, for any reason, existing sound design is negatively affected by this change, it can be disabled by setting <code class="calibre14">fDiffractionShadowAttenFactor</code> to 1.0.</li>
+<li class="calibre9"><b class="calibre13">WG-36289</b> Spatial Audio: It is now supported to use room game objects, which are registered internally by spatial audio, as the emitter for room ambiances. Two parameter have been added to <code class="calibre14"><a class="pcalibre el" href="struct_ak_room_params_split_000.html" title="Parameters passed to SetRoom.">AkRoomParams</a></code> to facilitate this: <code class="calibre14">RoomGameObj_KeepRegistered</code> and <code class="calibre14">RoomGameObj_AuxSendLevelToSelf</code>. This is very useful for positioning sounds that are multi-channel ambiance 'beds' because spatial audio does all the positioning for you. Posting an Event on the room game object leverages automatic room game object placement so that when the listener is inside the room the sound comes from all around the listener, and when the listener is outside the room the sound comes from the portal(s). See the API documentation for <code class="calibre14"><a class="pcalibre el" href="struct_ak_room_params_split_000.html" title="Parameters passed to SetRoom.">AkRoomParams</a></code> for more information on the new fields.</li>
+</ul>
+</div></div></div></body></html>

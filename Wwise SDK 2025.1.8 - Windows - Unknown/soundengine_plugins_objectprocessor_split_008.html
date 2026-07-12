@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Sound Engine Object Processor Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_7"><a class="pcalibre1 anchor" id="soundengine_plugins_objectprocessor_outofplace_tails"></a>
+Handling Tails and Object Lifetime in Out-of-Place Object Processors</h2>
+<p class="calibre7">The sound engine resets all input and output Audio Objects' <a class="pcalibre el" href="class_ak_audio_buffer_a069d15381980ac4851216e084cf6a0cc_split_000.html#a069d15381980ac4851216e084cf6a0cc" title="Execution status.">AkAudioBuffer::eState</a> to AK_NoMoreData at the beginning of every frame. Any Audio Object whose <a class="pcalibre el" href="class_ak_audio_buffer_a069d15381980ac4851216e084cf6a0cc_split_000.html#a069d15381980ac4851216e084cf6a0cc" title="Execution status.">AkAudioBuffer::eState</a> remains set to AK_NoMoreData after processing is destroyed. Object Processors are not destroyed until all input and output objects have been destroyed. Thus, in order for an out-of-place Object Processor to continue producing audio when it no longer has any input Audio Objects, it simply needs to keep one or multiple output Audio Objects alive by setting their state to AK_DataReady.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="caution.gif"/></td><td class="calibre17"><b class="calibre13">Caution:</b> Use caution if you keep track of objects within your Object Processor. Make sure not to refer to an object after it has been destroyed by the sound engine. </td></tr>
+</tbody></table>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> Input objects will be kept alive if you set their <a class="pcalibre el" href="class_ak_audio_buffer_a069d15381980ac4851216e084cf6a0cc_split_000.html#a069d15381980ac4851216e084cf6a0cc" title="Execution status.">AkAudioBuffer::eState</a> to AK_DataReady, but this should be avoided since it is not necessary to produce tails. </td></tr>
+</tbody></table>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> An out-of-place Object Processor that outputs zero Audio Object outputs silence. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

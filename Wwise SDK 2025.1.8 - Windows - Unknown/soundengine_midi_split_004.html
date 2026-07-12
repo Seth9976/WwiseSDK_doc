@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integration Details - MIDI</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="soundengine_midi_event_playing_id"></a>
+MIDI Event Sequences - Playing ID</h1>
+<p class="calibre7">A call to PostMIDIOnEvent combines all posted MIDI events into a MIDI sequence. As mentioned previously, a MIDI sequence is identified by:</p><ul class="calibre8">
+<li class="calibre9">a Playing ID,</li>
+<li class="calibre9">a Game Object ID,</li>
+<li class="calibre9">an Event ID. A sequence's Playing ID is created by a call to PostMIDIOnEvent with in_playingID set to AK_INVALID_PLAYING_ID. The Playing ID is used in subsequent calls to PostMIDIOnEvent to add MIDI events to the sequence. The sequence is as follows:</li>
+<li class="calibre9">A first call to PostMIDIOnEvent creates the MIDI sequence. The function argument in_playingID is set to AK_INVALID_PLAYING_ID. The function returns the Playing ID PID.</li>
+<li class="calibre9">A subsequent call to PostMIDIOnEvent is made to add events to the sequence. The function argument in_playingID is set to PID.</li>
+</ul>
+<p class="calibre7">The Playing ID returned by PostMIDIOnEvent determines if the events were posted to the intended sequence. If the returned Playing ID:</p><ul class="calibre8">
+<li class="calibre9">matches in_playingID, then the events were added to the intended sequence.</li>
+<li class="calibre9">does not match in_playingID, then the events were added to a newly created sequence.</li>
+<li class="calibre9">is AK_INVALID_PLAYING_ID, then an error occurred, and the events were not added to any sequence.</li>
+</ul>
+<p class="calibre7">A new sequence, different from the one specified, may be created if:</p><ul class="calibre8">
+<li class="calibre9">the sequence (Playing ID) did not exist,</li>
+<li class="calibre9">the sequence was created using a different Game Object or Event,</li>
+<li class="calibre9">the sequence no longer exists because all MIDI events have been executed and all playing sounds have ended.</li>
+</ul>
+</div></div></div></body></html>

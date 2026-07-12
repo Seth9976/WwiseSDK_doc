@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Using Reverb Zones</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="spatial_audio_roomsportals_reverbzones_soundpropagation"></a>
+Sound Propagation Through Reverb Zones</h1>
+<p class="calibre7">There are different ways to manage sound propagation: you can add an extra send with <a href="https://www.audiokinetic.com/library/edge/?source=SDK&amp;id=namespace_a_k_1_1_sound_engine_af960fca0239e219b9d08c2659fe9e5d4.html" target="_blank" class="pcalibre calibre12">AK::SoundEngine::SetGameObjectAuxSendValues</a> or you can use Reverb Zones. However, Reverb Zones have an advantage: they integrate with and take full advantage of the sound propagation framework provided by the Rooms and Portals API in Wwise Acoustics.</p><ul class="calibre8">
+<li class="calibre9">Reverb Zones are Rooms, and are therefore rendered with a unique Game Object, and are spatialized in 3D.</li>
+<li class="calibre9">Reverb Zones chain with other Rooms, including other Reverb Zones. A sound can propagate from one Room/Reverb Zone to another if the two Room are connected, either by a portal or if one Reverb Zone is the parent Room of the other.</li>
+</ul>
+<p class="calibre7">The following example demonstrates Reverb Zone usage. It is included in the Integration Demo project, which is distributed as part of the Wwise SDK.</p>
+<div class="calibre2">
+<img alt="" src="reverbzones_soundpropagation_go3dv.png" class="inline"/>
+</div>
+<table border="1" cellpadding="1" cellspacing="0" width="800px" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre17"><div class="calibre2">
+<img alt="" src="callout1.png" class="inline"/>
+</div>
+ </td><td class="calibre17">The emitter plays inside a Room called "Room Object"  </td></tr>
+<tr class="calibre16">
+<td class="calibre17"><div class="calibre2">
+<img alt="" src="callout2.png" class="inline"/>
+</div>
+ </td><td class="calibre17">The sound propagates ou of a Portal, which is connected to a Reverb Zone called "Patio Object".  </td></tr>
+<tr class="calibre16">
+<td class="calibre17"><div class="calibre2">
+<img alt="" src="callout3.png" class="inline"/>
+</div>
+ </td><td class="calibre17">The sound continues to propagate outside to the Reverb Zone's parent Room. When outside, the sound also diffracts around an obstacle defined by geometry.  </td></tr>
+</tbody></table>
+<p class="calibre7">You can see how the five Game Objects are chained together in the Voice Graph in either the Advanced Profiler or the Voice Inspector.</p>
+<div class="calibre2">
+<img alt="" src="reverbzones_soundpropagation_vg.png" class="inline"/>
+</div>
+<table border="1" cellpadding="1" cellspacing="0" width="800px" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre17"><div class="calibre2">
+<img alt="" src="callout1.png" class="inline"/>
+</div>
+ </td><td class="calibre17">The emitter "Emitter E" sends to both the Room it is currently inside, and any adjacent Rooms. In this case, the emitter is inside "Room Object" and adjacent to "Patio Object".  <br class="calibre10"/>
+ </td></tr>
+<tr class="calibre16">
+<td class="calibre17"><div class="calibre2">
+<img alt="" src="callout2.png" class="inline"/>
+</div>
+ </td><td class="calibre17">Each Room sends to the next Room, following the shortest path towards the listener. "Room Object" sends to "Patio Object", which in turn sends to "Outside Object". The link between "Patio Object" and "Outside Object" is established by the parent-child relationship between the two Rooms.  </td></tr>
+</tbody></table>
+</div></div></div></body></html>

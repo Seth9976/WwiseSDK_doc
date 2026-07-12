@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>New Features Overview 2023.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_19"><a class="pcalibre1 anchor" id="features_23_1_experimental"></a>
+Experimental</h1>
+<h2 class="calibre31"><a class="pcalibre1 anchor" id="features_23_1_lmt"></a>
+Live Media Transfer</h2>
+<p class="calibre7">This in-development feature aims to decrease iteration time when connected to a game by allowing you to add or modify sound media and hear the results without regenerating SoundBanks. This can be done for audio sources, impulse response files used by the AK Convolution plug-in, and MIDI. You can create new Sound SFX and Music Segments using the usual workflows, such as the Audio File Importer dialog or drag and drop of WAV files into the Project Explorer.</p>
+<p class="calibre7">Live Media Transfer is experimental and not enabled by default. You can enable it in the User Preferences and also limit the amount of memory used by the feature with the <b class="calibre13">Max memory for Media updates</b> setting.</p>
+<div class="calibre2">
+<img alt="" src="lmt_options_light.png" class="inline"/>
+</div>
+<p class="calibre7"> <br class="calibre10"/>
+ </p><div class="calibre2">
+<img alt="" src="lmt_logs_light.png" class="inline"/>
+</div>
+<p class="calibre7">New and modified media does not replace files on disk or in the game's packages; it resides in memory until the game is terminated. Only the media that has been added or modified in the Wwise project and is currently in use by the game is transferred.</p>
+<p class="calibre7">You can track the amount of memory used by Live Media Transfer in the Loaded Media tab of the Advanced Profiler. In the SoundBank Name column, media transferred in relation to this feature is labeled “From Authoring”.</p>
+<p class="calibre7">The amount of memory used by Live Media Transfer is also included in the <b class="calibre13">Used</b> value in the Memory tab of the Advanced Profiler and in the <b class="calibre13">Total Used Memory</b> in the Performance Monitor. Keep in mind that this contribution is temporary and the amount of memory used by the packaged game will be lower.</p>
+<p class="calibre7">Known issues:</p><ul class="calibre8">
+<li class="calibre9">When you add or modify media, you might notice a slight delay the first time the media is played.</li>
+<li class="calibre9">New media is played on the next playback of the sound; it does not immediately replace currently playing sounds.</li>
+<li class="calibre9">Looping sounds don't update until they are stopped and restarted.</li>
+</ul>
+<p class="calibre7">Please report any other issues encountered while using this experimental feature to help us stabilize it for a future release. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

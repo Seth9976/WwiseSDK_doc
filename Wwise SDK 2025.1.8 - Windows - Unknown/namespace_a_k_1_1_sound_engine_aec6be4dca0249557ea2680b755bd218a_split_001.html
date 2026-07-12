@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::SoundEngine::SetMultiplePositions</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="namespace_a_k_1_1_sound_engine_aec6be4dca0249557ea2680b755bd218a_split_000.html#aec6be4dca0249557ea2680b755bd218a" class="pcalibre1 anchor">◆ </a></span>SetMultiplePositions() <span class="permalink">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_sound_engine_export_8h_ac6e96d34dfc0e12f9aaa7a47f4e9c322_split_000.html#ac6e96d34dfc0e12f9aaa7a47f4e9c322">AKSOUNDENGINE_API</a> <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::SoundEngine::SetMultiplePositions </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> </td>
+          <td class="paramname"><em class="calibre59">in_GameObjectID</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">const AkSoundPosition * </td>
+          <td class="paramname"><em class="calibre59">in_pPositions</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_a7100a9b0a3b01df7639c1dc512678219_split_000.html#a7100a9b0a3b01df7639c1dc512678219">AkUInt16</a> </td>
+          <td class="paramname"><em class="calibre59">in_NumPositions</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_enums_8h_a751ba836dfd5edf52ceaab00cf74b6c1_split_000.html#a751ba836dfd5edf52ceaab00cf74b6c1">AkMultiPositionType</a> </td>
+          <td class="paramname"><em class="calibre59">in_eMultiPositionType</em> = <code class="calibre14"><a class="pcalibre el" href="_ak_enums_8h_a751ba836dfd5edf52ceaab00cf74b6c1_split_001.html#a751ba836dfd5edf52ceaab00cf74b6c1a072046d039ae51e407db9b962381d357">AkMultiPositionType_MultiDirections</a></code>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_enums_8h_aaafe24aa1ed71ba1433087d2f7018087_split_000.html#aaafe24aa1ed71ba1433087d2f7018087">AkSetPositionFlags</a> </td>
+          <td class="paramname"><em class="calibre59">in_eFlags</em> = <code class="calibre14"><a class="pcalibre el" href="_ak_enums_8h_aaafe24aa1ed71ba1433087d2f7018087_split_001.html#aaafe24aa1ed71ba1433087d2f7018087aed6c4f2592144515b976c0878da1a771">AkSetPositionFlags_Default</a></code> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Sets multiple positions to a single game object. Setting multiple positions on a single game object is a way to simulate multiple emission sources while using the resources of only one voice. This can be used to simulate wall openings, area sounds, or multiple objects emitting the same sound in the same area. </p><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b><ul class="calibre8">
+<li class="calibre9">Calling <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_aec6be4dca0249557ea2680b755bd218a_split_000.html#aec6be4dca0249557ea2680b755bd218a">AK::SoundEngine::SetMultiplePositions()</a></code> with only one position is the same as calling <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a789e25bda32d1e11849afb6584942455_split_000.html#a789e25bda32d1e11849afb6584942455">AK::SoundEngine::SetPosition()</a></code></li>
+<li class="calibre9">If a sound has diffraction enabled, it is treated as <code class="calibre14">AkMultiPositionType_MultiDirections</code>. <code class="calibre14">AkMultiPositionType_MultiSources</code> is not supported in this case. </li>
+</ul>
+</td></tr>
+</tbody></table>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><code class="calibre14">AK_Success</code> when successful</li>
+<li class="calibre9"><code class="calibre14">AK_CommandTooLarge</code> if the number of positions is too large for the command queue. Reduce the number of positions.</li>
+<li class="calibre9"><code class="calibre14">AK_InvalidParameter</code> if parameters are not valid, for example:</li>
+<li class="calibre9">in_Position makes an invalid transform</li>
+<li class="calibre9">in_eFlags is not one of the valid enum values</li>
+<li class="calibre9">the game object ID is in the reserved ID range. </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="soundengine_3dpositions_split_000.html">Integration Details - 3D Positions</a></li>
+<li class="calibre9"><a class="pcalibre el" href="soundengine_3dpositions_split_003.html#soundengine_3dpositions_multiplepos">Setting multiple positions for a single game object</a></li>
+<li class="calibre9"><a class="pcalibre el" href="_ak_enums_8h_a751ba836dfd5edf52ceaab00cf74b6c1_split_000.html#a751ba836dfd5edf52ceaab00cf74b6c1">AkMultiPositionType</a> </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_GameObjectID</td><td class="calibre17">Game Object identifier. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_pPositions</td><td class="calibre17">Array of positions to apply. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_NumPositions</td><td class="calibre17">Number of positions specified in the provided array. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_eMultiPositionType</td><td class="calibre17"><a class="pcalibre el" href="_ak_enums_8h_a751ba836dfd5edf52ceaab00cf74b6c1_split_000.html#a751ba836dfd5edf52ceaab00cf74b6c1">AkMultiPositionType</a> </td></tr>
+    <tr class="calibre16"><td class="paramname">in_eFlags</td><td class="calibre17">Optional flags to independently set the position of the emitter or listener component. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

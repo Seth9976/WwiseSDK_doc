@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::GetWindowsDeviceName</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="namespace_a_k_a5ce827d21b248fbf326b46c75d080c21_split_000.html#a5ce827d21b248fbf326b46c75d080c21" class="pcalibre1 anchor">◆ </a></span>GetWindowsDeviceName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_sound_engine_export_8h_ac6e96d34dfc0e12f9aaa7a47f4e9c322_split_000.html#ac6e96d34dfc0e12f9aaa7a47f4e9c322">AKSOUNDENGINE_API</a> const wchar_t* AK::GetWindowsDeviceName </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_a81fc19413771f592b26e6b9e4f8ce154_split_000.html#a81fc19413771f592b26e6b9e4f8ce154">AkInt32</a> </td>
+          <td class="paramname"><em class="calibre59">index</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> &amp; </td>
+          <td class="paramname"><em class="calibre59">out_uDeviceID</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_enums_8h_a3095a5c69f4c12a6362aaa77cd1ac476_split_000.html#a3095a5c69f4c12a6362aaa77cd1ac476">AkAudioDeviceState</a> </td>
+          <td class="paramname"><em class="calibre59">uDeviceStateMask</em> = <code class="calibre14"><a class="pcalibre el" href="_ak_enums_8h_a3095a5c69f4c12a6362aaa77cd1ac476_split_001.html#a3095a5c69f4c12a6362aaa77cd1ac476a73ec2f6470842e3962dd08c5e7468d1a">AkDeviceState_All</a></code> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Get the user-friendly name for the specified device. Call repeatedly with index starting at 0 and increasing to get all available devices, including disabled and unplugged devices, until the returned string is null and out_uDeviceID is AK_INVALID_DEVICE_ID. The number of indexable devices for the given uDeviceStateMask can be fetched by calling <a class="pcalibre el" href="namespace_a_k_adc935e72c08f3108e358888ba0622ccd_split_000.html#adc935e72c08f3108e358888ba0622ccd">AK::SoundEngine::GetWindowsDeviceCount()</a>. You can also get the default device information by specifying index=-1. The default device is the one with a green checkmark in the Audio Playback Device panel in Windows. The returned out_uDeviceID parameter is the Device ID to use with <a class="pcalibre el" href="namespace_a_k_1_1_wwise_split_000.html">Wwise</a>. Use it to specify the main device in AkPlatformInitSettings.idAudioDevice. </p><dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">The name of the device at the "index" specified. The pointer is valid until the next call to GetWindowsDeviceName. </dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">index</td><td class="calibre17">Index of the device in the array. -1 to get information on the default device. </td></tr>
+    <tr class="calibre16"><td class="paramname">out_uDeviceID</td><td class="calibre17">Device ID for <a class="pcalibre el" href="namespace_a_k_1_1_wwise_split_000.html">Wwise</a>. This is the same as what is returned from <a class="pcalibre el" href="namespace_a_k_a84b3896b7b5b223c72b5ea826fae6bd8_split_000.html#a84b3896b7b5b223c72b5ea826fae6bd8">AK::GetDeviceID</a> and <a class="pcalibre el" href="namespace_a_k_a8609f19bc85d9ea8266c2fdd79ac5084_split_000.html#a8609f19bc85d9ea8266c2fdd79ac5084">AK::GetDeviceIDFromName</a>. Use it to specify the main device in AkPlatformInitSettings.idAudioDevice. </td></tr>
+    <tr class="calibre16"><td class="paramname">uDeviceStateMask</td><td class="calibre17">Optional bitmask used to filter the device based on their state. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

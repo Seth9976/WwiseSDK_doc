@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integration Demo Sample</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_7"><a class="pcalibre1 anchor" id="integrationdemo_demos_footsteps"></a>
+Footsteps</h2>
+<p class="calibre7">This demo shows various ways to implement footsteps in a game. It also shows surface-driven bank management to minimize both media and metadata memory when a surface isn't in use. Finally, this demo also shows a very simple case of environmental effects.</p>
+<p class="calibre7">In this example, the footstep sounds are modified by two variables: walking speed, and walker weight.</p>
+<ul class="calibre8">
+<li class="calibre9">Walking Speed issues (Footstep_Speed RTPC) This project supports a smooth transition from walking to running in almost all cases. For this variable, we assume the following: the faster you walk, the shorter the footstep and the harder you hit the ground. This translates in Pitch and Volume changes respectively. Look for RTPC on these parameters in the project. The Speed RTPC is driven directly by the joystick displacement in this demo.</li>
+<li class="calibre9">Walker Weight issues (Footstep_Weight RTPC) The footstep structure supports various walker weights. We assume that in real life a heavier walker will have a longer footstep and that it will be more muffled. This translates in Pitch and LPF changes respectively. Look for the RTPC on these parameters in the project.</li>
+</ul>
+<p class="calibre7">With each surface, we show a different way of dealing with the sound samples and variables. These are only suggestions and ideas that you can use in your own structure.</p>
+<ul class="calibre8">
+<li class="calibre9">Gravel Our gravel samples are very similar, so it won't give us anything more to have a lot of samples of this surface. More variation is obtained with a bit of Volume, LPF, and Pitch randomization. The Weight influence is done through the EQ effect with its gain parameters driven by the Weight RTPC. For light footsteps, the higher frequencies are boosted, and it's the reverse for heavy footsteps. Note the RTPC's effect on Pitch and Volume.</li>
+<li class="calibre9">Wood For the wood surface, the walking and running samples were very different, as were the heavy and light footsteps. So, this was organized in a more traditional Switch hierarchy. Both Switch Containers are driven by an RTPC-driven Switch (look in the GameSync tab for Footstep_Gait and Footstep_Weight).</li>
+<li class="calibre9">Dirt Samples for walking and running on this surface were somewhat similar, so we decided to do the transition with a Blend Container. RTPCs on Pitch and Volume were used to take the Weight into account.</li>
+</ul>
+<p class="calibre7"><b class="calibre13">Bank management</b> In the Footsteps demo, the banks were divided into four media banks (one per surface). We divided the screen in four with a buffer zone between each surface where both banks are loaded. This is to avoid a gap in the footsteps due to bank loading. In the SoundBank Manager, look at the GameSync tab. Note that each surface bank includes only the corresponding surface Switch. This will include only the hierarchy related to that Switch in the bank - nothing else. In a large game, this setup has the advantage of limiting the amount of unused samples in a particular scenario, thus limiting the memory used. For level or section-based games, it is easy to identify the surfaces used as they are known from the design stage. For open games, this is trickier and depends a lot on the organization of your game; but, it can still be achieved. For example, it is useless to keep the "snow and ice" surface sounds in memory if your player is currently in a warm city and won't be moving toward colder settings for a long time.</p>
+</div></div></div></body></html>

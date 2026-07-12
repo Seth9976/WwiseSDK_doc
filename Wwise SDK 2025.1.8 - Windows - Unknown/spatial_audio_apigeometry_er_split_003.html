@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Using the Geometry API for Simulating Early Reflections</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_2"><a class="pcalibre1 anchor" id="spatial_audio_wwiseprojectsetup_designingattenuations"></a>
+Attenuation Design</h2>
+<p class="calibre7">There is an important thing to be aware of when designing attenuation curves on sounds that are used with Acoustics in order to ensure efficient computation. Sounds that are assigned an early reflections Auxiliary Bus and those that are marked with <b class="calibre13">Enable Diffraction and Transmission</b> in the Authoring tool must be assigned an attenuation with finite radius to limit the computation of paths.</p>
+<p class="calibre7">Wwise Acoustics uses the attenuation of a sound to determine the maximum possible propagation distance for both reflection and diffraction path calculations, so it is important to make sure the maximum attenuation distance is a representative value. Futhermore, if the attenuation does not go below the platform's specified volume threshold, then the sound's radius is effectively infinite. In this case, Wwise Acoustics will attempt to calculate reflections and diffractions regardless of where the listener is placed in the world. Both the distance-driven volume and Auxiliary send volume curves must have their final point on the far right side of the curve below the volume threshold to ensure that Acoustics calculations are limited to a finite radius around the emitter Game Object. Note that the volume threshold is defined in the project settings dialog, which can be found in the Project menu in the Authoring Tool.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> If a Game Object has multiple active sounds playing, each with different assigned attenuations, the largest of all attenuation radii is used to limit path processing. Path processing is only ever performed once per Game Object, the paths are then reused amongst multiple sounds if necessary. </td></tr>
+</tbody></table>
+<p class="calibre7">If you want the early reflections to have an attenuation design similar to the emitter's, you can set the Reflect effect curves to <b class="calibre13">Use Attenuation</b>. We call this Reflect's simplified mode. Make sure that the Early Reflections Auxiliary Bus input bus configuration is set to <b class="calibre13">Audio Objects</b> for the sound engine to be able to retrieve the corresponding attenuation curves.</p>
+</div></div></div></body></html>

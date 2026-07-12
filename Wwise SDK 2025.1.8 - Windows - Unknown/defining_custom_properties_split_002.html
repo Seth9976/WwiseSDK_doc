@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Defining Custom Properties</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="customproperties_xml_example"></a>
+Example: wcustomproperties File</h1>
+<p class="calibre7">Below is an example of a simple custom properties XML description file that defines additional properties for sound objects.</p>
+<div class="fragment"><div class="line">&lt;?xml version=<span class="stringliteral">"1.0"</span> encoding=<span class="stringliteral">"UTF-8"</span>?&gt;</div>
+<div class="line">&lt;!-- Copyright (C) Audiokinetic Inc. --&gt;</div>
+<div class="line">&lt;PluginModule&gt;</div>
+<div class="line">    &lt;WwiseObject Name=<span class="stringliteral">"Sound"</span> CompanyID=<span class="stringliteral">"1"</span> PluginID=<span class="stringliteral">"1"</span>&gt;</div>
+<div class="line">        &lt;Properties&gt;</div>
+<div class="line">            &lt;Property Name=<span class="stringliteral">"MyCompany:Status"</span> <a class="pcalibre code" href="namespace_a_k_1_1_temp_alloc_a94c6067317869a80ec86af6994a0ebd9_split_000.html#a94c6067317869a80ec86af6994a0ebd9">Type</a>=<span class="stringliteral">"int16"</span> DisplayName=<span class="stringliteral">"Status"</span>&gt;</div>
+<div class="line">                &lt;DefaultValue&gt;0&lt;/DefaultValue&gt;</div>
+<div class="line">                &lt;Restrictions&gt;</div>
+<div class="line">                    &lt;ValueRestriction&gt;</div>
+<div class="line">                        &lt;Enumeration <a class="pcalibre code" href="namespace_a_k_1_1_temp_alloc_a94c6067317869a80ec86af6994a0ebd9_split_000.html#a94c6067317869a80ec86af6994a0ebd9">Type</a>=<span class="stringliteral">"int16"</span>&gt;</div>
+<div class="line">                            &lt;Value DisplayName=<span class="stringliteral">"To do"</span>&gt;0&lt;/Value&gt;</div>
+<div class="line">                            &lt;Value DisplayName=<span class="stringliteral">"Done"</span>&gt;1&lt;/Value&gt;</div>
+<div class="line">                            &lt;Value DisplayName=<span class="stringliteral">"Verified"</span>&gt;2&lt;/Value&gt;</div>
+<div class="line">                        &lt;/Enumeration&gt;</div>
+<div class="line">                    &lt;/ValueRestriction&gt;</div>
+<div class="line">                &lt;/Restrictions&gt;</div>
+<div class="line">            &lt;/Property&gt;</div>
+<div class="line">            &lt;Property Name=<span class="stringliteral">"MyCompany:IsReady"</span> <a class="pcalibre code" href="namespace_a_k_1_1_temp_alloc_a94c6067317869a80ec86af6994a0ebd9_split_000.html#a94c6067317869a80ec86af6994a0ebd9">Type</a>=<span class="stringliteral">"bool"</span> DisplayName=<span class="stringliteral">"Is Ready"</span>&gt;</div>
+<div class="line">                &lt;DefaultValue&gt;<span class="keyword">false</span>&lt;/DefaultValue&gt;</div>
+<div class="line">                &lt;AudioEnginePropertyID&gt;2&lt;/AudioEnginePropertyID&gt;</div>
+<div class="line">            &lt;/Property&gt;</div>
+<div class="line">            &lt;Property Name=<span class="stringliteral">"MyCompany:MyPriority"</span> <a class="pcalibre code" href="namespace_a_k_1_1_temp_alloc_a94c6067317869a80ec86af6994a0ebd9_split_000.html#a94c6067317869a80ec86af6994a0ebd9">Type</a>=<span class="stringliteral">"int32"</span> DisplayName=<span class="stringliteral">"My Priority"</span>&gt;</div>
+<div class="line">                &lt;DefaultValue&gt;50&lt;/DefaultValue&gt;</div>
+<div class="line">                &lt;AudioEnginePropertyID&gt;6&lt;/AudioEnginePropertyID&gt;</div>
+<div class="line">                &lt;Restrictions&gt;</div>
+<div class="line">                    &lt;ValueRestriction&gt;</div>
+<div class="line">                        &lt;Range <a class="pcalibre code" href="namespace_a_k_1_1_temp_alloc_a94c6067317869a80ec86af6994a0ebd9_split_000.html#a94c6067317869a80ec86af6994a0ebd9">Type</a>=<span class="stringliteral">"int32"</span>&gt;</div>
+<div class="line">                            &lt;<a class="pcalibre code" href="namespace_a_k_1_1_speaker_volumes_1_1_vector_a8661f38fe4c56e23ffd967dc427bcde2_split_000.html#a8661f38fe4c56e23ffd967dc427bcde2">Min</a>&gt;1&lt;/<a class="pcalibre code" href="namespace_a_k_1_1_speaker_volumes_1_1_vector_a8661f38fe4c56e23ffd967dc427bcde2_split_000.html#a8661f38fe4c56e23ffd967dc427bcde2">Min</a>&gt;</div>
+<div class="line">                            &lt;<a class="pcalibre code" href="namespace_a_k_1_1_speaker_volumes_1_1_vector_a5cf5edb6e0760f5bd0ef29d98c322d9c_split_000.html#a5cf5edb6e0760f5bd0ef29d98c322d9c">Max</a>&gt;100&lt;/<a class="pcalibre code" href="namespace_a_k_1_1_speaker_volumes_1_1_vector_a5cf5edb6e0760f5bd0ef29d98c322d9c_split_000.html#a5cf5edb6e0760f5bd0ef29d98c322d9c">Max</a>&gt;</div>
+<div class="line">                        &lt;/Range&gt;</div>
+<div class="line">                    &lt;/ValueRestriction&gt;</div>
+<div class="line">                &lt;/Restrictions&gt;</div>
+<div class="line">            &lt;/Property&gt;</div>
+<div class="line">            &lt;Property Name=<span class="stringliteral">"MyCompany:CoolDownDelay"</span> <a class="pcalibre code" href="namespace_a_k_1_1_temp_alloc_a94c6067317869a80ec86af6994a0ebd9_split_000.html#a94c6067317869a80ec86af6994a0ebd9">Type</a>=<span class="stringliteral">"Real64"</span> DisplayName=<span class="stringliteral">"Cool Down Delay"</span>&gt;</div>
+<div class="line">                &lt;UserInterface  UIMax=<span class="stringliteral">"10"</span> Step=<span class="stringliteral">"0.5"</span> Fine=<span class="stringliteral">"0.1"</span> Decimals=<span class="stringliteral">"3"</span> /&gt;</div>
+<div class="line">                &lt;DefaultValue&gt;0&lt;/DefaultValue&gt;</div>
+<div class="line">                &lt;AudioEnginePropertyID&gt;7&lt;/AudioEnginePropertyID&gt;</div>
+<div class="line">                &lt;Restrictions&gt;</div>
+<div class="line">                    &lt;ValueRestriction&gt;</div>
+<div class="line">                        &lt;Range <a class="pcalibre code" href="namespace_a_k_1_1_temp_alloc_a94c6067317869a80ec86af6994a0ebd9_split_000.html#a94c6067317869a80ec86af6994a0ebd9">Type</a>=<span class="stringliteral">"Real64"</span>&gt;</div>
+<div class="line">                            &lt;<a class="pcalibre code" href="namespace_a_k_1_1_speaker_volumes_1_1_vector_a8661f38fe4c56e23ffd967dc427bcde2_split_000.html#a8661f38fe4c56e23ffd967dc427bcde2">Min</a>&gt;0&lt;/<a class="pcalibre code" href="namespace_a_k_1_1_speaker_volumes_1_1_vector_a8661f38fe4c56e23ffd967dc427bcde2_split_000.html#a8661f38fe4c56e23ffd967dc427bcde2">Min</a>&gt;</div>
+<div class="line">                            &lt;<a class="pcalibre code" href="namespace_a_k_1_1_speaker_volumes_1_1_vector_a5cf5edb6e0760f5bd0ef29d98c322d9c_split_000.html#a5cf5edb6e0760f5bd0ef29d98c322d9c">Max</a>&gt;600&lt;/<a class="pcalibre code" href="namespace_a_k_1_1_speaker_volumes_1_1_vector_a5cf5edb6e0760f5bd0ef29d98c322d9c_split_000.html#a5cf5edb6e0760f5bd0ef29d98c322d9c">Max</a>&gt;</div>
+<div class="line">                        &lt;/Range&gt;</div>
+<div class="line">                    &lt;/ValueRestriction&gt;</div>
+<div class="line">                &lt;/Restrictions&gt;</div>
+<div class="line">            &lt;/Property&gt;</div>
+<div class="line">            &lt;Property Name=<span class="stringliteral">"MyCompany:GameId"</span> <a class="pcalibre code" href="namespace_a_k_1_1_temp_alloc_a94c6067317869a80ec86af6994a0ebd9_split_000.html#a94c6067317869a80ec86af6994a0ebd9">Type</a>=<span class="stringliteral">"string"</span> DisplayName=<span class="stringliteral">"Game Id"</span>&gt;</div>
+<div class="line">                &lt;DefaultValue&gt;&lt;/DefaultValue&gt;</div>
+<div class="line">            &lt;/Property&gt;</div>
+<div class="line">            &lt;Property Name=<span class="stringliteral">"MyCompany:ReadOnlyData"</span> DocId=<span class="stringliteral">"MyCustomProperty"</span> DisplayName=<span class="stringliteral">"ReadOnlyData"</span> <a class="pcalibre code" href="namespace_a_k_1_1_temp_alloc_a94c6067317869a80ec86af6994a0ebd9_split_000.html#a94c6067317869a80ec86af6994a0ebd9">Type</a>=<span class="stringliteral">"int32"</span>&gt;</div>
+<div class="line">                &lt;UserInterface ControlClass=<span class="stringliteral">"ReadOnlyText"</span> /&gt;</div>
+<div class="line">                &lt;DefaultValue&gt;10&lt;/DefaultValue&gt;</div>
+<div class="line">                &lt;Restrictions&gt;</div>
+<div class="line">                    &lt;ValueRestriction&gt;</div>
+<div class="line">                        &lt;Range <a class="pcalibre code" href="namespace_a_k_1_1_temp_alloc_a94c6067317869a80ec86af6994a0ebd9_split_000.html#a94c6067317869a80ec86af6994a0ebd9">Type</a>=<span class="stringliteral">"int32"</span>&gt;</div>
+<div class="line">                            &lt;<a class="pcalibre code" href="namespace_a_k_1_1_speaker_volumes_1_1_vector_a8661f38fe4c56e23ffd967dc427bcde2_split_000.html#a8661f38fe4c56e23ffd967dc427bcde2">Min</a>&gt;0&lt;/<a class="pcalibre code" href="namespace_a_k_1_1_speaker_volumes_1_1_vector_a8661f38fe4c56e23ffd967dc427bcde2_split_000.html#a8661f38fe4c56e23ffd967dc427bcde2">Min</a>&gt;</div>
+<div class="line">                            &lt;<a class="pcalibre code" href="namespace_a_k_1_1_speaker_volumes_1_1_vector_a5cf5edb6e0760f5bd0ef29d98c322d9c_split_000.html#a5cf5edb6e0760f5bd0ef29d98c322d9c">Max</a>&gt;100&lt;/<a class="pcalibre code" href="namespace_a_k_1_1_speaker_volumes_1_1_vector_a5cf5edb6e0760f5bd0ef29d98c322d9c_split_000.html#a5cf5edb6e0760f5bd0ef29d98c322d9c">Max</a>&gt;</div>
+<div class="line">                        &lt;/Range&gt;</div>
+<div class="line">                    &lt;/ValueRestriction&gt;</div>
+<div class="line">                &lt;/Restrictions&gt;</div>
+<div class="line">            &lt;/Property&gt;</div>
+<div class="line">            &lt;Reference Name=<span class="stringliteral">"MyCompany:StateGroup"</span> DisplayName=<span class="stringliteral">"State Group"</span>&gt;</div>
+<div class="line">                &lt;AudioEnginePropertyID&gt;10&lt;/AudioEnginePropertyID&gt;</div>
+<div class="line">                &lt;Restrictions&gt;</div>
+<div class="line">                    &lt;TypeEnumerationRestriction&gt;</div>
+<div class="line">                        &lt;<a class="pcalibre code" href="namespace_a_k_1_1_temp_alloc_a94c6067317869a80ec86af6994a0ebd9_split_000.html#a94c6067317869a80ec86af6994a0ebd9">Type</a> Name=<span class="stringliteral">"StateGroup"</span> /&gt;</div>
+<div class="line">                    &lt;/TypeEnumerationRestriction&gt;</div>
+<div class="line">                &lt;/Restrictions&gt;</div>
+<div class="line">            &lt;/Reference&gt;</div>
+<div class="line">        &lt;/Properties&gt;</div>
+<div class="line">    &lt;/WwiseObject&gt;</div>
+<div class="line">&lt;/PluginModule&gt;</div>
+</div><!-- fragment --></div></div></div></body></html>

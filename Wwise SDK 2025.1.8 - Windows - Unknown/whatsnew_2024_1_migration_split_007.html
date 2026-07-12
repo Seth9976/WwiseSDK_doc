@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2024.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_6"><a class="pcalibre1 anchor" id="akmemoryarena_migration_notes"></a>
+Memory Manager Integration Changes</h1>
+<p class="calibre7">Because the <code class="calibre14">AkMemoryArena</code> is the new default memory allocator, some initialization settings, and callbacks for the memory system, have been changed.</p>
+<ul class="calibre8">
+<li class="calibre9"><code class="calibre14">AkMemSettings::uMemAllocationSizeLimit</code> has been removed. There are now separate values of <code class="calibre14">AkMemoryArenaSettings::uMemReservedLimit</code> for each arena.</li>
+<li class="calibre9"><code class="calibre14">AkMemSettings::pfAllocVM</code>, <code class="calibre14">AkMemSettings::pfFreeVM</code>, <code class="calibre14">AkMemSettings::pfAllocDevice</code>, and <code class="calibre14">AkMemSettings::pfFreeDevice</code> have been removed. Instead, use <code class="calibre14">AkMemoryArenaSettings::fnMemAllocSpan</code> and <code class="calibre14">AkMemoryArenaSettings::fnMemFreeSpan</code> to reserve blocks of memory for each AkMemoryArena.</li>
+<li class="calibre9"><code class="calibre14">AkMemSettings::bEnableSeparateDeviceHeap</code> has been removed. To disable the Device AkMemoryArena, set <code class="calibre14">AkMemoryArenaSettings::fnMemAllocSpan</code> to nullptr.</li>
+<li class="calibre9"><code class="calibre14">AkMemSettings::uVMPageSize</code>, <code class="calibre14">AkMemSettings::uDevicePageSize</code>, <code class="calibre14">AkMemSettings::uMaxThreadLocalHeapAllocSize</code>, <code class="calibre14">AkMemSettings::uVMSpanCount</code>, and <code class="calibre14">AkMemSettings::uDeviceSpanCount</code> have been removed, because they were specific to rpmalloc's architecture.</li>
+</ul>
+<p class="calibre7">For more information about configuring AkMemoryArenas in the <code class="calibre14"><a class="pcalibre el" href="struct_ak_mem_settings_split_000.html">AkMemSettings</a></code> struct, see <a class="pcalibre el" href="goingfurther_memoryarenas_split_000.html">Configuration and Tuning of AkMemoryArenas</a>.</p>
+<p class="calibre7">The functions <code class="calibre14">AKPLATFORM::AllocVM</code>, <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_p_l_a_t_f_o_r_m_split_000.html" title="Platform-dependent helpers.">AKPLATFORM</a>:FreeVM</code> <code class="calibre14">AKPLATFORM::AllocDeviceVM</code>, and <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_p_l_a_t_f_o_r_m_split_000.html" title="Platform-dependent helpers.">AKPLATFORM</a>:FreeDeviceVM</code> have also been updated accordingly, and renamed to <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_p_l_a_t_f_o_r_m_split_000.html" title="Platform-dependent helpers.">AKPLATFORM</a>:AllocSpan</code>, <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_p_l_a_t_f_o_r_m_a9bb64f59357062f99eb67c179ab1daba_split_000.html#a9bb64f59357062f99eb67c179ab1daba">AKPLATFORM::FreeSpan</a></code>, <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_p_l_a_t_f_o_r_m_split_000.html" title="Platform-dependent helpers.">AKPLATFORM</a>:AllocDeviceSpan</code>, and <code class="calibre14">AKPLATFORM::FreeDeviceSpan</code>.</p>
+</div></div></div></body></html>

@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Example: Developing a Lowpass Filter Plug-in</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="effectplugin_runthrough_init"></a>
+Creating a New Project</h1>
+<p class="calibre7">First, we need to create a new plug-in project with <b class="calibre13">wp.py</b> tools. See <a class="pcalibre el" href="effectplugin_tools_newplugin.html">Creating Audio Plug-ins</a> for more details about <code class="calibre14">new</code> arguments.</p>
+<div class="fragment"><div class="line">python "%WWISEROOT%/Scripts/Build/Plugins/wp.py" new --effect -a author_name -n Lowpass -t "First Order Lowpass" -d "Simple First Order Lowpass Filter"</div>
+<div class="line">cd Lowpass</div>
+</div><!-- fragment --><p class="calibre7">We will target the Authoring platform on Windows, so let's call <code class="calibre14">premake:</code> </p>
+<div class="fragment"><div class="line">python "%WWISEROOT%/Scripts/Build/Plugins/wp.py" premake Authoring</div>
+</div><!-- fragment --><p class="calibre7">Solutions have been created for building the SoundEngine and the Authoring (WwisePlugin) parts.</p>
+<p class="calibre7">We can now build our plug-in and confirm that it loads in Wwise.</p>
+<div class="fragment"><div class="line">python "%WWISEROOT%/Scripts/Build/Plugins/wp.py" build -c Release -x x64 -t vc160 Authoring</div>
+</div><!-- fragment --></div></div></div></body></html>

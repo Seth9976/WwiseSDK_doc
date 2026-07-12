@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Loading Banks</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_11"><a class="pcalibre1 anchor" id="soundengine_banks_loading_unloading"></a>
+Unloading Banks</h1>
+<p class="calibre7">There are many overloads of <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ac91406bc2fe061e4248cb448207b5a64_split_000.html#ac91406bc2fe061e4248cb448207b5a64">UnloadBank()</a> to explicitly unload a bank:</p>
+<ul class="calibre8">
+<li class="calibre9">Using ID identification</li>
+<li class="calibre9">Using string identification (Unicode or ANSI)</li>
+<li class="calibre9">Synchronously</li>
+<li class="calibre9">Asynchronously</li>
+</ul>
+<p class="calibre7">Likewise, use <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a2e6ebb779470b43d78984c27f6a0c238_split_000.html#a2e6ebb779470b43d78984c27f6a0c238">PrepareEvent()</a> function with the Preparation_Unload flag to decrement the reference count of structures and media associated with these events. When the reference count of all objects within a bank that was loaded implicitly drops to 0, it is automatically unloaded.</p>
+<p class="calibre7">Also, use <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a76c611710ef7ffdd2d59f34e35b67cdc_split_000.html#a76c611710ef7ffdd2d59f34e35b67cdc">PrepareGameSyncs()</a> function with the Preparation_Unload flag to unload media that was loaded for prepared events that can play only when the specified game sync is selected. Note that the game syncs do not have a reference count and calling it once with the Preparation_Unload flag will immediately unload the unreferenced media.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> If a sound referenced by a bank is playing when that bank is unloaded, it will always stop if the bank contains its sound structure. There are chances that the sound will stop if the bank contained only the media, but other loaded banks have the media and sound structure. It will depend on whether the media was played from the data of the former or the latter. Refer to <a class="pcalibre el" href="soundengine_banks_loading_split_018.html#soundengine_banks_dup_contents">Duplicating Bank Contents</a>. </td></tr>
+</tbody></table>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> If events have been used to modify the parameters of this sound (such as a SetVolume event), this information will be removed. If a parameter has been changed using RTPCs, states, or switches, the parameter will be kept in memory and will be automatically applied if the SoundBank is reloaded. </td></tr>
+</tbody></table>
+<p class="calibre7">The following code loads and unloads a bank synchronously, using Unicode string identifiers and the default bank memory allocation. It also loads and unloads banks implicitly through <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a2e6ebb779470b43d78984c27f6a0c238_split_000.html#a2e6ebb779470b43d78984c27f6a0c238">PrepareEvent()</a>.</p>
+<div class="fragment"><div class="line"><a class="pcalibre code" href="_ak_typedefs_8h_a472a3d18cbb0c4f081b3b619e4a2f349_split_000.html#a472a3d18cbb0c4f081b3b619e4a2f349">AkBankID</a> bankID;</div>
+<div class="line"><a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> eResult = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">AK::SoundEngine::LoadBank</a>( L<span class="stringliteral">"Bank1.bnk"</span>, bankID );</div>
+<div class="line"><span class="keywordflow">if</span>( eResult != <a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_001.html#a64f7d1f79613cc4dcc49a4efba6caa63ad7c47fea3da641e7422573c6a13dc35e">AK_Success</a> )</div>
+<div class="line">{</div>
+<div class="line">    <span class="comment">// Failed loading bank.</span></div>
+<div class="line">    <span class="comment">// Handle error...</span></div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Bank load succeeded.</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Prepare an event.</span></div>
+<div class="line"><span class="keyword">const</span> <span class="keywordtype">char</span> * pszEvent = <span class="stringliteral">"Event1"</span>;</div>
+<div class="line">eResult = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a2e6ebb779470b43d78984c27f6a0c238_split_000.html#a2e6ebb779470b43d78984c27f6a0c238">PrepareEvent</a>( <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a21e0dbb1f9aebfc22fdd88634dc1067b_split_001.html#a21e0dbb1f9aebfc22fdd88634dc1067ba7bb39cc6dfafe005cddfbf12c0d62ad0">Preparation_Load</a>, &amp;pszEvent, 1 );</div>
+<div class="line"><span class="keywordflow">if</span>( eResult != <a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_001.html#a64f7d1f79613cc4dcc49a4efba6caa63ad7c47fea3da641e7422573c6a13dc35e">AK_Success</a> )</div>
+<div class="line">{</div>
+<div class="line">    <span class="comment">// Failed preparing event.</span></div>
+<div class="line">    <span class="comment">// Handle error...</span></div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Use the event and bank data...</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Then, unprepare the event.</span></div>
+<div class="line">eResult = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a2e6ebb779470b43d78984c27f6a0c238_split_000.html#a2e6ebb779470b43d78984c27f6a0c238">PrepareEvent</a>( <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a21e0dbb1f9aebfc22fdd88634dc1067b_split_001.html#a21e0dbb1f9aebfc22fdd88634dc1067ba37375e4d359e99b67d0a69f4a5714b92">Preparation_Unload</a>, &amp;pszEvent, 1 );</div>
+<div class="line"><span class="keywordflow">if</span>( eResult != <a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_001.html#a64f7d1f79613cc4dcc49a4efba6caa63ad7c47fea3da641e7422573c6a13dc35e">AK_Success</a> )</div>
+<div class="line">{</div>
+<div class="line">    <span class="comment">// Failed unpreparing event.</span></div>
+<div class="line">    <span class="comment">// Handle error...</span></div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Unload the bank.</span></div>
+<div class="line"><span class="comment">// Note: The bank is unloaded using the bank ID returned by LoadBank(). The call</span></div>
+<div class="line"><span class="comment">// AK::SoundEngine::UnloadBank( L"Bank1.bnk", NULL );</span></div>
+<div class="line"><span class="comment">// works too: the sound engine internally converts the "Bank1.bnk" string into the bank ID.</span></div>
+<div class="line">eResult = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_ac91406bc2fe061e4248cb448207b5a64_split_000.html#ac91406bc2fe061e4248cb448207b5a64">AK::SoundEngine::UnloadBank</a>( bankID, NULL );</div>
+<div class="line"><span class="keywordflow">if</span>( eResult != <a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_001.html#a64f7d1f79613cc4dcc49a4efba6caa63ad7c47fea3da641e7422573c6a13dc35e">AK_Success</a> )</div>
+<div class="line">{</div>
+<div class="line">    <span class="comment">// Failed unloading bank.</span></div>
+<div class="line">    <span class="comment">// Handle error...</span></div>
+<div class="line">}</div>
+</div><!-- fragment --></div></div></div></body></html>

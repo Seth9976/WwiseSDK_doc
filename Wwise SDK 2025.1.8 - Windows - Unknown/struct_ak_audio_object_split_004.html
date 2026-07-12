@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AkAudioObject Struct Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table class="calibre3">
+<tbody class="calibre4"><tr class="calibre16"><td colspan="2" class="calibre17"><h2 class="calibre21" id="calibre_pb_3"><a class="pcalibre1 anchor" id="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="calibre16"><td class="memitemleft"><a class="pcalibre el" href="_ak_typedefs_8h_a6cadc0376ae4f945438db69f6306f21a_split_000.html#a6cadc0376ae4f945438db69f6306f21a">AkAudioObjectID</a> </td><td class="memitemright"><a class="pcalibre el" href="struct_ak_audio_object_a4b5cc754786f067fa2b3fbed875652d8_split_000.html#a4b5cc754786f067fa2b3fbed875652d8">key</a></td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Unique ID, local to a given bus. Only the lower 56 of 64 bits are used for the object itself. The highest 8 bits are available for channel indexing.  <a href="struct_ak_audio_object_a4b5cc754786f067fa2b3fbed875652d8_split_000.html#a4b5cc754786f067fa2b3fbed875652d8" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft"><a class="pcalibre el" href="struct_ak_positioning_data_split_000.html">AkPositioningData</a> </td><td class="memitemright"><a class="pcalibre el" href="struct_ak_audio_object_a1dccda4d0468b93e4347842a9de4e98e_split_000.html#a1dccda4d0468b93e4347842a9de4e98e">positioning</a></td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Positioning data for deferred 3D rendering.  <a href="struct_ak_audio_object_a1dccda4d0468b93e4347842a9de4e98e_split_000.html#a1dccda4d0468b93e4347842a9de4e98e" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft"><a class="pcalibre el" href="struct_ak_ramp_split_000.html">AkRamp</a> </td><td class="memitemright"><a class="pcalibre el" href="struct_ak_audio_object_a3013d844d7544da19d30cf90bef6aef5_split_000.html#a3013d844d7544da19d30cf90bef6aef5">cumulativeGain</a></td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Cumulative ramping gain to apply when mixing down to speaker bed or final endpoint.  <a href="struct_ak_audio_object_a3013d844d7544da19d30cf90bef6aef5_split_000.html#a3013d844d7544da19d30cf90bef6aef5" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft"><a class="pcalibre el" href="_ak_typedefs_8h_aa1f98bb2addc6fbfe759902751548cbc_split_000.html#aa1f98bb2addc6fbfe759902751548cbc">AkPipelineID</a> </td><td class="memitemright"><a class="pcalibre el" href="struct_ak_audio_object_aa66019a628335335705ba44114bd2484_split_000.html#aa66019a628335335705ba44114bd2484">instigatorID</a></td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Profiling ID of the node from which the object stems (typically the voice, instance of a Property Container).  <a href="struct_ak_audio_object_aa66019a628335335705ba44114bd2484_split_000.html#aa66019a628335335705ba44114bd2484" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft"><a class="pcalibre el" href="_ak_typedefs_8h_a6fd4ce3da8a0654b665da32c63623433_split_000.html#a6fd4ce3da8a0654b665da32c63623433">AkPriority</a> </td><td class="memitemright"><a class="pcalibre el" href="struct_ak_audio_object_a09ff304d835f52dc44b8caa1521de69a_split_000.html#a09ff304d835f52dc44b8caa1521de69a">priority</a></td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Audio object playback priority. Object with a higher priority will be rendered using the hardware's object functionality on platforms that supports it, whereas objects with a lower priority will be downmixed to a lower resolution 3D bed. Audio object priorities should be retrieved, or set through IAkPluginServiceAudioObjectPriority to retain compatibility with future Wwise releases.  <a href="struct_ak_audio_object_a09ff304d835f52dc44b8caa1521de69a_split_000.html#a09ff304d835f52dc44b8caa1521de69a" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft"><a class="pcalibre el" href="class_ak_audio_object_1_1_array_custom_metadata_split_000.html">ArrayCustomMetadata</a> </td><td class="memitemright"><a class="pcalibre el" href="struct_ak_audio_object_a40f457c25d198d643eb3a93fd844771f_split_000.html#a40f457c25d198d643eb3a93fd844771f">arCustomMetadata</a></td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Array of custom metadata, gathered from visited objects. Note: any custom metadata is expected to exist for only the current sound engine render tick, and persistent references to it should not be stored.  <a href="struct_ak_audio_object_a40f457c25d198d643eb3a93fd844771f_split_000.html#a40f457c25d198d643eb3a93fd844771f" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft"><a class="pcalibre el" href="struct_ak_audio_object_a4221b169c325991e10845a276c538f21_split_000.html#a4221b169c325991e10845a276c538f21">String</a> </td><td class="memitemright"><a class="pcalibre el" href="struct_ak_audio_object_a091f4368a679f03a5c00d2ac6fce2371_split_000.html#a091f4368a679f03a5c00d2ac6fce2371">objectName</a></td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Name string of the object, to appear in the object profiler. This is normally used by out-of-place object processors for naming their output objects. Built-in sound engine structures don't use it.  <a href="struct_ak_audio_object_a091f4368a679f03a5c00d2ac6fce2371_split_000.html#a091f4368a679f03a5c00d2ac6fce2371" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+</tbody></table></div></body></html>

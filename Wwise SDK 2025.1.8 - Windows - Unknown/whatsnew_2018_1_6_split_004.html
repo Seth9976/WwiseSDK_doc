@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2018.1.6</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="bugs_2018_1_6"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-38798</b> Fixed: Reflect mute and solo buttons cannot be de/activated with the keyboard.</li>
+<li class="calibre9"><b class="calibre13">WG-39601</b> Fixed: Crash when pressing Shift-Play on a Sequence Container.</li>
+<li class="calibre9"><b class="calibre13">WG-39918</b> Fixed: Possible crash if WAAPI call is made during SoundBank generation.</li>
+<li class="calibre9"><b class="calibre13">WG-39944</b> Fixed: Opus encoder downmixes a 5.1.2 channel source to 5.1.</li>
+<li class="calibre9"><b class="calibre13">WG-40168</b> Fixed: (Windows 7) Secondary outputs targeting different audio devices are erroneously played through the default device using XAudio2.</li>
+<li class="calibre9"><b class="calibre13">WG-40248</b> Fixed: In Spatial Audio, if the position of an emitter game object is set only at the beginning of play, the send volume to the Reflect plug-in can sometimes receive incorrect values and, in some cases, be inaudible.</li>
+<li class="calibre9"><b class="calibre13">WG-40358</b> Fixed: Crash when deleting a Music Segment in Wwise while running a WAAPI script that listens to the <code class="calibre14">ak.wwise.core.preDeleted</code> topic with the <code class="calibre14">path</code> return option.</li>
+<li class="calibre9"><b class="calibre13">WG-40367</b> Fixed: Sounds played back via a Sequence Container or Random Container, with an active Transition set to "Trigger Rate" and utilizing a positioning path provided by 3D Position Automation, always go on a new path when they start.</li>
+<li class="calibre9"><b class="calibre13">WG-40392</b> Fixed: Profiling with "Follow Capture Time" does not scroll Capture Log to last item.</li>
+<li class="calibre9"><b class="calibre13">WG-40550</b> Fixed: (Windows) <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_a8609f19bc85d9ea8266c2fdd79ac5084_split_000.html#a8609f19bc85d9ea8266c2fdd79ac5084">AK::GetDeviceIDFromName</a></code> fails if called before sound engine initialization.</li>
+<li class="calibre9"><b class="calibre13">WG-40858</b> Fixed: (Android) Crash when number of samples per frame setting initialized to 1008.</li>
+<li class="calibre9"><b class="calibre13">WG-40933</b> Fixed: Possible crash if SoundSeed Grain has low emission rates and changing speeds, when using ADPCM files.</li>
+<li class="calibre9"><b class="calibre13">WG-41024</b> Fixed: Audio generates high-pitched static or erroneously mutes when applying a high-pass or low-pass filter to a non-monaural sound that is played back on an Audio Bus which has a Mixer Plug-in specified.</li>
+<li class="calibre9"><b class="calibre13">WG-41029</b> Fixed: Sound with muted output bus but audible aux sends is incorrectly virtualized on initialization.</li>
+<li class="calibre9"><b class="calibre13">WG-41048</b> Fixed: Show in Multi Editor does not show the right objects after selecting objects in the SoundBank Editor.</li>
+<li class="calibre9"><b class="calibre13">WG-41057</b> Fixed: (WAAPI) Invalid JSON returned for unsupported floating-point values.</li>
+<li class="calibre9"><b class="calibre13">WG-41072</b> Fixed: Mute and Solo buttons in Voice Monitor and Advanced Profiler are unresponsive or do not appear properly, when connected to a target that references Wwise Objects that have been deleted from the project.</li>
+<li class="calibre9"><b class="calibre13">WG-41108</b> Fixed: (iOS) Suspending and resuming iOS apps prevents apps from being discovered as a Remote Connection target.</li>
+<li class="calibre9"><b class="calibre13">WG-41179</b> Fixed: SoundSeed Grain draws grains incorrectly when the converted sample rate and input sample rate are different.</li>
+<li class="calibre9"><b class="calibre13">WG-41244</b> Fixed: Crash when copy-pasting an instance of SoundSeed Grain.</li>
+<li class="calibre9"><b class="calibre13">WG-41260</b> Fixed: Shift-playing a sound in Transport Control incorrectly reacts to RTPC changes.</li>
+<li class="calibre9"><b class="calibre13">WG-41306</b> Fixed: Sounds played back with abnormally high pitches can cause infinite loops in the sound engine, resulting in a software hang.</li>
+<li class="calibre9"><b class="calibre13">WG-41336</b> Fixed: Non-mixing busses do not transition correctly on State changes affecting Output Bus LPF/HPF.</li>
+<li class="calibre9"><b class="calibre13">WG-41371</b> Fixed: 3D Spatialization of ambisonic sources does not work in SoundSeed Grain.</li>
+<li class="calibre9"><b class="calibre13">WG-41402</b> Fixed: Crash when importing models in Crankcase REV.</li>
+<li class="calibre9"><b class="calibre13">WG-41424</b> Fixed: Memory leak in Wwise Authoring when doing some operations in List View and SoundBank Manager.</li>
+<li class="calibre9"><b class="calibre13">WG-41494</b> Fixed: Crash when clicking on a new object in the Contents Editor.</li>
+<li class="calibre9"><b class="calibre13">WG-41497</b> Fixed: Memory corruption issue, which could crash Wwise authoring when inspecting new Modulator RTPC objects.</li>
+<li class="calibre9"><b class="calibre13">WG-41688</b> Fixed: <code class="calibre14">PostMIDIOnEvent</code> keeps lock on game objects.</li>
+<li class="calibre9"><b class="calibre13">WG-41747</b> Fixed: Crash on the game side when connecting Wwise to a game which is using the SceAudo3dMixer plug-in.</li>
+</ul>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="whatsnew_2018_1_6_migration_split_000.html">Important Migration Notes 2018.1.6</a></li>
+<li class="calibre9"><a class="pcalibre el" href="reference_platform_2018_1_6_split_000.html">Platform Requirements 2018.1.6</a> </li>
+</ul>
+</dd></dl>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

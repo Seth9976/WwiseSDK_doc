@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK/SoundEngine/Common/IAkPlugin.h File Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table class="calibre3">
+<tbody class="calibre4"><tr class="calibre16"><td colspan="2" class="calibre17"><h2 class="calibre21" id="calibre_pb_2"><a class="pcalibre1 anchor" id="define-members"></a>
+Macros</h2></td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_i_ak_plugin_8h_a441dc3050f2787f07e0678ab0d258002_split_000.html#a441dc3050f2787f07e0678ab0d258002">AK_FLOAT_TO_SAMPLETYPE</a>(__in__)   (__in__)</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">This function can be useful to convert from normalized floating point audio samples to HW-pipeline format samples.  <a href="_i_ak_plugin_8h_a441dc3050f2787f07e0678ab0d258002_split_000.html#a441dc3050f2787f07e0678ab0d258002" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_i_ak_plugin_8h_a07d5040c296cad5ec921b31e5ae71c3c_split_000.html#a07d5040c296cad5ec921b31e5ae71c3c">AK_FLOAT_TO_SAMPLETYPE_NOCLIP</a>(__in__)   (__in__)</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">This function can be useful to convert from normalized floating point audio samples to HW-pipeline format samples when the input is not not to exceed (-1,1) range.  <a href="_i_ak_plugin_8h_a07d5040c296cad5ec921b31e5ae71c3c_split_000.html#a07d5040c296cad5ec921b31e5ae71c3c" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_i_ak_plugin_8h_a4ad54d8bc876736abe89364ed6a57bf6_split_000.html#a4ad54d8bc876736abe89364ed6a57bf6">AK_SAMPLETYPE_TO_FLOAT</a>(__in__)   (__in__)</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">This function can be useful to convert from HW-pipeline format samples to normalized floating point audio samples.  <a href="_i_ak_plugin_8h_a4ad54d8bc876736abe89364ed6a57bf6_split_000.html#a4ad54d8bc876736abe89364ed6a57bf6" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_i_ak_plugin_8h_a97e15001faba0668ef9311767c8d21e9_split_000.html#a97e15001faba0668ef9311767c8d21e9">AK_DBTOLIN</a>(__db__)   (powf(10.f,(__db__) * 0.05f))</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_i_ak_plugin_8h_a4793694b5f18e4334d12f70a4da40e04_split_000.html#a4793694b5f18e4334d12f70a4da40e04">AK_GET_PLUGIN_SERVICE_MIXER</a>(plugin_ctx)   static_cast&lt;<a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_service_mixer_split_000.html">AK::IAkPluginServiceMixer</a>*&gt;(plugin_ctx-&gt;GetPluginService(<a class="pcalibre el" href="namespace_a_k_af21d087f0ff78d7b237ee1b3e4ca0d99_split_001.html#af21d087f0ff78d7b237ee1b3e4ca0d99a9946a61f93783dbcfe0534bca5412086">AK::PluginServiceType_Mixer</a>))</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_i_ak_plugin_8h_a1646ae68919d82f6d6ca9771f3609604_split_000.html#a1646ae68919d82f6d6ca9771f3609604">AK_GET_PLUGIN_SERVICE_RNG</a>(plugin_ctx)   static_cast&lt;<a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_service_r_n_g_split_000.html">AK::IAkPluginServiceRNG</a>*&gt;(plugin_ctx-&gt;GetPluginService(<a class="pcalibre el" href="namespace_a_k_af21d087f0ff78d7b237ee1b3e4ca0d99_split_001.html#af21d087f0ff78d7b237ee1b3e4ca0d99a93e55d84981a0b90ed8013c70f079c50">AK::PluginServiceType_RNG</a>))</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_i_ak_plugin_8h_ab30b1b82e82518c7bb2f7890e424595a_split_000.html#ab30b1b82e82518c7bb2f7890e424595a">AK_GET_PLUGIN_SERVICE_AUDIO_OBJECT_ATTENUATION</a>(plugin_ctx)   static_cast&lt;<a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_service_audio_object_attenuation_split_000.html">AK::IAkPluginServiceAudioObjectAttenuation</a>*&gt;(plugin_ctx-&gt;GetPluginService(<a class="pcalibre el" href="namespace_a_k_af21d087f0ff78d7b237ee1b3e4ca0d99_split_001.html#af21d087f0ff78d7b237ee1b3e4ca0d99a7f057c026db8cfeae242a805eb38f15b">AK::PluginServiceType_AudioObjectAttenuation</a>))</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_i_ak_plugin_8h_ae8bc1832080371d10d6fccfb7f8e9713_split_000.html#ae8bc1832080371d10d6fccfb7f8e9713">AK_GET_PLUGIN_SERVICE_AUDIO_OBJECT_PRIORITY</a>(plugin_ctx)   static_cast&lt;<a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_service_audio_object_priority_split_000.html">AK::IAkPluginServiceAudioObjectPriority</a>*&gt;(plugin_ctx-&gt;GetPluginService(<a class="pcalibre el" href="namespace_a_k_af21d087f0ff78d7b237ee1b3e4ca0d99_split_001.html#af21d087f0ff78d7b237ee1b3e4ca0d99a468f48cde731c659d49ef159e49b845f">AK::PluginServiceType_AudioObjectPriority</a>))</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_i_ak_plugin_8h_aca83a0bac8086bebd99fd3b1290926b5_split_000.html#aca83a0bac8086bebd99fd3b1290926b5">AK_GET_PLUGIN_SERVICE_MARKERS</a>(plugin_ctx)   static_cast&lt;<a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_service_markers_split_000.html">AK::IAkPluginServiceMarkers</a>*&gt;(plugin_ctx-&gt;GetPluginService(<a class="pcalibre el" href="namespace_a_k_af21d087f0ff78d7b237ee1b3e4ca0d99_split_001.html#af21d087f0ff78d7b237ee1b3e4ca0d99acc3dc895483686decb0b9c29294cf956">AK::PluginServiceType_Markers</a>))</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_i_ak_plugin_8h_a13b2972f82acec4f7cedcb073d51619c_split_000.html#a13b2972f82acec4f7cedcb073d51619c">AK_IMPLEMENT_PLUGIN_FACTORY</a>(_pluginName_,  _plugintype_,  _companyid_,  _pluginid_)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_i_ak_plugin_8h_a8e9fc150137c878499f2200e7e27a256_split_000.html#a8e9fc150137c878499f2200e7e27a256">AK_STATIC_LINK_PLUGIN</a>(_pluginName_)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_i_ak_plugin_8h_a0e58fa7b5f9d73031a83e4667c6f8933_split_000.html#a0e58fa7b5f9d73031a83e4667c6f8933">DEFINE_PLUGIN_REGISTER_HOOK</a>   <a class="pcalibre el" href="_platforms_2_windows_2_ak_types_8h_ab291f969500ebc378f2344e1477d2dd7_split_000.html#ab291f969500ebc378f2344e1477d2dd7">AK_DLLEXPORT</a> <a class="pcalibre el" href="class_a_k_1_1_plugin_registration_split_000.html">AK::PluginRegistration</a> * <a class="pcalibre el" href="_i_ak_plugin_8h_affa96e9a560e3444da2e5ae0d1fae089_split_000.html#affa96e9a560e3444da2e5ae0d1fae089">g_pAKPluginList</a> = NULL;</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_i_ak_plugin_8h_a8dccaff2aa9c3c49494ac330b4f5bc32_split_000.html#a8dccaff2aa9c3c49494ac330b4f5bc32">DEFINE_PLUGIN_ASSERT_HOOK</a></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_i_ak_plugin_8h_a83c61f38bbc54bbd3ae1d743f1780369_split_000.html#a83c61f38bbc54bbd3ae1d743f1780369">DEFINEDUMMYASSERTHOOK</a>   <a class="pcalibre el" href="_i_ak_plugin_8h_a8dccaff2aa9c3c49494ac330b4f5bc32_split_000.html#a8dccaff2aa9c3c49494ac330b4f5bc32">DEFINE_PLUGIN_ASSERT_HOOK</a></td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">DEPRECATED: Use DEFINE_PLUGIN_ASSERT_HOOK instead.  <a href="_i_ak_plugin_8h_a83c61f38bbc54bbd3ae1d743f1780369_split_000.html#a83c61f38bbc54bbd3ae1d743f1780369" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_i_ak_plugin_8h_a70622d63c770a7ff30116f99f0d3dee3_split_000.html#a70622d63c770a7ff30116f99f0d3dee3">AK_GET_SINK_TYPE_FROM_DEVICE_KEY</a>(_key)   ((<a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a>)(_key &amp; 0xffffffff))</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_i_ak_plugin_8h_a1ddf3f4f106c7a3d32e98ad2a6b6319d_split_000.html#a1ddf3f4f106c7a3d32e98ad2a6b6319d">AK_GET_DEVICE_ID_FROM_DEVICE_KEY</a>(_key)   ((<a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a>)(_key &gt;&gt; 32))</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+</tbody></table></div></body></html>

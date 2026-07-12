@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2025.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_6"><a class="pcalibre1 anchor" id="c_cxx_api_changes_25_1_GetSourcePlayPosition"></a>
+AK::SoundEngine::GetSourcePlayPosition and AK_EnableGetSourcePlayPosition changes</h2>
+<p class="calibre7">The position of sources is now tracked by default. There is no need for the flag <code class="calibre14">AK_EnableGetSourcePlayPosition</code> to be passed to <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a41e9ef8d42951871fe4a8ae58a29a68e_split_000.html#a41e9ef8d42951871fe4a8ae58a29a68e">AK::SoundEngine::PostEvent</a></code>. The flag was simply removed, just delete any reference to it in your code.</p>
+<p class="calibre7"><code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ae0b469d9fb8a099b40f52f004882d283_split_000.html#ae0b469d9fb8a099b40f52f004882d283">AK::SoundEngine::GetSourcePlayPosition()</a></code> now returns the position more precisely too. The difference is related to the latency of playback, as defined by <code class="calibre14"><a class="pcalibre el" href="struct_ak_platform_init_settings_a953085ec90c00bf53ddafc8af700277d_split_000.html#a953085ec90c00bf53ddafc8af700277d" title="Number of refill buffers in voice buffer. 2 == double-buffered, defaults to 4.">AkPlatformInitSettings::uNumRefillsInVoice</a></code>. Before 25.1, the latency was not taken in account therefore the time reported could be up to 4 buffers (40 to 80 ms) ahead of what was played, on top of other natural sources of timing uncertainty. The new timing should now be precise to one buffer (10 to 20ms).</p>
+</div></div></div></body></html>

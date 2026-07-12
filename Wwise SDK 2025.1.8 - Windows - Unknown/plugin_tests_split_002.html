@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Testing Audio Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_1"><a class="pcalibre1 anchor" id="plugin_tests_guidelines_functionality"></a>
+Functionality</h2>
+<ul class="calibre8">
+<li class="calibre9">
+<b class="calibre13">Support for RTPCs</b>: Whenever this is possible and make sense, you should try to support RTPCs for your properties. This allows binding game inputs to plug-in properties and brings more flexibility.  </li>
+<li class="calibre9">
+<b class="calibre13">Non-linear sliders</b>: For sliders that have non linear audible distribution of their value range, such as volume sliders in decibels, use non-linear distribution of the pixel range versus the property range.  </li>
+<li class="calibre9">
+<p class="starttd"><b class="calibre13">Use the property restrictions</b>: When defining the properties in the XML plug-in definition, define, whenever this is possible, a restriction range or enumeration for your properties. These restrictions are used to: </p><ul class="calibre15">
+<li class="calibre9">
+Automatically adjust slider ranges </li>
+<li class="calibre9">
+Determine the RTPC range in the RTPC graph </li>
+<li class="calibre9">
+Validate and adjust the property values at project load, to ensure the integrity of the project. </li>
+</ul>
+<p class="endli"></p>
+</li>
+</ul>
+</div></div></div></body></html>

@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::SoundEngine::RegisterGlobalCallback</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="namespace_a_k_1_1_sound_engine_ade293d3ed101fe494ead6dffb1c682fb_split_000.html#ade293d3ed101fe494ead6dffb1c682fb" class="pcalibre1 anchor">◆ </a></span>RegisterGlobalCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_sound_engine_export_8h_ac6e96d34dfc0e12f9aaa7a47f4e9c322_split_000.html#ac6e96d34dfc0e12f9aaa7a47f4e9c322">AKSOUNDENGINE_API</a> <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::SoundEngine::RegisterGlobalCallback </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_callback_types_8h_a14f2022125839c43179c0c32381b4486_split_000.html#a14f2022125839c43179c0c32381b4486">AkGlobalCallbackFunc</a> </td>
+          <td class="paramname"><em class="calibre59">in_pCallback</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> </td>
+          <td class="paramname"><em class="calibre59">in_eLocation</em> = <code class="calibre14"><a class="pcalibre el" href="_ak_callback_types_8h_ae7a5e30e1402c7cf90d1b47420911676_split_001.html#ae7a5e30e1402c7cf90d1b47420911676ae4e4ee72acf1bdc317a2922caadb9797">AkGlobalCallbackLocation_BeginRender</a></code>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">void * </td>
+          <td class="paramname"><em class="calibre59">in_pCookie</em> = <code class="calibre14">NULL</code>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_enums_8h_af1a95e76b0e2a003e7edb2ad6f4043f4_split_000.html#af1a95e76b0e2a003e7edb2ad6f4043f4">AkPluginType</a> </td>
+          <td class="paramname"><em class="calibre59">in_eType</em> = <code class="calibre14"><a class="pcalibre el" href="_ak_enums_8h_af1a95e76b0e2a003e7edb2ad6f4043f4_split_001.html#af1a95e76b0e2a003e7edb2ad6f4043f4a8b439dd9d1761adf9912d02734a74bcd">AkPluginTypeNone</a></code>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> </td>
+          <td class="paramname"><em class="calibre59">in_ulCompanyID</em> = <code class="calibre14">0</code>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> </td>
+          <td class="paramname"><em class="calibre59">in_ulPluginID</em> = <code class="calibre14">0</code> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Registers a global callback function. This function will be called from the audio rendering thread, at the location specified by in_eLocation. This function will also be called from the thread calling <br class="calibre10"/>
+ <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a90f8c91937038615480db2b57ce2279e_split_000.html#a90f8c91937038615480db2b57ce2279e">AK::SoundEngine::Term</a> with in_eLocation set to AkGlobalCallbackLocation_Term. For example, in order to be called at every audio rendering pass, and once during teardown for releasing resources, you would call RegisterGlobalCallback(myCallback, AkGlobalCallbackLocation_BeginRender | AkGlobalCallbackLocation_Term, myCookie, AkPluginTypeNone, 0, 0); <br class="calibre10"/>
+ </p><dl class="calibre7"><dt class="calibre23">Remarks</dt><dd class="calibre24">A Plugin Type, Company ID and Plugin ID can be provided to this function to enable timing in the performance monitor. If the callback is being timed, it will contribute to the Total Plug-in CPU measurement, and also appear in the Plug-ins tab of the Advanced Profiler by plug-in type and ID. It is illegal to call this function while already inside of a global callback. This function might stall for several milliseconds before returning. </dd></dl>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><code class="calibre14">AK_Success</code> if successful</li>
+<li class="calibre9"><code class="calibre14">AK_InvalidParameter</code> if parameters are out of range (check debug console or <a class="pcalibre el" href="namespace_a_k_1_1_wwise_split_000.html">Wwise</a> Profiler) </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a79c4af0e9466849874ef113c9f8079d7_split_000.html#a79c4af0e9466849874ef113c9f8079d7">AK::SoundEngine::UnregisterGlobalCallback()</a></code></li>
+<li class="calibre9"><a class="pcalibre el" href="_ak_callback_types_8h_a14f2022125839c43179c0c32381b4486_split_000.html#a14f2022125839c43179c0c32381b4486">AkGlobalCallbackFunc</a></li>
+<li class="calibre9"><a class="pcalibre el" href="_ak_callback_types_8h_ae7a5e30e1402c7cf90d1b47420911676_split_000.html#ae7a5e30e1402c7cf90d1b47420911676" title="Bit field of various locations in the audio processing loop where the game can be called back.">AkGlobalCallbackLocation</a> </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_pCallback</td><td class="calibre17">Function to register as a global callback. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_eLocation</td><td class="calibre17">Callback location defined in AkGlobalCallbackLocation. Bitwise OR multiple locations if needed. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_pCookie</td><td class="calibre17">User cookie. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_eType</td><td class="calibre17">Plug-in type (for example, source or effect). AkPluginTypeNone for no timing. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_ulCompanyID</td><td class="calibre17">Company identifier (as declared in the plug-in description XML file). 0 for no timing. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_ulPluginID</td><td class="calibre17">Plug-in identifier (as declared in the plug-in description XML file). 0 for no timing. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

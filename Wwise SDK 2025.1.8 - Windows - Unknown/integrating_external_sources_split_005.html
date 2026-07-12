@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integrating External Sources</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_4"><a class="pcalibre1 anchor" id="external_source_example2"></a>
+Example: Playing an event with multiple external sources</h1>
+<p class="calibre7">You can replace many wave files in one single event. For example, you could setup a sequence container with 3 external sources. If an event triggers the playback of more than one external source, they must be named uniquely in the project (therefore have a unique cookie) in order to tell them appart when filling the <a class="pcalibre el" href="struct_ak_external_source_info_split_000.html">AkExternalSourceInfo</a> structures.</p>
+<p class="calibre7">The project must contain:</p><ul class="calibre8">
+<li class="calibre9">A Sequence Container called MyExternalSequence with 3 sounds and one External Source each(added through the "Add Source" button)</li>
+<li class="calibre9">The name of the sources should be 1, 2 and 3 so we can replace them separately.</li>
+<li class="calibre9">A play event "Play_MyExternalSequence"</li>
+<li class="calibre9">A bank with the event included</li>
+<li class="calibre9">An external source list in the Project Settings (see example above)</li>
+<li class="calibre9">The external source list must define the source "One.wav", "Four.wav" and "Five.wav" (implicitly converted in "One.wem", "Four.wem" and "Five.wem" respectively).</li>
+</ul>
+<div class="fragment"><div class="line"><a class="pcalibre code" href="struct_ak_external_source_info_split_000.html">AkExternalSourceInfo</a> sources[3];</div>
+<div class="line"> </div>
+<div class="line">sources[0].<a class="pcalibre code" href="struct_ak_external_source_info_a198a69d12cc42071f764a6f793060c77_split_000.html#a198a69d12cc42071f764a6f793060c77">iExternalSrcCookie</a> = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a1aae6ebdec25946fb2897ce0e025366d_split_000.html#a1aae6ebdec25946fb2897ce0e025366d">AK::SoundEngine::GetIDFromString</a>(<span class="stringliteral">"Extern_1st_number"</span>);</div>
+<div class="line">sources[0].<a class="pcalibre code" href="struct_ak_external_source_info_af29151c09e6b12f9b4f5b4c9a9389ba1_split_000.html#af29151c09e6b12f9b4f5b4c9a9389ba1">szFile</a> = <a class="pcalibre code" href="_platforms_2_windows_2_ak_types_8h_ab37c4500d1c5377b3f54077b8222dde7_split_000.html#ab37c4500d1c5377b3f54077b8222dde7">AKTEXT</a>(<span class="stringliteral">"Five.wem"</span>);</div>
+<div class="line">sources[0].<a class="pcalibre code" href="struct_ak_external_source_info_aa414d16c9d27dee981e13ce4ba8da2d5_split_000.html#aa414d16c9d27dee981e13ce4ba8da2d5">idCodec</a> = <a class="pcalibre code" href="_ak_constants_8h_a9d668f1ec7a3a4f5bada195815866870_split_000.html#a9d668f1ec7a3a4f5bada195815866870">AKCODECID_PCM</a>;</div>
+<div class="line"> </div>
+<div class="line">sources[1].<a class="pcalibre code" href="struct_ak_external_source_info_a198a69d12cc42071f764a6f793060c77_split_000.html#a198a69d12cc42071f764a6f793060c77">iExternalSrcCookie</a> = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a1aae6ebdec25946fb2897ce0e025366d_split_000.html#a1aae6ebdec25946fb2897ce0e025366d">AK::SoundEngine::GetIDFromString</a>(<span class="stringliteral">"Extern_2nd_number"</span>);      </div>
+<div class="line">sources[1].<a class="pcalibre code" href="struct_ak_external_source_info_af29151c09e6b12f9b4f5b4c9a9389ba1_split_000.html#af29151c09e6b12f9b4f5b4c9a9389ba1">szFile</a> = <a class="pcalibre code" href="_platforms_2_windows_2_ak_types_8h_ab37c4500d1c5377b3f54077b8222dde7_split_000.html#ab37c4500d1c5377b3f54077b8222dde7">AKTEXT</a>(<span class="stringliteral">"One.wem"</span>);</div>
+<div class="line">sources[1].<a class="pcalibre code" href="struct_ak_external_source_info_aa414d16c9d27dee981e13ce4ba8da2d5_split_000.html#aa414d16c9d27dee981e13ce4ba8da2d5">idCodec</a> = <a class="pcalibre code" href="_ak_constants_8h_a9d668f1ec7a3a4f5bada195815866870_split_000.html#a9d668f1ec7a3a4f5bada195815866870">AKCODECID_PCM</a>;         </div>
+<div class="line">    </div>
+<div class="line">sources[2].<a class="pcalibre code" href="struct_ak_external_source_info_a198a69d12cc42071f764a6f793060c77_split_000.html#a198a69d12cc42071f764a6f793060c77">iExternalSrcCookie</a> = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a1aae6ebdec25946fb2897ce0e025366d_split_000.html#a1aae6ebdec25946fb2897ce0e025366d">AK::SoundEngine::GetIDFromString</a>(<span class="stringliteral">"Extern_3rd_number"</span>);      </div>
+<div class="line">sources[2].<a class="pcalibre code" href="struct_ak_external_source_info_af29151c09e6b12f9b4f5b4c9a9389ba1_split_000.html#af29151c09e6b12f9b4f5b4c9a9389ba1">szFile</a> = <a class="pcalibre code" href="_platforms_2_windows_2_ak_types_8h_ab37c4500d1c5377b3f54077b8222dde7_split_000.html#ab37c4500d1c5377b3f54077b8222dde7">AKTEXT</a>(<span class="stringliteral">"Four.wem"</span>);</div>
+<div class="line">sources[2].<a class="pcalibre code" href="struct_ak_external_source_info_aa414d16c9d27dee981e13ce4ba8da2d5_split_000.html#aa414d16c9d27dee981e13ce4ba8da2d5">idCodec</a> = <a class="pcalibre code" href="_ak_constants_8h_ae231b80b0548ed6445a06698b8281f18_split_000.html#ae231b80b0548ed6445a06698b8281f18">AKCODECID_VORBIS</a>;  <span class="comment">//The codec can be different for each source, if needed</span></div>
+<div class="line"> </div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a41e9ef8d42951871fe4a8ae58a29a68e_split_000.html#a41e9ef8d42951871fe4a8ae58a29a68e">AK::SoundEngine::PostEvent</a>( <span class="stringliteral">"Play_MyExternalSequence"</span>, 2, 0, NULL, 0, 3, sources );</div>
+</div><!-- fragment --></div></div></div></body></html>

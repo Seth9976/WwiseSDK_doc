@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AkBankCallbackFunc</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="_ak_callback_types_8h_a5f4438e001923453a9f795eb64946be6_split_000.html#a5f4438e001923453a9f795eb64946be6" class="pcalibre1 anchor">◆ </a></span>AkBankCallbackFunc</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">typedef void( * AkBankCallbackFunc) (<a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> in_bankID, const void *in_pInMemoryBankPtr, enum <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> in_eLoadResult, void *in_pCookie)</td>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Callback prototype used with asynchronous bank load/unload requests. This function is called when the bank request has been processed and indicates if it was successfully executed or if an error occurred. </p><dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_bankID</td><td class="calibre17">Identifier of the bank that was explicitly loaded/unloaded. In the case of <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a2e6ebb779470b43d78984c27f6a0c238_split_000.html#a2e6ebb779470b43d78984c27f6a0c238">PrepareEvent()</a> or <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a76c611710ef7ffdd2d59f34e35b67cdc_split_000.html#a76c611710ef7ffdd2d59f34e35b67cdc">PrepareGameSyncs()</a>, this value contains the AkUniqueID of the event/game sync that was prepared/unprepared, if the array contained only one element. Otherwise, in_bankID equals AK_INVALID_UNIQUE_ID. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_pInMemoryBankPtr</td><td class="calibre17">Value returned when the unloaded bank was loaded using an in memory location </td></tr>
+    <tr class="calibre16"><td class="paramname">in_eLoadResult</td><td class="calibre17">Result of the requested action.<ul class="calibre25">
+<li class="calibre9">AK_Success: Load or unload successful.</li>
+<li class="calibre9">AK_IDNotFound: At least one of the event/game sync identifiers passed to <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a2e6ebb779470b43d78984c27f6a0c238_split_000.html#a2e6ebb779470b43d78984c27f6a0c238">PrepareEvent()</a> or <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a76c611710ef7ffdd2d59f34e35b67cdc_split_000.html#a76c611710ef7ffdd2d59f34e35b67cdc">PrepareGameSyncs()</a> does not exist.</li>
+<li class="calibre9">AK_InsufficientMemory: Insufficient memory to store bank data.</li>
+<li class="calibre9">AK_BankReadError: I/O error.</li>
+<li class="calibre9">AK_WrongBankVersion: Invalid bank version: make sure the version of Wwise that you used to generate the SoundBanks matches that of the SDK you are currently using.</li>
+<li class="calibre9">AK_InvalidFile: File specified could not be opened.</li>
+<li class="calibre9">AK_InvalidParameter: Invalid parameter.</li>
+<li class="calibre9">AK_Fail: Load or unload failed for any other reason. (Most likely small allocation failure) </li>
+</ul>
+</td></tr>
+    <tr class="calibre16"><td class="paramname">in_pCookie</td><td class="calibre17">Optional cookie that was passed to the bank request. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+<dl class="calibre7"><dt class="calibre23">Remarks</dt><dd class="calibre24">This callback is executed from the bank thread. The processing time in the callback function should be minimal. Having too much processing time could slow down the bank loading process. </dd></dl>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">AK::SoundEngine::LoadBank()</a></li>
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ac91406bc2fe061e4248cb448207b5a64_split_000.html#ac91406bc2fe061e4248cb448207b5a64">AK::SoundEngine::UnloadBank()</a></li>
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a2e6ebb779470b43d78984c27f6a0c238_split_000.html#a2e6ebb779470b43d78984c27f6a0c238">AK::SoundEngine::PrepareEvent()</a></li>
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a76c611710ef7ffdd2d59f34e35b67cdc_split_000.html#a76c611710ef7ffdd2d59f34e35b67cdc">AK::SoundEngine::PrepareGameSyncs()</a></li>
+<li class="calibre9"><a class="pcalibre el" href="soundengine_banks.html">Integration Details - Banks</a> </li>
+</ul>
+</dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_ak_callback_types_8h_source.html#l00388">388</a> of file <a class="pcalibre el" href="_ak_callback_types_8h_source.html">AkCallbackTypes.h</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

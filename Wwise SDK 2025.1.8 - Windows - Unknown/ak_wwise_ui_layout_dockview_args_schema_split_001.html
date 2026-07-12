@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak.wwise.ui.layout.dockView Arguments Schema</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2"><h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="section_ak_wwise_ui_layout_dockview_argsSchema"></a>
+Schema</h1>
+<div class="fragment"><div class="line">{</div>
+<div class="line">    "type": "object",</div>
+<div class="line">    "properties": {</div>
+<div class="line">        "name": {</div>
+<div class="line">            "type": "string",</div>
+<div class="line">            "description": "The name of the layout where to dock the view."</div>
+<div class="line">        },</div>
+<div class="line">        "viewID": {</div>
+<div class="line">            "type": "string",</div>
+<div class="line">            "pattern": "^\\{[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}\\}$",</div>
+<div class="line">            "description": "The unique id of the view to dock.\\n An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}."</div>
+<div class="line">        },</div>
+<div class="line">        "targetID": {</div>
+<div class="line">            "type": "string",</div>
+<div class="line">            "pattern": "^\\{[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}\\}$",</div>
+<div class="line">            "description": "The unique id of the target element.\\n An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}."</div>
+<div class="line">        },</div>
+<div class="line">        "side": {</div>
+<div class="line">            "type": "string",</div>
+<div class="line">            "description": "The side where to drop the view on the target.",</div>
+<div class="line">            "enum": [</div>
+<div class="line">                "left",</div>
+<div class="line">                "right",</div>
+<div class="line">                "top",</div>
+<div class="line">                "bottom"</div>
+<div class="line">            ]</div>
+<div class="line">        }</div>
+<div class="line">    },</div>
+<div class="line">    "required": [</div>
+<div class="line">        "name",</div>
+<div class="line">        "viewID",</div>
+<div class="line">        "targetID",</div>
+<div class="line">        "side"</div>
+<div class="line">    ],</div>
+<div class="line">    "additionalProperties": false</div>
+<div class="line">}</div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

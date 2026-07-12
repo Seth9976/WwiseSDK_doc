@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2024.1.3</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="generic_community_bugs_2024_1_3"></a>
+Fixes for Community-Reported Bugs</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-71736</b> Fixed: Overriding loudness normalization option in an existing Wwise session does not automatically update the played content.</li>
+<li class="calibre9"><b class="calibre13">WG-71881</b> Fixed: Source and destination objects are lost when copying music transitions to another music container.</li>
+<li class="calibre9"><b class="calibre13">WG-72195</b> Fixed: Hang when clicking <b class="calibre13">Copy to Clipboard</b> in the Project Load Log dialog when there are more than 250 warnings.</li>
+<li class="calibre9"><b class="calibre13">WG-72427</b> Fixed: Live-editing the "Bind to Built-In Parameter" value of a Game Parameter causes the RTPC value of the Transport Control game object to reset to 0.</li>
+<li class="calibre9"><b class="calibre13">WG-73189</b> Fixed: State transition on Music Segments and Music Tracks does not occur at expected synchronization type after opening a Wwise project.</li>
+<li class="calibre9"><b class="calibre13">WG-75320</b> Fixed: (Spatial Audio) Radii of multipositioned Radial Emitters are still visible in the Game Object 3D Viewer when they are inaudible.</li>
+<li class="calibre9"><b class="calibre13">WG-75517</b> Fixed: Crash when double-clicking a path in the Entries pane of the Music Switch Editor or Dialogue Event Editor.</li>
+<li class="calibre9"><b class="calibre13">WG-75818</b> Fixed: (Spatial Audio) Built-In Diffraction RTPC is set to the wrong value on Reverb Zones.</li>
+<li class="calibre9"><b class="calibre13">WG-75837</b> Fixed: Transmission loss is not applied immediately if load balancing spread is &gt;= 4.</li>
+<li class="calibre9"><b class="calibre13">WG-76016</b> Fixed: Play - Bypass Properties in Transport Control doesn't work with containers and source plug-ins.</li>
+<li class="calibre9"><b class="calibre13">WG-76165</b> Fixed: Performance slowdown when clicking a Dialogue Event in the Project Explorer.</li>
+<li class="calibre9"><b class="calibre13">WG-76182</b> Fixed: Possible crash related to music transitions when migrating a project.</li>
+<li class="calibre9"><b class="calibre13">WG-76208</b> Fixed: Spatial Audio API calls crash when called before <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a9a26da64092b97243844df77cbcdbf5f_split_000.html#a9a26da64092b97243844df77cbcdbf5f">AK::SoundEngine::Init</a></code> or after <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a90f8c91937038615480db2b57ce2279e_split_000.html#a90f8c91937038615480db2b57ce2279e">AK::SoundEngine::Term</a></code>.</li>
+<li class="calibre9"><b class="calibre13">WG-76217</b> Fixed: (Spatial Audio) Crash when posting a room tone referencing a built-in RTPC immediately after removing a Room or Portal.</li>
+<li class="calibre9"><b class="calibre13">WG-76235</b> Fixed: Generation of <code class="calibre14">Wwise_IDs.h</code> file is sometimes incomplete.</li>
+<li class="calibre9"><b class="calibre13">WG-76241</b> Fixed: Tab delimited import can fail to organize the imported sounds correctly.</li>
+<li class="calibre9"><b class="calibre13">WG-76302</b> Fixed: Assert when using MIDI to play content inside a continuous container while targetting the note off to be under the same node.</li>
+<li class="calibre9"><b class="calibre13">WG-76342</b> Fixed: External Source conversion doesn't use Default Conversion Settings ShareSet when no conversion is specified.</li>
+<li class="calibre9"><b class="calibre13">WG-76348</b> Fixed: Crash when deleting a Random Step or Random Continuous group in the Music Playlist Editor.</li>
+<li class="calibre9"><b class="calibre13">WG-76349</b> Fixed: Possible crash with original WAV file containing non-XML text in AXML chunk.</li>
+<li class="calibre9"><b class="calibre13">WG-76371</b> Fixed: Hang on exit of Unreal games if disk streaming errors occured.</li>
+<li class="calibre9"><b class="calibre13">WG-76392</b> Fixed: Crash in background conversion when Effects are set to render.</li>
+<li class="calibre9"><b class="calibre13">WG-76410</b> Fixed: Cannot load a plug-in library that does not contain at least one sound engine Source, Effect, or Metadata plug-in.</li>
+<li class="calibre9"><b class="calibre13">WG-76519</b> Fixed: Possible crash when clicking a checkbox in Property Editor.</li>
+<li class="calibre9"><b class="calibre13">WG-76528</b> Fixed: (WAAPI) The topic <code class="calibre14"><a class="pcalibre el" href="ak_wwise_core_soundbank_generated_split_000.html">ak.wwise.core.soundbank.generated</a></code> returns information for the wrong platform.</li>
+<li class="calibre9"><b class="calibre13">WG-76530</b> Fixed: (WAAPI) Passing an invalid return option to the <code class="calibre14"><a class="pcalibre el" href="ak_wwise_core_soundbank_generated_split_000.html">ak.wwise.core.soundbank.generated</a></code> topic subscription leads to a crash when generating a soundbank.</li>
+<li class="calibre9"><b class="calibre13">WG-76647</b> Fixed: Connecting to a game that has Blend Containers playing sometimes duplicates the number of sounds playing in the containers, giving the impression that the volume has increased.</li>
+</ul>
+</div></div></div></body></html>

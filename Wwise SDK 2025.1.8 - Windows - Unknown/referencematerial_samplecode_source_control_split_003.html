@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Source Control Plug-in Sample Code</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_2"><a class="pcalibre1 anchor" id="referencematerial_samplecode_source_control_perforce_build"></a>
+How to build the Perforce Source Control Sample Plug-in</h2>
+<p class="calibre7">Before you can build the Perforce plug-in for Wwise, you will need to install the Perforce C++ API and OpenSSL files, and place them at the correct location:</p>
+<ol class="calibre26">
+<li class="calibre9">Download the <em class="calibre11">Helix Core C/C++ API</em> for Windows (x64) libraries from the <a href="https://ftp.perforce.com/perforce/r23.1/bin.ntx64/" target="_blank" class="pcalibre calibre12">Perforce FTP</a>. The version used to build the plug-in included with Wwise is <a href="https://ftp.perforce.com/perforce/r23.1/bin.ntx64/p4api_vs2019_static_openssl3.zip" target="_blank" class="pcalibre calibre12">p4api_vs2019_static_openssl3.zip</a> (version <code class="calibre14">2023.1/2468153</code>).</li>
+<li class="calibre9">Create the following directory: "[Wwise Installation Root]/Authoring/source/3rdParty/Perforce/windows"</li>
+<li class="calibre9">Extract the content of <code class="calibre14">p4api-&lt;version&gt;-&lt;configuration&gt;/lib</code> to: <code class="calibre14">[Wwise Installation Root]/Authoring/source/3rdParty/Perforce/windows/lib</code></li>
+<li class="calibre9">Extract the content of <code class="calibre14">p4api-&lt;version&gt;-&lt;configuration&gt;/include</code> to: <code class="calibre14">[Wwise Installation Root]/Authoring/source/3rdParty/Perforce/windows/include</code> <table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> The Helix C/C++ API archive contains only release libraries. For this reason, a debug build of the plug-in uses the release CRT library and (<code class="calibre14">DEBUG</code>, <code class="calibre14">_DEBUG</code>) are not defined. </td></tr>
+</tbody></table>
+</li>
+<li class="calibre9">Download the latest OpenSSL binaries and libraries for Windows (x64) from <a href="https://www.firedaemon.com/firedaemon-openssl" target="_blank" class="pcalibre calibre12">FireDaemon OpenSSL Binaries for Microsoft Windows</a>.</li>
+<li class="calibre9">Extract the binaries (<code class="calibre14">libcrypto-3-x64.dll</code>, <code class="calibre14">libssl-3-x64.dll</code>) to: <code class="calibre14">[Wwise Installation Root]\Authoring\source\3rdParty\OpenSSL\bin</code></li>
+<li class="calibre9">Extract the libraries (<code class="calibre14">libcrypto.lib</code>, <code class="calibre14">libssl.lib</code>) to: <code class="calibre14">[Wwise Installation Root]\Authoring\source\3rdParty\OpenSSL\lib</code></li>
+</ol>
+<p class="calibre7">You should now be able to open the Perforce plug-in's project (<code class="calibre14">SDK/samples/SourceControl/Perforce/Perforce.vcxproj</code>) and build the plug-in. Refer to <a class="pcalibre el" href="source_control_split_000.html">Source Control Plug-ins</a> for information on the Wwise source control plug-ins API and installation.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> Some modifications to the code or project may be required in order to build with a different version of Perforce. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

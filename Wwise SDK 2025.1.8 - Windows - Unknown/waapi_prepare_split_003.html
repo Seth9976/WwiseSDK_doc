@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Preparing to use the Wwise Authoring API</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_2"><a class="pcalibre1 anchor" id="waapi_security_addresses"></a>
+Restricting access to WAAPI to specific IP addresses</h2>
+<p class="calibre7">By default, WAAPI will only accept connections coming from localhost (127.0.0.1 or ::1).</p>
+<p class="calibre7">Accessing WAAPI from a remote computer will therefore fail, unless you add its IP address in the User Preferences. To allow an IP address to connect to WAAPI:</p><ul class="calibre8">
+<li class="calibre9">Click <em class="calibre11">Project</em> &gt; <em class="calibre11">User Preferences</em>, from the main Wwise menu.</li>
+<li class="calibre9">Add the IP address to the <b class="calibre13">Allow connections from</b> field. For example:<ul class="calibre15">
+<li class="calibre9"><em class="calibre11">203.0.113.255</em>, using an IPv4 address; or</li>
+<li class="calibre9"><em class="calibre11">2001:db8::</em>, using an IPv6 address.</li>
+</ul>
+</li>
+<li class="calibre9">Click <b class="calibre13">OK</b>.</li>
+</ul>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="caution.gif"/></td><td class="calibre17"><b class="calibre13">Caution:</b> You can add * to allow connections from any IP address. But, this is insecure and, therefore, unrecommended. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::StreamMgr::IAkLowLevelIOHook Class Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table class="calibre3">
+<tbody class="calibre4"><tr class="calibre16"><td colspan="2" class="calibre17"><h2 class="calibre21" id="calibre_pb_1"><a class="pcalibre1 anchor" id="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="calibre16"><td class="memitemleft">virtual <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> </td><td class="memitemright"><a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_a7a50a7a5fa624691d7bb7608753dc096_split_000.html#a7a50a7a5fa624691d7bb7608753dc096">Close</a> (<a class="pcalibre el" href="struct_ak_file_desc_split_000.html">AkFileDesc</a> *in_pFileDesc)=0</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">virtual <a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> </td><td class="memitemright"><a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_a5018552d455ddc2a95b727fc543aac9e_split_000.html#a5018552d455ddc2a95b727fc543aac9e">GetBlockSize</a> (<a class="pcalibre el" href="struct_ak_file_desc_split_000.html">AkFileDesc</a> &amp;in_fileDesc)=0</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">virtual void </td><td class="memitemright"><a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_a06860cb1211c2ebd5c49f4429cc66a0b_split_000.html#a06860cb1211c2ebd5c49f4429cc66a0b">GetDeviceDesc</a> (<a class="pcalibre el" href="struct_ak_device_desc_split_000.html">AkDeviceDesc</a> &amp;out_deviceDesc)=0</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">virtual <a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> </td><td class="memitemright"><a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_a885d39fdd78da3748f78e176615fb6ea_split_000.html#a885d39fdd78da3748f78e176615fb6ea">GetDeviceData</a> ()=0</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">virtual void </td><td class="memitemright"><a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_a0abfde848b599b5e5b8e8ed63dc8b555_split_000.html#a0abfde848b599b5e5b8e8ed63dc8b555">BatchOpen</a> (<a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> in_uNumFiles, <a class="pcalibre el" href="struct_ak_async_file_open_data_split_000.html">AkAsyncFileOpenData</a> **in_ppItems)=0</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">virtual void </td><td class="memitemright"><a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_a9bc325405bc17c0a5105d0a53981b186_split_000.html#a9bc325405bc17c0a5105d0a53981b186">BatchRead</a> (<a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> in_uNumTransfers, <a class="pcalibre el" href="struct_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_1_1_batch_io_transfer_item_split_000.html">BatchIoTransferItem</a> *in_pTransferItems)=0</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">virtual void </td><td class="memitemright"><a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_a8f5041a24e395784437a62cdd2140505_split_000.html#a8f5041a24e395784437a62cdd2140505">BatchWrite</a> (<a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> in_uNumTransfers, <a class="pcalibre el" href="struct_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_1_1_batch_io_transfer_item_split_000.html">BatchIoTransferItem</a> *in_pTransferItems)=0</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">virtual <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> </td><td class="memitemright"><a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_a40d53d28e4c8942d23ba011f1222d29a_split_000.html#a40d53d28e4c8942d23ba011f1222d29a">OutputSearchedPaths</a> (<a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> in_result, const <a class="pcalibre el" href="struct_ak_file_open_data_split_000.html">AkFileOpenData</a> &amp;in_FileOpen, <a class="pcalibre el" href="_platforms_2_windows_2_ak_types_8h_af48843ed095e0ea7dd05bd1b64070664_split_000.html#af48843ed095e0ea7dd05bd1b64070664">AkOSChar</a> *out_searchedPath, <a class="pcalibre el" href="_ak_numeral_types_8h_a81fc19413771f592b26e6b9e4f8ce154_split_000.html#a81fc19413771f592b26e6b9e4f8ce154">AkInt32</a> in_pathSize)</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">This function is called to provide information when file related errors occur. The base paths known by this IO hook should be returned in out_searchedPath.  <a href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_a40d53d28e4c8942d23ba011f1222d29a_split_000.html#a40d53d28e4c8942d23ba011f1222d29a" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+</tbody></table></div></body></html>

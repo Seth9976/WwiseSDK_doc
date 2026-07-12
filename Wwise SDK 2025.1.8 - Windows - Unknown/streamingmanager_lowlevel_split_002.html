@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Low-Level I/O</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="streamingmanager_lowlevel_location"></a>
+File Location Resolving</h1>
+<h2 class="calibre31"><a class="pcalibre1 anchor" id="streamingmanager_lowlevel_location_filelocationresolver"></a>
+File Location Resolver</h2>
+<p class="calibre7">A File Location Resolver needs to be registered to the Stream Manager using <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_stream_mgr_ab5c2340963ac5ff81e49969b74ef2520_split_000.html#ab5c2340963ac5ff81e49969b74ef2520">AK::StreamMgr::SetFileLocationResolver()</a></code>. Whenever the Stream Manager creates a stream object, it calls this resolver's GetNextPreferredDevice() method and it should return the AkDeviceID that identifies the I/O Device to use to open the file. The purpose of this function is to find the file location only from its name, flags, language, etc. without performing a disk operation or other physical check. The real Open call will be forwarded to the specified device to perform the disk operation. Therefore, this function is expected to return quickly. If the Device fails to find or open the file, GetNextPreferredDevice will be called again. If no other Devices are known, or the file is unlikely to be found in other locations, then AK_FileNotFound should be returned to notify the end of the search.</p>
+<p class="calibre7">The same number of files exist simultaneously in the Low-Level I/O as stream objects in the Stream Manager.</p>
+<p class="calibre7">The game must create at least one streaming device in the Stream Manager using <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_stream_mgr_a64a22d377d25137222fbb66ff21965d5_split_000.html#a64a22d377d25137222fbb66ff21965d5">AK::StreamMgr::CreateDevice()</a></code>. The returned AkDeviceID should be kept by the caller and returned in <code class="calibre14">AK::StreamMgr::GetNextPreferredDevice</code> as described above. It may however create as many devices as required. Each streaming device runs in its own thread, and sends I/O requests to its own I/O hook. Typically, you should create one streaming device per physical device. In the <a class="pcalibre el" href="struct_ak_file_desc_split_000.html">AkFileDesc</a> structure, there is a field called deviceID. The File Location Resolver needs to set it to the deviceID of one of the streaming devices that were created. This is how file handling is dispatched to the appropriate device. Additionally, the file's size and offset (<code class="calibre14">uSector</code>) must be returned, and a system file handle should be created (although this is not strictly necessary).</p>
+</div></div></div></body></html>

@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Sound Engine Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_19"><a class="pcalibre1 anchor" id="fx_audiobuffer_struct_channels"></a>
+Channel Ordering</h2>
+<p class="calibre7">The channels for processing audio are ordered as follows: Front Left, Front Right, Center, Rear Left, Rear Right, and LFE. The Low-Frequency channel (LFE) is <b class="calibre13">always</b> placed at the end (except for Source plug-ins), so that it can be handled separately because many DSP processings require it. A plug-in can query if the LFE channel is present in the audio buffer with <code class="calibre14"><a class="pcalibre el" href="class_ak_audio_buffer_a9ac12a3c62e9c1e734b5a42d68896bf4_split_000.html#a9ac12a3c62e9c1e734b5a42d68896bf4" title="Returns true if there is an LFE channel present.">AkAudioBuffer::HasLFE()</a></code>. It can access the LFE channel directly by calling <code class="calibre14"><a class="pcalibre el" href="class_ak_audio_buffer_a06f9e3184b8664df136f8d123b04cc81_split_000.html#a06f9e3184b8664df136f8d123b04cc81">AkAudioBuffer::GetLFE()</a></code>. The following code demonstrates two different ways for handling the LFE channel separately.</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> CAkMyPlugin::Execute( <a class="pcalibre code" href="class_ak_audio_buffer_split_000.html">AkAudioBuffer</a> * io_pBuffer )     <span class="comment">// Input/Output buffer (processing is done in place).</span></div>
+<div class="line">{</div>
+<div class="line">    <span class="comment">// Get LFE channel with GetLFE().</span></div>
+<div class="line">    <a class="pcalibre code" href="_ak_common_defs_8h_a58f11a728038d16fe4187612a7a842fb_split_000.html#a58f11a728038d16fe4187612a7a842fb">AkSampleType</a> * pLFE = io_pBuffer-&gt;<a class="pcalibre code" href="class_ak_audio_buffer_a06f9e3184b8664df136f8d123b04cc81_split_000.html#a06f9e3184b8664df136f8d123b04cc81">GetLFE</a>();</div>
+<div class="line">    <span class="keywordflow">if</span> ( pLFE )</div>
+<div class="line">    {</div>
+<div class="line">        <span class="comment">// Process data of pLFE...</span></div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    OR ...</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Get LFE channel with GetChannel().</span></div>
+<div class="line">    <span class="keywordflow">if</span> ( io_pBuffer-&gt;<a class="pcalibre code" href="class_ak_audio_buffer_a9ac12a3c62e9c1e734b5a42d68896bf4_split_000.html#a9ac12a3c62e9c1e734b5a42d68896bf4">HasLFE</a>() )</div>
+<div class="line">    {</div>
+<div class="line">        <a class="pcalibre code" href="_ak_common_defs_8h_a58f11a728038d16fe4187612a7a842fb_split_000.html#a58f11a728038d16fe4187612a7a842fb">AkSampleType</a> * pLFE = io_pBuffer-&gt;<a class="pcalibre code" href="class_ak_audio_buffer_ad2bc3b8ddd61eaa0c111798d5f9e8c9c_split_000.html#ad2bc3b8ddd61eaa0c111798d5f9e8c9c">GetChannel</a>( io_pBuffer-&gt;<a class="pcalibre code" href="class_ak_audio_buffer_a4523322478ec9a0f9de0c7c72e65df2f_split_000.html#a4523322478ec9a0f9de0c7c72e65df2f">NumChannels</a>() - 1 );</div>
+<div class="line">        <span class="comment">// Process data of pLFE...</span></div>
+<div class="line">    }</div>
+<div class="line">}</div>
+</div><!-- fragment --><p class="calibre7">If you want to apply specific processing to a channel that is not the LFE, then you need to use the channel index defines of <a class="pcalibre el" href="_ak_common_defs_8h_split_000.html">AkCommonDefs.h</a>. For example, if you want to process only the center channel of a 5.x configuration, you would do the following:</p>
+<div class="fragment"><div class="line"><span class="comment">// Process only the center channel of a 5.x configuration.</span></div>
+<div class="line"><span class="keywordtype">void</span> CAkMyPlugin::Execute( <a class="pcalibre code" href="class_ak_audio_buffer_split_000.html">AkAudioBuffer</a> * io_pBuffer )     <span class="comment">// Input/Output buffer (processing is done in place).</span></div>
+<div class="line">{</div>
+<div class="line">    <span class="comment">// Query for specific channel configuration.</span></div>
+<div class="line">    <span class="keywordflow">if</span> ( io_pBuffer-&gt;GetChannelMask() == <a class="pcalibre code" href="_ak_speaker_config_8h_af181b7b2236165b1e43fc8d54f5dee9d_split_000.html#af181b7b2236165b1e43fc8d54f5dee9d">AK_SPEAKER_SETUP_5</a> || io_pBuffer-&gt;GetChannelMask() == <a class="pcalibre code" href="_ak_speaker_config_8h_a666b8c74f7cca22244ae5d96b6a665e0_split_000.html#a666b8c74f7cca22244ae5d96b6a665e0">AK_SPEAKER_SETUP_5POINT1</a> )</div>
+<div class="line">    {</div>
+<div class="line">        <span class="comment">// Access channel using the index defined for the appropriate configuration.</span></div>
+<div class="line">        <a class="pcalibre code" href="_ak_common_defs_8h_a58f11a728038d16fe4187612a7a842fb_split_000.html#a58f11a728038d16fe4187612a7a842fb">AkSampleType</a> * pCenter = io_pBuffer-&gt;<a class="pcalibre code" href="class_ak_audio_buffer_ad2bc3b8ddd61eaa0c111798d5f9e8c9c_split_000.html#ad2bc3b8ddd61eaa0c111798d5f9e8c9c">GetChannel</a>( <a class="pcalibre code" href="_ak_speaker_config_8h_a2639ea7a4d6c2a1a0fa9368ef9d15f33_split_000.html#a2639ea7a4d6c2a1a0fa9368ef9d15f33">AK_IDX_SETUP_5_CENTER</a> );</div>
+<div class="line">        <span class="comment">// Process data of pCenter...</span></div>
+<div class="line">    }</div>
+<div class="line">}</div>
+</div><!-- fragment --><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="tip.gif"/></td><td class="calibre17"><b class="calibre13">Tip:</b> Notice that the channel index defines are independent of whether the configuration is N.0 or N.1. This is because the LFE channel is always the last one, except for Source plug-ins (AK_IDX_SETUP_N_LFE should not be used if the channel configuration has no LFE). </td></tr>
+</tbody></table>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> In the case of 7.1, the channel ordering for interleaved data of source plug-ins is L-R-C-LFE-BL-BR-SL-SR. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

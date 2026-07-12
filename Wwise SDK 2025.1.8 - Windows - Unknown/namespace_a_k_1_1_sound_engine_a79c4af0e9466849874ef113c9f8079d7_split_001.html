@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::SoundEngine::UnregisterGlobalCallback</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="namespace_a_k_1_1_sound_engine_a79c4af0e9466849874ef113c9f8079d7_split_000.html#a79c4af0e9466849874ef113c9f8079d7" class="pcalibre1 anchor">◆ </a></span>UnregisterGlobalCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_sound_engine_export_8h_ac6e96d34dfc0e12f9aaa7a47f4e9c322_split_000.html#ac6e96d34dfc0e12f9aaa7a47f4e9c322">AKSOUNDENGINE_API</a> <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::SoundEngine::UnregisterGlobalCallback </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_callback_types_8h_a14f2022125839c43179c0c32381b4486_split_000.html#a14f2022125839c43179c0c32381b4486">AkGlobalCallbackFunc</a> </td>
+          <td class="paramname"><em class="calibre59">in_pCallback</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> </td>
+          <td class="paramname"><em class="calibre59">in_eLocation</em> = <code class="calibre14"><a class="pcalibre el" href="_ak_callback_types_8h_ae7a5e30e1402c7cf90d1b47420911676_split_001.html#ae7a5e30e1402c7cf90d1b47420911676ae4e4ee72acf1bdc317a2922caadb9797">AkGlobalCallbackLocation_BeginRender</a></code> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Unregisters a global callback function, previously registered using RegisterGlobalCallback. </p><dl class="calibre7"><dt class="calibre23">Remarks</dt><dd class="calibre24">It is legal to call this function while already inside of a global callback, If it is unregistering itself and not another callback. This function might stall for several milliseconds before returning. </dd></dl>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><code class="calibre14">AK_Success</code> if successful</li>
+<li class="calibre9"><code class="calibre14">AK_InvalidParameter</code> if parameters are out of range (check debug console or <a class="pcalibre el" href="namespace_a_k_1_1_wwise_split_000.html">Wwise</a> Profiler) </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ade293d3ed101fe494ead6dffb1c682fb_split_000.html#ade293d3ed101fe494ead6dffb1c682fb">AK::SoundEngine::RegisterGlobalCallback()</a></code></li>
+<li class="calibre9"><a class="pcalibre el" href="_ak_callback_types_8h_a14f2022125839c43179c0c32381b4486_split_000.html#a14f2022125839c43179c0c32381b4486">AkGlobalCallbackFunc</a></li>
+<li class="calibre9"><a class="pcalibre el" href="_ak_callback_types_8h_ae7a5e30e1402c7cf90d1b47420911676_split_000.html#ae7a5e30e1402c7cf90d1b47420911676" title="Bit field of various locations in the audio processing loop where the game can be called back.">AkGlobalCallbackLocation</a> </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_pCallback</td><td class="calibre17">Function to unregister as a global callback. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_eLocation</td><td class="calibre17">Must match in_eLocation as passed to RegisterGlobalCallback for this callback. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

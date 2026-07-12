@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Rooms and Portals Overview</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="spatial_audio_roomsportals_modelingsoundpropagationfromotherrooms_diffraction"></a>
+Diffraction</h1>
+<p class="calibre7">For each emitter in adjacent Rooms, Wwise Acoustics computes a diffraction angle from the Shadow Boundary, from the closest edge of the connecting Portal. For more information, see <a class="pcalibre el" href="spatial_audio_concepts_split_001.html#spatial_audio_concepts_diffraction">Diffraction</a>. This diffraction angle, which may go to up to 180 degrees, is then mapped to a coefficient between 0 and 100%, and given to the Wwise user for driving corresponding audio transformations, by one of two means. It can set the diffraction value on the emitter game object or set the value of the built-in Diffraction game parameter.</p>
+<p class="calibre7">The diffraction value on the emitter game object is used to drive curves in the Authoring. By default, the project diffraction curves are used. They can be authored in the Project Settings on the Environmental Curves tab and affects Volume, LPF, and HPF to emulate volume and frequency-dependent behaviors. Project diffraction curves impact all the sounds in a project, which makes them less flexible. However, custom Diffraction curves can be created in an Attenuation ShareSet applied to the sound.</p>
+<p class="calibre7">Alternatively, the built-in Diffraction parameter can be used. To do so, create a game parameter and set its <b class="calibre13">Bind to Built-in Parameter</b> drop-down menu to <b class="calibre13">Diffraction</b>. Values pushed to this game parameter are scoped by game object, so they are unique for each emitter. You may then use it with an RTPC to control any property of your Property Container. Output Bus Volume and LPF are privileged over the base Volume and LPF because they should apply to the direct signal path only, and not to the auxiliary send to the Room's reverb.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="warning.gif"/></td><td class="calibre17"><b class="calibre13">Warning:</b> Compared to curves, using a built-in parameter requires more manipulations. Built-in game parameters also only apply on a single value for all positions of a Game Object. When multiple values are set, the smallest is used. Multiple Game Object positions are used when a Room has more than one Portal, so a built-in parameter is not recommended for this scenario.</td></tr>
+</tbody></table>
+</div></div></div></body></html>

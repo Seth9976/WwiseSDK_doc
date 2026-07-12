@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Using the Geometry API for Simulating Early Reflections</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_5"><a class="pcalibre1 anchor" id="spatial_audio_wwiseprojectsetup_ertolr"></a>
+Early reflections sending to late reverberation</h2>
+<p class="calibre7">Also, by virtue of the game object (emitter) sending to the Auxiliary Bus used to process the late reverberation, a connection will also be made between the ER bus and the late reverb bus. This is usually desirable because the generated ER are then utilized to color and "densify" the late reverb. In order to enable this, you need to make sure you enable the <b class="calibre13">Use game-defined auxiliary sends</b> check box in the General Settings tab of the ER bus editor. You can then use the Volume slider below to balance the amount of early reflections you want to send to the late reverb against the direct sound.</p>
+<div class="calibre2">
+<img alt="" src="aux_bus_use_game-defined_auxiliary_sends.png" class="inline"/>
+</div>
+<p class="calibre7">The following figure is a run-time illustration of the previous discussion. Notice the following:</p>
+<ul class="calibre8">
+<li class="calibre9">Weapon Fire SW is routed to FirstPerson (early reflections) bus because of the Early Reflection send</li>
+<li class="calibre9">The FirstPerson bus is in the scope of FirstPersonCharacter game object. Another game object would thus send to a different instance of the FirstPerson bus, as desired.</li>
+<li class="calibre9">There is a send connection from FirstPerson bus to Mezzanine2 aux bus because <b class="calibre13">Use game-defined auxiliary sends</b> is enabled.</li>
+<li class="calibre9">FirstPerson's output bus Binaural is in the listener's scope, that is, PlayerCameraManager, because the <b class="calibre13">Listener Relative Routing</b> option is enabled on the FirstPerson bus. All early reflection bus instances should have this option enabled, such that they all return to the single Binaural bus instance of the listener. If you fail to do so, a separate instance of Binaural bus would erroneously be instantiated on the emitter game object.</li>
+<li class="calibre9">There is no attenuation between FirstPerson and Binaural busses due to distance, as ER attenuation is already designed and applied within <a href="https://www.audiokinetic.com/library/edge/?source=Help&amp;id=wwise_reflect_plug_in_effect" target="_blank" class="pcalibre calibre12">Reflect</a>.</li>
+</ul>
+<div class="calibre2">
+<img alt="" src="runtime_voices_graph.png" class="inline"/>
+</div>
+</div></div></div></body></html>

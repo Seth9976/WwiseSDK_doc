@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Subscribing to Topics in the Wwise Authoring API</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="waapi_subscribe_structure"></a>
+Subscribing to Structure Changes</h1>
+<p class="calibre7">In Wwise projects, objects are related to one another in different ways:</p>
+<ul class="calibre8">
+<li class="calibre9">Objects are organized in a tree structure visible in the Project Explorer, the roots of which correspond to different object types. For example, Containers is one root in the overall object tree, and the objects within it each have a parent and might have children.</li>
+<li class="calibre9">Objects can also have ownership relationships with other objects. Ownership is not visible in the Project Explorer, but instead through properties in the Property Editor. For example, the owner of a Custom Attenuation is the object to which you apply the attenuation.</li>
+<li class="calibre9">ShareSets can have multiple references to other objects, but these references do not reflect ownership or parent/child relationships. Instead, the ShareSets tab in the Project Explorer displays the ShareSet tree structure. Ownership and parent/child relationships are distinct types of relationship: an object can have an owner or a parent but not both.</li>
+</ul>
+<p class="calibre7">After you retrieve the tree structure, you can subscribe to <a class="pcalibre el" href="ak_wwise_core_object_structurechanged_split_000.html">ak.wwise.core.object.structureChanged</a> to synchronize any changes to object ownership or object location in the tree structure. Subscribing to this topic provides notifications for the following events:</p>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">create:</b> An object is created.</li>
+<li class="calibre9"><b class="calibre13">delete:</b> An object is deleted.</li>
+<li class="calibre9"><b class="calibre13">nameChange:</b> An object's name changes, which occurs when an object is renamed or created.</li>
+<li class="calibre9"><b class="calibre13">parentChange:</b> The object's parent changes, which occurs when an object is created, deleted, or moved within the hierarchy.</li>
+<li class="calibre9"><b class="calibre13">ownerChange:</b> The object's owner changes, typically when an object is created or deleted.</li>
+</ul>
+<p class="calibre7">The changes sent by <code class="calibre14">ak.wwise.core.object.structureChanged</code> are grouped into batches by Undo events. Wwise automatically collapses redundant information, and presents a summary of all changes made within the last Undo event in the project. For instance, when copying and pasting multiple objects in the project, multiple changes, such as <code class="calibre14">create</code>, <code class="calibre14">nameChange</code>, and <code class="calibre14">parentChange</code> are grouped together.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><p class="starttd"><b class="calibre13">Note:</b> Use <a class="pcalibre el" href="ak_wwise_core_object_structurechanged_split_000.html">ak.wwise.core.object.structureChanged</a> instead of the following topics:</p><ul class="calibre8">
+<li class="calibre9"><a class="pcalibre el" href="ak_wwise_core_object_namechanged_split_000.html">ak.wwise.core.object.nameChanged</a></li>
+<li class="calibre9"><a class="pcalibre el" href="ak_wwise_core_object_childadded_split_000.html">ak.wwise.core.object.childAdded</a></li>
+<li class="calibre9"><a class="pcalibre el" href="ak_wwise_core_object_childremoved_split_000.html">ak.wwise.core.object.childRemoved</a></li>
+<li class="calibre9"><a class="pcalibre el" href="ak_wwise_core_object_created_split_000.html">ak.wwise.core.object.created</a></li>
+<li class="calibre9"><a class="pcalibre el" href="ak_wwise_core_object_postdeleted_split_000.html">ak.wwise.core.object.postDeleted</a></li>
+<li class="calibre9"><a class="pcalibre el" href="ak_wwise_core_object_predeleted_split_000.html">ak.wwise.core.object.preDeleted</a></li>
+</ul>
+<p class="endtd">The <a class="pcalibre el" href="ak_wwise_core_object_structurechanged_split_000.html">ak.wwise.core.object.structureChanged</a> topic replaces the topics listed above, and provides more predictable and stable behavior. </p>
+</td></tr>
+</tbody></table>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

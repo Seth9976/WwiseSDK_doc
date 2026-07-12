@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Using the Geometry API for Simulating Diffraction and Transmission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_3"><a class="pcalibre1 anchor" id="spatial_audio_apigeometry_diffract_geometry_settings_solid"></a>
+Transmission through Solid and Non-Solid Geometry</h2>
+<p class="calibre7">By default, each geometry instance is treated as a collection of infinitely thin surfaces for the purpose of transmission. This means that when a transmission path passes through a geometry instance, it applies transmission loss at each triangle that the path intersects. A geometry instance can be marked as solid by using <code class="calibre14"><a class="pcalibre el" href="struct_ak_geometry_instance_params_a05d132d8d90222fdb7a54c5b4c506fb5_split_000.html#a05d132d8d90222fdb7a54c5b4c506fb5">AkGeometryInstanceParams::IsSolid</a></code>. A solid geometry instance applies transmission loss every time a transmission path passes entirely through the geometry, recognized by two triangle intersections. The transmission loss applied is the max of the triangles intersected when entering and exiting the geometry. <code class="calibre14"><a class="pcalibre el" href="struct_ak_geometry_instance_params_a05d132d8d90222fdb7a54c5b4c506fb5_split_000.html#a05d132d8d90222fdb7a54c5b4c506fb5">AkGeometryInstanceParams::IsSolid</a></code> has no effect when <code class="calibre14"><a class="pcalibre el" href="struct_ak_spatial_audio_init_settings_a2580ab2686a91ec9e2f6038815ad6cec_split_000.html#a2580ab2686a91ec9e2f6038815ad6cec" title="The operation used to determine transmission loss on direct paths.">AkSpatialAudioInitSettings::eTransmissionOperation</a></code> is set to <code class="calibre14">AkTransmissionOperation_Max</code>.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> A transmission path can pass through a solid geometry instance more than once. When this happens, transmission loss is applied each time a path enters and exits the shape through two triangle intersections. <div class="calibre2">
+<img alt="" src="solid_tl_applied_twice.png" class="inline"/>
+</div>
+ </td></tr>
+</tbody></table>
+</div></div></div></body></html>

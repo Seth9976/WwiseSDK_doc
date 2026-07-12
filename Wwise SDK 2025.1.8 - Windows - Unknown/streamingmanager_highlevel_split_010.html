@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>High-Level Stream Manager API Description</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_9"><a class="pcalibre1 anchor" id="streamingmanager_highlevel_standardstreams_creationsettings"></a>
+Creation Settings</h2>
+<p class="calibre7">You need to specify the open mode (AkOpenMode) when creating a standard stream. Open mode specifies if the stream can be used for reading, writing, or both. Obviously, calling <a class="pcalibre el" href="class_a_k_1_1_i_ak_std_stream_af983e5aec5edd20b88a6b01e466d8779_split_000.html#af983e5aec5edd20b88a6b01e466d8779">AK::IAkStdStream::Write()</a> on a stream opened for reading only will fail.</p>
+<p class="calibre7">You can also specify a name for the stream by using <a class="pcalibre el" href="class_a_k_1_1_i_ak_std_stream_a95c36cbf662e531c10f90165de1fd576_split_000.html#a95c36cbf662e531c10f90165de1fd576">AK::IAkStdStream::SetStreamName()</a>. The string is copied in the stream object, and can be queried with <a class="pcalibre el" href="class_a_k_1_1_i_ak_std_stream_a744adfcaf87eb5bf4962dbf4556a6201_split_000.html#a744adfcaf87eb5bf4962dbf4556a6201">AK::IAkStdStream::GetInfo()</a>.</p>
+<table border="1" cellpadding="5" cellspacing="0" class="calibre38">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre17"><b class="calibre13">Default Streaming Manager Information</b><br class="calibre10"/>
+<br class="calibre10"/>
+ The stream name is what appears in the streaming tab of Wwise's Advanced Profiler. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

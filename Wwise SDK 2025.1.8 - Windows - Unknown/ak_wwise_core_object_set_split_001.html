@@ -1,0 +1,510 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak.wwise.core.object.set</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="ak_wwise_core_object_setArguments"></a>
+Arguments</h1>
+<p class="calibre7"></p><table class="doxtable">
+<tbody class="calibre4"><tr class="calibre16">
+<th class="calibre46">Name </th><th class="calibre46">Type </th><th class="calibre46">Description  </th></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">objects</b> * </td><td class="calibre36">array </td><td class="calibre36">An array of objects on which to set values and create child or list objects.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects <b class="calibre13">[...]</b> </td><td class="calibre36">object </td><td class="calibre36">The object specification, values to set, objects to create, and overriding options applicable to this object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="4" class="calibre36">objects[...].<b class="calibre13">object</b> * </td><td class="calibre36"/><td class="calibre36"><p class="starttd">The ID (GUID), name, or path of the existing object on which to set the name, notes, properties or references and under which to create children or create objects in a list. </p>
+<p class="endtd">Any of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">The name of the object qualified by its type or Short ID in the form of type:name or Global:shortId. Only object types that have globally-unique names or Short Ids are supported. Ex: Event:Play_Sound_01, Global:245489792   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">A project path to a Wwise object, including the category and the work-unit. For example: \Containers\Default Work Unit\New Sound SFX.   </td></tr>
+<tr class="calibre16">
+<td rowspan="3" class="calibre36">objects[...].<b class="calibre13">platform</b> </td><td class="calibre36"/><td class="calibre36"><p class="starttd">The ID (GUID) or unique name of the platform used when setting properties and references via this operation. Not specifying a platform sets the value for all linked platforms. </p>
+<p class="endtd">Any of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">The name of the object.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="5" class="calibre36">objects[...].<b class="calibre13">onNameConflict</b> </td><td class="calibre36">string </td><td class="calibre36"><p class="starttd">The action to take if "object" already has a child with the same name. Default value is "fail". </p>
+<p class="endtd">One of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">rename</b> : The new object receives a unique name, which is the name of the existing object with numbers appended.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">replace</b> : The object at the destination is deleted (including its children), and a new object is created.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">fail</b> : No changes are made, and an error is returned. This is the default value.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">merge</b> : Merges the new or modified properties, references, and children into the object at the destination, and does not change any unmodified aspects of the existing object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="3" class="calibre36">objects[...].<b class="calibre13">listMode</b> </td><td class="calibre36">string </td><td class="calibre36"><p class="starttd">The action to take if "object" already has objects in a specified list. Default value is "append". See <a class="pcalibre el" href="waapi_import_split_003.html#waapi_set_lists_modes">Understanding lists and list modes</a> for more information. </p>
+<p class="endtd">One of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">replaceAll</b> : Remove all existing objects and add the new objects. Note that duplicate restrictions may apply.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">append</b> : Keep existing objects and add new objects to the list, if possible. Some lists might not permit duplicate equivalent objects: For example, some properties of RTPCs in the RTPC list are exclusive so there can only be one RTPC with that property.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">name</b> </td><td class="calibre36">string </td><td class="calibre36">The new name of "object".   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">notes</b> </td><td class="calibre36">string </td><td class="calibre36">The new notes or comments of "object".   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">children</b> </td><td class="calibre36">array </td><td class="calibre36">An array of child objects to be created.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].children <b class="calibre13">[...]</b> </td><td class="calibre36">object </td><td class="calibre36">Child objects to be created.<br class="calibre10"/>
+ Child object to be created.   </td></tr>
+<tr class="calibre16">
+<td rowspan="3" class="calibre36">objects[...].children[...].<b class="calibre13">platform</b> </td><td class="calibre36"/><td class="calibre36"><p class="starttd">The ID (GUID) or unique name of the platform used when setting properties and references via this operation. Not specifying a platform sets the value for all linked platforms. </p>
+<p class="endtd">Any of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">The name of the object.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].children[...].<b class="calibre13">type</b> * </td><td class="calibre36">string </td><td class="calibre36">The type of the new object. See <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for possible object types or <a class="pcalibre el" href="wobjectnodetypes_split_000.html">Wwise Nodes Reference</a> for possible node types.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].children[...].<b class="calibre13">name</b> * </td><td class="calibre36">string </td><td class="calibre36">The name of the new object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].children[...].<b class="calibre13">id</b> </td><td class="calibre36">string </td><td class="calibre36">For internal use only! The ID (GUID) to assign to the newly created Object.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].children[...].<b class="calibre13">notes</b> </td><td class="calibre36">string </td><td class="calibre36">The notes or comments of the new object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].children[...].<b class="calibre13">classId</b> </td><td class="calibre36">integer </td><td class="calibre36">The ID (class ID) of the plug-in. Only specify for Effect or Source plug-ins. See <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for possible ClassId values.<br class="calibre10"/>
+ Unsigned Integer 32-bit. Range: [0,4294967295]  </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].children[...].<b class="calibre13">language</b> </td><td class="calibre36">string </td><td class="calibre36">The ID (GUID) or name of the language. Only use this argument when creating Sound Voice objects.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].children[...].<b class="calibre13">children</b> </td><td class="calibre36"/><td class="calibre36">An array of child objects to be created (Recursive).   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].children[...].<b class="calibre13">import</b> </td><td class="calibre36">object </td><td class="calibre36">Import command argument.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].children[...].import.<b class="calibre13">autoAddToSourceControl</b> </td><td class="calibre36">boolean </td><td class="calibre36">Determines if Wwise automatically performs an Add source control operation for affected work units. Defaults to true.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].children[...].import.<b class="calibre13">files</b> * </td><td class="calibre36">array </td><td class="calibre36">Array of import files.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].children[...].import.files <b class="calibre13">[...]</b> </td><td class="calibre36">object </td><td class="calibre36">Parameters of one audio file   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].children[...].import.files[...].<b class="calibre13">audioFile</b> </td><td class="calibre36">string </td><td class="calibre36">Path to media file to import. This path must be accessible from Wwise. For using WAAPI on Mac, please refer to <a class="pcalibre el" href="waapi_prepare_split_005.html#waapi_path_on_mac">Using WAAPI on Mac</a> .   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].children[...].import.files[...].<b class="calibre13">audioFileBase64</b> </td><td class="calibre36">string </td><td class="calibre36">Base64 encoded WAV audio file data to import with its target file path relative to the Originals folder, separated by a vertical bar. E.g. 'MySound.wav|UklGRu...'.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].children[...].import.files[...].<b class="calibre13">originalsSubFolder</b> </td><td class="calibre36">string </td><td class="calibre36">Specifies the 'originals' sub-folder in which to place the imported audio file. This folder is relative to the 'originals' folder in which the file would normally be imported. Example: if importing an SFX, then the audio file is imported to the folder Originals\SFX\originalsPath.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].children[...].import.files[...].<b class="calibre13">language</b> </td><td class="calibre36">string </td><td class="calibre36">Imports the language for the audio file import (taken from the project's defined languages, found in the WPROJ file LanguageList).   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].children[...].import.files[...].<b class="calibre13">objectType</b> </td><td class="calibre36">string </td><td class="calibre36">Specifies the type of object to create when importing an audio file. This type can also be specified directly in the objectPath. Refer to <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for the available types.   </td></tr>
+<tr class="calibre16">
+<td rowspan="10" class="calibre36">objects[...].children[...].<b class="calibre13">regex(^@[:_a-zA-Z0-9]+$)</b> </td><td class="calibre36"/><td class="calibre36"><p class="starttd"></p>
+<p class="endtd">Any of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36">Objects to create in list @listName. See <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for the possible list names for each Wwise object.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">null </td><td class="calibre36">A null value. No reference to an object.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">A string value.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">array </td><td class="calibre36">An array of object references.<br class="calibre10"/>
+ Several values provided for the option.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">number </td><td class="calibre36">A numerical value.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">boolean </td><td class="calibre36">A boolean value.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36">Object to create and assign to a reference. See <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for the possible object types.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">array </td><td class="calibre36">Array of Ref Objects.<br class="calibre10"/>
+ Several values provided for the option.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">object </td><td class="calibre36">The definition of an "in-place" Curve object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].children[...].regex(^@[:_a-zA-Z0-9]+$) <b class="calibre13">[...]</b> </td><td class="calibre36">string </td><td class="calibre36">A value for the option.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].children[...].regex(^@[:_a-zA-Z0-9]+$) <b class="calibre13">[...]</b> </td><td class="calibre36">string </td><td class="calibre36">A value for the option.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].children[...].regex(^@[:_a-zA-Z0-9]+$).<b class="calibre13">type</b> * </td><td class="calibre36">string </td><td class="calibre36">The type of the new object. Refer to <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for possible object types.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].children[...].regex(^@[:_a-zA-Z0-9]+$).<b class="calibre13">points</b> * </td><td class="calibre36">array </td><td class="calibre36">Used when creating a Curve.<br class="calibre10"/>
+ An array of points defining a curve.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].children[...].regex(^@[:_a-zA-Z0-9]+$).points <b class="calibre13">[...]</b> </td><td class="calibre36">object </td><td class="calibre36">A point in the curve.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].children[...].regex(^@[:_a-zA-Z0-9]+$).points[...].<b class="calibre13">x</b> * </td><td class="calibre36">number </td><td class="calibre36">X coordinate of curve point.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].children[...].regex(^@[:_a-zA-Z0-9]+$).points[...].<b class="calibre13">y</b> * </td><td class="calibre36">number </td><td class="calibre36">Y coordinate of curve point.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].children[...].regex(^@[:_a-zA-Z0-9]+$).points[...].<b class="calibre13">shape</b> * </td><td class="calibre36">string </td><td class="calibre36">Shape of the curve segment between this point and the next. Possible values: <ul class="calibre8">
+<li class="calibre9">
+Constant </li>
+<li class="calibre9">
+Linear </li>
+<li class="calibre9">
+Log3 </li>
+<li class="calibre9">
+Log2 </li>
+<li class="calibre9">
+Log1 </li>
+<li class="calibre9">
+InvertedSCurve </li>
+<li class="calibre9">
+SCurve </li>
+<li class="calibre9">
+Exp1 </li>
+<li class="calibre9">
+Exp2 </li>
+<li class="calibre9">
+Exp3 </li>
+</ul>
+</td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">import</b> </td><td class="calibre36">object </td><td class="calibre36">Import command argument.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].import.<b class="calibre13">autoAddToSourceControl</b> </td><td class="calibre36">boolean </td><td class="calibre36">Determines if Wwise automatically performs an Add source control operation for affected work units. Defaults to true.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].import.<b class="calibre13">files</b> * </td><td class="calibre36">array </td><td class="calibre36">Array of import files.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].import.files <b class="calibre13">[...]</b> </td><td class="calibre36">object </td><td class="calibre36">Parameters of one audio file   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].import.files[...].<b class="calibre13">audioFile</b> </td><td class="calibre36">string </td><td class="calibre36">Path to media file to import. This path must be accessible from Wwise. For using WAAPI on Mac, please refer to <a class="pcalibre el" href="waapi_prepare_split_005.html#waapi_path_on_mac">Using WAAPI on Mac</a> .   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].import.files[...].<b class="calibre13">audioFileBase64</b> </td><td class="calibre36">string </td><td class="calibre36">Base64 encoded WAV audio file data to import with its target file path relative to the Originals folder, separated by a vertical bar. E.g. 'MySound.wav|UklGRu...'.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].import.files[...].<b class="calibre13">originalsSubFolder</b> </td><td class="calibre36">string </td><td class="calibre36">Specifies the 'originals' sub-folder in which to place the imported audio file. This folder is relative to the 'originals' folder in which the file would normally be imported. Example: if importing an SFX, then the audio file is imported to the folder Originals\SFX\originalsPath.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].import.files[...].<b class="calibre13">language</b> </td><td class="calibre36">string </td><td class="calibre36">Imports the language for the audio file import (taken from the project's defined languages, found in the WPROJ file LanguageList).   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].import.files[...].<b class="calibre13">objectType</b> </td><td class="calibre36">string </td><td class="calibre36">Specifies the type of object to create when importing an audio file. This type can also be specified directly in the objectPath. Refer to <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for the available types.   </td></tr>
+<tr class="calibre16">
+<td rowspan="10" class="calibre36">objects[...].<b class="calibre13">regex(^@[:_a-zA-Z0-9]+$)</b> </td><td class="calibre36"/><td class="calibre36"><p class="starttd"></p>
+<p class="endtd">Any of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">array </td><td class="calibre36">Objects to create in list @listName. See <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for the possible list names for each Wwise object.<br class="calibre10"/>
+ An array of child objects to be created.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">null </td><td class="calibre36">A null value. No reference to an object.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">A string value.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">array </td><td class="calibre36">Several values provided for the option.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">number </td><td class="calibre36">A numerical value.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">boolean </td><td class="calibre36">A boolean value.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">object </td><td class="calibre36">The definition of an "in-place" Curve object.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">object </td><td class="calibre36">Child object to be created.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">array </td><td class="calibre36">Array of Ref Objects.<br class="calibre10"/>
+ Several values provided for the option.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$) <b class="calibre13">[...]</b> </td><td class="calibre36">object </td><td class="calibre36">Child objects to be created.<br class="calibre10"/>
+ Child object to be created.   </td></tr>
+<tr class="calibre16">
+<td rowspan="3" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$)[...].<b class="calibre13">platform</b> </td><td class="calibre36"/><td class="calibre36"><p class="starttd">The ID (GUID) or unique name of the platform used when setting properties and references via this operation. Not specifying a platform sets the value for all linked platforms. </p>
+<p class="endtd">Any of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">The name of the object.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$)[...].<b class="calibre13">type</b> * </td><td class="calibre36">string </td><td class="calibre36">The type of the new object. See <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for possible object types or <a class="pcalibre el" href="wobjectnodetypes_split_000.html">Wwise Nodes Reference</a> for possible node types.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$)[...].<b class="calibre13">name</b> * </td><td class="calibre36">string </td><td class="calibre36">The name of the new object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$)[...].<b class="calibre13">id</b> </td><td class="calibre36">string </td><td class="calibre36">For internal use only! The ID (GUID) to assign to the newly created Object.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$)[...].<b class="calibre13">notes</b> </td><td class="calibre36">string </td><td class="calibre36">The notes or comments of the new object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$)[...].<b class="calibre13">classId</b> </td><td class="calibre36">integer </td><td class="calibre36">The ID (class ID) of the plug-in. Only specify for Effect or Source plug-ins. See <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for possible ClassId values.<br class="calibre10"/>
+ Unsigned Integer 32-bit. Range: [0,4294967295]  </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$)[...].<b class="calibre13">language</b> </td><td class="calibre36">string </td><td class="calibre36">The ID (GUID) or name of the language. Only use this argument when creating Sound Voice objects.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$)[...].<b class="calibre13">children</b> </td><td class="calibre36"/><td class="calibre36">An array of child objects to be created (Recursive).   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$)[...].<b class="calibre13">import</b> </td><td class="calibre36">object </td><td class="calibre36">Import command argument.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$)[...].import.<b class="calibre13">autoAddToSourceControl</b> </td><td class="calibre36">boolean </td><td class="calibre36">Determines if Wwise automatically performs an Add source control operation for affected work units. Defaults to true.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$)[...].import.<b class="calibre13">files</b> * </td><td class="calibre36">array </td><td class="calibre36">Array of import files.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$)[...].import.files <b class="calibre13">[...]</b> </td><td class="calibre36">object </td><td class="calibre36">Parameters of one audio file   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$)[...].import.files[...].<b class="calibre13">audioFile</b> </td><td class="calibre36">string </td><td class="calibre36">Path to media file to import. This path must be accessible from Wwise. For using WAAPI on Mac, please refer to <a class="pcalibre el" href="waapi_prepare_split_005.html#waapi_path_on_mac">Using WAAPI on Mac</a> .   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$)[...].import.files[...].<b class="calibre13">audioFileBase64</b> </td><td class="calibre36">string </td><td class="calibre36">Base64 encoded WAV audio file data to import with its target file path relative to the Originals folder, separated by a vertical bar. E.g. 'MySound.wav|UklGRu...'.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$)[...].import.files[...].<b class="calibre13">originalsSubFolder</b> </td><td class="calibre36">string </td><td class="calibre36">Specifies the 'originals' sub-folder in which to place the imported audio file. This folder is relative to the 'originals' folder in which the file would normally be imported. Example: if importing an SFX, then the audio file is imported to the folder Originals\SFX\originalsPath.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$)[...].import.files[...].<b class="calibre13">language</b> </td><td class="calibre36">string </td><td class="calibre36">Imports the language for the audio file import (taken from the project's defined languages, found in the WPROJ file LanguageList).   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$)[...].import.files[...].<b class="calibre13">objectType</b> </td><td class="calibre36">string </td><td class="calibre36">Specifies the type of object to create when importing an audio file. This type can also be specified directly in the objectPath. Refer to <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for the available types.   </td></tr>
+<tr class="calibre16">
+<td rowspan="10" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$)[...].<b class="calibre13">regex(^@[:_a-zA-Z0-9]+$)</b> </td><td class="calibre36"/><td class="calibre36"><p class="starttd"></p>
+<p class="endtd">Any of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36">Objects to create in list @listName. See <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for the possible list names for each Wwise object.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">null </td><td class="calibre36">A null value. No reference to an object.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">A string value.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">array </td><td class="calibre36">An array of object references.<br class="calibre10"/>
+ Several values provided for the option.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">number </td><td class="calibre36">A numerical value.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">boolean </td><td class="calibre36">A boolean value.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36">Object to create and assign to a reference. See <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for the possible object types.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">array </td><td class="calibre36">Array of Ref Objects.<br class="calibre10"/>
+ Several values provided for the option.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">object </td><td class="calibre36">The definition of an "in-place" Curve object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$)[...].regex(^@[:_a-zA-Z0-9]+$) <b class="calibre13">[...]</b> </td><td class="calibre36">string </td><td class="calibre36">A value for the option.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$)[...].regex(^@[:_a-zA-Z0-9]+$) <b class="calibre13">[...]</b> </td><td class="calibre36">string </td><td class="calibre36">A value for the option.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$)[...].regex(^@[:_a-zA-Z0-9]+$).<b class="calibre13">type</b> * </td><td class="calibre36">string </td><td class="calibre36">The type of the new object. Refer to <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for possible object types.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$)[...].regex(^@[:_a-zA-Z0-9]+$).<b class="calibre13">points</b> * </td><td class="calibre36">array </td><td class="calibre36">Used when creating a Curve.<br class="calibre10"/>
+ An array of points defining a curve.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$)[...].regex(^@[:_a-zA-Z0-9]+$).points <b class="calibre13">[...]</b> </td><td class="calibre36">object </td><td class="calibre36">A point in the curve.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$)[...].regex(^@[:_a-zA-Z0-9]+$).points[...].<b class="calibre13">x</b> * </td><td class="calibre36">number </td><td class="calibre36">X coordinate of curve point.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$)[...].regex(^@[:_a-zA-Z0-9]+$).points[...].<b class="calibre13">y</b> * </td><td class="calibre36">number </td><td class="calibre36">Y coordinate of curve point.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$)[...].regex(^@[:_a-zA-Z0-9]+$).points[...].<b class="calibre13">shape</b> * </td><td class="calibre36">string </td><td class="calibre36">Shape of the curve segment between this point and the next. Possible values: <ul class="calibre8">
+<li class="calibre9">
+Constant </li>
+<li class="calibre9">
+Linear </li>
+<li class="calibre9">
+Log3 </li>
+<li class="calibre9">
+Log2 </li>
+<li class="calibre9">
+Log1 </li>
+<li class="calibre9">
+InvertedSCurve </li>
+<li class="calibre9">
+SCurve </li>
+<li class="calibre9">
+Exp1 </li>
+<li class="calibre9">
+Exp2 </li>
+<li class="calibre9">
+Exp3 </li>
+</ul>
+</td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$) <b class="calibre13">[...]</b> </td><td class="calibre36">string </td><td class="calibre36">A value for the option.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$).<b class="calibre13">type</b> * </td><td class="calibre36">string </td><td class="calibre36">The type of the new object. Refer to <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for possible object types.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$).<b class="calibre13">points</b> * </td><td class="calibre36">array </td><td class="calibre36">Used when creating a Curve.<br class="calibre10"/>
+ An array of points defining a curve.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$).points <b class="calibre13">[...]</b> </td><td class="calibre36">object </td><td class="calibre36">A point in the curve.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$).points[...].<b class="calibre13">x</b> * </td><td class="calibre36">number </td><td class="calibre36">X coordinate of curve point.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$).points[...].<b class="calibre13">y</b> * </td><td class="calibre36">number </td><td class="calibre36">Y coordinate of curve point.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$).points[...].<b class="calibre13">shape</b> * </td><td class="calibre36">string </td><td class="calibre36">Shape of the curve segment between this point and the next. Possible values: <ul class="calibre8">
+<li class="calibre9">
+Constant </li>
+<li class="calibre9">
+Linear </li>
+<li class="calibre9">
+Log3 </li>
+<li class="calibre9">
+Log2 </li>
+<li class="calibre9">
+Log1 </li>
+<li class="calibre9">
+InvertedSCurve </li>
+<li class="calibre9">
+SCurve </li>
+<li class="calibre9">
+Exp1 </li>
+<li class="calibre9">
+Exp2 </li>
+<li class="calibre9">
+Exp3 </li>
+</ul>
+</td></tr>
+<tr class="calibre16">
+<td rowspan="3" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$).<b class="calibre13">platform</b> </td><td class="calibre36"/><td class="calibre36"><p class="starttd">The ID (GUID) or unique name of the platform used when setting properties and references via this operation. Not specifying a platform sets the value for all linked platforms. </p>
+<p class="endtd">Any of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">The name of the object.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$).<b class="calibre13">type</b> * </td><td class="calibre36">string </td><td class="calibre36">The type of the new object. See <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for possible object types or <a class="pcalibre el" href="wobjectnodetypes_split_000.html">Wwise Nodes Reference</a> for possible node types.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$).<b class="calibre13">name</b> * </td><td class="calibre36">string </td><td class="calibre36">The name of the new object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$).<b class="calibre13">id</b> </td><td class="calibre36">string </td><td class="calibre36">For internal use only! The ID (GUID) to assign to the newly created Object.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$).<b class="calibre13">notes</b> </td><td class="calibre36">string </td><td class="calibre36">The notes or comments of the new object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$).<b class="calibre13">classId</b> </td><td class="calibre36">integer </td><td class="calibre36">The ID (class ID) of the plug-in. Only specify for Effect or Source plug-ins. See <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for possible ClassId values.<br class="calibre10"/>
+ Unsigned Integer 32-bit. Range: [0,4294967295]  </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$).<b class="calibre13">language</b> </td><td class="calibre36">string </td><td class="calibre36">The ID (GUID) or name of the language. Only use this argument when creating Sound Voice objects.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$).<b class="calibre13">children</b> </td><td class="calibre36">array </td><td class="calibre36">An array of child objects to be created (Recursive).<br class="calibre10"/>
+ An array of child objects to be created.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$).children <b class="calibre13">[...]</b> </td><td class="calibre36"/><td class="calibre36">Child objects to be created.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$).<b class="calibre13">import</b> </td><td class="calibre36">object </td><td class="calibre36">Import command argument.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$).import.<b class="calibre13">autoAddToSourceControl</b> </td><td class="calibre36">boolean </td><td class="calibre36">Determines if Wwise automatically performs an Add source control operation for affected work units. Defaults to true.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$).import.<b class="calibre13">files</b> * </td><td class="calibre36">array </td><td class="calibre36">Array of import files.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$).import.files <b class="calibre13">[...]</b> </td><td class="calibre36">object </td><td class="calibre36">Parameters of one audio file   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$).import.files[...].<b class="calibre13">audioFile</b> </td><td class="calibre36">string </td><td class="calibre36">Path to media file to import. This path must be accessible from Wwise. For using WAAPI on Mac, please refer to <a class="pcalibre el" href="waapi_prepare_split_005.html#waapi_path_on_mac">Using WAAPI on Mac</a> .   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$).import.files[...].<b class="calibre13">audioFileBase64</b> </td><td class="calibre36">string </td><td class="calibre36">Base64 encoded WAV audio file data to import with its target file path relative to the Originals folder, separated by a vertical bar. E.g. 'MySound.wav|UklGRu...'.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$).import.files[...].<b class="calibre13">originalsSubFolder</b> </td><td class="calibre36">string </td><td class="calibre36">Specifies the 'originals' sub-folder in which to place the imported audio file. This folder is relative to the 'originals' folder in which the file would normally be imported. Example: if importing an SFX, then the audio file is imported to the folder Originals\SFX\originalsPath.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$).import.files[...].<b class="calibre13">language</b> </td><td class="calibre36">string </td><td class="calibre36">Imports the language for the audio file import (taken from the project's defined languages, found in the WPROJ file LanguageList).   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$).import.files[...].<b class="calibre13">objectType</b> </td><td class="calibre36">string </td><td class="calibre36">Specifies the type of object to create when importing an audio file. This type can also be specified directly in the objectPath. Refer to <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for the available types.   </td></tr>
+<tr class="calibre16">
+<td rowspan="10" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$).<b class="calibre13">regex(^@[:_a-zA-Z0-9]+$)</b> </td><td class="calibre36"/><td class="calibre36"><p class="starttd"></p>
+<p class="endtd">Any of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">array </td><td class="calibre36">Objects to create in list @listName. See <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for the possible list names for each Wwise object.<br class="calibre10"/>
+ An array of child objects to be created.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">null </td><td class="calibre36">A null value. No reference to an object.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">A string value.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">array </td><td class="calibre36">An array of object references.<br class="calibre10"/>
+ Several values provided for the option.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">number </td><td class="calibre36">A numerical value.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">boolean </td><td class="calibre36">A boolean value.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36">Object to create and assign to a reference. See <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for the possible object types.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">array </td><td class="calibre36">Array of Ref Objects.<br class="calibre10"/>
+ Several values provided for the option.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">object </td><td class="calibre36">The definition of an "in-place" Curve object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$).regex(^@[:_a-zA-Z0-9]+$) <b class="calibre13">[...]</b> </td><td class="calibre36"/><td class="calibre36">Child objects to be created.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$).regex(^@[:_a-zA-Z0-9]+$) <b class="calibre13">[...]</b> </td><td class="calibre36">string </td><td class="calibre36">A value for the option.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$).regex(^@[:_a-zA-Z0-9]+$) <b class="calibre13">[...]</b> </td><td class="calibre36">string </td><td class="calibre36">A value for the option.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$).regex(^@[:_a-zA-Z0-9]+$).<b class="calibre13">type</b> * </td><td class="calibre36">string </td><td class="calibre36">The type of the new object. Refer to <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for possible object types.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$).regex(^@[:_a-zA-Z0-9]+$).<b class="calibre13">points</b> * </td><td class="calibre36">array </td><td class="calibre36">Used when creating a Curve.<br class="calibre10"/>
+ An array of points defining a curve.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$).regex(^@[:_a-zA-Z0-9]+$).points <b class="calibre13">[...]</b> </td><td class="calibre36">object </td><td class="calibre36">A point in the curve.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$).regex(^@[:_a-zA-Z0-9]+$).points[...].<b class="calibre13">x</b> * </td><td class="calibre36">number </td><td class="calibre36">X coordinate of curve point.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$).regex(^@[:_a-zA-Z0-9]+$).points[...].<b class="calibre13">y</b> * </td><td class="calibre36">number </td><td class="calibre36">Y coordinate of curve point.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$).regex(^@[:_a-zA-Z0-9]+$).points[...].<b class="calibre13">shape</b> * </td><td class="calibre36">string </td><td class="calibre36">Shape of the curve segment between this point and the next. Possible values: <ul class="calibre8">
+<li class="calibre9">
+Constant </li>
+<li class="calibre9">
+Linear </li>
+<li class="calibre9">
+Log3 </li>
+<li class="calibre9">
+Log2 </li>
+<li class="calibre9">
+Log1 </li>
+<li class="calibre9">
+InvertedSCurve </li>
+<li class="calibre9">
+SCurve </li>
+<li class="calibre9">
+Exp1 </li>
+<li class="calibre9">
+Exp2 </li>
+<li class="calibre9">
+Exp3 </li>
+</ul>
+</td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^@[:_a-zA-Z0-9]+$) <b class="calibre13">[...]</b> </td><td class="calibre36">string </td><td class="calibre36">A value for the option.   </td></tr>
+<tr class="calibre16">
+<td rowspan="3" class="calibre36"><b class="calibre13">platform</b> </td><td class="calibre36"/><td class="calibre36"><p class="starttd">Unless overridden by an individual "object", the ID (GUID) or unique name of the platform used when setting properties and references via this operation. Not specifying a platform sets the value for all linked platforms. </p>
+<p class="endtd">Any of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">The name of the object.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="5" class="calibre36"><b class="calibre13">onNameConflict</b> </td><td class="calibre36">string </td><td class="calibre36"><p class="starttd">Unless overridden by an individual "object", the action to take if "object" already has a child with the same name. Default value is "fail". See <a class="pcalibre el" href="waapi_import_split_002.html#waapi_create_objects_modes">Understanding the name conflict modes</a> for more information. </p>
+<p class="endtd">One of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">rename</b> : The new object receives a unique name, which is the name of the existing object with numbers appended.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">replace</b> : The object at the destination is deleted (including its children), and a new object is created.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">fail</b> : No changes are made, and an error is returned. This is the default value.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">merge</b> : Merges the new or modified properties, references, and children into the object at the destination, and does not change any unmodified aspects of the existing object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="3" class="calibre36"><b class="calibre13">listMode</b> </td><td class="calibre36">string </td><td class="calibre36"><p class="starttd">Unless overridden by an individual "object", the action to take if "object" already has objects in a specified list. Default value is "append". See <a class="pcalibre el" href="waapi_import_split_003.html#waapi_set_lists_modes">Understanding lists and list modes</a> for more information. </p>
+<p class="endtd">One of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">replaceAll</b> : Remove all existing objects and add the new objects. Note that duplicate restrictions may apply.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">append</b> : Keep existing objects and add new objects to the list, if possible. Some lists might not permit duplicate equivalent objects. For example, some properties in the RTPC objects are exclusive so there can only be one RTPC with that property.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">autoAddToSourceControl</b> </td><td class="calibre36">boolean </td><td class="calibre36">Determines if Wwise automatically performs an Add source control operation for affected work units. Defaults to true.   </td></tr>
+</tbody></table>
+<p class="calibre7">(Required *)</p>
+<p class="calibre7"><a class="pcalibre el" href="ak_wwise_core_object_set_args_schema_split_000.html">Arguments Schema</a></p>
+</div></div></div></body></html>

@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2016.1.4</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="bugs_2016_1_4"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-30971</b> Fixed: (Vita hardware) Effect plug-ins are not registered.</li>
+<li class="calibre9"><b class="calibre13">WG-30984</b> Fixed: Rumble receives all audio signals after a device change and rumbles indefinitely.</li>
+<li class="calibre9"><b class="calibre13">WG-30986</b> Fixed: Sounds may not be routed properly to an Auxiliary Bus when a Blend Container is involved.</li>
+<li class="calibre9"><b class="calibre13">WG-30992</b> Fixed: (PS4) Master Audio Bus volume ignored with SCE Audio3d Bed Output audio device.</li>
+<li class="calibre9"><b class="calibre13">WG-31008</b> Fixed: ASSERT when closing the Game Simulator while a Blend Container is playing.</li>
+<li class="calibre9"><b class="calibre13">WG-31093</b> Fixed: Memory corruption possible in Harmonizer and TimeStretch.</li>
+<li class="calibre9"><b class="calibre13">WG-31100</b> Fixed: (Xbox One) XMA assert when pausing sounds after starvation occurs, if pitch changes.</li>
+<li class="calibre9"><b class="calibre13">WG-31106</b> Fixed: Plug-in DLL errors don't show up.</li>
+<li class="calibre9"><b class="calibre13">WG-31161</b> Fixed: Useless error log <em class="calibre11">Audiokinetic Wwise: Unable to create XAudio2 mastering voice</em>.</li>
+<li class="calibre9"><b class="calibre13">WG-31230</b> Fixed: Possible crash when using trigger rate containers with many levels of child continuous containers.</li>
+<li class="calibre9"><b class="calibre13">WG-31268</b> Fixed: Hang in <code class="calibre14">CAkSpeakerPan::GetSpeakerVolumes()</code> when routing a 3D sound with anonymous channel configuration into a bus with standard channel configuration.</li>
+<li class="calibre9"><b class="calibre13">WG-31349</b> Fixed: Possible SoundBank integrity issue when downmix of originals is required.</li>
+<li class="calibre9"><b class="calibre13">WG-31428</b> Fixed: Incremental SoundBank generation does not work when the <em class="calibre11">Use SoundBank names</em> option is disabled in SoundBank Settings.</li>
+<li class="calibre9"><b class="calibre13">WG-31435</b> Fixed: Project load 'finalizing' stage takes much longer on large projects (since version 2016.1.2).</li>
+<li class="calibre9"><b class="calibre13">WG-31440</b> Fixed: (Windows) Using XAudio2.7 on Windows 10 can be problematic, even if other middleware have loaded it.</li>
+<li class="calibre9"><b class="calibre13">WG-31476</b> Fixed: Playback is broken in the Wwise Wave Viewer tool.</li>
+<li class="calibre9"><b class="calibre13">WG-31524</b> Fixed: Possible crash in <code class="calibre14">CAkTransitionManager::ProcessTransitionsList</code>.</li>
+<li class="calibre9"><b class="calibre13">WG-31532</b> Fixed: Blend track resets all of the boxes on project load.</li>
+<li class="calibre9"><b class="calibre13">WG-31537</b> Fixed: (Xbox One) XMA assert caused from an unknown XMA voice state when recycling old voices. <br class="calibre10"/>
+</li>
+<li class="calibre9"><b class="calibre13">WG-31542</b> Fixed: Authoring tool crash when playing back certain original files with crossfaded loop regions.</li>
+<li class="calibre9"><b class="calibre13">WG-31617</b> Fixed: Rare crash in <code class="calibre14">AK::DSP::ApplyGainRamp</code>.</li>
+<li class="calibre9"><b class="calibre13">WG-31685</b> Fixed: (Android) Set the maximum sample rate to 48 kHz on devices incorrectly reporting higher values.</li>
+<li class="calibre9"><b class="calibre13">WG-31766</b> Fixed: (Xbox One) Invalid position returned by <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ae0b469d9fb8a099b40f52f004882d283_split_000.html#ae0b469d9fb8a099b40f52f004882d283">GetSourcePlayPosition()</a></code> with XMA when sample rate is different then 48 kHz.</li>
+<li class="calibre9"><b class="calibre13">WG-31768</b> Fixed: <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a3e077eddb929881cd5369fd3e6bba5d7_split_000.html#a3e077eddb929881cd5369fd3e6bba5d7">AK::SoundEngine::GetBufferStatusForPinnedEvent()</a></code> and <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_stream_mgr_a98e0b89d39648ac3353537996d7767e2_split_000.html#a98e0b89d39648ac3353537996d7767e2">AK::IAkStreamMgr::GetBufferStatusForPinnedFile()</a></code> may return 100% while still buffering.</li>
+</ul>
+</div></div></div></body></html>

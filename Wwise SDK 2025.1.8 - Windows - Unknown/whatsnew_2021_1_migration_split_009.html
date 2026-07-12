@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2021.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_8"><a class="pcalibre1 anchor" id="waapi_changes"></a>
+WAAPI Changes That Affect Backward Compatibility</h1>
+<p class="calibre7">Calling <a class="pcalibre el" href="ak_wwise_core_object_get_split_000.html">ak.wwise.core.object.get</a> with an unknown property in the return options used to give no result. It now generates a WAAPI error. Please note that this error will occur when using a property that is not defined in the XML. It will not generate an error when using a known property on an object that does not support it.</p>
+</div></div></div></body></html>

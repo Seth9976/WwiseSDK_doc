@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Wwise Authoring Query Language (WAQL) Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="waql_subreference"></a>
+Reference</h1>
+<h2 class="calibre31"><a class="pcalibre1 anchor" id="waql_sources"></a>
+Sources</h2>
+<p class="calibre7">Specify the starting point of the query. </p><table class="doxtable">
+<tbody class="calibre4"><tr class="calibre16">
+<th colspan="1" class="calibre46">SOURCE </th><th colspan="1" class="calibre46">Query Source </th><th colspan="1" class="calibre46">WAQL query to execute in the IntegrationDemo project </th></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">from object <b class="calibre13">OBJECT_SPECIFIER</b><br class="calibre10"/>
+from object <b class="calibre13">OBJECT_SPECIFIER</b>, <b class="calibre13">OBJECT_SPECIFIER</b>, ...<br class="calibre10"/>
+<b class="calibre13">OBJECT_SPECIFIER</b><br class="calibre10"/>
+<b class="calibre13">OBJECT_SPECIFIER</b>, <b class="calibre13">OBJECT_SPECIFIER</b></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Generates a sequence of objects from the specified objects.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13"> OBJECT_SPECIFIER</b> refers to one of the following forms:</p>
+<ul class="calibre8">
+<li class="calibre9">
+<b class="calibre13">Path</b>: Double-quoted absolute path of the object, starting with a backslash and including the top physical folder. </li>
+<li class="calibre9">
+<b class="calibre13">Guid</b>: Double-quoted 128-bit GUID surrounded by curly braces. </li>
+<li class="calibre9">
+<b class="calibre13">Qualified unique name</b>: Double-quoted object name, prefixed by the object type. Only possible for object types that enforce a unique name across the project: Event, Bus, Effect, GameParameter, etc... </li>
+<li class="calibre9">
+<b class="calibre13">Qualified unique ID</b>: Double-quoted object ID (short ID of 32-bits), prefixed by the object type. Only possible for object types that enforce a unique name across the project: Event, Bus, Effect, GameParameter, etc...</li>
+</ul>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">$ from object "\Containers\Default Work Unit\Hello"<br class="calibre10"/>
+$ from object "\Busses\Default Work Unit\Main Audio Bus"<br class="calibre10"/>
+$ from object "{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"<br class="calibre10"/>
+<span class="calibre47">$ from object "Event:Play_Hello"<br class="calibre10"/>
+</span><span class="calibre47">$ from object "Event:2952797154"<br class="calibre10"/>
+</span><span class="calibre47">$ from object "Event:Play_Hello", "Bus:Main Audio Bus"<br class="calibre10"/>
+$ "Event:Play_Hello", "Bus:Main Audio Bus"<br class="calibre10"/>
+$ "\Containers"</span><span class="calibre47"><span><br class="calibre10"/>
+</span></span></p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">from type <b class="calibre13">OBJECT_TYPE</b><br class="calibre10"/>
+from type <b class="calibre13">OBJECT_TYPE</b>, <b class="calibre13">OBJECT_TYPE</b>, ... </td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Generates a sequence of objects from the specified types. One or many object types can be specified.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">OBJECT_TYPE </b>refers to a Wwise object type. Refer to <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for the complete list of object types. The type is case-insensitive.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><br class="calibre10"/>
+</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">$ from type Event<br class="calibre10"/>
+$ from type sound<br class="calibre10"/>
+$ from type Sound<br class="calibre10"/>
+$ from type randomSequenceContainer, switchContainer, blendContainer<br class="calibre10"/>
+$ from type bus</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td colspan="1" class="calibre36">from query <b class="calibre13">QUERY_SPECIFIER</b> </td><td colspan="1" class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Generates a sequence of objects from the result of executing a Wwise Query defined in the Query Editor.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">QUERY_SPECIFIER </b>refers to one of the following forms:</p>
+<ul class="calibre8">
+<li class="calibre9">
+<b class="calibre13">Path</b>: Double-quoted absolute path of the object, starting with a backslash and including the top physical folder. </li>
+<li class="calibre9">
+<b class="calibre13">Guid</b>: Double-quoted 128-bit GUID surrounded by curly braces.</li>
+</ul>
+<p class="calibre7"><b class="calibre48">Note</b><span class="calibre43">: This generator requires a memory allocation equal to the size of the sequence it generates.</span></p>
+<p class="endtd"></p>
+</td><td colspan="1" class="calibre36"><p class="starttd"></p>
+<p class="calibre7">$ from query "\Queries\Factory Queries\Audio Source\Audio Source - Format = Vorbis"<br class="calibre10"/>
+$ from query "{4D1B2AA5-19D8-44D3-AAE5-94024469CE7C}"</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">from search <b class="calibre13">TEXT</b> </td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Generates a sequence of objects from the result of a text search on the whole project.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">TEXT</b> refers to a double-quoted string of text. Each word specified in the search's text are matched to words inside the project objects.</p>
+<p class="calibre7"></p>
+<p class="calibre7"><b class="calibre13">Note</b>: The results are the same as the Wwise toolbar search.</p>
+<p class="endtd"></p>
+</td><td class="calibre36"><p class="starttd"></p>
+<p class="calibre7">$ from search "gun"<br class="calibre10"/>
+$ from search "foot walk"</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td colspan="1" class="calibre36">from project </td><td colspan="1" class="calibre36">Generates a sequence of objects including all objects of the project. </td><td colspan="1" class="calibre36">$ from project </td></tr>
+</tbody></table>
+<p class="calibre7"></p>
+</div></div></div></body></html>

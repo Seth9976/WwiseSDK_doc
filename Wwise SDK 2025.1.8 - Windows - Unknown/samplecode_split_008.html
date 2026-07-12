@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Samples</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_7"><a class="pcalibre1 anchor" id="samplecode_integration_defaultlowlevelio"></a>
+Default Low-Level I/O Implementation</h2>
+<p class="calibre7">Implementing the Low-Level I/O interfaces (defined in <a class="pcalibre el" href="_ak_stream_mgr_module_8h_split_000.html">AkStreamMgrModule.h</a>) is the preferred method of integrating Wwise I/O into your game. The SDK provides default, platform-specific implementations of the Low-Level I/O. Refer to <a class="pcalibre el" href="streamingdevicemanager_split_000.html">Streaming / Stream Manager</a> for an overview of Wwise I/O.</p>
+<p class="calibre7">These samples may be used as is, or as a starting point for implementing your own Low-Level I/O system. <a class="pcalibre el" href="streamingdevicemanager_split_003.html#streamingdevicemanager_integratingwwiseio">Integrating Wwise I/O</a> is a straightforward explanation on how and why you should use these samples.</p>
+<p class="calibre7"><a class="pcalibre el" href="streamingmanager_lowlevel_split_011.html#streamingmanager_lowlevel_default_implementation_walkthrough">Sample Default Implementation Walkthrough</a> describes the Default Low-Level I/O implementation samples in greater details.</p>
+<p class="calibre7">Location (common):</p><ul class="calibre8">
+<li class="calibre9">"samples\SoundEngine\Common\AkFileLocationBase.h"</li>
+<li class="calibre9">"samples\SoundEngine\Common\AkFileLocationBase.cpp"</li>
+</ul>
+<p class="calibre7">Location (platform-specific):</p><ul class="calibre8">
+<li class="calibre9">"samples\SoundEngine\{Platform name}\AkDefaultIOHookDeferred.h"</li>
+<li class="calibre9">"samples\SoundEngine\{Platform name}\AkDefaultIOHookDeferred.cpp"</li>
+</ul>
+<p class="calibre7">Additionally, you may use the CAkDefaultLowLevelIODispatcher class to manage I/O systems with multiple devices.</p>
+<p class="calibre7">Location (common):</p><ul class="calibre8">
+<li class="calibre9">"samples\SoundEngine\Common\AkDefaultLowLevelIODispatcher.h"</li>
+<li class="calibre9">"samples\SoundEngine\Common\AkDefaultLowLevelIODispatcher.cpp"</li>
+</ul>
+</div></div></div></body></html>

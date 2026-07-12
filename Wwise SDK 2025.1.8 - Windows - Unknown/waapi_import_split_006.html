@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Importing Audio Files and Creating Structures</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_5"><a class="pcalibre1 anchor" id="waapi_set_objects_multi"></a>
+Using ak.wwise.core.object.set to import audio files and create a hierarchy of objects</h2>
+<p class="calibre7">Refer to <a class="pcalibre el" href="ak_wwise_core_object_set_split_000.html">ak.wwise.core.object.set</a> for more information.</p>
+<div class="fragment"><div class="line">{</div>
+<div class="line">    <span class="stringliteral">"objects"</span>: [</div>
+<div class="line">        {</div>
+<div class="line">            <span class="stringliteral">"object"</span>: <span class="stringliteral">"\\Containers\\Default Work Unit"</span>,</div>
+<div class="line">            <span class="stringliteral">"children"</span>: [</div>
+<div class="line">                {</div>
+<div class="line">                    <span class="stringliteral">"type"</span>: <span class="stringliteral">"PropertyContainer"</span>,</div>
+<div class="line">                    <span class="stringliteral">"name"</span>: <span class="stringliteral">"FootSteps"</span>,</div>
+<div class="line">                    <span class="stringliteral">"@Volume"</span>: <span class="stringliteral">"-2"</span>,</div>
+<div class="line">                    <span class="stringliteral">"children"</span>: [</div>
+<div class="line">                        {</div>
+<div class="line">                            <span class="stringliteral">"type"</span>: <span class="stringliteral">"RandomSequenceContainer"</span>,</div>
+<div class="line">                            <span class="stringliteral">"name"</span>: <span class="stringliteral">"FootStep_Concrete"</span>,</div>
+<div class="line">                            <span class="stringliteral">"@RandomOrSequence"</span>: <span class="stringliteral">"1"</span>,</div>
+<div class="line">                            <span class="stringliteral">"children"</span>: [</div>
+<div class="line">                                {</div>
+<div class="line">                                    <span class="stringliteral">"type"</span>: <span class="stringliteral">"Sound"</span>,</div>
+<div class="line">                                    <span class="stringliteral">"name"</span>: <span class="stringliteral">"FootStep_Concrete_01"</span>,</div>
+<div class="line">                                    <span class="stringliteral">"import"</span>:{ <span class="stringliteral">"files"</span>:[ { <span class="stringliteral">"audioFile"</span>:<span class="stringliteral">"C:\\wave\\cues\\FootStep_Concrete_01.wav"</span> } ],}</div>
+<div class="line">                                },</div>
+<div class="line">                                {</div>
+<div class="line">                                    <span class="stringliteral">"type"</span>: <span class="stringliteral">"Sound"</span>,</div>
+<div class="line">                                    <span class="stringliteral">"name"</span>: <span class="stringliteral">"FootStep_Concrete_02"</span>,</div>
+<div class="line">                                    <span class="stringliteral">"import"</span>:{ <span class="stringliteral">"files"</span>:[ { <span class="stringliteral">"audioFile"</span>:<span class="stringliteral">"C:\\wave\\cues\\FootStep_Concrete_02.wav"</span> } ],}</div>
+<div class="line">                                }</div>
+<div class="line">                            ]</div>
+<div class="line">                        }</div>
+<div class="line">                    ]</div>
+<div class="line">                }</div>
+<div class="line">            ]</div>
+<div class="line">        }</div>
+<div class="line">    ]</div>
+<div class="line">}</div>
+</div><!-- fragment --><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> The object field indicates where to create the object in the project. The object field, like most Wwise object fields, supports object IDs (GUID) and object paths. To retrieve an object ID, refer to <a class="pcalibre el" href="ak_wwise_core_object_get_split_000.html">ak.wwise.core.object.get</a>. You could, for example, retrieve the object ID by its project path. </td></tr>
+</tbody></table>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> To retrieve an object ID from a Wwise project, you can hold the Shift key while right-clicking an object, then select <b class="calibre13">Copy GUID(s) to clipboard</b>. </td></tr>
+</tbody></table>
+<p class="calibre7">More examples using <a class="pcalibre el" href="ak_wwise_core_object_set_split_000.html">ak.wwise.core.object.set</a> to import audio files:</p><ul class="calibre8">
+<li class="calibre9"><a class="pcalibre el" href="ak_wwise_core_object_set_example_creating_multiple_child_hierarchies_of_objects_in_batch_split_000.html">Creating multiple child hierarchies of objects in batch</a></li>
+<li class="calibre9"><a class="pcalibre el" href="ak_wwise_core_object_set_example_creating_new_source_plug_ins_for_a_voice_split_000.html">Creating new Source Plug-ins for a Voice</a></li>
+<li class="calibre9"><a class="pcalibre el" href="ak_wwise_core_object_set_example_importing_a_wav_file_into_a_new_sound_sfx_and_creating_the_associated_event_split_000.html">Importing a WAV file into a new Sound SFX and creating the associated Event</a></li>
+<li class="calibre9"><a class="pcalibre el" href="ak_wwise_core_object_set_example_importing_a_wav_file_to_create_a_sound_sfx_object_split_000.html">Importing a WAV file to create a Sound SFX object</a></li>
+<li class="calibre9"><a class="pcalibre el" href="ak_wwise_core_object_set_example_importing_base64_content_to_create_a_sound_sfx_object_split_000.html">Importing Base64 content to create a Sound SFX object</a></li>
+<li class="calibre9"><a class="pcalibre el" href="ak_wwise_core_object_set_example_importing_two_wav_files_to_create_two_sound_sfx_objects_split_000.html">Importing two WAV files to create two Sound SFX objects</a></li>
+<li class="calibre9"><a class="pcalibre el" href="ak_wwise_core_object_set_example_importing_a_wav_file_into_a_sound_voice_split_000.html">Importing a WAV file into a Sound Voice</a></li>
+<li class="calibre9"><a class="pcalibre el" href="ak_wwise_core_object_set_example_importing_a_wav_file_into_an_audio_file_source_split_000.html">Importing a WAV file into an Audio File Source</a></li>
+<li class="calibre9"><a class="pcalibre el" href="ak_wwise_core_object_set_example_importing_a_midi_file_into_a_music_segment_to_create_a_music_track_split_000.html">Importing a MIDI file into a Music Segment to create a Music Track</a></li>
+<li class="calibre9"><a class="pcalibre el" href="ak_wwise_core_object_set_example_importing_two_wav_files_into_a_music_segment_to_create_two_music_tracks_split_000.html">Importing two WAV files into a Music Segment to create two Music Tracks</a></li>
+<li class="calibre9"><a class="pcalibre el" href="ak_wwise_core_object_set_example_importing_a_wav_file_into_a_music_track_to_create_a_music_clip_split_000.html">Importing a WAV file into a Music Track to create a Music Clip</a></li>
+</ul>
+</div></div></div></body></html>

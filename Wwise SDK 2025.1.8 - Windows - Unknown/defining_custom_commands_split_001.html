@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Defining Command Add-ons</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2"><h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="defining_custom_commands_overview"></a>
+Command Add-ons Overview</h1>
+<p class="calibre7">Command add-ons allow to define new commands for Wwise Authoring. Each command is associated with an external program that is being triggered by Wwise. Programs that are executed can receive a variety of predefined arguments that are derived from the currently selected objects or audio files.</p>
+<p class="calibre7">Add-on commands can be triggered in different ways:</p><ul class="calibre8">
+<li class="calibre9">Keyboard Shortcut</li>
+<li class="calibre9">Contextual Menu (various views, including the Project Explorer and the Media Pool)</li>
+<li class="calibre9">Main Menu</li>
+<li class="calibre9">Control Surface</li>
+<li class="calibre9">WAAPI using <a class="pcalibre el" href="ak_wwise_ui_commands_execute_split_000.html">ak.wwise.ui.commands.execute</a></li>
+</ul>
+<p class="calibre7">Add-on commands can be defined on several levels:</p><ul class="calibre8">
+<li class="calibre9">In the user data directory, under:<ul class="calibre15">
+<li class="calibre9"><b class="calibre13">Windows</b>: "%APPDATA%\\Audiokinetic\\Wwise\\Add-ons\\Commands"</li>
+<li class="calibre9"><b class="calibre13">macOS</b>: "$HOME/Library/Application Support/Audiokinetic/Wwise/Add-ons/Commands"</li>
+</ul>
+</li>
+<li class="calibre9">In the installation folder, under:<ul class="calibre15">
+<li class="calibre9"><b class="calibre13">Windows</b>: "%WWISEROOT%\\Authoring\\Data\\Add-ons\\Commands"</li>
+<li class="calibre9"><b class="calibre13">macOS</b>: "/Library/Application Support/Audiokinetic/Wwise &lt;version&gt;/Authoring/Data/Add-ons/Commands"</li>
+</ul>
+</li>
+<li class="calibre9">In the project folder, under "Add-ons\\Commands"</li>
+<li class="calibre9">Using <a class="pcalibre el" href="ak_wwise_ui_commands_register_split_000.html">ak.wwise.ui.commands.register</a></li>
+</ul>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> In case of id conflict, only the first command loaded will be registered. The commands are loaded in the order specified above. </td></tr>
+</tbody></table>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> Command add-ons specified in the installation folder or in the user data directory are loaded at Wwise startup. Command add-ons specified under the project are loaded at project load time. </td></tr>
+</tbody></table>
+<p class="calibre7">Additionally, every time a command is executed in Wwise, WAAPI will notify the subscribers with <a class="pcalibre el" href="ak_wwise_ui_commands_executed_split_000.html">ak.wwise.ui.commands.executed</a>, passing the selected objects and honoring WAAPI return options. Add-on commands can be defined with no program to execute, so you could use the publication event to execute your own code in a WAAPI client.</p>
+</div></div></div></body></html>

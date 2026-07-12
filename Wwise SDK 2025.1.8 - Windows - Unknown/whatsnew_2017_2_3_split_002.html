@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2017.2.3</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="bugs_2017_2_3"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-36649</b> Fixed: Using multiple SCE Audio 3D sinks can cause Authoring tool to slow down.</li>
+<li class="calibre9"><b class="calibre13">WG-36668</b> Improved performance of how the reflect delay line handles sound sources.</li>
+<li class="calibre9"><b class="calibre13">WG-36742</b> Fixed: Crash in <code class="calibre14">CAkStateAware::SetStateProperties</code> on connection.</li>
+<li class="calibre9"><b class="calibre13">WG-36749</b> Fixed: Very slow <code class="calibre14">ResetAll</code>.</li>
+<li class="calibre9"><b class="calibre13">WG-36812</b> Fixed: (PS4) <code class="calibre14">CAkSinkPS4</code> ignores <code class="calibre14"><a class="pcalibre el" href="struct_ak_platform_init_settings_a953085ec90c00bf53ddafc8af700277d_split_000.html#a953085ec90c00bf53ddafc8af700277d" title="Number of refill buffers in voice buffer. 2 == double-buffered, defaults to 4.">AkPlatformInitSettings::uNumRefillsInVoice</a></code>.</li>
+<li class="calibre9"><b class="calibre13">WG-36818</b> Fixed: LPF and HPF control updates cause audible distortion with audio block size of 2,048 and control accuracy issues with block sizes of 256 and 512.</li>
+<li class="calibre9"><b class="calibre13">WG-36893</b> Fixed: Vorbis, when set with a seek table that happens to read near the end of a file, can crash when reading from bank.</li>
+<li class="calibre9"><b class="calibre13">WG-36935</b> Fixed: Adding a State on Bus Volume or the Output Bus's Volume, LPF, or HPF makes the bus mixing.</li>
+<li class="calibre9"><b class="calibre13">WG-36954</b> Fixed: Audio device ShareSets are incorrectly added when creating a new project.</li>
+<li class="calibre9"><b class="calibre13">WG-36958</b> Fixed: State <b class="calibre13">change occurs at</b> ignored when playing multiple music instances.</li>
+<li class="calibre9"><b class="calibre13">WG-36977</b> Fixed: Crash with sound that doesn't route to a device.</li>
+<li class="calibre9"><b class="calibre13">WG-36985</b> Fixed: Portal obstruction resets to 0 when <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_aeffa58bec3569a1bac5feac3e0c370d9_split_000.html#aeffa58bec3569a1bac5feac3e0c370d9">AK::SpatialAudio::SetPortal()</a></code> is called.</li>
+<li class="calibre9"><b class="calibre13">WG-37000</b> Fixed: Possible race condition and subsequent crash when loading Init.bnk immediately after initializing engine.</li>
+<li class="calibre9"><b class="calibre13">WG-37010</b> Fixed: <code class="calibre14">SetImageSource</code> creates lots of sources until pool runs out of memory.</li>
+<li class="calibre9"><b class="calibre13">WG-37065</b> Fixed: Possible crash in <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a90f8c91937038615480db2b57ce2279e_split_000.html#a90f8c91937038615480db2b57ce2279e">AK::SoundEngine::Term</a></code> resulting in Unity Editor crash when stopping game.</li>
+<li class="calibre9"><b class="calibre13">WG-37075</b> Fixed: Room game object for a Room adjacent to the listener is incorrectly placed for some Portal orientations.</li>
+<li class="calibre9"><b class="calibre13">WG-37116</b> Fixed: Non-canonicalized paths in pre/post-generation step macros.</li>
+<li class="calibre9"><b class="calibre13">WG-37117</b> Fixed: Incorrect duration information in SoundBank metadata files for replaced voice media (using reference language as stand-in).</li>
+<li class="calibre9"><b class="calibre13">WG-37123</b> Fixed: External Source output path is not canonicalized.</li>
+<li class="calibre9"><b class="calibre13">WG-37130</b> Fixed: The Portal obstruction value for all Portals in a single Room is set to the Portal obstruction value for Portal closest to the listener.</li>
+<li class="calibre9"><b class="calibre13">WG-37131</b> Fixed: The wall occlusion value is not set on the Room game object and, therefore, is not applied to Room tones.</li>
+<li class="calibre9"><b class="calibre13">WG-37162</b> Fixed: The wall occlusion value taken from the listener's Room may be discontinuous, if the listener transitions to a new Room with a different value.</li>
+<li class="calibre9"><b class="calibre13">WG-37169</b> Fixed: The sound propagation system does not take into account the distance between the emitter and its closest Portal, resulting in distance and diffraction calculations based on sub-optimal paths.</li>
+</ul>
+<p class="calibre7">
+ </p><dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="reference_platform_2017_2_3_split_000.html">Platform Requirements 2017.2.3</a> </li>
+</ul>
+</dd></dl>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

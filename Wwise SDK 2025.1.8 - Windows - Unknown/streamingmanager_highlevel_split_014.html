@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>High-Level Stream Manager API Description</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_13"><a class="pcalibre1 anchor" id="streamingmanager_highlevel_autostreams_definition"></a>
+Definition</h2>
+<p class="calibre7">Automatic streams are streams used for input only. They are called automatic because I/O requests are sent to the Low-Level I/O "under the hood", without any explicit function calls by the user. Streaming memory is owned by the Stream Manager, and streamed data is accessed by asking for a streaming memory address. When a region of the streaming memory is granted to the user, it remains locked until it is explicitly released. Meanwhile, the internal scheduler performs data transfers in memory that is not locked. A stream is idle when it is created. Automatic scheduling of I/O requests begins when the user calls <a class="pcalibre el" href="class_a_k_1_1_i_ak_auto_stream_ae9d58aa42a893863f8fe85a5ee45d638_split_000.html#ae9d58aa42a893863f8fe85a5ee45d638">AK::IAkAutoStream::Start()</a>. It can be stopped or paused by calling <a class="pcalibre el" href="class_a_k_1_1_i_ak_auto_stream_ad1b80ad36a23b15e96f697685f710b1f_split_000.html#ad1b80ad36a23b15e96f697685f710b1f">AK::IAkAutoStream::Stop()</a>, and resumed by calling <a class="pcalibre el" href="class_a_k_1_1_i_ak_auto_stream_ae9d58aa42a893863f8fe85a5ee45d638_split_000.html#ae9d58aa42a893863f8fe85a5ee45d638">AK::IAkAutoStream::Start()</a> again.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="caution.gif"/></td><td class="calibre17"><b class="calibre13">Caution:</b> Do not call GetBuffer() while the stream is stopped. You should always call <a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_1_1_xml_write_state_a9802053bd44c7926486300763e602293_split_001.html#a9802053bd44c7926486300763e602293a681b2db48f90de72b60f64c23e183690" title="Start">Start()</a> before attempting to get buffers from the stream. </td></tr>
+</tbody></table>
+<p class="calibre7">Data is accessed by calling <a class="pcalibre el" href="class_a_k_1_1_i_ak_auto_stream_aa8197d63b8e758acb075a437103e573c_split_000.html#aa8197d63b8e758acb075a437103e573c">AK::IAkAutoStream::GetBuffer()</a>. If data has already been read from the Low-Level I/O, the method will return AK_DataReady, the address of the buffer containing that data, and its size. When the buffer is not required anymore, it is released by callingAK::IAkAutoStream::ReleaseBuffer(). The stream position as seen by the user is then incremented by the size of the released buffer. The user can force a new position by calling <a class="pcalibre el" href="class_a_k_1_1_i_ak_auto_stream_a3bbe9d9fe0f933ee75da2adfbfbc9e38_split_000.html#a3bbe9d9fe0f933ee75da2adfbfbc9e38">AK::IAkAutoStream::SetPosition()</a>. The next call to <a class="pcalibre el" href="class_a_k_1_1_i_ak_auto_stream_aa8197d63b8e758acb075a437103e573c_split_000.html#aa8197d63b8e758acb075a437103e573c">AK::IAkAutoStream::GetBuffer()</a> will be consistent with that position.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="caution.gif"/></td><td class="calibre17"><b class="calibre13">Caution:</b> Changing the stream position may cause some data to be flushed. Automatic streams are optimized for sequential access. There are heuristics that specify looping, which help the Stream Manager manage its streaming memory efficiently. For more information, refer to the <a class="pcalibre el" href="streamingmanager_highlevel_split_017.html#streamingmanager_highlevel_autostreams_watchout">Common Pitfalls and Other Considerations</a> section. </td></tr>
+</tbody></table>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="caution.gif"/></td><td class="calibre17"><b class="calibre13">Caution:</b> If the Low-Level I/O reports an error, the stream puts itself in error mode. Automatic streams cannot recover from their error state, and <a class="pcalibre el" href="class_a_k_1_1_i_ak_auto_stream_aa8197d63b8e758acb075a437103e573c_split_000.html#aa8197d63b8e758acb075a437103e573c">AK::IAkAutoStream::GetBuffer()</a> will always return AK_Fail. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

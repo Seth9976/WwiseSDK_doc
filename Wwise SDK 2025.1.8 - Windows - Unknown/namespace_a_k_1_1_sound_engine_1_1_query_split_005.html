@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::SoundEngine::Query Namespace Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_4">Detailed Description</h2>
+<div class="calibre2"><p class="calibre7"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_1_1_query_split_000.html">Query</a> namespace </p><dl class="calibre7"><dt class="calibre23">Remarks</dt><dd class="calibre24">The functions in this namespace are thread-safe, unless stated otherwise. We recommend that you use these functions in development builds only, because they can cause CPU spikes.</dd></dl>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="warning.gif"/></td><td class="calibre17"><p class="starttd"><b class="calibre13">Warning:</b> The functions in this namespace might stall for several milliseconds before returning because they cannot execute while the main sound engine tick is running. They should therefore not be called from any game-critical thread, such as the main game loop. However, if the function definition states that it does not require the main audio lock, no delay should occur.</p>
+<p class="endtd">There might be a significant delay between a Sound Engine call, such as PostEvent, and the information being returned in a <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_1_1_query_split_000.html">Query</a>, such as GetIsGameObjectActive. </p>
+</td></tr>
+</tbody></table>
+</div></div><!-- contents -->
+
+
+</body></html>

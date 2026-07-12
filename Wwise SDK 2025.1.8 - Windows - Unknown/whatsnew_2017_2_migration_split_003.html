@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2017.2</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_2"><a class="pcalibre1 anchor" id="secondary_output_migration"></a>
+Breaking changes in audio output management, secondary outputs, and sink plug-ins</h2>
+<p class="calibre7">The management of outputs (Main, BGM, Game Controller Speakers, Headphones, DVR, and so on) was overhauled for 2017.2. Now, all audio sinks (the part that talks to audio hardware) use the plug-in model, including the ones provided by Audiokinetic with Wwise. Therefore, all projects now have Audio Devices ShareSets of each type added to their project, if they use at least one of the supported platforms. Each Master Bus (a bus that sits at the top of the mixing hierarchy) must now have an Audio Device attached to it to define into which output the mix will go. This function was previously done by code either during initialization (through <code class="calibre14"><a class="pcalibre el" href="struct_ak_init_settings_split_000.html">AkInitSettings</a></code>) or with <code class="calibre14">AK::SoundEngine::AddSecondaryOutput</code>. During the migration to 2017.2, existing projects will have the <b class="calibre13">System</b> device automatically added to the Master Audio Bus and to the Master Secondary Bus.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="caution.gif"/></td><td class="calibre17"><b class="calibre13">Caution:</b> Review your usage of the Master Secondary Bus! If you used it before, you must select the proper Audio Device. You might have to split your bus hierarchy to have a separate Master Bus for another output. You can now create as many Master Busses as you need, normally one per hardware output. </td></tr>
+</tbody></table>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="caution.gif"/></td><td class="calibre17"><b class="calibre13">Caution:</b> If you used plug-ins for your main output (PSVR binaural plug-in for example), make sure to link them to the Master Audio Bus' <em class="calibre11">Audio Device</em> property. If this plug-in is supported only on one platform (PS4, for example), make sure to use the Link/Unlink functionality to set the property correctly on all platforms. </td></tr>
+</tbody></table>
+<p class="calibre7">Additionally, Listener management with respect to Secondary Output has been changed. In general, the old code should behave the same way unchanged. However, it is worth mentioning that the system requires fewer Listeners if only one device of a given type can exist. Please read <a class="pcalibre el" href="integrating_secondary_outputs_split_000.html">Integrating Secondary Outputs</a> for more information.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="output_function_changes"></a>
+API changes due to output management overhaul</h3>
+<ul class="calibre8">
+<li class="calibre9">The function <code class="calibre14">AK::SoundEngine::AddSecondaryOutput</code> was changed to <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a15ab79f954a307902f529d8ccde8ad48_split_000.html#a15ab79f954a307902f529d8ccde8ad48">AK::SoundEngine::AddOutput</a></code>, with different parameters. Same with <code class="calibre14">RemoveSecondaryOutput</code>. Refer to the functions' documentation. You will need to locate the proper Audio Device name (or add one) in your Wwise project to have the same functionality with <code class="calibre14">AddOutput</code>.</li>
+<li class="calibre9">The enum <code class="calibre14">AkAudioOutputType</code> used in <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a9a26da64092b97243844df77cbcdbf5f_split_000.html#a9a26da64092b97243844df77cbcdbf5f">AK::SoundEngine::Init</a></code> (<code class="calibre14"><a class="pcalibre el" href="struct_ak_init_settings_split_000.html">AkInitSettings</a></code>) and in <code class="calibre14">AK::SoundEngine::AddSecondaryOutput</code> is removed. Its functionality is replaced by the plug-in mechanism for Audio Devices.</li>
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a596df07185afdcb66a83e034ea0e32eb_split_000.html#a596df07185afdcb66a83e034ea0e32eb">AK::SoundEngine::GetSpeakerConfiguration</a></code>, <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a6b61ec8138bd32c409e9efec955ba719_split_000.html#a6b61ec8138bd32c409e9efec955ba719">AK::SoundEngine::GetPanningRule</a></code>, <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a3e61f70b39d53dd7b8350f2696d9c59e_split_000.html#a3e61f70b39d53dd7b8350f2696d9c59e">AK::SoundEngine::SetPanningRule</a></code>, <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a02ad46cabd64c04e8be198bfdc44be6b_split_000.html#a02ad46cabd64c04e8be198bfdc44be6b">AK::SoundEngine::GetSpeakerAngles</a></code>, <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a02ad46cabd64c04e8be198bfdc44be6b_split_000.html#a02ad46cabd64c04e8be198bfdc44be6b">AK::SoundEngine::GetSpeakerAngles</a></code>, <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_afaf319902f00bbf38fbff9129086d912_split_000.html#afaf319902f00bbf38fbff9129086d912">AK::SoundEngine::SetSpeakerAngles</a></code> all take an <code class="calibre14">AkOutputDeviceID</code> instead of <code class="calibre14">AkAudioOutputType</code>. <code class="calibre14">AkOutputDeviceID</code> is returned by <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a15ab79f954a307902f529d8ccde8ad48_split_000.html#a15ab79f954a307902f529d8ccde8ad48">AK::SoundEngine::AddOutput</a></code> or the new function <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_adc0d4b9a62088bc4cebf8cf95672b132_split_000.html#adc0d4b9a62088bc4cebf8cf95672b132">AK::SoundEngine::GetOutputID</a></code>.</li>
+</ul>
+</div></div></div></body></html>

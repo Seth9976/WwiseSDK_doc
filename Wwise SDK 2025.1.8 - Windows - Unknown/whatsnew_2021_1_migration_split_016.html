@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2021.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_15"><a class="pcalibre1 anchor" id="memmgr_plugin"></a>
+Plug-in Memory Allocator</h2>
+<ul class="calibre8">
+<li class="calibre9"><code class="calibre14">IAkPluginMemAlloc::Malloc</code> and <code class="calibre14">IAkPluginMemAlloc::Malign</code> now take a file name and line number to track memory allocations. Note that this is handled automatically by the <code class="calibre14">AK_PLUGIN_ALLOC</code> and <code class="calibre14">AK_PLUGIN_ALLOC_ALIGN</code> macros, and it is recommended to use those macros where appropriate.</li>
+<li class="calibre9"><code class="calibre14">AK_PLUGIN_REALLOC</code> and <code class="calibre14">AK_PLUGIN_REALLOC_ALIGN</code> have been added and call <code class="calibre14">IAkPluginMemAlloc::Realloc</code> and <code class="calibre14">IAkPluginMemAlloc::ReallocAligned</code>, respectively.</li>
+<li class="calibre9"><code class="calibre14">IAkPluginMemAlloc:dMalloc</code> and <code class="calibre14">IAkPluginMemAlloc::dMalign</code> have been removed. The debug version of these functions will now be called automatically according to <a class="pcalibre el" href="struct_ak_mem_settings_ae97967db68ec10e8410af9f776f89e0d_split_000.html#ae97967db68ec10e8410af9f776f89e0d" title="Default 0 disabled. 1 debug enabled. 2 stomp allocator enabled. 3 stomp allocator and debug enabled....">AkMemSettings::uMemoryDebugLevel</a>.</li>
+</ul>
+</div></div></div></body></html>

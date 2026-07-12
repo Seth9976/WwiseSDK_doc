@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::SpatialAudio::SetImageSource</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="namespace_a_k_1_1_spatial_audio_aab4d85317c62724c00d25ba8913fb503_split_000.html#aab4d85317c62724c00d25ba8913fb503" class="pcalibre1 anchor">◆ </a></span>SetImageSource()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_sound_engine_export_8h_ac6e96d34dfc0e12f9aaa7a47f4e9c322_split_000.html#ac6e96d34dfc0e12f9aaa7a47f4e9c322">AKSOUNDENGINE_API</a> <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::SpatialAudio::SetImageSource </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_aa8cb517b34d4fc2a5ad99c122136db30_split_000.html#aa8cb517b34d4fc2a5ad99c122136db30">AkImageSourceID</a> </td>
+          <td class="paramname"><em class="calibre59">in_srcID</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">const <a class="pcalibre el" href="struct_ak_image_source_settings_split_000.html">AkImageSourceSettings</a> &amp; </td>
+          <td class="paramname"><em class="calibre59">in_info</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">const char * </td>
+          <td class="paramname"><em class="calibre59">in_name</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_a8341fa4d01d2fa852c3cc410401b04dc_split_000.html#a8341fa4d01d2fa852c3cc410401b04dc">AkUniqueID</a> </td>
+          <td class="paramname"><em class="calibre59">in_AuxBusID</em> = <code class="calibre14"><a class="pcalibre el" href="_ak_constants_8h_aa3e666dc0a8559e60f0456d55080550a_split_000.html#aa3e666dc0a8559e60f0456d55080550a">AK_INVALID_AUX_ID</a></code>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> </td>
+          <td class="paramname"><em class="calibre59">in_gameObjectID</em> = <code class="calibre14"><a class="pcalibre el" href="_ak_constants_8h_a82290a98a9cf7901722a69a590aeee34_split_000.html#a82290a98a9cf7901722a69a590aeee34">AK_INVALID_GAME_OBJECT</a></code> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Add or update an individual image source for processing via the AkReflect plug-in. Use this API for detailed placement of reflection image sources, whose positions have been determined by the client, such as from the results of a ray cast, computation or by manual placement. One possible use case is generating reflections that originate far enough away that they can be modeled as a static point source, for example, off of a distant mountain. The <a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_split_000.html" title="Audiokinetic spatial audio namespace.">SpatialAudio</a> API manages image sources added via <a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_aab4d85317c62724c00d25ba8913fb503_split_000.html#aab4d85317c62724c00d25ba8913fb503">SetImageSource()</a> and sends them to the AkReflect plug-in that is on the aux bus with ID <code class="calibre14">in_AuxBusID</code>. The image source applies all game objects that have a reflections aux send defined in the authoring tool, or only to a specific game object if <code class="calibre14">in_gameObjectID</code> is used. </p><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> The <code class="calibre14"><a class="pcalibre el" href="struct_ak_image_source_settings_split_000.html" title="Settings for individual image sources.">AkImageSourceSettings</a></code> struct passed in <code class="calibre14">in_info</code> must contain a unique image source ID to be able to identify this image source across frames and when updating and/or removing it later. <br class="calibre10"/>
+ Each instance of AkReflect has its own set of data, so you may reuse ID, if desired, as long as <code class="calibre14">in_gameObjectID</code> and <code class="calibre14">in_AuxBusID</code> are different. <table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> It is possible for the AkReflect plugin to process reflections from both <code class="calibre14">SetImageSource</code> and the geometric reflections API on the same aux bus and game object, but be aware that image source ID collisions are possible. The image source IDs used by the geometric reflections API are generated from hashed data that uniquely identifies the reflecting surfaces. If a collision occurs, one of the reflections will not be heard. While collision are rare, to ensure that it never occurs use an aux bus for <code class="calibre14">SetImageSource</code> that is unique from the aux bus(es) defined in the authoring tool, and from those passed to <code class="calibre14">SetEarlyReflectionsAuxSend</code>. </td></tr>
+</tbody></table>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> For proper operation with AkReflect and the <a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_split_000.html" title="Audiokinetic spatial audio namespace.">SpatialAudio</a> API, any aux bus using AkReflect should have 'Listener Relative Routing' checked and the 3D Spatialization set to None in the <a class="pcalibre el" href="namespace_a_k_1_1_wwise_split_000.html">Wwise</a> authoring tool. See <a class="pcalibre el" href="spatial_audio_apigeometry_er_split_005.html#spatial_audio_wwiseprojectsetup_businstances">Bus instances</a> for more details. </td></tr>
+</tbody></table>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_a1069aeddd9dcb97445ce60fc5338b915_split_000.html#a1069aeddd9dcb97445ce60fc5338b915">AK::SpatialAudio::RemoveImageSource</a></li>
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_af18c5b06cfb55e61fd66fdfef4f6cf72_split_000.html#af18c5b06cfb55e61fd66fdfef4f6cf72">AK::SpatialAudio::ClearImageSources</a></li>
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_a3f080206f12c04b3464838cb18c43f4e_split_000.html#a3f080206f12c04b3464838cb18c43f4e">AK::SpatialAudio::SetGameObjectInRoom</a></li>
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_af9357c33f3ea4f9551b0e169ded73c15_split_000.html#af9357c33f3ea4f9551b0e169ded73c15">AK::SpatialAudio::SetEarlyReflectionsAuxSend</a> </li>
+</ul>
+</dd></dl>
+</td></tr>
+</tbody></table>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_srcID</td><td class="calibre17">The ID of the image source being added. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_info</td><td class="calibre17">Image source information. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_name</td><td class="calibre17">Name given to image source, can be used to identify the image source in the <a class="pcalibre el" href="namespace_a_k_split_000.html" title="Definition of data structures for AkAudioObject.">AK</a> Reflect plugin UI. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_AuxBusID</td><td class="calibre17">Aux bus that has the AkReflect plug in for early reflection DSP. Pass AK_INVALID_AUX_ID to use the reflections aux bus defined in the authoring tool. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_gameObjectID</td><td class="calibre17">The ID of the emitter game object to which the image source applies. Pass AK_INVALID_GAME_OBJECT to apply to all game objects that have a reflections aux bus assigned in the authoring tool. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

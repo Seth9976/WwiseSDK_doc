@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Wwise Stereo Delay</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="wwiseobject_effect_wwise_stereo_delay_objectbase_properties"></a>
+Properties, References, Lists</h1>
+<p class="calibre7"></p><table class="doxtable">
+<tbody class="calibre4"><tr class="calibre16">
+<th class="calibre46">Name</th><th class="calibre46">Display Name</th><th class="calibre46">Type</th><th class="calibre46">Default</th><th class="calibre46">Restriction</th><th class="calibre46">Is Visible</th><th class="calibre46">Supported RTPC Type</th><th class="calibre46">Supports Link/Unlink </th></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">DryLevel</b></td><td class="calibre36">Dry Level</td><td class="calibre36">Real32</td><td class="calibre36">0</td><td class="calibre36">[ -96 , 24 ]</td><td class="calibre36">true</td><td class="calibre36">Additive</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">EnableCrossFeed</b></td><td class="calibre36">Enable Crossfeed</td><td class="calibre36">bool</td><td class="calibre36">false</td><td class="calibre36">None</td><td class="calibre36">true</td><td class="calibre36">Boolean</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">EnableFeedback</b></td><td class="calibre36">Enable Feedback</td><td class="calibre36">bool</td><td class="calibre36">false</td><td class="calibre36">None</td><td class="calibre36">true</td><td class="calibre36">Boolean</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">FilterFrequency</b></td><td class="calibre36">Filter Frequency</td><td class="calibre36">Real32</td><td class="calibre36">1000</td><td class="calibre36">[ 20 , 20000 ]</td><td class="calibre36">true</td><td class="calibre36">Exclusive</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">FilterGain</b></td><td class="calibre36">Filter Gain</td><td class="calibre36">Real32</td><td class="calibre36">0</td><td class="calibre36">[ -24 , 24 ]</td><td class="calibre36">true</td><td class="calibre36">Additive</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">FilterQFactor</b></td><td class="calibre36">Filter Q Factor</td><td class="calibre36">Real32</td><td class="calibre36">1</td><td class="calibre36">[ 0.1 , 20 ]</td><td class="calibre36">true</td><td class="calibre36">Exclusive</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">FilterType</b></td><td class="calibre36">Filter Type</td><td class="calibre36">int32</td><td class="calibre36">0</td><td class="calibre36"><p class="starttd"><b class="calibre13">Possible values :</b> </p>
+<table border="1" class="calibre49">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre36">Value </td><td class="calibre36">Display Name  </td></tr>
+<tr class="calibre16">
+<td class="calibre36">0</td><td class="calibre36">None</td></tr>
+<tr class="calibre16">
+<td class="calibre36">1</td><td class="calibre36">Low Shelf</td></tr>
+<tr class="calibre16">
+<td class="calibre36">2</td><td class="calibre36">Peaking</td></tr>
+<tr class="calibre16">
+<td class="calibre36">3</td><td class="calibre36">High Shelf</td></tr>
+<tr class="calibre16">
+<td class="calibre36">4</td><td class="calibre36">Low Pass</td></tr>
+<tr class="calibre16">
+<td class="calibre36">5</td><td class="calibre36">High Pass</td></tr>
+<tr class="calibre16">
+<td class="calibre36">6</td><td class="calibre36">Band Pass</td></tr>
+<tr class="calibre16">
+<td class="calibre36">7</td><td class="calibre36">Notch</td></tr>
+</tbody></table>
+<p class="endtd"></p>
+</td><td class="calibre36">true</td><td class="calibre36">Exclusive</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">FrontRearBalance</b></td><td class="calibre36">Front/Rear Balance</td><td class="calibre36">Real32</td><td class="calibre36">-100</td><td class="calibre36">[ -100 , 100 ]</td><td class="calibre36">true</td><td class="calibre36">Additive</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">LeftCrossfeed</b></td><td class="calibre36">Left Crossfeed</td><td class="calibre36">Real32</td><td class="calibre36">-12</td><td class="calibre36">[ -48 , 0 ]</td><td class="calibre36">true</td><td class="calibre36">Additive</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">LeftDelayTime</b></td><td class="calibre36">Left Delay Time</td><td class="calibre36">Real32</td><td class="calibre36">0.1</td><td class="calibre36">[ 0.03 , 2 ]</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">LeftFeedback</b></td><td class="calibre36">Left Feedback</td><td class="calibre36">Real32</td><td class="calibre36">-12</td><td class="calibre36">[ -48 , 0 ]</td><td class="calibre36">true</td><td class="calibre36">Additive</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">LeftInputType</b></td><td class="calibre36">Left Input Type</td><td class="calibre36">int32</td><td class="calibre36">0</td><td class="calibre36"><p class="starttd"><b class="calibre13">Possible values :</b> </p>
+<table border="1" class="calibre49">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre36">Value </td><td class="calibre36">Display Name  </td></tr>
+<tr class="calibre16">
+<td class="calibre36">0</td><td class="calibre36">Left</td></tr>
+<tr class="calibre16">
+<td class="calibre36">1</td><td class="calibre36">Center</td></tr>
+<tr class="calibre16">
+<td class="calibre36">2</td><td class="calibre36">Left+Center</td></tr>
+<tr class="calibre16">
+<td class="calibre36">3</td><td class="calibre36">None</td></tr>
+</tbody></table>
+<p class="endtd"></p>
+</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">RightCrossfeed</b></td><td class="calibre36">Right Crossfeed</td><td class="calibre36">Real32</td><td class="calibre36">-12</td><td class="calibre36">[ -48 , 0 ]</td><td class="calibre36">true</td><td class="calibre36">Additive</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">RightDelayTime</b></td><td class="calibre36">Right Delay Time</td><td class="calibre36">Real32</td><td class="calibre36">0.1</td><td class="calibre36">[ 0.03 , 2 ]</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">RightFeedback</b></td><td class="calibre36">Right Feedback</td><td class="calibre36">Real32</td><td class="calibre36">-12</td><td class="calibre36">[ -48 , 0 ]</td><td class="calibre36">true</td><td class="calibre36">Additive</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">RightInputType</b></td><td class="calibre36">Right Input Type</td><td class="calibre36">int32</td><td class="calibre36">0</td><td class="calibre36"><p class="starttd"><b class="calibre13">Possible values :</b> </p>
+<table border="1" class="calibre49">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre36">Value </td><td class="calibre36">Display Name  </td></tr>
+<tr class="calibre16">
+<td class="calibre36">0</td><td class="calibre36">Right</td></tr>
+<tr class="calibre16">
+<td class="calibre36">1</td><td class="calibre36">Center</td></tr>
+<tr class="calibre16">
+<td class="calibre36">2</td><td class="calibre36">Right+Center</td></tr>
+<tr class="calibre16">
+<td class="calibre36">3</td><td class="calibre36">None</td></tr>
+</tbody></table>
+<p class="endtd"></p>
+</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">WetLevel</b></td><td class="calibre36">Wet Level</td><td class="calibre36">Real32</td><td class="calibre36">0</td><td class="calibre36">[ -96 , 24 ]</td><td class="calibre36">true</td><td class="calibre36">Additive</td><td class="calibre36">false </td></tr>
+</tbody></table>
+ <p class="calibre7"></p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

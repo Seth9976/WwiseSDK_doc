@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integration Details - Triggers</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="soundengine_trigger_calling"></a>
+Calling Triggers</h1>
+<p class="calibre7">There are two options to call a trigger: the SDK's <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a1cd4b83f1a684a70e009cc9d81bbe57a_split_000.html#a1cd4b83f1a684a70e009cc9d81bbe57a">AK::SoundEngine::PostTrigger()</a> method and the "Trigger" action generated in Wwise events.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="warning.gif"/></td><td class="calibre17"><b class="calibre13">Warning:</b> Combining trigger calls through the SDK and through actions in events can be problematic. For example, if sound designers introduce trigger actions inside the events they create while audio programmers call triggers using the SDK <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a1cd4b83f1a684a70e009cc9d81bbe57a_split_000.html#a1cd4b83f1a684a70e009cc9d81bbe57a">AK::SoundEngine::PostTrigger()</a> command, the triggers may become difficult to control. We strongly recommend that sound designers and audio programmers decide how triggers will be called in their project. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

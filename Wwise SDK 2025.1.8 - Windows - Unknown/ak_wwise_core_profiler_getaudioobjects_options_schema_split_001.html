@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak.wwise.core.profiler.getAudioObjects Options Schema</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2"><h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="section_ak_wwise_core_profiler_getaudioobjects_optionsSchema"></a>
+Schema</h1>
+<div class="fragment"><div class="line">{</div>
+<div class="line">    "type": "object",</div>
+<div class="line">    "properties": {</div>
+<div class="line">        "return": {</div>
+<div class="line">            "type": "array",</div>
+<div class="line">            "description": "Members to return for each Audio Object. Defaults to Audio Object ID, Bus Pipeline ID, Instigator Pipeline ID and Effect Class ID.\\n An array of options for the Audio Objects.",</div>
+<div class="line">            "items": {</div>
+<div class="line">                "type": "string",</div>
+<div class="line">                "description": "Specifies one of the defined members for an Audio Object structure.",</div>
+<div class="line">                "enum": [</div>
+<div class="line">                    "busName",</div>
+<div class="line">                    "effectPluginName",</div>
+<div class="line">                    "audioObjectID",</div>
+<div class="line">                    "busPipelineID",</div>
+<div class="line">                    "gameObjectID",</div>
+<div class="line">                    "gameObjectName",</div>
+<div class="line">                    "audioObjectName",</div>
+<div class="line">                    "instigatorPipelineID",</div>
+<div class="line">                    "busID",</div>
+<div class="line">                    "busGUID",</div>
+<div class="line">                    "spatializationMode",</div>
+<div class="line">                    "x",</div>
+<div class="line">                    "y",</div>
+<div class="line">                    "z",</div>
+<div class="line">                    "spread",</div>
+<div class="line">                    "focus",</div>
+<div class="line">                    "channelConfig",</div>
+<div class="line">                    "effectClassID",</div>
+<div class="line">                    "effectIndex",</div>
+<div class="line">                    "metadata",</div>
+<div class="line">                    "rmsMeter",</div>
+<div class="line">                    "peakMeter"</div>
+<div class="line">                ]</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">    },</div>
+<div class="line">    "additionalProperties": false</div>
+<div class="line">}</div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

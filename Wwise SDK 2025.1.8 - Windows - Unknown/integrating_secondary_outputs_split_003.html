@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integrating Secondary Outputs</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="secondary_output_game_side"></a>
+Setting up devices, listeners and game objects for multiple outputs</h1>
+<p class="calibre7">In the case of multiple outputs of the same type (think, for example, a game controller speaker), it is necessary to discriminate between each instance of the devices. The regular <code class="calibre14">Listener/GameObject</code> concept is used because it also allows specific listener/emitter routing. See <a class="pcalibre el" href="concept_listeners.html">Understanding listeners</a> for more information. It is the responsibility of the game programmer to associate the output device with a Listener using <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a15ab79f954a307902f529d8ccde8ad48_split_000.html#a15ab79f954a307902f529d8ccde8ad48">AK::SoundEngine::AddOutput</a></code>. The programmer must set the association between the listeners and game objects using <code class="calibre14">AK::SoundEngine::SetActiveListeners</code>. Don't forget, you can specify multiple listeners if multiple devices should play this sound at the same time (see example below).</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> It is not necessary to have multiple listeners if there is only one output of a particular type (such as System, DVR). In this case, Wwise can rely on the routing specified in the Wwise project. This is also true for player-specific outputs (such as Game Controller Speaker and Communication) if the game is single-player. In other words, if there will only be one controller active in the game. Read more about listeners in <a class="pcalibre el" href="soundengine_listeners_split_000.html">Integrating Listeners</a>. </td></tr>
+</tbody></table>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> In the case of player-devices, the game code is responsible for calling <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a15ab79f954a307902f529d8ccde8ad48_split_000.html#a15ab79f954a307902f529d8ccde8ad48">AK::SoundEngine::AddOutput</a></code> and <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a0932ed2a3669258ecc3bbe6448314020_split_000.html#a0932ed2a3669258ecc3bbe6448314020">AK::SoundEngine::RemoveOutput</a></code> whenever a game controller is connected or disconnected from the system. Wwise can't know automatically which device to associated to which listener and, conceptually, which player. System devices (such as main output and DVR) are handled automatically by Wwise. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

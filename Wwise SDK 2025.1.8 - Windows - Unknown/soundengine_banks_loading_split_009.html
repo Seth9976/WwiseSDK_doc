@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Loading Banks</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_8"><a class="pcalibre1 anchor" id="soundengine_banks_loading_mem_vs_io_mem"></a>
+Loading From Memory</h2>
+<p class="calibre7">Use one of these prototypes of <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a7e8069027779f518a2049dffbb8ecbcb_split_000.html#a7e8069027779f518a2049dffbb8ecbcb">LoadBankMemoryView()</a> to load a bank that's already in memory at its final location:</p>
+<div class="fragment"><div class="line"><span class="comment">// Synchronous, in-place.</span></div>
+<div class="line"><a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a7e8069027779f518a2049dffbb8ecbcb_split_000.html#a7e8069027779f518a2049dffbb8ecbcb">LoadBankMemoryView</a>(</div>
+<div class="line">    <span class="keywordtype">void</span> *              in_pInMemoryBankPtr,    <span class="comment">///&lt; Pointer to the in-memory bank to load</span></div>
+<div class="line"><span class="comment"></span>    <a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a>            in_uInMemoryBankSize,   <span class="comment">///&lt; Size of the in-memory bank to load</span></div>
+<div class="line"><span class="comment"></span>    <a class="pcalibre code" href="_ak_typedefs_8h_a472a3d18cbb0c4f081b3b619e4a2f349_split_000.html#a472a3d18cbb0c4f081b3b619e4a2f349">AkBankID</a> &amp;          out_bankID              <span class="comment">///&lt; Returned bank ID</span></div>
+<div class="line"><span class="comment"></span>    );</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Asynchronous, in-place.</span></div>
+<div class="line"><a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a7e8069027779f518a2049dffbb8ecbcb_split_000.html#a7e8069027779f518a2049dffbb8ecbcb">LoadBankMemoryView</a>(</div>
+<div class="line">    <span class="keywordtype">void</span> *              in_pInMemoryBankPtr,    <span class="comment">///&lt; Pointer to the in-memory bank to load</span></div>
+<div class="line"><span class="comment"></span>    <a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a>            in_uInMemoryBankSize,   <span class="comment">///&lt; Size of the in-memory bank to load</span></div>
+<div class="line"><span class="comment"></span>    <a class="pcalibre code" href="_ak_callback_types_8h_a5f4438e001923453a9f795eb64946be6_split_000.html#a5f4438e001923453a9f795eb64946be6">AkBankCallbackFunc</a>  in_pfnBankCallback,     <span class="comment">///&lt; Callback function</span></div>
+<div class="line"><span class="comment"></span>    <span class="keywordtype">void</span> *              in_pCookie,             <span class="comment">///&lt; Callback cookie</span></div>
+<div class="line"><span class="comment"></span>    <a class="pcalibre code" href="_ak_typedefs_8h_a472a3d18cbb0c4f081b3b619e4a2f349_split_000.html#a472a3d18cbb0c4f081b3b619e4a2f349">AkBankID</a> &amp;          out_bankID              <span class="comment">///&lt; Returned bank ID</span></div>
+<div class="line"><span class="comment"></span>    );</div>
+</div><!-- fragment --><p class="calibre7">The memory is not copied inside the sound engine, therefore you must ensure that it remains valid until the bank is unloaded. Some alignment restrictions may apply based on the platform of the provided memory pointer to which the bank is loaded. On all platforms, the memory must be aligned on AK_BANK_PLATFORM_DATA_ALIGNMENT bytes. Some platforms may have different requirements, so you should check the platform specific SDK documentation.</p>
+<p class="calibre7">Alternatively, use one of these prototypes of <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ac16591355aef3ffaf2f8e9ac7a5b95ad_split_000.html#ac16591355aef3ffaf2f8e9ac7a5b95ad">LoadBankMemoryCopy()</a> to load a bank that's in memory in a temporary location:</p>
+<div class="fragment"><div class="line"><span class="comment">// Synchronous, out-of-place.</span></div>
+<div class="line"><a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_ac16591355aef3ffaf2f8e9ac7a5b95ad_split_000.html#ac16591355aef3ffaf2f8e9ac7a5b95ad">LoadBankMemoryCopy</a>(</div>
+<div class="line">    <span class="keywordtype">void</span> *              in_pInMemoryBankPtr,    <span class="comment">///&lt; Pointer to the in-memory bank to load</span></div>
+<div class="line"><span class="comment"></span>    <a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a>            in_uInMemoryBankSize,   <span class="comment">///&lt; Size of the in-memory bank to load</span></div>
+<div class="line"><span class="comment"></span>    <a class="pcalibre code" href="_ak_typedefs_8h_a472a3d18cbb0c4f081b3b619e4a2f349_split_000.html#a472a3d18cbb0c4f081b3b619e4a2f349">AkBankID</a> &amp;          out_bankID              <span class="comment">///&lt; Returned bank ID</span></div>
+<div class="line"><span class="comment"></span>    );</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Asynchronous, out-of-place.</span></div>
+<div class="line"><a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_ac16591355aef3ffaf2f8e9ac7a5b95ad_split_000.html#ac16591355aef3ffaf2f8e9ac7a5b95ad">LoadBankMemoryCopy</a>(</div>
+<div class="line">    <span class="keywordtype">void</span> *              in_pInMemoryBankPtr,    <span class="comment">///&lt; Pointer to the in-memory bank to load</span></div>
+<div class="line"><span class="comment"></span>    <a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a>            in_uInMemoryBankSize,   <span class="comment">///&lt; Size of the in-memory bank to load</span></div>
+<div class="line"><span class="comment"></span>    <a class="pcalibre code" href="_ak_callback_types_8h_a5f4438e001923453a9f795eb64946be6_split_000.html#a5f4438e001923453a9f795eb64946be6">AkBankCallbackFunc</a>  in_pfnBankCallback,     <span class="comment">///&lt; Callback function</span></div>
+<div class="line"><span class="comment"></span>    <span class="keywordtype">void</span> *              in_pCookie,             <span class="comment">///&lt; Callback cookie</span></div>
+<div class="line"><span class="comment"></span>    <a class="pcalibre code" href="_ak_typedefs_8h_a472a3d18cbb0c4f081b3b619e4a2f349_split_000.html#a472a3d18cbb0c4f081b3b619e4a2f349">AkBankID</a> &amp;          out_bankID              <span class="comment">///&lt; Returned bank ID</span></div>
+<div class="line"><span class="comment"></span>    );</div>
+</div><!-- fragment --><p class="calibre7">The bank will be copied into a new allocation made inside the sound engine, and the passed pointer can be freed immediately after the load operation is finished.</p>
+<p class="calibre7"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">LoadBank()</a> parses the bank ID stored in the first few bytes of the pointer that is provided, and returns it. Keep the bank ID to unload the bank later.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> If you choose to perform file I/O on your side, and feed the sound engine with pointers, then you must use explicit bank loading. Implicit bank loading can be unpredictable. Following a PrepareXXXX command, you can never be sure how many banks will be loaded or the memory requirements of these banks. This is why there are no in-memory versions of PrepareEvent and PrepareGameSyncs. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

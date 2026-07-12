@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2017.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_9"><a class="pcalibre1 anchor" id="gameobject_reserved_range"></a>
+The valid game object ID range has changed</h2>
+<p class="calibre7">A game object ID can now be any 64-bit unsigned integer ranging from 0 to 0x‭FFFFFFFFFFFFFFDF‬ (which is -33 as a signed integer). The game object ID range 0x‭FFFFFFFFFFFFFFE0‬ (-32) to 0x‭FFFFFFFFFFFFFFFF‬ (-1) is reserved for internal use. The transport game object, which is registered by the authoring tool, now uses game object ID 0x‭FFFFFFFFFFFFFFFE‬ (-2).</p>
+</div></div></div></body></html>

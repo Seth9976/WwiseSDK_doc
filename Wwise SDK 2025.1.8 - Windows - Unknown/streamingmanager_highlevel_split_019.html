@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>High-Level Stream Manager API Description</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_18"><a class="pcalibre1 anchor" id="streamingmanager_highlevel_overriding_link"></a>
+Linkage with the Sound Engine</h2>
+<p class="calibre7">The sound engine accesses the Stream Manager by calling its inline static <a class="pcalibre el" href="class_a_k_1_1_i_ak_stream_mgr_ac650db9915bd06d5eebc1852e0d0cd6e_split_000.html#ac650db9915bd06d5eebc1852e0d0cd6e">AK::IAkStreamMgr::Get()</a> method, which returns a pointer to the <a class="pcalibre el" href="class_a_k_1_1_i_ak_stream_mgr_split_000.html">AK::IAkStreamMgr</a> interface, defined as a protected member of <a class="pcalibre el" href="class_a_k_1_1_i_ak_stream_mgr_split_000.html">AK::IAkStreamMgr</a>. The custom implementation must declare only one variable (<a class="pcalibre el" href="class_a_k_1_1_i_ak_stream_mgr_a85c6043c1a45f13b7df2f05729248b1f_split_000.html#a85c6043c1a45f13b7df2f05729248b1f">AK::IAkStreamMgr::m_pStreamMgr</a>), and linkage is automatic. If the Stream Manager and the sound engine are not linked together in the same executable or DLL. <a class="pcalibre el" href="class_a_k_1_1_i_ak_stream_mgr_a85c6043c1a45f13b7df2f05729248b1f_split_000.html#a85c6043c1a45f13b7df2f05729248b1f">AK::IAkStreamMgr::m_pStreamMgr</a> must have the __dllexport attribute. The AKSTREAMMGR_API macro may be used, with AKSTREAMMGR_EXPORTS defined in the compiler settings for the custom Stream Manager library.</p>
+</div></div></div></body></html>

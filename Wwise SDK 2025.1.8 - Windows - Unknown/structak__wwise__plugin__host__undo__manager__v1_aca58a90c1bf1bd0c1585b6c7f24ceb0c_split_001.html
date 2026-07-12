@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak_wwise_plugin_host_undo_manager_v1::CloseGroup</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="structak__wwise__plugin__host__undo__manager__v1_aca58a90c1bf1bd0c1585b6c7f24ceb0c_split_000.html#aca58a90c1bf1bd0c1585b6c7f24ceb0c" class="pcalibre1 anchor">◆ </a></span>CloseGroup</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">bool(* ak_wwise_plugin_host_undo_manager_v1::CloseGroup) (struct <a class="pcalibre el" href="structak__wwise__plugin__host__undo__manager__instance__v1_split_000.html">ak_wwise_plugin_host_undo_manager_instance_v1</a> *in_this, <a class="pcalibre el" href="group__global_ga49b0af3e4205b935aa476d7ab1c9f65c_split_000.html#ga49b0af3e4205b935aa476d7ab1c9f65c">ak_wwise_plugin_undo_group_close_action</a> in_action, <a class="pcalibre el" href="group__global_gaa45e88025407465159f485763021d524_split_000.html#gaa45e88025407465159f485763021d524">ak_wwise_plugin_undo_group_id</a> in_groupId, const char *in_szApplyEventName)</td>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+
+<p class="calibre7">Closes the last opened group, in stack ordering. </p>
+<p class="calibre7">Close the current group (_CLOSE) and add its content as a unique entry to the previous group, or to the Undo stack (_APPLY), or cancel its contents (_CANCEL).</p>
+<p class="calibre7">in_szApplyEventName is only used for _APPLY. It is ignored elsewhere, and needs to be nullptr on _APPLY_FIRST_EVENT_NAME or _APPLY_LAST_EVENT_NAME.</p>
+<p class="calibre7">in_groupId is only for validation, you can pass 0 if you do not wish to provide this validation.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="warning.gif"/></td><td class="calibre17"><b class="calibre13">Warning:</b> Cancelling contents doesn't undo all the grouped actions. You are responsible for doing all the proper undoing before closing the group. <table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="warning.gif"/></td><td class="calibre17"><p class="starttd"><b class="calibre13">Warning:</b></p>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_this</td><td class="calibre17">Current instance of this interface. </td></tr>
+    <tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_action</td><td class="calibre17">Action to perform when closing the group. Should usually be AK_WWISE_PLUGIN_UNDO_GROUP_CLOSE_ACTION_APPLY. </td></tr>
+    <tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_groupId</td><td class="calibre17">(Optional, pass 0) Validation to make sure the group being closed has the proper ID. </td></tr>
+    <tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_szApplyEventName</td><td class="calibre17">Event name. Added after "Undo " and "Redo " in the menu. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">true if successful. </dd></dl>
+</td></tr>
+</tbody></table>
+</td></tr>
+</tbody></table>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_host_undo_manager_8h_source.html#l00191">191</a> of file <a class="pcalibre el" href="_host_undo_manager_8h_source.html">HostUndoManager.h</a>.</p>
+
+<p class="calibre7">Referenced by <a class="pcalibre el" href="_host_undo_manager_8h_source.html#l00562">AK.Wwise::Plugin::V1::UndoManager::CloseGroup()</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

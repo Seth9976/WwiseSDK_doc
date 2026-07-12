@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Sound Engine Object Processor Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_14"><a class="pcalibre1 anchor" id="soundengine_plugins_objectprocessor_metadata_positioning"></a>
+Positioning Metadata</h2>
+<p class="calibre7">An Audio Object carries in <a class="pcalibre el" href="struct_ak_audio_object_a1dccda4d0468b93e4347842a9de4e98e_split_000.html#a1dccda4d0468b93e4347842a9de4e98e" title="Positioning data for deferred 3D rendering.">AkAudioObject::positioning</a> the positioning data of the sound from which it was instigated. <code class="calibre14">AkAudioObject::positioning.behavioral</code> holds all the relevant positioning settings that can be found on Wwise Objects. For example, if the sound uses speaker panning, <code class="calibre14">AkAudioObject::positioning.behavioral.panType</code> will be set to one of the panner types, and <code class="calibre14">panLR</code>, <code class="calibre14">panBF</code> and <code class="calibre14">panDU</code> will correspond to the position of the panner.</p>
+<p class="calibre7">If the spatialization mode is 3D (<code class="calibre14">AK_SpatializationMode_PositionOnly</code> or <code class="calibre14">AK_SpatializationMode_PositionAndOrientation</code>), <code class="calibre14">AkAudioObject::positioning.threeD</code> contains all the data that relates to the 3D position:</p>
+<ul class="calibre8">
+<li class="calibre9"><code class="calibre14">AkAudioObject::positioning.threeD.xform</code> will typically inherit the position of the associated game object, although it can be modified or overriden for each sound depending on its 3D positioning settings, such as 3D automation.</li>
+<li class="calibre9"><code class="calibre14">AkAudioObject::positioning.threeD.spread</code> and <code class="calibre14">AkAudioObject::positioning.threeD.focus</code> are usually calculated from the Attenuation Curves.</li>
+</ul>
+</div></div></div></body></html>

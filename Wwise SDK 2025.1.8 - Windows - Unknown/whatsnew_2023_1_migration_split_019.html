@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2023.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_18"><a class="pcalibre1 anchor" id="suspend_comms"></a>
+AK::SoundEngine::Suspend No Longer Influences the State of AK::Comm</h1>
+<p class="calibre7">On some platforms, the <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_afc66d31bf5c6425d841ca3510e2d0539_split_000.html#afc66d31bf5c6425d841ca3510e2d0539">AK::SoundEngine::Suspend()</a></code> and <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a9244da1d4d0deedcabdaaae863fcff47_split_000.html#a9244da1d4d0deedcabdaaae863fcff47">AK::SoundEngine::WakeupFromSuspend()</a></code> calls used to suspend and wake up the <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_comm_split_000.html">AK::Comm</a></code> module automatically, and disconnected any connected Wwise Profilers. Now, clients must manage <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_comm_split_000.html">AK::Comm</a></code> separately. Refer to <a class="pcalibre el" href="workingwithsdks_system_calls_split_000.html">Handling System-Specific Events</a> to learn how to manage the <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_comm_split_000.html">AK::Comm</a></code> module in the context of application lifecycle events for your supported platforms.</p>
+</div></div></div></body></html>

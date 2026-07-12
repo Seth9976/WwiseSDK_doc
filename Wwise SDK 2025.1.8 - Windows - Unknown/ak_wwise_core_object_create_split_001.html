@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak.wwise.core.object.create</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="ak_wwise_core_object_createArguments"></a>
+Arguments</h1>
+<p class="calibre7"></p><table class="doxtable">
+<tbody class="calibre4"><tr class="calibre16">
+<th class="calibre46">Name </th><th class="calibre46">Type </th><th class="calibre46">Description  </th></tr>
+<tr class="calibre16">
+<td rowspan="4" class="calibre36"><b class="calibre13">parent</b> * </td><td class="calibre36"/><td class="calibre36"><p class="starttd">The ID (GUID), name, or path of the parent of the new object. </p>
+<p class="endtd">Any of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">The name of the object qualified by its type or Short ID in the form of type:name or Global:shortId. Only object types that have globally-unique names or Short Ids are supported. Ex: Event:Play_Sound_01, Global:245489792   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">A project path to a Wwise object, including the category and the work-unit. For example: \Containers\Default Work Unit\New Sound SFX.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">list</b> </td><td class="calibre36">string </td><td class="calibre36">The name of the list in which to insert the object. If this argument is set, the object gets inserted in a list owned by the parent and not as a child.   </td></tr>
+<tr class="calibre16">
+<td rowspan="5" class="calibre36"><b class="calibre13">onNameConflict</b> </td><td class="calibre36">string </td><td class="calibre36"><p class="starttd">The action to take if "parent" already has a child with the same name. Default value is "fail". See <a class="pcalibre el" href="waapi_import_split_002.html#waapi_create_objects_modes">Understanding the name conflict modes</a> for more information. </p>
+<p class="endtd">One of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">rename</b> : The new object receives a unique name, which is the name of the existing object with numbers appended.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">replace</b> : The object at the destination is deleted (including its children), and a new object is created.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">fail</b> : No changes are made, and an error is returned. This is the default value.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">merge</b> : Merges the new or modified properties, references, and children into the object at the destination, and does not change any unmodified aspects of the existing object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="3" class="calibre36"><b class="calibre13">platform</b> </td><td class="calibre36"/><td class="calibre36"><p class="starttd">The ID (GUID) or unique name of the platform used when setting properties via this command. Not specifying a platform sets the value for all linked platforms. </p>
+<p class="endtd">Any of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">The name of the object.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">autoAddToSourceControl</b> </td><td class="calibre36">boolean </td><td class="calibre36">Determines if Wwise automatically performs an Add source control operation for affected work units. Defaults to true.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">type</b> * </td><td class="calibre36">string </td><td class="calibre36">The type of the new object. See <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for possible object types.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">name</b> * </td><td class="calibre36">string </td><td class="calibre36">The name of the new object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">id</b> </td><td class="calibre36">string </td><td class="calibre36">For internal use only! The ID (GUID) to assign to the newly created Object.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">notes</b> </td><td class="calibre36">string </td><td class="calibre36">The notes or comments of the new object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">children</b> </td><td class="calibre36">array </td><td class="calibre36">An array of child objects to be created.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">children <b class="calibre13">[...]</b> </td><td class="calibre36">object </td><td class="calibre36">A child object to be created.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">children[...].<b class="calibre13">type</b> * </td><td class="calibre36">string </td><td class="calibre36">The type of the new object. See <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for possible object types or <a class="pcalibre el" href="wobjectnodetypes_split_000.html">Wwise Nodes Reference</a> for possible node types.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">children[...].<b class="calibre13">name</b> * </td><td class="calibre36">string </td><td class="calibre36">The name of the new object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">children[...].<b class="calibre13">id</b> </td><td class="calibre36">string </td><td class="calibre36">For internal use only! The ID (GUID) to assign to the newly created Object.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">children[...].<b class="calibre13">notes</b> </td><td class="calibre36">string </td><td class="calibre36">The notes or comments of the new object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">children[...].<b class="calibre13">children</b> </td><td class="calibre36"/><td class="calibre36">An array of child objects to be created (Recursive).   </td></tr>
+<tr class="calibre16">
+<td rowspan="5" class="calibre36">children[...].<b class="calibre13">regex(^@[:_a-zA-Z0-9]+$)</b> </td><td class="calibre36"/><td class="calibre36"><p class="starttd">Sets the value of property @propertyName. See <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for property names.<br class="calibre10"/>
+ The value of a property. </p>
+<p class="endtd">Any of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">null </td><td class="calibre36">A null value. No reference to an object.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">A string value.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">number </td><td class="calibre36">A numerical value.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">boolean </td><td class="calibre36">A boolean value.   </td></tr>
+<tr class="calibre16">
+<td rowspan="5" class="calibre36"><b class="calibre13">regex(^@[:_a-zA-Z0-9]+$)</b> </td><td class="calibre36"/><td class="calibre36"><p class="starttd">Sets the value of property @propertyName. See <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for property names.<br class="calibre10"/>
+ The value of a property. </p>
+<p class="endtd">Any of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">null </td><td class="calibre36">A null value. No reference to an object.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">A string value.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">number </td><td class="calibre36">A numerical value.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">boolean </td><td class="calibre36">A boolean value.   </td></tr>
+</tbody></table>
+<p class="calibre7">(Required *)</p>
+<p class="calibre7"><a class="pcalibre el" href="ak_wwise_core_object_create_args_schema_split_000.html">Arguments Schema</a></p>
+</div></div></div></body></html>

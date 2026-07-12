@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2023.1.14</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="generic_community_bugs_2023_1_14"></a>
+Fixes for Community-Reported Bugs</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-75579</b> Fixed: (Spatial Audio) In some scenarios, the room traversal algorithm hangs for several seconds on complex maps with many Portals if Portal occlusion or obstruction is applied.</li>
+<li class="calibre9"><b class="calibre13">WG-77327</b> Fixed: (WAAPI) Cannot set the ConeUse property on an Attenuation.</li>
+<li class="calibre9"><b class="calibre13">WG-77386</b> Fixed: Possible crash when a voice becomes virtual in the first frame after becoming physical.</li>
+<li class="calibre9"><b class="calibre13">WG-77775</b> Fixed: (Spatial Audio) A sound behind a Portal with a smaller attenuation than the distance to the center of the Portal is cut off and assigned 100% transmission loss.</li>
+<li class="calibre9"><b class="calibre13">WG-77910</b> Fixed: Possible crash in <code class="calibre14">CAkSpeakerPan::GetSpeakerVolumes</code> when calculating a speaker matrix to pan an ambisonic source to an ambisonic destination.</li>
+<li class="calibre9"><b class="calibre13">WG-77930</b> Fixed: An Audio Bus with a Parametric EQ Effect with <b class="calibre13">Process LFE</b> enabled and other Effects handling tail processing on a sound might generate INF or NaN values in the audio pipeline.</li>
+<li class="calibre9"><b class="calibre13">WG-78011</b> Fixed: Crash in <code class="calibre14">CAkSrcLpHpFilter::ExecuteSrcLpHpFilters</code> when processing audio objects with an emitter channel mask set.</li>
+<li class="calibre9"><b class="calibre13">WG-78058</b> Fixed: Possible crash when using Mixing Desk and reloading a Work Unit.</li>
+<li class="calibre9"><b class="calibre13">WG-78341</b> Fixed: Queries that include "Source/Channels (Original)" or "Source/Channels (Converted)" do not return results for any ambisonic or anonymous sources.</li>
+<li class="calibre9"><b class="calibre13">WG-78443</b> Fixed: Severe performance degradation and processing errors in AK Convolution plug-in in some scenarios when an instance of the Effect is processing for more than 24 hours.</li>
+</ul>
+</div></div></div></body></html>

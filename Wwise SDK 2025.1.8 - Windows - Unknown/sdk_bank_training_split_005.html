@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>SoundBank Integration Samples</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_4"><a class="pcalibre1 anchor" id="sdk_bank_training_Method_5"></a>
+Preparing Events and Game Syncs (Switches and States)</h1>
+<p class="calibre7">This strategy is like <a class="pcalibre el" href="sdk_bank_training_split_004.html#sdk_bank_training_Method_4">Preparing Action Events</a>, but with more control over the media that gets loaded when Events are prepared. For a discussion of this strategy and its implementation in Wwise Authoring, see <a href="https://www.audiokinetic.com/library/edge/?source=Help&amp;id=method_5_preparing_events_and_game_syncs_switches_and_states" target="_blank" class="pcalibre calibre12">Preparing Events and Game Syncs (Switches and States)</a> in the Wwise Help.</p>
+<p class="calibre7">The order in which you call <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a2e6ebb779470b43d78984c27f6a0c238_split_000.html#a2e6ebb779470b43d78984c27f6a0c238">AK::SoundEngine::PrepareEvent</a></code> and <code class="calibre14">AK::SoundEngine::PrepareGameSync</code> is not important. Each time the state changes, the media pool is updated by crossmatching the Events and the game syncs.</p>
+<div class="fragment"><div class="line"><span class="comment">// Initializing the sound engine.</span></div>
+<div class="line"> </div>
+<div class="line"><a class="pcalibre code" href="struct_ak_init_settings_split_000.html">AkInitSettings</a> initSettings;</div>
+<div class="line"><a class="pcalibre code" href="struct_ak_platform_init_settings_split_000.html">AkPlatformInitSettings</a> platformInitSettings;</div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a03381fc17e1b0ee16c2ab501c647ab9e_split_000.html#a03381fc17e1b0ee16c2ab501c647ab9e">AK::SoundEngine::GetDefaultInitSettings</a>( initSettings );</div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_aecdb9cd8f2d7f461ef1a58f5f5f5725d_split_000.html#aecdb9cd8f2d7f461ef1a58f5f5f5725d">AK::SoundEngine::GetDefaultPlatformInitSettings</a>( platformInitSettings );</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Set the required settings.</span></div>
+<div class="line"> </div>
+<div class="line">...</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Set PrepareEvent related settings.</span></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">////////////////////////////////////////////////////////////////</span></div>
+<div class="line"><span class="comment"></span><span class="comment">// The flag bEnableGameSyncPreparation is set to true to activate</span></div>
+<div class="line"><span class="comment">// the prepare gamesync mechanism. When set to false, the media </span></div>
+<div class="line"><span class="comment">// associated with all game syncs is loaded and there is no need  </span></div>
+<div class="line"><span class="comment">// to call AK::SoundEngine:PrepareGameSyncs.</span></div>
+<div class="line"><span class="comment">//</span></div>
+<div class="line"><span class="comment">// When set to true, no media that is game sync dependent will be </span></div>
+<div class="line"><span class="comment">// loaded unless the game sync is activated by calling AK::SoundEngine:PrepareGameSyncs</span><span class="comment"></span></div>
+<div class="line"><span class="comment">////////////////////////////////////////////////////////////////</span></div>
+<div class="line"><span class="comment"></span>initSettings.bEnableGameSyncPreparation = <span class="keyword">true</span>;</div>
+<div class="line"> </div>
+<div class="line"><a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> eResult = <a class="pcalibre code" href="namespace_a_k_split_000.html">AK</a>.<a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_split_000.html">SoundEngine</a>.Init( initSettings, platformInitSettings );</div>
+<div class="line"><span class="keywordflow">if</span>( eResult != <a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_001.html#a64f7d1f79613cc4dcc49a4efba6caa63ad7c47fea3da641e7422573c6a13dc35e">AK_Success</a> )</div>
+<div class="line">{</div>
+<div class="line">    <span class="comment">// Handle error.</span></div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Load Init and the event/structure bank.</span></div>
+<div class="line"><a class="pcalibre code" href="_ak_typedefs_8h_a472a3d18cbb0c4f081b3b619e4a2f349_split_000.html#a472a3d18cbb0c4f081b3b619e4a2f349">AkBankID</a>    bankID; <span class="comment">// Not used in this sample.</span></div>
+<div class="line"><a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> eResult = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">AK::SoundEngine::LoadBank</a>( L<span class="stringliteral">"Init.bnk"</span>, bankID );</div>
+<div class="line"><span class="keywordflow">if</span>( eResult == <a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_001.html#a64f7d1f79613cc4dcc49a4efba6caa63ad7c47fea3da641e7422573c6a13dc35e">AK_Success</a> )</div>
+<div class="line">{</div>
+<div class="line">    eResult = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">AK::SoundEngine::LoadBank</a>( L<span class="stringliteral">"Events.bnk"</span>, bankID );</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// ... At this point, </span></div>
+<div class="line"><span class="comment">// the two events are loaded, but not prepared. No media is currently loaded.</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">const</span> <span class="keywordtype">char</span> * pNameArray[1];</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Prepare the main character footstep event.</span></div>
+<div class="line">pNameArray[0] = <span class="stringliteral">"Play_Maincharacter_FootSteps"</span>;</div>
+<div class="line">eResult = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a2e6ebb779470b43d78984c27f6a0c238_split_000.html#a2e6ebb779470b43d78984c27f6a0c238">AK::SoundEngine::PrepareEvent</a>( <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a21e0dbb1f9aebfc22fdd88634dc1067b_split_001.html#a21e0dbb1f9aebfc22fdd88634dc1067ba7bb39cc6dfafe005cddfbf12c0d62ad0">Preparation_Load</a>, pNameArray, 1 ); <span class="comment">// 1 is the array size</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// ... At this point, </span></div>
+<div class="line"><span class="comment">// one event has been prepared, but no media has been loaded yet.</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Now since concrete is always available in the game.</span></div>
+<div class="line">pNameArray[0] = <span class="stringliteral">"Concrete"</span>;</div>
+<div class="line">eResult = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a76c611710ef7ffdd2d59f34e35b67cdc_split_000.html#a76c611710ef7ffdd2d59f34e35b67cdc">AK::SoundEngine::PrepareGameSyncs</a>( <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a21e0dbb1f9aebfc22fdd88634dc1067b_split_001.html#a21e0dbb1f9aebfc22fdd88634dc1067ba7bb39cc6dfafe005cddfbf12c0d62ad0">Preparation_Load</a>, in_eType, <span class="stringliteral">"GroundTexture"</span>, pNameArray, 1 );</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// ... At this point, </span></div>
+<div class="line"><span class="comment">// the 3 sounds, Sound_Concrete_main_1, Sound_Concrete_main_2, and Sound_Concrete_main_3 are loaded.</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Now, let's say that the main character enters a land where there is snow.</span></div>
+<div class="line">pNameArray[0] = <span class="stringliteral">"Snow"</span>;</div>
+<div class="line">eResult = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a76c611710ef7ffdd2d59f34e35b67cdc_split_000.html#a76c611710ef7ffdd2d59f34e35b67cdc">AK::SoundEngine::PrepareGameSyncs</a>( <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a21e0dbb1f9aebfc22fdd88634dc1067b_split_001.html#a21e0dbb1f9aebfc22fdd88634dc1067ba7bb39cc6dfafe005cddfbf12c0d62ad0">Preparation_Load</a>, in_eType, <span class="stringliteral">"GroundTexture"</span>, pNameArray, 1 );</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// ... At this point,</span></div>
+<div class="line"><span class="comment">// 3 more sounds just got loaded : Sound_Snow_main_1, Sound_Snow_main_2 and Sound_Snow_main_3</span></div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Then let's say that a Monster suddenly appears.</span></div>
+<div class="line">pNameArray[0] = <span class="stringliteral">"Play_Monster_Footsteps"</span>;</div>
+<div class="line">eResult = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a2e6ebb779470b43d78984c27f6a0c238_split_000.html#a2e6ebb779470b43d78984c27f6a0c238">AK::SoundEngine::PrepareEvent</a>( <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a21e0dbb1f9aebfc22fdd88634dc1067b_split_001.html#a21e0dbb1f9aebfc22fdd88634dc1067ba7bb39cc6dfafe005cddfbf12c0d62ad0">Preparation_Load</a>, pEventsNameArray, 1 ); <span class="comment">// 1 is the array size</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// ... At this point,</span></div>
+<div class="line"><span class="comment">// 6 more sounds just got loaded ( Sound_Concrete_Monster_1.2.3 and Sound_Snow_Monster_1.2.3 )</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// And now our player decides to run away from the monster, and the monster goes after them.</span></div>
+<div class="line"><span class="comment">// They run so far that they arrive at a place where there is no snow anymore.</span></div>
+<div class="line"> </div>
+<div class="line">pNameArray[0] = <span class="stringliteral">"Snow"</span>;</div>
+<div class="line">eResult = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a76c611710ef7ffdd2d59f34e35b67cdc_split_000.html#a76c611710ef7ffdd2d59f34e35b67cdc">AK::SoundEngine::PrepareGameSyncs</a>( <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a21e0dbb1f9aebfc22fdd88634dc1067b_split_001.html#a21e0dbb1f9aebfc22fdd88634dc1067ba37375e4d359e99b67d0a69f4a5714b92">Preparation_Unload</a>, in_eType, <span class="stringliteral">"GroundTexture"</span>, pNameArray, 1 );</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// ... At this point,</span></div>
+<div class="line"><span class="comment">// The 6 sounds that were related to snow ( Sound_Snow_Monster_1.2.3 and Sound_Snow_main_1.2.3 ) are unloaded from memory.</span></div>
+<div class="line"> </div>
+<div class="line">...</div>
+</div><!-- fragment --><dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="soundengine_banks.html">Integration Details - Banks</a></li>
+<li class="calibre9"><a class="pcalibre el" href="soundengine_banks_general_split_000.html">General Information</a></li>
+<li class="calibre9"><a class="pcalibre el" href="soundengine_banks_loading_split_000.html">Loading Banks</a></li>
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">AK::SoundEngine::LoadBank()</a></li>
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ac91406bc2fe061e4248cb448207b5a64_split_000.html#ac91406bc2fe061e4248cb448207b5a64">AK::SoundEngine::UnloadBank()</a></li>
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ab934f98a6622976d24e0a096911eb0c8_split_000.html#ab934f98a6622976d24e0a096911eb0c8">AK::SoundEngine::ClearBanks()</a></li>
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a2e6ebb779470b43d78984c27f6a0c238_split_000.html#a2e6ebb779470b43d78984c27f6a0c238">AK::SoundEngine::PrepareEvent()</a></li>
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a76c611710ef7ffdd2d59f34e35b67cdc_split_000.html#a76c611710ef7ffdd2d59f34e35b67cdc">AK::SoundEngine::PrepareGameSyncs()</a></li>
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_af9648460be2ed1a0093ff09b42ef36f5_split_000.html#af9648460be2ed1a0093ff09b42ef36f5">AK::SoundEngine::ClearPreparedEvents()</a> </li>
+</ul>
+</dd></dl>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_a2e6ebb779470b43d78984c27f6a0c238_html_a2e6ebb779470b43d78984c27f6a0c238"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_a2e6ebb779470b43d78984c27f6a0c238_split_000.html#a2e6ebb779470b43d78984c27f6a0c238" class="pcalibre calibre12">AK::SoundEngine::PrepareEvent</a></div><div class="calibre2">AKSOUNDENGINE_API AKRESULT PrepareEvent(PreparationType in_PreparationType, const char **in_ppszString, AkUInt32 in_uNumEvent)</div></div>
+<div class="ttc" id="a_ak_typedefs_8h_a472a3d18cbb0c4f081b3b619e4a2f349_html_a472a3d18cbb0c4f081b3b619e4a2f349"><div class="calibre2"><a href="_ak_typedefs_8h_a472a3d18cbb0c4f081b3b619e4a2f349_split_000.html#a472a3d18cbb0c4f081b3b619e4a2f349" class="pcalibre calibre12">AkBankID</a></div><div class="calibre2">AkUInt32 AkBankID</div><div class="calibre2">Run time bank ID.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_typedefs_8h_source.html#l00054" class="pcalibre calibre12">AkTypedefs.h:54</a></div></div>
+<div class="ttc" id="anamespace_a_k_html"><div class="calibre2"><a href="namespace_a_k_split_000.html" class="pcalibre calibre12">AK</a></div><div class="calibre2">Definition of data structures for AkAudioObject.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_wwise_s_d_k_version_8cs_source.html#l00030" class="pcalibre calibre12">AkWwiseSDKVersion.cs:31</a></div></div>
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_a76c611710ef7ffdd2d59f34e35b67cdc_html_a76c611710ef7ffdd2d59f34e35b67cdc"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_a76c611710ef7ffdd2d59f34e35b67cdc_split_000.html#a76c611710ef7ffdd2d59f34e35b67cdc" class="pcalibre calibre12">AK::SoundEngine::PrepareGameSyncs</a></div><div class="calibre2">AKSOUNDENGINE_API AKRESULT PrepareGameSyncs(PreparationType in_PreparationType, AkGroupType in_eGameSyncType, const char *in_pszGroupName, const char **in_ppszGameSyncName, AkUInt32 in_uNumGameSyncs)</div></div>
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_a9a26da64092b97243844df77cbcdbf5f_html_a9a26da64092b97243844df77cbcdbf5f"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_a9a26da64092b97243844df77cbcdbf5f_split_000.html#a9a26da64092b97243844df77cbcdbf5f" class="pcalibre calibre12">AK::SoundEngine::Init</a></div><div class="calibre2">AKSOUNDENGINE_API AKRESULT Init(AkInitSettings *in_pSettings, AkPlatformInitSettings *in_pPlatformSettings)</div></div>
+<div class="ttc" id="astruct_ak_platform_init_settings_html"><div class="calibre2"><a href="struct_ak_platform_init_settings_split_000.html" class="pcalibre calibre12">AkPlatformInitSettings</a></div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_win_sound_engine_8h_source.html#l00042" class="pcalibre calibre12">AkWinSoundEngine.h:43</a></div></div>
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_html_a95f8f6841a618ec3d5e51a30a1614e13"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13" class="pcalibre calibre12">AK::SoundEngine::LoadBank</a></div><div class="calibre2">AKSOUNDENGINE_API AKRESULT LoadBank(const char *in_pszString, AkBankID &amp;out_bankID, AkBankType in_bankType=AkBankType_User)</div></div>
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_a21e0dbb1f9aebfc22fdd88634dc1067b_html_a21e0dbb1f9aebfc22fdd88634dc1067ba37375e4d359e99b67d0a69f4a5714b92"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_a21e0dbb1f9aebfc22fdd88634dc1067b_split_001.html#a21e0dbb1f9aebfc22fdd88634dc1067ba37375e4d359e99b67d0a69f4a5714b92" class="pcalibre calibre12">AK::SoundEngine::Preparation_Unload</a></div><div class="calibre2">@ Preparation_Unload</div><div class="calibre2">PrepareEvent() will unload required information to play the specified event.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_sound_engine_8h_source_split_004.html#l02706" class="pcalibre calibre12">AkSoundEngine.h:2706</a></div></div>
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_a03381fc17e1b0ee16c2ab501c647ab9e_html_a03381fc17e1b0ee16c2ab501c647ab9e"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_a03381fc17e1b0ee16c2ab501c647ab9e_split_000.html#a03381fc17e1b0ee16c2ab501c647ab9e" class="pcalibre calibre12">AK::SoundEngine::GetDefaultInitSettings</a></div><div class="calibre2">AKSOUNDENGINE_API void GetDefaultInitSettings(AkInitSettings &amp;out_settings)</div></div>
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_a21e0dbb1f9aebfc22fdd88634dc1067b_html_a21e0dbb1f9aebfc22fdd88634dc1067ba7bb39cc6dfafe005cddfbf12c0d62ad0"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_a21e0dbb1f9aebfc22fdd88634dc1067b_split_001.html#a21e0dbb1f9aebfc22fdd88634dc1067ba7bb39cc6dfafe005cddfbf12c0d62ad0" class="pcalibre calibre12">AK::SoundEngine::Preparation_Load</a></div><div class="calibre2">@ Preparation_Load</div><div class="calibre2">PrepareEvent() will load required information to play the specified event.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_sound_engine_8h_source_split_004.html#l02705" class="pcalibre calibre12">AkSoundEngine.h:2705</a></div></div>
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_ac91406bc2fe061e4248cb448207b5a64_html_ac91406bc2fe061e4248cb448207b5a64"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_ac91406bc2fe061e4248cb448207b5a64_split_000.html#ac91406bc2fe061e4248cb448207b5a64" class="pcalibre calibre12">AK::SoundEngine::UnloadBank</a></div><div class="calibre2">AKSOUNDENGINE_API AKRESULT UnloadBank(const char *in_pszString, const void *in_pInMemoryBankPtr, AkBankType in_bankType=AkBankType_User)</div></div>
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_aecdb9cd8f2d7f461ef1a58f5f5f5725d_html_aecdb9cd8f2d7f461ef1a58f5f5f5725d"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_aecdb9cd8f2d7f461ef1a58f5f5f5725d_split_000.html#aecdb9cd8f2d7f461ef1a58f5f5f5725d" class="pcalibre calibre12">AK::SoundEngine::GetDefaultPlatformInitSettings</a></div><div class="calibre2">AKSOUNDENGINE_API void GetDefaultPlatformInitSettings(AkPlatformInitSettings &amp;out_platformSettings)</div></div>
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_html"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_split_000.html" class="pcalibre calibre12">AK::SoundEngine</a></div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_all_plugins_registration_helpers_8h_source.html#l00035" class="pcalibre calibre12">AllPluginsRegistrationHelpers.h:36</a></div></div>
+<div class="ttc" id="a_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_html_a64f7d1f79613cc4dcc49a4efba6caa63"><div class="calibre2"><a href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63" class="pcalibre calibre12">AKRESULT</a></div><div class="calibre2">AKRESULT</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_enums_8h_source_split_000.html#l00031" class="pcalibre calibre12">AkEnums.h:32</a></div></div>
+<div class="ttc" id="astruct_ak_init_settings_html"><div class="calibre2"><a href="struct_ak_init_settings_split_000.html" class="pcalibre calibre12">AkInitSettings</a></div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_sound_engine_8h_source_split_000.html#l00192" class="pcalibre calibre12">AkSoundEngine.h:193</a></div></div>
+<div class="ttc" id="a_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_html_a64f7d1f79613cc4dcc49a4efba6caa63ad7c47fea3da641e7422573c6a13dc35e"><div class="calibre2"><a href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_001.html#a64f7d1f79613cc4dcc49a4efba6caa63ad7c47fea3da641e7422573c6a13dc35e" class="pcalibre calibre12">AK_Success</a></div><div class="calibre2">@ AK_Success</div><div class="calibre2">The operation was successful.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_enums_8h_source_split_000.html#l00034" class="pcalibre calibre12">AkEnums.h:34</a></div></div>
+
+
+</body></html>

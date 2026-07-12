@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2025.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_24"><a class="pcalibre1 anchor" id="android_audio_path"></a>
+Android Platform Init Settings changed</h1>
+<p class="calibre7">To provide better control over audio output initialization on Android, some initialization settings were removed and others added:</p>
+<ul class="calibre8">
+<li class="calibre9"><code class="calibre14">AkPlatformInitSettings::bEnableLowLatency</code> was replaced by <code class="calibre14">AkPlatformInitSettings::eAudioPath</code> to give more granular control over latency. Refer to the documentation of <code class="calibre14">AkAudioPath</code> to learn how to set this option.</li>
+<li class="calibre9"><code class="calibre14">AkPlatformInitSettings::eAudioAPI</code> bitfield now accepts two more bits to control use of the 3D Audio APIs on Android: <code class="calibre14">AkAudioAPI_DolbyAtmos</code> and <code class="calibre14">AkAudioAPI_AndroidSpatializer</code>.</li>
+</ul>
+<p class="calibre7">On the vast majority of Android devices, settings now default to AAudio using PerformanceMode=LowLatency and SharedMode=Shared. This is different from Wwise 2024.1 which defaulted to AAudio using PerformanceMode=LowLatency and SharedMode=Exclusive. The new default should give better compatibility with a wider range of devices without a noticeable impact on latency.</p>
+</div></div></div></body></html>

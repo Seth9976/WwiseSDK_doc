@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2023.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_17"><a class="pcalibre1 anchor" id="apple_platform_new_sink"></a>
+New AVAudioEngine-Based Sink for Apple Platforms</h1>
+<p class="calibre7">The System Audio Device in Wwise now supports AVAudioEngine for audio output to the system, which provides flexibility in channel configurations and synergy between macOS and iOS/tvOS platforms.</p>
+<p class="calibre7">Consequently, <code class="calibre14">AkPlatformInitSettings::eAudioAPI</code> has been added for Apple platforms. The default value, <code class="calibre14">AkAudioAPI_Default</code>, automatically selects AVAudioEngine for operating systems that support it (macOS 10.15 or higher, and iOS/tvOS 13 or higher). Any Wwise installations that run on older operating systems continue to use the AudioUnit API, which only offers basic functionality.</p>
+<p class="calibre7">Refer to <a class="pcalibre el" href="audio_output_platform_split_000.html">Audio Output on Platforms</a> for more information on the new behavior of the AVAudioEngine-based sink.</p>
+<p class="calibre7">Additionally, on iOS/tvOS, <code class="calibre14">AK::SoundEngine::GetPlatformInitSettings</code> returns the Audio Session's default sample rate instead of a fixed 48000Hz.</p>
+<p class="calibre7">Finally, on iOS/tvOS, the <code class="calibre14">AudioInputCallbackFunc</code> function signature has been updated to enforce const-ness on the audio buffers.</p>
+<p class="calibre7">Because of this change, your application must now link with AVFoundation.framework.</p>
+</div></div></div></body></html>

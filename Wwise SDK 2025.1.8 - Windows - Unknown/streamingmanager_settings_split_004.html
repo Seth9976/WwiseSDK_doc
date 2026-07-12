@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Audiokinetic Stream Manager Initialization Settings</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_3"><a class="pcalibre1 anchor" id="streamingmanager_settings_defmanagerinit_device_uGranularity"></a>
+Granularity</h2>
+<p class="calibre7">Granularity is specified by <a class="pcalibre el" href="struct_ak_device_settings_abd4879bfd150b9a2f898102e3815dbe2_split_000.html#abd4879bfd150b9a2f898102e3815dbe2" title="I/O requests granularity (typical bytes/request).">AkDeviceSettings::uGranularity</a>. It defines the standard request size sent to the Low-Level I/O, whether it is sent from a standard stream (sliced operation) or an automatic stream (size of a single stream buffer). Automatic streams use a variable number of buffers, depending on the memory available. The total number of buffers available for automatic streaming is equal to<br class="calibre10"/>
+<a class="pcalibre el" href="struct_ak_device_settings_a75893592924a59881fe2cbca4e4ddd04_split_000.html#a75893592924a59881fe2cbca4e4ddd04" title="Size of memory for I/O (for automatic streams). It is passed directly to AK::MemoryMgr::Malign(),...">AkDeviceSettings::uIOMemorySize</a> / <a class="pcalibre el" href="struct_ak_device_settings_abd4879bfd150b9a2f898102e3815dbe2_split_000.html#abd4879bfd150b9a2f898102e3815dbe2" title="I/O requests granularity (typical bytes/request).">AkDeviceSettings::uGranularity</a>. </p><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="tip.gif"/></td><td class="calibre17"><b class="calibre13">Tip:</b> To avoid starvation because of memory, streams should be at least double-buffered. Therefore, the I/O memory size should be set to at least <div class="fragment"><div class="line">2 * uGranularity * nominal_number_of_streams</div>
+</div><!-- fragment --> Note that the actual number of buffers required per stream is dynamic and depends on stream heuristics and the devices target buffer length (see <a class="pcalibre el" href="struct_ak_device_settings_af396c1626da7df1bbb6d9129e132b02f_split_000.html#af396c1626da7df1bbb6d9129e132b02f" title="Targetted automatic stream buffer length (ms). When a stream reaches that buffering,...">AkDeviceSettings::fTargetAutoStmBufferLength</a>). The proper way to determine the I/O memory size that is required for your needs is to compute the sum of the throughput required by all your streams in your worst case scenario and multiply it by fTargetAutoStmBufferLength. In practice, it is easier to start with a large value, profile your game with the Wwise profiler, and use the peak value reported for I/O usage in the Streaming Devices tab. </td></tr>
+</tbody></table>
+<p class="calibre7">Default: 16 KB</p>
+</div></div></div></body></html>

@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::IAk3DAudioSinkPlugin Class Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table class="calibre3">
+<tbody class="calibre4"><tr class="calibre16"><td colspan="2" class="calibre17"><h2 class="calibre21" id="calibre_pb_0"><a class="pcalibre1 anchor" id="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="calibre16"><td class="memitemleft">virtual void </td><td class="memitemright"><a class="pcalibre el" href="class_a_k_1_1_i_ak3_d_audio_sink_plugin_a57e2fe53bb81c449a934f1603a35c4e4_split_000.html#a57e2fe53bb81c449a934f1603a35c4e4">Get3DAudioCapabilities</a> (<a class="pcalibre el" href="struct_ak3_d_audio_sink_capabilities_split_000.html">Ak3DAudioSinkCapabilities</a> &amp;out_rCapabilities)=0</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Returns the capabilities of the sink's 3D audio system.  <a href="class_a_k_1_1_i_ak3_d_audio_sink_plugin_a57e2fe53bb81c449a934f1603a35c4e4_split_000.html#a57e2fe53bb81c449a934f1603a35c4e4" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">virtual void </td><td class="memitemright"><a class="pcalibre el" href="class_a_k_1_1_i_ak3_d_audio_sink_plugin_af37bef4cbb53fce501b22bedfc25fa2b_split_000.html#af37bef4cbb53fce501b22bedfc25fa2b">Consume</a> (<a class="pcalibre el" href="class_ak_audio_buffer_split_000.html">AkAudioBuffer</a> *in_pMainMix, <a class="pcalibre el" href="class_ak_audio_buffer_split_000.html">AkAudioBuffer</a> *in_pPassthroughMix, const <a class="pcalibre el" href="struct_ak_audio_objects_split_000.html">AkAudioObjects</a> &amp;in_objects, <a class="pcalibre el" href="struct_ak_ramp_split_000.html">AkRamp</a> in_gain)=0</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">virtual <a class="pcalibre el" href="namespace_a_k_a53ac2a4bfdb06caaa95809e00c062786_split_000.html#a53ac2a4bfdb06caaa95809e00c062786">AkSinkPluginType</a> </td><td class="memitemright"><a class="pcalibre el" href="class_a_k_1_1_i_ak3_d_audio_sink_plugin_a8a188d952be729086efcb81dbbceccaa_split_000.html#a8a188d952be729086efcb81dbbceccaa">GetSinkPluginType</a> () const override final</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_a_k_1_1_i_ak_sink_plugin_base')" class="calibre17"><img alt="-" src="closed.png" class="inline"/> Public Member Functions inherited from <a class="pcalibre el" href="class_a_k_1_1_i_ak_sink_plugin_base_split_000.html">AK::IAkSinkPluginBase</a></td></tr>
+<tr class="calibre16"><td class="memitemleft">virtual <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> </td><td class="memitemright"><a class="pcalibre el" href="class_a_k_1_1_i_ak_sink_plugin_base_ab13c519292782b8e485912cb85506f25_split_000.html#ab13c519292782b8e485912cb85506f25">Init</a> (<a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_mem_alloc_split_000.html">IAkPluginMemAlloc</a> *in_pAllocator, <a class="pcalibre el" href="class_a_k_1_1_i_ak_sink_plugin_context_split_000.html">IAkSinkPluginContext</a> *in_pSinkPluginContext, <a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_param_split_000.html">IAkPluginParam</a> *in_pParams, <a class="pcalibre el" href="struct_ak_audio_format_split_000.html">AkAudioFormat</a> &amp;io_rFormat)=0</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">virtual <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> </td><td class="memitemright"><a class="pcalibre el" href="class_a_k_1_1_i_ak_sink_plugin_base_a80d001f02f2c602683951e51a795954e_split_000.html#a80d001f02f2c602683951e51a795954e">IsDataNeeded</a> (<a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> &amp;out_uNumFramesNeeded)=0</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">virtual void </td><td class="memitemright"><a class="pcalibre el" href="class_a_k_1_1_i_ak_sink_plugin_base_af7035e026261662fb26bc747eaee77af_split_000.html#af7035e026261662fb26bc747eaee77af">OnFrameEnd</a> ()=0</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">virtual bool </td><td class="memitemright"><a class="pcalibre el" href="class_a_k_1_1_i_ak_sink_plugin_base_a857a107760429d52b05741e31967d82f_split_000.html#a857a107760429d52b05741e31967d82f">IsStarved</a> ()=0</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">virtual void </td><td class="memitemright"><a class="pcalibre el" href="class_a_k_1_1_i_ak_sink_plugin_base_ae63b9e00dbba73aaa35912bc82fd0e3f_split_000.html#ae63b9e00dbba73aaa35912bc82fd0e3f">ResetStarved</a> ()=0</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Reset the "starvation" flag after <a class="pcalibre el" href="class_a_k_1_1_i_ak_sink_plugin_base_a857a107760429d52b05741e31967d82f_split_000.html#a857a107760429d52b05741e31967d82f">IsStarved()</a> returned true.  <a href="class_a_k_1_1_i_ak_sink_plugin_base_ae63b9e00dbba73aaa35912bc82fd0e3f_split_000.html#ae63b9e00dbba73aaa35912bc82fd0e3f" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_a_k_1_1_i_ak_plugin')" class="calibre17"><img alt="-" src="closed.png" class="inline"/> Public Member Functions inherited from <a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_split_000.html">AK::IAkPlugin</a></td></tr>
+<tr class="calibre16"><td class="memitemleft">virtual <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> </td><td class="memitemright"><a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_a29db8d2afc4fe2571c2c75deb00a359d_split_000.html#a29db8d2afc4fe2571c2c75deb00a359d">Term</a> (<a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_mem_alloc_split_000.html">IAkPluginMemAlloc</a> *in_pAllocator)=0</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">virtual <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> </td><td class="memitemright"><a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_a08c841c8b811acb993acd0353bd9db75_split_000.html#a08c841c8b811acb993acd0353bd9db75">Reset</a> ()=0</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">virtual <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> </td><td class="memitemright"><a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_a5c4cdef6822950045b66834528bd1b55_split_000.html#a5c4cdef6822950045b66834528bd1b55">GetPluginInfo</a> (<a class="pcalibre el" href="struct_ak_plugin_info_split_000.html">AkPluginInfo</a> &amp;out_rPluginInfo)=0</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">virtual bool </td><td class="memitemright"><a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_a0f93c3ed9f133524d8c2b36a00876152_split_000.html#a0f93c3ed9f133524d8c2b36a00876152">SupportMediaRelocation</a> () const</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">virtual <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> </td><td class="memitemright"><a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_aa63887024a5f2e2ff8f1fb98e864e129_split_000.html#aa63887024a5f2e2ff8f1fb98e864e129">RelocateMedia</a> (<a class="pcalibre el" href="_ak_numeral_types_8h_a6a754f6e0ddd97ae59f3aae854cde270_split_000.html#a6a754f6e0ddd97ae59f3aae854cde270">AkUInt8</a> *, <a class="pcalibre el" href="_ak_numeral_types_8h_a6a754f6e0ddd97ae59f3aae854cde270_split_000.html#a6a754f6e0ddd97ae59f3aae854cde270">AkUInt8</a> *)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+</tbody></table></div></body></html>

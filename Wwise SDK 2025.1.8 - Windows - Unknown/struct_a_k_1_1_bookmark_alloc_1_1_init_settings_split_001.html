@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::BookmarkAlloc::InitSettings Struct Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table class="calibre3">
+<tbody class="calibre4"><tr class="calibre16"><td colspan="2" class="calibre17"><h2 class="calibre21" id="calibre_pb_0"><a class="pcalibre1 anchor" id="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="calibre16"><td class="memitemleft"><a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> </td><td class="memitemright"><a class="pcalibre el" href="struct_a_k_1_1_bookmark_alloc_1_1_init_settings_a12c53c74a26531dd2210998cd259fb0a_split_000.html#a12c53c74a26531dd2210998cd259fb0a">uMinimumBlockCount</a></td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">The number of blocks of memory the system is initialized with and is the minimum kept around forever. Defaults to 1. Higher values increase upfront memory use, but can reduce, or eliminate, the creation and destruction of memory blocks over time.  <a href="struct_a_k_1_1_bookmark_alloc_1_1_init_settings_a12c53c74a26531dd2210998cd259fb0a_split_000.html#a12c53c74a26531dd2210998cd259fb0a" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft"><a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> </td><td class="memitemright"><a class="pcalibre el" href="struct_a_k_1_1_bookmark_alloc_1_1_init_settings_ad2444d4b53c747f71651d541a1b7fdb2_split_000.html#ad2444d4b53c747f71651d541a1b7fdb2">uMinimumBlockSize</a></td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">The minimum size of each block. If a new allocation requests a new block of memory, then the new block is the size of the requested allocation times four, and then rounded up to the next multiple of this value. Defaults to 64 KiB.  <a href="struct_a_k_1_1_bookmark_alloc_1_1_init_settings_ad2444d4b53c747f71651d541a1b7fdb2_split_000.html#ad2444d4b53c747f71651d541a1b7fdb2" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft"><a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> </td><td class="memitemright"><a class="pcalibre el" href="struct_a_k_1_1_bookmark_alloc_1_1_init_settings_ad4e70719eb5243ae4fdd8e833abf57b8_split_000.html#ad4e70719eb5243ae4fdd8e833abf57b8">uMaximumUnusedBlocks</a></td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">The maximum number of blocks that the system keeps in an unused state, and avoids freeing. Defaults to 1. Higher values do not increase the peak memory use, but do prevent unused memory from being freed, in order to reduce creation and destruction of memory blocks.  <a href="struct_a_k_1_1_bookmark_alloc_1_1_init_settings_ad4e70719eb5243ae4fdd8e833abf57b8_split_000.html#ad4e70719eb5243ae4fdd8e833abf57b8" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">bool </td><td class="memitemright"><a class="pcalibre el" href="struct_a_k_1_1_bookmark_alloc_1_1_init_settings_a7b27d0bcea0ad9c36ed41c2e602168f0_split_000.html#a7b27d0bcea0ad9c36ed41c2e602168f0">bDebugDetailedStats</a></td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Enable to track detailed stats, specifically collection of <a class="pcalibre el" href="struct_a_k_1_1_bookmark_alloc_1_1_stats_aac7e15c32ebf613e64b1b6f2a2cb9f75_split_000.html#aac7e15c32ebf613e64b1b6f2a2cb9f75" title="Peak used memory in a single BookmarkAlloc region since the last tick (in bytes).">Stats::uRecentPeakMemUsed</a>. Enabled by default.  <a href="struct_a_k_1_1_bookmark_alloc_1_1_init_settings_a7b27d0bcea0ad9c36ed41c2e602168f0_split_000.html#a7b27d0bcea0ad9c36ed41c2e602168f0" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">bool </td><td class="memitemright"><a class="pcalibre el" href="struct_a_k_1_1_bookmark_alloc_1_1_init_settings_a78848d974865e0fdaf94944c8e5aee24_split_000.html#a78848d974865e0fdaf94944c8e5aee24">bDebugClearMemory</a></td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Enable to clear any allocation to a deterministic garbage value during allocs, and after the stack is rewound to a bookmark. Useful to make sure memory is initialized properly. Disabled by default.  <a href="struct_a_k_1_1_bookmark_alloc_1_1_init_settings_a78848d974865e0fdaf94944c8e5aee24_split_000.html#a78848d974865e0fdaf94944c8e5aee24" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">bool </td><td class="memitemright"><a class="pcalibre el" href="struct_a_k_1_1_bookmark_alloc_1_1_init_settings_a42b4d040a0a0685a786439ad0146769e_split_000.html#a42b4d040a0a0685a786439ad0146769e">bDebugEnableSentinels</a></td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Enable to write out sentinels between most allocations to help detect memory overwrites, which are verified at the termination of a bookmark alloc region. Enabled by default. Increases memory usage of blocks slightly.  <a href="struct_a_k_1_1_bookmark_alloc_1_1_init_settings_a42b4d040a0a0685a786439ad0146769e_split_000.html#a42b4d040a0a0685a786439ad0146769e" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">bool </td><td class="memitemright"><a class="pcalibre el" href="struct_a_k_1_1_bookmark_alloc_1_1_init_settings_ac1e0b8831640622dd212fcd8b5f34589_split_000.html#ac1e0b8831640622dd212fcd8b5f34589">bDebugStandaloneAllocs</a></td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Enable to force the block size to be as small as possible for each allocation (smaller than can be achieved by just setting uMinimumBlockSize to very low values). Useful to investigate memory overruns in-depth, especially in conjunction with the <a class="pcalibre el" href="namespace_a_k_1_1_memory_mgr_split_000.html">MemoryMgr</a>'s stomp allocator. If enabled, bDebugEnableSentinels will be disabled. Greatly increases CPU and memory usage.  <a href="struct_a_k_1_1_bookmark_alloc_1_1_init_settings_ac1e0b8831640622dd212fcd8b5f34589_split_000.html#ac1e0b8831640622dd212fcd8b5f34589" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+</tbody></table>
+<a id="details" class="pcalibre calibre12"></a></div></body></html>

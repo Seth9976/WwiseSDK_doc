@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2025.1.6</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_4"><a class="pcalibre1 anchor" id="generic_community_bugs_2025_1_6"></a>
+Fixes for Community-Reported Bugs</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-68133</b> Fixed: (Mac Authoring) Lack of stability when changing an object name in the project hierarchy.</li>
+<li class="calibre9"><b class="calibre13">WG-79546</b> Fixed: Crash when reading the cache data for an audio waveform.</li>
+<li class="calibre9"><b class="calibre13">WG-81644</b> Fixed: (Acoustics) Calling <code class="calibre14">SetPortal</code> copies the Portal name string, even when unchanged, resulting in an unnecessary allocation.</li>
+<li class="calibre9"><b class="calibre13">WG-81680</b> Fixed: AK ASIO Output plug-in is not allowed to retry device initialization after a recoverable initialization error.</li>
+<li class="calibre9"><b class="calibre13">WG-81837</b> Fixed: Crash when reading a <code class="calibre14">.wem</code> file that has a header spanning multiple read buffers, and the I/O Hook doesn't read a stream with consistent buffer sizes.</li>
+<li class="calibre9"><b class="calibre13">WG-81943</b> Fixed: Possible crash when loading a project that contains missing references.</li>
+<li class="calibre9"><b class="calibre13">WG-82058</b> Fixed: Output Bus DSF filter value is not stored in SoundBanks.</li>
+<li class="calibre9"><b class="calibre13">WG-82159</b> Fixed: Crash when copying Effects or States.</li>
+<li class="calibre9"><b class="calibre13">WG-82267</b> Fixed: Different converted audio files are generated depending on when the conversion takes place. If a file is edited in the Source Editor and then converted before closing the project, the converted file might differ from the converted file created when the project is closed between editing the file and conversion.</li>
+<li class="calibre9"><b class="calibre13">WG-82293</b> Fixed: <code class="calibre14">ResetRTPCValueWithTransition</code> API call displays wrong transition time in Capture Log.</li>
+<li class="calibre9"><b class="calibre13">WG-82320</b> Fixed: Check boxes that enable the individual modules of the Mastering Suite don't accurately reflect the state of the properties.</li>
+<li class="calibre9"><b class="calibre13">WG-82322</b> Fixed: Property values in the Parametric EQ module of the Mastering Suite plug-in don't update when moving bands in the graph.</li>
+<li class="calibre9"><b class="calibre13">WG-82335</b> Fixed: (Acoustics) Feedback loop between Room aux busses.</li>
+<li class="calibre9"><b class="calibre13">WG-82477</b> Fixed: SoundBank Generation log contains messages referring to missing Auto-Defined Soundbanks.</li>
+<li class="calibre9"><b class="calibre13">WG-82479</b> Fixed: SoundBank Generation log reports media duplication for Auto-Defined Soundbanks.</li>
+<li class="calibre9"><b class="calibre13">WG-82495</b> Fixed: Crash when using Blend Containers within Switch Containers and changing the Switch and RTPC simultaneously.</li>
+<li class="calibre9"><b class="calibre13">WG-82528</b> Fixed: Crash when renaming Sidechain Mixes or Game Parameters referenced by plug-ins.</li>
+<li class="calibre9"><b class="calibre13">WG-82597</b> Fixed: Random Containers and Sequence Containers can start too many playbacks.</li>
+<li class="calibre9"><b class="calibre13">WG-82646</b> Fixed: Hang in <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_stream_mgr_split_000.html" title="Audiokinetic Stream Manager's implementation-specific interfaces of the Low-Level IO submodule.">AK::StreamMgr</a></code> when using offline rendering.</li>
+<li class="calibre9"><b class="calibre13">WG-82680</b> Fixed: Erroneous "Media Not Found" error when generating Auto-Defined SoundBanks with Effect plug-ins on an audio bus.</li>
+<li class="calibre9"><b class="calibre13">WG-82721</b> Fixed: Hang when using Random or Sequence Containers in Continuous mode with a sample-accurate Transition and voice limits.</li>
+<li class="calibre9"><b class="calibre13">WG-82894</b> Fixed: Sidechain Effects and Sources send or receive Sidechain Mixes with an incorrect scope when using the <b class="calibre13">Profile and Edit</b> options to connect Wwise to a game.</li>
+</ul>
+</div></div></div></body></html>

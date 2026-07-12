@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Sound Engine Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_6"><a class="pcalibre1 anchor" id="iakeffectparam_clone"></a>
+AK::IAkPluginParam::Clone()</h2>
+<p class="calibre7">This method should create a duplicate of the parameter instance and adjust necessary internal state variables to be ready to be used with a new plug-in instance. This situation occurs, for example, when an event creates a new playback instance. The function must return a new parameter node instance using the <a class="pcalibre el" href="_i_ak_plugin_mem_alloc_8h_aca786bdd3829c192297a174d5d2d2479_split_000.html#aca786bdd3829c192297a174d5d2d2479">AK_PLUGIN_NEW()</a> macro. In many cases, a copy constructor call is sufficient (as in the code example below). In cases where memory is allocated within the parameter node, a deep copy should be implemented.</p>
+<div class="fragment"><div class="line"><span class="comment">// Creating a shared parameters duplicate.</span></div>
+<div class="line"><a class="pcalibre code" href="class_a_k_1_1_i_ak_plugin_param_split_000.html">AK::IAkPluginParam</a> * CAkMyPluginParams::Clone( <a class="pcalibre code" href="class_a_k_1_1_i_ak_plugin_mem_alloc_split_000.html">AK::IAkPluginMemAlloc</a> * in_pAllocator )</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordflow">return</span> <a class="pcalibre code" href="_i_ak_plugin_mem_alloc_8h_aca786bdd3829c192297a174d5d2d2479_split_000.html#aca786bdd3829c192297a174d5d2d2479">AK_PLUGIN_NEW</a>( in_pAllocator, CAkMyPluginParams(*<span class="keyword">this</span>) );</div>
+<div class="line">}</div>
+</div><!-- fragment --></div></div></div></body></html>

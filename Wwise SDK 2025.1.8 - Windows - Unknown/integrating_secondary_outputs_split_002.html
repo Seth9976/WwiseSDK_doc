@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integrating Secondary Outputs</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_1"><a class="pcalibre1 anchor" id="secondary_output_latency"></a>
+A note on synchronization of outputs</h2>
+<p class="calibre7">When outputting the same audio on many devices, such as the TV and a game controller, you will probably notice latency between the devices. This is unavoidable due to different hardware in the audio signal's path. On the controller side, the signal may have to travel through a wireless channel, which might give a different delay than for wired controllers. For the TV, once the signal is out of the console, it goes through a receiver and/or a TV, whose processors add a certain amount of delay. Since the delay produced by the AV setup is different for each system, it's not possible to synchronize sounds routed simultaneously to the speaker/TV and the game controllers. Your sound design may need to take this constraint into consideration.</p>
+</div></div></div></body></html>

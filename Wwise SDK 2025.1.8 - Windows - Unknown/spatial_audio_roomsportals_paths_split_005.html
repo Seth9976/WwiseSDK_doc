@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Propagation Paths in the Rooms and Portals Signal Model</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_4"><a class="pcalibre1 anchor" id="spatial_audio_roomsportals_paths_wetdistance"></a>
+Distance-Based Attenuation of the Wet Signal</h1>
+<p class="calibre7">The length of the paths introduced in the previous sections, which represent the propagation of a Room's diffuse energy to the Listener, cannot be defined exactly. The model assumes that the attenuation of sound due to the distance traveled towards the walls and then from wall to wall is completely deferred to the reverb Effect itself. Thus, a reasonable approximation of a path's origin would be the middle of the Room. However, a more satisfying result is obtained if the distance attenuation of the Room's diffuse energy depends on whether the source that excited it is located closer or farther from the Listener, especially if the Room is large.</p>
+<p class="calibre7">Furthermore, contrary to real-life physics, sounds in Wwise attenuate over distance using custom curves. In order to accurately compute the distance attenuation of the Room to the Listener, the Room should use the sound Emitter's attenuation curves. This poses a problem, because there can be multiple Emitters in a Room, each with its own position, and each with its own attenuation curve. Once all sounds within a Room have been downmixed and passed through a reverb Effect, it is impossible to selectively scale their volume based on their respective distance attenuation.</p>
+<p class="calibre7">A brute-force solution to this problem would be to have a distinct bus and reverb effect for each sound within this Room. Since this would be prohibitively costly, Wwise Acoustics implements the following instead: The distance evaluation and attenuation, for the entirety of the distance between the Emitter and Listener, is applied on the connection between the Emitter and its immediate Room bus. That is, prior to the downmix and reverberation. This is mathematically equivalent to having one bus and reverb per source, as long as the Effects on the bus are linear. This is generally true with reverb Effects.</p>
+<p class="calibre7">A similar principle applies to transmission and diffraction. In order for all parameters of a sound through Rooms to be customizable per-sound, those parameters are applied at the first connection between the Emitter and a Room. Every subsequent connection from Room to Room, or from a Room to the Listener are not filtered using these parameters. Assigning attenuation curves to a Room bus has no effect because they cannot be selectively applied to each sound in that Room.</p>
+</div></div></div></body></html>

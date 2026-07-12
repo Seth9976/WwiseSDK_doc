@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integrating Wwise Motion</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_8"><a class="pcalibre1 anchor" id="motion_single_vs_multiple"></a>
+Multiplayer Considerations</h1>
+<p class="calibre7">Motion outputs are like any other Secondary Outputs and therefore have the same restrictions and requirements. If you are making a single-player game, in which only one player controls the game locally, the Listener/Game Object setup is very simple. In normal cases, the new motion output re-uses the same default Listener as the main audio output. In other words, you rarely have to manage Listeners in a single-player setup.</p>
+<p class="calibre7">For multiplayer games, you must create one Listener/Game Object for each motion output. This is necessary so that each player has their own mix of haptic feedback, depending on the situation in the game. The Listener associated with a device must be initialized at the same time as the output is initialized by <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a15ab79f954a307902f529d8ccde8ad48_split_000.html#a15ab79f954a307902f529d8ccde8ad48">AK::SoundEngine::AddOutput()</a></code>. Specific Listeners provide an additional layer of routing for sounds or motion. You can target a specific player if you play an Event on a Game Object that is uniquely associated with that player's Listener. To establish this association, you can call <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a2f85a55c38afa2e0dbc6172a7bec91d1_split_000.html#a2f85a55c38afa2e0dbc6172a7bec91d1">AK::SoundEngine::SetListeners</a></code>. You can also associate multiple listeners with the same game object, which has a "broadcast" effect on all listeners. See <a class="pcalibre el" href="soundengine_listeners_split_000.html">Integrating Listeners</a> for more information about Listeners and Game Objects.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> A sound needs to be routed into the motion bus hierarchy even if the Emitter has a Listener set to a motion output. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

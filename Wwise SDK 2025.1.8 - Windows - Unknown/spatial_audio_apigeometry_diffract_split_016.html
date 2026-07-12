@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Using the Geometry API for Simulating Diffraction and Transmission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_15"><a class="pcalibre1 anchor" id="spatial_audio_api_geometry_aware_rooms_portal_placement"></a>
+Tips for Orienting Portals Between Rooms with Geometry</h2>
+<p class="calibre7">The following image shows an example of a correctly oriented Portal.</p>
+<div class="calibre2">
+<img alt="" src="spatialaudio_portalplacement.png" class="inline"/>
+</div>
+<table border="1" cellpadding="1" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre17"><div class="calibre2">
+<img alt="" src="callout1.png" class="inline"/>
+</div>
+ </td><td class="calibre17"><ul class="calibre8">
+<li class="calibre9">
+Geometry cut-outs allow reflection and diffraction paths to pass through the Portal. </li>
+<li class="calibre9">
+A rectangular opening is subtracted from any geometry overlapped by the Portal. </li>
+<li class="calibre9">
+Geometry cut-outs are drawn in the Game Object 3D Viewer with a dark green outline. </li>
+<li class="calibre9">
+For correct cut-out detection, the planes intersected by the Portal must be non-intersecting (but not necessarily parallel), and they both must span the entire width (X) and height (Y) of the Portal. </li>
+</ul>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre17"><div class="calibre2">
+<img alt="" src="callout2.png" class="inline"/>
+</div>
+ </td><td class="calibre17"><ul class="calibre8">
+<li class="calibre9">
+A gap is permitted between the two planes, as well as between the two Rooms joined by the Portal. However, a Game Object is only permitted to enter a Portal if it was previously in one of the adjoining Rooms.  </li>
+<li class="calibre9">
+When a game object is transitioning through a Portal, the Room containment result passed to <a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_a3f080206f12c04b3464838cb18c43f4e_split_000.html#a3f080206f12c04b3464838cb18c43f4e">AK::SpatialAudio::SetGameObjectInRoom</a> is used only as a hint. The exact Room is determined by projecting the game object's position onto the Portal's Z-axis, and then testing if the game object is in the front-half or back-half of the Portal, corresponding to the front and back Rooms respectively. </li>
+<li class="calibre9">
+The Portal does not need to be perfectly aligned and centered between the two Rooms. </li>
+<li class="calibre9">
+The transition point between two Rooms is the center of the cut-out. When there is a gap between the two opening planes, values interpolating over the transition (such as Room Transmission Loss) are held at the midpoint while a game object is inside of the gap. </li>
+</ul>
+
+  </td></tr>
+<tr class="calibre16">
+<td class="calibre17"><div class="calibre2">
+<img alt="" src="callout3.png" class="inline"/>
+</div>
+ </td><td class="calibre17"><ul class="calibre8">
+<li class="calibre9">
+Ensure that a Portal is deep enough along the Z-axis to allow for a smooth transition between two Rooms. </li>
+<li class="calibre9">
+Abrupt transitions between two Rooms can often be resolved by lengthening the Portal along the Z-axis. </li>
+</ul>
+</td></tr>
+</tbody></table>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

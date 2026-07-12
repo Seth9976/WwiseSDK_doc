@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integration Details - Events</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="soundengine_events_notifications"></a>
+Event Notifications</h1>
+<p class="calibre7">The <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a41e9ef8d42951871fe4a8ae58a29a68e_split_000.html#a41e9ef8d42951871fe4a8ae58a29a68e">AK::SoundEngine::PostEvent</a> "PostEvent()" function accepts a pointer to an <a class="pcalibre el" href="_ak_callback_types_8h_a276c9e8420fee177debd0838b664d7c7_split_000.html#a276c9e8420fee177debd0838b664d7c7">AkEventCallbackFunc()</a> function that will be called when a marker is reached, or when the event is terminated. This may be useful for synchronizing events and sound playback.</p>
+<p class="calibre7">An event is considered terminated when all of its actions have been executed and all the sounds triggered by this event have finished playing. Note that some events might never end by themselves. For example, if an event contains a sound that loops infinitely, the callback will only be triggered once this sound is stopped by another event.</p>
+<p class="calibre7">Markers have to be created with an external wave file editor such as SoundForge® or Adobe® Audition®. The sound engine will recognize those cue points and will notify your callback function if you specified it when calling <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a41e9ef8d42951871fe4a8ae58a29a68e_split_000.html#a41e9ef8d42951871fe4a8ae58a29a68e">AK::SoundEngine::PostEvent</a> "PostEvent()" .</p>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="soundengine_markers_split_000.html">Integrating Markers</a></li>
+<li class="calibre9"><a class="pcalibre el" href="soundengine_music_callbacks_split_000.html">Integration Details - Music Callbacks</a></li>
+</ul>
+</dd></dl>
+</div></div></div></body></html>

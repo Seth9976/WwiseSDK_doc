@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>macOS Plug-in Considerations</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="authoringplugin_macos_location"></a>
+Location of Authoring Plug-ins on macOS</h1>
+<p class="calibre7">The Wwise Authoring application on macOS, as installed by the Audiokinetic Launcher, provides a set of files in different locations. The main application package, <code class="calibre14">Wwise.app</code>, is installed in the installation directory chosen at installation time, and contains the necessary adaptation files to run Wwise. However, the actual Wwise Authoring binaries are installed in a global location: <code class="calibre14">/Library/Application Support/Audiokinetic</code>. This is necessary so that plug-in files can be added without modifying <code class="calibre14">Wwise.app</code>, which must remain read-only for security purposes.</p>
+<p class="calibre7">To test a plug-in, you can always add a packaged plug-in from the Launcher. Alternatively, you can manually copy the DLL and XML files to the Authoring plug-in's directory:</p>
+<p class="calibre7"><code class="calibre14">/Library/Application Support/Audiokinetic/Wwise &lt;Version&gt;/Authoring/x64/Release/bin/Plugins</code></p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> Wwise Authoring must be relaunched for the new plug-in to be used. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

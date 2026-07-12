@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integration Demo Sample</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_9"><a class="pcalibre1 anchor" id="integrationdemo_demos_music_midi"></a>
+Music/MIDI</h2>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="integrationdemo_demos_music_callbacks_music_sync"></a>
+Music sync callback demo</h3>
+<p class="calibre7">This demo shows how to use music callbacks in general. Beat and bar notifications are generated from music tempo and time signature information.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="integrationdemo_demos_music_callbacks_music_playlist"></a>
+Music playlist callback demo</h3>
+<p class="calibre7">This example shows how to force a random playlist to select its next item sequentially. The playlist item may be stopped via the callback as well.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="integrationdemo_demos_music_callbacks_midi"></a>
+MIDI callback demo</h3>
+<p class="calibre7">Shows MIDI messages the game can receive using callbacks. MIDI messages include the MIDI notes, CC values, Pitch Bend, After Touch, and Program Changes.</p>
+<p class="calibre7">For more information on music callbacks, refer to <a class="pcalibre el" href="soundengine_music_callbacks_split_000.html">Integration Details - Music Callbacks</a>.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="integrationdemo_demos_interactive_music"></a>
+Interactive Music Demo</h3>
+<p class="calibre7">This example uses a Music Switch Container. Try switching the States by triggering the Event listed in the demo page. Switching States might produce a result that is immediate or occurs at the time specified in the rules of the Music Container.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="integrationdemo_demos_midi_api"></a>
+MIDI API Demo</h3>
+<p class="calibre7">This example demonstrates the use of the MIDI API. Press the <b class="calibre13">Start Metronome</b> button to simulate an active metronome. Then select the <b class="calibre13">BPM</b> slider and press LEFT or RIGHT to change its value. The demo uses a registered callback function to post MIDI Events to the sound engine via the <code class="calibre14">PostMIDIOnEvent</code> function.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="integration_demos_bgm"></a>
+Background Music Demo</h3>
+<p class="calibre7">This example shows how to handle the DVR legal requirements for Xbox One and PS4. Since many games include copyrighted music, it is often not permitted to record it with the built-in DVR. This demo shows the differences between a sound that is recorded by the DVR and one that isn't. Please refer to the Wwise Project and check the setup of the sounds in the <em class="calibre11">BGMDemo</em> folder, paying attention to their routing and which Audio Device they use. The Non-Recordable sound will be routed to a bus that outputs to the <em class="calibre11">DVR_Bypass</em> output.</p>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="integrating_secondary_outputs_split_000.html">Integrating Secondary Outputs</a></li>
+</ul>
+</dd></dl>
+</div></div></div></body></html>

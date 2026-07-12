@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK_CommandBuffer_Create</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="_ak_command_buffer_8h_a995f9aaba5db0a2afd5ea4c490c2a28c_split_000.html#a995f9aaba5db0a2afd5ea4c490c2a28c" class="pcalibre1 anchor">◆ </a></span>AK_CommandBuffer_Create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_sound_engine_export_8h_ac6e96d34dfc0e12f9aaa7a47f4e9c322_split_000.html#ac6e96d34dfc0e12f9aaa7a47f4e9c322">AKSOUNDENGINE_API</a> struct <a class="pcalibre el" href="struct_ak_command_buffer_header_split_000.html">AkCommandBufferHeader</a>* AK_CommandBuffer_Create </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype">size_t </td>
+          <td class="paramname"><em class="calibre59">in_size</em></td><td class="calibre17">)</td>
+          <td class="calibre17"/>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Allocates and initializes a new command buffer with the specified size using the Wwise SDK's memory manager. The buffer is guaranteed to be aligned on 4 bytes. It is allocated using <code class="calibre14">AkMemID_Integration</code> memory category.</p>
+<p class="calibre7">Use AK_CommandBuffer_MinSize and AK_CommandBuffer_CmdSize to determine how much space to allocate for the planned buffer.</p>
+<p class="calibre7">The buffer returned by this function MUST be freed using AK_CommandBuffer_Destroy.</p>
+<p class="calibre7">This function will return NULL under the following error conditions:</p><ul class="calibre8">
+<li class="calibre9">Requested size is smaller than the minimium size required for a command buffer.</li>
+<li class="calibre9">Memory manager is not initialized.</li>
+<li class="calibre9">Not enough memory to allocate the buffer.</li>
+</ul>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_size</td><td class="calibre17">Size of buffer in bytes </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">Pointer to the allocated buffer, NULL on error. </dd></dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

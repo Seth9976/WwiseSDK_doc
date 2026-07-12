@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK.Wwise::Plugin::V1::ObjectStore::GetListName</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_object_store_a58fc861ef17b997430f6775b905dfc22_split_000.html#a58fc861ef17b997430f6775b905dfc22" class="pcalibre1 anchor">◆ </a></span>GetListName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename PropertySetT  = AK::Wwise::Plugin::PropertySet&gt; </div>
+<table class="calibre3">
+  <tbody class="calibre4"><tr class="calibre16">
+  <td class="calibre17">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">unsigned int <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_object_store_split_000.html">AK.Wwise::Plugin::V1::ObjectStore</a>&lt; PropertySetT &gt;::GetListName </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype">unsigned int </td>
+          <td class="paramname"><em class="calibre59">in_uiListIndex</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">char * </td>
+          <td class="paramname"><em class="calibre59">out_pszListName</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">unsigned int </td>
+          <td class="paramname"><em class="calibre59">in_uiBufferSize</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"> const</td>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="calibre17">
+<span><span>inline</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+
+<p class="calibre7">Gets the name of the list at the specified position. </p>
+<p class="calibre7">List ordering is arbitrary and can vary between <a class="pcalibre el" href="namespace_a_k_1_1_wwise_split_000.html">Wwise</a> Authoring versions or project loads.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="warning.gif"/></td><td class="calibre17"><b class="calibre13">Warning:</b> If you do not provide a buffer big enough to write the full string, the function will fail and return 0. Make sure to use a buffer big enough to write the entire string, depending on your own naming convention. </td></tr>
+</tbody></table>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_uiListIndex</td><td class="calibre17">Index of the list name to retrieve. </td></tr>
+    <tr class="calibre16"><td class="calibre17">[out]</td><td class="paramname">out_pszListName</td><td class="calibre17">Pointer to a buffer that will contain the list name. </td></tr>
+    <tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_uiBufferSize</td><td class="calibre17">Size of the provided buffer. If the buffer is not big enough for the entire name alongside a string ending suffix, the function will return 0 and no string will be copied. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">Number of characters written to the buffer, zero if failed. </dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_host_object_store_8h_source.html#l00594">594</a> of file <a class="pcalibre el" href="_host_object_store_8h_source.html">HostObjectStore.h</a>.</p>
+
+<p class="calibre7">References <a class="pcalibre el" href="_plugin_info_generator_8h_source.html#l00089">AK.Wwise::Plugin::CBaseInterfaceGlue&lt; CHostObjectStore &gt;::g_cinterface</a>, and <a class="pcalibre el" href="_host_object_store_8h_source.html#l00274">ak_wwise_plugin_host_object_store_v1::GetListName</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

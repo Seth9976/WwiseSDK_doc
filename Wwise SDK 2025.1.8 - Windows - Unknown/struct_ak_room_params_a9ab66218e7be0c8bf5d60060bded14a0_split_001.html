@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AkRoomParams::TransmissionLoss</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="struct_ak_room_params_a9ab66218e7be0c8bf5d60060bded14a0_split_000.html#a9ab66218e7be0c8bf5d60060bded14a0" class="pcalibre1 anchor">◆ </a></span>TransmissionLoss</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a> AkRoomParams::TransmissionLoss</td>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Characteristic transmission loss value for the Room, describing the average amount of sound energy dissipated by the walls of the room.</p>
+<p class="calibre7">The Room transmission loss value is used in the following situations: 1) If a room tone is playing on the Room Game Object, in a different room than that of the listener. Transmission loss is only applied when the listener and the emitter are in different rooms. It is taken as the maximum between the emitter's room's transmission loss value and the listener's room's transmission loss value. 2) If, for both the emitter and listener's Rooms, geometry is not assigned with <code class="calibre14"><a class="pcalibre el" href="struct_ak_room_params_ac63a7f55f7bf863dde9af7e3e3a69758_split_000.html#ac63a7f55f7bf863dde9af7e3e3a69758">AkRoomParams::GeometryInstanceID</a></code>, or the Geometry Instance that is assigned has <code class="calibre14"><a class="pcalibre el" href="struct_ak_geometry_instance_params_a30ef95f856b020642d4a45d43c3df86d_split_000.html#a30ef95f856b020642d4a45d43c3df86d">AkGeometryInstanceParams::UseForReflectionAndDiffraction</a></code> set to false. In this case, room transmission loss is applied to the direct path when the emitter and listener are in different rooms. When geometry is available, the transmission loss value is calculated instead by intersecting a ray with the geometry between the emitter and listener. Transmission loss on geometry overrides room transmission loss, allowing a room to have varying degrees of transmission loss (for example, some transparent walls and some opaque walls). 3) To spatialize the output of the Room Game Object. A low transmission loss value emphasizes panning the room towards the room's center (the center of the room bounding box) and a higher value emphasizes panning towards the room's portals.</p>
+<p class="calibre7">When room transmission is applied directly to either a room tone (situation 1) or a point source emitter (situation 2), it is applied on the mix connection between the sound and the room. The transmission loss value is converted to volume attenuation, low-pass and/or high-pass filtering, using the transmission loss curves defined on the sound in Wwise Authoring.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><p class="starttd"><b class="calibre13">Note:</b> Even when relying on geometry for detailed transmission loss values (per triangle), it is still necessary to set <code class="calibre14">AkSoundParams::TransmissionLoss</code> to a representitive value so that the output of the Room Game Object is properly spatialized (situation 3).</p>
+<p class="endtd">Valid range: (0.f-1.f)</p><ul class="calibre8">
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_acoustic_surface_split_000.html">AkAcousticSurface</a> </li>
+</ul>
+</td></tr>
+</tbody></table>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_ak_spatial_audio_types_8h_source_split_000.html#l00727">727</a> of file <a class="pcalibre el" href="_ak_spatial_audio_types_8h_source_split_000.html">AkSpatialAudioTypes.h</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

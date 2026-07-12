@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Monitoring Errors</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_1"><a class="pcalibre1 anchor" id="emt_implementation"></a>
+Implementing Translators</h2>
+<p class="calibre7">The following sections describe the two components needed when using error message translators.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="emt_callback"></a>
+Callback Function</h3>
+<p class="calibre7">First, a callback function must be set to receive the monitoring messages. This function has to follow the signature of <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_monitor_ad2e6203a592069941058894225b14fc2_split_000.html#ad2e6203a592069941058894225b14fc2" title="Function prototype of local output function pointer.">AK::Monitor::LocalOutputFunc</a></code> and will be the function receiving the error message after the translation. It is in this function that you should define what you want to do with an error message. For example, in IntegrationDemo, <code class="calibre14">LocalErrorCallback</code> is the callback function. In the demo, when an error message is received, the current page content is modified to show the error message in red. To set the callback function, call <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_monitor_a08ad42ff638aecd238566366598970dc_split_000.html#a08ad42ff638aecd238566366598970dc">AK::Monitor::SetLocalOutput()</a></code> and pass the callback function pointer to be used.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="emt_instances"></a>
+Error Message Translators</h3>
+<p class="calibre7">The Sound Engine has one default translator which transforms the error codes in readable messages. However, this translator simply prints the information it receives, such as IDs, directly in the error message, without trying to transform them into useful information, such as object names. It is highly recommended that you add other translators to the project in order to receive more detailed error messages. The translators are located in the folder SDK/tools/AkWwiseErrorHandler.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> Some translators may require that other libraries are added to the project. Refer to the documentation of each translator for details. </td></tr>
+</tbody></table>
+<p class="calibre7">Once the translators you want to use are added to the project, create an instance of them and install them in the monitor by calling <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_monitor_a2316d98b14d17cd1b14a27f63edc357e_split_000.html#a2316d98b14d17cd1b14a27f63edc357e">AK::Monitor::AddTranslator()</a></code>. It's important to keep track of the newly created instance in order to be able to delete it.</p>
+</div></div></div></body></html>

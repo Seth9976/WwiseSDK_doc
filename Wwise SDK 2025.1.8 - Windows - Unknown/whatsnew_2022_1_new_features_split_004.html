@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>New Features Overview 2022.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_3"><a class="pcalibre1 anchor" id="features_22_1_paste_properties"></a>
+Paste Properties</h2>
+<p class="calibre7">The properties of one object can now be copied to another object or objects using the Paste Properties view. This makes it easy to keep properties consistent across a project, reducing the potential for unknown exceptions and lending peace of mind. The Paste Properties view also provides a place to compare properties between a source and target object(s).</p>
+<p class="calibre7">There are two types of information that you can copy and paste using this new view:</p>
+<ul class="calibre8">
+<li class="calibre9">Properties: Including those available in the Property Editor, such as Output Bus, Loudness Normalization, and so on.</li>
+<li class="calibre9">List Elements: These are lists of sub-elements belonging to an object. The Paste Properties view supports the following Lists:<ul class="calibre15">
+<li class="calibre9">RTPCs</li>
+<li class="calibre9">Stingers</li>
+<li class="calibre9">Metadata</li>
+<li class="calibre9">Music Cues</li>
+</ul>
+</li>
+</ul>
+<p class="calibre7">For example, you might want to use the same list of RTPCs across different vehicles or physics objects.</p>
+<p class="calibre7">The Wwise Authoring API (WAAPI) has been extended to include the ability to return the properties and lists that differ between a source and one target (ak.wwise.core.object.diff) and to paste properties and lists from a source to one or more targets (ak.wwise.core.object.pasteProperties). This opens up the possibility to accelerate your development pipeline by performing Paste Property operations as part of a custom WAAPI workflow (including RTPCs).</p>
+<p class="calibre7">Refer to <a href="https://www.audiokinetic.com/library/edge/?source=Help&amp;id=paste_properties" target="_blank" class="pcalibre calibre12">Copying and Pasting Object Properties</a> for details on using this view.</p>
+<div class="calibre2">
+<img alt="" src="paste_properties_view.png" class="inline"/>
+</div>
+</div></div></div></body></html>

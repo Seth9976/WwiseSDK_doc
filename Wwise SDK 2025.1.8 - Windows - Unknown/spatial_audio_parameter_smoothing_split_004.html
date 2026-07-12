@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Parameter Smoothing [Experimental]</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_3"><a class="pcalibre1 anchor" id="spatial_audio_parameter_smoothing_rays"></a>
+Number of Rays Cast Per Frame</h2>
+<p class="calibre7">The Acoustics Engine casts from the listener’s position to gather information about the environment. The accuracy of the simulation is proportional to the number of rays cast: when more rays are cast, more environmental data is gathered, leading to a more accurate simulation. However, casting additional rays requires more CPU resources. Therefore, it is desirable to find a balance by casting the minimum number of rays necessary to maintain an accurate simulation.</p>
+<p class="calibre7">Insufficient ray casting can cause the acoustics engine to miss critical environmental features such as obstacles, reflective surfaces, or edges, especially in highly complex environments. This can lead to an incomplete perceptual understanding of the environment. At a later point in time, if new information is discovered, corrected paths will be computed and there will be discontinuities in the audio output.</p>
+</div></div></div></body></html>

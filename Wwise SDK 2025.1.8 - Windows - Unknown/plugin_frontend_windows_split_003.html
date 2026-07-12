@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Implementing a Windows Frontend</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="wwiseplugin_dialogcode"></a>
+Dialog Acquisition</h1>
+<p class="calibre7">There exists two types of dialogs currently defined by Wwise in <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_a5a9328b141630d1de228c92e81e9034d_split_000.html#a5a9328b141630d1de228c92e81e9034d">AK::Wwise::Plugin::eDialog</a></code> :</p>
+<ul class="calibre8">
+<li class="calibre9"><code class="calibre14">SettingsDialog</code>: Main plug-in dialog used for the Source or Effect Editor</li>
+<li class="calibre9"><code class="calibre14">ContentsEditorDialog</code>: Small dialog used by Source plug-ins only in the Contents Editor</li>
+</ul>
+<p class="calibre7">The dialog that is provided back to Wwise is then instantiated using the provided <a class="pcalibre el" href="plugin_frontend_windows_split_002.html#wwise_plugin_frontend_windows_resource">Resource Handle</a>. To bind properties to the controls of your dialogs, a table that maps control IDs to the property names as found in the XML definition of your plug-in is used. This table is created using macros as follows:</p>
+<div class="fragment"><div class="line">constexpr <span class="keyword">auto</span> propertyKey = u8<span class="stringliteral">"MyProperty"</span>;</div>
+<div class="line"> </div>
+<div class="line"><a class="pcalibre code" href="_g_u_i_windows_8h_ace7e697c1d8a310c9794cf05ce8ce1d8_split_000.html#ace7e697c1d8a310c9794cf05ce8ce1d8">AK_WWISE_PLUGIN_GUI_WINDOWS_BEGIN_POPULATE_TABLE</a>(PropertyTable)</div>
+<div class="line">    <a class="pcalibre code" href="_g_u_i_windows_8h_af6140142c9fe6ff132aee5ad0fde1caf_split_000.html#af6140142c9fe6ff132aee5ad0fde1caf">AK_WWISE_PLUGIN_GUI_WINDOWS_POP_ITEM</a>(IDC_MYPROPERTY_EDIT, propertyKey)</div>
+<div class="line"><a class="pcalibre code" href="_g_u_i_windows_8h_a286a575e82a4a1b002ff737b186d4c76_split_000.html#a286a575e82a4a1b002ff737b186d4c76">AK_WWISE_PLUGIN_GUI_WINDOWS_END_POPULATE_TABLE</a>()</div>
+</div><!-- fragment --><p class="calibre7">In this example, the table maps the control <code class="calibre14">IDC_MYPROPERTY_EDIT</code> (from the resource.h file accompanying the .rc file) to the property <code class="calibre14">MyProperty</code>, which must correspond to a property defined in the plug-in's XML definition.</p>
+<p class="calibre7">This instantiates a variable <code class="calibre14">PropertyTable</code> that can then be forwarded to the Wwise Authoring application on GetDialog():</p>
+<div class="fragment"><div class="line"><span class="keywordtype">bool</span> FrontendSourcePlugin::GetDialog(</div>
+<div class="line">    <a class="pcalibre code" href="namespace_a_k_1_1_wwise_1_1_plugin_a5a9328b141630d1de228c92e81e9034d_split_000.html#a5a9328b141630d1de228c92e81e9034d">AK::Wwise::Plugin::eDialog</a> in_eDialog,</div>
+<div class="line">    UINT&amp; out_uiDialogID,</div>
+<div class="line">    <a class="pcalibre code" href="struct_a_k_1_1_wwise_1_1_plugin_1_1_populate_table_item_split_000.html">AK::Wwise::Plugin::PopulateTableItem</a>*&amp; out_pTable)<span class="keyword"> const</span></div>
+<div class="line"><span class="keyword"></span>{</div>
+<div class="line">    <span class="keywordflow">switch</span> (in_eDialog)</div>
+<div class="line">    {</div>
+<div class="line">    <span class="keywordflow">case</span> <a class="pcalibre code" href="namespace_a_k_1_1_wwise_1_1_plugin_a5a9328b141630d1de228c92e81e9034d_split_001.html#a5a9328b141630d1de228c92e81e9034da70f74e61c5e7bef5d95559c73c9978cc">SettingsDialog</a>:</div>
+<div class="line">        out_uiDialogID = IDD_SOURCEPLUGIN_SETTINGS;</div>
+<div class="line">        out_pTable = ToneGenProp;</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">case</span> <a class="pcalibre code" href="namespace_a_k_1_1_wwise_1_1_plugin_a5a9328b141630d1de228c92e81e9034d_split_001.html#a5a9328b141630d1de228c92e81e9034da6d085e723d1240d119005b403573dfb5">ContentsEditorDialog</a>:</div>
+<div class="line">        out_uiDialogID = IDD_SOURCEPLUGIN_CONTENTS;</div>
+<div class="line">        out_pTable = <span class="keyword">nullptr</span>;</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p class="calibre7">Returning false in this function will simply not instantiate a dialog and a default one will be instantiated in its place.</p>
+<p class="calibre7">Refer to <a class="pcalibre el" href="wwiseplugin_dialog_guide_split_000.html">Wwise Plug-in Dialog Reference</a> for a complete description of the controls you can use in your dialog, how to bind them to properties, and so on.</p>
+</div></div></div></body></html>

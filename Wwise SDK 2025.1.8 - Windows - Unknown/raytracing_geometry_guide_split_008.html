@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Ray Tracing Engine Geometry Guide</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_7"><a class="pcalibre1 anchor" id="raytracing_geometry_guide_clustering_limitations"></a>
+Emitter Clustering Limitations</h2>
+<p class="calibre7">Emitter clustering has the following limitations: </p><ul class="calibre8">
+<li class="calibre9">
+<p class="starttd">Changes in listener or emitter position can cause emitters to enter or exit clusters, which triggers updates to reflection and diffraction paths that might manifest as Doppler effects.</p>
+<p class="endli"></p>
+</li>
+<li class="calibre9">
+<p class="starttd">If emitters within a cluster are not mutually visible with the cluster leader, computed paths might be erroneous. To ensure path accuracy, we recommend that you increase <code class="calibre14"><a class="pcalibre el" href="struct_ak_spatial_audio_init_settings_ada511d087ecb7f920a1ff0f62460e8d7_split_000.html#ada511d087ecb7f920a1ff0f62460e8d7" title="Defines a dead zone around the listener where no emitters are clusters. Default value is 10....">AkSpatialAudioInitSettings::fClusteringDeadZoneDistance</a></code>, the dead zone distance used during clustering (see <a class="pcalibre el" href="struct_ak_spatial_audio_init_settings_split_000.html">AkSpatialAudioInitSettings()</a>).</p>
+<p class="endli"></p>
+</li>
+</ul>
+</div></div></div></body></html>

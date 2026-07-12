@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::SoundEngine::LoadBankMemoryCopy</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="namespace_a_k_1_1_sound_engine_a5efb03fe152352c6fa67781961d62b2f_split_000.html#a5efb03fe152352c6fa67781961d62b2f" class="pcalibre1 anchor">◆ </a></span>LoadBankMemoryCopy() <span class="permalink">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_sound_engine_export_8h_ac6e96d34dfc0e12f9aaa7a47f4e9c322_split_000.html#ac6e96d34dfc0e12f9aaa7a47f4e9c322">AKSOUNDENGINE_API</a> <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::SoundEngine::LoadBankMemoryCopy </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype">const void * </td>
+          <td class="paramname"><em class="calibre59">in_pInMemoryBankPtr</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> </td>
+          <td class="paramname"><em class="calibre59">in_uInMemoryBankSize</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_callback_types_8h_a5f4438e001923453a9f795eb64946be6_split_000.html#a5f4438e001923453a9f795eb64946be6">AkBankCallbackFunc</a> </td>
+          <td class="paramname"><em class="calibre59">in_pfnBankCallback</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">void * </td>
+          <td class="paramname"><em class="calibre59">in_pCookie</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_a472a3d18cbb0c4f081b3b619e4a2f349_split_000.html#a472a3d18cbb0c4f081b3b619e4a2f349">AkBankID</a> &amp; </td>
+          <td class="paramname"><em class="calibre59">out_bankID</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Loads a bank asynchronously (from in-memory data, out-of-place, user bank only).<br class="calibre10"/>
+ NOTE: Banks loaded from in-memory with out-of-place data must be unloaded using the standard UnloadBank function (with no memory pointer). Make sure you are using the correct UnloadBank(...) overload</p>
+<p class="calibre7">Use LoadBankMemoryCopy when you want to manage I/O on your side. Load the bank file in a buffer and pass its address to the sound engine, the media section of the bank will be copied into newly allocated memory. In-memory loading is out-of-place: the buffer can be released after the callback function is called. The advantage of using this over the in-place version is that there is no duplication of bank structures. A bank load request will be posted to the Bank Manager consumer thread. The function returns immediately. </p><dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><code class="calibre14">AK_Success</code> if the scheduling was successful,</li>
+<li class="calibre9"><code class="calibre14">AK_InvalidBankType</code> if the bank is not a user-defined bank.</li>
+<li class="calibre9"><code class="calibre14">AK_DataAlignmentError</code> if the data pointer is not aligned properly Use a callback to be notified when completed, and get the status of the request. The bank ID, which is obtained by hashing the bank name (see <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a1aae6ebdec25946fb2897ce0e025366d_split_000.html#a1aae6ebdec25946fb2897ce0e025366d">GetIDFromString()</a>). You may use this ID with <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ac91406bc2fe061e4248cb448207b5a64_split_000.html#ac91406bc2fe061e4248cb448207b5a64">UnloadBank()</a>. </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Remarks</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9">The initialization bank (Init.bnk) must be loaded first.</li>
+<li class="calibre9">All SoundBanks subsequently loaded must come from the same <a class="pcalibre el" href="namespace_a_k_1_1_wwise_split_000.html">Wwise</a> project as the initialization bank. If you need to load SoundBanks from a different project, you must first unload ALL banks, including the initialization bank, then load the initialization bank from the other project, and finally load banks from that project.</li>
+<li class="calibre9">Codecs and plug-ins must be registered before loading banks that use them.</li>
+<li class="calibre9">Loading a bank referencing an unregistered plug-in or codec will result in a load bank success, but the plug-ins will not be used. More specifically, playing a sound that uses an unregistered effect plug-in will result in audio playback without applying the said effect. If an unregistered source plug-in is used by an event's audio objects, posting the event will fail. </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ac91406bc2fe061e4248cb448207b5a64_split_000.html#ac91406bc2fe061e4248cb448207b5a64">AK::SoundEngine::UnloadBank()</a></code></li>
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ab934f98a6622976d24e0a096911eb0c8_split_000.html#ab934f98a6622976d24e0a096911eb0c8">AK::SoundEngine::ClearBanks()</a></code></li>
+<li class="calibre9"><a class="pcalibre el" href="_ak_callback_types_8h_a5f4438e001923453a9f795eb64946be6_split_000.html#a5f4438e001923453a9f795eb64946be6">AkBankCallbackFunc</a></li>
+<li class="calibre9"><a class="pcalibre el" href="soundengine_banks.html">Integration Details - Banks</a></li>
+<li class="calibre9"><a class="pcalibre el" href="integrating_elements_plugins.html">Integrating Plug-Ins</a></li>
+<li class="calibre9"><a class="pcalibre el" href="sdk_bank_training_split_000.html">SoundBank Integration Samples</a> </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_pInMemoryBankPtr</td><td class="calibre17">Pointer to the in-memory bank to load (pointer is not stored in sound engine, memory can be released after callback) </td></tr>
+    <tr class="calibre16"><td class="paramname">in_uInMemoryBankSize</td><td class="calibre17">Size of the in-memory bank to load </td></tr>
+    <tr class="calibre16"><td class="paramname">in_pfnBankCallback</td><td class="calibre17">Callback function </td></tr>
+    <tr class="calibre16"><td class="paramname">in_pCookie</td><td class="calibre17">Callback cookie </td></tr>
+    <tr class="calibre16"><td class="paramname">out_bankID</td><td class="calibre17">Returned bank ID </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

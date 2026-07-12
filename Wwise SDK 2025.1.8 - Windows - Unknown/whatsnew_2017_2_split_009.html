@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2017.2</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_8"><a class="pcalibre1 anchor" id="misc_waapi_2017_2"></a>
+Miscellaneous WAAPI Changes</h2>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-33144</b> Split the C++ SampleClient is into the AkAutobahn static lib and the SampleClient executable. You can use AkAutobahn static lib directly without the sample code.</li>
+<li class="calibre9"><b class="calibre13">WG-33381</b> Added the <code class="calibre14">Disconnect()</code> method to the <code class="calibre14">Client</code> class in WAAPI C++ SampleClient.</li>
+<li class="calibre9"><b class="calibre13">WG-33766</b> Upgraded the version of CivetWeb in C++ SampleClient to 1.9.1.</li>
+<li class="calibre9"><b class="calibre13">WG-33794</b> Fixed: Exiting Wwise while calling WAAPI sometimes causes the Wwise.exe process to continue running even after closing the main window.</li>
+<li class="calibre9"><b class="calibre13">WG-34285</b> Exposed process ID and process path in <code class="calibre14">ak.wwise.core.getInfo</code>.</li>
+<li class="calibre9"><b class="calibre13">WG-34285</b> Added <code class="calibre14">ak.wwise.ui.bringToForeground</code> to bring Wwise main window to foreground.</li>
+<li class="calibre9"><b class="calibre13">WG-34291</b> Added ability to use the search transform from <code class="calibre14">ak.wwise.core.object.get</code> when using the WAAPI server in WwiseCLI.</li>
+<li class="calibre9"><b class="calibre13">WG-34464</b> Added filtering by object type and category to the "where" transform from <code class="calibre14">ak.wwise.core.object.get</code>.</li>
+<li class="calibre9"><b class="calibre13">WG-34822</b> Added support for a different timeout for each call in the <code class="calibre14">Client</code> class in C++ SampleClient.</li>
+<li class="calibre9"><b class="calibre13">WG-34898</b> Added <code class="calibre14">@</code> as way to set references in tab delimited files (exactly like properties); usage of <code class="calibre14">~</code> is now deprecated. Also, references can be set with the same syntax in <code class="calibre14">ak.wwise.core.audio.import</code>.</li>
+<li class="calibre9"><b class="calibre13">WG-34939</b> Added platform to <code class="calibre14">ak.wwise.core.object.propertyChanged</code> subscribe topic.</li>
+<li class="calibre9"><b class="calibre13">WG-35365</b> Exposed <code class="calibre14">workUnit::isDirty</code> for Project objects.</li>
+<li class="calibre9"><b class="calibre13">WG-35366</b> Added <code class="calibre14">WaapiWampPort</code> and <code class="calibre14">WaapiHttpPort</code> macros to SoundBanks' pre-generation and post-generation steps.</li>
+<li class="calibre9"><b class="calibre13">WG-35382</b> Added Wwise object reference restrictions to the results of <code class="calibre14">ak.wwise.core.object.getPropertyInfo</code>.</li>
+</ul>
+</div></div></div></body></html>

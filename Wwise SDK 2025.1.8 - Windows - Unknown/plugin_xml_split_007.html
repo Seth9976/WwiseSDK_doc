@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Wwise Plug-in XML Description Files</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_6"><a class="pcalibre1 anchor" id="wwiseplugin_xml_effectplugin_sourceplugin_tags"></a>
+Plug-in Type Elements</h2>
+<p class="calibre7">In the category of Audio plug-ins, there are four possible plug-in type elements:</p>
+<ul class="calibre8">
+<li class="calibre9">SourcePlugin</li>
+<li class="calibre9">EffectPlugin</li>
+<li class="calibre9">SinkPlugin</li>
+<li class="calibre9">MetadataPlugin</li>
+</ul>
+<div class="fragment"><div class="line">&lt;EffectPlugin Name=<span class="stringliteral">"Parametric EQ"</span> CompanyID=<span class="stringliteral">"0"</span> PluginID=<span class="stringliteral">"105"</span> SupportsIsSendModeEffect=<span class="stringliteral">"false"</span>&gt;</div>
+<div class="line">    ...</div>
+<div class="line">&lt;/EffectPlugin&gt;</div>
+</div><!-- fragment --><p class="calibre7">The <code class="calibre14">EffectPlugin</code> element is the main element for the definition of a single effect plug-in, while <code class="calibre14">SourcePlugin</code>, <code class="calibre14">SinkPlugin</code> and <code class="calibre14">MetadataPlugin</code> are the element names for source plug-ins, sink plug-ins and metadata plug-ins, respectively.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> If more than one plug-in is implemented in the dynamic library, the XML file will contain multiple plug-in elements. A dynamic library is not limited to a single type of audio plug-in. </td></tr>
+</tbody></table>
+<p class="calibre7">These elements contain three required attributes: </p><ul class="calibre8">
+<li class="calibre9">
+<code class="calibre14">Name</code> (mandatory): This string specifies the display name of the plug-in as it will appear in Wwise.  </li>
+<li class="calibre9">
+<a class="pcalibre el" href="plugin_xml_split_008.html#wwiseplugin_xml_id_specification">CompanyID</a> (mandatory): This string must represent a positive integer in the range 0-4095 (see <code class="calibre14">wwiseplugin_xml_id_specification</code>) </li>
+<li class="calibre9">
+<a class="pcalibre el" href="plugin_xml_split_008.html#wwiseplugin_xml_id_specification">PluginID</a> (mandatory): This string must be a positive integer in the range 0-32767. Each PluginID must be unique for a specified CompanyID.  </li>
+</ul>
+<p class="calibre7">Two optional attributes can be specified: </p><ul class="calibre8">
+<li class="calibre9">
+<code class="calibre14">SupportsIsSendModeEffect</code> (optional): (Effect plug-in only) This boolean value indicates if the plug-in supports the send mode by querying <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_effect_plugin_context_ab8ec44868a3781a40320336c2eedf82e_split_000.html#ab8ec44868a3781a40320336c2eedf82e">AK::IAkEffectPluginContext::IsSendModeEffect()</a></code> during the initialization part. When <code class="calibre14">IsSendModeEffect()</code> returns true, the plug-in should not output the dry signal and should ignore the dry level properties.  </li>
+<li class="calibre9">
+<code class="calibre14">EngineDllName</code> (optional): This string value overrides the name of the Sound Engine dynamic library to load at game runtime (by default it will be the same name as the XML). If <code class="calibre14">EngineDllName</code> is specified, ensure that both of your Sound Engine static and dynamic libraries share the same name. Providing a DLL/so file with your plug-in is necessary to be supported in commercial game engines such as Unity and Unreal 4. This does not affect the naming of the Authoring plug-in dynamic library, which should strictly correspond to the name of your XML file. </li>
+</ul>
+</div></div></div></body></html>

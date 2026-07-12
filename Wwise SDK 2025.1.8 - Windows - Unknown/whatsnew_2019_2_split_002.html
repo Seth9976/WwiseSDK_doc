@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2019.2</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="feature_changes_2019_2"></a>
+New Features</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-26680</b> Added the Resource Monitor, which lets you monitor resources used by the sound engine from within a game running Wwise. No Authoring needed.</li>
+<li class="calibre9"><b class="calibre13">WG-32589</b> (WAAPI) New WAAPI command to capture an image from the Wwise user interface.</li>
+<li class="calibre9"><b class="calibre13">WG-39654</b> Users can now create, edit and reload custom command files, using their default JSON editor directly from Wwise, in the User Preferences.</li>
+<li class="calibre9"><b class="calibre13">WG-40348</b> Custom properties and Command Add-ons are now logged once loaded.</li>
+<li class="calibre9"><b class="calibre13">WG-40381</b> (WAAPI) Added the <a class="pcalibre el" href="ak_soundengine_setstate_split_000.html">ak.soundengine.setState</a> function.</li>
+<li class="calibre9"><b class="calibre13">WG-41088</b> New presets for Spatial Audio Auxilirary busses in Wwise Authoring: Room Reverb and Reflect.</li>
+<li class="calibre9"><b class="calibre13">WG-41090</b> Stochastic ray-tracing is now used to compute Reflections and Diffraction, in Spatial Audio.</li>
+<li class="calibre9"><b class="calibre13">WG-41111</b> New Spatial Audio and Wwise Reflect factory presets.</li>
+<li class="calibre9"><b class="calibre13">WG-41112</b> Presets now support multiple work units.</li>
+<li class="calibre9"><b class="calibre13">WG-41223</b> A new sub menu is now available to create a new child or a new parent from a preset.</li>
+<li class="calibre9"><b class="calibre13">WG-41481</b> Custom commands can now use common directory variables in <em class="calibre11">program</em>, <em class="calibre11">args</em> and <em class="calibre11">cwd</em> fields, in order to avoid machine-specific absolute paths.</li>
+<li class="calibre9"><b class="calibre13">WG-41530</b> WwiseConsole is the new WwiseCLI. WwiseConsole supports new syntax, built-in help display and strict validation of arguments. WwiseCLI is now deprecated but remains available.</li>
+<li class="calibre9"><b class="calibre13">WG-41727</b> Fixed: (WAAPI) Platform names can now be used as the platform argument in WAAPI instead of a GUID.</li>
+<li class="calibre9"><b class="calibre13">WG-41953</b> Custom commands can now use the new <em class="calibre11">redirectOutputs</em> field, in order to redirect the standard output streams of the program (stdout + stderr) to Wwise on termination.</li>
+<li class="calibre9"><b class="calibre13">WG-42470</b> Added support for 4th and 5th order ambisonics.</li>
+<li class="calibre9"><b class="calibre13">WG-42755</b> (WAAPI) WAAPI Subscription Publish messages are now displayed in the WAAPI tab of the Wwise Log.</li>
+<li class="calibre9"><b class="calibre13">WG-42812</b> A new Profiler view, the Voice Explorer, has been added. It enables you to list playing voices, sorted by playing events and game objects.</li>
+<li class="calibre9"><b class="calibre13">WG-42814</b> A new Filter bar has been added to most Profiler views, enabling you to search specifically for game objects, sounds, buses, events and more.</li>
+<li class="calibre9"><b class="calibre13">WG-42829</b> The new Voice Explorer profiling view is now available.</li>
+<li class="calibre9"><b class="calibre13">WG-42963</b> The Lumin Integration Demo is now available when performing a normal installation, using the Audiokinetic Launcher.</li>
+<li class="calibre9"><b class="calibre13">WG-43219</b> Added an "Any" platform, available to use in plug-in definition files.</li>
+<li class="calibre9"><b class="calibre13">WG-43246</b> The platform agnostic device enumeration function <em class="calibre11"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a3de19a0cdec459ebdc73fc1d0f8f276e_split_000.html#a3de19a0cdec459ebdc73fc1d0f8f276e">AK::SoundEngine::GetDeviceList</a></em> is now exposed.</li>
+<li class="calibre9"><b class="calibre13">WG-43249</b> Added ASIO implementation of <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a3de19a0cdec459ebdc73fc1d0f8f276e_split_000.html#a3de19a0cdec459ebdc73fc1d0f8f276e">AK::SoundEngine::GetDeviceList</a>.</li>
+<li class="calibre9"><b class="calibre13">WG-43250</b> Added support for device output enumeration and selection on macOS.</li>
+<li class="calibre9"><b class="calibre13">WG-43284</b> The Capture Log view now includes a redesigned filter.</li>
+<li class="calibre9"><b class="calibre13">WG-43465</b> It is now possible to create/edit/remove command Add-ons directly from the Keyboard Shortcuts and Commands dialog.</li>
+<li class="calibre9"><b class="calibre13">WG-43498</b> Parameteric EQ effect properties, Band Gain and Output Gain, now support multiple RTPCs and/or States.</li>
+<li class="calibre9"><b class="calibre13">WG-43544</b> Users can now create and edit custom command files, using their default JSON editor, by choosing one of the three predefined directories directly from Wwise, in the User Preferences.</li>
+<li class="calibre9"><b class="calibre13">WG-43580</b> The Game Simulator now supports Magic Leap.</li>
+<li class="calibre9"><b class="calibre13">WG-43809</b> You can now search for and execute Wwise Commands directly from the main Search Bar by inputting "&gt;" (without quotes).</li>
+<li class="calibre9"><b class="calibre13">WG-43889</b> (WAAPI) New WAAPI commands to support granular SoundBanks:<ul class="calibre15">
+<li class="calibre9">Added more information to the info file</li>
+<li class="calibre9">Each Event lists their associated media.</li>
+<li class="calibre9">Each SoundBank lists their associated AuxBuses, Game Parameters (RTPC), Switches, States and Triggers.</li>
+<li class="calibre9">Each event lists a tree of Switch value to Media ID, allowing to only load media when the Switch value is referenced in a given level.</li>
+<li class="calibre9">Added a new WAAPI command: ak.wwise.core.soundbank.generate. By default, it generates SoundBanks using an in-memory SoundBank generation model. You can also direct it to write the SoundBanks to disk in the default SoundBanks Generated folder. In the command, you can specify a list of SoundBanks and customize their inclusions. You can use the WAAPI callback: ak.wwise.core.soundbank.generated to get the SoundBank data encoded as base64 and the JSON info file embedded within the WAAPI callback.</li>
+<li class="calibre9">Added the WAAPI callback: ak.wwise.core.soundbank.generationdone, when the SoundBank generation is done.</li>
+<li class="calibre9">Added the –skip-languages WwiseConsole command line switch to skip generation of localized SoundBanks.</li>
+<li class="calibre9">Added the –use-stable-guid WwiseConsoloe command line switch for projects that don't save SoundBanks in their Wwise project and want a stable GUID in their info file.</li>
+</ul>
+</li>
+<li class="calibre9"><b class="calibre13">WG-44057</b> Added versioning to Command Add-on definition files.</li>
+<li class="calibre9"><b class="calibre13">WG-44358</b> The Game Sync Monitor has been redesigned to remove dependency on watches and benefit from Voice Inspector data.</li>
+<li class="calibre9"><b class="calibre13">WG-44511</b> It is now possible to create Work Units and Folders in the Master-Mixer Hierarchy.</li>
+<li class="calibre9"><b class="calibre13">WG-44633</b> Added AK::IAkIOHookDeferredBatch, a new interface for handling deferred I/O operations. It enables performance improvements to I/O threading CPU utilization and allows for greater flexibility in ordering and dispatching concurrent I/O requests, when many concurrent I/O requests are submitted.</li>
+<li class="calibre9"><b class="calibre13">WG-44974</b> (WAAPI) Added new settings to control the maximum number of concurrent clients that can be connected to Wwise through WAAPI. These settings can be modified in the User Preferences or through the command line.</li>
+<li class="calibre9"><b class="calibre13">WG-45522</b> The search field is now displayed by default in the Keyboard Shortcut Dialog.</li>
+<li class="calibre9"><b class="calibre13">WG-45682</b> (WAAPI) Added ak.wwise.core.profiler.getRTPCs to retrieve active RTPCs for profiling cursor time.</li>
+<li class="calibre9"><b class="calibre13">WG-45746</b> The Game Object 3D view is now available on macOS, without the 3D area.</li>
+<li class="calibre9"><b class="calibre13">WG-45797</b> Added a splitter in the Reflect Effect Editor between the curves graph and the list.</li>
+<li class="calibre9"><b class="calibre13">WG-46067</b> Double clicking a game object in the list view automatically locates the object in the Game Object 3D View.</li>
+</ul>
+</div></div></div></body></html>

@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2024.1.8</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="generic_community_bugs_2024_1_8"></a>
+Fixes for Community-Reported Bugs</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-77065</b> Fixed: Crash when renaming an object in the Project Explorer and confirming with the mouse.</li>
+<li class="calibre9"><b class="calibre13">WG-77107</b> Fixed: Hang on exit of Unreal games if disk streaming errors occured.</li>
+<li class="calibre9"><b class="calibre13">WG-77956</b> Fixed: Selecting an object in the Project Explorer doesn't sync with an Object Tab Group that is set to <b class="calibre13">Sync with any Selection Channel</b> if the Object Tab Group is floating.</li>
+<li class="calibre9"><b class="calibre13">WG-77998</b> Fixed: Whenever Effect Bypass is bound by an RTPC in an Effect chain, other Effects in the chain are no longer bypassed.</li>
+<li class="calibre9"><b class="calibre13">WG-78438</b> Fixed: Importing files over 800MB with <code class="calibre14">ak.wwise.core.audio.import</code> using the <code class="calibre14">audioFileBase64</code> argument fails.</li>
+<li class="calibre9"><b class="calibre13">WG-78541</b> Fixed: <b class="calibre13">Jump to Specific Playlist Item</b> tooltip display issue in some cases.</li>
+<li class="calibre9"><b class="calibre13">WG-79035</b> Fixed: (Acoustics) Large CPU spikes in <code class="calibre14">AKMergedRoomGeometry</code>.</li>
+<li class="calibre9"><b class="calibre13">WG-79135</b> Fixed: Possible crash when interacting with the Transitions tab of a Music Playlist Container.</li>
+<li class="calibre9"><b class="calibre13">WG-79322</b> Fixed: Stack overflow in <code class="calibre14">CAkListener::ComputeSpeakerMatrixWithRays</code> in some scenarios with heavy usage of Spatial Audio.</li>
+<li class="calibre9"><b class="calibre13">WG-79351</b> Fixed: Crash when playing a Random Container that has the hidden property <b class="calibre13">Always Reset Playlist</b> set to false.</li>
+<li class="calibre9"><b class="calibre13">WG-79428</b> Fixed: SoundBank generation is longer than expected when some of the project's original WAV files have many references.</li>
+<li class="calibre9"><b class="calibre13">WG-79463</b> Fixed: <code class="calibre14">SetMultiplePosition</code> does not honor emitter channel mask for multichannel sounds with height channels going into an Audio Objects bus.</li>
+<li class="calibre9"><b class="calibre13">WG-79569</b> Fixed: File packages are streamed over network when Wwise Profiler is connected. Now they are always read from local disk.</li>
+<li class="calibre9"><b class="calibre13">WG-79573</b> Fixed: Blend Containers with <b class="calibre13">Play Mode</b> set to <b class="calibre13">Continuous</b> sometimes report a DurationType that's not infinite.</li>
+<li class="calibre9"><b class="calibre13">WG-79594</b> Fixed: File Manager is disabled while connected to a game.</li>
+<li class="calibre9"><b class="calibre13">WG-79614</b> Fixed: (Acoustics) Crash in <code class="calibre14">AkKeyArray</code> when removing a Portal from a scene.</li>
+<li class="calibre9"><b class="calibre13">WG-79628</b> Fixed: Changing RTPC, Switch, or State dirties the Soundcaster session Work Unit.</li>
+<li class="calibre9"><b class="calibre13">WG-79635</b> Fixed: Music stops playing when connecting to a game and some files are missing from the <code class="calibre14">Originals</code> folder.</li>
+<li class="calibre9"><b class="calibre13">WG-79638</b> Fixed: Project load is slow when loading large Dynamic Dialogue Work Units.</li>
+<li class="calibre9"><b class="calibre13">WG-79658</b> Fixed: (Acoustics) A -6dB normalization gain for game-defined auxiliary sends is applied to the output of room busses, even when <b class="calibre13">Game-Defined Auxiliary Sends</b> is disabled.</li>
+<li class="calibre9"><b class="calibre13">WG-79705</b> Fixed: Crash in <code class="calibre14">AkMemoryArena::HugeHeap::Malloc</code> if <code class="calibre14">AkMemoryArenaSettings::fnMemAllocSpan</code> returns a nullptr.</li>
+</ul>
+</div></div></div></body></html>

@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integrating Markers</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_9"><a class="pcalibre1 anchor" id="soundengine_markers_callback"></a>
+Callback Thread</h1>
+<p class="calibre7">The callbacks for markers, as well as for the end of event notification, are done from the sound engine's main thread. This means that your application should gather all the information it needs from the notification and return immediately. If any processing needs to be done, it should be performed in a separate thread once the relevant information has been copied from the notification.</p>
+<p class="calibre7">If the application holds the thread for too long, the sound engine might fall into an underrun state and the output might stop playing.</p>
+<dl class="calibre7"><dt class="calibre23">Note</dt><dd class="calibre24">The label string from the callback function should be copied because the referenced data will be released by the sound engine after the callback function returns.</dd></dl>
+</div></div></div></body></html>

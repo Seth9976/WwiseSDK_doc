@@ -1,0 +1,408 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak.wwise.ui.getSelectedObjects</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="ak_wwise_ui_getselectedobjectsResult"></a>
+Result</h1>
+<p class="calibre7"></p><table class="doxtable">
+<tbody class="calibre4"><tr class="calibre16">
+<th class="calibre46">Name </th><th class="calibre46">Type </th><th class="calibre46">Description  </th></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">objects</b> * </td><td class="calibre36">array </td><td class="calibre36">The selected objects, in the format specified in the options. Can be empty if no object is selected.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects <b class="calibre13">[...]</b> </td><td class="calibre36">object </td><td class="calibre36">The selected objects. Use the options to specify which data to return. Default returns id and name.<br class="calibre10"/>
+ A Wwise object. Use the return options to specify which property is required.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">id</b> </td><td class="calibre36">string </td><td class="calibre36">The ID (GUID) of the object.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">name</b> </td><td class="calibre36">string </td><td class="calibre36">The name of the object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">notes</b> </td><td class="calibre36">string </td><td class="calibre36">The notes of the object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">type</b> </td><td class="calibre36">string </td><td class="calibre36">The type of the object. Refer to <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for more information on the types available.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">pluginName</b> </td><td class="calibre36">string </td><td class="calibre36">The name of the plug-in for Source, Effect, Mixer, Device and Metadata plug-in.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">path</b> </td><td class="calibre36">string </td><td class="calibre36">The path of the object from the project root. Ex: '\Containers\Default Work Unit\Sound1'   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">parent</b> </td><td class="calibre36">object </td><td class="calibre36">The parent of the object in the hierarchy.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].parent.<b class="calibre13">id</b> </td><td class="calibre36">string </td><td class="calibre36">The ID (GUID) of the object.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].parent.<b class="calibre13">name</b> </td><td class="calibre36">string </td><td class="calibre36">The name of the object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">owner</b> </td><td class="calibre36">object </td><td class="calibre36">The owner of the object. This applies to objects being locally owned by other objects, such as custom effects, custom attenuations, etc.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].owner.<b class="calibre13">id</b> </td><td class="calibre36">string </td><td class="calibre36">The ID (GUID) of the object.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].owner.<b class="calibre13">name</b> </td><td class="calibre36">string </td><td class="calibre36">The name of the object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">isPlayable</b> </td><td class="calibre36">boolean </td><td class="calibre36">True if the object can be played in Transport.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">shortId</b> </td><td class="calibre36">integer </td><td class="calibre36">The Short ID of the object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">classId</b> </td><td class="calibre36">integer </td><td class="calibre36">The class ID of the object.<br class="calibre10"/>
+ Unsigned Integer 32-bit. Range: [0,4294967295]  </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">category</b> </td><td class="calibre36">string </td><td class="calibre36">The category of the object. Ex: 'Containers'   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">filePath</b> </td><td class="calibre36">string </td><td class="calibre36">The path to the file containing the object. The path can be a Work Unit file or a project file. For using WAAPI on Mac, please refer to <a class="pcalibre el" href="waapi_prepare_split_005.html#waapi_path_on_mac">Using WAAPI on Mac</a> .   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">workunit</b> </td><td class="calibre36">object </td><td class="calibre36">The parent Work Unit containing the object. The 'id' and the 'name' is returned.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].workunit.<b class="calibre13">id</b> </td><td class="calibre36">string </td><td class="calibre36">The ID (GUID) of the object.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].workunit.<b class="calibre13">name</b> </td><td class="calibre36">string </td><td class="calibre36">The name of the object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">childrenCount</b> </td><td class="calibre36">number </td><td class="calibre36">The number of children for the object. Note, this is deprecated. The same result can be obtained with children.count().   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">totalSize</b> </td><td class="calibre36">integer </td><td class="calibre36">The amount of space (in bytes) this object and all of its children take up in a SoundBank. This does not include the objectSize. Note that SoundBanks need to be generated for this value to be accurate.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">mediaSize</b> </td><td class="calibre36">integer </td><td class="calibre36">The total converted size (in bytes) of the media files of this object and all of its children. Note that SoundBanks need to be generated for this value to be accurate.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">objectSize</b> </td><td class="calibre36">integer </td><td class="calibre36">The amount of space (in bytes) the meta-data of the object takes up in a SoundBank. This does not include media files. Note that SoundBanks need to be generated for this value to be accurate.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">structureSize</b> </td><td class="calibre36">integer </td><td class="calibre36">The amount of space (in bytes) the meta-data of the object and all of its children take up in a SoundBank. This does not include media files. Note that SoundBanks need to be generated for this value to be accurate.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">musicTransitionRoot</b> </td><td class="calibre36">object </td><td class="calibre36">(DEPRECATED) The music transition root containing all other music transitions recursively. Note, this is deprecated. The TransitionRoot reference should be used instead.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].musicTransitionRoot.<b class="calibre13">id</b> </td><td class="calibre36">string </td><td class="calibre36">The ID (GUID) of the object.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">musicPlaylistRoot</b> </td><td class="calibre36">object </td><td class="calibre36">(DEPRECATED) The music playlist root containing all other music playlist items recursively. This applies to Music Playlist Containers only. Note, this is deprecated. The PlaylistRoot reference should be used instead.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].musicPlaylistRoot.<b class="calibre13">id</b> </td><td class="calibre36">string </td><td class="calibre36">The ID (GUID) of the object.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">musicTransitionObject</b> </td><td class="calibre36">object </td><td class="calibre36">The music transition segment.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].musicTransitionObject.<b class="calibre13">id</b> </td><td class="calibre36">string </td><td class="calibre36">The ID (GUID) of the object.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">originalWavFilePath</b> </td><td class="calibre36">string </td><td class="calibre36">(DEPRECATED) Absolute path to the original wav file. Only valid for Sound and Audio Source objects. For using WAAPI on Mac, please refer to <a class="pcalibre el" href="waapi_prepare_split_005.html#waapi_path_on_mac">Using WAAPI on Mac</a> .   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">originalFilePath</b> </td><td class="calibre36">string </td><td class="calibre36">Absolute path to the original file. Only valid for Sound and Audio Source objects. For using WAAPI on Mac, please refer to <a class="pcalibre el" href="waapi_prepare_split_005.html#waapi_path_on_mac">Using WAAPI on Mac</a> .   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">originalRelativeFilePath</b> </td><td class="calibre36">string </td><td class="calibre36">Relative (from project's Originals Folder) path to the original file. Only valid for Sound and Audio Source objects. For using WAAPI on Mac, please refer to <a class="pcalibre el" href="waapi_prepare_split_005.html#waapi_path_on_mac">Using WAAPI on Mac</a> .   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">activeSource</b> </td><td class="calibre36">object </td><td class="calibre36">The active source of the sound object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].activeSource.<b class="calibre13">id</b> </td><td class="calibre36">string </td><td class="calibre36">The ID (GUID) of the object.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].activeSource.<b class="calibre13">name</b> </td><td class="calibre36">string </td><td class="calibre36">The name of the object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">convertedWemFilePath</b> </td><td class="calibre36">string </td><td class="calibre36">(DEPRECATED) Absolute path to the converted wem file. Specify the platform in the options. Only valid for Sound and Audio Source objects. To use WAAPI on Mac, please refer to <a class="pcalibre el" href="waapi_prepare_split_005.html#waapi_path_on_mac">Using WAAPI on Mac</a> .   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">convertedFilePath</b> </td><td class="calibre36">string </td><td class="calibre36">Absolute path to the converted file. Specify the platform in the options. Only valid for Sound and Audio Source objects. To use WAAPI on Mac, please refer to <a class="pcalibre el" href="waapi_prepare_split_005.html#waapi_path_on_mac">Using WAAPI on Mac</a> .   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">soundbankBnkFilePath</b> </td><td class="calibre36">string </td><td class="calibre36">Absolute path to the generated SoundBank file associated with the SoundBank object. Only valid for SoundBank objects. To use WAAPI on Mac, please refer to <a class="pcalibre el" href="waapi_prepare_split_005.html#waapi_path_on_mac">Using WAAPI on Mac</a> .   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">playbackDuration</b> </td><td class="calibre36">object </td><td class="calibre36">The duration root that contains the min and max durations and duration type. Note, this is deprecated. The duration should be used instead. This applies to all objects that can contain Audio Source objects, either directly as a source or indirectly through descendants.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].playbackDuration.<b class="calibre13">playbackDurationMin</b> </td><td class="calibre36">number </td><td class="calibre36">The minimum possible time (in seconds) playback can take.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].playbackDuration.<b class="calibre13">playbackDurationMax</b> </td><td class="calibre36">number </td><td class="calibre36">The maximum possible time (in seconds) playback can take.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].playbackDuration.<b class="calibre13">playbackDurationType</b> </td><td class="calibre36">string </td><td class="calibre36">The type of duration.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">duration</b> </td><td class="calibre36">object </td><td class="calibre36">The duration root that contains the min and max durations and duration type. This applies to all objects that can contain Audio Source objects, either directly as a source or indirectly through descendants.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].duration.<b class="calibre13">min</b> </td><td class="calibre36">number </td><td class="calibre36">The minimum possible time (in seconds) playback can take.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].duration.<b class="calibre13">max</b> </td><td class="calibre36">number </td><td class="calibre36">The maximum possible time (in seconds) playback can take.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].duration.<b class="calibre13">type</b> </td><td class="calibre36">string </td><td class="calibre36">The type of duration.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">maxDurationSource</b> </td><td class="calibre36">object </td><td class="calibre36">Audio source with the longest duration. This applies to all objects that can contain Audio Source objects, either directly as a source or indirectly through descendants.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].maxDurationSource.<b class="calibre13">id</b> </td><td class="calibre36">string </td><td class="calibre36">The ID (GUID) of the audio source object with the longest duration.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].maxDurationSource.<b class="calibre13">trimmedDuration</b> </td><td class="calibre36">number </td><td class="calibre36">The duration in seconds of the longest trimmed source.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">audioSourceTrimValues</b> </td><td class="calibre36">object </td><td class="calibre36">Range of time for which the audio source is trimmed.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].audioSourceTrimValues.<b class="calibre13">trimBegin</b> </td><td class="calibre36">number </td><td class="calibre36">The time value in seconds of the start trim.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].audioSourceTrimValues.<b class="calibre13">trimEnd</b> </td><td class="calibre36">number </td><td class="calibre36">The time value in seconds of the end trim.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">maxRadiusAttenuation</b> </td><td class="calibre36">object </td><td class="calibre36">Attenuation with the largest radius. This applies to all objects that can contain Audio Source objects, either directly as a source or indirectly through descendants.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].maxRadiusAttenuation.<b class="calibre13">id</b> </td><td class="calibre36">string </td><td class="calibre36">The ID (GUID) of the attenuation object with the largest radius.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].maxRadiusAttenuation.<b class="calibre13">radius</b> </td><td class="calibre36">number </td><td class="calibre36">The radius of the attenuation object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">audioSourceLanguage</b> </td><td class="calibre36">object </td><td class="calibre36">Language associated to the audio source. This only applies to Audio Source objects directly.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].audioSourceLanguage.<b class="calibre13">id</b> </td><td class="calibre36">string </td><td class="calibre36">The ID (GUID) of the Language object to which the Audio Source object is associated.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].audioSourceLanguage.<b class="calibre13">name</b> </td><td class="calibre36">string </td><td class="calibre36">The name of the Language object to which the Audio Source object is associated.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">originalTotalChannelCount</b> </td><td class="calibre36">number </td><td class="calibre36">The total number of channels present in the audio source. This accessor works for Sounds, Audio File Source, Plugin-Media and Music Clips.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">originalNormalChannelCount</b> </td><td class="calibre36">number </td><td class="calibre36">The number of channels in the normal plane of the audio source. This accessor works for Sounds, Audio File Source, Plugin-Media and Music Clips.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">originalHeightChannelCount</b> </td><td class="calibre36">number </td><td class="calibre36">The number of channels in the height plane of the audio source. This accessor works for Sounds, Audio File Source, Plugin-Media and Music Clips.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">originalLFEChannelCount</b> </td><td class="calibre36">number </td><td class="calibre36">The number of low frequency channels in the audio source. This accessor works for Sounds, Audio File Source, Plugin-Media and Music Clips.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">originalNonLFEChannelCount</b> </td><td class="calibre36">number </td><td class="calibre36">The number of normal and height channels in the audio source. This accessor works for Sounds, Audio File Source, Plugin-Media and Music Clips.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">originalAnonymousChannelCount</b> </td><td class="calibre36">number </td><td class="calibre36">The number of anonymous channels in the audio source. This accessor works for Sounds, Audio File Source, Plugin-Media and Music Clips.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">originalAmbisonicsChannelCount</b> </td><td class="calibre36">number </td><td class="calibre36">The number of ambisonics channels in the audio source. This accessor works for Sounds, Audio File Source, Plugin-Media and Music Clips.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">originalChannelConfig</b> </td><td class="calibre36">string </td><td class="calibre36">The configuration of the channels in the audio source (Ex : 7.1.4). For anonymous channels, returns Anonymous. This accessor works for Sounds, Audio File Source, Plugin-Media and Music Clips.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">originalChannelMask</b> </td><td class="calibre36">number </td><td class="calibre36">The mask associated with the channel's configuration. This accessor works for Sounds, Audio File Source, Plugin-Media and Music Clips.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">originalSampleRate</b> </td><td class="calibre36">number </td><td class="calibre36">The sample rate for the audio source. This accessor works for Sounds, Audio File Source, Plugin-Media and Music Clips.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">originalBitDepth</b> </td><td class="calibre36">number </td><td class="calibre36">The sample rate for the audio source. Either 16 or 24. This accessor works for Sounds, Audio File Source, Plugin-Media and Music Clips.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">originalFileSize</b> </td><td class="calibre36">number </td><td class="calibre36">The file size in bytes for the audio source. This accessor works for Sounds, Audio File Source, Plugin-Media and Music Clips.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">originalDataSize</b> </td><td class="calibre36">number </td><td class="calibre36">The data size for bytes the audio source. This accessor works for Sounds, Audio File Source, Plugin-Media and Music Clips.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">originalSampleCount</b> </td><td class="calibre36">number </td><td class="calibre36">The number of samples in the audio file. This accessor works for Sounds, Audio File Source, Plugin-Media and Music Clips.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">originalDuration</b> </td><td class="calibre36">number </td><td class="calibre36">The file duration in seconds. This accessor works for Sounds, Audio File Source, Plugin-Media and Music Clips.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">originalCodec</b> </td><td class="calibre36">string </td><td class="calibre36">The audio file's codec. For original files, it will always be PCM. This accessor works for Sounds, Audio File Source, Plugin-Media and Music Clips.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">convertedTotalChannelCount</b> </td><td class="calibre36">number </td><td class="calibre36">The total number of channels present in the audio source. This accessor works for Sounds, Audio File Source, Plugin-Media and Music Clips.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">convertedNormalChannelCount</b> </td><td class="calibre36">number </td><td class="calibre36">The number of channels in the normal plane of the audio source. This accessor works for Sounds, Audio File Source, Plugin-Media and Music Clips.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">convertedHeightChannelCount</b> </td><td class="calibre36">number </td><td class="calibre36">The number of channels in the height plane of the audio source. This accessor works for Sounds, Audio File Source, Plugin-Media and Music Clips.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">convertedLFEChannelCount</b> </td><td class="calibre36">number </td><td class="calibre36">The number of low frequency channels in the audio source. This accessor works for Sounds, Audio File Source, Plugin-Media and Music Clips.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">convertedNonLFEChannelCount</b> </td><td class="calibre36">number </td><td class="calibre36">The number of normal and height channels in the audio source. This accessor works for Sounds, Audio File Source, Plugin-Media and Music Clips.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">convertedAnonymousChannelCount</b> </td><td class="calibre36">number </td><td class="calibre36">The number of anonymous channels in the audio source. This accessor works for Sounds, Audio File Source, Plugin-Media and Music Clips.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">convertedAmbisonicsChannelCount</b> </td><td class="calibre36">number </td><td class="calibre36">The number of ambisonics channels in the audio source. This accessor works for Sounds, Audio File Source, Plugin-Media and Music Clips.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">convertedChannelConfig</b> </td><td class="calibre36">string </td><td class="calibre36">The configuration of the channels in the audio source (Ex : 7.1.4). For anonymous channels, returns Anonymous. This accessor works for Sounds, Audio File Source, Plugin-Media and Music Clips.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">convertedChannelMask</b> </td><td class="calibre36">number </td><td class="calibre36">The mask associated with the channel's configuration. This accessor works for Sounds, Audio File Source, Plugin-Media and Music Clips.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">convertedSampleRate</b> </td><td class="calibre36">number </td><td class="calibre36">The sample rate for the audio source. This accessor works for Sounds, Audio File Source, Plugin-Media and Music Clips.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">convertedSampleRateSetting</b> </td><td class="calibre36">string </td><td class="calibre36">The sample rate for the audio source, expressed as a string. This accessor works for Sounds, Audio File Source, Plugin-Media and Music Clips.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">convertedBitDepth</b> </td><td class="calibre36">number </td><td class="calibre36">The sample rate for the audio source. Either 16 or 24. This accessor works for Sounds, Audio File Source, Plugin-Media and Music Clips.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">convertedFileSize</b> </td><td class="calibre36">number </td><td class="calibre36">The file size in bytes for the audio source. This accessor works for Sounds, Audio File Source, Plugin-Media and Music Clips.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">convertedDataSize</b> </td><td class="calibre36">number </td><td class="calibre36">The data size for bytes the audio source. This accessor works for Sounds, Audio File Source, Plugin-Media and Music Clips.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">convertedSampleCount</b> </td><td class="calibre36">number </td><td class="calibre36">The number of samples in the audio file. This accessor works for Sounds, Audio File Source, Plugin-Media and Music Clips.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">convertedDuration</b> </td><td class="calibre36">number </td><td class="calibre36">The file duration in seconds. This accessor works for Sounds, Audio File Source, Plugin-Media and Music Clips.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">convertedTrimmedDuration</b> </td><td class="calibre36">number </td><td class="calibre36">The duration (in seconds) of the trimmed audio source. Differs from generic Duration field because the original file does not include Trim Begind/End. This accessor works for Sounds, Audio File Source, Plugin-Media and Music Clips.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">convertedCodec</b> </td><td class="calibre36">string </td><td class="calibre36">The audio file's codec. For original files, it will always be PCM. This accessor works for Sounds, Audio File Source, Plugin-Media and Music Clips.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">conversionFormat</b> </td><td class="calibre36">string </td><td class="calibre36">The format specified in the Conversion Settings for the associated audio source. This differs from convertedCodec because the file does not have to be converted. This accessor works for Sounds, Audio File Source, Plugin-Media and Music Clips.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">workunitIsDefault</b> </td><td class="calibre36">boolean </td><td class="calibre36">True if the work unit is the default.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">workunitType</b> </td><td class="calibre36">string </td><td class="calibre36">The type of the Work Unit. Please note that, like Work Units, physical folders have the type "WorkUnit". Physical folders have the workunitType "folder". Possible values: <ul class="calibre8">
+<li class="calibre9">
+folder </li>
+<li class="calibre9">
+rootFile </li>
+<li class="calibre9">
+nestedFile </li>
+</ul>
+</td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">workunitIsDirty</b> </td><td class="calibre36">boolean </td><td class="calibre36">True if a Work Unit or a Project (wproj file) is dirty, meaning it was modified but not saved.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">workunitIsLoaded</b> </td><td class="calibre36">boolean </td><td class="calibre36">True if a Work Unit is currently loaded in the Project. False if it has been unloaded.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">switchContainerChildContext</b> </td><td class="calibre36">object </td><td class="calibre36">The context object associated with the child of a Switch Container. This object holds the properties associated with the child that are context-dependent for the Switch Container (for example: the properties of the '1st only' checkbox).   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].switchContainerChildContext.<b class="calibre13">id</b> </td><td class="calibre36">string </td><td class="calibre36">The ID (GUID) of the object.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">switchGroupGameParameter</b> </td><td class="calibre36">object </td><td class="calibre36">The game parameter object associated with a Switch Group.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].switchGroupGameParameter.<b class="calibre13">id</b> </td><td class="calibre36">string </td><td class="calibre36">The ID (GUID) of the object.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].switchGroupGameParameter.<b class="calibre13">name</b> </td><td class="calibre36">string </td><td class="calibre36">The name of the object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">isExplicitMute</b> </td><td class="calibre36">boolean </td><td class="calibre36">Whether or not the object has been muted explicitly. Explicitly muting an object implicitly mutes the descendant objects.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">isExplicitSolo</b> </td><td class="calibre36">boolean </td><td class="calibre36">Whether or not the object has been soloed explicitly. Soloing an object silences all the other objects in the project except this one.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">isImplicitMute</b> </td><td class="calibre36">boolean </td><td class="calibre36">Whether or not the object has been muted implicitly. Explicitly muting an object implicitly mutes the descendant objects.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">isImplicitSolo</b> </td><td class="calibre36">boolean </td><td class="calibre36">Whether or not the object has been soloed implicitly. Soloing an object silences all the other objects in the project except this one.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">isIncluded</b> </td><td class="calibre36">boolean </td><td class="calibre36">Whether or not the object is Included. Specify the platform in the options. This takes into consideration the Inclusion status of the object's ancestors.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">isLanguageIncluded</b> </td><td class="calibre36">boolean </td><td class="calibre36">Whether or not the Audio Source object's language is included for the current platform.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">points</b> </td><td class="calibre36">array </td><td class="calibre36">This only applies to Curve objects.<br class="calibre10"/>
+ An array of points defining a curve.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].points <b class="calibre13">[...]</b> </td><td class="calibre36">object </td><td class="calibre36">A point in the curve.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].points[...].<b class="calibre13">x</b> * </td><td class="calibre36">number </td><td class="calibre36">X coordinate of curve point.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].points[...].<b class="calibre13">y</b> * </td><td class="calibre36">number </td><td class="calibre36">Y coordinate of curve point.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].points[...].<b class="calibre13">shape</b> * </td><td class="calibre36">string </td><td class="calibre36">Shape of the curve segment between this point and the next. Possible values: <ul class="calibre8">
+<li class="calibre9">
+Constant </li>
+<li class="calibre9">
+Linear </li>
+<li class="calibre9">
+Log3 </li>
+<li class="calibre9">
+Log2 </li>
+<li class="calibre9">
+Log1 </li>
+<li class="calibre9">
+InvertedSCurve </li>
+<li class="calibre9">
+SCurve </li>
+<li class="calibre9">
+Exp1 </li>
+<li class="calibre9">
+Exp2 </li>
+<li class="calibre9">
+Exp3 </li>
+</ul>
+</td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">stateProperties</b> </td><td class="calibre36">array </td><td class="calibre36">An array of state properties to set.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].stateProperties <b class="calibre13">[...]</b> </td><td class="calibre36">string </td><td class="calibre36">The name of the property to set.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">stateGroups</b> </td><td class="calibre36">array </td><td class="calibre36">The State Group objects associated with this object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].stateGroups <b class="calibre13">[...]</b> </td><td class="calibre36">object </td><td class="calibre36">A State Group object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].stateGroups[...].<b class="calibre13">id</b> </td><td class="calibre36">string </td><td class="calibre36">The ID (GUID) of the State Group object.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].stateGroups[...].<b class="calibre13">name</b> </td><td class="calibre36">string </td><td class="calibre36">The name of the State Group object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">customStates</b> </td><td class="calibre36">array </td><td class="calibre36">The Custom State objects associated with this object that have defined values.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].customStates <b class="calibre13">[...]</b> </td><td class="calibre36">object </td><td class="calibre36">A State object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].customStates[...].<b class="calibre13">id</b> </td><td class="calibre36">string </td><td class="calibre36">The ID (GUID) of the State object.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].customStates[...].<b class="calibre13">name</b> </td><td class="calibre36">string </td><td class="calibre36">The name of the State object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">originalState</b> </td><td class="calibre36">object </td><td class="calibre36">The state associated with the custom state object. This applies to custom state objects which can be obtained using the 'customStates' return option.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].originalState.<b class="calibre13">id</b> </td><td class="calibre36">string </td><td class="calibre36">The ID (GUID) of the object.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].originalState.<b class="calibre13">name</b> </td><td class="calibre36">string </td><td class="calibre36">The name of the object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">supportsStates</b> </td><td class="calibre36">boolean </td><td class="calibre36">Whether or not the object supports the use of States on any of its properties.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">supportsRandomizer</b> </td><td class="calibre36">boolean </td><td class="calibre36">Whether or not the object supports the use of a Randomizer on any of its properties.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">hasEmptySwitchStateAssignment</b> </td><td class="calibre36">boolean </td><td class="calibre36">Returns true if there are empty objects or paths assigned to any Switches or States this object uses.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">extractEvents</b> </td><td class="calibre36">array </td><td class="calibre36">The Event objects extracted from the current SoundBank.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].extractEvents <b class="calibre13">[...]</b> </td><td class="calibre36">object </td><td class="calibre36">An event.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].extractEvents[...].<b class="calibre13">id</b> </td><td class="calibre36">string </td><td class="calibre36">The ID (GUID) of the Event object.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].extractEvents[...].<b class="calibre13">name</b> </td><td class="calibre36">string </td><td class="calibre36">The name of the Event object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">extractStructures</b> </td><td class="calibre36">array </td><td class="calibre36">The object structures extracted from the current SoundBank.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].extractStructures <b class="calibre13">[...]</b> </td><td class="calibre36">object </td><td class="calibre36">An object, which is not an Event.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].extractStructures[...].<b class="calibre13">id</b> </td><td class="calibre36">string </td><td class="calibre36">The ID (GUID) of the object.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].extractStructures[...].<b class="calibre13">name</b> </td><td class="calibre36">string </td><td class="calibre36">The name of the object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">extractMedia</b> </td><td class="calibre36">array </td><td class="calibre36">The Media files extracted from the current SoundBank.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].extractMedia <b class="calibre13">[...]</b> </td><td class="calibre36">string </td><td class="calibre36">A media file path.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].<b class="calibre13">soundbanksReferencingEvent</b> </td><td class="calibre36">array </td><td class="calibre36">The SoundBank objects referencing the current event object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].soundbanksReferencingEvent <b class="calibre13">[...]</b> </td><td class="calibre36">object </td><td class="calibre36">A SoundBank object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].soundbanksReferencingEvent[...].<b class="calibre13">id</b> </td><td class="calibre36">string </td><td class="calibre36">The ID (GUID) of the SoundBank object.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].soundbanksReferencingEvent[...].<b class="calibre13">name</b> </td><td class="calibre36">string </td><td class="calibre36">The name of the SoundBank object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="9" class="calibre36">objects[...].<b class="calibre13">regex(^((@?@?[a-zA-Z0-9:_\(\),]+)|[a-zA-Z\(\),]+\(.+\))(\.@?@?[a-zA-Z0-9:_\(\),]+|[a-zA-Z\(\),]+\(.+\))*$)</b> </td><td class="calibre36"/><td class="calibre36"><p class="starttd">Specifies dot-separated accessors that form a query and yields a property value or an object reference. A single @ specifies the value of the property for the associated object. A double @ specifies the value of the property for the source of override. Refer to <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for more information on the properties and references for all types available. </p>
+<p class="endtd">Any of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">A string value.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">array </td><td class="calibre36">An array of string values.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">number </td><td class="calibre36">A numeric value.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">array </td><td class="calibre36">An array of numeric values.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">boolean </td><td class="calibre36">A boolean value.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">array </td><td class="calibre36">An array of boolean values.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">object </td><td class="calibre36">An object reference value.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">array </td><td class="calibre36">An object list reference value.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^((@?@?[a-zA-Z0-9:_\(\),]+)|[a-zA-Z\(\),]+\(.+\))(\.@?@?[a-zA-Z0-9:_\(\),]+|[a-zA-Z\(\),]+\(.+\))*$) <b class="calibre13">[...]</b> </td><td class="calibre36">string </td><td class="calibre36">A string value.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^((@?@?[a-zA-Z0-9:_\(\),]+)|[a-zA-Z\(\),]+\(.+\))(\.@?@?[a-zA-Z0-9:_\(\),]+|[a-zA-Z\(\),]+\(.+\))*$) <b class="calibre13">[...]</b> </td><td class="calibre36">number </td><td class="calibre36">A numeric value.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^((@?@?[a-zA-Z0-9:_\(\),]+)|[a-zA-Z\(\),]+\(.+\))(\.@?@?[a-zA-Z0-9:_\(\),]+|[a-zA-Z\(\),]+\(.+\))*$) <b class="calibre13">[...]</b> </td><td class="calibre36">boolean </td><td class="calibre36">A boolean value.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^((@?@?[a-zA-Z0-9:_\(\),]+)|[a-zA-Z\(\),]+\(.+\))(\.@?@?[a-zA-Z0-9:_\(\),]+|[a-zA-Z\(\),]+\(.+\))*$).<b class="calibre13">id</b> </td><td class="calibre36">string </td><td class="calibre36">The ID (GUID) of the object.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^((@?@?[a-zA-Z0-9:_\(\),]+)|[a-zA-Z\(\),]+\(.+\))(\.@?@?[a-zA-Z0-9:_\(\),]+|[a-zA-Z\(\),]+\(.+\))*$).<b class="calibre13">name</b> </td><td class="calibre36">string </td><td class="calibre36">The name of the object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^((@?@?[a-zA-Z0-9:_\(\),]+)|[a-zA-Z\(\),]+\(.+\))(\.@?@?[a-zA-Z0-9:_\(\),]+|[a-zA-Z\(\),]+\(.+\))*$) <b class="calibre13">[...]</b> </td><td class="calibre36">object </td><td class="calibre36">An object reference value.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^((@?@?[a-zA-Z0-9:_\(\),]+)|[a-zA-Z\(\),]+\(.+\))(\.@?@?[a-zA-Z0-9:_\(\),]+|[a-zA-Z\(\),]+\(.+\))*$)[...].<b class="calibre13">id</b> </td><td class="calibre36">string </td><td class="calibre36">The ID (GUID) of the object.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">objects[...].regex(^((@?@?[a-zA-Z0-9:_\(\),]+)|[a-zA-Z\(\),]+\(.+\))(\.@?@?[a-zA-Z0-9:_\(\),]+|[a-zA-Z\(\),]+\(.+\))*$)[...].<b class="calibre13">name</b> </td><td class="calibre36">string </td><td class="calibre36">The name of the object.   </td></tr>
+</tbody></table>
+<p class="calibre7">(Required *)</p>
+<p class="calibre7"><a class="pcalibre el" href="ak_wwise_ui_getselectedobjects_result_schema_split_000.html">Result Schema</a></p>
+</div></div></div></body></html>

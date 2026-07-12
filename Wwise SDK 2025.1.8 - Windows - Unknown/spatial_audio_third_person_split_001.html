@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Third-Person Perspective and Wwise Acoustics</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="diffraction_virtual_position"></a>
+Diffraction and Virtual Positioning</h1>
+<p class="calibre7">The diffraction system in Wwise Acoustics is primarily responsible for rendering the dry signal path for a particular sound and listener. Often, a single sound will have multiple diffraction paths.</p><ul class="calibre8">
+<li class="calibre9">A diffraction path is calculated according to the position of the Emitter and Listener game objects. Diffraction points are found according to geometry and/or Portals along the path.</li>
+<li class="calibre9">A virtual sound position is calculated.</li>
+<li class="calibre9">The sound is panned according to the virtual position, as per usual.</li>
+<li class="calibre9">The diffraction coefficient is calculated according to the path between the Emitter and the Listener Game Objects and results in further attenuation and filtering of the sound.</li>
+<li class="calibre9">The distance used to evaluate the attenuation curve of the sound is the distance between the virtual position and the Distance Probe Game Object.</li>
+</ul>
+</div></div></div></body></html>

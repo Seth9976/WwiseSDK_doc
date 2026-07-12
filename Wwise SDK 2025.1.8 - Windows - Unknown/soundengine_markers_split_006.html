@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integrating Markers</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_5"><a class="pcalibre1 anchor" id="soundengine_markers_plugins"></a>
+Working with Source Plug-ins</h1>
+<p class="calibre7">Source plug-ins can also generate marker notifications.</p>
+<p class="calibre7">Within a source plug-in, <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_service_markers_adc860123c5af8918edcc787a8459d65b_split_000.html#adc860123c5af8918edcc787a8459d65b">AK::IAkPluginServiceMarkers::CreateMarkerNotificationService()</a></code> can be used to create an instance of <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_service_markers_1_1_i_ak_marker_notification_service_split_000.html">AK::IAkPluginServiceMarkers::IAkMarkerNotificationService</a></code>. <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_service_markers_1_1_i_ak_marker_notification_service_a37f50515ba3505f02de27d3c43a2616f_split_000.html#a37f50515ba3505f02de27d3c43a2616f">AK::IAkPluginServiceMarkers::IAkMarkerNotificationService::SubmitMarkerNotifications()</a></code> can then be used to send marker notifications to the game using the <code class="calibre14"><a class="pcalibre el" href="struct_ak_audio_marker_split_000.html" title="Defines the parameters of a marker.">AkAudioMarker</a></code> structure.</p>
+<div class="fragment"><div class="line"><span class="keyword">struct </span><a class="pcalibre code" href="struct_ak_audio_marker_split_000.html">AkAudioMarker</a></div>
+<div class="line">{</div>
+<div class="line">    <a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a>        <a class="pcalibre code" href="struct_ak_audio_marker_adef1428c7f4476db4dbeee707eec8984_split_000.html#adef1428c7f4476db4dbeee707eec8984">dwIdentifier</a>;       <span class="comment">///&lt; Identifier.</span></div>
+<div class="line"><span class="comment"></span>    <a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a>        <a class="pcalibre code" href="struct_ak_audio_marker_a614e69d4179a70b5d096b1812b3bd876_split_000.html#a614e69d4179a70b5d096b1812b3bd876">dwPosition</a>;         <span class="comment">///&lt; Position in the audio data in sample frames.</span></div>
+<div class="line"><span class="comment"></span>    <span class="keyword">const</span> <span class="keywordtype">char</span>*     <a class="pcalibre code" href="struct_ak_audio_marker_aee87f10b0ad8d8bb5d226221479720a6_split_000.html#aee87f10b0ad8d8bb5d226221479720a6">strLabel</a>;           <span class="comment">///&lt; Label of the marker taken from the file.</span></div>
+<div class="line"><span class="comment"></span>    <a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a>        <a class="pcalibre code" href="struct_ak_audio_marker_aa1c572e31ad099fb92d0bae6cf1e15f7_split_000.html#aa1c572e31ad099fb92d0bae6cf1e15f7">dwLabelSize</a>;        <span class="comment">///&lt; Length of label read the from the file + terminating null character.</span></div>
+<div class="line"><span class="comment"></span>};</div>
+</div><!-- fragment --></div></div></div></body></html>

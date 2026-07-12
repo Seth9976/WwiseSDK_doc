@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Simulating Rapid Gunfire</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="gunfire_limitations"></a>
+Limitations</h1>
+<p class="calibre7">There is a limitation when using MIDI-triggered events in conjunction with Wwise Acoustics. MIDI events are triggered internally by the sound engine and might occur between frame boundaries. However, the acoustics simulation is updated before the audio frame begins. If such an event occurs, it might not be possible for the acoustics engine to perform an update in time, which can cause the first frame of audio to be rendered without acoustic path information, resulting in audible glitches. This behavior happens when the first sound played on a Game Object is a sound triggered by MIDI, and the acoustics engine has not yet calculated the sound propagation paths for that Game Object.</p>
+<p class="calibre7">As a workaround, play a separate sound on the same Game Object to force the acoustics engine to calculate the sound propagation paths. The <b class="calibre13">Enable Diffraction and Transmission</b> option must be selected for the separate sound. For a sustained event like rapid gunfire, the separate sound (for example, a loop of silence) must be played for the duration of the rapid gunfire event to ensure the paths are calculated when a MIDI event occurs. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

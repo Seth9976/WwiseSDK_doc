@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Importing Audio Files and Creating Structures</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_3"><a class="pcalibre1 anchor" id="waapi_create_limits"></a>
+Limitations with ak.wwise.core.object.create</h2>
+<p class="calibre7"><b class="calibre13">Sounds</b></p>
+<p class="calibre7">It is possible to create Sound objects using <a class="pcalibre el" href="ak_wwise_core_object_create_split_000.html">ak.wwise.core.object.create</a>. However, there are significant limitations:</p>
+<ul class="calibre8">
+<li class="calibre9">It is not possible to associate an original WAV or MIDI file with a child Audio File Source object.</li>
+<li class="calibre9">It is not possible to associate a language with a child Audio File Source object.</li>
+</ul>
+<p class="calibre7">For this reason, we don't recommend using <a class="pcalibre el" href="ak_wwise_core_object_create_split_000.html">ak.wwise.core.object.create</a> to create Sound objects that use WAV or MIDI files.</p>
+<p class="calibre7">Instead, refer to:</p><ul class="calibre8">
+<li class="calibre9"><a class="pcalibre el" href="ak_wwise_core_object_set_split_000.html">ak.wwise.core.object.set</a>, which supports importing audio files</li>
+<li class="calibre9"><a class="pcalibre el" href="waapi_import_split_007.html#waapi_import_audio_files">Importing Audio Files</a></li>
+<li class="calibre9"><a class="pcalibre el" href="ak_wwise_core_audio_import_split_000.html">ak.wwise.core.audio.import</a></li>
+</ul>
+<p class="calibre7"><b class="calibre13">Plug-ins</b></p>
+<p class="calibre7">It is not possible to create plug-ins of the type Source, Effect, or Metadata with <a class="pcalibre el" href="ak_wwise_core_object_create_split_000.html">ak.wwise.core.object.create</a>. Use <a class="pcalibre el" href="ak_wwise_core_object_set_split_000.html">ak.wwise.core.object.set</a> instead.</p>
+</div></div></div></body></html>

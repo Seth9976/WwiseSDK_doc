@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2015.1.7</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="bugs_2015_1_7"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-26450</b> Fixed: Crash when switching Harmonizer plug-in filter#2 to <b class="calibre13">none</b> while in playback.</li>
+<li class="calibre9"><b class="calibre13">WG-29146</b> Fixed: Crash when dragging objects to a Soundcaster session.</li>
+<li class="calibre9"><b class="calibre13">WG-29238</b> Fixed: User-defined positioning is sometimes ignored when playing many simultaneous sounds sharing the same path.</li>
+<li class="calibre9"><b class="calibre13">WG-29301</b> Fixed: (Xbox One) <code class="calibre14">Ak::SoundEngine::Suspend</code> causes time to speed up (desynchronizes with video).</li>
+<li class="calibre9"><b class="calibre13">WG-29316</b> Fixed: Overlapping MIDI notes cannot have unique velocity values. Instead, a new note's velocity will overwrite an old note's velocity.</li>
+<li class="calibre9"><b class="calibre13">WG-29324</b> Fixed: XAudio2 2.8 or 2.9 now used as default on Windows. XAudio2 option was deprecated on Xbox One (was never used).</li>
+<li class="calibre9"><b class="calibre13">WG-29391</b> Fixed: Continuous Switch Containers driven per game parameter were sometimes not playing the next Switch sound if the game parameter was also modulating the volume of the next sound and the <b class="calibre13">Under Threshold Behavior</b> was set to <b class="calibre13">kill voice</b>.</li>
+<li class="calibre9"><b class="calibre13">WG-29422</b> Fixed: <code class="calibre14">CartesianToSpherical()</code> may return <code class="calibre14">#IND</code> elevation due to floating point error.</li>
+<li class="calibre9"><b class="calibre13">WG-29437</b> Fixed: Tab-delimited file import: cannot assign same audio source to multiple sound objects.</li>
+<li class="calibre9"><b class="calibre13">WG-29441</b> Fixed: Vorbis stream doesn't properly handle unrecoverable I/O errors.</li>
+<li class="calibre9"><b class="calibre13">WG-29455</b> Fixed: Interpolation occurs from the Game Parameter default value causing a sound to play where it should be occluded.</li>
+<li class="calibre9"><b class="calibre13">WG-29461</b> Fixed: (Linux) Audio corruption after <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a9244da1d4d0deedcabdaaae863fcff47_split_000.html#a9244da1d4d0deedcabdaaae863fcff47">WakeupFromSuspend()</a></code>.</li>
+<li class="calibre9"><b class="calibre13">WG-29521</b> Fixed: (iOS) Deadlock when coming back from FaceTime missed call on iOS 8.x.</li>
+<li class="calibre9"><b class="calibre13">WG-29560</b> Fixed: Vorbis stream I/O errors ignored.</li>
+<li class="calibre9"><b class="calibre13">WG-29571</b> Fixed: (Xbox One) <code class="calibre14">ASSERT</code>(m_iPrevSamplingIncr == m_iCurSamplingIncr) when using the virtual voice <b class="calibre13">Resume</b> behavior on an XMA voice.</li>
+<li class="calibre9"><b class="calibre13">WG-29580</b> Fixed: (Windows 10) Crash when disabling audio device (32-bit Universal Windows app).</li>
+<li class="calibre9"><b class="calibre13">WG-29581</b> Fixed: Untimely mid-packet stream starvation of Vorbis triggers infinite loop.</li>
+<li class="calibre9"><b class="calibre13">WG-29586</b> Fixed: (Windows) Specific audio device (AkPlatformInitSettings.idAudioDevice) isn't reactivated if temporarily unplugged/disabled.</li>
+<li class="calibre9"><b class="calibre13">WG-29596</b> Fixed: (Xbox One) In some circumstances, XMA input buffers can be freed while a flow graph is running, resulting in a hang.</li>
+<li class="calibre9"><b class="calibre13">WG-29691</b> Fixed: (Xbox One) Possible memory leak when restarting the sound engine.</li>
+<li class="calibre9"><b class="calibre13">WG-29692</b> Fixed: Assert/crash when terminating the sound engine while the interactive music is fading out to stop.</li>
+<li class="calibre9"><b class="calibre13">WG-29698</b> Fixed: (PS4) Memory leak in ATRAC9.</li>
+<li class="calibre9"><b class="calibre13">WG-29831</b> Fixed: Linking errors of type <code class="calibre14">error LNK2005: PKEY_&lt;property key&gt; already defined in uuid.lib</code>. </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

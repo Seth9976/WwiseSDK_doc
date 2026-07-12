@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Memory Manager</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_3"><a class="pcalibre1 anchor" id="memorymanager_debugcfg"></a>
+Configuration for Debugging</h2>
+<p class="calibre7">Use the following setting to enable additional runtime debugging functionality:</p>
+<ul class="calibre8">
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_mem_settings_ae97967db68ec10e8410af9f776f89e0d_split_000.html#ae97967db68ec10e8410af9f776f89e0d" title="Default 0 disabled. 1 debug enabled. 2 stomp allocator enabled. 3 stomp allocator and debug enabled....">AkMemSettings::uMemoryDebugLevel</a></li>
+</ul>
+<p class="calibre7">This is an opaque value to allow custom implementations to define as many memory debugging features as they like. The default implementation provides three levels.</p>
+<ul class="calibre8">
+<li class="calibre9">Level 1 enables basic runtime memory debugging including; capturing <b class="calibre13">FILE</b> and <b class="calibre13">LINE</b> for each allocation, tracking callstacks where possible for each allocation, reporting leaks in a detailed manner upon shutdown and some very light integrity checks. This is light enough that you can run this during development by default.</li>
+<li class="calibre9">Level 2 enables the use of a stomp allocator which uses discrete pages of virtual memory for every allocation and seeks to trap any writes that occur out of bounds. This is a very slow and resource hungry mode and as such we do not recommend you enable it by default during development but instead when you are trying to track the cause of a memory stomp only.</li>
+<li class="calibre9">Level 3 enables both runtime debugging and the stomp allocator.</li>
+</ul>
+<p class="calibre7">Use the following to dump all allocations to a file (note that this requires <a class="pcalibre el" href="struct_ak_mem_settings_ae97967db68ec10e8410af9f776f89e0d_split_000.html#ae97967db68ec10e8410af9f776f89e0d" title="Default 0 disabled. 1 debug enabled. 2 stomp allocator enabled. 3 stomp allocator and debug enabled....">AkMemSettings::uMemoryDebugLevel</a> to be 1 and a non Release configuration):</p>
+<ul class="calibre8">
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_memory_mgr_a4f48ed6707ab2f2341f4a81f1c6053d7_split_000.html#a4f48ed6707ab2f2341f4a81f1c6053d7">AK::MemoryMgr::DumpToFile</a></li>
+</ul>
+<p class="calibre7">Remark: The sound engine opens a stream for writing using <a class="pcalibre el" href="class_a_k_1_1_i_ak_stream_mgr_a1de2a7935a2d3cddb71e7cc7f48effd6_split_000.html#a1de2a7935a2d3cddb71e7cc7f48effd6">AK::IAkStreamMgr::CreateStd()</a>. If you are using the default implementation of the Stream Manager, file opening is executed in your implementation of the Low-Level IO interface <a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_a0abfde848b599b5e5b8e8ed63dc8b555_split_000.html#a0abfde848b599b5e5b8e8ed63dc8b555">AK::StreamMgr::IAkLowLevelIOHook::BatchOpen()</a>.</p>
+<p class="calibre7">Use the following settings to perform tracking of allocations for debugging purposes (these are not called in the Release configuration):</p>
+<ul class="calibre8">
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_mem_settings_aa7ad0e0dd66eaf23d3721301fc516be6_split_000.html#aa7ad0e0dd66eaf23d3721301fc516be6" title="(Optional) Memory allocation debugging hook. Used for tracking calls to pfMalloc.">AkMemSettings::pfDebugMalloc</a></li>
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_mem_settings_ab590383aaeabbb4d198151f9041f7517_split_000.html#ab590383aaeabbb4d198151f9041f7517" title="(Optional) Memory allocation debugging hook. Used for tracking calls to pfMalign.">AkMemSettings::pfDebugMalign</a></li>
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_mem_settings_ad1a6c086b143f9a84de67a552b2a63dd_split_000.html#ad1a6c086b143f9a84de67a552b2a63dd" title="(Optional) Memory allocation debugging hook. Used for tracking calls to pfRealloc.">AkMemSettings::pfDebugRealloc</a></li>
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_mem_settings_ac50c4db30282223a2de087fc2d40b88c_split_000.html#ac50c4db30282223a2de087fc2d40b88c" title="(Optional) Memory allocation debugging hook. Used for tracking calls to pfFree.">AkMemSettings::pfDebugFree</a></li>
+</ul>
+<p class="calibre7">The debug functions above do not replace the allocation functions; they are notification callbacks for the various memory allocation events.</p>
+<p class="calibre7">For more information, refer to the following sections:</p>
+<ul class="calibre8">
+<li class="calibre9"><a class="pcalibre el" href="samplecode_split_000.html">Samples</a> for sample code and more information regarding the initialization of the Memory Manager in your game.</li>
+<li class="calibre9"><a class="pcalibre el" href="soundengine_banks_loading_split_000.html">Loading Banks</a> for more information regarding SoundBank memory usage.</li>
+<li class="calibre9"><a class="pcalibre el" href="goingfurther_optimizingmempools_split_000.html">Optimizing Memory Utilization</a> for information about optimizing memory utilization.</li>
+</ul>
+</div></div></div></body></html>

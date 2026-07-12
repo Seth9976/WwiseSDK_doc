@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Sound Engine Source Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_6"><a class="pcalibre1 anchor" id="iaksourceeffect_execnotes"></a>
+Important Notes for Source Plugin Execution</h2>
+<ul class="calibre8">
+<li class="calibre9">Source plug-ins must always generate complete sample frames, that is, samples for each channel of the specified output format.</li>
+<li class="calibre9">It is your responsibility to ensure that your plug-in checks parameters with RTPC support at runtime. You should implement accessor methods in the shared parameter interface for retrieving values from the parameter node and invoke them as often as required at runtime. For more information, refer to <a class="pcalibre el" href="soundengine_plugins_split_012.html#iakeffectparam_communication">Communication Between Parameter Nodes and Plug-ins.</a>. For most parameter values, checking once every buffer is sufficient. Look at the sample code examples to see how parameter values (for example, gains) can be ramped to avoid signal discontinuities (<a class="pcalibre el" href="samplecode_split_000.html">Samples</a>).</li>
+<li class="calibre9">When a plug-in is used in Wwise, parameter changes are sent down to the parameter node whether or not the parameter supports RTPCs. This allows the plugin to support runtime value changes on non-RTPC values if desired for Wwise usage. If you do not want your plugin to support this, you should make a copy of the parameter values at initialization time to ensure they remain the same throughout the plug-in's duration. Refer to CAkToneGen::Init for an example of this.</li>
+<li class="calibre9">You should optimize processing performed in the <a class="pcalibre el" href="class_a_k_1_1_i_ak_source_plugin_ab23f5541d13b0d126131d83ae48b2588_split_000.html#ab23f5541d13b0d126131d83ae48b2588">AK::IAkSourcePlugin::Execute()</a> method so it can be completed well within the time slice represented by a buffer. Failure to do so may result in source starvation for this and possibly other source pipelines. It can also have a significant impact on the sound engine's performance.</li>
+</ul>
+<p class="calibre7">A DC offset plug-in Execute() function is provided below. Refer to CAkSrcSine::Execute() and the various tone generator DSP routines for more details.</p>
+<div class="fragment"><div class="line"><span class="comment">// This example demonstrates a simple application which outputs a steady DC offset signal using an RTPC parameter.</span></div>
+<div class="line"><span class="keywordtype">void</span> CAkDCOffset::Execute( <a class="pcalibre code" href="class_ak_audio_buffer_split_000.html">AkAudioBuffer</a> * io_pBuffer ) </div>
+<div class="line">{   </div>
+<div class="line">    <span class="comment">// Set new duration when it changes (e.g. RTPC parameter)</span></div>
+<div class="line">    m_DurationHandler.SetDuration( m_pParams-&gt;fDuration );</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Determine how many sample frames to produce this execution and set uValidFrames and eState according to current state</span></div>
+<div class="line">    m_DurationHandler.ProduceBuffer( io_pBuffer ); </div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Retrieve RTPC DC offset parameter</span></div>
+<div class="line">    <a class="pcalibre code" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a> fDCOffset = m_pParams-&gt;GetDCOffset( );</div>
+<div class="line">        </div>
+<div class="line">    <span class="comment">// DC offset output DSP (supports any number of channels)</span></div>
+<div class="line">    <span class="keywordflow">for</span> ( <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; m_uNumChannels; ++i )</div>
+<div class="line">    {</div>
+<div class="line">        <a class="pcalibre code" href="_ak_common_defs_8h_a58f11a728038d16fe4187612a7a842fb_split_000.html#a58f11a728038d16fe4187612a7a842fb">AkSampleType</a> * pBufOut = io_pBuffer-&gt;<a class="pcalibre code" href="class_ak_audio_buffer_ad2bc3b8ddd61eaa0c111798d5f9e8c9c_split_000.html#ad2bc3b8ddd61eaa0c111798d5f9e8c9c">GetChannel</a>(i); <span class="comment">// AkSampleType is platform specific (AkReal32 on software platforms).</span></div>
+<div class="line">        <a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> uFrameCount = io_pBuffer-&gt;<a class="pcalibre code" href="class_ak_audio_buffer_ab7f90fd99119b56e92e4cbf3559f98cd_split_000.html#ab7f90fd99119b56e92e4cbf3559f98cd">uValidFrames</a>;</div>
+<div class="line">        <span class="keywordflow">while</span> ( uFrameCount-- )</div>
+<div class="line">        {</div>
+<div class="line">             *pBufOut++ = <a class="pcalibre code" href="_i_ak_plugin_8h_a441dc3050f2787f07e0678ab0d258002_split_000.html#a441dc3050f2787f07e0678ab0d258002">AK_FLOAT_TO_SAMPLETYPE</a>( fDCOffset );      <span class="comment">// DC-offset output, will convert normalized float to platform supported format.</span></div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+</div><!-- fragment --></div></div></div></body></html>

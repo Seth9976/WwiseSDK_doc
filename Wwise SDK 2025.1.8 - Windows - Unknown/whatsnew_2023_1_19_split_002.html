@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2023.1.19</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="generic_community_bugs_2023_1_19"></a>
+Fixes for Community-Reported Bugs</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-74550</b> Fixed: Possible crash when using the CPU profiler.</li>
+<li class="calibre9"><b class="calibre13">WG-80447</b> Fixed: On connection, the Profiler overrides Game Parameter global values with their respective default value.</li>
+<li class="calibre9"><b class="calibre13">WG-80715</b> Fixed: Calling <code class="calibre14">RegisterBusMeteringCallback</code> or <code class="calibre14">RegisterOutputDeviceMeteringCallback</code> with a NULL callback handle does not unregister the metering callback.</li>
+<li class="calibre9"><b class="calibre13">WG-81134</b> Fixed: Crash while editing an envelope or fade of a playing music clip.</li>
+<li class="calibre9"><b class="calibre13">WG-81337</b> Fixed: <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ae98b64113d2b9bd2e63adef8cee96805_split_000.html#ae98b64113d2b9bd2e63adef8cee96805">AK::SoundEngine::PinEventInStreamCache</a></code> has no effect on caching.</li>
+<li class="calibre9"><b class="calibre13">WG-81414</b> Fixed: Perforce plug-in stays connected to the server indefinitely. Wwise now requests that the plug-in disconnect from the server when it detects inactivity.</li>
+<li class="calibre9"><b class="calibre13">WG-81422</b> Fixed: Crash in <code class="calibre14">CAkSpeakerPan</code> when mixing ambisonic sources and multi-core rendering is enabled.</li>
+<li class="calibre9"><b class="calibre13">WG-81473</b> Fixed: Hang in <code class="calibre14">CAkDeviceBase::Destroy</code> when terminating the sound engine.</li>
+<li class="calibre9"><b class="calibre13">WG-81577</b> Fixed: Possible crash when decoding Vorbis-encoded <code class="calibre14">.wem</code> files.</li>
+<li class="calibre9"><b class="calibre13">WG-81673</b> Fixed: Possible crash when stopping SoundBank generation.</li>
+<li class="calibre9"><b class="calibre13">WG-81838</b> Fixed: Continuous Random Container with trigger rate transitions continues to spawn voices when the container is paused at initial play. This might happen, for example, when a parent container plays the Random Container.</li>
+<li class="calibre9"><b class="calibre13">WG-81851</b> Fixed: Assert while fetching monitoring data.</li>
+<li class="calibre9"><b class="calibre13">WG-81936</b> Fixed: Sample low-level IO implementation doesn't react to language changes after a full reinitialization. </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

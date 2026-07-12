@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2023.1.0</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_4"><a class="pcalibre1 anchor" id="generic_misc_2023_1"></a>
+Miscellaneous Changes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-56589</b> Removed Mixer plug-ins. The <a class="pcalibre el" href="namespace_a_k_split_000.html" title="Definition of data structures for AkAudioObject.">AK</a> Channel Router Mixer plug-in is now an Effect plug-in. Any custom Mixer plug-ins must be migrated to Effect plug-ins. Refer to <a class="pcalibre el" href="whatsnew_2023_1_migration_split_010.html#mixer_plugin_removal">Removal of Mixer Plug-ins</a> for more details.</li>
+<li class="calibre9"><b class="calibre13">WG-57597</b> Removed the deprecated Wwise Motion Generator Source plug-in.</li>
+<li class="calibre9"><b class="calibre13">WG-60924</b> Replaced the term "Workgroup" with the more commonly used "Source Control" throughout the user interface.</li>
+<li class="calibre9"><b class="calibre13">WG-62998</b> (WAAPI) Removed the file <code class="calibre14">WwiseAuthoringAPI.json</code>, which was previously located in the installation directory <code class="calibre14">&lt;Wwise&gt;\Authoring\Data\Schemas</code>. It is now split into several files, which are all located in the directory <code class="calibre14">&lt;Wwise&gt;\Authoring\Data\Schemas\WAAPI</code>.</li>
+<li class="calibre9"><b class="calibre13">WG-64758</b> Added new macros, <code class="calibre14">AK_DISABLE_OPTIMIZATIONS</code> and <code class="calibre14">AK_ENABLE_OPTIMIZATIONS</code>, to selectively disable and enable optimizations in parts of Wwise code, which might be useful when debugging certain problems.</li>
+<li class="calibre9"><b class="calibre13">WG-65150</b> Visual C++ Redistributable binaries are now installed alongside Wwise rather than globally.</li>
+<li class="calibre9"><b class="calibre13">WG-65157</b> Moved binary files located under the <code class="calibre14">Tools</code> directory, such as the FilePackager, alongside the Wwise Authoring application executable.</li>
+<li class="calibre9"><b class="calibre13">WG-66118</b> Upgraded the Perforce Source Control plug-in against the Perforce 2023.1 and OpenSSL 3.1.1 libraries.</li>
+<li class="calibre9"><b class="calibre13">WG-68127</b> Changed SoundBank generation log message from "Header output path" to "Root output path".</li>
+</ul>
+</div></div></div></body></html>

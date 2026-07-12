@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::SoundEngine::StopMIDIOnEvent</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="namespace_a_k_1_1_sound_engine_acce4adb3c2bbd018ef375c85379949e3_split_000.html#acce4adb3c2bbd018ef375c85379949e3" class="pcalibre1 anchor">◆ </a></span>StopMIDIOnEvent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_sound_engine_export_8h_ac6e96d34dfc0e12f9aaa7a47f4e9c322_split_000.html#ac6e96d34dfc0e12f9aaa7a47f4e9c322">AKSOUNDENGINE_API</a> <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::SoundEngine::StopMIDIOnEvent </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_a8341fa4d01d2fa852c3cc410401b04dc_split_000.html#a8341fa4d01d2fa852c3cc410401b04dc">AkUniqueID</a> </td>
+          <td class="paramname"><em class="calibre59">in_eventID</em> = <code class="calibre14"><a class="pcalibre el" href="_ak_constants_8h_aa512c62662d05d5b50dd08792ed254ec_split_000.html#aa512c62662d05d5b50dd08792ed254ec">AK_INVALID_UNIQUE_ID</a></code>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> </td>
+          <td class="paramname"><em class="calibre59">in_gameObjectID</em> = <code class="calibre14"><a class="pcalibre el" href="_ak_constants_8h_a82290a98a9cf7901722a69a590aeee34_split_000.html#a82290a98a9cf7901722a69a590aeee34">AK_INVALID_GAME_OBJECT</a></code>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_a9270609771369ea575443fe080bbe9c3_split_000.html#a9270609771369ea575443fe080bbe9c3">AkPlayingID</a> </td>
+          <td class="paramname"><em class="calibre59">in_playingID</em> = <code class="calibre14"><a class="pcalibre el" href="_ak_constants_8h_a5141397d9cce5d9656f58931596d8360_split_000.html#a5141397d9cce5d9656f58931596d8360">AK_INVALID_PLAYING_ID</a></code> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Stops MIDI notes on all nodes that are referenced in the specified event in an action of type play, with the specified Game Object. Invalid parameters are interpreted as wildcards. For example, calling this function with in_eventID set to AK_INVALID_UNIQUE_ID will stop all MIDI notes for Game Object in_gameObjectID. </p><dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><code class="calibre14">AK_Success</code> if the stop command was queued</li>
+<li class="calibre9"><code class="calibre14">AK_IDNotFound</code> if the Event ID is unknown (not loaded or typo in the ID) </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ab24b5dc8bd4d1adbdc6aa5c98d94d946_split_000.html#ab24b5dc8bd4d1adbdc6aa5c98d94d946">AK::SoundEngine::PostMIDIOnEvent</a></code></li>
+<li class="calibre9"><a class="pcalibre el" href="soundengine_midi_split_004.html#soundengine_midi_event_playing_id">MIDI Event Sequences - Playing ID</a> </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_eventID</td><td class="calibre17">Unique ID of the Event </td></tr>
+    <tr class="calibre16"><td class="paramname">in_gameObjectID</td><td class="calibre17">Associated game object ID </td></tr>
+    <tr class="calibre16"><td class="paramname">in_playingID</td><td class="calibre17">Target playing ID </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

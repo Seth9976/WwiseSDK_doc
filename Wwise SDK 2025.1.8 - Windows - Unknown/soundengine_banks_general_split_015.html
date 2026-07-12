@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>General Information</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_14"><a class="pcalibre1 anchor" id="soundengine_banks_general_identification_language"></a>
+Language-Specific ("Voice" and "Mixed") Soundbanks</h2>
+<p class="calibre7">When Wwise creates a language-specific SoundBank, it generates a file with the same ID/file name for every language that has language-specific data. These special language files are stored in a separate language-specific directory. However, there is no flag in the bank load methods of the sound engine API (<code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">LoadBank()</a></code>) to specify from which language-specific directory the file needs to be opened. File location is intended to be resolved by the Low-Level IO or the Stream Manager if you choose to override it.</p>
+<p class="calibre7">The Stream Manager API exposes methods for creating streams (for file I/O) which include a flag that specifies language specificity. This flag is propagated down to the Low-Level IO. Refer to <a class="pcalibre el" href="streamingmanager_lowlevel_split_005.html#streamingmanager_lowlevel_location_fsflags">File System Flags</a> for more information.</p>
+<p class="calibre7">Since the sound engine's Bank Manager does not know if the SoundBanks that need to be loaded contain language-specific data, it always asks the Stream Manager to search for the file in the language-specific directory first (<code class="calibre14">bIsLanguageSpecific</code> is <code class="calibre14">True</code>). If the process fails, the Bank Manager tries again, but this time it asks the Stream Manager to search in the common directory (<code class="calibre14">bIsLanguageSpecific</code> is <code class="calibre14">False</code>).</p>
+<p class="calibre7">Refer to <a class="pcalibre el" href="streamingmanager_lowlevel_split_002.html#streamingmanager_lowlevel_location">File Location Resolving</a> for a discussion on file location. You might also want to read the section that describes the default implementation (<a class="pcalibre el" href="streamingmanager_lowlevel_split_013.html#streamingmanager_lowlevel_default_implementation_walkthrough_file_location">Basic File Location</a>) for a tip on how to avoid opening a SoundBank file in the wrong location.</p>
+</div></div></div></body></html>

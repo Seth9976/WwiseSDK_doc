@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Low-Level I/O</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_5"><a class="pcalibre1 anchor" id="streamingmanager_lowlevel_location_resolution"></a>
+Resolution of the Sound Engine Files</h2>
+<p class="calibre7">The sound engine reads SoundBank files and streamed audio files. This subsection explains how the Low-Level I/O can resolve their identifiers to actual files.</p>
+<p class="calibre7">Different strategies exist to map the ID received in <a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_a0abfde848b599b5e5b8e8ed63dc8b555_split_000.html#a0abfde848b599b5e5b8e8ed63dc8b555">AK::StreamMgr::IAkLowLevelIOHook::BatchOpen()</a> to a valid file descriptor in the Low-Level I/O:</p><ul class="calibre8">
+<li class="calibre9">implement and use a map of IDs to file names</li>
+<li class="calibre9">create file name strings out of IDs</li>
+<li class="calibre9">get the system handle of a big file that concatenates all streamed audio files (for e.g. a file package generated with the File Packager application - refer to the Wwise Help for more details), and implement and use a map of IDs to file descriptor structures that define their size and offset in this big file.</li>
+</ul>
+<p class="calibre7">The SDK samples of the Low-Level I/O resolve file location using two different strategies. One of them (<b class="calibre13">CAkFileLocationBase</b>) concatenates paths, set globally, to create a full path string that can be used with platform <code class="calibre14">fopen()</code> methods. The other one (<code class="calibre14"><b class="calibre13">CAkFilePackageLowLevelIO</b></code>) manages a file package that was created with the File Packager utility. A file package is simply a big file in which many files are concatenated, with a header that indicates the relative offset of each original file.</p>
+<p class="calibre7">Implementations of File Location Resolvers are provided as SDK samples. They use a different strategy to manage file location. These strategies are described in the sample code walkthroughs, at the end of this section.</p>
+<p class="calibre7">Refer to <a class="pcalibre el" href="streamingmanager_lowlevel_split_013.html#streamingmanager_lowlevel_default_implementation_walkthrough_file_location">Basic File Location</a> for a description of the strategy used by the default implementations of the Low-Level I/O.</p>
+<p class="calibre7">Refer to <a class="pcalibre el" href="streamingmanager_lowlevel_split_017.html#streamingmanager_lowlevel_filepackage_implementation_walkthrough_filelocation">File Location</a> for a description of the strategy used by implementations of the Low-Level I/O that use File Packages (<b class="calibre13">CAkFilePackageLowLevelIO</b>).</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="streamingmanager_lowlevel_location_soundbanks"></a>
+SoundBanks</h3>
+<p class="calibre7">Following an explicit or implicit request to load a bank from the main API (<code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">AK::SoundEngine::LoadBank()</a></code> and <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a2e6ebb779470b43d78984c27f6a0c238_split_000.html#a2e6ebb779470b43d78984c27f6a0c238">AK::SoundEngine::PrepareEvent()</a></code>), the Bank Manager of the sound engine may call either the ANSI string or the ID overload of <a class="pcalibre el" href="class_a_k_1_1_i_ak_stream_mgr_a1de2a7935a2d3cddb71e7cc7f48effd6_split_000.html#a1de2a7935a2d3cddb71e7cc7f48effd6">AK::IAkStreamMgr::CreateStd()</a>. For a detailed explanation on the conditions that determine which overload is chosen, refer to <a class="pcalibre el" href="soundengine_banks_general_split_011.html#soundengine_banks_general_identification_filesystem">Loading Banks From File System</a>.</p>
+<p class="calibre7">In both cases, AKCOMPANYID_AUDIOKINETIC is used as the company ID in the file system flags, and AKCODECID_BANK is used as the codec ID.</p>
+<p class="calibre7">The <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">LoadBank()</a></code> methods of the sound engine API do not expose a flag to specify whether or not the bank is language-specific. It is up to your implementation of the Low-Level I/O to resolve this. Since the sound engine is not aware of the SoundBank's language specificity, it calls the Stream Manager with the bIsLanguageSpecific flag set as True. If the Stream Manager (Low-Level I/O) fails to open it, the sound engine tries again, this time with the <code class="calibre14">bIsLanguageSpecific</code> flag set as <code class="calibre14">False</code>.</p>
+<p class="calibre7">Refer to <a class="pcalibre el" href="soundengine_banks_general_split_015.html#soundengine_banks_general_identification_language">Language-Specific ("Voice" and "Mixed") Soundbanks</a> for more information on working with language-specific banks in the Wwise SDK.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="tip.gif"/></td><td class="calibre17"><b class="calibre13">Tip:</b> If you want to avoid having the Bank Manager call the Stream Manager twice for unlocalized banks and your file organization scheme allows you to find it regardless of language, you may ignore the bIsLanguageSpecific flag and open the soundbank directly, at the correct location. Only you know what and where the soundbanks are. Also, the cookie that you pass to asynchronous versions of <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">AK::SoundEngine::LoadBank()</a> is passed to the <a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_a0abfde848b599b5e5b8e8ed63dc8b555_split_000.html#a0abfde848b599b5e5b8e8ed63dc8b555">AK::StreamMgr::IAkLowLevelIOHook::BatchOpen()</a> as the value of in_pFlags-&gt;pCustomData. You may use it to help you determine if the bank should be opened from the language specific directory. </td></tr>
+</tbody></table>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="streamingmanager_lowlevel_location_streamedfiles"></a>
+Streamed Audio Files</h3>
+<p class="calibre7">Streamed file references are stored in banks as integer IDs. The real file paths of the converted audio files that are meant to be streamed can be found in the SoundBanksInfo.xml file, generated along with the banks (refer to <a class="pcalibre el" href="soundengine_banks_general_split_017.html#soundengine_banks_general_identification_infofile">SoundBanksInfo.xml</a> for details).</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="tip.gif"/></td><td class="calibre17"><b class="calibre13">Tip:</b> Selecting "Copy streamed files" in Wwise's SoundBank settings to automatically copy files in the Generated SoundBanks folder of the specific platform(s), renamed with the scheme [ID].[ext]. See <a class="pcalibre el" href="soundengine_banks_general_split_016.html#soundengine_banks_general_identification_streamedaudio">Streamed Audio Files</a> for more information. The default file location implementation (<b class="calibre13">CAkFileLocationBase</b>) is meant to be used with the "Copy Loose/Streamed Media" option. </td></tr>
+</tbody></table>
+<p class="calibre7">When the sound engine wants to play a streamed audio file, it calls the ID overload of <a class="pcalibre el" href="class_a_k_1_1_i_ak_stream_mgr_afe30a576bd859ff4e9b60a3f8e1710fb_split_000.html#afe30a576bd859ff4e9b60a3f8e1710fb">AK::IAkStreamMgr::CreateAuto()</a>. This propagates down to the ID overload of <a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_a0abfde848b599b5e5b8e8ed63dc8b555_split_000.html#a0abfde848b599b5e5b8e8ed63dc8b555">AK::StreamMgr::IAkLowLevelIOHook::BatchOpen()</a>. Along with the ID, it passes an <a class="pcalibre el" href="struct_ak_file_system_flags_split_000.html" title="File system flags for file descriptors mapping.">AkFileSystemFlags</a> structure with the following information:</p>
+<ul class="calibre8">
+<li class="calibre9">uCompanyID is AKCOMPANYID_AUDIOKINETIC</li>
+<li class="calibre9">uCodecID is one of the audio formats defined in AkTypes.h (AKCODECID_XXX).</li>
+<li class="calibre9">bIsLanguageSpecific flag that is true when the file needs to be searched for in a location that depends on the current game language, false otherwise. By default, loading soundbanks query the language-specific folder first.</li>
+</ul>
+</div></div></div></body></html>

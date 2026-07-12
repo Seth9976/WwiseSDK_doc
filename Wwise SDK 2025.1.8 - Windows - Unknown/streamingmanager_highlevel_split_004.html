@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>High-Level Stream Manager API Description</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_3"><a class="pcalibre1 anchor" id="streamingmanager_highlevel_api_interface_highleveldevices"></a>
+High-Level Streaming Devices</h2>
+<table border="1" cellpadding="5" cellspacing="0" class="calibre38">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre17"><b class="calibre13">Default Streaming Manager Information</b><br class="calibre10"/>
+<br class="calibre10"/>
+ Before you can create and use stream objects, you need to create a high-level streaming device. This concept is specific to Audiokinetic's default implementation of the Stream Manager. A high-level streaming device is essentially an I/O scheduler implementation, running in its own thread, which centralizes the stream object associated with it and posts data transfer requests to the Low-Level I/O. High-level devices are generally referred to simply as devices. One or more devices are created by the game, preferably at initialization time, with specific flags and settings. For more details about the initialization settings, refer to section <a class="pcalibre el" href="streamingmanager_settings_split_000.html">Audiokinetic Stream Manager Initialization Settings</a>. <a class="pcalibre el" href="namespace_a_k_1_1_stream_mgr_a64a22d377d25137222fbb66ff21965d5_split_000.html#a64a22d377d25137222fbb66ff21965d5">AK::StreamMgr::CreateDevice()</a> returns a device ID, which should be kept by the Low-Level I/O for file location and device assignation purposes. (Refer to the <a class="pcalibre el" href="streamingmanager_lowlevel_split_002.html#streamingmanager_lowlevel_location">File Location Resolving</a> section for more information. ) This device ID must be passed to <a class="pcalibre el" href="namespace_a_k_1_1_stream_mgr_a6af0f503def99f59b5ed7c903d919106_split_000.html#a6af0f503def99f59b5ed7c903d919106">AK::StreamMgr::DestroyDevice()</a> for proper termination. As for all implementation-specific functions, <a class="pcalibre el" href="namespace_a_k_1_1_stream_mgr_a64a22d377d25137222fbb66ff21965d5_split_000.html#a64a22d377d25137222fbb66ff21965d5">AK::StreamMgr::CreateDevice()</a> and <a class="pcalibre el" href="namespace_a_k_1_1_stream_mgr_a6af0f503def99f59b5ed7c903d919106_split_000.html#a6af0f503def99f59b5ed7c903d919106">AK::StreamMgr::DestroyDevice()</a> are defined in the header <a class="pcalibre el" href="_ak_stream_mgr_module_8h_split_000.html">AkStreamMgrModule.h</a>. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

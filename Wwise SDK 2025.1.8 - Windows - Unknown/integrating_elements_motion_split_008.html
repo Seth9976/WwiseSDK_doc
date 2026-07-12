@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integrating Wwise Motion</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_7"><a class="pcalibre1 anchor" id="wwise_motion_gameinput_windows"></a>
+Support for GameInput on Windows</h2>
+<p class="calibre7">Wwise Motion supports both rumble-based gamepads and haptic-based gamepads through the GameInput API for Windows.</p>
+<p class="calibre7">If your project uses advanced haptics with GameInput, the following additional considerations apply:</p><ul class="calibre8">
+<li class="calibre9">GameInput v2.0 or newer must be installed on the target Windows system.</li>
+<li class="calibre9">You must incorporate the GameInput redistributable in your application's installer yourself, according to the instructions provided in the Microsoft documentation (see <a href="https://learn.microsoft.com/gaming/gdk/docs/features/common/input/overviews/input-overview" target="_blank" class="pcalibre calibre12">Overview of GameInput</a>).</li>
+</ul>
+<p class="calibre7">When you provide the device ID retrieved through <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_ab5ba05e30e949f4b26b949af3fe54f48_split_000.html#ab5ba05e30e949f4b26b949af3fe54f48">AK::GetAppLocalDeviceIdHash</a></code> as-is, Wwise Motion will default to the rumble-based Motion implementation for the gamepad associated with this device ID. In order to use the haptic-based implementation with a haptic-compatible device, you must first apply a bitwise-OR operation of the flag <code class="calibre14">AKMOTION_GAMEINPUT_HAPTICS_MODE</code> to the device ID before initializing the device. This flag is provided in the <code class="calibre14"><a class="pcalibre el" href="_ak_motion_sink_game_input_helpers_8h_split_000.html">AkMotionSinkGameInputHelpers.h</a></code> file. The following example demonstrates detection of a haptic-enabled device:</p>
+<div class="fragment"><div class="line"><span class="keyword">const</span> GameInputDeviceInfo* pDeviceInfo = <span class="keyword">nullptr</span>;</div>
+<div class="line">pGameInputDevice-&gt;GetDeviceInfo(&amp;pDeviceInfo);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">//Get the AkDeviceID for the GameInput device</span></div>
+<div class="line"><a class="pcalibre code" href="_ak_typedefs_8h_a9fb6f04697979f304a7b2b4f405e8260_split_000.html#a9fb6f04697979f304a7b2b4f405e8260">AkDeviceID</a> wwiseDeviceID = <a class="pcalibre code" href="namespace_a_k_ab5ba05e30e949f4b26b949af3fe54f48_split_000.html#ab5ba05e30e949f4b26b949af3fe54f48">AK::GetAppLocalDeviceIdHash</a>(&amp;pDeviceInfo-&gt;deviceId);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">//If the device supports haptics, apply the flag to the AkDeviceID before initialization.</span></div>
+<div class="line">GameInputHapticInfo hapticInfo;</div>
+<div class="line">pGameInputDevice-&gt;GetHapticInfo(&amp;hapticInfo);</div>
+<div class="line"><span class="keywordflow">if</span> (hapticInfo.locationCount &gt; 0 &amp;&amp; hapticInfo.locationCount &lt;= GAMEINPUT_HAPTIC_MAX_LOCATIONS)</div>
+<div class="line">{</div>
+<div class="line">    wwiseDeviceID |= <a class="pcalibre code" href="_ak_motion_sink_game_input_helpers_8h_ae0b216fd3c95f6dcaa6d297cb0bbf5cd_split_000.html#ae0b216fd3c95f6dcaa6d297cb0bbf5cd">AKMOTION_GAMEINPUT_HAPTICS_MODE</a>;</div>
+<div class="line">}</div>
+</div><!-- fragment --><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b><ul class="calibre8">
+<li class="calibre9">When using GameInput advanced haptics, Wwise Motion creates a WASAPI audio session so that the waveform is automatically sent to the configured channels of the audio device for the gamepad. To ensure normal operation, the audio device must be active on the PC as if it were a normal audio device. </li>
+</ul>
+</td></tr>
+</tbody></table>
+</div></div></div></body></html>

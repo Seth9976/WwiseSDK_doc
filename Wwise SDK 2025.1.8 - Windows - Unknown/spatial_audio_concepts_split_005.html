@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Wwise Acoustics Concepts</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_4"><a class="pcalibre1 anchor" id="spatial_audio_concepts_usage"></a>
+Combining Acoustic Methodologies</h1>
+<p class="calibre7">When building your projects, it is important to understand the differences between the two sound propagation models:</p>
+<ul class="calibre8">
+<li class="calibre9">The Wwise Acoustics system simulates sound propagation automatically based on geometry, which you pass to it with the <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_a0cada36fab682ebb3005a79dd05a5640_split_000.html#a0cada36fab682ebb3005a79dd05a5640">AK::SpatialAudio::SetGeometry</a></code> API. It models direct and diffuse sound in parallel (it uses Rooms and Portals to model diffuse sound), and all propagation paths can be affected by physical phenomena. Wwise Acoustics drives Diffraction and Transmission Loss, which Wwise maps to properties (Volume, LPF, HPF, and DSF) through curves.</li>
+<li class="calibre9">The Wwise sound engine also models sound propagation. It does not use a simulation, but instead relies on obstruction and occlusion values you provide through APIs such as <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a1b3e18a25b405e55ba82de9b70cd11ba_split_000.html#a1b3e18a25b405e55ba82de9b70cd11ba">AK::SoundEngine::SetObjectObstructionAndOcclusion</a></code>. Wwise maps obstruction and occlusion values to properties (Volume, LPF, HPF, and DSF) through curves.</li>
+</ul>
+<p class="calibre7">In short, Wwise Acoustics uses a simulation to automatically derive Diffraction and Transmission loss values from geometry, while the sound engine processes explicit obstruction and occlusion values set by API. In both cases, Wwise maps the values to properties.</p>
+<p class="calibre7">Each methodology has its uses, and you can use both approaches in the same project. However, if you do so, you must not use them on the same local segment of a propagation path. For example:</p><ul class="calibre8">
+<li class="calibre9">An actor might obstruct a path segment, with an obstruction value set through <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a1b3e18a25b405e55ba82de9b70cd11ba_split_000.html#a1b3e18a25b405e55ba82de9b70cd11ba">AK::SoundEngine::SetObjectObstructionAndOcclusion</a></code>. The next segment of the path might then diffract at a Portal edge, at which point Wwise Acoustics manages the sound propagation.</li>
+<li class="calibre9">Wwise Acoustics computes Portal diffraction, but you can use <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_a41b9dee6e3af84e5ce3075319e16740d_split_000.html#a41b9dee6e3af84e5ce3075319e16740d">AK::SpatialAudio::SetPortalObstructionAndOcclusion</a></code> to set obstruction or occlusion values on an additional object placed in or in front of the Portal but not included in the geometry. </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

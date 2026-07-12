@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integration Details - RTPCs</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="soundengine_rtpc_settingvalues"></a>
+Setting RTPC Values</h1>
+<p class="calibre7">RTCP values are set as follows:</p>
+<div class="fragment"><div class="line"><a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_ab0e4ddefe5ea550b2f356edaa5a49a26_split_000.html#ab0e4ddefe5ea550b2f356edaa5a49a26">AK::SoundEngine::SetRTPCValue</a>( </div>
+<div class="line">    <a class="pcalibre code" href="_ak_typedefs_8h_a77a3b6fec7d9181ef8e5bae2b37b80d0_split_000.html#a77a3b6fec7d9181ef8e5bae2b37b80d0">AkRtpcID</a>        in_rtpcID,                                      <span class="comment">// ID of the RTPC</span></div>
+<div class="line">    <a class="pcalibre code" href="_ak_typedefs_8h_a86459d5c3b5e6055cc885b833661f140_split_000.html#a86459d5c3b5e6055cc885b833661f140">AkRtpcValue</a>     in_value,                                       <span class="comment">// Value to set</span></div>
+<div class="line">    <a class="pcalibre code" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a>  in_gameObjectID = <a class="pcalibre code" href="_ak_constants_8h_a82290a98a9cf7901722a69a590aeee34_split_000.html#a82290a98a9cf7901722a69a590aeee34">AK_INVALID_GAME_OBJECT</a>        <span class="comment">// Associated game object ID</span></div>
+<div class="line">);</div>
+</div><!-- fragment --><p class="calibre7">or</p>
+<div class="fragment"><div class="line"><a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_ab0e4ddefe5ea550b2f356edaa5a49a26_split_000.html#ab0e4ddefe5ea550b2f356edaa5a49a26">AK::SoundEngine::SetRTPCValue</a>( </div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">char</span> *    in_pszRtpcName,                                 <span class="comment">// Name of the RTPC</span></div>
+<div class="line">    <a class="pcalibre code" href="_ak_typedefs_8h_a86459d5c3b5e6055cc885b833661f140_split_000.html#a86459d5c3b5e6055cc885b833661f140">AkRtpcValue</a>     in_value,                                       <span class="comment">// Value to set.</span></div>
+<div class="line">    <a class="pcalibre code" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a>  in_gameObjectID = <a class="pcalibre code" href="_ak_constants_8h_a82290a98a9cf7901722a69a590aeee34_split_000.html#a82290a98a9cf7901722a69a590aeee34">AK_INVALID_GAME_OBJECT</a>        <span class="comment">// Associated game object ID</span></div>
+<div class="line">);</div>
+</div><!-- fragment --><p class="calibre7">or</p>
+<div class="fragment"><div class="line"><a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_ab0e4ddefe5ea550b2f356edaa5a49a26_split_000.html#ab0e4ddefe5ea550b2f356edaa5a49a26">AK::SoundEngine::SetRTPCValue</a>( </div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">wchar_t</span> * in_pszRtpcName,                                 <span class="comment">// Name of the RTPC</span></div>
+<div class="line">    <a class="pcalibre code" href="_ak_typedefs_8h_a86459d5c3b5e6055cc885b833661f140_split_000.html#a86459d5c3b5e6055cc885b833661f140">AkRtpcValue</a>     in_value,                                       <span class="comment">// Value to set.</span></div>
+<div class="line">    <a class="pcalibre code" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a>  in_gameObjectID = <a class="pcalibre code" href="_ak_constants_8h_a82290a98a9cf7901722a69a590aeee34_split_000.html#a82290a98a9cf7901722a69a590aeee34">AK_INVALID_GAME_OBJECT</a>        <span class="comment">// Associated game object ID</span></div>
+<div class="line">);</div>
+</div><!-- fragment --><p class="calibre7">RTPC values can affect sounds playing on game objects, bus parameters, source plug-ins, and effect plug-ins. We will consider all these possibilities.</p>
+</div></div></div></body></html>

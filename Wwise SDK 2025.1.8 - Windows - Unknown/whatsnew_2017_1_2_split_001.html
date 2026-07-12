@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2017.1.2</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="bugs_2017_1_2"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-33811</b> Fixed: Muting and soloing of aux busses does not work as expected for a number of dynamic routing scenarios.</li>
+<li class="calibre9"><b class="calibre13">WG-34217</b> Fixed: Issues related to RTPC on output bus paramters.</li>
+<li class="calibre9"><b class="calibre13">WG-34289</b> Fixed: A mixer plug-in with mixing child busses could lead to differences in the generated Init.bnk when nothing changed in the project.</li>
+<li class="calibre9"><b class="calibre13">WG-34317</b> Fixed: (PS4) There is ATRAC9 alignment even if bank does not contain ATRAC9.</li>
+<li class="calibre9"><b class="calibre13">WG-34396</b> Fixed: Tab Delimited Import and WAAPI import creates duplicate entries.</li>
+<li class="calibre9"><b class="calibre13">WG-34501</b> Fixed: Error in generated SoundBanks with large State Groups.</li>
+<li class="calibre9"><b class="calibre13">WG-34504</b> Fixed: Rare crash when unloading banks when using sample accurate transitions and media was duplicated across multiple banks.</li>
+<li class="calibre9"><b class="calibre13">WG-34509</b> Fixed: (Spatial Audio) <code class="calibre14">SetEmitterPosition</code> corrupts virtual position data, possibly resulting in a crash.</li>
+<li class="calibre9"><b class="calibre13">WG-34512</b> Fixed: Invalid File Header error when loop points are reversed.</li>
+<li class="calibre9"><b class="calibre13">WG-34540</b> Fixed: (WAAPI) Wwise can crash when request is over 4,096 bytes.</li>
+<li class="calibre9"><b class="calibre13">WG-34542</b> Fixed: (PS4) Crash on shutdown if two output devices are active.</li>
+<li class="calibre9"><b class="calibre13">WG-34545</b> Fixed: (WAAPI) Switch Container assignation, Event creation, and Dialogue Event creation are not possible when using <code class="calibre14">ak.wwise.core.audio.import</code>.</li>
+<li class="calibre9"><b class="calibre13">WG-34551</b> Fixed: Live mixing with States on busses does not work on project load.</li>
+<li class="calibre9"><b class="calibre13">WG-34577</b> Fixed: (Switch) Missing initialized thread status verification in <code class="calibre14">AkIsValidThread</code>.</li>
+<li class="calibre9"><b class="calibre13">WG-34593</b> Fixed: Rare Wwise Authoring freeze when converting audio files in a project using HDR.</li>
+<li class="calibre9"><b class="calibre13">WG-34597</b> Fixed: Texture parameters not updating while a sound is playing.</li>
+<li class="calibre9"><b class="calibre13">WG-34603</b> Fixed: Crash when importing and playing a WAV file generated with IBM Text-To-Speech.</li>
+<li class="calibre9"><b class="calibre13">WG-34607</b> Fixed: Rare crash when pressing Ctrl+X in the Event Viewer pane.</li>
+<li class="calibre9"><b class="calibre13">WG-34608</b> Fixed: Crash when saving a Music Track preset.</li>
+<li class="calibre9"><b class="calibre13">WG-34612</b> Fixed: (Spatial Audio) Co-planar triangles are able to occlude one another when calculating reflection paths.</li>
+<li class="calibre9"><b class="calibre13">WG-34617</b> Fixed: Open in External Editor does not work as expected on macOS.</li>
+<li class="calibre9"><b class="calibre13">WG-34634</b> Fixed: Rare corrupted undo stack after undoing then redoing Dialogue Event creation.</li>
+<li class="calibre9"><b class="calibre13">WG-34637</b> Fixed: Music Editor ruler text is truncated on a high-DPI monitor.</li>
+<li class="calibre9"><b class="calibre13">WG-34641</b> Fixed: Failure to migrate old Wwise project where language-specific source exclusion has been used.</li>
+<li class="calibre9"><b class="calibre13">WG-34643</b> Fixed: <code class="calibre14">UnloadBank</code> sometimes returns wrong error code when <code class="calibre14">AK::InitSettings::bUseSoundBankMgrThread</code> was set to <code class="calibre14">false</code>.</li>
+<li class="calibre9"><b class="calibre13">WG-34647</b> Fixed: CopyStreamedFiles: assert when using the <code class="calibre14">-includedFilesInBanks</code> option with Zero Latency media.</li>
+<li class="calibre9"><b class="calibre13">WG-34688</b> Fixed: <code class="calibre14">TrimBegin</code> and <code class="calibre14">TrimEnd</code> options returned the same subscription ID.</li>
+<li class="calibre9"><b class="calibre13">WG-34708</b> Fixed: The delay between the direct sound and first order reflection on a very close wall is unreasonably long.</li>
+<li class="calibre9"><b class="calibre13">WG-34716</b> Fixed: The Acoustic Texture Editor should not have an RTPC tab.</li>
+<li class="calibre9"><b class="calibre13">WG-34727</b> Fixed: Rare crash when soloing a reflection.</li>
+<li class="calibre9"><b class="calibre13">WG-34774</b> Fixed: RTPC on bus pitch applied to interactive music.</li>
+<li class="calibre9"><b class="calibre13">WG-34793</b> Fixed: Wwise Reflect's delay lines don't update delay correctly.</li>
+</ul>
+<p class="calibre7">
+ </p><dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="reference_platform_2017_1_2_split_000.html">Platform Requirements 2017.1.2</a> </li>
+</ul>
+</dd></dl>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

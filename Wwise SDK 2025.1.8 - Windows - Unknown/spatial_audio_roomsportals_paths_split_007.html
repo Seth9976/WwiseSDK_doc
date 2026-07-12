@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Propagation Paths in the Rooms and Portals Signal Model</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_6"><a class="pcalibre1 anchor" id="spatial_audio_roomsportals_paths_coupling"></a>
+Coupling Between Rooms</h1>
+<p class="calibre7">The connection between the Emitter's Room and the Listener's Room represents the diffuse energy of the Emitter's Room transferred into the Listener's Room and contributing to its diffuse energy. This transfer occurs through walls and open Portals.</p>
+<p class="calibre7">Like the Room-Listener connection, paths are embedded here only for spatialization. Transmission, diffraction, and distance attenuation have already been applied at the Emitter-Room connection (see the discussion in <a class="pcalibre el" href="spatial_audio_roomsportals_paths_split_005.html#spatial_audio_roomsportals_paths_wetdistance">Distance-Based Attenuation of the Wet Signal</a>).</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> If an open Portal exists, its propagation path will likely dominate the transmission path and enable coupling of both Rooms at full volume. The model does not try to modulate the transfer of energy based on the surface ratio of open Portals versus walls. This should be improved in a future release. </td></tr>
+</tbody></table>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> The model assumes that geometry in the receiving Room does not interfere with the transfer of energy from the emitting Room. </td></tr>
+</tbody></table>
+<p class="calibre7">The following table describes the paths of the Emitter's Room to Listener's Room connection.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="tip.gif"/></td><td class="calibre17"><b class="calibre13">Tip:</b> You can offset the volume of coupling connections by using the Game-defined aux send's Volume in the authoring tool. This volume applies to a given Room bus towards all connected Rooms. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

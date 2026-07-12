@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Wwise Plug-in Dialog Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_11"><a class="pcalibre1 anchor" id="wwiseplugin_dialog_guide_example"></a>
+Example</h1>
+<p class="calibre7">The following is a sample dialog resource for an effect plug-in, as viewed in the Microsoft Development Environment Dialog Editor:</p>
+<div class="calibre2">
+<img alt="" src="dialog_sample_dialogeditor.gif" class="inline"/>
+</div>
+<p class="calibre7">The following is the dialog resource code, showing the exact caption text used for the various static placeholders in the dialog:</p>
+<div class="fragment"><div class="line">IDD_MYPLUGIN DIALOGEX 0, 0, 217, 187</div>
+<div class="line">STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD</div>
+<div class="line">FONT 8, <span class="stringliteral">"MS Shell Dlg"</span>, 0, 0, 0x0</div>
+<div class="line">BEGIN</div>
+<div class="line">    LTEXT           <span class="stringliteral">"Class=Caption;Prop=Name"</span>,IDC_NAME,8,8,78,13,WS_BORDER</div>
+<div class="line">    LTEXT           <span class="stringliteral">"Class=Caption;Prop=Duration;Align=1;TimeDisplay=1;FontSize=1"</span>,</div>
+<div class="line">                    IDC_DURATION,90,8,78,13,WS_BORDER</div>
+<div class="line">    LTEXT           <span class="stringliteral">"Class=Caption;Prop=OutputLevel;Align=2;Decimals=1"</span>,</div>
+<div class="line">                    IDC_OUTPUTLEVEL_CAPTION,172,8,36,13,WS_BORDER</div>
+<div class="line">    LTEXT           <span class="stringliteral">"Class=Caption"</span>,IDC_CUSTOM_CAPTION,8,24,200,13,WS_BORDER</div>
+<div class="line">    CONTROL         <span class="stringliteral">"Enable Feedback"</span>,IDC_CHECK_FEEDBACKENABLED,<span class="stringliteral">"Button"</span>,</div>
+<div class="line">                    BS_AUTOCHECKBOX | WS_TABSTOP,8,46,70,10</div>
+<div class="line">    LTEXT           <span class="stringliteral">"Feedback"</span>,IDC_STATIC_FEEDBACK,19,62,32,8</div>
+<div class="line">    LTEXT           <span class="stringliteral">"Class=SuperRange;Prop=Feedback;Min=0;Mid=0;Max=100;UIMin=0;UIMax=10;Step=0.5;Fine=0.1;Decimals=1"</span>,</div>
+<div class="line">                    IDC_RANGE_FEEDBACK,58,60,60,13,WS_BORDER</div>
+<div class="line">    LTEXT           <span class="stringliteral">"Interpolation:"</span>,IDC_INTERPOLATION_STATIC,8,86,45,8</div>
+<div class="line">    CONTROL         <span class="stringliteral">"Linear"</span>,IDC_RADIO_LINEAR,<span class="stringliteral">"Button"</span>,BS_AUTORADIOBUTTON | </div>
+<div class="line">                    WS_GROUP,11,97,35,10</div>
+<div class="line">    CONTROL         <span class="stringliteral">"Logarithmic"</span>,IDC_RADIO_LOG,<span class="stringliteral">"Button"</span>,BS_AUTORADIOBUTTON,</div>
+<div class="line">                    11,108,54,9</div>
+<div class="line">    LTEXT           <span class="stringliteral">"Loop count"</span>,IDC_STATIC,8,132,36,8</div>
+<div class="line">    LTEXT           <span class="stringliteral">"Class=Spinner;Prop=LoopCount;Min=1;Max=32767"</span>,</div>
+<div class="line">                    IDC_LOOP_COUNT_SPINNER,53,129,65,13,WS_BORDER</div>
+<div class="line">    LTEXT           <span class="stringliteral">"Type"</span>,IDC_STATIC,8,164,17,8</div>
+<div class="line">    LTEXT           <span class="stringliteral">"Class=Combo;Prop=WaveType;Options=0:Sine,1:Triangular,2:Square,3:Sawtooth,4:White Noise,5:Pink Noise"</span>,</div>
+<div class="line">                    IDC_COMBO_WAVETYPE,34,161,84,13,WS_BORDER | WS_TABSTOP</div>
+<div class="line">    LTEXT           <span class="stringliteral">"Class=Fader;SliderType=1;Prop=OutputLevel;Min=-96.3;Max=0;Decimals=2"</span>,</div>
+<div class="line">                    IDC_LEVEL_FADER,167,43,37,124,WS_BORDER</div>
+<div class="line">    CTEXT           <span class="stringliteral">"OutputLevel"</span>,IDC_VOLUME_STATIC,161,171,48,8,</div>
+<div class="line">                    SS_CENTERIMAGE</div>
+<div class="line">END</div>
+</div><!-- fragment --><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="warning.gif"/></td><td class="calibre17"><b class="calibre13">Warning:</b> Some attributes in this code sample are deprecated: Decimals, Step, Fine, SliderType, Mid, UIMin, UIMax. Refer to <a class="pcalibre el" href="plugin_xml_properties_split_002.html#wwiseplugin_xml_userinterface">UserInterface</a> for more information. </td></tr>
+</tbody></table>
+<p class="calibre7">In this example, the <em class="calibre11">Enable Feedback</em> checkbox and the <em class="calibre11">Interpolation</em> radio buttons need to be bound to properties, so the .cpp file for the plug-in defines the following table, which is returned by the plug-in's implementation of <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_g_u_i_windows_a21b81136769b185c244ada93e6767f14_split_000.html#a21b81136769b185c244ada93e6767f14" title="Retrieves the plug-in dialog parameters.">AK::Wwise::Plugin::GUIWindows::GetDialog()</a></code>:</p>
+<div class="fragment"><div class="line">constexpr <span class="keyword">auto</span> szFeedbackEnabled = u8<span class="stringliteral">"FeedbackEnabled"</span>;</div>
+<div class="line">constexpr <span class="keyword">auto</span> szInterpolation = u8<span class="stringliteral">"Interpolation"</span>;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Bind non static text UI controls to properties</span></div>
+<div class="line"><a class="pcalibre code" href="_g_u_i_windows_8h_ace7e697c1d8a310c9794cf05ce8ce1d8_split_000.html#ace7e697c1d8a310c9794cf05ce8ce1d8">AK_WWISE_PLUGIN_GUI_WINDOWS_BEGIN_POPULATE_TABLE</a>(MyPopTable)</div>
+<div class="line">    <a class="pcalibre code" href="_g_u_i_windows_8h_af6140142c9fe6ff132aee5ad0fde1caf_split_000.html#af6140142c9fe6ff132aee5ad0fde1caf">AK_WWISE_PLUGIN_GUI_WINDOWS_POP_ITEM</a>(IDC_CHECK_FEEDBACKENABLED, szFeedbackEnabled)</div>
+<div class="line">    <a class="pcalibre code" href="_g_u_i_windows_8h_af6140142c9fe6ff132aee5ad0fde1caf_split_000.html#af6140142c9fe6ff132aee5ad0fde1caf">AK_WWISE_PLUGIN_GUI_WINDOWS_POP_ITEM</a>(IDC_RADIO_LINEAR, szInterpolation)</div>
+<div class="line"><a class="pcalibre code" href="_g_u_i_windows_8h_a286a575e82a4a1b002ff737b186d4c76_split_000.html#a286a575e82a4a1b002ff737b186d4c76">AK_WWISE_PLUGIN_GUI_WINDOWS_END_POPULATE_TABLE</a>()</div>
+<div class="line"> </div>
+<div class="line">(...)</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> MyPlugin::GetDialog(</div>
+<div class="line">    <a class="pcalibre code" href="namespace_a_k_1_1_wwise_1_1_plugin_a5a9328b141630d1de228c92e81e9034d_split_000.html#a5a9328b141630d1de228c92e81e9034d">AK::Wwise::Plugin::eDialog</a> in_eDialog,</div>
+<div class="line">    UINT&amp; out_uiDialogID,</div>
+<div class="line">    PopulateTableItem*&amp; out_pTable)<span class="keyword"> const</span></div>
+<div class="line"><span class="keyword"></span>{</div>
+<div class="line">    <span class="keywordflow">if</span> (in_eDialog == <a class="pcalibre code" href="namespace_a_k_1_1_wwise_1_1_plugin_a5a9328b141630d1de228c92e81e9034d_split_001.html#a5a9328b141630d1de228c92e81e9034da70f74e61c5e7bef5d95559c73c9978cc">SettingsDialog</a>)</div>
+<div class="line">    {</div>
+<div class="line">        out_uiDialogID = IDD_DELAY_BIG;</div>
+<div class="line">        out_pTable = MyPopTable;</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p class="calibre7">Finally, here is the dialog as seen by the Wwise user in the Effect Editor:</p>
+<div class="calibre2">
+<img alt="" src="dialog_sample_wwise.gif" class="inline"/>
+</div>
+</div></div></div></body></html>

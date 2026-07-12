@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Loading Banks</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_14"><a class="pcalibre1 anchor" id="soundengine_banks_AkBankContent_StructureOnly"></a>
+AkBankContent_StructureOnly</h2>
+<p class="calibre7">When using <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a7d92b3c386cd60e76be54ca69f051c09_split_000.html#a7d92b3c386cd60e76be54ca69f051c09">PrepareBank()</a> with <code class="calibre14">AkBankContent_StructureOnly</code>, the events and structure metadata are loaded from a SoundBank, but the media items contained in the bank are ignored. Because <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a2e6ebb779470b43d78984c27f6a0c238_split_000.html#a2e6ebb779470b43d78984c27f6a0c238">PrepareEvent()</a> must access media as loose files off disk and is unable to read files contained within a SoundBank, <code class="calibre14">AkBankContent_StructureOnly</code> is only useful if you also plan on loading the SoundBank using some other loading mechanism at some other time. In most scenarios where media will be loaded individually with <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a2e6ebb779470b43d78984c27f6a0c238_split_000.html#a2e6ebb779470b43d78984c27f6a0c238">PrepareEvent()</a>, the media should not be included in the bank and the <code class="calibre14">AkBankContent_StructureOnly</code> flag will produce the same result as <code class="calibre14">AkBankContent_All</code>.</p>
+<p class="calibre7">One example where the <code class="calibre14">AkBankContent_StructureOnly</code> flag may be useful is to implement multiple loading configurations. A game may have a "tool mode" that uses <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a2e6ebb779470b43d78984c27f6a0c238_split_000.html#a2e6ebb779470b43d78984c27f6a0c238">PrepareEvent()</a> to load loose files on-demand and a "game mode" that uses <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">LoadBank()</a> to load the same bank in its entirety.</p>
+<p class="calibre7"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a7d92b3c386cd60e76be54ca69f051c09_split_000.html#a7d92b3c386cd60e76be54ca69f051c09">PrepareBank()</a> can be called synchronously or asynchronously from the API, as desired. However, it is not advised to use both <code class="calibre14">AkBankContent_All</code> and <code class="calibre14">AkBankContent_StructureOnly</code> on the same bank because, once the media is loaded using <code class="calibre14">AkBankContent_All</code>, an unload will release everything - events, structure, and media.</p>
+</div></div></div></body></html>

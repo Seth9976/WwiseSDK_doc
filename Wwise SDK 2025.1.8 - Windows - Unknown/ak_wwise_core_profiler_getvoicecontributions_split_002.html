@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak.wwise.core.profiler.getVoiceContributions</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="ak_wwise_core_profiler_getvoicecontributionsResult"></a>
+Result</h1>
+<p class="calibre7"></p><table class="doxtable">
+<tbody class="calibre4"><tr class="calibre16">
+<th class="calibre46">Name </th><th class="calibre46">Type </th><th class="calibre46">Description  </th></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">return</b> </td><td class="calibre36">object </td><td class="calibre36">The hierarchy of objects with parameters contributing to the voice, ordered from top-level parent to the voice object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return.<b class="calibre13">volume</b> * </td><td class="calibre36">number </td><td class="calibre36">The volume difference applied as a contribution.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return.<b class="calibre13">LPF</b> * </td><td class="calibre36">number </td><td class="calibre36">The LPF difference applied as a contribution.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return.<b class="calibre13">HPF</b> * </td><td class="calibre36">number </td><td class="calibre36">The HPF difference applied as a contribution.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return.<b class="calibre13">DSF</b> * </td><td class="calibre36">number </td><td class="calibre36">The DSF difference applied as a contribution.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return.<b class="calibre13">objects</b> * </td><td class="calibre36">array </td><td class="calibre36">A tree of contribution objects.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return.objects <b class="calibre13">[...]</b> </td><td class="calibre36">object </td><td class="calibre36">Identifies a Voice Inspector contribution.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return.objects[...].<b class="calibre13">name</b> </td><td class="calibre36">string </td><td class="calibre36">The name of the contribution.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return.objects[...].<b class="calibre13">volume</b> </td><td class="calibre36">number </td><td class="calibre36">The volume difference applied.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return.objects[...].<b class="calibre13">LPF</b> </td><td class="calibre36">number </td><td class="calibre36">The LPF difference applied.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return.objects[...].<b class="calibre13">HPF</b> </td><td class="calibre36">number </td><td class="calibre36">The HPF difference applied.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return.objects[...].<b class="calibre13">DSF</b> </td><td class="calibre36">number </td><td class="calibre36">The DSF difference applied.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return.objects[...].<b class="calibre13">index</b> </td><td class="calibre36">integer </td><td class="calibre36">Unique (per emitter) identifier for the emitter-listener ray.<br class="calibre10"/>
+ Unsigned Integer 32-bit. Range: [0,4294967295]  </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return.objects[...].<b class="calibre13">children</b> </td><td class="calibre36">array </td><td class="calibre36">An array of child objects associated to the object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return.objects[...].children <b class="calibre13">[...]</b> </td><td class="calibre36">object </td><td class="calibre36">A voice contribution object.<br class="calibre10"/>
+ Identifies a Voice Inspector contribution.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return.objects[...].children[...].<b class="calibre13">name</b> </td><td class="calibre36">string </td><td class="calibre36">The name of the contribution.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return.objects[...].children[...].<b class="calibre13">volume</b> </td><td class="calibre36">number </td><td class="calibre36">The volume difference applied.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return.objects[...].children[...].<b class="calibre13">LPF</b> </td><td class="calibre36">number </td><td class="calibre36">The LPF difference applied.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return.objects[...].children[...].<b class="calibre13">HPF</b> </td><td class="calibre36">number </td><td class="calibre36">The HPF difference applied.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return.objects[...].children[...].<b class="calibre13">DSF</b> </td><td class="calibre36">number </td><td class="calibre36">The DSF difference applied.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return.objects[...].children[...].<b class="calibre13">index</b> </td><td class="calibre36">integer </td><td class="calibre36">Unique (per emitter) identifier for the emitter-listener ray.<br class="calibre10"/>
+ Unsigned Integer 32-bit. Range: [0,4294967295]  </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return.objects[...].children[...].<b class="calibre13">children</b> </td><td class="calibre36">array </td><td class="calibre36">An array of child objects associated to the object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return.objects[...].children[...].children <b class="calibre13">[...]</b> </td><td class="calibre36"/><td class="calibre36">A voice contribution object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return.objects[...].children[...].<b class="calibre13">parameters</b> </td><td class="calibre36">array </td><td class="calibre36">An array of contribution parameters associated to the object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return.objects[...].children[...].parameters <b class="calibre13">[...]</b> </td><td class="calibre36">object </td><td class="calibre36">A contribution parameter.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return.objects[...].children[...].parameters[...].<b class="calibre13">propertyType</b> </td><td class="calibre36">string </td><td class="calibre36">The object property affecting the voice   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return.objects[...].children[...].parameters[...].<b class="calibre13">reason</b> </td><td class="calibre36">string </td><td class="calibre36">The reason for the parameter to affect the voice.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return.objects[...].children[...].parameters[...].<b class="calibre13">driver</b> </td><td class="calibre36">string </td><td class="calibre36">The driving reason when a parameter is not driven by an object, or the driving object GUID.   </td></tr>
+<tr class="calibre16">
+<td rowspan="3" class="calibre36">return.objects[...].children[...].parameters[...].<b class="calibre13">driverValue</b> </td><td class="calibre36"/><td class="calibre36"><p class="starttd"></p>
+<p class="endtd">One of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">number </td><td class="calibre36">The value of the driver affecting the parameter.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">Can be an object, e.g. for States.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return.objects[...].children[...].parameters[...].<b class="calibre13">value</b> </td><td class="calibre36">number </td><td class="calibre36">Contribution value   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return.objects[...].<b class="calibre13">parameters</b> </td><td class="calibre36">array </td><td class="calibre36">An array of contribution parameters associated to the object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return.objects[...].parameters <b class="calibre13">[...]</b> </td><td class="calibre36">object </td><td class="calibre36">A contribution parameter.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return.objects[...].parameters[...].<b class="calibre13">propertyType</b> </td><td class="calibre36">string </td><td class="calibre36">The object property affecting the voice   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return.objects[...].parameters[...].<b class="calibre13">reason</b> </td><td class="calibre36">string </td><td class="calibre36">The reason for the parameter to affect the voice.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return.objects[...].parameters[...].<b class="calibre13">driver</b> </td><td class="calibre36">string </td><td class="calibre36">The driving reason when a parameter is not driven by an object, or the driving object GUID.   </td></tr>
+<tr class="calibre16">
+<td rowspan="3" class="calibre36">return.objects[...].parameters[...].<b class="calibre13">driverValue</b> </td><td class="calibre36"/><td class="calibre36"><p class="starttd"></p>
+<p class="endtd">One of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">number </td><td class="calibre36">The value of the driver affecting the parameter.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">Can be an object, e.g. for States.<br class="calibre10"/>
+ An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">return.objects[...].parameters[...].<b class="calibre13">value</b> </td><td class="calibre36">number </td><td class="calibre36">Contribution value   </td></tr>
+</tbody></table>
+<p class="calibre7"></p>
+<p class="calibre7"><a class="pcalibre el" href="ak_wwise_core_profiler_getvoicecontributions_result_schema_split_000.html">Result Schema</a></p>
+</div></div></div></body></html>

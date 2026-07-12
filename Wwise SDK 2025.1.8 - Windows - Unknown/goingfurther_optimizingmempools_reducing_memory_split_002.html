@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Tips to Reduce Memory Usage</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="goingfurther_optimizingmempools_reducing_memory_processing"></a>
+Processing Memory</h1>
+<p class="calibre7">The memory in the Processing category is used to play sounds. It contains buffers to decompress, apply effects, and mix the audio sources. It is directly influenced by the number of sounds playing at the same time. It is also influenced by the number and type of effects that are used at the same time. To trim this down, you need to ask yourself how many sounds you want to hear at the same time. Some games will rarely have a scenario where more than 10 sounds are heard, others will have hundreds. You need to consider your worst case.</p>
+<p class="calibre7">As a guideline, we have done some profiling on some games (on Xbox One) and had the following numbers:</p><ul class="calibre8">
+<li class="calibre9">1 MB will let you play approximately 42 voices</li>
+<li class="calibre9">2 MB will let you play approximately 96 voices Although it scales mostly linearly, it really depends on which codec is used, how many effects, and other such factors. For example, using the Vorbis codec will use around 50% more memory per voice depending on the quality settings. Imagine 170 sounds at the same time: it is probably unintelligible and, therefore, useless. However, it takes some experimentation to find an ideal real number of voices for your game. Use the Memory tab of the profiler, profile multiple scenarios in your game, and note how much is used in resources.</li>
+</ul>
+<p class="calibre7">To reduce the memory used for processing, you need to reduce the number of simultaneous voices. This can be done using:</p><ul class="calibre8">
+<li class="calibre9"><b class="calibre13">Playback Limits</b> (Advanced Settings). For example, do you really need to hear 50 bullet ricochets? If not, maybe limit those sounds to say 15. <table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> You can set limits on busses as well. </td></tr>
+</tbody></table>
+</li>
+<li class="calibre9"><b class="calibre13">Priority</b> (Advanced Settings). For example, bullets could be less important than dialog. This means that bullets would get kicked first if there are too many sounds. Use in conjunction with Playback Limits.</li>
+<li class="calibre9"><b class="calibre13">Distance-based priority offset</b> (Advanced Settings). Objects that are far are usually less important than closer ones. For example, again with bullets, we don't need to hear bullets that are 10 meters away if there are 15 other bullets sounds closer than that.</li>
+<li class="calibre9"><b class="calibre13">Below Threshold Behavior</b> (Advanced Settings). The least expensive option (CPU and memory) is "Kill Voice", which is useful for non-looping sounds. The second preferred option is "Send To Virtual" "Play from beginning", then "Send To Virtual" "Resume" and then "Send To Virtual" "Play from elapsed time". "Continue to play" and "Play from elapsed time" are the most costly options, and Wwise's default value is "Continue To Play".</li>
+<li class="calibre9"><b class="calibre13">Volume Threshold</b> (Project Settings). This will help kill the sounds too faint to be heard. This goes hand in hand with the Below Threshold Behavior and also the Attenuation settings (farther usually means fainter). <table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> You can change the volume threshold programmatically at run-time. You may use this in game locations that are more process-heavy in order to send more voices to their "under volume threshold" state. </td></tr>
+</tbody></table>
+</li>
+<li class="calibre9"><b class="calibre13">A change to the used codec settings</b> (Conversion Settings). Vorbis needs extra memory to decompress audio. Different parameters can increase or reduce the amount needed. However, think carefully about the tradeoff: using a different codec or a weaker compression ratio will relieve the Processing memory load but at the cost of larger files in memory, if they're in loaded banks. In some cases it's better to see an extra 500 KB in Processing memory usage to save a few MBs on Media memory and, therefore, on the overall audio budget.</li>
+<li class="calibre9"><b class="calibre13">Fewer or lower quality</b>. Some effects need a lot of memory to be processed. One very common memory consumer is the Reverb effect, in any of its available flavors. Realistically, your game should have very few reverbs running concurrently. As a rule, we suggest less than 4. Also, reducing the quality or length of the reverb will help.</li>
+</ul>
+</div></div></div></body></html>

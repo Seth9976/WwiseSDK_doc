@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2022.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="generic_feature_changes_2022_1"></a>
+New Features</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-21449</b> Added the <code class="calibre14">AK::SpatialAudio::SetDistanceProbe</code> API. For additional flexibility in third-person perspective games, it is now possible to have sounds attenuate based on the distance to a separate Game Object, while maintaining panning and spatialization relative to the Listener Game Object.</li>
+<li class="calibre9"><b class="calibre13">WG-32283</b> (WAAPI) Added convertExternalSource which allows for the conversion of audio files external to the Wwise project according to the settings specified in a wsources file.</li>
+<li class="calibre9"><b class="calibre13">WG-32577</b> (WAAPI) Added query functions getSwitch and getState. getSwitch returns information about the current state of a Switch Group for a given game object, and getState returns information about the current state of a State Group.</li>
+<li class="calibre9"><b class="calibre13">WG-38235</b> (WAAPI) RTPCs can now be set in WAAPI using <a class="pcalibre el" href="ak_wwise_core_object_set_split_000.html">ak.wwise.core.object.set</a>.</li>
+<li class="calibre9"><b class="calibre13">WG-39514</b> (WAAPI) Source and Effect plug-ins can now be created or set using <a class="pcalibre el" href="ak_wwise_core_object_set_split_000.html">ak.wwise.core.object.set</a>.</li>
+<li class="calibre9"><b class="calibre13">WG-42569</b> (WAAPI) Added remote procedure call <a class="pcalibre el" href="ak_wwise_core_transport_prepare_split_000.html">ak.wwise.core.transport.prepare</a> to load an object into the sound engine without playing it.</li>
+<li class="calibre9"><b class="calibre13">WG-45413</b> Added Random Number Generator service to <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_global_plugin_context_split_000.html">AK::IAkGlobalPluginContext</a></code>.</li>
+<li class="calibre9"><b class="calibre13">WG-49287</b> Updates to the Time Stretch Effect:<ul class="calibre15">
+<li class="calibre9">Added a new Transient Preserving Stretch Mode, an accompanying Quality Level slider, and a Stereo Processing mode.</li>
+<li class="calibre9">Added pitch shift functionality to both modes, with a Pitch Shift slider and randomization parameter.</li>
+</ul>
+</li>
+<li class="calibre9"><b class="calibre13">WG-50451</b> (WAAPI) Added the possibility to obtain the Mute and Solo states with isExplicitSolo, isExplicitMute, isImplicitMute, isImplicitSolo.</li>
+<li class="calibre9"><b class="calibre13">WG-51539</b> Added the Audio Devices tab to the Advanced Profiler view, which lists all of the Audio Devices that are currently active in the sound engine.</li>
+<li class="calibre9"><b class="calibre13">WG-52323</b> (WAAPI) Added function processSounbankDefinitions which allows importing SoundBank Defintion files.</li>
+<li class="calibre9"><b class="calibre13">WG-52461</b> Added new Filter Behavior option to Project Settings. Voice low-pass and high-pass filter property values can now be combined in either of two ways:<ul class="calibre15">
+<li class="calibre9">Sum all values (default, classic behavior)</li>
+<li class="calibre9">Use highest value (new, non-additive behavior)</li>
+</ul>
+</li>
+<li class="calibre9"><b class="calibre13">WG-52686</b> (WAAPI) Added an optional argument to Mute and Solo commands to specify the state.</li>
+<li class="calibre9"><b class="calibre13">WG-52767</b> Reflect now offers a new simplified mode, where it uses each sound's attenuation curves to attenuate the sound's early reflections. The assumption is that the early reflections of a sound should be attenuated according to the same curves applied to the sound itself. The mode is called "simplified" because the user only needs to associate a sound with a simplified early reflection auxiliary bus to automatically have a reasonable design for the sound's early reflections. Moreover, since each sound can have its own unique attenuation, the same Reflect Effect ShareSet can attenuate the early reflection sounds of multiple sources differently. To allow some customization of the sound's attenuation curves in Reflect, two new properties have been introduced: distance and diffraction warping. These properties let you emphasize or de-emphasize the effect of distance and diffraction, respectively, on the sounds coming from image sources. If you want to further customize the Reflect curves, you still have the option of applying a custom curve, like before.</li>
+<li class="calibre9"><b class="calibre13">WG-52979</b> (Spatial Audio) Colinear edges are now merged into a single diffraction edge to reduce the cost of processing multiple edges.</li>
+<li class="calibre9"><b class="calibre13">WG-53001</b> Spatial Audio reflection path discovery is now more robust, and is able to discover more reflection paths with a lower number of primary rays.</li>
+<li class="calibre9"><b class="calibre13">WG-53597</b> Saved Profiler capture sessions can now be opened by dragging and dropping the PROF file over the Capture Log view.</li>
+<li class="calibre9"><b class="calibre13">WG-53796</b> (WAAPI) Added <a class="pcalibre el" href="ak_wwise_core_object_set_split_000.html">ak.wwise.core.object.set</a> to set properties and create objects in a batch.</li>
+<li class="calibre9"><b class="calibre13">WG-53899</b> Error reporting in the debug console, or any other logging mechanism, can now have all numerical identifiers translated into human-readable names and labels. This is accomplished by reading the Soundbanks.xml file or through a WAAPI connection to the Wwise project. See the <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_monitor_a2316d98b14d17cd1b14a27f63edc357e_split_000.html#a2316d98b14d17cd1b14a27f63edc357e">AK::Monitor::AddTranslator</a></code> function, and <a class="pcalibre el" href="class_ak_x_m_l_error_message_translator_split_000.html">AkXMLErrorMessageTranslator</a> and AkWAAPIErrorMessageTranslator classes for more information. Large projects could experience a lag when errors occur, in which case either XML and/or WAAPI translators can be disabled. Both translators have timeout parameters to limit the amount of time spent searching for the identifiers.</li>
+<li class="calibre9"><b class="calibre13">WG-54118</b> It's now possible to spread the computation and validation of spatial audio paths over several frames preventing peaks in CPU usage.</li>
+<li class="calibre9"><b class="calibre13">WG-54310</b> Added an auto-defined SoundBanks option. When enabled, Wwise automatically defines SoundBanks for each Event and Aux Bus, where possible. Refer to <a href="https://www.audiokinetic.com/library/edge/?source=Help&amp;id=auto_defining_soundbank" target="_blank" class="pcalibre calibre12">Automatically Defining SoundBanks</a> for more details.</li>
+</ul>
+<p class="calibre7">Auto-defined SoundBanks are enabled via the SoundBank Settings. Refer to <a href="https://www.audiokinetic.com/library/edge/?source=Help&amp;id=project_settings_soundbanks_tab" target="_blank" class="pcalibre calibre12">SoundBank Settings</a> for more details.</p><ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-54420</b> Font size changes are now applied when clicking the OK button of the User Preferences dialog box.</li>
+<li class="calibre9"><b class="calibre13">WG-54953</b> Added support for metering of Loudness and True Peak values on busses performing Audio Object processing.</li>
+<li class="calibre9"><b class="calibre13">WG-55073</b> Game Sync Monitor now displays RTPC values on all properties, for all RTPC scopes (game object, playing ID, and MIDI), whether the RTPC is associated with any currently playing voices or not.</li>
+<li class="calibre9"><b class="calibre13">WG-55094</b> Where a qualified object name can be specified in a WAAPI function or WAQL query, it's now also possible to specify a global Short ID using the form "Global:123456".</li>
+<li class="calibre9"><b class="calibre13">WG-55349</b> The Metering Bar of the Effect Settings view now lists objects with the effect inserted at runtime. This enables profiling of Mastering Suite ShareSets assigned programmatically.</li>
+<li class="calibre9"><b class="calibre13">WG-55428</b> Added the "verify" operation to WwiseConsole, which makes it possible to load a project without saving or migrating in order to verify the load log. This was possible in WwiseCLI but was missing from WwiseConsole.</li>
+<li class="calibre9"><b class="calibre13">WG-55757</b> Attenuation ShareSets offer new Obstruction, Occlusion, Diffraction, and Transmission curves. They can be disabled or customized per sound.</li>
+<li class="calibre9"><b class="calibre13">WG-56146</b> It's now possible to exclude a string from a search in the Project Explorer, List View, and Schematic View using an exclamation mark or minus sign. For example, this search will look for any object that contains the word "boy" but without the word "running": boy -running</li>
+<li class="calibre9"><b class="calibre13">WG-56344</b> Automatic update of source control for generated files on SoundBank generation. Refer to <a href="https://www.audiokinetic.com/library/edge/?source=Help&amp;id=project_settings_soundbanks_tab" target="_blank" class="pcalibre calibre12">SoundBank Settings</a> for more details. Files updated in source control are:<ul class="calibre15">
+<li class="calibre9">Generated SoundBank (.bnk) files.</li>
+<li class="calibre9">SoundBank metadata files (.xml and/or .json).</li>
+<li class="calibre9">Copied media files.</li>
+</ul>
+</li>
+<li class="calibre9"><b class="calibre13">WG-56567</b> External hooks for CPU profiling in the sound engine are now available, so that platform-specific profiling tools, or other applications, can be used to better understand the CPU usage of the sound engine:<ul class="calibre15">
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="struct_ak_init_settings_a71783c4575cbf9410ecd8c7c5703c8d2_split_000.html#a71783c4575cbf9410ecd8c7c5703c8d2" title="External (optional) function for tracking performance of the sound engine that is called when a timer...">AkInitSettings::fnProfilerPushTimer</a></code></li>
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="struct_ak_init_settings_a3d1f3008d52cdc3ead4e7497386e9dd7_split_000.html#a3d1f3008d52cdc3ead4e7497386e9dd7" title="External (optional) function for tracking performance of the sound engine that is called when a timer...">AkInitSettings::fnProfilerPopTimer</a></code></li>
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="struct_ak_init_settings_afee08f27130b3fdf479d15fb06f15b12_split_000.html#afee08f27130b3fdf479d15fb06f15b12" title="External (optional) function for tracking significant events in the sound engine, to act as a marker ...">AkInitSettings::fnProfilerPostMarker</a></code></li>
+</ul>
+</li>
+<li class="calibre9"><b class="calibre13">WG-56797</b> It's now possible to press Shift while dragging an object into the Schematic View to select additional objects.</li>
+<li class="calibre9"><b class="calibre13">WG-56896</b> The Game Sync Monitor now shows Switch Groups and Switch values.</li>
+<li class="calibre9"><b class="calibre13">WG-57049</b> It's now possible to use the "dot" syntax in WAQL and in WAAPI return option to access members of a returned JSON object directly. For example, you can use the WAQL keyword "where" directly on maxDurationSource.trimmedDuration, maxRadiusAttenuation.radius, and other similar cases.</li>
+<li class="calibre9"><b class="calibre13">WG-57075</b> Removed the SoundBank generation tool CopyStreamedFiles.exe. The functionality has been replaced by the new SoundBank setting Copy Loose/Streamed Media. Refer to <a href="https://www.audiokinetic.com/library/edge/?source=Help&amp;id=project_settings_soundbanks_tab" target="_blank" class="pcalibre calibre12">SoundBank Settings</a> for more details.</li>
+<li class="calibre9"><b class="calibre13">WG-57189</b> (Spatial Audio) It is now possible to use <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_aab4d85317c62724c00d25ba8913fb503_split_000.html#aab4d85317c62724c00d25ba8913fb503">AK::SpatialAudio::SetImageSource</a></code> with the Early Reflections Auxiliary Bus assigned in the Wwise Authoring Tool, by passing AK_INVALID_AUX_ID. The <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_aab4d85317c62724c00d25ba8913fb503_split_000.html#aab4d85317c62724c00d25ba8913fb503">AK::SpatialAudio::SetImageSource</a></code> API no longer accepts a room argument. Filtering image sources so that only those with a room that matches the emitter and listener's room limits the usability of the feature. The user should add and remove image sources from game-side logic to provide the desired behavior.</li>
+<li class="calibre9"><b class="calibre13">WG-57192</b> Spot reflectors (from the SetImageSource API) are now visible in the Game Object 3D Viewer.</li>
+<li class="calibre9"><b class="calibre13">WG-57261</b> Added Set Effect Event action, which makes it possible to override Effects at runtime.</li>
+<li class="calibre9"><b class="calibre13">WG-57299</b> Simplified the Transport Control and made it more compact. <b class="calibre13">Original</b> and <b class="calibre13">Inc. Only</b> are now accessed through the transport play options button to the right of the Play button. The Reset button is now highlighted when properties are changed by an event like mute or a volume change.</li>
+<li class="calibre9"><b class="calibre13">WG-57551</b> Portals in the Game Object 3D Viewer now display their associated front and back room ID and names.</li>
+<li class="calibre9"><b class="calibre13">WG-57870</b> Wwise Spatial Audio, along with the Wwise Sound Engine, now supports large world coordinates. All world positions are passed to Wwise using 64-bit floating-point numbers. Geometry is now passed to Spatial Audio with vertex positions relative to a local coordinate space. To convert between world space and the local space of the geometry, a Geometry Instance is created that defines a transformation. It is possible to create many instances of the same Geometry Set, which can be used to reduce data passed to Wwise and memory usage.</li>
+<li class="calibre9"><b class="calibre13">WG-57936</b> SoundBank generation metadata files have been overhauled:<ul class="calibre15">
+<li class="calibre9">New metadata file for global project information: ProjectInfo.(xml,json)</li>
+<li class="calibre9">New metadata file for platform-specific information: PlatformInfo.(xml,json)</li>
+<li class="calibre9">Extensive changes to the syntax of the contents of the all-bank SoundBankInfo.(xml,json) and per-bank metadata files.</li>
+<li class="calibre9">To reduce the size of metadata files, some common information has been moved from the all-bank and per-bank metadata files to the project and platform metadata files.</li>
+</ul>
+</li>
+<li class="calibre9"><b class="calibre13">WG-57940</b> Renamed the Property Help view to Contextual Help view and added it to the Profiler layout. In addition to providing details on selected properties, this view now provides details on any error selected in the Capture Log.</li>
+<li class="calibre9"><b class="calibre13">WG-57983</b> Added new setting <code class="calibre14"><a class="pcalibre el" href="struct_ak_spatial_audio_init_settings_a245b315e0cca157bdbef7cde581e8561_split_000.html#a245b315e0cca157bdbef7cde581e8561">AkSpatialAudioInitSettings::uDiffractionOnReflectionsOrder</a></code>, which replaces bEnableDiffractionOnReflections. Previously, if set to true, only one diffraction on reflection paths was computed. Now, the number of diffraction points is customizable. <br class="calibre10"/>
+</li>
+<li class="calibre9"><b class="calibre13">WG-58052</b> Added the ability to change the Block Size property in the AK Convolution Reverb Effect Editor, previously locked to a value of 1024. This allows for a tradeoff between audio signal latency and amortized performance of the Effect. More information is available in the <a href="https://www.audiokinetic.com/library/edge/?source=Help&amp;id=wwise_convolution_reverb_plug_in" class="pcalibre calibre12">AK Convolution</a> documentation.</li>
+<li class="calibre9"><b class="calibre13">WG-58078</b> Added new function <a class="pcalibre el" href="ak_wwise_core_getprojectinfo_split_000.html">ak.wwise.core.getProjectInfo</a> to retrieve information about the current project.</li>
+<li class="calibre9"><b class="calibre13">WG-58433</b> Added the new 3D Audio Bed Mixer plug-in, which can be used to control the number of Audio Objects passing through a bus.</li>
+<li class="calibre9"><b class="calibre13">WG-58682</b> Added new SoundBank settings to manage the output folder. Refer to <a href="https://www.audiokinetic.com/library/edge/?source=Help&amp;id=project_settings_soundbanks_tab" target="_blank" class="pcalibre calibre12">SoundBank Settings</a> for more details.<ul class="calibre15">
+<li class="calibre9">Copy Loose/Streamed Media: Copies required media files from the .cache folder to the output folder.</li>
+<li class="calibre9">Remove Unused Generated Files: Removes previously generated/copied files that are no longer required.</li>
+<li class="calibre9">Use Source Control for Generated Files: Updates source control for operations performed on the output folder.</li>
+</ul>
+</li>
+<li class="calibre9"><b class="calibre13">WG-58751</b> Replaced the Smooth Distance column in Reflect's Effect Editor with a Delay column.</li>
+<li class="calibre9"><b class="calibre13">WG-59217</b> Added a new Infinite Hold option to the Meter Effect Editor. It allows indefinite holding of the output value, which can be useful in side-chaining scenarios in combination with Pausing the game.</li>
+<li class="calibre9"><b class="calibre13">WG-59491</b> New 3D Audio Bed Mixer plug-in helps control the number of Audio Objects passing through a bus.</li>
+<li class="calibre9"><b class="calibre13">WG-59606</b> It's now possible to have sound traverse a path into a room and then loop back into the listener's room though a different portal.</li>
+<li class="calibre9"><b class="calibre13">WG-60494</b> A new performance bookmark is now reported via <code class="calibre14"><a class="pcalibre el" href="struct_ak_init_settings_afee08f27130b3fdf479d15fb06f15b12_split_000.html#afee08f27130b3fdf479d15fb06f15b12" title="External (optional) function for tracking significant events in the sound engine, to act as a marker ...">AkInitSettings::fnProfilerPostMarker</a></code> indicating when "Voice Starvation" events on the device have been detected by the sound engine.</li>
+<li class="calibre9"><b class="calibre13">WG-60679</b> SoundBank generation: Added information communicated to users in generation log for debugging purposes.</li>
+<li class="calibre9"><b class="calibre13">WG-61081</b> It's now possible to define Channel Mixdown settings in AK Convolution Reverb Effects with platform links instead of having to create separate ShareSets. For example, you can specify a monaural mixdown of an impulse response on one platform and a stereo mixdown for other platforms that have more robust CPU and memory resources.</li>
+</ul>
+</div></div></div></body></html>

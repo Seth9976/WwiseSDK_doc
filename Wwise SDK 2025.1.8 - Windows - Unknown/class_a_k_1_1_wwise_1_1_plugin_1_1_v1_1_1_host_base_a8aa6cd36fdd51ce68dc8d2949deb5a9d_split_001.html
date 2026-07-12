@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK.Wwise::Plugin::V1::HostBase::WaapiCall</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_host_base_a8aa6cd36fdd51ce68dc8d2949deb5a9d_split_000.html#a8aa6cd36fdd51ce68dc8d2949deb5a9d" class="pcalibre1 anchor">◆ </a></span>WaapiCall()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename CHostT  = CHost, int interface_version = 1&gt; </div>
+<table class="calibre3">
+  <tbody class="calibre4"><tr class="calibre16">
+  <td class="calibre17">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">void <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_host_base_split_000.html">AK.Wwise::Plugin::V1::HostBase</a>&lt; CHostT, interface_version &gt;::WaapiCall </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype">const char * </td>
+          <td class="paramname"><em class="calibre59">in_szUri</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">const char * </td>
+          <td class="paramname"><em class="calibre59">in_szArgs</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">const char * </td>
+          <td class="paramname"><em class="calibre59">in_szOptions</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_mem_alloc_split_000.html">AK::IAkPluginMemAlloc</a> &amp; </td>
+          <td class="paramname"><em class="calibre59">in_alloc</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">char *&amp; </td>
+          <td class="paramname"><em class="calibre59">out_szResults</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">char *&amp; </td>
+          <td class="paramname"><em class="calibre59">out_szError</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"> const</td>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="calibre17">
+<span><span>inline</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+
+<p class="calibre7">Find and call the specified procedure. </p>
+<p class="calibre7">Calls made using this function are always blocking.</p>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_szUri</td><td class="calibre17">URI of the procedure to call. </td></tr>
+    <tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_szArgs</td><td class="calibre17">JSON string of arguments to pass to the procedure, or nullptr for no arguments. </td></tr>
+    <tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_szOptions</td><td class="calibre17">JSON string of options to pass to the procedure, or nullptr for no options. </td></tr>
+    <tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_alloc</td><td class="calibre17">Allocator used to allocate memory for the results or the error. </td></tr>
+    <tr class="calibre16"><td class="calibre17">[out]</td><td class="paramname">out_szResults</td><td class="calibre17">JSON string (utf-8) containing the results, if any. </td></tr>
+    <tr class="calibre16"><td class="calibre17">[out]</td><td class="paramname">out_szError</td><td class="calibre17">JSON string (utf-8) containing the error, if any. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_v1_2_host_8h_source.html#l00370">370</a> of file <a class="pcalibre el" href="_v1_2_host_8h_source.html">Host.h</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

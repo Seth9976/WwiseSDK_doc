@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Model of an Authoring Plug-in</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_4"><a class="pcalibre1 anchor" id="wwiseplugin_complexproperty"></a>
+Custom Data</h1>
+<p class="calibre7">If your plug-in uses complex data such as curves, graphs, and so on, the property set will likely be insufficient to represent this type of data. However, a custom data mechanism is provided to handle this type of complex data. The requirements for custom data are the following:</p>
+<ul class="calibre8">
+<li class="calibre9">Implement a loading and saving mechanism as XML data, e.g., path to a binary file, base64 content, etc.</li>
+<li class="calibre9">Notify Wwise when this data changes for it to be reloaded in the Sound engine</li>
+<li class="calibre9">Implement a serializing function for writing into Sound Banks as parameters for the Sound Engine plug-in.</li>
+</ul>
+<p class="calibre7">These can be accomplished by implementing specific interfaces:</p>
+<ul class="calibre8">
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_ac1f7b957043934f47d294ecd2d71d0ca_split_000.html#ac1f7b957043934f47d294ecd2d71d0ca" title="Latest version of the C++ CustomData interface.">AK::Wwise::Plugin::CustomData</a></code> : Provides the necessary interface for loading and saving your custom data in the Wwise project</li>
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_a4ef1b0bee4438ded222bf1a691d61722_split_000.html#a4ef1b0bee4438ded222bf1a691d61722" title="Latest version of the requested C++ Host interface.">AK::Wwise::Plugin::RequestHost</a></code> : Provides functions to notify the Authoring (<code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v2_1_1_host_a55d16793cbfce0c58f9a0d004cf1f814_split_000.html#a55d16793cbfce0c58f9a0d004cf1f814">AK::Wwise::Plugin::Host::NotifyInternalDataChanged()</a></code>)</li>
+</ul>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> The plug-in has full control over its custom data, hence you should not define anything in the plug-in's XML for this type of data. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

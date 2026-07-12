@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2022.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_13"><a class="pcalibre1 anchor" id="new_media_folder"></a>
+New Media File Layout</h1>
+<p class="calibre7">To address the growing number of files per output directory, Wwise has moved the media files to a new sub-folder named Media. The same folder hierarchy exists in this folder as in the root folder. That is, non-localized media are placed in the root, and localized media are separated into sub-folders. Note that the sample file resolver supplied with Wwise assumes this new file layout. If the SoundBanks project setting <b class="calibre13">Copy Loose/Streamed Media</b> is enabled, then the SoundBank generation process copies media files to the correct location.</p>
+<p class="calibre7">To further reduce the number of media files per folder, Wwise offers the option to divide each of the folders described above. Media files are placed in a sub-folder using the first two characters of the file's name. For example, media file 1234.wem will be placed in the sub-folder /12. This new sub-foldering is enabled via the SoundBanks project setting <b class="calibre13">Sub-Folders for Generated Files</b>. To make use of sub-foldering while using the sample file resolver supplied with Wwise, use the method <code class="calibre14">CAkMultipleFileLocation::SetUseSubfoldering()</code>.</p>
+<p class="calibre7">Refer to <a href="https://www.audiokinetic.com/library/edge/?source=Help&amp;id=soundbank_output_folder_layout" target="_blank" class="pcalibre calibre12">SoundBank Output Folder Layout</a> for details.</p>
+</div></div></div></body></html>

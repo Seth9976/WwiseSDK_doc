@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AkRoomParams::RoomGameObj_AuxSendLevelToSelf</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="struct_ak_room_params_a07f3e05103b351f449673dfff361aa71_split_000.html#a07f3e05103b351f449673dfff361aa71" class="pcalibre1 anchor">◆ </a></span>RoomGameObj_AuxSendLevelToSelf</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a> AkRoomParams::RoomGameObj_AuxSendLevelToSelf</td>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Send level for sounds that are posted on the room game object; adds reverb to ambience and room tones. Valid range: (0.f-1.f). Set to a value greater than 0 to have spatial audio create a send on the room game object, where the room game object itself is specified as the listener and ReverbAuxBus is specified as the aux bus. A value of 0 disables the aux send. This should not be confused with ReverbLevel, which is the send level for spatial audio emitters sending to the room game object. </p><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> The room game object can be accessed though the ID that is passed to <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_ab991cec1e8c9f4d2721fea2d37b285c8_split_000.html#ab991cec1e8c9f4d2721fea2d37b285c8">SetRoom()</a></code> and the <code class="calibre14"><a class="pcalibre el" href="struct_ak_room_i_d_abe791f0510a62ba13d02ca5e35d3b4eb_split_000.html#abe791f0510a62ba13d02ca5e35d3b4eb" title="Conversion function used to convert AkRoomID's to AkGameObjectIDs.">AkRoomID::AsGameObjectID()</a></code> method. Posting an event on the room game object leverages automatic room game object placement by spatial audio so that when the listener is inside the room, the sound comes from all around the listener, and when the listener is outside the room, the sound comes from the portal(s). Typically, this would be used for surround ambiance beds or room tones. Point source sounds should use separate game objects that are registered as spatial audio emitters. <dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_room_params_abd3091429f5aaa78b09cd2984861be6b_split_000.html#abd3091429f5aaa78b09cd2984861be6b">AkRoomParams::RoomGameObj_KeepRegistered</a></li>
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_room_i_d_split_000.html">AkRoomID</a> </li>
+</ul>
+</dd></dl>
+</td></tr>
+</tbody></table>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_ak_spatial_audio_types_8h_source_split_000.html#l00738">738</a> of file <a class="pcalibre el" href="_ak_spatial_audio_types_8h_source_split_000.html">AkSpatialAudioTypes.h</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

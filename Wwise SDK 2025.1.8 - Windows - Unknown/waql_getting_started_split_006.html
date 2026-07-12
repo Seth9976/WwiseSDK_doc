@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Getting Started with WAQL</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_5"><a class="pcalibre1 anchor" id="waql_gs_from_object"></a>
+From a Specific Object</h1>
+<p class="calibre7">WAQL can narrow a query source even further.</p>
+<p class="calibre7">Type the following in the List View:</p>
+<p class="calibre7"><code class="calibre14">$ from object "\Containers"</code></p>
+<p class="calibre7">This query will return a single object, by using the object path.</p>
+<p class="calibre7">To make it more compact, WAQL also supports omitting the 'from object' part, so you can type:</p>
+<p class="calibre7"><code class="calibre14">$ "\Containers"</code></p>
+<p class="calibre7">This returns the specified object.</p>
+<p class="calibre7">We can also list multiple objects:</p>
+<p class="calibre7"><code class="calibre14">$ "\Busses", "\Containers"</code></p>
+<p class="calibre7">Additional exercises:</p>
+<ul class="calibre8">
+<li class="calibre9">Hold the SHIFT key and right-click an object from the Project Explorer. Select <b class="calibre13">Copy Path(s) to clipboard</b> in the shortcut menu. Make a WAQL query from it.</li>
+<li class="calibre9">Hold the SHIFT key and right-click multiple objects from the Project Explorer. Select <b class="calibre13">Copy WAQL query to clipboard</b> in the shortcut menu. Paste the query in the List View.</li>
+<li class="calibre9">Hold the SHIFT key and right-click an object from the Project Explorer. Select <b class="calibre13">Copy GUID(s) to clipboard</b> in the shortcut menu. Paste the guid in the List View surrounded by double-quotes: $ "{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}".</li>
+<li class="calibre9">For Busses and Events, try using the type and the name: $ "Bus:Main Audio Bus".</li>
+</ul>
+</div></div></div></body></html>

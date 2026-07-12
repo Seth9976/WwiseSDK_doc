@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Testing Audio Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_2"><a class="pcalibre1 anchor" id="plugin_tests_guidelines_code"></a>
+Coding (3rd-Party)</h2>
+<p class="calibre7">3rd-party plugin vendors must comply to the following requirements. We recommend that in-house title programmers follow them as well.</p>
+<ul class="calibre8">
+<li class="calibre9">
+<b class="calibre13">Stability</b>: Your plugin must not crash, assert, freeze, or leak memory.  </li>
+<li class="calibre9">
+<b class="calibre13">Memory allocation</b>: Never call new() or malloc() in the Sound Engine part of your plugin. Always allocate memory through the <a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_mem_alloc_split_000.html">AK::IAkPluginMemAlloc</a> allocator that is passed to your plugin by the Wwise sound engine, by using the macros AK_PLUGIN_NEW, AK_PLUGIN_DELETE, AK_PLUGIN_ALLOC and AK_PLUGIN_FREE defined in <a class="pcalibre el" href="_i_ak_plugin_8h_split_000.html">IAkPlugin.h</a>.  </li>
+<li class="calibre9">
+<b class="calibre13">Verify allocated memory</b>: In the Sound Engine part of your plugin, always verify that memory allocation was successful before using it. If memory allocation fails, your plugin should return gracefully with AK_Fail (if applicable).  </li>
+<li class="calibre9">
+<b class="calibre13">Declare supported channel configurations</b>: The Sound Engine part of your plugin should return AK_UnsupportedChannelConfig for channel configurations that it does not support. </li>
+<li class="calibre9">
+<b class="calibre13">Plugin performance</b>: The run-time performance of your plugin should be reasonably constant across all calls to <a class="pcalibre el" href="class_a_k_1_1_i_ak_in_place_effect_plugin_a4da7d07eeefbcc0dda9321f94ae99d99_split_000.html#a4da7d07eeefbcc0dda9321f94ae99d99">AK::IAkInPlaceEffectPlugin::Execute()</a> (or equivalent) during its lifetime. <ul class="calibre15">
+<li class="calibre9">
+Initialization, termination, and all other functions of the Sound Engine plugins API should also not take significantly longer than Execute().  </li>
+<li class="calibre9">
+This restriction does not apply when non-RTPC-able parameters are edited in the Wwise authoring tool and applied live in your plugin. In the worst case, changing such a parameter should take no more than the time it takes to teardown and reinitialize the Sound Engine part of the plugin.  </li>
+</ul>
+</li>
+<li class="calibre9">
+<b class="calibre13">Assertions</b>: Use the AKASSERT macro instead of native assert. <ul class="calibre15">
+<li class="calibre9">
+Add the following line of code in the main cpp file of the Wwise part of your plugin: DEFINE_PLUGIN_ASSERT_HOOK; </li>
+<li class="calibre9">
+This macro is defined in <a class="pcalibre el" href="_i_ak_plugin_8h_split_000.html">IAkPlugin.h</a>, and ensures that the Sound Engine assert hook will be called when an AKASSERT is triggered. </li>
+</ul>
+</li>
+<li class="calibre9">
+<b class="calibre13">Usability</b>: Your plugin should be functional as soon as it is inserted in the authoring tool. By functional, we mean that it should be able to play and will not cause errors during soundbank generation, without having to rely on the user to perform any action, like opening the Effect Editor for example.  </li>
+<li class="calibre9">
+<b class="calibre13">Concurrent execution</b>: Your plugin should allow for concurrent execution of the Execute() method on separate instances (see eventmgrthread_taskscheduling). Any data sharing across instances needs to be made thread-safe. </li>
+</ul>
+</div></div></div></body></html>

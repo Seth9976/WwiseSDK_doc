@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Optimizing Memory Utilization</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_4"><a class="pcalibre1 anchor" id="soundengine_initialization_advanced_soundengine_pool_memory_mising_why"></a>
+Causes of High Memory Usage</h1>
+<p class="calibre7">The following items can cause high memory usage:</p><ul class="calibre8">
+<li class="calibre9">Loading banks increases Object and Media memory usage. Note that each bank uses a different amount of memory. Memory used by a bank in the Object category does not depend on the physical size of the bank but on the number of structures and events that it contains.</li>
+<li class="calibre9">Some effects, including reverb and delay, consume a larger amount of Processing memory when playing.</li>
+<li class="calibre9">Playing multiple sounds at once drastically increases the amount of Processing memory used.</li>
+<li class="calibre9">Sending multiple actions in a short amount of time increases the amount of Object memory used.</li>
+<li class="calibre9">Registering game objects, setting "per object" parameters, and setting object positions all use a small amount of memory. However, be aware that unused game objects must be unregistered to free up this memory. Otherwise, the amount of memory being used constantly increases.</li>
+</ul>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="warning.gif"/></td><td class="calibre17"><b class="calibre13">Warning:</b> When performing tests to check peak memory usage, you must ensure that the current speaker setup configuration used by the game is set to its maximum configuration (for example, 7.1 on PC when using the system audio output device). This is necessary because the sound engine performs some optimizations when the speaker setup is stereo, and therefore will use less memory than in multi-channel configurations. </td></tr>
+</tbody></table>
+<p class="calibre7">More details are available in the following sections:</p><ul class="calibre8">
+<li class="calibre9"><a class="pcalibre el" href="workingwithsdks_initialization_split_001.html#initialization_memorymgr">Initializing the Memory Manager</a></li>
+<li class="calibre9"><a class="pcalibre el" href="memorymanager_split_000.html">Memory Manager</a></li>
+</ul>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="goingfurther_optimizingmempools_reducing_memory_split_000.html">Tips to Reduce Memory Usage</a></li>
+<li class="calibre9"><a class="pcalibre el" href="goingfurther_memoryarenas_split_000.html">Configuration and Tuning of AkMemoryArenas</a> </li>
+</ul>
+</dd></dl>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

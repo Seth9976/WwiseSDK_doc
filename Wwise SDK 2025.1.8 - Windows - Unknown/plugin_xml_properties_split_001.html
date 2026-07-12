@@ -1,0 +1,174 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Properties XML Description</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="wwiseplugin_xml_properties_tag"></a>
+Properties Element</h1>
+<div class="fragment"><div class="line">&lt;Properties&gt;</div>
+<div class="line">    ...</div>
+<div class="line">&lt;/Properties&gt;</div>
+</div><!-- fragment --><p class="calibre7">The <code class="calibre14">Properties</code> section defines the properties and references of your plug-in. <code class="calibre14">Property</code> and <code class="calibre14">Reference</code> elements will be ordered in the user interface as they are in the XML.</p><ul class="calibre8">
+<li class="calibre9">The properties correspond to the controls, such as sliders and check boxes, that can be manipulated by the user in your plug-in's user interface, and to the values that the sound engine plug-in code can use to make its computations.</li>
+<li class="calibre9">The references correspond to fields containing a reference to a Wwise object. For example, a reference could point to a Game Parameter object defined in the project.</li>
+</ul>
+<p class="calibre7">A <code class="calibre14">Property</code> is typically defined as follows:</p>
+<div class="fragment"><div class="line">&lt;Property Name=<span class="stringliteral">"GainBand1"</span> <a class="pcalibre code" href="namespace_a_k_1_1_temp_alloc_a94c6067317869a80ec86af6994a0ebd9_split_000.html#a94c6067317869a80ec86af6994a0ebd9">Type</a>=<span class="stringliteral">"Real32"</span> SupportRTPCType=<span class="stringliteral">"Exclusive"</span> DataMeaning=<span class="stringliteral">"Decibels"</span> DisplayName=<span class="stringliteral">"Band 1 Gain"</span>&gt;</div>
+<div class="line">    &lt;UserInterface Step=<span class="stringliteral">"0.5"</span> Fine=<span class="stringliteral">"0.1"</span> Decimals=<span class="stringliteral">"1"</span> /&gt;</div>
+<div class="line">    &lt;DefaultValue&gt;0&lt;/DefaultValue&gt;</div>
+<div class="line">    &lt;AudioEnginePropertyID&gt;1&lt;/AudioEnginePropertyID&gt;</div>
+<div class="line">    &lt;Restrictions&gt;</div>
+<div class="line">        &lt;ValueRestriction&gt;</div>
+<div class="line">            &lt;Range <a class="pcalibre code" href="namespace_a_k_1_1_temp_alloc_a94c6067317869a80ec86af6994a0ebd9_split_000.html#a94c6067317869a80ec86af6994a0ebd9">Type</a>=<span class="stringliteral">"Real32"</span>&gt;</div>
+<div class="line">                &lt;<a class="pcalibre code" href="namespace_a_k_1_1_speaker_volumes_1_1_vector_a8661f38fe4c56e23ffd967dc427bcde2_split_000.html#a8661f38fe4c56e23ffd967dc427bcde2">Min</a>&gt;-24&lt;/<a class="pcalibre code" href="namespace_a_k_1_1_speaker_volumes_1_1_vector_a8661f38fe4c56e23ffd967dc427bcde2_split_000.html#a8661f38fe4c56e23ffd967dc427bcde2">Min</a>&gt;</div>
+<div class="line">                &lt;<a class="pcalibre code" href="namespace_a_k_1_1_speaker_volumes_1_1_vector_a5cf5edb6e0760f5bd0ef29d98c322d9c_split_000.html#a5cf5edb6e0760f5bd0ef29d98c322d9c">Max</a>&gt;24&lt;/<a class="pcalibre code" href="namespace_a_k_1_1_speaker_volumes_1_1_vector_a5cf5edb6e0760f5bd0ef29d98c322d9c_split_000.html#a5cf5edb6e0760f5bd0ef29d98c322d9c">Max</a>&gt;</div>
+<div class="line">            &lt;/Range&gt;</div>
+<div class="line">        &lt;/ValueRestriction&gt;</div>
+<div class="line">    &lt;/Restrictions&gt;</div>
+<div class="line">    &lt;Dependencies&gt;</div>
+<div class="line">        &lt;PropertyDependency Name=<span class="stringliteral">"OnOffBand1"</span> Action=<span class="stringliteral">"Enable"</span>&gt;</div>
+<div class="line">            &lt;Condition&gt;</div>
+<div class="line">                &lt;Enumeration <a class="pcalibre code" href="namespace_a_k_1_1_temp_alloc_a94c6067317869a80ec86af6994a0ebd9_split_000.html#a94c6067317869a80ec86af6994a0ebd9">Type</a>=<span class="stringliteral">"bool"</span>&gt;</div>
+<div class="line">                    &lt;Value&gt;1&lt;/Value&gt;</div>
+<div class="line">                &lt;/Enumeration&gt;</div>
+<div class="line">            &lt;/Condition&gt;</div>
+<div class="line">        &lt;/PropertyDependency&gt;</div>
+<div class="line">    &lt;/Dependencies&gt;</div>
+<div class="line">&lt;/Property&gt;</div>
+</div><!-- fragment --><p class="calibre7">A Reference is typically defined as follows:</p>
+<div class="fragment"><div class="line">&lt;Reference Name=<span class="stringliteral">"OutputGameParameter"</span> DisplayName=<span class="stringliteral">"Output Game Parameter"</span>&gt;</div>
+<div class="line">    &lt;AudioEnginePropertyId&gt;1&lt;/AudioEnginePropertyID&gt;</div>
+<div class="line">    &lt;Restrictions&gt;</div>
+<div class="line">        &lt;TypeEnumerationRestriction&gt;</div>
+<div class="line">            &lt;<a class="pcalibre code" href="namespace_a_k_1_1_temp_alloc_a94c6067317869a80ec86af6994a0ebd9_split_000.html#a94c6067317869a80ec86af6994a0ebd9">Type</a> Name=<span class="stringliteral">"GameParameter"</span> /&gt;</div>
+<div class="line">        &lt;/TypeEnumerationRestriction&gt;</div>
+<div class="line">    &lt;/Restrictions&gt;</div>
+<div class="line">&lt;/Reference&gt;</div>
+</div><!-- fragment --><p class="calibre7">The <code class="calibre14">Property</code> and <code class="calibre14">Reference</code> elements can contain several attributes: </p><ul class="calibre8">
+<li class="calibre9">
+<code class="calibre14">Name [Property, Reference]</code> (type:string, mandatory): This is the string ID used in the Wwise plug-in to identify the property. It is used in the following places: <ul class="calibre15">
+<li class="calibre9">
+Binding of properties to controls: This is the name you must specify in your plug-in's dialog resources (Prop=&lt;Property Name&gt;) to bind the control to this property.  </li>
+<li class="calibre9">
+Persistence: This is the name that will appear in the <code class="calibre14">Property</code> element in Wwise Project files to persist data related to this property. <table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="caution.gif"/></td><td class="calibre17"><b class="calibre13">Caution:</b> Never change the name of an existing property. Projects using your plug-in will lose any value, randomizer, or RTPC the user might have set on that property. </td></tr>
+</tbody></table>
+</li>
+<li class="calibre9">
+in_szPropertyName parameter in: <ul class="calibre30">
+<li class="calibre9">
+<code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_notifications_1_1_property_set___a90d279b0b03eed79cb10a5b56b0aff90_split_000.html#a90d279b0b03eed79cb10a5b56b0aff90" title="This function is called by Wwise when a plug-in property changes.">AK::Wwise::Plugin::Notifications::PropertySet::NotifyPropertyChanged()</a></code>  </li>
+<li class="calibre9">
+<code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_notifications_1_1_reference_set___aa89f7b9b36764faa3442620a1c980b55_split_000.html#aa89f7b9b36764faa3442620a1c980b55" title="This function is called by Wwise when a plug-in reference changes.">AK::Wwise::Plugin::Notifications::ReferenceSet::NotifyReferenceChanged()</a></code>  </li>
+<li class="calibre9">
+<code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_property_display_name_a7e2d1eb64f740de7921fc3d793dc4f37_split_000.html#a7e2d1eb64f740de7921fc3d793dc4f37" title="Gets the user-friendly name of the specified property.">AK::Wwise::Plugin::PropertyDisplayName::DisplayNameForProp()</a></code>  </li>
+<li class="calibre9">
+<code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_property_display_name_a2d1788ed6ead7d8d9d38b16ff0c868a9_split_000.html#a2d1788ed6ead7d8d9d38b16ff0c868a9" title="Get the user-friendly names of possible values for the specified property.">AK::Wwise::Plugin::PropertyDisplayName::DisplayNamesForPropValues()</a></code>  </li>
+</ul>
+</li>
+</ul>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> The <code class="calibre14">Property Name</code> is not a name that appears in the UI, but you should still make it meaningful because a user might see it in a Project file. The name that appears in the UI is specified by the <code class="calibre14">DisplayName</code> attribute. </td></tr>
+</tbody></table>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> When defining custom properties, the <code class="calibre14">Name</code> attribute must be prefixed with "Custom:". Refer to <a class="pcalibre el" href="defining_custom_properties_split_000.html">Defining Custom Properties</a> for more information. </td></tr>
+</tbody></table>
+</li>
+<li class="calibre9">
+<code class="calibre14">DisplayName [Property, Reference]</code> (<b class="calibre13">type:</b> string, <b class="calibre13">default:</b> empty): Defines the display name of the Property, to be displayed at many places in Wwise. This attribute supersedes the function <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_property_display_name_a7e2d1eb64f740de7921fc3d793dc4f37_split_000.html#a7e2d1eb64f740de7921fc3d793dc4f37" title="Gets the user-friendly name of the specified property.">AK::Wwise::Plugin::PropertyDisplayName::DisplayNameForProp</a></code>.  </li>
+<li class="calibre9">
+<code class="calibre14">DisplayGroup [Property, Reference]</code> (<b class="calibre13">type:</b> string, <b class="calibre13">default:</b> empty): Defines a slash separated path used to organize properties or references in a Tree. Ex: "Audio/HDR" </li>
+<li class="calibre9">
+<code class="calibre14">IsVisible [Property, Reference]</code> (<b class="calibre13">type:</b> boolean, <b class="calibre13">default:</b> true, optional): Default value is <code class="calibre14">true</code>. If absent, the property will be visible in generic editors. Set the <code class="calibre14">IsVisible</code> to <code class="calibre14">false</code> when the property and its value are not meaningful for the user or you don't want the user to see or modify it in generic editors (for example, in the List View). </li>
+<li class="calibre9">
+<p class="starttd"><code class="calibre14">Type [Property]</code> (mandatory): This is the property type. Possible values are: </p><ul class="calibre15">
+<li class="calibre9">
+<code class="calibre14">bool:</code> Boolean </li>
+<li class="calibre9">
+<code class="calibre14">int16:</code> 16-bit integer </li>
+<li class="calibre9">
+<code class="calibre14">Uint16:</code> 16-bit unsigned integer </li>
+<li class="calibre9">
+<code class="calibre14">int32:</code> 32-bit integer </li>
+<li class="calibre9">
+<code class="calibre14">Uint32:</code> 32-bit unsigned integer </li>
+<li class="calibre9">
+<code class="calibre14">int64:</code> 64-bit integer </li>
+<li class="calibre9">
+<code class="calibre14">Uint64:</code> 64-bit unsigned integer </li>
+<li class="calibre9">
+<code class="calibre14">Real32:</code> Single-precision float (32-bit) </li>
+<li class="calibre9">
+<code class="calibre14">Real64:</code> Double-precision float (64-bit) </li>
+<li class="calibre9">
+<code class="calibre14">string:</code> UTF-8, null-terminated character string </li>
+</ul>
+<p class="calibre7">Plug-ins write properties to SoundBanks using the <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_a32526a23215a4452f561220b527e12f8_split_000.html#a32526a23215a4452f561220b527e12f8" title="Latest version of the C++ DataWriter interface.">AK::Wwise::Plugin::DataWriter</a></code> service, which supports writing any of the types listed above. Strings are serialized as null-terminated UTF-8 c-strings. Bool values are serialized as 1-byte values, where 1 stands for true and 0 for false. <br class="calibre10"/>
+ In the case of custom properties added to a Wwise project, the values supported in SoundBanks are restricted to: </p><ul class="calibre15">
+<li class="calibre9">
+<code class="calibre14">int32:</code> 32-bit integer </li>
+<li class="calibre9">
+<code class="calibre14">Real32:</code> Single-precision float (32-bit) </li>
+</ul>
+<p class="calibre7">The bool type can still be used as custom properties, however values are interpreted as int32 where 1 stands for true and 0 for false. However, custom properties typed as Strings are not exported to SoundBanks because they cannot be represented numerically. </p>
+<p class="endli"></p>
+</li>
+<li class="calibre9">
+<code class="calibre14">SupportLink [Property, Reference]</code> (<b class="calibre13">type:</b> boolean, <b class="calibre13">default:</b> false, optional): Defines if the <code class="calibre14">Property</code> or <code class="calibre14">Reference</code> supports the Link/Unlink functionality.  </li>
+<li class="calibre9">
+<code class="calibre14">SupportStates [Property]</code> (<b class="calibre13">type:</b> boolean, <b class="calibre13">default:</b> true, optional): Defines if the <code class="calibre14">Property</code> supports State mapping to control its value. Note that State mapping is only supported if the property also defines <code class="calibre14">SupportRTPCType</code> as either <code class="calibre14">Additive</code> or <code class="calibre14">Boolean</code>.  </li>
+<li class="calibre9">
+<code class="calibre14">SupportRTPCType [Property]</code> (<b class="calibre13">type:</b> string, <b class="calibre13">default:</b> undefined, optional): If not specified, the property will not support RTPCs. If specified, possible values are: <ul class="calibre15">
+<li class="calibre9">
+<code class="calibre14">Additive:</code> The value computed from the RTPC curve will be added to the base property value of the object and to other RTPCs on the same property.  </li>
+<li class="calibre9">
+<code class="calibre14">Multiplicative:</code> The value computed from the RTPC curve will be multiplied by the base property value of the object and by other RTPCs on the same property.  </li>
+<li class="calibre9">
+<code class="calibre14">Exclusive:</code> The value computed from the RTPC curve has exclusive control over the property's value, completely overriding the value set in the property's control within the dialog. (That control will be disabled to make it clear to the Wwise user that it does not have any effect on the property.)  </li>
+<li class="calibre9">
+<code class="calibre14">Boolean:</code> Equivalent logical operations are applied to enable or disable boolean properties. This attribute also enables State mapping to affect the property's value when the RTPC type is either <code class="calibre14">Additive</code> or <code class="calibre14">Boolean</code>.  </li>
+</ul>
+</li>
+<li class="calibre9">
+<code class="calibre14">ForceRTPCCurveSegmentShape [Property]</code> (<b class="calibre13">type:</b> string, <b class="calibre13">default:</b> undefined, optional, used with <code class="calibre14">SupportRTPCType</code>): Restricts the possible segment shapes used in RTPC curves on this property. If not specified, then the user has the freedom to change the shape of any segment within the curve. If specified, possible values are: <ul class="calibre15">
+<li class="calibre9">
+<code class="calibre14">Constant:</code> All segments in the curve will use constant interpolation (between two adjacent points, the Y value is the same as that of the left-most point of the pair). Use this when the property represents discreet values such as booleans or enumerations.  </li>
+</ul>
+</li>
+<li class="calibre9">
+<p class="starttd"><code class="calibre14">DataMeaning [Property]</code> (<b class="calibre13">type:</b> string, <b class="calibre13">default:</b> undefined, optional): If defined, specifies that the property represents some special type of data, such as decibels.</p>
+<p class="endli">Possible values are: </p><ul class="calibre15">
+<li class="calibre9">
+<code class="calibre14">Decibels:</code> This property represents decibels. RTPC curves will use decibel scaling by default, though the user has the option to change between decibel and linear scaling. Decibel scaling affects the way values are interpolated between points. For example, if you have a point at 0 dB and one at -96.3 dB, a linear curve segment evaluated exactly between the two points will produce a value of -48.15 dB when using linear scaling, and around -6 dB when using decibel scaling (corresponding to a halving of amplitude).  </li>
+<li class="calibre9">
+<code class="calibre14">Frequency:</code> This property represents a frequency in Hz. Frequency scaling affects the way values are interpolated between points. For example, if you have a point at 1000 Hz and one at 4000 Hz (two octaves above), a linear curve segment evaluated exactly between the two points will produce a value of 2500 Hz when using linear scaling, and a value of 2000 Hz (one octave above) when using frequency scaling.  </li>
+</ul>
+</li>
+<li class="calibre9">
+<code class="calibre14">AudioEnginePropertyID [Property, Reference]</code> (<b class="calibre13">type:</b> integer in the range 0-32767): If defined, this is passed as the <code class="calibre14">AkPluginParamID</code> parameter to <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_param_ad47732326b85527316287e923d37a3e1_split_000.html#ad47732326b85527316287e923d37a3e1">AK::IAkPluginParam::SetParam()</a></code>. Make sure that your AudioEnginePropertyIDs are kept in sync between your implementation of <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_param_ad47732326b85527316287e923d37a3e1_split_000.html#ad47732326b85527316287e923d37a3e1">AK::IAkPluginParam::SetParam()</a></code> and your plug-in description file. Note that in a wcustomproperties file, the value must be in the range 0-150. When this element is used on a Reference, the value that is sent to <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_param_ad47732326b85527316287e923d37a3e1_split_000.html#ad47732326b85527316287e923d37a3e1">AK::IAkPluginParam::SetParam()</a></code> is the ShortID of the referenced object.  </li>
+<li class="calibre9">
+<code class="calibre14">Temporary [Property]</code> (<b class="calibre13">type:</b> boolean, default: false, optional): If set, prevents the property from being saved and persisted in the Wwise Project. This can be useful for certain properties that are only meant to be used when Wwise is connected to the sound engine.  </li>
+</ul>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> If you want the sound or effect produced by your plug-in to be set by the Wwise user, and not change during a game, do not set it to support RTPCs. </td></tr>
+</tbody></table>
+<p class="calibre7">The <code class="calibre14">DefaultValue</code> element specifies the default value for a property. This default value represents the initial value when creating new instances, and value to which the property is reset when the user clicks on the property's control while holding the CTRL key. This value must match the type (as specified with the <code class="calibre14">Type</code> attribute in the <code class="calibre14">Property</code> element) and range (below) of the property.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="tip.gif"/></td><td class="calibre17"><b class="calibre13">Tip:</b> XML files can be edited with any text or XML editor. They are located in the same folder as the plug-in DLLs, in the "plugins" folder under the main Wwise installation folder. Wwise users who have custom plug-ins can edit the XML file for their plug-ins to change the default value of a plug-in property without recompiling the plug-in. Developer expertise is not required to make this change. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>High-Level Stream Manager API Description</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_4"><a class="pcalibre1 anchor" id="streamingmanager_highlevel_api_interface_streamcreation"></a>
+Stream Creation</h2>
+<p class="calibre7">Much of the Stream Manager's main API is a set of stream factory methods. Given a file identifier and settings, they create a stream object and return an interface to that stream. All stream operations are performed through this interface. In this API, it is possible to identify a stream file either by file name (string) or by file ID (integer). This choice is wrapped into the structure <a class="pcalibre el" href="struct_ak_file_open_data_split_000.html">AkFileOpenData</a>. Only one method should be used to designate a file. If both are used, the string method will be preferred.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> Open() methods of the Low-Level I/O interface create file descriptors out of file identifiers. </td></tr>
+</tbody></table>
+<p class="calibre7">Along with the file identifier, stream creation methods accept a pointer to an <a class="pcalibre el" href="struct_ak_file_system_flags_split_000.html" title="File system flags for file descriptors mapping.">AkFileSystemFlags</a> structure that contains flags for file location.</p>
+<table border="1" cellpadding="5" cellspacing="0" class="calibre38">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre17"><b class="calibre13">Default Streaming Manager Information</b><br class="calibre10"/>
+<br class="calibre10"/>
+ This pointer is passed as is to the Low-Level I/O. Refer to sections <a class="pcalibre el" href="streamingmanager_lowlevel_split_006.html#streamingmanager_lowlevel_location_soundbanks">SoundBanks</a>, <a class="pcalibre el" href="streamingmanager_lowlevel_split_006.html#streamingmanager_lowlevel_location_streamedfiles">Streamed Audio Files</a> and <a class="pcalibre el" href="streamingmanager_lowlevel_split_013.html#streamingmanager_lowlevel_default_implementation_walkthrough_file_location">Basic File Location</a> for more details on the <a class="pcalibre el" href="struct_ak_file_system_flags_split_000.html" title="File system flags for file descriptors mapping.">AkFileSystemFlags</a> and how the sound engine uses them. </td></tr>
+</tbody></table>
+<p class="calibre7">There is an additional argument in the stream creation methods: in_bSyncOpen. Users (like the sound engine) pass true when they require that the file handle, wrapped by the stream object, be opened during this call. If they pass false, it means that they allow the Stream Manager to defer opening of the file. The latter may or may not defer it. If it does defer it, and opening fails, then the next call to <a class="pcalibre el" href="class_a_k_1_1_i_ak_std_stream_a2b12fb0cd1beb3c1d77c8206a8b5796d_split_000.html#a2b12fb0cd1beb3c1d77c8206a8b5796d">AK::IAkStdStream::Read()</a> or <a class="pcalibre el" href="class_a_k_1_1_i_ak_auto_stream_aa8197d63b8e758acb075a437103e573c_split_000.html#aa8197d63b8e758acb075a437103e573c">AK::IAkAutoStream::GetBuffer()</a> will return AK_Fail.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> This should not be considered as a fatal error. The sound engine passes false for streamed audio files. If GetBuffer() returns false, it considers it as an I/O error, and destroys the stream gracefully. </td></tr>
+</tbody></table>
+<table border="1" cellpadding="5" cellspacing="0" class="calibre38">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre17"><b class="calibre13">Default Streaming Manager Information</b><br class="calibre10"/>
+<br class="calibre10"/>
+ Argument in_bSyncOpen is passed directly to the Low-Level I/O. Refer to <a class="pcalibre el" href="streamingmanager_lowlevel_split_004.html#streamingmanager_lowlevel_location_deferred_open">Deferred Opening</a> for details on the consequences of this flag in the Low-Level I/O. </td></tr>
+</tbody></table>
+<p class="calibre7"><a class="pcalibre el" href="class_a_k_1_1_i_ak_stream_mgr_a1de2a7935a2d3cddb71e7cc7f48effd6_split_000.html#a1de2a7935a2d3cddb71e7cc7f48effd6">AK::IAkStreamMgr::CreateStd()</a> creates a standard stream, and <a class="pcalibre el" href="class_a_k_1_1_i_ak_stream_mgr_afe30a576bd859ff4e9b60a3f8e1710fb_split_000.html#afe30a576bd859ff4e9b60a3f8e1710fb">AK::IAkStreamMgr::CreateAuto()</a> creates an automatic stream. These two types of streams are described in the following sections.</p>
+</div></div></div></body></html>

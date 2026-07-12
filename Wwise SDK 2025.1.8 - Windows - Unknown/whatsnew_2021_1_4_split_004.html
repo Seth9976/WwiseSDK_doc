@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2021.1.4</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="generic_bugs_2021_1_4"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-51294</b> Fixed: Audio Object metadata collected during pipeline processing is not available to 3D audio-enabled Audio Device plug-ins.</li>
+<li class="calibre9"><b class="calibre13">WG-51714</b> Fixed: Multi Editor display of the color chip shows gray color instead of an indeterminate value when multiple objects with different colors are selected</li>
+<li class="calibre9"><b class="calibre13">WG-54043</b> Fixed: Music event cues that set States/Switches used by Interactive Music may lead to a crash.</li>
+<li class="calibre9"><b class="calibre13">WG-54291</b> Fixed: Crash in <code class="calibre14">AkPipelineBufferBase::GetCachedBuffer</code> when using multi-core rendering.</li>
+<li class="calibre9"><b class="calibre13">WG-54416</b> Fixed: Unnatural ambience zone behavior in the Wwise Audio Lab.</li>
+<li class="calibre9"><b class="calibre13">WG-54448</b> Fixed: Multi-channel Audio Objects positioned at the default listener get mixed down to a monaural sound.</li>
+<li class="calibre9"><b class="calibre13">WG-55425</b> Fixed: Files moved across drives in File Manager can leave a leftover file.</li>
+<li class="calibre9"><b class="calibre13">WG-55536</b> Fixed: Hang when the main Audio Device resets while the main output is replaced using <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a81521a4611d3891c499ec9c5eb421ac2_split_000.html#a81521a4611d3891c499ec9c5eb421ac2">AK::SoundEngine::ReplaceOutput</a></code>, after adding secondary outputs with <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a15ab79f954a307902f529d8ccde8ad48_split_000.html#a15ab79f954a307902f529d8ccde8ad48">AK::SoundEngine::AddOutput</a></code>.</li>
+<li class="calibre9"><b class="calibre13">WG-55606</b> Fixed: Acoustic textures are assigned to incorrect faces in Spatial Audio Volumes after editing the brush geometry.</li>
+<li class="calibre9"><b class="calibre13">WG-55667</b> Fixed: File analysis is re-run unnecessarily when checking or unchecking impact and body components for input files that exceed 48 kHz.</li>
+<li class="calibre9"><b class="calibre13">WG-55721</b> Fixed: Possible assert in Wwise debug when live editing.</li>
+<li class="calibre9"><b class="calibre13">WG-55740</b> Fixed: (Mac Authoring) Nuendo Game Audio Connect import fails with file not found.</li>
+<li class="calibre9"><b class="calibre13">WG-55744</b> Fixed: Nuendo Game Audio Connect does not detect corresponding files in subdirectories.</li>
+<li class="calibre9"><b class="calibre13">WG-55794</b> Fixed: SoundBank generation does not delete a pre-existing .bnk file when in a different folder.</li>
+<li class="calibre9"><b class="calibre13">WG-55798</b> Fixed: (Spatial Audio) An uninitialized variable causes paths from portals to be inconsistent.</li>
+<li class="calibre9"><b class="calibre13">WG-55880</b> Fixed: Small memory leak in Wwise Authoring when converting Convolution media.</li>
+<li class="calibre9"><b class="calibre13">WG-55901</b> Fixed: Synchronization of State values when connected to game.</li>
+<li class="calibre9"><b class="calibre13">WG-55915</b> Fixed: The Factory Reflect effect is different from a default Reflect effect.</li>
+<li class="calibre9"><b class="calibre13">WG-55981</b> Fixed: Crash in AddOutput when CAkWinDeviceCache is not available.</li>
+<li class="calibre9"><b class="calibre13">WG-56048</b> Fixed: Wwise may hang when renaming an Original wav file and attempting to play it right away.</li>
+<li class="calibre9"><b class="calibre13">WG-56074</b> Fixed: Command Queue Size in Profiler reports 100% when the command queue is actually empty.</li>
+<li class="calibre9"><b class="calibre13">WG-56096</b> Fixed: Possible crash when reloading Work Units.</li>
+<li class="calibre9"><b class="calibre13">WG-56110</b> Fixed: The default selected version of Wwise Motion does not always match Wwise's.</li>
+<li class="calibre9"><b class="calibre13">WG-56201</b> Fixed: <code class="calibre14">AkGlobalCallbackLocation_WakeupFromSuspend</code> callback is not fired after calling <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a9244da1d4d0deedcabdaaae863fcff47_split_000.html#a9244da1d4d0deedcabdaaae863fcff47">AK::SoundEngine::WakeupFromSuspend</a></code> if all active outputs are "secondary".</li>
+<li class="calibre9"><b class="calibre13">WG-56454</b> Fixed: (wp.py) Package command truncates long file paths during package creation.</li>
+</ul>
+</div></div></div></body></html>

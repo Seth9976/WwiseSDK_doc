@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>New Features Overview 2024.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_14"><a class="pcalibre1 anchor" id="features_24_1_memory_allocator"></a>
+New Memory Allocator</h2>
+<p class="calibre7">In order to improve overall usage, control, and monitoring of memory, the default memory allocator for Wwise has been rewritten to replace rpmalloc with what is now known as <code class="calibre14">AkMemoryArena</code>. Specific highlights of <code class="calibre14">AkMemoryArena</code> include the following:</p>
+<ul class="calibre8">
+<li class="calibre9">Reduces memory usage by approximately 10% compared to rpmalloc</li>
+<li class="calibre9">Provides fragmentation performance on par with most general-purpose memory allocators that are based on the TLSF (two-level segregated fit) algorithm</li>
+<li class="calibre9">Retains dynamic scalability of memory resources so that new spans of memory can be acquired and released over time as needed, without requiring all memory to be reserved beforehand</li>
+<li class="calibre9">Has a wide degree of configuration options to support a variety of different memory allocation strategies in your game project</li>
+</ul>
+<p class="calibre7">The integration of the <code class="calibre14">AkMemoryArena</code> into Wwise also includes profiling of the layout of the used memory, allowing for detailed monitoring of memory fragmentation in the sound engine over time. With this feature, developers are able to better understand, control, and optimize how Wwise reserves memory.</p>
+<div class="calibre2">
+<img alt="" src="profiler_memory_alloc.png" class="inline"/>
+</div>
+</div></div></div></body></html>

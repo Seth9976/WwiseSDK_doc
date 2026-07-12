@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK.Wwise::Plugin::V1::LinkFrontend::ForEach</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_link_frontend_a8ad177ae489502dd73244cd09b511459_split_000.html#a8ad177ae489502dd73244cd09b511459" class="pcalibre1 anchor">◆ </a></span>ForEach()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Frontend  = ak_wwise_plugin_frontend_instance, typename Functor &gt; </div>
+<table class="calibre3">
+  <tbody class="calibre4"><tr class="calibre16">
+  <td class="calibre17">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">void AK.Wwise::Plugin::V1::LinkFrontend::ForEach </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype">Functor </td>
+          <td class="paramname"><em class="calibre59">in_operation</em></td><td class="calibre17">)</td>
+          <td class="calibre17"> const</td>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="calibre17">
+<span><span>inline</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+
+<p class="calibre7">Applies a function on each plug-in's frontend instances. </p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> The frontend instances passed to the function are temporary TLS pointers that are meant to be retrieved and processed immediately to execute commands. You should not store this data. </td></tr>
+</tbody></table>
+<dl class="calibre7"><dt class="calibre23">Template Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_frontend_split_000.html" title="Frontend plug-in API for Audio plug-ins.">Frontend</a></td><td class="calibre17">Expected type of the frontend instances (optional). If no explicit type is provided, the caller needs to manually perform the cast to the expected frontend instance type. If an explicit type is provided, the frontend instances will automatically be casted to the provided type and then forwarded to in_operation if the cast was successful. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_operation</td><td class="calibre17">Function, functor or lambda taking a pointer of <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_frontend_split_000.html" title="Frontend plug-in API for Audio plug-ins.">Frontend</a> as parameter. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_plugin_links_8h_source.html#l00248">248</a> of file <a class="pcalibre el" href="_plugin_links_8h_source.html">PluginLinks.h</a>.</p>
+
+<p class="calibre7">References <a class="pcalibre el" href="_plugin_links_8h_source.html#l00230">AK.Wwise::Plugin::V1::LinkFrontend::GetArray()</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

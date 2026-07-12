@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2018.1.2</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="feature_changes_2018_1_2"></a>
+New Features</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-32280</b> (WAAPI) Added the select transform type "referencesTo" to <code class="calibre14">ak.wwise.core.object.get</code>, which provides objects referencing queried objects.</li>
+<li class="calibre9"><b class="calibre13">WG-35275</b> (WAAPI) Added the list of selected objects to the return of the <code class="calibre14">ak.wwise.ui.selectionChanged</code> topic.</li>
+<li class="calibre9"><b class="calibre13">WG-37574</b> (WAAPI) Added <a class="pcalibre el" href="ak_wwise_core_project_saved_split_000.html">ak.wwise.core.project.saved</a> topic , which can be used to get notified when a project is saved.</li>
+<li class="calibre9"><b class="calibre13">WG-37837</b> (WAAPI) Allowed import functions to now specify if imported files should be automatically added to source control.</li>
+<li class="calibre9"><b class="calibre13">WG-38101</b> (WAAPI) Added <code class="calibre14">audioSource:maxRadiusAttenuation</code> return option to <code class="calibre14">ak.wwise.core.object.get</code> to retrieve the attenuation with the largest radius on an object.</li>
+<li class="calibre9"><b class="calibre13">WG-38151</b> (WAAPI) Allowed the passing of an object using unique name and type to queries made using <code class="calibre14">a_k.wwise.core.object.get</code>.</li>
+<li class="calibre9"><b class="calibre13">WG-38159</b> (WAAPI) Added support for Work Unit creation either directly through <code class="calibre14">ak.wwise.core.object.create</code> or as a parent of a sound object through <code class="calibre14">ak.wwise.core.audio.import</code> and <code class="calibre14">ak.wwise.core.audio.importTabDelimited</code>.</li>
+<li class="calibre9"><b class="calibre13">WG-38216</b> (WAAPI) Expanded <a class="pcalibre el" href="ak_wwise_core_audio_import_split_000.html">ak.wwise.core.audio.import</a> to now return an array of all created, replaced, or reused objects.</li>
+<li class="calibre9"><b class="calibre13">WG-38288</b> Removed requirement that audio source files match the filename of an existing audio source during importation through Tab Delimited import or WAAPI import, if the Voice object is specified.</li>
+<li class="calibre9"><b class="calibre13">WG-38790</b> Added ability to define custom commands in Wwise, triggering external programs with dynamic arguments. Refer to <a class="pcalibre el" href="defining_custom_commands_split_000.html">Defining Command Add-ons</a> for more information.</li>
+<li class="calibre9"><b class="calibre13">WG-38867</b> Allowed custom properties to be defined for a specific version of Wwise, as well as globally, for all installed versions of Wwise. Refer to <a class="pcalibre el" href="defining_custom_commands_split_000.html">Defining Command Add-ons</a> for more information.</li>
+<li class="calibre9"><b class="calibre13">WG-38871</b> (WAAPI) Added support for registering new executable commands. Refer to <a class="pcalibre el" href="ak_wwise_ui_commands_register_split_000.html">ak.wwise.ui.commands.register</a> and <a class="pcalibre el" href="ak_wwise_ui_commands_executed_split_000.html">ak.wwise.ui.commands.executed</a>. Refer to <a class="pcalibre el" href="defining_custom_commands_split_000.html">Defining Command Add-ons</a> for more information.</li>
+<li class="calibre9"><b class="calibre13">WG-39003</b> (WAAPI) Added custom property support.</li>
+<li class="calibre9"><b class="calibre13">WG-39105</b> Added option to import Work Units (*.wwu) from another Wwise project that has unlinked properties per platform.</li>
+<li class="calibre9"><b class="calibre13">WG-39140</b> Expanded Custom Properties to have set to read-only option in the User Interface of Wwise. They remain modifiable in WAAPI.</li>
+<li class="calibre9"><b class="calibre13">WG-39152</b> (WAAPI) Added the return option <code class="calibre14">audioSource:language</code> for object queries.</li>
+<li class="calibre9"><b class="calibre13">WG-39196</b> Provided New Rev models, please see <a href="www.audiokinetic.com/products/plug-ins/crankcase-rev/" target="_blank" class="pcalibre calibre12">audiokinetic.com/products/plug-ins/crankcase-rev/ for previews</a>.</li>
+</ul>
+</div></div></div></body></html>

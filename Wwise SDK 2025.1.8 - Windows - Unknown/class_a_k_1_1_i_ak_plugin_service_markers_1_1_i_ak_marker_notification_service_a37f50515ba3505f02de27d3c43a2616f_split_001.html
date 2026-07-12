@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::IAkPluginServiceMarkers::IAkMarkerNotificationService::SubmitMarkerNotifications</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="class_a_k_1_1_i_ak_plugin_service_markers_1_1_i_ak_marker_notification_service_a37f50515ba3505f02de27d3c43a2616f_split_000.html#a37f50515ba3505f02de27d3c43a2616f" class="pcalibre1 anchor">◆ </a></span>SubmitMarkerNotifications()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="calibre3">
+  <tbody class="calibre4"><tr class="calibre16">
+  <td class="calibre17">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">virtual <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::IAkPluginServiceMarkers::IAkMarkerNotificationService::SubmitMarkerNotifications </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype">const <a class="pcalibre el" href="struct_ak_audio_marker_split_000.html">AkAudioMarker</a> * </td>
+          <td class="paramname"><em class="calibre59">in_pMarkers</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">const <a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> * </td>
+          <td class="paramname"><em class="calibre59">in_uOffsetsInBuffer</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> </td>
+          <td class="paramname"><em class="calibre59">in_uNumMarkers</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="calibre17">
+<span><span>pure virtual</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Submit markers to trigger notifications for registered callback functions. Register callbacks through. Registering a callback can be achieved through the PostEvent function on <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_split_000.html">AK::SoundEngine</a>. </p><dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><code class="calibre14">AK_NotInitialized</code> if no callback functions have been registered.</li>
+<li class="calibre9"><code class="calibre14">AK_InvalidParameter</code> if in_pMarkers is null.</li>
+<li class="calibre9"><code class="calibre14">AK_InvalidParameter</code> if in_uOffsetsInBuffer is null.</li>
+<li class="calibre9"><code class="calibre14">AK_InvalidParameter</code> if in_uNumMarkers is 0.</li>
+<li class="calibre9"><code class="calibre14">AK_InvalidParameter</code> if any valus in in_uOffsetsInBuffer is greater or equal to the length of the buffer.</li>
+<li class="calibre9"><code class="calibre14">AK_Success</code> otherwise. </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a41e9ef8d42951871fe4a8ae58a29a68e_split_000.html#a41e9ef8d42951871fe4a8ae58a29a68e">AK::SoundEngine::PostEvent()</a> </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_pMarkers</td><td class="calibre17">Array of <a class="pcalibre el" href="struct_ak_audio_marker_split_000.html" title="Defines the parameters of a marker.">AkAudioMarker</a> objects </td></tr>
+    <tr class="calibre16"><td class="paramname">in_uOffsetsInBuffer</td><td class="calibre17">Array of buffer offsets for each marker contained in <code class="calibre14">in_pMarkers</code>. Must provide a value for each marker in <code class="calibre14">in_pMarkers</code>. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_uNumMarkers</td><td class="calibre17">The number of marker objects in <code class="calibre14"> in_pMarkers </code> </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

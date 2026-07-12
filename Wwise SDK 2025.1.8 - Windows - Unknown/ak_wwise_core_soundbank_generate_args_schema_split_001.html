@@ -1,0 +1,145 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak.wwise.core.soundbank.generate Arguments Schema</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2"><h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="section_ak_wwise_core_soundbank_generate_argsSchema"></a>
+Schema</h1>
+<div class="fragment"><div class="line">{</div>
+<div class="line">    "type": "object",</div>
+<div class="line">    "properties": {</div>
+<div class="line">        "soundbanks": {</div>
+<div class="line">            "type": "array",</div>
+<div class="line">            "description": "List of user-defined SoundBanks to generate. If the array is empty then all user-defined SoundBanks are generated. Note that auto-defined SoundBanks cannot be specified, and all auto-defined SoundBanks are generated regardless of this parameter.",</div>
+<div class="line">            "items": {</div>
+<div class="line">                "type": "object",</div>
+<div class="line">                "description": "SoundBank Info.",</div>
+<div class="line">                "properties": {</div>
+<div class="line">                    "name": {</div>
+<div class="line">                        "type": "string",</div>
+<div class="line">                        "description": "The name of the user-defined SoundBank to generate. A temporary SoundBank will be created if the SoundBank doesn't exist. Auto-defined SoundBanks cannot be specified."</div>
+<div class="line">                    },</div>
+<div class="line">                    "events": {</div>
+<div class="line">                        "type": "array",</div>
+<div class="line">                        "description": "List of events to include in this SoundBank. Not required if the bank already exists.",</div>
+<div class="line">                        "items": {</div>
+<div class="line">                            "anyOf": [</div>
+<div class="line">                                {</div>
+<div class="line">                                    "type": "string",</div>
+<div class="line">                                    "pattern": "^(StateGroup|SwitchGroup|SoundBank|GameParameter|Event|Effect|AudioDevice|Trigger|Attenuation|DialogueEvent|Bus|AuxBus|Conversion|ModulatorLfo|ModulatorEnvelope|ModulatorTime|Platform|Language|AcousticTexture|Global):[a-zA-Z0-9_]+$",</div>
+<div class="line">                                    "description": "The name of the object qualified by its type or Short ID in the form of type:name or Global:shortId. Only object types that have globally-unique names or Short Ids are supported. Ex: Event:Play_Sound_01, Global:245489792"</div>
+<div class="line">                                },</div>
+<div class="line">                                {</div>
+<div class="line">                                    "type": "string",</div>
+<div class="line">                                    "pattern": "^\\{[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}\\}$",</div>
+<div class="line">                                    "description": "An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}."</div>
+<div class="line">                                },</div>
+<div class="line">                                {</div>
+<div class="line">                                    "type": "string",</div>
+<div class="line">                                    "pattern": "^\\\\",</div>
+<div class="line">                                    "description": "A project path to a Wwise object, including the category and the work-unit. For example: \\\\Containers\\\\Default Work Unit\\\\New Sound SFX."</div>
+<div class="line">                                }</div>
+<div class="line">                            ],</div>
+<div class="line">                            "description": "The ID (GUID), name, or path of the event to include in the SoundBank."</div>
+<div class="line">                        }</div>
+<div class="line">                    },</div>
+<div class="line">                    "auxBusses": {</div>
+<div class="line">                        "type": "array",</div>
+<div class="line">                        "description": "List of AuxBus to include in this SoundBank.",</div>
+<div class="line">                        "items": {</div>
+<div class="line">                            "anyOf": [</div>
+<div class="line">                                {</div>
+<div class="line">                                    "type": "string",</div>
+<div class="line">                                    "pattern": "^(StateGroup|SwitchGroup|SoundBank|GameParameter|Event|Effect|AudioDevice|Trigger|Attenuation|DialogueEvent|Bus|AuxBus|Conversion|ModulatorLfo|ModulatorEnvelope|ModulatorTime|Platform|Language|AcousticTexture|Global):[a-zA-Z0-9_]+$",</div>
+<div class="line">                                    "description": "The name of the object qualified by its type or Short ID in the form of type:name or Global:shortId. Only object types that have globally-unique names or Short Ids are supported. Ex: Event:Play_Sound_01, Global:245489792"</div>
+<div class="line">                                },</div>
+<div class="line">                                {</div>
+<div class="line">                                    "type": "string",</div>
+<div class="line">                                    "pattern": "^\\{[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}\\}$",</div>
+<div class="line">                                    "description": "An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}."</div>
+<div class="line">                                },</div>
+<div class="line">                                {</div>
+<div class="line">                                    "type": "string",</div>
+<div class="line">                                    "pattern": "^\\\\",</div>
+<div class="line">                                    "description": "A project path to a Wwise object, including the category and the work-unit. For example: \\\\Containers\\\\Default Work Unit\\\\New Sound SFX."</div>
+<div class="line">                                }</div>
+<div class="line">                            ],</div>
+<div class="line">                            "description": "The ID (GUID), name, or path of the Auxiliary Bus to include in the SoundBank."</div>
+<div class="line">                        }</div>
+<div class="line">                    },</div>
+<div class="line">                    "inclusions": {</div>
+<div class="line">                        "type": "array",</div>
+<div class="line">                        "description": "List of inclusion type to use for this SoundBank. Not required if the bank already exists.",</div>
+<div class="line">                        "maxItems": 3,</div>
+<div class="line">                        "items": {</div>
+<div class="line">                            "type": "string",</div>
+<div class="line">                            "enum": [</div>
+<div class="line">                                "event",</div>
+<div class="line">                                "structure",</div>
+<div class="line">                                "media"</div>
+<div class="line">                            ]</div>
+<div class="line">                        }</div>
+<div class="line">                    },</div>
+<div class="line">                    "rebuild": {</div>
+<div class="line">                        "type": "boolean",</div>
+<div class="line">                        "description": "Force rebuild of this particular SoundBank. Default value: false"</div>
+<div class="line">                    }</div>
+<div class="line">                },</div>
+<div class="line">                "required": [</div>
+<div class="line">                    "name"</div>
+<div class="line">                ]</div>
+<div class="line">            }</div>
+<div class="line">        },</div>
+<div class="line">        "platforms": {</div>
+<div class="line">            "type": "array",</div>
+<div class="line">            "description": "List of platforms to generate. If you don't specify any platforms, all the platforms will be generated.",</div>
+<div class="line">            "items": {</div>
+<div class="line">                "type": "string",</div>
+<div class="line">                "description": "The ID (GUID) or the name of the platforms."</div>
+<div class="line">            }</div>
+<div class="line">        },</div>
+<div class="line">        "languages": {</div>
+<div class="line">            "type": "array",</div>
+<div class="line">            "description": "List of languages to generate. If you don't specify any languages, all the languages will be generated.",</div>
+<div class="line">            "items": {</div>
+<div class="line">                "type": "string",</div>
+<div class="line">                "description": "The ID (GUID) or name of the language."</div>
+<div class="line">            }</div>
+<div class="line">        },</div>
+<div class="line">        "skipLanguages": {</div>
+<div class="line">            "type": "boolean",</div>
+<div class="line">            "description": "By default, if you don't specify any languages all languages will be generated. If you set this parameter to true, no localized SoundBank will be generated."</div>
+<div class="line">        },</div>
+<div class="line">        "rebuildSoundBanks": {</div>
+<div class="line">            "type": "boolean",</div>
+<div class="line">            "description": "Will rebuild all SoundBanks if true. If you want to clear the converted media as well, use clearAudioFileCache parameter. Default value: false."</div>
+<div class="line">        },</div>
+<div class="line">        "clearAudioFileCache": {</div>
+<div class="line">            "type": "boolean",</div>
+<div class="line">            "description": "Deletes the content of the Wwise audio file cache folder prior to converting source files and generating SoundBanks, which ensures that all source files are reconverted. Note that the whole cache is cleared, for all platforms, regardless of the platforms arguments. Default value: false."</div>
+<div class="line">        },</div>
+<div class="line">        "writeToDisk": {</div>
+<div class="line">            "type": "boolean",</div>
+<div class="line">            "description": "Use the normal SoundBank generation process and write the sound bank and info file to disk. Default value: false."</div>
+<div class="line">        },</div>
+<div class="line">        "rebuildInitBank": {</div>
+<div class="line">            "type": "boolean",</div>
+<div class="line">            "description": "If you don't use rebuildSoundBanks, use this option to force a rebuild of the Init bank for each specified platform."</div>
+<div class="line">        }</div>
+<div class="line">    },</div>
+<div class="line">    "additionalProperties": false</div>
+<div class="line">}</div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

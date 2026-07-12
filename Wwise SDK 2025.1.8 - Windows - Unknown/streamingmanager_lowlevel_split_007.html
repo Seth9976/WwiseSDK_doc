@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Low-Level I/O</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_6"><a class="pcalibre1 anchor" id="streamingmanager_lowlevel_interface"></a>
+I/O Transfer Interface</h1>
+<p class="calibre7">Once file location has been resolved through <code class="calibre14">AK::IAkFileLocationResolver::GetNextPreferredDevice()</code>, the Stream Manager then calls <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_a0abfde848b599b5e5b8e8ed63dc8b555_split_000.html#a0abfde848b599b5e5b8e8ed63dc8b555">AK::StreamMgr::IAkLowLevelIOHook::BatchOpen()</a></code> on the selected streaming device, which interacts with the Low-Level I/O system through its own I/O hook. The first thing it does is to query the low-level block size constraint, by calling <a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_a5018552d455ddc2a95b727fc543aac9e_split_000.html#a5018552d455ddc2a95b727fc543aac9e">AK::StreamMgr::IAkLowLevelIOHook::GetBlockSize()</a>. Then, every input data transfer is executed through the hook's BatchRead() method, and output through the hook's BatchWrite() method. When the stream is destroyed, <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_a7a50a7a5fa624691d7bb7608753dc096_split_000.html#a7a50a7a5fa624691d7bb7608753dc096">AK::StreamMgr::IAkLowLevelIOHook::Close()</a></code> is called.</p>
+<p class="calibre7">Each of these methods are passed the same file descriptor that was filled by the File Location Resolver.</p>
+</div></div></div></body></html>

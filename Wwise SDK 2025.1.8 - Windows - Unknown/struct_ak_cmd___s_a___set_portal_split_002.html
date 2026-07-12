@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AkCmd_SA_SetPortal Struct Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_1">Detailed Description</h2>
+<div class="calibre2"><p class="calibre7">Add or update an acoustic portal. A portal is an opening that connects two or more rooms to simulate the transmission of reverberated (indirect) sound between the rooms. This function may be called multiple times with the same ID to update the parameters of the portal. The ID (<code class="calibre14">portalID</code>) must be chosen in the same manner as <code class="calibre14">AkGameObjectID's</code>, as they are in the same ID-space. The spatial audio lib manages the registration/unregistration of internal game objects for portals that use these IDs, and therefore must not collide.</p>
+<p class="calibre7">Optionally, you can associate a name to the portal for profiling purposes. Call AK_CommandBuffer_AddString after adding the command to attach a name to the portal: </p><pre class="fragment">auto cmd = (AkCmd_SA_SetPortal*)AK_CommandBuffer_Add(buffer, AkCommand_SA_SetPortal);
+// Fill command...
+AK_CommandBuffer_AddString(buffer, "Portal 1");
+</pre><p class="calibre7">This command can fail for the following reasons:</p><ul class="calibre8">
+<li class="calibre9">AK_InvalidParameter: <code class="calibre14">portalID</code> or some portal parameters are not valid.</li>
+<li class="calibre9">AK_InsufficientMemory: Not enough memory to complete the operation.</li>
+</ul>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="_ak_command_types_8h_a001b78645b8b0335c0dd2e128cca2cfd_split_001.html#a001b78645b8b0335c0dd2e128cca2cfdaab60efabdb8c16ad7c30c9c1bd8ee6cf">AkCommand_SA_SetPortal</a></li>
+<li class="calibre9"><a class="pcalibre el" href="_ak_spatial_audio_types_8h_a8e9c611850968a9aed0bc88bc71cd992_split_000.html#a8e9c611850968a9aed0bc88bc71cd992">AkPortalID</a></li>
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_portal_params_split_000.html">AkPortalParams</a></li>
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_cmd___s_a___remove_portal_split_000.html">AkCmd_SA_RemovePortal</a> </li>
+</ul>
+</dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_ak_command_types_8h_source_split_002.html#l01570">1570</a> of file <a class="pcalibre el" href="_ak_command_types_8h_source_split_000.html">AkCommandTypes.h</a>.</p>
+</div></div><!-- contents -->
+
+
+</body></html>

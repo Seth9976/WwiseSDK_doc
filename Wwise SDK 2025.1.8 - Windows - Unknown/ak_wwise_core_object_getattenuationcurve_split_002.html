@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak.wwise.core.object.getAttenuationCurve</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="ak_wwise_core_object_getattenuationcurveResult"></a>
+Result</h1>
+<p class="calibre7"></p><table class="doxtable">
+<tbody class="calibre4"><tr class="calibre16">
+<th class="calibre46">Name </th><th class="calibre46">Type </th><th class="calibre46">Description  </th></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">curveType</b> </td><td class="calibre36">string </td><td class="calibre36">Name of attenuation curve. Possible values: <ul class="calibre8">
+<li class="calibre9">
+VolumeDryUsage </li>
+<li class="calibre9">
+VolumeWetGameUsage </li>
+<li class="calibre9">
+VolumeWetUserUsage </li>
+<li class="calibre9">
+LowPassFilterUsage </li>
+<li class="calibre9">
+HighPassFilterUsage </li>
+<li class="calibre9">
+DualShelfUsage </li>
+<li class="calibre9">
+SpreadUsage </li>
+<li class="calibre9">
+FocusUsage </li>
+<li class="calibre9">
+ObstructionVolumeUsage </li>
+<li class="calibre9">
+ObstructionHPFUsage </li>
+<li class="calibre9">
+ObstructionLPFUsage </li>
+<li class="calibre9">
+ObstructionDSFUsage </li>
+<li class="calibre9">
+OcclusionVolumeUsage </li>
+<li class="calibre9">
+OcclusionHPFUsage </li>
+<li class="calibre9">
+OcclusionLPFUsage </li>
+<li class="calibre9">
+OcclusionDSFUsage </li>
+<li class="calibre9">
+DiffractionVolumeUsage </li>
+<li class="calibre9">
+DiffractionHPFUsage </li>
+<li class="calibre9">
+DiffractionLPFUsage </li>
+<li class="calibre9">
+DiffractionDSFUsage </li>
+<li class="calibre9">
+TransmissionVolumeUsage </li>
+<li class="calibre9">
+TransmissionHPFUsage </li>
+<li class="calibre9">
+TransmissionLPFUsage </li>
+<li class="calibre9">
+TransmissionDSFUsage </li>
+</ul>
+</td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">use</b> </td><td class="calibre36">string </td><td class="calibre36">Defines whether the curve has no points, has its own set of points, uses those of the VolumeDryUsage curve, or uses the global curve defined in the Project Settings. Possible values: <ul class="calibre8">
+<li class="calibre9">
+None </li>
+<li class="calibre9">
+Custom </li>
+<li class="calibre9">
+UseVolumeDry </li>
+<li class="calibre9">
+UseProject </li>
+</ul>
+</td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">points</b> </td><td class="calibre36">array </td><td class="calibre36">The attenuation curve.<br class="calibre10"/>
+ An array of points defining a curve.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">points <b class="calibre13">[...]</b> </td><td class="calibre36">object </td><td class="calibre36">A point in the curve.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">points[...].<b class="calibre13">x</b> * </td><td class="calibre36">number </td><td class="calibre36">X coordinate of curve point.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">points[...].<b class="calibre13">y</b> * </td><td class="calibre36">number </td><td class="calibre36">Y coordinate of curve point.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">points[...].<b class="calibre13">shape</b> * </td><td class="calibre36">string </td><td class="calibre36">Shape of the curve segment between this point and the next. Possible values: <ul class="calibre8">
+<li class="calibre9">
+Constant </li>
+<li class="calibre9">
+Linear </li>
+<li class="calibre9">
+Log3 </li>
+<li class="calibre9">
+Log2 </li>
+<li class="calibre9">
+Log1 </li>
+<li class="calibre9">
+InvertedSCurve </li>
+<li class="calibre9">
+SCurve </li>
+<li class="calibre9">
+Exp1 </li>
+<li class="calibre9">
+Exp2 </li>
+<li class="calibre9">
+Exp3 </li>
+</ul>
+</td></tr>
+</tbody></table>
+<p class="calibre7"></p>
+<p class="calibre7"><a class="pcalibre el" href="ak_wwise_core_object_getattenuationcurve_result_schema_split_000.html">Result Schema</a></p>
+</div></div></div></body></html>

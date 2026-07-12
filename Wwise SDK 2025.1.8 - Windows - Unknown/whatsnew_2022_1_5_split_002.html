@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2022.1.5</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="generic_behavior_changes_2022_1_5"></a>
+Behavior Changes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-60217</b> When using an AkChannelMask on a Game Object via <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_aec6be4dca0249557ea2680b755bd218a_split_000.html#aec6be4dca0249557ea2680b755bd218a">AK::SoundEngine::SetMultiplePositions</a></code>, the channel mask was previously only applied to Audio Objects when they were mixed down to a non-Audio Objects bus. Now, the channel mask is also applied when Audio Objects are processed by any Audio Objects bus. When an AkChannelMask is applied to an Audio Object, only the channels set in the mask are included, and the resulting Audio Object has a reduced channel configuration based on the number of channels that are included. For example, applying a mask of AK_SPEAKER_FRONT_RIGHT | AK_SPEAKER_SIDE_LEFT to a quadraphonic Audio Object converts it into a stereo Audio Object consisting of the FR and SL channels from the original Audio Object. Most notably, this means that AkChannelMasks are now properly applied to Audio Objects, which are ultimately sent to an endpoint as System Audio Objects. This also improves the results of some Object Processor Effects, such as Compressor, which previously might have incorrectly incorporated channels into their processing that were yet to be masked out.</li>
+<li class="calibre9"><b class="calibre13">WG-64863</b> Multichannel sources that are mixed to an ambisonic bus now have a loudness similar to their loudness when panned to a non-ambisonic bus. Specifically, this change increases the volume of multichannel sources for ambisonics by several decibels, depending on their channel count. For example, there will be an increase of +3db for a stereo source and +6db for a quadraphonic source. In practice, this means that any corrections to the mix that were made specifically for this situation can be removed.</li>
+<li class="calibre9"><b class="calibre13">WG-65329</b> In the Remote Connections dialog, content is automatically sorted with Local host entries at the top of the IP Address / Device ID column.</li>
+</ul>
+</div></div></div></body></html>

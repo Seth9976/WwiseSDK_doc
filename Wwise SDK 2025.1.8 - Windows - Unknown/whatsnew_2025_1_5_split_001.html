@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2025.1.5</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="generic_feature_changes_2025_1_5"></a>
+New Features</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-79972</b> The Sidechain Send Effect can now apply a low-pass filter and high-pass filter before sending any incoming audio data to the targeted Sidechain Mix, without affecting the audio signal going through the Effect. Also, the Sidechain Send Effect now operates as an Object Processor. When running on an Audio Objects bus, it downmixes all the incoming objects to match the channel configuration of the destination Sidechain Mix. Both of these changes allow the Sidechain Send effect to be used in more scenarios by adding it to a typical Audio Bus instead of having to set up an Aux Bus specifically for the Sidechain Send Effect.</li>
+<li class="calibre9"><b class="calibre13">WG-80796</b> Media Pool results now support dragging audio files to a DAW.</li>
+<li class="calibre9"><b class="calibre13">WG-81294</b> New WAAPI function <a class="pcalibre el" href="ak_wwise_core_profiler_setcursortime_split_000.html">ak.wwise.core.profiler.setCursorTime</a> to set the profiler user cursor time.</li>
+<li class="calibre9"><b class="calibre13">WG-81507</b> New WAAPI function <a class="pcalibre el" href="ak_wwise_core_profiler_movecursor_split_000.html">ak.wwise.core.profiler.moveCursor</a> to move the profiler user cursor to first, last, next or previous frame.</li>
+<li class="calibre9"><b class="calibre13">WG-81677</b> Added the new Sidechain Source plug-in to improve the Sidechain Mix workflow. With the new plug-in, a Voice can be used to monitor a Sidechain Mix, instead of having to use a Sidechain Receive Effect on an Audio Bus. The Sidechain Receive Effect has also been updated. You can now add the Effect to Voices instead of only Busses. It also now operates as an out-of-place Effect, so that the output signal can match the channel configuration of the Sidechain Mix being monitored. For more information, see <a href="https://www.audiokinetic.com/library/edge/?source=Help&amp;id=wwise_sidechain_receive_effect" class="pcalibre calibre12">Sidechain Receive Effect</a> and <a href="https://www.audiokinetic.com/library/edge/?source=Help&amp;id=wwise_sidechain_source" class="pcalibre calibre12">Sidechain Source</a>.</li>
+<li class="calibre9"><b class="calibre13">WG-81981</b> Added commands for the Project Explorer <b class="calibre13">Refresh</b> and <b class="calibre13">Show All Search Results</b> buttons to use with keyboard shortcuts.</li>
+</ul>
+</div></div></div></body></html>

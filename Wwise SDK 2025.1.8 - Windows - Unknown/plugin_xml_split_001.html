@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Wwise Plug-in XML Description Files</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="plugin_xml_contents_wwise_plugin"></a>
+Overview of the XML File</h1>
+<p class="calibre7">The XML description file contains information about several aspects of a Wwise plug-in, including:</p>
+<ul class="calibre8">
+<li class="calibre9">
+Plug-in name </li>
+<li class="calibre9">
+Company ID and plug-in ID. Refer to <a class="pcalibre el" href="plugin_ids_split_000.html">Wwise Plug-in IDs</a> for more information. </li>
+<li class="calibre9">
+Feature supported for each platforms </li>
+<li class="calibre9">
+Property definitions, including: <ul class="calibre15">
+<li class="calibre9">
+Property name (string used to identify the property in the code and persisted files) </li>
+<li class="calibre9">
+Property type </li>
+<li class="calibre9">
+RTPC support </li>
+<li class="calibre9">
+Default value </li>
+<li class="calibre9">
+Sound engine property ID (binding this property to the code in the sound engine plug-in) </li>
+<li class="calibre9">
+Range restrictions or enumeration restrictions </li>
+<li class="calibre9">
+Dependencies on other properties </li>
+<li class="calibre9">
+User Interface description elements </li>
+</ul>
+</li>
+<li class="calibre9">
+Inner Object Types definitions, including: <ul class="calibre15">
+<li class="calibre9">
+Inner Object Type name (string used to identify the inner object type) </li>
+<li class="calibre9">
+Inner Object Properties </li>
+</ul>
+</li>
+</ul>
+<p class="calibre7">When using the <a class="pcalibre el" href="effectplugin_tools_split_000.html">wp.py development tool</a>, a default XML file is provided and is pre-filled with the information you provided at creation time. Refer to <a class="pcalibre el" href="effectplugin_tools_newplugin.html">Creating Audio Plug-ins</a> for more details.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> A Wwise plug-in dynamic library can contain multiple plug-ins (see <a class="pcalibre el" href="plugin_dll_split_000.html">Authoring Plug-in Library Format</a>), each of which must be described in a single associated XML file. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

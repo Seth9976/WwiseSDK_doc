@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integration Details - GetSourcePlayPosition</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2"><h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="soundengine_query_pos_intro"></a>
+Introduction</h1>
+<p class="calibre7">In certain circumstances, the game engine requires information about the current playback position of a particular sound. For example, games that support rendering video and audio contents in a synchronous manner must query the playback position of sounds to render game visuals appropriately. If this has to be done on a frame-by-frame basis (such as to synchronize lip movement and dialog), then playback position queries are preferable over markers. Another advantage of playback position queries is that the source files do not need to be edited. The <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ae0b469d9fb8a099b40f52f004882d283_split_000.html#ae0b469d9fb8a099b40f52f004882d283">AK::SoundEngine::GetSourcePlayPosition()</a> method returns the time elapsed on an event's first sound playback.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> Markers are useful for signalling specific events happening in a sound file, as opposed to small increments in sound playback. </td></tr>
+</tbody></table>
+<p class="calibre7">You can then call the <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ae0b469d9fb8a099b40f52f004882d283_split_000.html#ae0b469d9fb8a099b40f52f004882d283">AK::SoundEngine::GetSourcePlayPosition()</a> method by passing the AkPlayingID received from the call to <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a41e9ef8d42951871fe4a8ae58a29a68e_split_000.html#a41e9ef8d42951871fe4a8ae58a29a68e">AK::SoundEngine::PostEvent()</a> to get the current playback position of the source being played.</p>
+</div></div></div></body></html>

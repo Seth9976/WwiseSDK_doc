@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2025.1.2 Beta 3</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="generic_feature_changes_2025_1_2"></a>
+New Features</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-59168</b> The <b class="calibre13">Audio file destination</b> in the Audio File Importer view is now persisted.</li>
+<li class="calibre9"><b class="calibre13">WG-69312</b> Added new parameters and controls to the Parametric EQ effect to enable it to act as a dynamic EQ. The effect now supports metering of individual bands of audio when using a Low Shelf, High Shelf, or Peaking filter, which then drives a complementary offset to the gain of each of the filters being applied. The metering can be driven by either the in-line audio signal being processed by the EQ, or a separate Sidechain Mix.</li>
+<li class="calibre9"><b class="calibre13">WG-75446</b> Added extra visualization to the Parametric EQ Effect's filter graph when profiling the sound engine, showing the frequency response of the filter driving the Parametric EQ based on evaluated the built-in parameters, run-time RTPCs, and any dynamics processing. Also, added functionality to Listen to a specific section of the audio that is being affected by a certain EQ Band, and functionality to Listen to sections of audio that is driving the dynamics for a certain EQ band.</li>
+</ul>
+<p class="calibre7">(For Release Note review: see Comments for editing-related information)</p><ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-75640</b> Command Buffer: added commands to control stream caching, muting background music, sending custom data to plugins, and controlling the Suspended state of the Sound Engine.</li>
+<li class="calibre9"><b class="calibre13">WG-76070</b> New experimental plug-in: Recorder (ADM) allows recording a rich object-based mix to an ADM file.</li>
+<li class="calibre9"><b class="calibre13">WG-77697</b> It is possible to reorder the columns in the Media Pool Results area.</li>
+<li class="calibre9"><b class="calibre13">WG-77953</b> Right-clicking a sound SFX now provides options to search for similar sounds in the Media Pool.</li>
+<li class="calibre9"><b class="calibre13">WG-77955</b> New menu Show in Media Pool on Sound and Audio Source objects.</li>
+<li class="calibre9"><b class="calibre13">WG-78560</b> Loading a Profiler Session is now accessible through the Profiler menu, from the Capture Log with a button, and as a command in the Wwise Shortcuts.</li>
+<li class="calibre9"><b class="calibre13">WG-78690</b> A new menu option in the Media Pool Results area lets you import detected regions of selected audio files.</li>
+<li class="calibre9"><b class="calibre13">WG-78807</b> Right-clicking on a Media Pool database now provides options to add folders and rescan the database.</li>
+<li class="calibre9"><b class="calibre13">WG-78893</b> New WAAPI functions to query the Media Pool.</li>
+<li class="calibre9"><b class="calibre13">WG-79079</b> Added new property to the Parametric EQ effect to limit the maximum number of bands of processing the effect may do. Even if higher bands are disabled, lower values for this can slightly reduce the CPU and memory cost of the effect.</li>
+<li class="calibre9"><b class="calibre13">WG-79102</b> (Acoustics) Diffraction coefficients are now more accurately computed when an emitter or listener moves around an obstacle, with a reduced reliance on updating the nodes within the path itself. This allow the use of a higher movement threshold, higher load balancing spread, or larger clustering distances while minimizing loss of quality.</li>
+<li class="calibre9"><b class="calibre13">WG-79331</b> New API for plug-ins to query detailed information about the output device they are routed to.</li>
+<li class="calibre9"><b class="calibre13">WG-79564</b> Added controls to the Parametric EQ to Listen to, or "Solo", parts of the audio being affected by a specific band of the EQ process. Controls have also been added to Listen to a specific band of the input signal being used to drive the Dynamics for the EQ effect.</li>
+<li class="calibre9"><b class="calibre13">WG-79841</b> Added a new boolean attribute to properties defined in a plug-in's XML description: "Temporary". When set, this prevents plug-in properties from being saved and persisted in the Wwise Project. This can be useful for certain properties that are only meant to be used when Wwise is connected to the sound engine.</li>
+</ul>
+</div></div></div></body></html>

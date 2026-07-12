@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2022.1.7</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="generic_perf_changes_2022_1_7"></a>
+Performance Changes</h1>
+<ul class="calibre8">
+<li class="calibre9"><p class="starttd"><b class="calibre13">WG-65225</b> When using Wwise's default memory allocator, all allocations now go to a single global heap instead of relying on thread-local heaps. This should significantly lower the amount of memory reserved by Wwise throughout the lifetime of the process, and allow the memory reservation over time to be stable and more predictable.</p>
+<p class="starttd">If significant CPU contention over the global heap is observed, due to heavy multi-threaded activity in Wwise, a new configuration setting for Wwise's default memory allocator is now available, <code class="calibre14">AkMemSettings::uMaxThreadLocalHeapAllocSize</code>. This can be used to configure at what threshold memory allocations are serviced by thread-local heaps instead of the global heap. It is set to 0 by default.</p>
+<p class="starttd">Note that even if <code class="calibre14">AkMemSettings::uMaxThreadLocalHeapAllocSize</code> is set to a non-zero value, memory allocations that occur on threads that have not executed <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_memory_mgr_a76b450a2f472f5d9bc61aa1c3ed9a722_split_000.html#a76b450a2f472f5d9bc61aa1c3ed9a722">AK::MemoryMgr::InitForThread</a></code> continue to use the global heap. This is intended to avoid the unintentional creation of thread-local heaps when interacting with some Sound Engine APIs on non-Wwise threads which had not executed <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_memory_mgr_a76b450a2f472f5d9bc61aa1c3ed9a722_split_000.html#a76b450a2f472f5d9bc61aa1c3ed9a722">AK::MemoryMgr::InitForThread</a></code> or <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_memory_mgr_a3c47d8b70c74b631184ad9ea34c6f942_split_000.html#a3c47d8b70c74b631184ad9ea34c6f942">AK::MemoryMgr::TermForThread</a></code>.</p>
+<p class="starttd">Also, the default sizes used to reserve new blocks of memory by calling <code class="calibre14">AkMemSettings::pfAllocVM</code> are now 2MiB on all platforms, which allows for better opportunities to utilize 2MiB page mappings. This can reduce translation lookaside buffer (TLB) misses incurred during sound engine execution, helping improve performance slightly. In addition, rpmalloc is now configured so that it caches less unused memory and releases memory more readily during periods of low memory use.</p>
+</li>
+</ul>
+</div></div></div></body></html>

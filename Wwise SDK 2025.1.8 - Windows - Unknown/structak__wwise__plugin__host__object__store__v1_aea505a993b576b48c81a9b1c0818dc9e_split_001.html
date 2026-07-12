@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak_wwise_plugin_host_object_store_v1::InsertPropertySet</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="structak__wwise__plugin__host__object__store__v1_aea505a993b576b48c81a9b1c0818dc9e_split_000.html#aea505a993b576b48c81a9b1c0818dc9e" class="pcalibre1 anchor">◆ </a></span>InsertPropertySet</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">void(* ak_wwise_plugin_host_object_store_v1::InsertPropertySet) (struct <a class="pcalibre el" href="structak__wwise__plugin__host__object__store__instance__v1_split_000.html">ak_wwise_plugin_host_object_store_instance_v1</a> *in_this, const char *in_pszListName, unsigned int in_uiIndex, const struct <a class="pcalibre el" href="structak__wwise__plugin__host__property__set__instance__v1_split_000.html">ak_wwise_plugin_host_property_set_instance_v1</a> *in_pPropertySet)</td>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+
+<p class="calibre7">Inserts an inner property set into the specified list at the specified position. </p>
+<p class="calibre7">To create a new inner property set, use <a class="pcalibre el" href="structak__wwise__plugin__host__object__store__v1_a99861b64da80f35a4224a92fbf967cb3_split_000.html#a99861b64da80f35a4224a92fbf967cb3">CreatePropertySet</a> . You can then insert that particular inner property set in the named list <code class="calibre14">in_pszListName</code>, at the <code class="calibre14">in_uiIndex</code> position, so it will be stored in the project data. Existing object positions equal to or higher than <code class="calibre14">in_uiIndex</code> will be incremented as required.</p>
+<p class="calibre7">Named lists are created automatically, there is no limitation for naming. However, you should use the standardized naming convention for better memory usage in Wwise Authoring. List ordering is arbitrary.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> You must add up indexes sequentially. If you have 0-14 indexes, adding a new one at 40 will create it at 15. Pass <code class="calibre14">(unsigned int)-1</code> as the in_uiIndex to insert at the end of the list. </td></tr>
+</tbody></table>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="warning.gif"/></td><td class="calibre17"><b class="calibre13">Warning:</b> Never reuse the same inner property set under two different indexes or lists. If you are uncertain, or if you want to move it elsewhere, use <a class="pcalibre el" href="structak__wwise__plugin__host__object__store__v1_a10ea13a4b27f6a8783d1acb4341ab116_split_000.html#a10ea13a4b27f6a8783d1acb4341ab116">RemovePropertySet</a> before inserting it elsewhere. </td></tr>
+</tbody></table>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="structak__wwise__plugin__notifications__object__store__v1_a52356d1122e92ed58c93e44c3a525415_split_000.html#a52356d1122e92ed58c93e44c3a525415">ak_wwise_plugin_notifications_object_store_v1::NotifyInnerObjectAddedRemoved</a></li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_this</td><td class="calibre17">Current instance of this interface. </td></tr>
+    <tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_pszListName</td><td class="calibre17">Name of the affected list. That list will be created or appended depending on the situation. </td></tr>
+    <tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_uiIndex</td><td class="calibre17">Inner property set index in the list. If higher than or equal to the current object count in that list, will add a new index. Otherwise, increments previous object's indexes to make room for this new inner property set. </td></tr>
+    <tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_pPropertySet</td><td class="calibre17">The inner property set to include in the list's index. This property set must be created with <a class="pcalibre el" href="structak__wwise__plugin__host__object__store__v1_a99861b64da80f35a4224a92fbf967cb3_split_000.html#a99861b64da80f35a4224a92fbf967cb3">CreatePropertySet</a> and not used elsewhere. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_host_object_store_8h_source.html#l00129">129</a> of file <a class="pcalibre el" href="_host_object_store_8h_source.html">HostObjectStore.h</a>.</p>
+
+<p class="calibre7">Referenced by <a class="pcalibre el" href="_host_object_store_8h_source.html#l00442">AK.Wwise::Plugin::V1::ObjectStore&lt; PropertySetT &gt;::InsertPropertySet()</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Rooms and Portals Overview</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="spatial_audio_roomsportals_modelingsoundpropagationfromotherrooms_wet_diffraction"></a>
+Wet Path Diffraction</h1>
+<p class="calibre7">A Room's diffuse energy is an essential part of the Wwise Acoustics sound propagation model. The reverb signal chain, or wet path, also has diffraction ("wet diffraction") applied to it. Wet diffraction models the diffuse field of a room being scattered as it propagates out of portals or around obstacles. Wet diffraction is applied on the input connection to the Room bus (the auxiliary send from the emitter to the room) so that each sound uses its own diffraction curve. The wet diffraction value for each Room Auxiliary Send is calculated using the path between the emitter and the listener.</p>
+<p class="calibre7">The wet diffraction calculation is similar to the dry diffraction calculation, but with a modified diffraction angle calculation as the path passes through the Room to which the emitter is sending. Spatial Audio assumes that the diffuse energy enters or exits a Room perpendicular to its Portals, and does not diffract inside the Room itself. Thus, when the path enters or exits the Room, it computes a diffraction angle relative to the Portal's normal vector, effectively using only half of the angle as the path bends into the Portal. All geometry inside the Room is ignored, because the Room is treated as an ideally diffuse field.</p>
+<p class="calibre7">Consider the following scenario, with an emitter, listener, and a single sound propagation path. The emitter has two Room Auxiliary Sends: one to "Outside," the room the emitter is currently in, and one to "Room A," an adjacent room.</p>
+<div class="calibre2">
+<img alt="" src="wet_diffraction_calculation.png" class="inline"/>
+</div>
+<p class="calibre7">Wet diffraction is calculated separately for each of the two Room Auxiliary Sends:</p>
+<ul class="calibre8">
+<li class="calibre9">For the Room send to "Outside":<ul class="calibre15">
+<li class="calibre9">There are no diffraction points (due to geometry) in the Outside Room, but if there were, they would be ignored, because the Outside is considered an ideally diffuse field.</li>
+<li class="calibre9">The path then exits Outside from "Portal 1." Diffraction from Portal 1, as the paths exits the Portal, is calculated using the Portal normal. This is angle C.</li>
+<li class="calibre9">Portal 2 is not connected to Outside, so we use the standard diffraction calculation. This is angle D.</li>
+<li class="calibre9">TOTAL Wet Diffraction: C + D</li>
+</ul>
+</li>
+<li class="calibre9">For the Room send to "Room A":<ul class="calibre15">
+<li class="calibre9">There are no diffraction points (due to geometry) in the Outside Room, but if there were, they would be accounted for using the standard diffraction calculation.</li>
+<li class="calibre9">The path enters "Room A" through "Portal 1." Diffraction from Portal 1, as the path enters the Portal, is calculated using the Portal normal. This is angle A.</li>
+<li class="calibre9">The path then exits "Room A" through "Portal 2." Diffraction from Portal 2, as the paths exits the Portal, is calculated using the Portal normal. This is angle E.</li>
+<li class="calibre9">TOTAL Wet Diffraction: A + E</li>
+</ul>
+</li>
+</ul>
+<p class="calibre7">Finally, the wet diffraction value can never exceed the dry diffraction value. It is clamped if the calculation above results in a value greater than the dry diffraction value.</p>
+</div></div></div></body></html>

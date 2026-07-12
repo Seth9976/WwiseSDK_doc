@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Authoring Plug-in Library Format</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="wwiseplugin_container"></a>
+Library Plug-in Container</h1>
+<p class="calibre7">A Wwise plug-in dynamic library is a library that exports a plug-in container, listing all plug-ins provided by the library. This container is added to your plug-in library using a set of macros, as shown below:</p>
+<div class="fragment"><div class="line"><span class="comment">// Library "MyPlugin.dll"</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// MyPluginLib.h</span></div>
+<div class="line"><a class="pcalibre code" href="_plugin_info_generator_8h_a0f672a0fccb6e6d06ec89d31250007d7_split_000.html#a0f672a0fccb6e6d06ec89d31250007d7">AK_DECLARE_PLUGIN_CONTAINER</a>(MyPlugin);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// MyPluginLib.cpp</span></div>
+<div class="line"><a class="pcalibre code" href="_plugin_info_generator_8h_abfa289aa9dd9fd63a3ad3b152ac828af_split_000.html#abfa289aa9dd9fd63a3ad3b152ac828af">AK_DEFINE_PLUGIN_CONTAINER</a>(MyPlugin);</div>
+<div class="line"><a class="pcalibre code" href="_plugin_info_generator_8h_ab198136f861ed921af8857efe36b7007_split_000.html#ab198136f861ed921af8857efe36b7007">AK_EXPORT_PLUGIN_CONTAINER</a>(MyPlugin);</div>
+</div><!-- fragment --><p class="calibre7">These macros take a container name as argument that must match your library name without prefix or extension. Each plug-in can then be added using the macro <code class="calibre14">AK_ADD_PLUGIN_CLASS_TO_CONTAINER</code>. This is all done for you when creating a plug-in using the <a class="pcalibre el" href="effectplugin_tools_split_000.html">wp.py development tool</a>.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="tip.gif"/></td><td class="calibre17"><b class="calibre13">Tip:</b> <code class="calibre14">AK_ADD_PLUGIN_CLASS_TO_CONTAINER</code> refers to the Sound Engine plug-in's registration by its last parameter. Make sure the name used matches the name passed to <code class="calibre14">AK_IMPLEMENT_PLUGIN_FACTORY</code>. See <a class="pcalibre el" href="soundengine_plugins_split_001.html#se_plugins_overview">Sound Engine Plug-ins Overview</a> for more information on runtime plug-in registration. </td></tr>
+</tbody></table>
+<p class="calibre7">A plug-in created using the command <code class="calibre14">wp.py new</code> will have a sound engine part that can be built as a static library and will be automatically linked into the Wwise Authoring plug-in dynamic library. This same sound engine static library can be reused for linking in your game.</p>
+<p class="calibre7">For details on the sound engine plug-in implementation, refer to <a class="pcalibre el" href="effectpluginsoundengine.html">Writing the Sound Engine Part of an Audio Plug-in</a>.</p>
+</div></div></div></body></html>

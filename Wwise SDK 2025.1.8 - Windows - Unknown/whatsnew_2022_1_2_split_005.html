@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2022.1.2</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_4"><a class="pcalibre1 anchor" id="generic_bugs_2022_1_2"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-57678</b> Fixed: (Spatial Audio) Reflections of a surface that is exactly coincident with another surface are intermittent and unstable.</li>
+<li class="calibre9"><b class="calibre13">WG-61025</b> Fixed: Crash in Wwise Authoring when setting AK Convolution plug-in IR response times with a window of 0 frames.</li>
+<li class="calibre9"><b class="calibre13">WG-61974</b> Fixed: Voice Inspector sometimes fails to display attenuation contributions when scrubbing the timeline.</li>
+<li class="calibre9"><b class="calibre13">WG-62515</b> Fixed: (Spatial Audio) CPU usage spikes when profiling Spatial Audio.</li>
+<li class="calibre9"><b class="calibre13">WG-62774</b> Fixed: (Spatial Audio) A 2nd order or higher diffraction path cuts out when the diffraction angle is very small.</li>
+<li class="calibre9"><b class="calibre13">WG-62988</b> Fixed: Possible crash when loading a Profiler session (.prof file) in the Profiler.</li>
+<li class="calibre9"><b class="calibre13">WG-63307</b> Fixed: (Spatial Audio) Possible loss of direct path through portals several rooms away.</li>
+<li class="calibre9"><b class="calibre13">WG-63330</b> Fixed: Unintentional behavior change introduced by fix WG-61727 in Wwise 2021.1.11 and 2022.1.1. Under particular circumstances, Music Switch Containers with destination transitions with a positive fade offset are affected.</li>
+<li class="calibre9"><b class="calibre13">WG-63422</b> Fixed: <code class="calibre14"><a class="pcalibre el" href="class_ak_array_ae86070a50fcf8a552ce9c2da01d6fceb_split_000.html#ae86070a50fcf8a552ce9c2da01d6fceb">AkArray::Reserve</a></code> sometimes increases in size when not required.</li>
+<li class="calibre9"><b class="calibre13">WG-63475</b> Fixed: Possible crash when using Paste Properties to copy an object list to one or more target objects.</li>
+<li class="calibre9"><b class="calibre13">WG-63493</b> Fixed: Version Control operation can timeout during SoundBank Generation.</li>
+<li class="calibre9"><b class="calibre13">WG-63495</b> Fixed: Wwise Profiler views are not cleared following a reload of one or more Work Units, which can lead to a crash.</li>
+<li class="calibre9"><b class="calibre13">WG-63519</b> Fixed: WAAPI function calls are slow when no project is open.</li>
+<li class="calibre9"><b class="calibre13">WG-63577</b> Fixed: (Spatial Audio) Diffraction angles for reflections are incorrectly calculated on geometry that has non-uniform scaling.</li>
+<li class="calibre9"><b class="calibre13">WG-63580</b> Fixed: Media Size preview not shown on Sound objects.</li>
+<li class="calibre9"><b class="calibre13">WG-63764</b> Fixed: The presence of feedback aux-send connections in the voice graph causes some non-feedback aux-send connections to go backwards in the Wwise Profiler Voice Graph, resulting in incorrect or non-deterministic mixes during audio rendering.</li>
+<li class="calibre9"><b class="calibre13">WG-63769</b> Fixed: Crash when reloading a Work Unit that includes a State Group or Switch Group used by a Music Switch Container currently inspected in Wwise.</li>
+<li class="calibre9"><b class="calibre13">WG-63862</b> Fixed: Possible crash in Wwise Authoring when changing RTPC curves on Attenuation while connected.</li>
+<li class="calibre9"><b class="calibre13">WG-63880</b> Fixed: Voice Inspector doesn't snap to proper time when moving time cursor backwards with the timeline zoomed in.</li>
+<li class="calibre9"><b class="calibre13">WG-63882</b> Fixed: Crash in AkPath.cpp when terminating engine in low-memory conditions</li>
+<li class="calibre9"><b class="calibre13">WG-63887</b> Fixed: SoundBank Editor shortcut menu item <b class="calibre13">Open Containing Folder</b> for Auto-Defined SoundBanks doesn't include an entry for the .bnk file.</li>
+</ul>
+</div></div></div></body></html>

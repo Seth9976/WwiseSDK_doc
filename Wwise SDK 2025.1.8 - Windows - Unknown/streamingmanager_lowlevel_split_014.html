@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Low-Level I/O</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_13"><a class="pcalibre1 anchor" id="streamingmanager_lowlevel_default_implementation_walkthrough_hook_deferred"></a>
+Deferred I/O Hook Walkthrough</h2>
+<p class="calibre7">Generally, asynchronous file read APIs on platforms require that you pass a platform-specific structure to fread() (OVERLAPPED on Windows), and keep it for the whole duration of the I/O operation, until a callback function gets called to notify you that I/O is complete.</p>
+<p class="calibre7">The implementation is somewhat similar on all platforms. <b class="calibre13">CAkDefaultIOHookDeferred</b> allocates an array of these platform-specific structures in its own memory pool. When <b class="calibre13">CAkDefaultIOHookDeferred::Read()</b> is called, it finds the first structure that is free, marks it as "used", fills it with the information provided in <a class="pcalibre el" href="struct_ak_async_i_o_transfer_info_split_000.html">AkAsyncIOTransferInfo</a>, and passes it to fread(). It also passes a local static callback function whose signature is compatible with the platform's asynchronous fread() function. In this function, it determines if the operation was successful, releases the platform-specific I/O structure, and calls back the streaming device.</p>
+<p class="calibre7">Obtaining and releasing the platform-specific I/O structure from the array must be atomic, as we need to avoid race conditions between Read()/Write() and the system's callback.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="caution.gif"/></td><td class="calibre17"><b class="calibre13">Caution:</b> Do not cancel I/O requests. If you do, you may end up feeding it with invalid or corrupted data, which may crash the sound engine. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Terminate the Different Modules of the Sound Engine</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="termination_comm"></a>
+Terminating Communication Module</h1>
+<p class="calibre7">If it has been initialized, let's start by terminating the communication module:</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> TermSoundEngine()</div>
+<div class="line">{</div>
+<div class="line"><span class="preprocessor">#ifndef AK_OPTIMIZED</span></div>
+<div class="line">    <span class="comment">//</span></div>
+<div class="line">    <span class="comment">// Terminate Communication Services</span></div>
+<div class="line">    <span class="comment">//</span></div>
+<div class="line">    <a class="pcalibre code" href="namespace_a_k_1_1_comm_a94e307d2974b89cc4fbc8ab0fef20d2f_split_000.html#a94e307d2974b89cc4fbc8ab0fef20d2f">AK::Comm::Term</a>();</div>
+<div class="line"><span class="preprocessor">#endif // AK_OPTIMIZED</span></div>
+<div class="line"> </div>
+<div class="line">    (...)</div>
+<div class="line">}</div>
+</div><!-- fragment --><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="caution.gif"/></td><td class="calibre17"><b class="calibre13">Caution:</b> It is important to terminate the communication modules <em class="calibre11">before</em> the other modules. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

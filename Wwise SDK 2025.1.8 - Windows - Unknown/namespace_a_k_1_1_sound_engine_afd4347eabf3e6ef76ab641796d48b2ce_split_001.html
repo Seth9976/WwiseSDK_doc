@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::SoundEngine::SetSidechainMixConfig</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="namespace_a_k_1_1_sound_engine_afd4347eabf3e6ef76ab641796d48b2ce_split_000.html#afd4347eabf3e6ef76ab641796d48b2ce" class="pcalibre1 anchor">◆ </a></span>SetSidechainMixConfig() <span class="permalink">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_sound_engine_export_8h_ac6e96d34dfc0e12f9aaa7a47f4e9c322_split_000.html#ac6e96d34dfc0e12f9aaa7a47f4e9c322">AKSOUNDENGINE_API</a> <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::SoundEngine::SetSidechainMixConfig </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_a8341fa4d01d2fa852c3cc410401b04dc_split_000.html#a8341fa4d01d2fa852c3cc410401b04dc">AkUniqueID</a> </td>
+          <td class="paramname"><em class="calibre59">in_sidechainMixId</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="struct_ak_channel_config_split_000.html">AkChannelConfig</a> </td>
+          <td class="paramname"><em class="calibre59">in_channelConfig</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Forces channel configuration for the specified Sidechain Mix at run-time.</p>
+<p class="calibre7">Standard, ambisonic, and anonymous channel configs are supported. If a channel config of type AK_ChannelConfigType_UseDeviceMain or AK_ChannelConfigType_UseDevicePassthrough are specified, then the Primary Device's channel config for its Main Mix or Passthrough Mix is used, as appropriate. Audio Object channel configs are not supported for Sidechain Mixes.</p>
+<p class="calibre7">An invalid channel configuration (from default constructor) can be used to clear any previously-set config set via the soundengine API, and revert to what was loaded from soundbanks.</p>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">Always returns AK_Success </dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_sidechainMixId</td><td class="calibre17">SidechainMix Short ID. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_channelConfig</td><td class="calibre17">Desired channel configuration. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::IAkGlobalPluginContext::ComputeAmbisonicsEncoding</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="class_a_k_1_1_i_ak_global_plugin_context_ad1a5e85e22b51c76b503a73434889d98_split_000.html#ad1a5e85e22b51c76b503a73434889d98" class="pcalibre1 anchor">◆ </a></span>ComputeAmbisonicsEncoding()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="calibre3">
+  <tbody class="calibre4"><tr class="calibre16">
+  <td class="calibre17">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">virtual void AK::IAkGlobalPluginContext::ComputeAmbisonicsEncoding </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a> </td>
+          <td class="paramname"><em class="calibre59">in_fAzimuth</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a> </td>
+          <td class="paramname"><em class="calibre59">in_fElevation</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="struct_ak_channel_config_split_000.html">AkChannelConfig</a> </td>
+          <td class="paramname"><em class="calibre59">in_cfgAmbisonics</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="namespace_a_k_1_1_speaker_volumes_ad437e8acf5a9509d22a2d13629502afa_split_000.html#ad437e8acf5a9509d22a2d13629502afa">AK::SpeakerVolumes::VectorPtr</a> </td>
+          <td class="paramname"><em class="calibre59">out_vVolumes</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="calibre17">
+<span><span>pure virtual</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Computes gain vector for encoding a source with angles in_fAzimuth and in_fElevation to full-sphere ambisonics with order in_uOrder. Ambisonic channels are ordered by ACN and use the SN3D convention. </p>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_fAzimuth</td><td class="calibre17">Incident angle, in radians [-pi,pi], where 0 is the front (positive values are clockwise). </td></tr>
+    <tr class="calibre16"><td class="paramname">in_fElevation</td><td class="calibre17">Incident angle, in radians [-pi/2,pi/2], where 0 is the azimuthal plane. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_cfgAmbisonics</td><td class="calibre17">Determines number of gains in vector out_vVolumes. </td></tr>
+    <tr class="calibre16"><td class="paramname">out_vVolumes</td><td class="calibre17">Returned volumes (see <a class="pcalibre el" href="namespace_a_k_1_1_speaker_volumes_1_1_vector_split_000.html" title="Volume vector services.">AK::SpeakerVolumes::Vector</a> services). Must be allocated prior to calling this function with the size returned by <a class="pcalibre el" href="namespace_a_k_1_1_speaker_volumes_1_1_matrix_a59458aba2b1be3fa678021a3aea813b9_split_000.html#a59458aba2b1be3fa678021a3aea813b9">AK::SpeakerVolumes::Vector::GetRequiredSize()</a> for the desired number of channels. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

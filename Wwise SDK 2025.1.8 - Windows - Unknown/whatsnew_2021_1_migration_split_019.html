@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2021.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_18"><a class="pcalibre1 anchor" id="plugins_authoring_api_changes"></a>
+Wwise Authoring Plug-in API Changes</h1>
+<p class="calibre7">Wwise 2021.1 marks the release of a brand-new Wwise Authoring Plug-in API. This rewritten API addresses some issues enabling many features of the Wwise Authoring application, such as frontend separation and backward compatibility. Dependencies on platform and toolset-specific features have also been greatly reduced. The new API can be found under <code class="calibre14">&lt;Wwise&gt;/SDK/include/AK/Wwise/Plugin</code>.</p>
+<p class="calibre7">A dedicated migration guide covers the main steps in porting your plug-in to the new API. Refer to <a class="pcalibre el" href="plugin_21_1_migration_split_000.html">Migrating a pre-2021.1 Authoring Plug-in</a>.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> The new C++ API requires a C++17 capable compiler. </td></tr>
+</tbody></table>
+<p class="calibre7">To ease the transition, the previous "original" API is still offered in Wwise 2021.1 at the same location (<code class="calibre14">&lt;Wwise&gt;/SDK/include/AK/Wwise</code>) and plug-ins built with it are supported by Wwise 2021.1. However, it is now marked as <b class="calibre13">legacy</b> and will <b class="calibre13">not</b> receive updates in future releases of Wwise. All plug-in developers are encouraged to migrate their plug-in to this new API.</p>
+<p class="calibre7">The Sound Engine Plug-in API, e.g., <code class="calibre14">&lt;Wwise&gt;/SDK/AK/SoundEngine/Common/IAkPlugin.h</code>, remains current and is <b class="calibre13">not</b> considered legacy. The new API only covers the Wwise Authoring side of a Wwise plug-in. Refer to <a class="pcalibre el" href="effectplugin_split_001.html#effectplugin_overview">Overview of a Plug-in</a> for more details.</p>
+<p class="calibre7">The final changes to the original API for Wwise 2021.1 are as follows:</p>
+<ul class="calibre8">
+<li class="calibre9">The signature of <code class="calibre14">AK::Wwise::IAudioPlugin::NotifyMonitorData</code> has changed to support a new timestamp argument, provided in milliseconds. This is in conjunction with the new Meter History feature that allows metering at all times.</li>
+<li class="calibre9">The functions <code class="calibre14">AK::Wwise::IWriteData::WriteUtf16String</code> and <code class="calibre14">AK::Wwise::IWriteData::WritePascalString</code>, deprecated in Wwise 2019.2, have now been removed. When interacting with the Wwise Authoring Plug-in API, UTF-8 is now exclusively used for data strings. Note that path string arguments have been migrated from <code class="calibre14">LPCWSTR</code> to generic <code class="calibre14">AkOSChar</code> buffers in the new API.</li>
+</ul>
+</div></div></div></body></html>

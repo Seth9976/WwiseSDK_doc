@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2021.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_14"><a class="pcalibre1 anchor" id="memmgr_debugging"></a>
+Memory Manager Debugging</h2>
+<ul class="calibre8">
+<li class="calibre9">AkMemDebugCheckForOverwrite has been removed in favor of <a class="pcalibre el" href="struct_ak_mem_settings_ae97967db68ec10e8410af9f776f89e0d_split_000.html#ae97967db68ec10e8410af9f776f89e0d" title="Default 0 disabled. 1 debug enabled. 2 stomp allocator enabled. 3 stomp allocator and debug enabled....">AkMemSettings::uMemoryDebugLevel</a>, which can now be used to check for overwrite and memory stomps.</li>
+<li class="calibre9">New memory functions are available for debugging: AkCrtAllocator* and AkStompAllocator*</li>
+</ul>
+</div></div></div></body></html>

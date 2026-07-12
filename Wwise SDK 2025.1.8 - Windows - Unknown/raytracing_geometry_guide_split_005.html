@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Ray Tracing Engine Geometry Guide</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_4"><a class="pcalibre1 anchor" id="raytracing_geometry_guide_path_sorting_overview"></a>
+Path Sorting Overview</h2>
+<p class="calibre7">In the first phase, path sorting estimates the cost (length and diffraction) of each potential reflection path based on the results of the ray tracing. The paths are then processed in ascending order until a maximum of n (the user-specified number of reflection paths) paths are validated. To reduce flickering (switching between paths), the previous paths are also validated. In the second phase, the best n paths are selected from the current and previous validated paths based on their final real costs.</p>
+<div class="calibre2">
+<img alt="" src="pathsortingoverview.png" class="inline"/>
+<div class="calibre2">
+Path Sorting Overview</div></div>
+<p class="calibre7"> 
+</p>
+</div></div></div></body></html>

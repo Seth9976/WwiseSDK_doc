@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Rooms and Portals Overview</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_5"><a class="pcalibre1 anchor" id="spatial_audio_roomsportals_modelingsoundpropagationfromotherrooms_transmission"></a>
+Transmission</h1>
+<p class="calibre7">When an emitter and listener are in different Rooms and there is no direct line of sight through a Portal, Wwise Acoustics applies a transmission loss factor to the Game Object to model sound transmission through walls.</p>
+<p class="calibre7">Wwise Acoustics models sound transmission between Rooms differently depending on whether or not geometry is available. See <a class="pcalibre el" href="spatial_audio_roomsportals_apioverview_split_007.html#spatial_audio_roomsportals_modelingsoundpropagationfromotherrooms_transmission_geometry">Modeling Transmission Between Rooms with Geometry</a> and <a class="pcalibre el" href="spatial_audio_roomsportals_apioverview_split_008.html#spatial_audio_roomsportals_modelingsoundpropagationfromotherrooms_transmission_no_geometry">Modeling Transmission Between Rooms without Geometry</a>.</p>
+<p class="calibre7">Regardless of how the transmission loss coefficient is derived, it is applied on the Room send connection between the emitter and each Room, and is converted using the curves defined in the attenuation settings to map transmission loss to volume attenuation and filtering. See <a class="pcalibre el" href="spatial_audio_apigeometry_diffract_split_006.html#spatial_audio_apigeometry_diffract_direct_api">Setting up a Sound for Diffraction and Transmission</a>.</p>
+<p class="calibre7">By default, the project transmission curves are used for transmission. They can be authored in the Project Settings' Environmental Curves tab and will impact Volume, LPF, and HPF to emulate volume and frequency-dependent behaviors. Project transmission curves impact all the sounds in a project, which makes them less flexible. However, custom Transmission curves can be created in an Attenuation ShareSet applied to the sound.</p>
+<p class="calibre7">It is also possible to map transmission loss to any other Wwise parameter with an RTPC bound to the Transmission Loss built-in parameter. However it is difficult to use the Transmission Loss built-in parameter effectively because the transmission path is typically one of many sound paths between and emitter and listener, and RTPCs are applied at the Game Object scope.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> Using curves to simulate transmission loss is preferred over an RTPC, because it provides greater accuracy when modeling both transmission and diffraction. This is due to the fact that RTPCs can not be applied to individual sound paths, therefore any parameter mapped to a transmission loss RTPC will also affect any potential diffraction paths originating from an emitter. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

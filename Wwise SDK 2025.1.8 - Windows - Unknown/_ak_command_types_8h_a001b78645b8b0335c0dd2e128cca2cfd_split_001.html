@@ -1,0 +1,219 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AkCommand</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="_ak_command_types_8h_a001b78645b8b0335c0dd2e128cca2cfd_split_000.html#a001b78645b8b0335c0dd2e128cca2cfd" class="pcalibre1 anchor">◆ </a></span>AkCommand</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">enum <a class="pcalibre el" href="_ak_command_types_8h_a001b78645b8b0335c0dd2e128cca2cfd_split_000.html#a001b78645b8b0335c0dd2e128cca2cfd">AkCommand</a></td>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+
+<p class="calibre7">IDs for commands that can be sent to the sound engine. Each command has an associated structure that defines its payload. </p>
+<table class="calibre3">
+<tbody class="calibre4"><tr class="calibre16"><th colspan="2" class="calibre35">Enumerator</th></tr><tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfdae9b1f348be80c2343121cfc1c80071c4" class="pcalibre calibre12"></a>AkCommand_EndOfBuffer </td><td class="calibre17"><p class="calibre7">Not a real command; used to mark the end of the command buffer. No payload. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfdaf20e9790432e3db005cd602adcf4d962" class="pcalibre calibre12"></a>AkCommand_PostEvent </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___post_event_split_000.html">AkCmd_PostEvent</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfdafa6120328cdb73a0745a5777863dc0d4" class="pcalibre calibre12"></a>AkCommand_RegisterGameObject </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___register_game_object_split_000.html">AkCmd_RegisterGameObject</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda90baf8a9598a8ec1b5935193d903ff7d" class="pcalibre calibre12"></a>AkCommand_UnregisterGameObject </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___unregister_game_object_split_000.html">AkCmd_UnregisterGameObject</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda9c28c3bfda569b533e34991b305792b6" class="pcalibre calibre12"></a>AkCommand_Callback </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___callback_split_000.html">AkCmd_Callback</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda95aa5709b8fff06b947d3eda020b1189" class="pcalibre calibre12"></a>AkCommand_SetRTPC </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___set_r_t_p_c_split_000.html">AkCmd_SetRTPC</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda6d3735e6380fd7a9c984dfd131175740" class="pcalibre calibre12"></a>AkCommand_ResetRTPC </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___reset_r_t_p_c_split_000.html">AkCmd_ResetRTPC</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfdabd296114ddc48a2c39a7554dc94ae9cc" class="pcalibre calibre12"></a>AkCommand_SetPosition </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___set_position_split_000.html">AkCmd_SetPosition</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda28d2e0777e20fd3e1041437522db6431" class="pcalibre calibre12"></a>AkCommand_SetListeners </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___set_listeners_split_000.html">AkCmd_SetListeners</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfdac1477710c8ff85a24e53f09213edf55d" class="pcalibre calibre12"></a>AkCommand_SetDefaultListeners </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___set_default_listeners_split_000.html">AkCmd_SetDefaultListeners</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda03865610c80e1789db0c82c82387871d" class="pcalibre calibre12"></a>AkCommand_ResetListeners </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___reset_listeners_split_000.html">AkCmd_ResetListeners</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda7030c079fc10a94cb71f3a98ef265e45" class="pcalibre calibre12"></a>AkCommand_SetListenerSpatialization </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___set_listener_spatialization_split_000.html">AkCmd_SetListenerSpatialization</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfdaf61a2cd81ebb15c5cbaaeef537b500e2" class="pcalibre calibre12"></a>AkCommand_SetGameObjectAuxSendValues </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___set_game_object_aux_send_values_split_000.html">AkCmd_SetGameObjectAuxSendValues</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda24263a6c13160d3d91c9c4e2b64c9fb9" class="pcalibre calibre12"></a>AkCommand_SetGameObjectOutputBusVolume </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___set_game_object_output_bus_volume_split_000.html">AkCmd_SetGameObjectOutputBusVolume</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfdad108c7253238706e2a133e0408237b31" class="pcalibre calibre12"></a>AkCommand_SetObjectObstructionAndOcclusion </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___set_object_obstruction_and_occlusion_split_000.html">AkCmd_SetObjectObstructionAndOcclusion</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfdadd3a1055f0c89a3c9f1b9a253b162569" class="pcalibre calibre12"></a>AkCommand_SetMultipleObstructionAndOcclusion </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___set_multiple_obstruction_and_occlusion_split_000.html">AkCmd_SetMultipleObstructionAndOcclusion</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfdaf4f3a64d5fd69388c71ac9da5876898e" class="pcalibre calibre12"></a>AkCommand_SetScalingFactor </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___set_scaling_factor_split_000.html">AkCmd_SetScalingFactor</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda5c97cb38cc9ea4849a512bfe412ffdf5" class="pcalibre calibre12"></a>AkCommand_SetMultiplePositions </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___set_multiple_positions_split_000.html">AkCmd_SetMultiplePositions</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda2a961fd1d14bca560cbf82c84a95a0b3" class="pcalibre calibre12"></a>AkCommand_SetDistanceProbe </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___set_distance_probe_split_000.html">AkCmd_SetDistanceProbe</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfdac83100924ce85da8060bfb1f37495f33" class="pcalibre calibre12"></a>AkCommand_StopAll </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___stop_all_split_000.html">AkCmd_StopAll</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda4a336431099a6b1b69da4821db6054ea" class="pcalibre calibre12"></a>AkCommand_ExecuteActionOnEvent </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___execute_action_on_event_split_000.html">AkCmd_ExecuteActionOnEvent</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfdaa3a60c9caa80d51a5ebaf4da42b10e0d" class="pcalibre calibre12"></a>AkCommand_ExecuteActionOnPlayingID </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___execute_action_on_playing_i_d_split_000.html">AkCmd_ExecuteActionOnPlayingID</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda40a0393356c4b66df7f74c67f771553e" class="pcalibre calibre12"></a>AkCommand_SeekOnEvent </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___seek_on_event_split_000.html">AkCmd_SeekOnEvent</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda6c765e2678326e0d679d2e96c3bc3d35" class="pcalibre calibre12"></a>AkCommand_SetState </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___set_state_split_000.html">AkCmd_SetState</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda91fc7767a8843230844ea1945fab2ae2" class="pcalibre calibre12"></a>AkCommand_SetSwitch </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___set_switch_split_000.html">AkCmd_SetSwitch</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda2435ca4e862f810f7d574e6930912c67" class="pcalibre calibre12"></a>AkCommand_PostTrigger </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___post_trigger_split_000.html">AkCmd_PostTrigger</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfdabb16fb8c53fb070bf174b991f33669b2" class="pcalibre calibre12"></a>AkCommand_PostMIDIOnEvent </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___post_m_i_d_i_on_event_split_000.html">AkCmd_PostMIDIOnEvent</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda76e2dddc50d0b803e288031d7fd805a2" class="pcalibre calibre12"></a>AkCommand_StopMIDIOnEvent </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___stop_m_i_d_i_on_event_split_000.html">AkCmd_StopMIDIOnEvent</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda716005c85cf0d59989839e210ac0accc" class="pcalibre calibre12"></a>AkCommand_DynamicSequence_Open </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___dynamic_sequence___open_split_000.html">AkCmd_DynamicSequence_Open</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfdab920c51e91c01699883765d7db7553da" class="pcalibre calibre12"></a>AkCommand_DynamicSequence_Op </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___dynamic_sequence___op_split_000.html">AkCmd_DynamicSequence_Op</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda063663ffa99f8efc9e4762af684c329a" class="pcalibre calibre12"></a>AkCommand_DynamicSequence_Seek </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___dynamic_sequence___seek_split_000.html">AkCmd_DynamicSequence_Seek</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda3254436f52efd13b0a86d9176b751196" class="pcalibre calibre12"></a>AkCommand_AddOutput </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___add_output_split_000.html">AkCmd_AddOutput</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda6ac7a9a5ab95715129a8db52fc759d94" class="pcalibre calibre12"></a>AkCommand_RemoveOutput </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___remove_output_split_000.html">AkCmd_RemoveOutput</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda9b3a7bf26e01fa4633f070ee51fa8f68" class="pcalibre calibre12"></a>AkCommand_ReplaceOutput </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___replace_output_split_000.html">AkCmd_ReplaceOutput</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda3a6b55b2d0117c80d088f6e8c0fa0e05" class="pcalibre calibre12"></a>AkCommand_SetBusAudioDevice </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___set_bus_audio_device_split_000.html">AkCmd_SetBusAudioDevice</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda357393637deca3073f1069c487ec2f35" class="pcalibre calibre12"></a>AkCommand_SetBusConfig </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___set_bus_config_split_000.html">AkCmd_SetBusConfig</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda3981d5be95b56289ecea8159627d88be" class="pcalibre calibre12"></a>AkCommand_ResetBusConfig </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___reset_bus_config_split_000.html">AkCmd_ResetBusConfig</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfdaa0443ddf9f9de5f5ebac01ccc66ea1f8" class="pcalibre calibre12"></a>AkCommand_SetEffect </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___set_effect_split_000.html">AkCmd_SetEffect</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda5dbc56647ce74caf407b644af45bf878" class="pcalibre calibre12"></a>AkCommand_SetOutputVolume </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___set_output_volume_split_000.html">AkCmd_SetOutputVolume</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfdaa7648b9699df4a9a1eadc038bd091b20" class="pcalibre calibre12"></a>AkCommand_SetPanningRule </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___set_panning_rule_split_000.html">AkCmd_SetPanningRule</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfdaa41934308a8d68a347574bdc560648c4" class="pcalibre calibre12"></a>AkCommand_SetSpeakerAngles </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___set_speaker_angles_split_000.html">AkCmd_SetSpeakerAngles</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda75650a8b2cf3567fe5842c944e13c277" class="pcalibre calibre12"></a>AkCommand_ControlOutputCapture </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___control_output_capture_split_000.html">AkCmd_ControlOutputCapture</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda32b68ae6b1020f48263203dd7c413de4" class="pcalibre calibre12"></a>AkCommand_AddOutputCaptureMarker </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___add_output_capture_marker_split_000.html">AkCmd_AddOutputCaptureMarker</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfdab86dae96b811481c1afdab0901ee2f8f" class="pcalibre calibre12"></a>AkCommand_ControlOfflineRendering </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___control_offline_rendering_split_000.html">AkCmd_ControlOfflineRendering</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfdaaa8c84981c5163f6ac622e554b30b8f4" class="pcalibre calibre12"></a>AkCommand_SetRandomSeed </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___set_random_seed_split_000.html">AkCmd_SetRandomSeed</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfdaad5c3276c6f28ec03634c9744edfeb7d" class="pcalibre calibre12"></a>AkCommand_ControlEventStreamCache </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___control_event_stream_cache_split_000.html">AkCmd_ControlEventStreamCache</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfdad2f7398168a1013b7cf3587228d709a0" class="pcalibre calibre12"></a>AkCommand_ControlSuspendedState </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___control_suspended_state_split_000.html">AkCmd_ControlSuspendedState</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda43238d249fbfc13a76ae8b2ed1eb3208" class="pcalibre calibre12"></a>AkCommand_MuteBackgroundMusic </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___mute_background_music_split_000.html">AkCmd_MuteBackgroundMusic</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfdabf0e7dc9ceb02348eeb4ebfea428b713" class="pcalibre calibre12"></a>AkCommand_SendPluginCustomGameData </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___send_plugin_custom_game_data_split_000.html">AkCmd_SendPluginCustomGameData</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda6e5975488e4da133ebe8d33dc57cba1f" class="pcalibre calibre12"></a>AkCommand_SetSidechainMixConfig </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___set_sidechain_mix_config_split_000.html">AkCmd_SetSidechainMixConfig</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda2dd0c0e44915f982cfa5197f645b31ad" class="pcalibre calibre12"></a>AkCommand_ResetGlobalValues </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___reset_global_values_split_000.html">AkCmd_ResetGlobalValues</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfdad60684f0070fa5346544c67ae70b77c0" class="pcalibre calibre12"></a>AkCommand_SA_Begin </td><td class="calibre17"><p class="calibre7">Not a real command ID; defines the start of the SpatialAudio command range. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda5f600d5e7728ae29e9287fed9102fb3f" class="pcalibre calibre12"></a>AkCommand_SA_RegisterListener </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___s_a___register_listener_split_000.html">AkCmd_SA_RegisterListener</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda7c244e6a4352f39fa3290b5e89d1fbb8" class="pcalibre calibre12"></a>AkCommand_SA_UnregisterListener </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___s_a___unregister_listener_split_000.html">AkCmd_SA_UnregisterListener</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda96e5c87f8383997d06c0a1f11e5785a6" class="pcalibre calibre12"></a>AkCommand_SA_SetImageSource </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___s_a___set_image_source_split_000.html">AkCmd_SA_SetImageSource</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda86b00d30d5a55d227d41fbbe2cf536ca" class="pcalibre calibre12"></a>AkCommand_SA_RemoveImageSource </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___s_a___remove_image_source_split_000.html">AkCmd_SA_RemoveImageSource</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfdab9c9e823ee2075c3e38467cb782563b6" class="pcalibre calibre12"></a>AkCommand_SA_ClearImageSources </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___s_a___clear_image_sources_split_000.html">AkCmd_SA_ClearImageSources</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfdacf9e1e3901df98eef024523667c08107" class="pcalibre calibre12"></a>AkCommand_SA_SetGeometry </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___s_a___set_geometry_split_000.html">AkCmd_SA_SetGeometry</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfdaa1851ceec5647ed78e07ffc63b039ca7" class="pcalibre calibre12"></a>AkCommand_SA_RemoveGeometry </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___s_a___remove_geometry_split_000.html">AkCmd_SA_RemoveGeometry</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda68b96460ab326896fd8475d8917ea47b" class="pcalibre calibre12"></a>AkCommand_SA_SetGeometryInstance </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___s_a___set_geometry_instance_split_000.html">AkCmd_SA_SetGeometryInstance</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda26c62f270a2d1afd6028ea5c71397cd7" class="pcalibre calibre12"></a>AkCommand_SA_RemoveGeometryInstance </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___s_a___remove_geometry_instance_split_000.html">AkCmd_SA_RemoveGeometryInstance</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfdabd09c21c56c233f2e066d563ef805e60" class="pcalibre calibre12"></a>AkCommand_SA_SetRoom </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___s_a___set_room_split_000.html">AkCmd_SA_SetRoom</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfdae0c715a7f738173db9f1bcd37527e46f" class="pcalibre calibre12"></a>AkCommand_SA_RemoveRoom </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___s_a___remove_room_split_000.html">AkCmd_SA_RemoveRoom</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfdaab60efabdb8c16ad7c30c9c1bd8ee6cf" class="pcalibre calibre12"></a>AkCommand_SA_SetPortal </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___s_a___set_portal_split_000.html">AkCmd_SA_SetPortal</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfdab24bbd80c36f3ad5acf6c3e4b49a2a92" class="pcalibre calibre12"></a>AkCommand_SA_RemovePortal </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___s_a___remove_portal_split_000.html">AkCmd_SA_RemovePortal</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda41645e1bc17a24982eb5b4a5bf3e29ec" class="pcalibre calibre12"></a>AkCommand_SA_SetPortalObstructionAndOcclusion </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___s_a___set_portal_obstruction_and_occlusion_split_000.html">AkCmd_SA_SetPortalObstructionAndOcclusion</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda8e838c56d866f19ba7e78c605fb6dbc2" class="pcalibre calibre12"></a>AkCommand_SA_SetGameObjectToPortalObstruction </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___s_a___set_game_object_to_portal_obstruction_split_000.html">AkCmd_SA_SetGameObjectToPortalObstruction</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda4aae41be47961288e58ebc69544f2c8a" class="pcalibre calibre12"></a>AkCommand_SA_SetPortalToPortalObstruction </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___s_a___set_portal_to_portal_obstruction_split_000.html">AkCmd_SA_SetPortalToPortalObstruction</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda86d714befda425a13f49fda43a4135ac" class="pcalibre calibre12"></a>AkCommand_SA_SetReverbZone </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___s_a___set_reverb_zone_split_000.html">AkCmd_SA_SetReverbZone</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda85cefe1c9b0727657556423a3b0cbde4" class="pcalibre calibre12"></a>AkCommand_SA_RemoveReverbZone </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___s_a___remove_reverb_zone_split_000.html">AkCmd_SA_RemoveReverbZone</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfdaac74bf305672b4e89a7a0ce7d6426099" class="pcalibre calibre12"></a>AkCommand_SA_SetGameObjectInRoom </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___s_a___set_game_object_in_room_split_000.html">AkCmd_SA_SetGameObjectInRoom</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfdad33ecf98c98456b2f85a0080ad816aa8" class="pcalibre calibre12"></a>AkCommand_SA_UnsetGameObjectInRoom </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___s_a___unset_game_object_in_room_split_000.html">AkCmd_SA_UnsetGameObjectInRoom</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfdaaaa4a14c77692f932cca22c7b94a85a1" class="pcalibre calibre12"></a>AkCommand_SA_SetGameObjectRadius </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___s_a___set_game_object_radius_split_000.html">AkCmd_SA_SetGameObjectRadius</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda86df5bc019e8cbb02209dd5e100577cc" class="pcalibre calibre12"></a>AkCommand_SA_SetAdjacentRoomBleed </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___s_a___set_adjacent_room_bleed_split_000.html">AkCmd_SA_SetAdjacentRoomBleed</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda7d75744918d1479e1daf3e0649307928" class="pcalibre calibre12"></a>AkCommand_SA_SetEarlyReflectionsAuxSend </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___s_a___set_early_reflections_aux_send_split_000.html">AkCmd_SA_SetEarlyReflectionsAuxSend</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfdaedcd8ce98045d86fac9ece68985e80b4" class="pcalibre calibre12"></a>AkCommand_SA_SetEarlyReflectionsVolume </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___s_a___set_early_reflections_volume_split_000.html">AkCmd_SA_SetEarlyReflectionsVolume</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfdab8233281b4b6133266e3e951aa556185" class="pcalibre calibre12"></a>AkCommand_SA_SetReflectionsOrder </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___s_a___set_reflections_order_split_000.html">AkCmd_SA_SetReflectionsOrder</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda3c84762eb77d1612fbccfbaf56a9ed26" class="pcalibre calibre12"></a>AkCommand_SA_SetDiffractionOrder </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___s_a___set_diffraction_order_split_000.html">AkCmd_SA_SetDiffractionOrder</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfdae705bd68d00b3b29749b94c65bdeecd4" class="pcalibre calibre12"></a>AkCommand_SA_SetMaxGlobalReflectionPaths </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___s_a___set_max_global_reflection_paths_split_000.html">AkCmd_SA_SetMaxGlobalReflectionPaths</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda9a691fd3b8c9725ae922cd41b8b9a980" class="pcalibre calibre12"></a>AkCommand_SA_SetMaxEmitterRoomAuxSends </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___s_a___set_max_emitter_room_aux_sends_split_000.html">AkCmd_SA_SetMaxEmitterRoomAuxSends</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfdae45c60d0299a7854e24161950a276165" class="pcalibre calibre12"></a>AkCommand_SA_SetMaxDiffractionPaths </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___s_a___set_max_diffraction_paths_split_000.html">AkCmd_SA_SetMaxDiffractionPaths</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda74f7939f2b23c98a42c66d8154760b1c" class="pcalibre calibre12"></a>AkCommand_SA_SetSmoothingConstant </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___s_a___set_smoothing_constant_split_000.html">AkCmd_SA_SetSmoothingConstant</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda92a149b06115f44168c4471d091445b2" class="pcalibre calibre12"></a>AkCommand_SA_SetTransmissionOperation </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___s_a___set_transmission_operation_split_000.html">AkCmd_SA_SetTransmissionOperation</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda1f07872d2b05e65e2bbf1d3b034f3033" class="pcalibre calibre12"></a>AkCommand_SA_SetNumberOfPrimaryRays </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___s_a___set_number_of_primary_rays_split_000.html">AkCmd_SA_SetNumberOfPrimaryRays</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda42a4a33357945ca8fb23cbf45170dbd7" class="pcalibre calibre12"></a>AkCommand_SA_SetLoadBalancingSpread </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___s_a___set_load_balancing_spread_split_000.html">AkCmd_SA_SetLoadBalancingSpread</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfdac59a4659855bcd97cb9741d62d1d14ee" class="pcalibre calibre12"></a>AkCommand_SA_ResetStochasticEngine </td><td class="calibre17"><p class="calibre7">See <a class="pcalibre el" href="struct_ak_cmd___s_a___reset_stochastic_engine_split_000.html">AkCmd_SA_ResetStochasticEngine</a>. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda5e0e0dc6b0b8bc73b1449424db37cae7" class="pcalibre calibre12"></a>AkCommand_SA_End </td><td class="calibre17"><p class="calibre7">Not a real command ID; defines the end of the SpatialAudio command range. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="a001b78645b8b0335c0dd2e128cca2cfda09a1cc1886a59c00542637ae2c740eb0" class="pcalibre calibre12"></a>AkCommand_NUM </td><td class="calibre17"><p class="calibre7">Indicates number of possible command ID values; not a real command ID. </p>
+</td></tr>
+</tbody></table>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_ak_command_types_8h_source_split_000.html#l00034">34</a> of file <a class="pcalibre el" href="_ak_command_types_8h_source_split_000.html">AkCommandTypes.h</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Importing Audio Files and Creating Structures</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_4"><a class="pcalibre1 anchor" id="waapi_create_set_limits"></a>
+Limitations with ak.wwise.core.object.create and ak.wwise.core.object.set</h2>
+<p class="calibre7"><b class="calibre13">Work Units</b></p>
+<p class="calibre7">Creating Work Units with <a class="pcalibre el" href="ak_wwise_core_object_create_split_000.html">ak.wwise.core.object.create</a> and <a class="pcalibre el" href="ak_wwise_core_object_set_split_000.html">ak.wwise.core.object.set</a> requires the undo/redo history and the clipboard to be cleared. The Work Unit will also be saved upon creation, effectively creating a corresponding WWU file in the project.</p>
+<ul class="calibre8">
+<li class="calibre9">The <code class="calibre14">onNameConflict</code> argument must be either <code class="calibre14">'fail'</code>, <code class="calibre14">'merge'</code> or <code class="calibre14">'rename'</code>. The <code class="calibre14">'replace'</code> mode is not supported.</li>
+</ul>
+<p class="calibre7"><b class="calibre13">Queries</b></p>
+<p class="calibre7">It is possible to create Query objects with <a class="pcalibre el" href="ak_wwise_core_object_create_split_000.html">ak.wwise.core.object.create</a> and <a class="pcalibre el" href="ak_wwise_core_object_set_split_000.html">ak.wwise.core.object.set</a>. However, the criteria objects need to be created with a specific GUID as the name. The name of the criteria must contain the GUID of the <code class="calibre14">SearchOperationID</code> attribute as found in the WWU files. Each criteria type has a unique GUID.</p>
+<p class="calibre7">To find the correct GUID to use in the name, you will need to reverse engineer the WWU files:</p><ul class="calibre8">
+<li class="calibre9">Create a Query object in the Query Editor</li>
+<li class="calibre9">Add the Criteria you wish from the Criteria Browser</li>
+<li class="calibre9">Modify the property fields in the Criteria Editor</li>
+<li class="calibre9">Save the project</li>
+<li class="calibre9">Open the Work Unit in a text editor</li>
+<li class="calibre9">Look for <code class="calibre14">SearchOperationID</code> and use it for the <code class="calibre14">SearchCriteria</code> <code class="calibre14">name</code> in <a class="pcalibre el" href="ak_wwise_core_object_set_split_000.html">ak.wwise.core.object.set</a>.</li>
+<li class="calibre9">Look for the properties in the WWU file as examples and set them in <a class="pcalibre el" href="ak_wwise_core_object_set_split_000.html">ak.wwise.core.object.set</a>.</li>
+</ul>
+<p class="calibre7"><b class="calibre13">Lists</b></p>
+<p class="calibre7">It is not possible to create objects to populate the "Metadata" and "Clips" lists with <a class="pcalibre el" href="ak_wwise_core_object_set_split_000.html">ak.wwise.core.object.set</a>.</p>
+<ul class="calibre8">
+<li class="calibre9">Metadata are plug-ins which cannot be created.</li>
+<li class="calibre9">Clips require an AudioSourceRef which cannot be specified.</li>
+</ul>
+<p class="calibre7">Due to the limitations below we do not recommend creating objects in the "Sequences" and "Stingers" lists with <a class="pcalibre el" href="ak_wwise_core_object_set_split_000.html">ak.wwise.core.object.set</a>.</p>
+<ul class="calibre8">
+<li class="calibre9">Without the ability to assign a Segment to a stinger through WAAPI we do not recommend creating a Stinger in the "Stingers" list.</li>
+<li class="calibre9">Without the ability to create a MusicClip through WAAPI we do not recommend creating a MusicSequence in the "Sequences" list.</li>
+</ul>
+</div></div></div></body></html>

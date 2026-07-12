@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak.wwise.core.object.get</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="ak_wwise_core_object_getArguments"></a>
+Arguments</h1>
+<p class="calibre7"></p><table class="doxtable">
+<tbody class="calibre4"><tr class="calibre16">
+<th class="calibre46">Name </th><th class="calibre46">Type </th><th class="calibre46">Description  </th></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">waql</b> </td><td class="calibre36">string </td><td class="calibre36">Specifies a query in the WAQL language. See <a class="pcalibre el" href="waql_introduction.html">Using the Wwise Authoring Query Language (WAQL)</a> for more information.   </td></tr>
+<tr class="calibre16">
+<td rowspan="7" class="calibre36"><b class="calibre13">from</b> </td><td class="calibre36"/><td class="calibre36"><p class="starttd">The query starting point. Note, this is deprecated. The WAQL argument should be used instead. </p>
+<p class="endtd">One of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">object </td><td class="calibre36">Specify an object with an id field.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">object </td><td class="calibre36">Specifies an object with a search field.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">object </td><td class="calibre36">Specifies an object with a name field.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">object </td><td class="calibre36">Specifies an object with a path field.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">object </td><td class="calibre36">Specify an object with an ofType field.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">object </td><td class="calibre36">Specifies an object with a query field.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">from.<b class="calibre13">id</b> * </td><td class="calibre36">array </td><td class="calibre36">An array of object IDs, either GUID or Short ID (uint32).   </td></tr>
+<tr class="calibre16">
+<td rowspan="3" class="calibre36">from.id <b class="calibre13">[...]</b> </td><td class="calibre36"/><td class="calibre36"><p class="starttd">A GUID or Short ID (uint32). </p>
+<p class="endtd">One of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">object </td><td class="calibre36">A Wwise object Short ID with its associated type.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">from.id[...].<b class="calibre13">shortId</b> * </td><td class="calibre36">integer </td><td class="calibre36">The Short ID of the object.<br class="calibre10"/>
+ Unsigned Integer 32-bit. Range: [0,4294967295]  </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">from.id[...].<b class="calibre13">type</b> * </td><td class="calibre36">integer </td><td class="calibre36">This syntax is deprecated and we recommend the use of WAQL. The type of object for the Short ID. The type can be 10 (Event), 12 (SwitchGroup), 14 (StateGroup), 17 (EffectPlugin), 18 (SoundBank), 19 (Bus), 20 (AuxBus), 22 (GameParameter), 41 (Trigger) or 68 (AudioDevicePlugin) Range: [1,*]  </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">from.<b class="calibre13">search</b> * </td><td class="calibre36">array </td><td class="calibre36">An array of text tokens used for searching the project.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">from.search <b class="calibre13">[...]</b> </td><td class="calibre36">string </td><td class="calibre36">A search token.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">from.<b class="calibre13">name</b> * </td><td class="calibre36">array </td><td class="calibre36">An array of unique object qualified names.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">from.name <b class="calibre13">[...]</b> </td><td class="calibre36">string </td><td class="calibre36">The name of the object qualified by its type or Short ID in the form of type:name or Global:shortId. Only object types that have globally-unique names or Short Ids are supported. Ex: Event:Play_Sound_01, Global:245489792   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">from.<b class="calibre13">path</b> * </td><td class="calibre36">array </td><td class="calibre36">An array of object paths.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">from.path <b class="calibre13">[...]</b> </td><td class="calibre36">string </td><td class="calibre36">A project path to a Wwise object, including the category and the work-unit. For example: \Containers\Default Work Unit\New Sound SFX.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">from.<b class="calibre13">ofType</b> * </td><td class="calibre36">array </td><td class="calibre36">An array of object types.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">from.ofType <b class="calibre13">[...]</b> </td><td class="calibre36">string </td><td class="calibre36">An object type. See <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for a list of types.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">from.<b class="calibre13">query</b> * </td><td class="calibre36">array </td><td class="calibre36">An array of query object ID.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">from.query <b class="calibre13">[...]</b> </td><td class="calibre36">string </td><td class="calibre36">An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">transform</b> </td><td class="calibre36">array </td><td class="calibre36">Array of sequential transformations chained on the object list returned by "from".   </td></tr>
+<tr class="calibre16">
+<td rowspan="5" class="calibre36">transform <b class="calibre13">[...]</b> </td><td class="calibre36"/><td class="calibre36"><p class="starttd">An object transformation. </p>
+<p class="endtd">One of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">object </td><td class="calibre36">An select transformation.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36"><b class="calibre13">distinct</b> : Unique object instances are returned, i.e. no duplicate object is returned.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">object </td><td class="calibre36">Specifies an object with a range field.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">object </td><td class="calibre36">Specifies an object with an where field.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">transform[...].<b class="calibre13">select</b> * </td><td class="calibre36">array </td><td class="calibre36">An array of only 1 selector.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">transform[...].select <b class="calibre13">[...]</b> </td><td class="calibre36">string </td><td class="calibre36">A selector. The resulting objects depend on the selector specified. Possible values: <ul class="calibre8">
+<li class="calibre9">
+parent </li>
+<li class="calibre9">
+children </li>
+<li class="calibre9">
+descendants </li>
+<li class="calibre9">
+ancestors </li>
+<li class="calibre9">
+referencesTo </li>
+</ul>
+</td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">transform[...].<b class="calibre13">range</b> * </td><td class="calibre36">array </td><td class="calibre36">An array of two numbers specifying the boundary indexes. Use this to only include a portion of the results. For example, this could be used to obtain the 100 first items of a search result: [0,100].   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">transform[...].range <b class="calibre13">[...]</b> </td><td class="calibre36">number </td><td class="calibre36">One of the two range limit numbers.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">transform[...].<b class="calibre13">where</b> * </td><td class="calibre36">array </td><td class="calibre36">An array of two tokens to filter results. The first token is the filter predicate. Refer <a class="pcalibre el" href="waapi_query_split_000.html">Querying the Wwise Project</a> for the list of possible predicates. The second token is the parameter to the predicate.   </td></tr>
+<tr class="calibre16">
+<td rowspan="3" class="calibre36">transform[...].where <b class="calibre13">[...]</b> </td><td class="calibre36"/><td class="calibre36"><p class="starttd">A where statement. </p>
+<p class="endtd">Any of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">A string token. The first token in the array is always the 'where' predicate name string. The second token is the parameter.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">array </td><td class="calibre36">An array of strings. Refer <a class="pcalibre el" href="waapi_query_split_000.html">Querying the Wwise Project</a> for more information.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">transform[...].where[...] <b class="calibre13">[...]</b> </td><td class="calibre36">string </td><td class="calibre36">The parameter for the 'where' predicate. Refer <a class="pcalibre el" href="waapi_query_split_000.html">Querying the Wwise Project</a> for more information.   </td></tr>
+</tbody></table>
+<p class="calibre7"></p>
+<p class="calibre7"><a class="pcalibre el" href="ak_wwise_core_object_get_args_schema_split_000.html">Arguments Schema</a></p>
+</div></div></div></body></html>

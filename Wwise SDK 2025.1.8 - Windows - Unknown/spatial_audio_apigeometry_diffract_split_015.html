@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Using the Geometry API for Simulating Diffraction and Transmission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_14"><a class="pcalibre1 anchor" id="spatial_audio_api_geometry_aware_rooms_reflections"></a>
+Reflections Through Portals</h2>
+<p class="calibre7">Reflections can pass through Portals and can reflect off of walls on either or both sides of the Portal. Reflections can pass through more than one Portal, possibly reflecting on surfaces between them if the reflection order is high enough (refer to <code class="calibre14"><a class="pcalibre el" href="struct_ak_spatial_audio_init_settings_a346377be1b9f6905fb2d8d3e1540eb39_split_000.html#a346377be1b9f6905fb2d8d3e1540eb39" title="Maximum reflection order [1, 4] - the number of 'bounces' in a reflection path. A high reflection ord...">AkSpatialAudioInitSettings::uMaxReflectionOrder</a></code>). To ensure smooth reflections through Portals, we recommend that you set <a class="pcalibre el" href="struct_ak_spatial_audio_init_settings_a245b315e0cca157bdbef7cde581e8561_split_000.html#a245b315e0cca157bdbef7cde581e8561">AkSpatialAudioInitSettings::uDiffractionOnReflectionsOrder</a> to at least 2, but be aware that increasing this setting also increases CPU usage.</p>
+<p class="calibre7">Because the Portal itself describes an acoustic opening, it is not necessary to also "cut holes" in the triangle geometry to allow a sound to pass through, which would greatly increase the number of triangles. A Portal box represents negative space, so remember that any geometry that intersects a Portal is effectively ignored, for example in a Room where the geometry is described by a box, with two triangles for each of the six sides. To ensure that sound can propagate outside the box, add a Portal that intersects one of the walls along the Portal's z-axis.</p>
+<p class="calibre7">When using the Simplified Reflect workflow, reflection paths that cross through a Portal carry the occlusion value associated with that Portal, set using <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_a41b9dee6e3af84e5ce3075319e16740d_split_000.html#a41b9dee6e3af84e5ce3075319e16740d">AK::SpatialAudio::SetPortalObstructionAndOcclusion</a></code>. If a reflection path crosses multiple Portals, it carries the highest Portal occlusion value encountered along the path. For more information about the Simplified Reflect workflow, see <a href="https://www.audiokinetic.com/library/edge/?source=Help&amp;id=wwise_reflect_plug_in_effect#reflect_intended" target="_blank" class="pcalibre calibre12">Intended Reflect Workflow</a>.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> Unlike diffraction, reflection paths through Portals are not calculated independently for each Room and then later combined. Instead, reflections are calculated exactly as if the emitter and listener were in the same Room, and the Portal is treated as a hole in the geometry. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

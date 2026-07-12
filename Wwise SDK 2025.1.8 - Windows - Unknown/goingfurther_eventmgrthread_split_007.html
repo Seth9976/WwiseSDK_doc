@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Optimizing CPU usage</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_6"><a class="pcalibre1 anchor" id="eventmgrthread_jobmgr_memory"></a>
+Optimizing Job Manager Memory Usage</h2>
+<p class="calibre7">Running out of memory when allocating a job is considered a critical failure, as the logical flow of audio rendering would be interrupted and unable to resume. This would lead to undefined results and leaks of resources.</p>
+<p class="calibre7">To prevent this, the Job Manager allocates slabs of memory that will be kept around and re-used until the Sound Engine is terminated. Most of these slabs are pre-allocated during Sound Engine initialization, but others may be allocated as needed.</p>
+<p class="calibre7">You can control the size of the memory slabs, as well as how many are pre-allocated at initialization time, via <code class="calibre14"><a class="pcalibre el" href="struct_ak_init_settings_a78895b2daaf2215e77b890ea2c072223_split_000.html#a78895b2daaf2215e77b890ea2c072223" title="Settings to configure the behavior of the Sound Engine's internal job manager.">AkInitSettings::settingsJobManager</a></code>.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> If <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_memory_mgr_a8727fb3eaaefd366474f802b0467b296_split_000.html#a8727fb3eaaefd366474f802b0467b296">AK::MemoryMgr::Malloc</a></code> fails to allocate a new memory slab during rendering, the Job Manager will keep re-trying the allocation until it succeeds. If you observe the Sound Engine hang during low-memory situations, increase the number of pre-allocated slabs in the initialization settings. </td></tr>
+</tbody></table>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

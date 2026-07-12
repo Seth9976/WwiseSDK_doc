@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2022.1.3</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="generic_bugs_2022_1_3"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-61068</b> Fixed: Text cropped on Event cues when in High DPI.</li>
+<li class="calibre9"><b class="calibre13">WG-61540</b> Fixed: Crash in <code class="calibre14">AkDevice::BaseCaptureCallbackStruct::ConvertForCapture</code> when trying to use ref RegisterCaptureCallback with 5th-order ambisonic output. Note that capturing 4th-order or 5th-order ambisonic output still outputs only 3rd-order FuMa-encoded ambisonics.</li>
+<li class="calibre9"><b class="calibre13">WG-62494</b> Fixed: While saving a Wwise project, the field LogCentralIgnoreList is persisted in non-deterministic order, unnecessarily causing the project to be dirty.</li>
+<li class="calibre9"><b class="calibre13">WG-63202</b> Fixed: (Spatial Audio) Spread cones can briefly face the wrong direction when near the extents of a portal.</li>
+<li class="calibre9"><b class="calibre13">WG-63741</b> Fixed: Wwise crashes when copying an object that has an unresolved Metadata reference.</li>
+<li class="calibre9"><b class="calibre13">WG-63841</b> Fixed: Package defines are missing in some of the Wwise Unity Addressables package integration C# code files.</li>
+<li class="calibre9"><b class="calibre13">WG-63859</b> Fixed: Link-time symbol clash when combining Unity with iZotope plug-ins.</li>
+<li class="calibre9"><b class="calibre13">WG-63888</b> Fixed: Crash in Music Switch Containers when scheduling a transition with a large number of very short Music Segments.</li>
+<li class="calibre9"><b class="calibre13">WG-63941</b> Fixed: Possible crash when starting a sound under low memory conditions.</li>
+<li class="calibre9"><b class="calibre13">WG-63956</b> Fixed: Possible crash while loading SoundBank Init.bnk under low memory conditions.</li>
+<li class="calibre9"><b class="calibre13">WG-64143</b> Fixed: Projects load slowly when many SoundBanks are under source control.</li>
+<li class="calibre9"><b class="calibre13">WG-64152</b> Fixed: Load and Save Preset buttons are missing from the object tab when an aux bus is selected.</li>
+<li class="calibre9"><b class="calibre13">WG-64158</b> Fixed: Not enough vertical space in Blend Track Editor graph when using default and larger font sizes.</li>
+<li class="calibre9"><b class="calibre13">WG-64172</b> Fixed: Crash in <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a90f8c91937038615480db2b57ce2279e_split_000.html#a90f8c91937038615480db2b57ce2279e">AK::SoundEngine::Term</a></code> when streamed sounds with the 3D User positioning option are playing at termination time.</li>
+<li class="calibre9"><b class="calibre13">WG-64267</b> Fixed: (Spatial Audio) Spread cone direction is incorrect while the listener is in off-centered portals.</li>
+<li class="calibre9"><b class="calibre13">WG-64294</b> Fixed: Memory leak on exit when terminating the sound engine after running low on memory while processing Events.</li>
+<li class="calibre9"><b class="calibre13">WG-64331</b> Fixed: Incorrect tags added to the SoundBank metadata files for media used by Source Plug-ins.</li>
+<li class="calibre9"><b class="calibre13">WG-64359</b> Fixed: (Perforce) Added files don't always appear in the commit dialog.</li>
+<li class="calibre9"><b class="calibre13">WG-64360</b> Fixed: SoundBank generation does not copy media files from the reference language when a media source was not provided for a given language.</li>
+<li class="calibre9"><b class="calibre13">WG-64365</b> Fixed: Crashes or other errors occur in low-memory situations during playback of Random Containers or Music Playlists set to Random Continuous or Random Step.</li>
+<li class="calibre9"><b class="calibre13">WG-64487</b> Fixed: Assert failure in debug under low memory conditions.</li>
+<li class="calibre9"><b class="calibre13">WG-64503</b> Fixed: (Mac Authoring) WwiseConsole incorrectly handles UNIX absolute paths.</li>
+<li class="calibre9"><b class="calibre13">WG-64504</b> Fixed: Music Clip property curves are not deleted when the corresponding Work Unit is unloaded.</li>
+<li class="calibre9"><b class="calibre13">WG-64512</b> Fixed: Assert failure in streaming manager under low memory conditions.</li>
+<li class="calibre9"><b class="calibre13">WG-64585</b> Fixed: Inadvertent changes to assigned Media IDs after reloading Work Units.</li>
+</ul>
+</div></div></div></body></html>

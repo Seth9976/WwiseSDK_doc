@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Increasing simulation data throughput with the Command Buffer API</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="goingfurther_commandbufferapi_submit"></a>
+Executing commands and inspecting results</h1>
+<p class="calibre7">To execute the commands, you must call <code class="calibre14"><a class="pcalibre el" href="_ak_command_buffer_8h_ac1446f3c255c5f106fd0da55a340d4e4_split_000.html#ac1446f3c255c5f106fd0da55a340d4e4">AK_CommandBuffer_Submit()</a></code> to submit the buffer to the sound engine. This function places the buffer in the sound engine's pending message queue. Its commands are processed asynchronously on the next audio rendering frame, in the order in which they were added to the buffer.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="warning.gif"/></td><td class="calibre17"><b class="calibre13">Warning:</b> Avoid releasing or writing to the buffer until all commands in the buffer are processed. </td></tr>
+</tbody></table>
+<p class="calibre7">When a command is processed, the result of the command is written in the command buffer itself. Clients must designate a callback function before submitting the buffer in order to inspect command results. When this callback is called by the sound engine, clients can iterate through the commands to check result codes.</p>
+<p class="calibre7">You can also use the callback to determine when the buffer can be re-used to submit additional commands, or when it can be released.</p>
+<p class="calibre7">The following example shows how to register the command buffer callback, submit the buffer, and check results when processing is complete:</p>
+<div class="fragment"><div class="line"><span class="comment">// This simple example uses a global lock to protect the buffer on the client side.</span></div>
+<div class="line"><span class="comment">// You can replace this with your preferred constructs</span></div>
+<div class="line"><a class="pcalibre code" href="class_c_ak_lock_split_000.html">CAkLock</a> g_bufferLock;</div>
+<div class="line"><span class="keywordtype">void</span> OnCommandBufferDone(<span class="keywordtype">void</span>* in_pCookie);</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> SubmitCommandBuffer(<span class="keywordtype">void</span>* buffer)</div>
+<div class="line">{</div>
+<div class="line">    g_bufferLock.<a class="pcalibre code" href="class_c_ak_lock_aa0315513e073c9688c9c216db29083a4_split_000.html#aa0315513e073c9688c9c216db29083a4">Lock</a>();</div>
+<div class="line">    <a class="pcalibre code" href="struct_ak_command_buffer_header_split_000.html">AkCommandBufferHeader</a>* pHeader = <span class="keyword">static_cast&lt;</span><a class="pcalibre code" href="struct_ak_command_buffer_header_split_000.html">AkCommandBufferHeader</a>*<span class="keyword">&gt;</span>(buffer);</div>
+<div class="line">    pHeader-&gt;<a class="pcalibre code" href="struct_ak_command_buffer_header_ab7f0b276825a8aa0cb2be9a4d4ce7bcf_split_000.html#ab7f0b276825a8aa0cb2be9a4d4ce7bcf">completionCallback</a> = OnCommandBufferDone;</div>
+<div class="line">    pHeader-&gt;<a class="pcalibre code" href="struct_ak_command_buffer_header_a11c54c5d7e0f2ce379990e65b3fb0682_split_000.html#a11c54c5d7e0f2ce379990e65b3fb0682">completionCallbackCookie</a> = buffer; <span class="comment">// This is a user-defined value passed to the callback.</span></div>
+<div class="line">    <a class="pcalibre code" href="_ak_command_buffer_8h_ac1446f3c255c5f106fd0da55a340d4e4_split_000.html#ac1446f3c255c5f106fd0da55a340d4e4">AK_CommandBuffer_Submit</a>(buffer);</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> OnCommandBufferDone(<span class="keywordtype">void</span>* in_pCookie)</div>
+<div class="line">{</div>
+<div class="line">    <a class="pcalibre code" href="struct_ak_command_buffer_iterator_split_000.html">AkCommandBufferIterator</a> it;</div>
+<div class="line">    <a class="pcalibre code" href="_ak_command_buffer_8h_ab02aeefa1db98786d3133a41cc3027ae_split_000.html#ab02aeefa1db98786d3133a41cc3027ae">AK_CommandBuffer_Begin</a>(in_pCookie, &amp;it);</div>
+<div class="line">    <span class="keywordflow">while</span> (<a class="pcalibre code" href="_ak_command_buffer_8h_a66fa021ab3bd03957b61bd74ce88ef08_split_000.html#a66fa021ab3bd03957b61bd74ce88ef08">AK_CommandBuffer_Next</a>(&amp;it))</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordflow">if</span> (it.<a class="pcalibre code" href="struct_ak_command_buffer_iterator_a33db0cc07340b6a43e5159be2dd516d5_split_000.html#a33db0cc07340b6a43e5159be2dd516d5">header</a>-&gt;<a class="pcalibre code" href="struct_ak_command_header_a349ed38e4a74cff355cced1a35987d61_split_000.html#a349ed38e4a74cff355cced1a35987d61">result</a> != <a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_001.html#a64f7d1f79613cc4dcc49a4efba6caa63ad7c47fea3da641e7422573c6a13dc35e">AK_Success</a>)</div>
+<div class="line">        {</div>
+<div class="line">            <a class="pcalibre code" href="namespace_a_k_p_l_a_t_f_o_r_m_ac11ab17883b9df951f2523abd90b7128_split_000.html#ac11ab17883b9df951f2523abd90b7128">AKPLATFORM::OutputDebugMsgV</a>(<span class="stringliteral">"Command with code %d failed: Result = %d\n"</span>, it.<a class="pcalibre code" href="struct_ak_command_buffer_iterator_a33db0cc07340b6a43e5159be2dd516d5_split_000.html#a33db0cc07340b6a43e5159be2dd516d5">header</a>-&gt;<a class="pcalibre code" href="struct_ak_command_header_a1a3b088b97d89b4131018ddae654d5d0_split_000.html#a1a3b088b97d89b4131018ddae654d5d0">code</a>, it.<a class="pcalibre code" href="struct_ak_command_buffer_iterator_a33db0cc07340b6a43e5159be2dd516d5_split_000.html#a33db0cc07340b6a43e5159be2dd516d5">header</a>-&gt;<a class="pcalibre code" href="struct_ak_command_header_a349ed38e4a74cff355cced1a35987d61_split_000.html#a349ed38e4a74cff355cced1a35987d61">result</a>);</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">    g_bufferLock.<a class="pcalibre code" href="class_c_ak_lock_abebc1b39d6ecbb2c3c1be866d0135669_split_000.html#abebc1b39d6ecbb2c3c1be866d0135669">Unlock</a>(); <span class="comment">// Buffer can be re-used now!</span></div>
+<div class="line">}</div>
+</div><!-- fragment --></div></div></div></body></html>

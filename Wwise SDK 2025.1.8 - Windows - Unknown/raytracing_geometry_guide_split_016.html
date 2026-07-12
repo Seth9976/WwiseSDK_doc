@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Ray Tracing Engine Geometry Guide</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_15"><a class="pcalibre1 anchor" id="raytracing_geometry_guide_limitations_visible_angle"></a>
+Geometry visible angle</h1>
+<p class="calibre7">When a triangle is smaller than the sampling density, the ray tracing engine is less likely to find it.</p>
+<p class="calibre7">The geometry's visible angle alpha is the angle at which the geometry is seen from the point of view of the listener. Depending on the number of primary rays, the average angle (gamma) between two rays varies. The relation between alpha and gamma influences the probability of finding an intersection (a reflection or a diffraction) with the object. If gamma is smaller than alpha, the probability of finding an intersection is high. If gamma is bigger than alpha, the probability of finding an intersection is low.</p>
+<div class="calibre2">
+<img alt="" src="visibility_angle.png" class="inline"/>
+<div class="calibre2">
+In this example, gamma is smaller than alpha. Hence, the probability of finding an intersection with the object is high.</div></div>
+<div class="calibre2">
+<img alt="" src="small_visibility_angle.png" class="inline"/>
+<div class="calibre2">
+In this example, alpha is smaller than gamma. Hence, the probability of finding an intersection with the object is low.</div></div>
+</div></div></div></body></html>

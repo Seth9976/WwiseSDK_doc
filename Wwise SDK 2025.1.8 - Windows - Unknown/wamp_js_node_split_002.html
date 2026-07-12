@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>JavaScript, Node.js - WAMP</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="wamp_js_node_code"></a>
+Project Code</h1>
+<p class="calibre7">The sample file, index.js, in the <code class="calibre14">hello-wwise-node-wamp</code> sample directory allows to connect to the Wwise Authoring API. </p><div class="fragment"><div class="line">var ak = require(<span class="stringliteral">'../../../../include/AK/WwiseAuthoringAPI/js/waapi.js'</span>).ak;</div>
+<div class="line">var autobahn = require(<span class="stringliteral">'autobahn'</span>);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Create the WAMP connection</span></div>
+<div class="line">var connection = <span class="keyword">new</span> autobahn.Connection({</div>
+<div class="line">        url: <span class="stringliteral">'ws://127.0.0.1:8080/waapi'</span>,</div>
+<div class="line">        realm: <span class="stringliteral">'realm1'</span>,</div>
+<div class="line">        protocols: [<span class="stringliteral">'wamp.2.json'</span>]</div>
+<div class="line">    });</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Setup handler for connection opened</span></div>
+<div class="line">connection.onopen = <span class="keyword">function</span> (session) {</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Call getInfo</span></div>
+<div class="line">    session.call(ak.wwise.core.getInfo, [], {}).then(</div>
+<div class="line">        <span class="keyword">function</span> (res) {</div>
+<div class="line">            console.log(`Hello ${res.kwargs.displayName} ${res.kwargs.version.displayName}!`);</div>
+<div class="line">        },</div>
+<div class="line">        <span class="keyword">function</span> (error) {</div>
+<div class="line">            console.log(`Error: ${error}`);</div>
+<div class="line">        }        </div>
+<div class="line">    ).then(</div>
+<div class="line">        <span class="keyword">function</span>() {</div>
+<div class="line">            connection.close();</div>
+<div class="line">        }</div>
+<div class="line">    );</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line">connection.onclose = <span class="keyword">function</span> (reason, details) {</div>
+<div class="line">    <span class="keywordflow">if</span> (reason !== <span class="stringliteral">'lost'</span>) {</div>
+<div class="line">        console.log(<span class="stringliteral">"Connection closed. Reason: "</span> + reason);</div>
+<div class="line">    }</div>
+<div class="line">    process.exit();</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Open the connection</span></div>
+<div class="line">connection.open();</div>
+</div><!-- fragment --><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><p class="starttd"><b class="calibre13">Note:</b> The line <code class="calibre14">var ak = require('../../../../include/AK/WwiseAuthoringAPI/js/waapi.js').ak</code> imports a declaration of the API paths.</p>
+<p class="calibre7">It is located in <code class="calibre14"><b class="calibre13">&lt;Wwise installation path&gt;/SDK/include/AK/WwiseAuthoringAPI/js</b></code>.</p>
+<p class="endtd">For the sample, the path to this file is relative to the sample's location. </p>
+</td></tr>
+</tbody></table>
+</div></div></div></body></html>

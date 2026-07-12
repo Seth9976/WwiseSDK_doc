@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2016.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="api_changes_2016_1"></a>
+API Changes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-21648</b> Added <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a54c3c9fa5266b2f2e6d823c52329b2f0_split_000.html#a54c3c9fa5266b2f2e6d823c52329b2f0">AK::SoundEngine::GetSourcePlayPositions()</a></code> function to obtain position of all sounds triggered by an event.</li>
+<li class="calibre9"><b class="calibre13">WG-27609</b> Reviewed the plug-in registration model and SDK to allow dynamic linking of plug-ins.</li>
+<li class="calibre9"><b class="calibre13">WG-28215</b> Made <code class="calibre14">GetDownstreamGain()</code> plug-in service available to all types of plug-ins.</li>
+<li class="calibre9"><b class="calibre13">WG-28254</b> Added query function <code class="calibre14">AK::SoundEngine::Query::GetRTPCValueByPlayingID()</code>.</li>
+<li class="calibre9"><b class="calibre13">WG-28259</b> Added <code class="calibre14">AK::Wwise::IAudioPlugin::GetSourceDuration()</code> method.</li>
+<li class="calibre9"><b class="calibre13">WG-28434</b> Updated the migration notes.</li>
+<li class="calibre9"><b class="calibre13">WG-28482</b> Removed the MP3 source plug-in sample.</li>
+<li class="calibre9"><b class="calibre13">WG-28507</b> Moved music grid timings into <code class="calibre14"><a class="pcalibre el" href="struct_ak_segment_info_split_000.html" title="Structure used to query info on active playing segments.">AkSegmentInfo</a></code>, and made the latter available from music sync callbacks as well as from <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a8446828c7f31802a83b7b087c44ccbd4_split_000.html#a8446828c7f31802a83b7b087c44ccbd4">AK::MusicEngine::GetPlayingSegmentInfo()</a></code>.</li>
+<li class="calibre9"><b class="calibre13">WG-28509</b> Removed the <code class="calibre14">uMaxNumTransitions</code> parameter from the <code class="calibre14"><a class="pcalibre el" href="struct_ak_init_settings_split_000.html">AkInitSettings</a></code> structure. The maximum number of transitions can now freely grow as needed. There is no more transition stealing system and all transitions will now be honored unless the system runs out of memory. It is the game's responsibility to use transitions properly.</li>
+<li class="calibre9"><b class="calibre13">WG-28549</b> Added <code class="calibre14">AkPlatformInitSettings::bHwCodecLowLatencyMode</code> to use low latency mode for XMA and ATRAC9 decoding.</li>
+<li class="calibre9"><b class="calibre13">WG-28789</b> Adjusted <code class="calibre14">AK::AddSecondaryOutput()</code>, <code class="calibre14"><a class="pcalibre el" href="struct_ak_init_settings_split_000.html">AkInitSettings</a></code>, and <code class="calibre14"><a class="pcalibre el" href="struct_ak_output_settings_split_000.html" title="Platform-independent initialization settings of output devices.">AkOutputSettings</a></code> to support Audio Device plug-in parameters. See the <a class="pcalibre el" href="whatsnew_2016_1_migration.html">Important Migration Notes 2016.1</a> for more details.</li>
+<li class="calibre9"><b class="calibre13">WG-28938</b> Corrected initialization of default values in <code class="calibre14">AK::MemoryMgr::PoolMemInfo</code>.</li>
+<li class="calibre9"><b class="calibre13">WG-29203</b> Replaced<code class="calibre14">AK::IAkMixerInputContext::IsPositioningEnabled()</code> by the more useful <code class="calibre14">AK::IAkMixerInputContext::IsSpatializationEnabled()</code>.</li>
+<li class="calibre9"><b class="calibre13">WG-29510</b> Moved 'Mix...()' methods from <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_mixer_plugin_context_split_000.html" title="Interface to retrieve contextual information for a mixer.">AK::IAkMixerPluginContext</a></code> to <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_global_plugin_context_split_000.html">AK::IAkGlobalPluginContext</a></code>. <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_global_plugin_context_split_000.html">AK::IAkGlobalPluginContext</a></code> is accessible via <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_context_base_af02337aeaffd800ffce912a6c4231e0f_split_000.html#af02337aeaffd800ffce912a6c4231e0f">AK::IAkPluginContextBase::GlobalContext()</a></code>.</li>
+<li class="calibre9"><b class="calibre13">WG-29771</b> Added media ID to <code class="calibre14">AkCallbackType::AK_Duration</code> callback.</li>
+</ul>
+</div></div></div></body></html>

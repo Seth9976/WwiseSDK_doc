@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2025.1.1 Beta 2</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="generic_api_changes_2025_1_1"></a>
+API Changes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-72207</b> The DEFINEDUMMYASSERTHOOK macro has been deprecated and should be replaced by DEFINE_PLUGIN_ASSERT_HOOK. By doing so, the AKASSERT macro in plug-ins will now call the sound engine assert handler.</li>
+<li class="calibre9"><b class="calibre13">WG-73894</b> Function definitions for managing <code class="calibre14">AkThread</code> and <code class="calibre14"><a class="pcalibre el" href="struct_ak_thread_properties_split_000.html">AkThreadProperties</a></code> have been moved from inline functions in <code class="calibre14">AkPlatformFuncs.h</code> to the <code class="calibre14">AkSoundEngine</code> library. Plug-ins and other systems accessing the sound engine via dynamic linkage should now use the new <code class="calibre14">IAkPluginServicePlatformFuncs</code> from the <code class="calibre14">IAkGlobalPluginContext</code> to access this functionality.</li>
+<li class="calibre9"><b class="calibre13">WG-78949</b> Renamed the SDK function <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a00256bfd86c2bed14c626922fc4417b0_split_000.html#a00256bfd86c2bed14c626922fc4417b0">AK::SoundEngine::SetActorMixerEffect</a></code> to <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_af70b2f69c1377e5ad8e5b8310d73a104_split_000.html#af70b2f69c1377e5ad8e5b8310d73a104">AK::SoundEngine::SetContainerEffect</a></code>.</li>
+</ul>
+</div></div></div></body></html>

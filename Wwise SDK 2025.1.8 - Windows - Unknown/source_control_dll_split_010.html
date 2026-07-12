@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Source Control Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_9"><a class="pcalibre1 anchor" id="source_control_dll_creation_utilities"></a>
+Using the Source Control Utilities Interface</h2>
+<p class="calibre7">This interface is given to the plug-in when the plug-in instance is initialized (see <a class="pcalibre el" href="source_control_dll_split_008.html#source_control_dll_creation_object_init_term">Initializing and Terminating the Plug-in Instance</a>). Its functions help the plug-in create dialogs, display message boxes, show a progress dialog, and load and save the configuration, all with the Wwise UI look and feel.</p>
+<p class="calibre7">This interface exposes the following methods:</p><ul class="calibre8">
+<li class="calibre9">AK::Wwise::ISourceControlUtilities::GetProgressDialog();</li>
+<li class="calibre9"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_utilities_a736122aef2131361b82063d4a43b765e_split_000.html#a736122aef2131361b82063d4a43b765e">AK::Wwise::ISourceControlUtilities::MessageBox( HWND in_hWnd, LPCWSTR in_lpText, LPCWSTR in_lpCaption, UINT in_uiType )</a>;</li>
+<li class="calibre9"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_utilities_a6e7f5369fce4769309e2ba6fe5ed72d1_split_000.html#a6e7f5369fce4769309e2ba6fe5ed72d1">AK::Wwise::ISourceControlUtilities::CreateModalCustomDialog( ISourceControlDialogBase* in_pDialog )</a>;</li>
+<li class="calibre9">AK::Wwise::ISourceControlUtilities::GetRegistryPath().</li>
+</ul>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="source_control_dll_creation_utilities_progress"></a>
+Displaying Progress Dialogs</h3>
+<p class="calibre7">When performing source control operations, it can be useful to display a progress dialog with progress feedback messages. This can be done by calling the AK::Wwise::ISourceControlUtilities::GetProgressDialog() method. This method returns an AK::Wwise::ISourceControlOperationProgress interface. For more information on this interface, refer to <a class="pcalibre el" href="source_control_dll_split_011.html#source_control_dll_creation_progress">Implementing the Source Control Operation Progress Interface</a>.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="source_control_dll_creation_utilities_message"></a>
+Displaying Message Dialogs</h3>
+<p class="calibre7">A simple way to display message boxes with the Wwise UI look and feel is to call the <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_utilities_a736122aef2131361b82063d4a43b765e_split_000.html#a736122aef2131361b82063d4a43b765e">AK::Wwise::ISourceControlUtilities::MessageBox()</a> method. Use it the same way as a standard <code class="calibre14">MessageBox</code> Windows function call. You should use this method rather than the standard <code class="calibre14">MessageBox</code> calls to give your plug-in the Wwise UI look and feel.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="source_control_dll_creation_utilities_dialog"></a>
+Displaying Dialogs</h3>
+<p class="calibre7">To create dialogs that have the Wwise UI look and feel, you have to call the <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_utilities_a6e7f5369fce4769309e2ba6fe5ed72d1_split_000.html#a6e7f5369fce4769309e2ba6fe5ed72d1">AK::Wwise::ISourceControlUtilities::CreateModalCustomDialog( ISourceControlDialogBase* in_pDialog )</a> method. This method works in the same way as the CDialog::DoModal() method except that it accepts an <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_dialog_base_split_000.html">AK::Wwise::ISourceControlDialogBase</a> interface as input. For more information on this, refer to <a class="pcalibre el" href="source_control_dll_split_019.html#source_control_dll_creation_dialog">Defining the Source Control Plug-in Dialog</a>.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="source_control_dll_creation_utilities_load"></a>
+Displaying Progress Dialogs</h3>
+<p class="calibre7"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_utilities_split_000.html">AK::Wwise::ISourceControlUtilities</a> offers a simple way to save or load the plug-in configuration in the registry. By calling the AK::Wwise::ISourceControlUtilities::GetRegistryPath() method, you obtain the path of a registry folder that is different for each project and each plug-in. To load or save the configuration, you should create a subfolder for the current version of the plug-in and create all plug-in keys there. You might want to load the configuration in the <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_a965c84c993e7b9644a7d51dafcdeb113_split_000.html#a965c84c993e7b9644a7d51dafcdeb113" title="This function is called when the plug-in is initialized after its creation.">AK::Wwise::ISourceControl::Init()</a> method and save the configuration in the <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_a488a4e256024111dc7c3eceef7970b11_split_000.html#a488a4e256024111dc7c3eceef7970b11" title="This function is called when the plug-in is terminated before its destruction.">AK::Wwise::ISourceControl::Term()</a> method.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="warning.gif"/></td><td class="calibre17"><b class="calibre13">Warning:</b> You must use the HKEY_CURRENT_USER registry key to access this path. The project registry folder is created using this key and the source control plug-in configuration must be user-independent. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

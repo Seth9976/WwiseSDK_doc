@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integration Details - Events</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_5"><a class="pcalibre1 anchor" id="soundengine_events_latency_streaming"></a>
+Streaming</h2>
+<p class="calibre7">On top of the sound engine latency calculations described above, if a sound is 100% streamed (nothing loaded into memory) then you need to add the inherent I/O latency. To avoid I/O latency, <b class="calibre13">Zero latency</b> can be specified so that the beginning of the sound is loaded into memory. The size of this buffer is determined by the <b class="calibre13">Prefetch</b> <b class="calibre13">length</b>, which is set to a normally safe 100 ms by default.</p>
+</div></div></div></body></html>

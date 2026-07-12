@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Rooms and Portals API Configuration</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="spatial_audio_roomsportals_apiconfigroomgeometry"></a>
+Setting up Room Geometry</h1>
+<p class="calibre7">Associating a Geometry Instance with a Room serves the following purposes:</p><ul class="calibre8">
+<li class="calibre9">It enables calculation of the Room's bounding box, which in turn is used to calculate the position and spread of the Room's transmission path.</li>
+<li class="calibre9">It allows Wwise Acoustics to determine which Game Objects are in which Room. Alternatively, clients can use <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_a3f080206f12c04b3464838cb18c43f4e_split_000.html#a3f080206f12c04b3464838cb18c43f4e">AK::SpatialAudio::SetGameObjectInRoom</a></code> for this purpose, if desired.</li>
+<li class="calibre9">It enables accurate specification of transmission loss values, according to the transmission loss coefficient of each individual surface.</li>
+<li class="calibre9">It enables the display of the Room inside the Game Object 3D Viewer.</li>
+<li class="calibre9">Optionally, it enables reflection and diffraction simulation using the walls of a Room, if <code class="calibre14"><a class="pcalibre el" href="struct_ak_geometry_instance_params_a30ef95f856b020642d4a45d43c3df86d_split_000.html#a30ef95f856b020642d4a45d43c3df86d">AkGeometryInstanceParams::UseForReflectionAndDiffraction</a></code> is set to true.</li>
+</ul>
+<p class="calibre7">Setting up Room geometry is optional but recommended. Without Room geometry, the Room will not be visible in the Game Object 3D viewer, and Wwise Acoustics will estimate the extent of the Room (for Room transmission) by calculating a bounding box that encompasses all attached Portals. For more information about Room transmission refer to <a class="pcalibre el" href="spatial_audio_roomsportals_apioverview_split_009.html#spatial_audio_roomsportals_modelingsoundpropagationfromotherrooms_roomtransmission">Transmission of Room Tones and a Room's Diffuse Field</a>.</p>
+<p class="calibre7">Wwise Acoustics performs containment tests using Room geometry to determine which Room each Game Object is in. If a specific type of containment test is desired, this task can instead by performed by the client, using <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_a3f080206f12c04b3464838cb18c43f4e_split_000.html#a3f080206f12c04b3464838cb18c43f4e">AK::SpatialAudio::SetGameObjectInRoom</a></code>. However, geometry is mandatory for Rooms that are designated as Reverb Zones, so that Wwise Acoustics can determine whether a Game Object is inside the transition region of a the Reverb Zone. Refer to spatial_audio_roomsportals_reverbzones_transition_regions.</p>
+<p class="calibre7">To associate geometry with a Room, first, pass the geometry to Wwise using <a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_a0cada36fab682ebb3005a79dd05a5640_split_000.html#a0cada36fab682ebb3005a79dd05a5640">AK::SpatialAudio::SetGeometry</a>. It is then necessary to create a Geometry Instance to assign a position, scale and rotation to the geometry. Refer to <a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_ac2d5e660de0cc2a323d50f44a2731fa9_split_000.html#ac2d5e660de0cc2a323d50f44a2731fa9">AK::SpatialAudio::SetGeometryInstance</a>. Lastly, populate the <a class="pcalibre el" href="struct_ak_room_params_ac63a7f55f7bf863dde9af7e3e3a69758_split_000.html#ac63a7f55f7bf863dde9af7e3e3a69758">AkRoomParams::GeometryInstanceID</a> field when calling <a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_ab991cec1e8c9f4d2721fea2d37b285c8_split_000.html#ab991cec1e8c9f4d2721fea2d37b285c8">AK::SpatialAudio::SetRoom</a>, with the ID of the Geometry Instance representing the Room. Wwise Acoustics assumes that there was, or will be, a corresponding call to <a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_ac2d5e660de0cc2a323d50f44a2731fa9_split_000.html#ac2d5e660de0cc2a323d50f44a2731fa9">AK::SpatialAudio::SetGeometryInstance</a>, however, it does not matter in which order <a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_ab991cec1e8c9f4d2721fea2d37b285c8_split_000.html#ab991cec1e8c9f4d2721fea2d37b285c8">AK::SpatialAudio::SetRoom</a> and <a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_ac2d5e660de0cc2a323d50f44a2731fa9_split_000.html#ac2d5e660de0cc2a323d50f44a2731fa9">AK::SpatialAudio::SetGeometryInstance</a> are called.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> If a geometry instance is to be used only by a Room, for purposes listed above, and not for reflection and diffraction calculation, then set <a class="pcalibre el" href="struct_ak_geometry_instance_params_a30ef95f856b020642d4a45d43c3df86d_split_000.html#a30ef95f856b020642d4a45d43c3df86d">AkGeometryInstanceParams::UseForReflectionAndDiffraction</a> to false. </td></tr>
+</tbody></table>
+<p class="calibre7">For information about how to define geometry in Wwise Acoustics, refer to <a class="pcalibre el" href="spatial_audio_apigeometry.html">Geometry</a>.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> If a geometry set is only to be used for describing a Room and not for reflection and diffraction calculation, then make sure to set <code class="calibre14">AkGeometryParams::EnableTriangles</code> to false. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

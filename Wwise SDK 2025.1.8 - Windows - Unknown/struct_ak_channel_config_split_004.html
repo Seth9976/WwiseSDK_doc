@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AkChannelConfig Struct Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_3">Detailed Description</h2>
+<div class="calibre2"><p class="calibre7">Defines a channel configuration. Examples: </p><div class="fragment"><div class="line"><a class="pcalibre code" href="struct_ak_channel_config_split_000.html">AkChannelConfig</a> cfg;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Create a stereo configuration.</span></div>
+<div class="line">cfg.<a class="pcalibre code" href="struct_ak_channel_config_a4c0f4b3d39608a10c9b330c1ef8281a7_split_000.html#a4c0f4b3d39608a10c9b330c1ef8281a7">SetStandard</a>(<a class="pcalibre code" href="_ak_speaker_config_8h_a472757ac65daebc42373c503d4c3c894_split_000.html#a472757ac65daebc42373c503d4c3c894">AK_SPEAKER_SETUP_STEREO</a>);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Create a 7.1.4 configuration (7.1 plus 4 height channels).</span></div>
+<div class="line">cfg.<a class="pcalibre code" href="struct_ak_channel_config_a4c0f4b3d39608a10c9b330c1ef8281a7_split_000.html#a4c0f4b3d39608a10c9b330c1ef8281a7">SetStandard</a>(<a class="pcalibre code" href="_ak_speaker_config_8h_ac3f7045b044654e66ea4e6a7cb181c30_split_000.html#ac3f7045b044654e66ea4e6a7cb181c30">AK_SPEAKER_SETUP_AURO_11POINT1_740</a>);</div>
+<div class="line"><span class="comment">// or</span></div>
+<div class="line">cfg.<a class="pcalibre code" href="struct_ak_channel_config_a4c0f4b3d39608a10c9b330c1ef8281a7_split_000.html#a4c0f4b3d39608a10c9b330c1ef8281a7">SetStandard</a>(<a class="pcalibre code" href="_ak_speaker_config_8h_aa900d4eb858c3c0d2b2caa9fbf28a2d0_split_000.html#aa900d4eb858c3c0d2b2caa9fbf28a2d0">AK_SPEAKER_SETUP_DOLBY_7_1_4</a>);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Create a 3rd order ambisonic configuration.</span></div>
+<div class="line">cfg.<a class="pcalibre code" href="struct_ak_channel_config_af284d807e5b3a18d25d629d307516e3f_split_000.html#af284d807e5b3a18d25d629d307516e3f">SetAmbisonic</a>(16);   <span class="comment">// pass in the number of spherical harmonics, (N+1)^2, where N is the ambisonics order.</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Invalidate (usually means "As Parent")</span></div>
+<div class="line">cfg.<a class="pcalibre code" href="struct_ak_channel_config_a79d3e6e29649aabb9b9cd82bdd127d70_split_000.html#a79d3e6e29649aabb9b9cd82bdd127d70">Clear</a>();</div>
+</div><!-- fragment --> 
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_ak_speaker_config_8h_source.html#l00440">440</a> of file <a class="pcalibre el" href="_ak_speaker_config_8h_source.html">AkSpeakerConfig.h</a>.</p>
+</div></div><!-- contents -->
+<div class="ttc" id="astruct_ak_channel_config_html"><div class="calibre2"><a href="struct_ak_channel_config_split_000.html" class="pcalibre calibre12">AkChannelConfig</a></div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_speaker_config_8h_source.html#l00440" class="pcalibre calibre12">AkSpeakerConfig.h:441</a></div></div>
+<div class="ttc" id="astruct_ak_channel_config_af284d807e5b3a18d25d629d307516e3f_html_af284d807e5b3a18d25d629d307516e3f"><div class="calibre2"><a href="struct_ak_channel_config_af284d807e5b3a18d25d629d307516e3f_split_000.html#af284d807e5b3a18d25d629d307516e3f" class="pcalibre calibre12">AkChannelConfig::SetAmbisonic</a></div><div class="calibre2">AkForceInline void SetAmbisonic(AkUInt32 in_uNumChannels)</div><div class="calibre2">Set channel config as an ambisonic configuration specified with given number of channels.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_speaker_config_8h_source.html#l00543" class="pcalibre calibre12">AkSpeakerConfig.h:543</a></div></div>
+<div class="ttc" id="a_ak_speaker_config_8h_aa900d4eb858c3c0d2b2caa9fbf28a2d0_html_aa900d4eb858c3c0d2b2caa9fbf28a2d0"><div class="calibre2"><a href="_ak_speaker_config_8h_aa900d4eb858c3c0d2b2caa9fbf28a2d0_split_000.html#aa900d4eb858c3c0d2b2caa9fbf28a2d0" class="pcalibre calibre12">AK_SPEAKER_SETUP_DOLBY_7_1_4</a></div><div class="calibre2">#define AK_SPEAKER_SETUP_DOLBY_7_1_4</div><div class="calibre2">Dolby 7.1.4 setup channel mask.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_speaker_config_8h_source.html#l00113" class="pcalibre calibre12">AkSpeakerConfig.h:113</a></div></div>
+<div class="ttc" id="astruct_ak_channel_config_a79d3e6e29649aabb9b9cd82bdd127d70_html_a79d3e6e29649aabb9b9cd82bdd127d70"><div class="calibre2"><a href="struct_ak_channel_config_a79d3e6e29649aabb9b9cd82bdd127d70_split_000.html#a79d3e6e29649aabb9b9cd82bdd127d70" class="pcalibre calibre12">AkChannelConfig::Clear</a></div><div class="calibre2">AkForceInline void Clear()</div><div class="calibre2">Clear the channel config. Becomes "invalid" (IsValid() returns false).</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_speaker_config_8h_source.html#l00510" class="pcalibre calibre12">AkSpeakerConfig.h:510</a></div></div>
+<div class="ttc" id="a_ak_speaker_config_8h_ac3f7045b044654e66ea4e6a7cb181c30_html_ac3f7045b044654e66ea4e6a7cb181c30"><div class="calibre2"><a href="_ak_speaker_config_8h_ac3f7045b044654e66ea4e6a7cb181c30_split_000.html#ac3f7045b044654e66ea4e6a7cb181c30" class="pcalibre calibre12">AK_SPEAKER_SETUP_AURO_11POINT1_740</a></div><div class="calibre2">#define AK_SPEAKER_SETUP_AURO_11POINT1_740</div><div class="calibre2">Auro-11.1 (7+4) setup channel mask (7.1.4)</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_speaker_config_8h_source.html#l00097" class="pcalibre calibre12">AkSpeakerConfig.h:97</a></div></div>
+<div class="ttc" id="astruct_ak_channel_config_a4c0f4b3d39608a10c9b330c1ef8281a7_html_a4c0f4b3d39608a10c9b330c1ef8281a7"><div class="calibre2"><a href="struct_ak_channel_config_a4c0f4b3d39608a10c9b330c1ef8281a7_split_000.html#a4c0f4b3d39608a10c9b330c1ef8281a7" class="pcalibre calibre12">AkChannelConfig::SetStandard</a></div><div class="calibre2">AkForceInline void SetStandard(AkUInt32 in_uChannelMask)</div><div class="calibre2">Set channel config as a standard configuration specified with given channel mask.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_speaker_config_8h_source.html#l00516" class="pcalibre calibre12">AkSpeakerConfig.h:516</a></div></div>
+<div class="ttc" id="a_ak_speaker_config_8h_a472757ac65daebc42373c503d4c3c894_html_a472757ac65daebc42373c503d4c3c894"><div class="calibre2"><a href="_ak_speaker_config_8h_a472757ac65daebc42373c503d4c3c894_split_000.html#a472757ac65daebc42373c503d4c3c894" class="pcalibre calibre12">AK_SPEAKER_SETUP_STEREO</a></div><div class="calibre2">#define AK_SPEAKER_SETUP_STEREO</div><div class="calibre2">2.0 setup channel mask</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_speaker_config_8h_source.html#l00066" class="pcalibre calibre12">AkSpeakerConfig.h:66</a></div></div>
+
+
+</body></html>

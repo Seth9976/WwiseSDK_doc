@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2017.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_3"><a class="pcalibre1 anchor" id="game_must_regsiter_gameobject"></a>
+The game must register a game object and (optionally) set the listener as the default listener</h2>
+<p class="calibre7">Wwise does not provide a game object for you. To migrate to 2017.1 and have equivalent behavior, it is necessary to register a game object at initialization time and set it as the default listener.</p>
+<div class="fragment"><div class="line"><a class="pcalibre code" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> MY_DEFAULT_LISTENER = 0; </div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Register the main listener.</span></div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a895ed0f83a0dea8fc284491c0ee0152c_split_000.html#a895ed0f83a0dea8fc284491c0ee0152c">AK::SoundEngine::RegisterGameObj</a>(MY_DEFAULT_LISTENER, <span class="stringliteral">"My Default Listener"</span>);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Set one listener as the default.</span></div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a4fe9102cd3cb2b59dda5d3d635dc49fe_split_000.html#a4fe9102cd3cb2b59dda5d3d635dc49fe">AK::SoundEngine::SetDefaultListeners</a>(&amp;MY_DEFAULT_LISTENER, 1);</div>
+</div><!-- fragment --><p class="calibre7">Assigning a game object as the default listener is simply for the sake of convenience. It removes the need to call <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a2f85a55c38afa2e0dbc6172a7bec91d1_split_000.html#a2f85a55c38afa2e0dbc6172a7bec91d1">SetListeners()</a></code> after registering subsequent game objects – they will automatically have the default listener assigned as their listener.</p>
+<p class="calibre7">Note that if you are using SoundFrame you do not have access to the <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a4fe9102cd3cb2b59dda5d3d635dc49fe_split_000.html#a4fe9102cd3cb2b59dda5d3d635dc49fe">AK::SoundEngine::SetDefaultListeners</a></code> API and you need to use <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a2f85a55c38afa2e0dbc6172a7bec91d1_split_000.html#a2f85a55c38afa2e0dbc6172a7bec91d1">SetListeners()</a></code> explicitly.</p>
+</div></div></div></body></html>

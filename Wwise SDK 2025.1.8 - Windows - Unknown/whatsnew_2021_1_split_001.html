@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2021.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="generic_feature_changes_2021_1"></a>
+New Features</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-32040</b> Added a new query syntax, Wwise Authoring Query Language (WAQL), to greatly enhance project search capabilities.</li>
+<li class="calibre9"><b class="calibre13">WG-37429</b> Standardized the upper portion of the Property Editor across views and made it more compact.</li>
+<li class="calibre9"><b class="calibre13">WG-40303</b> Added user preference to select font typeface and size for better accessibility and readability.</li>
+<li class="calibre9"><b class="calibre13">WG-42535</b> Added <b class="calibre13">Profile Only</b> mode to the Remote Connection options. This new option allows fast connection to a remote PC or game console for profiling and prevents sound engine changes due to unexpected synchronization.</li>
+<li class="calibre9"><b class="calibre13">WG-43127</b> Breaking Plug-in API Change! Object-Based Configuration is now available on mixing busses:<ul class="calibre15">
+<li class="calibre9">Deprecated Mixer Plug-Ins</li>
+<li class="calibre9">New Object Processor Effects <code class="calibre14">AK::IAkObjectAwareEffectPlugin</code></li>
+<li class="calibre9"><code class="calibre14">AK::IAkSourcePluginContext::NodeID</code> has been removed in favor of <code class="calibre14">AK::IAkVoicePluginInfo::GetAudioNodeID</code></li>
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_mixer_plugin_context_split_000.html" title="Interface to retrieve contextual information for a mixer.">AK::IAkMixerPluginContext</a></code> is now available to all Effects inserted on busses.</li>
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_mixer_plugin_context_aa3aebb0cd836c0dcab14e3d862e13626_split_000.html#aa3aebb0cd836c0dcab14e3d862e13626">AK::IAkMixerPluginContext::Compute3DPositioning()</a></code> in_fSpread and in_fFocus arguments' range has changed from [0,100] to [0,1].</li>
+</ul>
+</li>
+<li class="calibre9"><b class="calibre13">WG-43531</b> (New Wwise Authoring Plug-in API) Added State and Linked status property accessor to the PropertySet interface.</li>
+<li class="calibre9"><b class="calibre13">WG-44017</b> Added stomp allocator to AkMemoryMgr. Enable with <code class="calibre14"><a class="pcalibre el" href="struct_ak_mem_settings_ae97967db68ec10e8410af9f776f89e0d_split_000.html#ae97967db68ec10e8410af9f776f89e0d" title="Default 0 disabled. 1 debug enabled. 2 stomp allocator enabled. 3 stomp allocator and debug enabled....">AkMemSettings::uMemoryDebugLevel</a></code> = 2. This is a debug only allocator that uses a "page per allocation" style allocation strategy to trap most invalid writes. Note that this allocator is very slow and uses a large amount of virtual memory. As such, enable to track specific problems rather than by default for development.</li>
+<li class="calibre9"><b class="calibre13">WG-46032</b> (WAAPI) Added call <code class="calibre14"><a class="pcalibre el" href="ak_wwise_core_profiler_enableprofilerdata_split_000.html">ak.wwise.core.profiler.enableProfilerData</a></code> to enable profiling data from WAAPI.</li>
+<li class="calibre9"><b class="calibre13">WG-46426</b> Added new field in the Query Editor to execute WAQL queries.</li>
+<li class="calibre9"><b class="calibre13">WG-46885</b> Added new menu in the Segment Editor to edit Music Segment Custom Cue times and color in Multi Editor.</li>
+<li class="calibre9"><b class="calibre13">WG-46920</b> Added <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_memory_mgr_a4f48ed6707ab2f2341f4a81f1c6053d7_split_000.html#a4f48ed6707ab2f2341f4a81f1c6053d7">AK::MemoryMgr::DumpToFile</a></code> to allow dumping of current allocations to a file.</li>
+<li class="calibre9"><b class="calibre13">WG-46966</b> Added runtime memory debugging to AkMemoryMgr, accessible via <code class="calibre14"><a class="pcalibre el" href="struct_ak_mem_settings_ae97967db68ec10e8410af9f776f89e0d_split_000.html#ae97967db68ec10e8410af9f776f89e0d" title="Default 0 disabled. 1 debug enabled. 2 stomp allocator enabled. 3 stomp allocator and debug enabled....">AkMemSettings::uMemoryDebugLevel</a></code>. This enables leak tracking and very basic integrity checks.</li>
+<li class="calibre9"><b class="calibre13">WG-47071</b> On Work Unit file changes outside of Wwise, Wwise now attempts to reload only the changed Work Units as opposed to reloading the entire project.</li>
+<li class="calibre9"><b class="calibre13">WG-47308</b> Added new experimental WEM Opus codec with performant seeking behavior.</li>
+<li class="calibre9"><b class="calibre13">WG-47415</b> Improved usability of the Effect Editor when the Effect is showing monitoring information.</li>
+<li class="calibre9"><b class="calibre13">WG-47487</b> Added two new options in the Conversion Settings to force the conversion of imported sounds to 5.1 or to 7.1 formats.</li>
+<li class="calibre9"><b class="calibre13">WG-47492</b> Wwise Reflect Effect plug-in can now output Audio Objects if its parent's bus configuration is Object-Based.</li>
+<li class="calibre9"><b class="calibre13">WG-47542</b> Added two new Spatial Audio functions to the API to add obstruction to paths without using diffraction and geometry. The new functions are:<ul class="calibre15">
+<li class="calibre9"><code class="calibre14">AKRESULT SetGameObjectToPortalObstruction(AkGameObjectID in_gameObjectID, AkPortalID in_portalObjectID, AkReal32 in_fObstruction)</code></li>
+<li class="calibre9"><code class="calibre14">AKRESULT SetPortalToPortalObstruction(AkPortalID in_portalObjectID0, AkPortalID in_portalObjectID1, AkReal32 in_fObstruction)</code></li>
+</ul>
+</li>
+<li class="calibre9"><b class="calibre13">WG-47794</b> Added debug C runtime allocator hooks for <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_memory_mgr_split_000.html">AK::MemoryMgr</a></code>.</li>
+<li class="calibre9"><b class="calibre13">WG-47948</b> Color Picker button has a new look with a paint palette.</li>
+<li class="calibre9"><b class="calibre13">WG-48049</b> The Bus Property Editor now shows more information about the processing status of the bus.</li>
+<li class="calibre9"><b class="calibre13">WG-48356</b> Removed Opus encoder Frame Size parameter. This has no impact on the quality of the encoding and improves decoding performance.</li>
+<li class="calibre9"><b class="calibre13">WG-48591</b> Added ancestor and descendant filtering of music transitions.</li>
+<li class="calibre9"><b class="calibre13">WG-48609</b> Default assert handlers now print a stacktrace.</li>
+<li class="calibre9"><b class="calibre13">WG-48612</b> Added Memory Manager allocation tracing system.</li>
+<li class="calibre9"><b class="calibre13">WG-48811</b> Added a tooltip to show custom cue times in the Music Segment Editor.</li>
+<li class="calibre9"><b class="calibre13">WG-49192</b> Added Ping column to Remote Connections dialog box.</li>
+<li class="calibre9"><b class="calibre13">WG-49210</b> (Mac Authoring) The 3D views are now available.</li>
+<li class="calibre9"><b class="calibre13">WG-49453</b> Added information to indicate if a bus is mixing (processing) or not. Bus icons show if it is mixing (processing). The meter captions also indicate if it is mixing or not, and a tooltip indicates the reason it is mixing (processing).</li>
+<li class="calibre9"><b class="calibre13">WG-49658</b> (WAAPI) Added <code class="calibre14"><a class="pcalibre el" href="ak_wwise_core_profiler_getaudioobjects_split_000.html">ak.wwise.core.profiler.getAudioObjects</a></code> to retrieve the Audio Objects from a profiling session. Also added to <code class="calibre14"><a class="pcalibre el" href="ak_wwise_core_profiler_getvoices_split_000.html">ak.wwise.core.profiler.getVoices</a></code> and <code class="calibre14"><a class="pcalibre el" href="ak_wwise_core_profiler_getbusses_split_000.html">ak.wwise.core.profiler.getBusses</a></code> the ability to get a single voice or bus using a pipeline ID.</li>
+<li class="calibre9"><b class="calibre13">WG-49689</b> System Audio Device now shows profiling information.</li>
+<li class="calibre9"><b class="calibre13">WG-49906</b> Replaced the legacy Opus codec with Audiokinetic's WEM Opus encoder.</li>
+<li class="calibre9"><b class="calibre13">WG-49923</b> Added 3D Audio support on the System Audio Device.</li>
+<li class="calibre9"><b class="calibre13">WG-50144</b> Emitter spread cones are now visible in the Game Object 3D Viewer, when enabled. They are displayed as defined by the attenuation ShareSet for a sound, or as calculated by Spatial Audio, in the case of radial emitters and rooms and portals.</li>
+<li class="calibre9"><b class="calibre13">WG-50198</b> Added a setting to change the text size in the Game Object 3D Viewer.</li>
+<li class="calibre9"><b class="calibre13">WG-50261</b> Added the ability to create Work Units under Music Switch Containers.</li>
+<li class="calibre9"><b class="calibre13">WG-50456</b> Added a collapsible splitter to the Performance Monitor for the Value list.</li>
+<li class="calibre9"><b class="calibre13">WG-50503</b> (New Wwise Authoring Plug-in API) Added write functions to DataWriter for uniformity with the PropertySet interface.</li>
+<li class="calibre9"><b class="calibre13">WG-50632</b> Added keyboard shortcut F2 to rename Transitions in the Transition Matrix.</li>
+<li class="calibre9"><b class="calibre13">WG-50699</b> (Mac Authoring) Added a menu option to scan for project and Work Unit changes.</li>
+<li class="calibre9"><b class="calibre13">WG-50780</b> Added new context menu when holding the SHIFT key to generate a WAQL query and copy it to the clipboard.</li>
+<li class="calibre9"><b class="calibre13">WG-50972</b> Object-Based metering is now supported in Mastering Suite.</li>
+<li class="calibre9"><b class="calibre13">WG-51105</b> Spatial Audio: <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_aec6be4dca0249557ea2680b755bd218a_split_000.html#aec6be4dca0249557ea2680b755bd218a">AK::SoundEngine::SetMultiplePositions</a></code> is now fully supported by Spatial Audio emitters. Spatial Audio now computes diffraction, transmission, and reflection paths for each sound position.</li>
+<li class="calibre9"><b class="calibre13">WG-51107</b> Spatial Audio: The transmission path is now shown in the Game Object 3D Viewer, along with the associated transmission loss, expressed as a percentage.</li>
+<li class="calibre9"><b class="calibre13">WG-51236</b> Added Music Transition Filtering and added Work Units under Music Switch Containers</li>
+<li class="calibre9"><b class="calibre13">WG-51261</b> Spatial Audio: The transmission loss value calculated for each connection on the wet path is now taken as the maximum of the upstream and downstream room. Previously, this value was taken as the maximum of the room upstream of the connection and that of the listener.</li>
+<li class="calibre9"><b class="calibre13">WG-51277</b> Added column "Plug-in Name" to List View.</li>
+<li class="calibre9"><b class="calibre13">WG-51315</b> (WAAPI) Added accessor "pluginName".</li>
+<li class="calibre9"><b class="calibre13">WG-51347</b> Spatial Audio: An aperture value is now calculated for all sound paths passing through one or more portals. The aperture represents the smallest portal opening along the path, measured by the approximate solid angle subtended on the listener. The aperture restricts the maximum spread of a sound and can now be viewed in Obs/Occ tab of the Advanced Profiler.</li>
+<li class="calibre9"><b class="calibre13">WG-51421</b> Spatial Audio: Improved the algorithm for portal spread calculation. The new algorithm is more efficient and prevents the spread from collapsing to 0 if the listener is 90 degrees off-axis of the portal.</li>
+<li class="calibre9"><b class="calibre13">WG-51465</b> Spatial Audio: Added the new API <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_a8c2e8f50769b6ae29dcbcb636e9c33f2_split_000.html#a8c2e8f50769b6ae29dcbcb636e9c33f2">AK::SpatialAudio::SetGameObjectRadius</a></code> to support radial sound sources.</li>
+<li class="calibre9"><b class="calibre13">WG-51541</b> Spatial Audio: Added a new built-in Game Parameter for Transmission Loss.</li>
+<li class="calibre9"><b class="calibre13">WG-51581</b> A warning icon is now issued in Mastering Suite anytime the plug-in is processing Object-Based audio in unlinked mode.</li>
+<li class="calibre9"><b class="calibre13">WG-51650</b> Spatial Audio: The Portal transition region has been extended radially outwards from the corner of the portal opening, to provided full continuity when entering a portal from the side.</li>
+<li class="calibre9"><b class="calibre13">WG-51677</b> Live plug-in monitoring data is now shown even when not capturing.</li>
+<li class="calibre9"><b class="calibre13">WG-51772</b> Meter can now show the history of a profiling session that has been captured.</li>
+<li class="calibre9"><b class="calibre13">WG-51879</b> Spatial Audio: Reverb and room tones now propagate between rooms that are connected only with a disabled portal, via their transmission path. A disabled portal can now be used to couple rooms together for the sole purpose of reverb transmission, when no diffraction path between the rooms is desired.</li>
+</ul>
+</div></div></div></body></html>

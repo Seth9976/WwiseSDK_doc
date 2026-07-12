@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Querying the Wwise Project</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_6"><a class="pcalibre1 anchor" id="waapi_query_examples"></a>
+Examples</h1>
+<p class="calibre7">Refer to <a class="pcalibre el" href="wamp_js_node_split_002.html#wamp_js_node_code">Project Code</a> for initialization.</p>
+<p class="calibre7">More examples can be found in <a class="pcalibre el" href="ak_wwise_core_object_get_split_000.html">ak.wwise.core.object.get</a>.</p>
+<p class="calibre7">Return the ID, name, and voice volume for a list of objects:</p>
+<div class="fragment"><div class="line">from waapi <span class="keyword">import</span> WaapiClient</div>
+<div class="line"><span class="keyword">import</span> pprint</div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor"># Connect (default URL)</span></div>
+<div class="line">client = WaapiClient()</div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor"># Return two objects</span></div>
+<div class="line">args = {</div>
+<div class="line">    <span class="stringliteral">'waql'</span>: <span class="stringliteral">'$ "\\Devices\\Default Work Unit\\System", "{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"'</span></div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line">options = {</div>
+<div class="line">    <span class="stringliteral">'return'</span>: [<span class="stringliteral">'id'</span>, <span class="stringliteral">'name'</span>, <span class="stringliteral">'Volume'</span>]</div>
+<div class="line">}</div>
+<div class="line">result = client.call(<span class="stringliteral">"ak.wwise.core.object.get"</span>, args, options=options)</div>
+<div class="line">pprint.pprint(result)</div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor"># Disconnect</span></div>
+<div class="line"><span class="preprocessor">client.disconnect()</span></div>
+</div><!-- fragment --><p class="calibre7">Return the ID and name of every object in the Containers starting with 'My', using a regular expression:</p>
+<div class="fragment"><div class="line">from waapi <span class="keyword">import</span> WaapiClient</div>
+<div class="line"><span class="keyword">import</span> pprint</div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor"># Connect (default URL)</span></div>
+<div class="line">client = WaapiClient()</div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor"># Return all objects under the Containers hierarchy with a name that starts with "My"</span></div>
+<div class="line">args = {</div>
+<div class="line">    <span class="stringliteral">'waql'</span>: <span class="stringliteral">'$ "\Containers" select descendants where name = /^My/'</span></div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line">options = {</div>
+<div class="line">    <span class="stringliteral">'return'</span>: [<span class="stringliteral">'name'</span>, <span class="stringliteral">'id'</span>]</div>
+<div class="line">}</div>
+<div class="line">result = client.call(<span class="stringliteral">"ak.wwise.core.object.get"</span>, args, options=options)</div>
+<div class="line">pprint.pprint(result)</div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor"># Disconnect</span></div>
+<div class="line"><span class="preprocessor">client.disconnect()</span></div>
+</div><!-- fragment --><p class="calibre7">To learn more about WAQL, refer to <a class="pcalibre el" href="waql_introduction.html">Using the Wwise Authoring Query Language (WAQL)</a> </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

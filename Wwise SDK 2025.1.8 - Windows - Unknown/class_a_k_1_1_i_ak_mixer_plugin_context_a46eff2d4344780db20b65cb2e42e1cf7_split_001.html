@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::IAkMixerPluginContext::GetSpeakerAngles</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="class_a_k_1_1_i_ak_mixer_plugin_context_a46eff2d4344780db20b65cb2e42e1cf7_split_000.html#a46eff2d4344780db20b65cb2e42e1cf7" class="pcalibre1 anchor">◆ </a></span>GetSpeakerAngles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="calibre3">
+  <tbody class="calibre4"><tr class="calibre16">
+  <td class="calibre17">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">virtual <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::IAkMixerPluginContext::GetSpeakerAngles </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a> * </td>
+          <td class="paramname"><em class="calibre59">io_pfSpeakerAngles</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> &amp; </td>
+          <td class="paramname"><em class="calibre59">io_uNumAngles</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a> &amp; </td>
+          <td class="paramname"><em class="calibre59">out_fHeightAngle</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="calibre17">
+<span><span>pure virtual</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Get speaker angles of the specified device. The speaker angles are expressed as an array of loudspeaker pairs, in degrees, relative to azimuth ]0,180]. Supported loudspeaker setups are always symmetric; the center speaker is always in the middle and thus not specified by angles. Angles must be set in ascending order. You may call this function with io_pfSpeakerAngles set to NULL to get the expected number of angle values in io_uNumAngles, in order to allocate your array correctly. You may also obtain this number by calling AK::GetNumberOfAnglesForConfig( AK_SPEAKER_SETUP_DEFAULT_PLANE ). If io_pfSpeakerAngles is not NULL, the array is filled with up to io_uNumAngles. Typical usage:</p><ul class="calibre8">
+<li class="calibre9">AkUInt32 uNumAngles;</li>
+<li class="calibre9">GetSpeakerAngles( NULL, uNumAngles );</li>
+<li class="calibre9">AkReal32 * pfSpeakerAngles = AkAlloca( uNumAngles * sizeof(AkReal32) );</li>
+<li class="calibre9">GetSpeakerAngles( pfSpeakerAngles, uNumAngles ); <dl class="section"><dt class="calibre23">Warning</dt><dd class="calibre24">Call this function only after the sound engine has been properly initialized. </dd></dl>
+<dl class="section"><dt class="calibre23">Returns</dt><dd class="calibre24">AK_Success if the end point device is properly initialized, AK_Fail otherwise. </dd></dl>
+<dl class="section"><dt class="calibre23">See also</dt><dd class="calibre24"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a02ad46cabd64c04e8be198bfdc44be6b_split_000.html#a02ad46cabd64c04e8be198bfdc44be6b">AK::SoundEngine::GetSpeakerAngles()</a> </dd></dl>
+</li>
+</ul>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">io_pfSpeakerAngles</td><td class="calibre17">Returned array of loudspeaker pair angles, in degrees relative to azimuth [0,180]. Pass NULL to get the required size of the array. </td></tr>
+    <tr class="calibre16"><td class="paramname">io_uNumAngles</td><td class="calibre17">Returned number of angles in io_pfSpeakerAngles, which is the minimum between the value that you pass in, and the number of angles corresponding to the output configuration, or just the latter if io_pfSpeakerAngles is NULL. </td></tr>
+    <tr class="calibre16"><td class="paramname">out_fHeightAngle</td><td class="calibre17">Elevation of the height layer, in degrees relative to the plane. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

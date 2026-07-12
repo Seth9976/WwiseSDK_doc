@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Loading Banks</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_2"><a class="pcalibre1 anchor" id="soundengine_banks_loading_explicit_vs_implicit_implicit"></a>
+Implicit Media Loading</h2>
+<p class="calibre7">The PrepareEvent/PrepareGameSync API allows for implicit loading of media that is not included in a SoundBank. In order to do this, you must first explicitly load a SoundBank that contains the definition of the Events and/or Game Syncs, through <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">LoadBank()</a>. Typically, these SoundBanks will contain only Events and structures, but no media, and thus be very lightweight. Refer to the Wwise Help to know how you can define a SoundBank that has no media data. When the referenced media is not included in the SoundBank, then it must be available as loose media files in the file system. After the definitions of Events and Game Syncs are loaded, you must then "prepare" them in order to use them (<a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a2e6ebb779470b43d78984c27f6a0c238_split_000.html#a2e6ebb779470b43d78984c27f6a0c238">AK::SoundEngine::PrepareEvent()</a> and <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a76c611710ef7ffdd2d59f34e35b67cdc_split_000.html#a76c611710ef7ffdd2d59f34e35b67cdc">AK::SoundEngine::PrepareGameSyncs()</a>). When events or game syncs are prepared, then the sound engine will implicitly fetch the referenced media files from the file system. It is possible to include sound structures in a different SoundBank than the event definitions. The Event SoundBank will then contain a reference to the banks that contain the structures data, and the structures from the referenced SoundBank will be implicitly loaded along with the media when the Event is prepared. All contained structures will be loaded from the linked SoundBank and not just the ones that are referenced by the Event, and for this reason it is usually more practical to bundle the Events and structures in the same SoundBank.</p>
+<p class="calibre7">In the following example, the bank BANK_02 is loaded explicitly and its referenced media is loaded implicitly. It contains the definition of the event PLAY_SOUND_02 and the related sound structures. Since it does not contain the event's associated media, posting the event will fail unless it is prepared first. Therefore, after loading the bank successfully, the event is prepared prior to posting. When an event is prepared, the sound engine will automatically load all the media required to post the event successfully.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include "Wwise_IDs.h"</span></div>
+<div class="line"><span class="comment">// ...</span></div>
+<div class="line"><a class="pcalibre code" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> gameObj = 3;</div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a895ed0f83a0dea8fc284491c0ee0152c_split_000.html#a895ed0f83a0dea8fc284491c0ee0152c">AK::SoundEngine::RegisterGameObj</a>( gameObj );</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Load a bank synchronously, using its ID.</span></div>
+<div class="line"><span class="comment">// This bank may contain only the definition of the events you wish to use.</span></div>
+<div class="line"><a class="pcalibre code" href="_ak_typedefs_8h_a472a3d18cbb0c4f081b3b619e4a2f349_split_000.html#a472a3d18cbb0c4f081b3b619e4a2f349">AkBankID</a> returnedBankID;</div>
+<div class="line"><a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> eResult = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">LoadBank</a>(</div>
+<div class="line">    AK::BANKS::BANK_02,         <span class="comment">// Identifier of the bank to load.</span></div>
+<div class="line">    returnedBankID              <span class="comment">// Returned bank ID.</span></div>
+<div class="line">    );</div>
+<div class="line"><span class="keywordflow">if</span>( eResult != <a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_001.html#a64f7d1f79613cc4dcc49a4efba6caa63ad7c47fea3da641e7422573c6a13dc35e">AK_Success</a> )</div>
+<div class="line">{</div>
+<div class="line">    <span class="comment">// Failed loading bank.</span></div>
+<div class="line">    <span class="comment">// Handle error...</span></div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Load succeeded. The definition of the event PLAY_SOUND_02 and its related structures are loaded.</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// In order to post the event, it needs to be prepared (here, synchronously).</span></div>
+<div class="line"><a class="pcalibre code" href="_ak_typedefs_8h_a8341fa4d01d2fa852c3cc410401b04dc_split_000.html#a8341fa4d01d2fa852c3cc410401b04dc">AkUniqueID</a> eventToPrepare = AK::EVENTS::PLAY_SOUND_02;</div>
+<div class="line">eResult = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a2e6ebb779470b43d78984c27f6a0c238_split_000.html#a2e6ebb779470b43d78984c27f6a0c238">PrepareEvent</a>( </div>
+<div class="line">    <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a21e0dbb1f9aebfc22fdd88634dc1067b_split_001.html#a21e0dbb1f9aebfc22fdd88634dc1067ba7bb39cc6dfafe005cddfbf12c0d62ad0">Preparation_Load</a>,       <span class="comment">// Preparation type: load.</span></div>
+<div class="line">    &amp;eventToPrepare,        <span class="comment">// Array of event IDs.</span></div>
+<div class="line">    1                       <span class="comment">// Number of event IDs in the array.</span></div>
+<div class="line">    );</div>
+<div class="line"><span class="keywordflow">if</span> ( eResult != <a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_001.html#a64f7d1f79613cc4dcc49a4efba6caa63ad7c47fea3da641e7422573c6a13dc35e">AK_Success</a> )</div>
+<div class="line">{</div>
+<div class="line">    <span class="comment">// Failed preparing event.</span></div>
+<div class="line">    <span class="comment">// Handle error...</span></div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Prepare event succeeded: the sound engine has gathered all the media (and sound</span></div>
+<div class="line"><span class="comment">// structures if necessary) that are required to successfully post the event, by loading all </span></div>
+<div class="line"><span class="comment">// necessary media under the hood.</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Post the event.</span></div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a41e9ef8d42951871fe4a8ae58a29a68e_split_000.html#a41e9ef8d42951871fe4a8ae58a29a68e">AK::SoundEngine::PostEvent</a>(</div>
+<div class="line">    AK::EVENTS::PLAY_SOUND_02,      <span class="comment">// Unique ID of the event</span></div>
+<div class="line">    gameObj                         <span class="comment">// Associated game object ID</span></div>
+<div class="line">    );</div>
+</div><!-- fragment --><p class="calibre7">To get a more complete example on how to use <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a2e6ebb779470b43d78984c27f6a0c238_split_000.html#a2e6ebb779470b43d78984c27f6a0c238">AK::SoundEngine::PrepareEvent</a> and <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a76c611710ef7ffdd2d59f34e35b67cdc_split_000.html#a76c611710ef7ffdd2d59f34e35b67cdc">AK::SoundEngine::PrepareGameSyncs</a>, refer to sections:</p><ul class="calibre8">
+<li class="calibre9"><a class="pcalibre el" href="sdk_bank_training_split_004.html#sdk_bank_training_Method_4">Preparing Action Events</a></li>
+<li class="calibre9"><a class="pcalibre el" href="sdk_bank_training_split_005.html#sdk_bank_training_Method_5">Preparing Events and Game Syncs (Switches and States)</a></li>
+</ul>
+</div></div></div></body></html>

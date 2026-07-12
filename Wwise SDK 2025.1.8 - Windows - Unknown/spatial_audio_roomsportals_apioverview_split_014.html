@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Rooms and Portals Overview</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_13"><a class="pcalibre1 anchor" id="spatial_audio_roomsportals_spread"></a>
+Portal Spread and Aperture</h1>
+<p class="calibre7">The spread of a sound in Wwise determines the width of the sound field that is constructed when a 3D sound is panned onto an Audio Bus. For most sounds, spread is defined in Wwise by a curve in the attenuation settings of the sound. However, for sounds played on Room Game Objects (Room tones) and for the reverb sent to a Room Auxiliary bus, it is not necessary to define such a curve, because Wwise Acoustics calculates the spread automatically.</p>
+<p class="calibre7">Furthermore, if a sound has a spread curve defined in the attenuation settings in Wwise, and that sound traverses one or more Portals, its final spread value is subject to the Aperture value of those Portals. The Aperture value acts as an upper limit placed on the spread of a sound, and simulates the constriction of the sound field as the sound passes through the Portal.</p>
+<p class="calibre7">The spread of a sound emitter can be visualized in the Game Object 3D Viewer in Wwise, with the following settings:</p><ul class="calibre8">
+<li class="calibre9"><b class="calibre13">Obstruction/Occlusion Data</b> must be selected in the Profiler Settings dialog box before capturing data.</li>
+<li class="calibre9"><b class="calibre13">Show Spread Cones</b> must be selected in the Game Object 3D Viewer Settings dialog box.</li>
+</ul>
+<p class="calibre7">The Game Object Spread and Portal Aperture values can also be viewed in the Obs/Occ tab of the Advanced Profiler.</p>
+</div></div></div></body></html>

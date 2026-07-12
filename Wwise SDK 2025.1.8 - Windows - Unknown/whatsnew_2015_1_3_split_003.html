@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2015.1.3</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="behavior_changes_2015_1_3"></a>
+Behavior Changes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-27251</b> ATRAC9 and XMA performance optimizations: To triple the performance gain when using ATRAC9 on PS4 and XMA on Xbox One, these codecs now operate with one Wwise buffer of additional latency (about 10.7 ms, by default). This allows Wwise to pipeline CPU voice processing of the current frame with the APU voice processing of the previous frame. While this is our recommended setting, some games may wish to optimize for low-latency at the expense of total throughput, and this behavior can be reverted by setting the flag <code class="calibre14">bHwCodecLowLatencyMode = true</code> in <a class="pcalibre el" href="struct_ak_platform_init_settings_split_000.html">AkPlatformInitSettings</a>. Setting this flag to <code class="calibre14">true</code> will force Wwise to update in two steps, as was the case in v2015.1.2. Decode jobs are first submitted to the APU, after which Wwise will have to wait for the results before secondly processing the rest of the audio pipeline. While waiting for decode jobs on PS4, control is handed back to the OS. This may allow other threads to fill the time slice. On Xbox One, however, this is not possible and Wwise must 'busy-wait' until the data from the hardware is ready. To avoid waiting, and to run the Wwise upate in the shortest possible amount of time, <code class="calibre14">bHwCodecLowLatencyMode</code> should be left to true.</li>
+<li class="calibre9"><b class="calibre13">WG-28540</b> File opening is now deferred by default in low-level I/O samples for Xbox One.</li>
+</ul>
+</div></div></div></body></html>

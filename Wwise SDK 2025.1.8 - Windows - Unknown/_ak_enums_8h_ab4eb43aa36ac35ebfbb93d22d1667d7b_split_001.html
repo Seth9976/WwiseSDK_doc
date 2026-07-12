@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AkDynamicSequenceType</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="_ak_enums_8h_ab4eb43aa36ac35ebfbb93d22d1667d7b_split_000.html#ab4eb43aa36ac35ebfbb93d22d1667d7b" class="pcalibre1 anchor">◆ </a></span>AkDynamicSequenceType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">enum <a class="pcalibre el" href="_ak_enums_8h_ab4eb43aa36ac35ebfbb93d22d1667d7b_split_000.html#ab4eb43aa36ac35ebfbb93d22d1667d7b">AkDynamicSequenceType</a></td>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">The AkDynamicSequenceType is specified when creating a new dynamic sequence.</p>
+<p class="calibre7">In sample accurate mode, when a dynamic sequence item finishes playing and there is another item pending in its playlist, the next sound will be stitched to the end of the ending sound. In this mode, if there are one or more pending items in the playlist while the dynamic sequence is playing, or if something is added to the playlist during the playback, the dynamic sequence can remove the next item to be played from the playlist and prepare it for sample accurate playback before the first sound is finished playing. This mechanism helps keep sounds sample accurate, but then you might not be able to remove that next item from the playlist if required.</p>
+<p class="calibre7">If your game requires the capability of removing the next to be played item from the playlist at any time, then you should use the DynamicSequenceType_NormalTransition option instead. In this mode, you cannot ensure sample accuracy between sounds.</p>
+<p class="calibre7">Note that a Stop or a Break will always prevent the next to be played sound from actually being played.</p>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_cmd___dynamic_sequence___open_split_000.html">AkCmd_DynamicSequence_Open</a></li>
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_1_1_dynamic_sequence_ab6daddd96e109dc7669889733ce4f2cc_split_000.html#ab6daddd96e109dc7669889733ce4f2cc">AK::SoundEngine::DynamicSequence::Open</a> </li>
+</ul>
+</dd></dl>
+<table class="calibre3">
+<tbody class="calibre4"><tr class="calibre16"><th colspan="2" class="calibre35">Enumerator</th></tr><tr class="calibre16"><td class="calibre17"><a id="ab4eb43aa36ac35ebfbb93d22d1667d7ba479a583eefb6b793b7935694be36c574" class="pcalibre calibre12"></a>AkDynamicSequenceType_SampleAccurate </td><td class="calibre17"><p class="calibre7">Sample accurate mode. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="ab4eb43aa36ac35ebfbb93d22d1667d7ba05d99bd1f34ee60c44e579f47868efd1" class="pcalibre calibre12"></a>AkDynamicSequenceType_NormalTransition </td><td class="calibre17"><p class="calibre7">Normal transition mode, allows the entire playlist to be edited at all times. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="ab4eb43aa36ac35ebfbb93d22d1667d7ba42d9e1324f1d94a5deab87eff1dafe06" class="pcalibre calibre12"></a>AkDynamicSequenceType_Last </td><td class="calibre17"><p class="calibre7">End of enum, invalid value. </p>
+</td></tr>
+</tbody></table>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_ak_enums_8h_source_split_000.html#l00378">378</a> of file <a class="pcalibre el" href="_ak_enums_8h_source_split_000.html">AkEnums.h</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

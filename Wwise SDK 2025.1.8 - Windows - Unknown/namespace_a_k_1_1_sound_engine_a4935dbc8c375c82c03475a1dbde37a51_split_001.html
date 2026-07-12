@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::SoundEngine::RegisterBusMeteringCallback</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="namespace_a_k_1_1_sound_engine_a4935dbc8c375c82c03475a1dbde37a51_split_000.html#a4935dbc8c375c82c03475a1dbde37a51" class="pcalibre1 anchor">◆ </a></span>RegisterBusMeteringCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_sound_engine_export_8h_ac6e96d34dfc0e12f9aaa7a47f4e9c322_split_000.html#ac6e96d34dfc0e12f9aaa7a47f4e9c322">AKSOUNDENGINE_API</a> <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::SoundEngine::RegisterBusMeteringCallback </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_a8341fa4d01d2fa852c3cc410401b04dc_split_000.html#a8341fa4d01d2fa852c3cc410401b04dc">AkUniqueID</a> </td>
+          <td class="paramname"><em class="calibre59">in_busID</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_callback_types_8h_a76bf3ae5d6d32ddcc3f7e8ebebda5e16_split_000.html#a76bf3ae5d6d32ddcc3f7e8ebebda5e16">AkBusMeteringCallbackFunc</a> </td>
+          <td class="paramname"><em class="calibre59">in_pfnCallback</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_enums_8h_a29f798f121cb4138f9c92f8421d5e729_split_000.html#a29f798f121cb4138f9c92f8421d5e729">AkMeteringFlags</a> </td>
+          <td class="paramname"><em class="calibre59">in_eMeteringFlags</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">void * </td>
+          <td class="paramname"><em class="calibre59">in_pCookie</em> = <code class="calibre14">NULL</code> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Registers a callback to be called to allow the game to access metering data from any mixing bus. You may use this to monitor loudness at any point of the mixing hierarchy by accessing the peak, RMS, True Peak and K-weighted power (according to loudness standard ITU BS.1770). See <a class="pcalibre el" href="goingfurther_speakermatrixcallback.html">Advanced Mix Customization Using the Speaker Matrix Callback</a> for an example. The callback must be registered once per bus ID. Call with in_pfnCallback = NULL or in_eMeteringFlags = AK_NoMetering to unregister. </p><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> The bus in_busID needs to be a mixing bus.</td></tr>
+</tbody></table>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="goingfurther_speakermatrixcallback.html">Advanced Mix Customization Using the Speaker Matrix Callback</a></li>
+<li class="calibre9"><a class="pcalibre el" href="_ak_callback_types_8h_a76bf3ae5d6d32ddcc3f7e8ebebda5e16_split_000.html#a76bf3ae5d6d32ddcc3f7e8ebebda5e16">AkBusMeteringCallbackFunc</a></li>
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="struct_a_k_1_1_ak_metering_split_000.html" title="Struct containing metering information about a buffer. Depending on when this struct is generated,...">AK::AkMetering</a></code> </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><code class="calibre14">AK_Success</code> if successful</li>
+<li class="calibre9"><code class="calibre14">AK_IDNotFound</code> if the bus is not found</li>
+<li class="calibre9"><code class="calibre14">AK_NotInitialized</code> if the sound engine is not initialized</li>
+<li class="calibre9"><code class="calibre14">AK_InsufficientMemory</code> if there is not enough memory to complete the operation </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_busID</td><td class="calibre17">Bus ID, as obtained by GetIDFromString( bus_name ). </td></tr>
+    <tr class="calibre16"><td class="paramname">in_pfnCallback</td><td class="calibre17">Callback function. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_eMeteringFlags</td><td class="calibre17">Metering flags. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_pCookie</td><td class="calibre17">User cookie. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

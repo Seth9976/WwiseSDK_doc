@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Source Control Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_5"><a class="pcalibre1 anchor" id="source_control_dll_creation_object_samplecode"></a>
+Sample Code</h2>
+<p class="calibre7">You must create a class derived from <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_split_000.html">AK::Wwise::ISourceControl</a> to implement all methods of this interface. This class manages everything related to UI and source control operations for your plug-in. The context in which these methods are called is indicated in the comments.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;AK/Wwise/ISourceControl.h&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">class </span>SamplePlugin</div>
+<div class="line">    : <span class="keyword">public</span> <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_i_source_control_split_000.html">AK::Wwise::ISourceControl</a></div>
+<div class="line">{</div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line">    SamplePlugin();</div>
+<div class="line">    <span class="keyword">virtual</span> ~SamplePlugin();</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// ISourceControl implementation</span></div>
+<div class="line">    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_i_source_control_a965c84c993e7b9644a7d51dafcdeb113_split_000.html#a965c84c993e7b9644a7d51dafcdeb113">Init</a>(<a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_i_source_control_utilities_split_000.html">AK::Wwise::ISourceControlUtilities</a>* in_pUtilities ); <span class="comment">// Initializing and Terminating the </span></div>
+<div class="line">        <span class="comment">// Plug-in Instance</span></div>
+<div class="line">    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_i_source_control_a488a4e256024111dc7c3eceef7970b11_split_000.html#a488a4e256024111dc7c3eceef7970b11">Term</a>(); <span class="comment">// Initializing and Terminating the Plug-in Instance</span></div>
+<div class="line">    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_i_source_control_a7682bc6fd40d00c825703604ab79fc85_split_000.html#a7682bc6fd40d00c825703604ab79fc85">Destroy</a>(); <span class="comment">// Destroying the Plug-in Instance</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_i_source_control_a895acce7b436743e5519245529c97ecd_split_000.html#a895acce7b436743e5519245529c97ecd">ShowConfigDlg</a>(); <span class="comment">// Plug-in configuration</span></div>
+<div class="line">    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_i_source_control_ad7820c108e50155039c92223eff718f3_split_000.html#ad7820c108e50155039c92223eff718f3">GetOperationList</a>( OperationMenuType in_menuType, <span class="keyword">const</span> StringList&amp; in_rFilenameList, </div>
+<div class="line">        OperationList&amp; out_rOperationList ); <span class="comment">// Contextual Menu</span></div>
+<div class="line">    <span class="keyword">virtual</span> DWORD <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_i_source_control_a1cb1c283baf8b61df030a862dd2dc880_split_000.html#a1cb1c283baf8b61df030a862dd2dc880">GetOperationEffect</a>(</div>
+<div class="line">                DWORD in_dwOperationID ); <span class="comment">// Wwise needs to know the effect of an operation</span></div>
+<div class="line">    <span class="keyword">virtual</span> LPCWSTR <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_i_source_control_a817835af7fd2e208f9ba202d6eb5a2eb_split_000.html#a817835af7fd2e208f9ba202d6eb5a2eb">GetOperationName</a>(</div>
+<div class="line">        DWORD in_dwOperationID ); <span class="comment">// Get operation name</span></div>
+<div class="line">    <span class="keyword">virtual</span> AK::Wwise::ISourceControlUtilities::OperationResult <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_i_source_control_ad9ed25401176139c3185a5980b6d44d4_split_000.html#ad9ed25401176139c3185a5980b6d44d4">GetFileStatus</a>( </div>
+<div class="line">        <span class="keyword">const</span> StringList&amp; in_rFilenameList, </div>
+<div class="line">        FilenameToStatusMap&amp; out_rFileStatusMap ); <span class="comment">// File Manager Dialog</span></div>
+<div class="line">    <span class="keyword">virtual</span> AK::Wwise::ISourceControlUtilities::OperationResult <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_i_source_control_a177b1676aeffa151c86255a7b747fcdc_split_000.html#a177b1676aeffa151c86255a7b747fcdc">GetFileStatusIcons</a>( </div>
+<div class="line">        <span class="keyword">const</span> StringList&amp; in_rFilenameList, </div>
+<div class="line">        FilenameToIconMap&amp; out_rFileIconsMap ); <span class="comment">// Project Explorer Icons Refresh</span></div>
+<div class="line">    <span class="keyword">virtual</span> AK::Wwise::ISourceControlUtilities::OperationResult <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_i_source_control_acda8ef1d7727c6ba45d302f4c4ee339e_split_000.html#acda8ef1d7727c6ba45d302f4c4ee339e">GetMissingFilesInDirectories</a>( </div>
+<div class="line">        <span class="keyword">const</span> StringList&amp; in_rDirectoryList, StringList&amp; out_rFilenameList ); <span class="comment">// File Manager Dialog</span></div>
+<div class="line">    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_i_source_control_a36789a297bc4a85ba0fffb9de9bc0a6f_split_000.html#a36789a297bc4a85ba0fffb9de9bc0a6f">DoOperation</a>( DWORD in_dwOperationID, <span class="keyword">const</span> StringList&amp; in_rFilenameList ); <span class="comment">// Execution of a </span></div>
+<div class="line">        <span class="comment">// Source Control Operation</span></div>
+<div class="line">    <span class="keyword">virtual</span> AK::Wwise::ISourceControlUtilities::OperationResult <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_i_source_control_aba7d81dda40d38b6c8bb81d190b846f7_split_000.html#aba7d81dda40d38b6c8bb81d190b846f7">PreCreateOrModify</a>( </div>
+<div class="line">        <span class="keyword">const</span> StringList&amp; in_rFilenameList, </div>
+<div class="line">        <span class="keywordtype">bool</span>&amp; out_rContinue ); <span class="comment">// Creation or Modification of Files in Wwise</span></div>
+<div class="line">    <span class="keyword">virtual</span> AK::Wwise::ISourceControlUtilities::OperationResult <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_i_source_control_a9fb467f0d5dbcb386290f53a81bb8dc5_split_000.html#a9fb467f0d5dbcb386290f53a81bb8dc5">PostCreateOrModify</a>( </div>
+<div class="line">        <span class="keyword">const</span> StringList&amp; in_rFilenameList, </div>
+<div class="line">        <span class="keywordtype">bool</span>&amp; out_rContinue ); <span class="comment">// Creation or Modification of Files in Wwise</span></div>
+<div class="line">    </div>
+<div class="line"><span class="comment">// A static method to get the plug-in information class, refer to Source Control Plug-in Information Class </span></div>
+<div class="line"><span class="comment">// for more information about this method.</span></div>
+<div class="line">    <span class="keyword">static</span> <span class="keywordtype">void</span> GetPluginInfo( <a class="pcalibre code" href="namespace_a_k_1_1_wwise_1_1_plugin_a69141ebf4159597c1e76aad07862c823_split_000.html#a69141ebf4159597c1e76aad07862c823">PluginInfo</a>&amp; out_rPluginInfo );</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">private</span>:</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Members</span></div>
+<div class="line">    <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_i_source_control_utilities_split_000.html">AK::Wwise::ISourceControlUtilities</a>* m_pSourceControlUtilities;</div>
+<div class="line">};</div>
+</div><!-- fragment --><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="caution.gif"/></td><td class="calibre17"><b class="calibre13">Caution:</b> The string parameters and results exchanged between Wwise and the source control plug-in must be in unicode. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

@@ -1,0 +1,290 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak.wwise.core.object.getPropertyInfo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="ak_wwise_core_object_getpropertyinfoResult"></a>
+Result</h1>
+<p class="calibre7"></p><table class="doxtable">
+<tbody class="calibre4"><tr class="calibre16">
+<th class="calibre46">Name </th><th class="calibre46">Type </th><th class="calibre46">Description  </th></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">name</b> </td><td class="calibre36">string </td><td class="calibre36">The name of the property.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">type</b> </td><td class="calibre36">string </td><td class="calibre36">The type of the property. For more information, refer to the property list of Wwise Objects found in <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> .   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">audioEngineId</b> </td><td class="calibre36">integer </td><td class="calibre36">The ID (audio engine ID) of the property.<br class="calibre10"/>
+ Unsigned Integer 32-bit. Range: [0,4294967295]  </td></tr>
+<tr class="calibre16">
+<td rowspan="5" class="calibre36"><b class="calibre13">default</b> </td><td class="calibre36"/><td class="calibre36"><p class="starttd">The default value of the property.<br class="calibre10"/>
+ The value of a property. </p>
+<p class="endtd">Any of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">null </td><td class="calibre36">A null value. No reference to an object.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">A string value.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">number </td><td class="calibre36">A numerical value.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">boolean </td><td class="calibre36">A boolean value.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">supports</b> </td><td class="calibre36">object </td><td class="calibre36">The features supported by the property.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">supports.<b class="calibre13">rtpc</b> </td><td class="calibre36">string </td><td class="calibre36">The RTPC mode that is supported by the property. Possible values: <ul class="calibre8">
+<li class="calibre9">
+None </li>
+<li class="calibre9">
+Additive </li>
+<li class="calibre9">
+Exclusive </li>
+<li class="calibre9">
+Multiplicative </li>
+</ul>
+</td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">supports.<b class="calibre13">randomizer</b> </td><td class="calibre36">boolean </td><td class="calibre36">Indicates if the randomizer is supported by the property.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">supports.<b class="calibre13">unlink</b> </td><td class="calibre36">boolean </td><td class="calibre36">Indicates if unlink is supported by the property.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">display</b> </td><td class="calibre36">object </td><td class="calibre36">Displays information related to the property.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">display.<b class="calibre13">name</b> </td><td class="calibre36">string </td><td class="calibre36">The display name of the property.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">display.<b class="calibre13">group</b> </td><td class="calibre36">string </td><td class="calibre36">The display group of the property.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">display.<b class="calibre13">index</b> </td><td class="calibre36">integer </td><td class="calibre36">The display index of the property.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">dependencies</b> </td><td class="calibre36">array </td><td class="calibre36">List of dependencies on other properties with their related action and conditions.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">dependencies <b class="calibre13">[...]</b> </td><td class="calibre36">object </td><td class="calibre36">A dependency.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">dependencies[...].<b class="calibre13">type</b> * </td><td class="calibre36">string </td><td class="calibre36">Defines the type of dependency. Possible values: <ul class="calibre8">
+<li class="calibre9">
+override </li>
+<li class="calibre9">
+property </li>
+<li class="calibre9">
+reference </li>
+<li class="calibre9">
+objectType </li>
+<li class="calibre9">
+isMasterBus </li>
+</ul>
+</td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">dependencies[...].<b class="calibre13">property</b> </td><td class="calibre36">string </td><td class="calibre36">The name of the property to which the dependency is applied. For more information, refer to the property list of Wwise Objects listed in <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> .<br class="calibre10"/>
+ A property name. Refer to <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for information about the Wwise objects and their properties.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">dependencies[...].<b class="calibre13">action</b> * </td><td class="calibre36">string </td><td class="calibre36">The name of the action that is performed when the conditions are met.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">dependencies[...].<b class="calibre13">context</b> * </td><td class="calibre36">string </td><td class="calibre36">The name of the context in which the dependency is evaluated.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">dependencies[...].<b class="calibre13">value</b> </td><td class="calibre36">boolean </td><td class="calibre36">The value used by the dependency isMasterBus.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">dependencies[...].<b class="calibre13">conditions</b> </td><td class="calibre36">array </td><td class="calibre36">An array of conditions related to the dependency.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">dependencies[...].conditions <b class="calibre13">[...]</b> </td><td class="calibre36">object </td><td class="calibre36"><p class="starttd">A dependency condition. </p>
+<p class="endtd">One of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">dependencies[...].conditions[...].<b class="calibre13">referenceIsSet</b> </td><td class="calibre36">boolean </td><td class="calibre36">Used for reference dependencies, defines if the target reference must be set or not.   </td></tr>
+<tr class="calibre16">
+<td rowspan="5" class="calibre36">dependencies[...].conditions[...].<b class="calibre13">restriction</b> </td><td class="calibre36"/><td class="calibre36"><p class="starttd">Used for property dependencies, defines the restriction on which the property must be set.<br class="calibre10"/>
+ Restricts the value of the property. </p>
+<p class="endtd">One of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">object </td><td class="calibre36">Empty object indicating that the property has no restriction.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">object </td><td class="calibre36">Restrictions on the range of values supported by the property.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">object </td><td class="calibre36">Restrictions on the reference object.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">object </td><td class="calibre36">Restrictions of the property values.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">dependencies[...].conditions[...].restriction.<b class="calibre13">type</b> * </td><td class="calibre36">string </td><td class="calibre36"><b class="calibre13">range</b> : The value restriction of the property.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">dependencies[...].conditions[...].restriction.<b class="calibre13">min</b> * </td><td class="calibre36">number </td><td class="calibre36">The minimum value for the property.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">dependencies[...].conditions[...].restriction.<b class="calibre13">max</b> * </td><td class="calibre36">number </td><td class="calibre36">The maximum value for the property.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">dependencies[...].conditions[...].restriction.<b class="calibre13">type</b> * </td><td class="calibre36">string </td><td class="calibre36"><b class="calibre13">reference</b> : The object reference restrictions of the property.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">dependencies[...].conditions[...].restriction.<b class="calibre13">restrictions</b> * </td><td class="calibre36">array </td><td class="calibre36">The list of object reference restrictions.   </td></tr>
+<tr class="calibre16">
+<td rowspan="5" class="calibre36">dependencies[...].conditions[...].restriction.restrictions <b class="calibre13">[...]</b> </td><td class="calibre36"/><td class="calibre36"><p class="starttd"></p>
+<p class="endtd">One of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">object </td><td class="calibre36">Restrictions on the object type that can be referenced.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">object </td><td class="calibre36">Restrictions on the object category from which objects can be referenced.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">object </td><td class="calibre36">Restrictions on the hierarchy position relative to a parent objects must occupy.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">Flag restrictions that, when present, are considered true. <b class="calibre13">notNull</b> indicates that the referenced object must exist; it cannot be null. <b class="calibre13">playable</b> indicates that the referenced object must be playable. Possible values: <ul class="calibre8">
+<li class="calibre9">
+mustChildOf </li>
+<li class="calibre9">
+notNull </li>
+<li class="calibre9">
+playable </li>
+</ul>
+</td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">dependencies[...].conditions[...].restriction.restrictions[...].<b class="calibre13">type</b> * </td><td class="calibre36">array </td><td class="calibre36">An array of possible types.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">dependencies[...].conditions[...].restriction.restrictions[...].type <b class="calibre13">[...]</b> </td><td class="calibre36">string </td><td class="calibre36">Possible object type supported. See <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for the list of objects.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">dependencies[...].conditions[...].restriction.restrictions[...].<b class="calibre13">sharedOnlyTypes</b> </td><td class="calibre36">array </td><td class="calibre36">An array of types that are only supported as Shared objects (i.e., not Custom) even if the reference can support Custom objects. This is always a subset of "type".   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">dependencies[...].conditions[...].restriction.restrictions[...].sharedOnlyTypes <b class="calibre13">[...]</b> </td><td class="calibre36">string </td><td class="calibre36">Possible object type supported as Shared only. See <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for the list of objects.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">dependencies[...].conditions[...].restriction.restrictions[...].<b class="calibre13">category</b> * </td><td class="calibre36">array </td><td class="calibre36">An array of supported categories.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">dependencies[...].conditions[...].restriction.restrictions[...].category <b class="calibre13">[...]</b> </td><td class="calibre36">string </td><td class="calibre36">Possible category supported.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">dependencies[...].conditions[...].restriction.restrictions[...].<b class="calibre13">childOfReference</b> * </td><td class="calibre36">string </td><td class="calibre36">Name of the reference.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">dependencies[...].conditions[...].restriction.<b class="calibre13">type</b> * </td><td class="calibre36">string </td><td class="calibre36"><b class="calibre13">enum</b> : The value restriction of the property.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">dependencies[...].conditions[...].restriction.<b class="calibre13">values</b> * </td><td class="calibre36">array </td><td class="calibre36">Array of the possible enumerated values the property is restricted to.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">dependencies[...].conditions[...].restriction.values <b class="calibre13">[...]</b> </td><td class="calibre36">object </td><td class="calibre36">An enumerated value with a name.   </td></tr>
+<tr class="calibre16">
+<td rowspan="3" class="calibre36">dependencies[...].conditions[...].restriction.values[...].<b class="calibre13">value</b> </td><td class="calibre36"/><td class="calibre36"><p class="starttd">The enumerated value. </p>
+<p class="endtd">One of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">number </td><td class="calibre36">A numerical value.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">boolean </td><td class="calibre36">A boolean value.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">dependencies[...].conditions[...].restriction.values[...].<b class="calibre13">displayName</b> </td><td class="calibre36">string </td><td class="calibre36">The name associated with the value.   </td></tr>
+<tr class="calibre16">
+<td rowspan="5" class="calibre36"><b class="calibre13">restriction</b> </td><td class="calibre36"/><td class="calibre36"><p class="starttd">Restricts the value of the property. </p>
+<p class="endtd">One of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">object </td><td class="calibre36">Empty object indicating that the property has no restriction.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">object </td><td class="calibre36">Restrictions on the range of values supported by the property.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">object </td><td class="calibre36">Restrictions on the reference object.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">object </td><td class="calibre36">Restrictions of the property values.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">restriction.<b class="calibre13">type</b> * </td><td class="calibre36">string </td><td class="calibre36"><b class="calibre13">range</b> : The value restriction of the property.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">restriction.<b class="calibre13">min</b> * </td><td class="calibre36">number </td><td class="calibre36">The minimum value for the property.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">restriction.<b class="calibre13">max</b> * </td><td class="calibre36">number </td><td class="calibre36">The maximum value for the property.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">restriction.<b class="calibre13">type</b> * </td><td class="calibre36">string </td><td class="calibre36"><b class="calibre13">reference</b> : The object reference restrictions of the property.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">restriction.<b class="calibre13">restrictions</b> * </td><td class="calibre36">array </td><td class="calibre36">The list of object reference restrictions.   </td></tr>
+<tr class="calibre16">
+<td rowspan="5" class="calibre36">restriction.restrictions <b class="calibre13">[...]</b> </td><td class="calibre36"/><td class="calibre36"><p class="starttd"></p>
+<p class="endtd">One of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">object </td><td class="calibre36">Restrictions on the object type that can be referenced.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">object </td><td class="calibre36">Restrictions on the object category from which objects can be referenced.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">object </td><td class="calibre36">Restrictions on the hierarchy position relative to a parent objects must occupy.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">Flag restrictions that, when present, are considered true. <b class="calibre13">notNull</b> indicates that the referenced object must exist; it cannot be null. <b class="calibre13">playable</b> indicates that the referenced object must be playable. Possible values: <ul class="calibre8">
+<li class="calibre9">
+mustChildOf </li>
+<li class="calibre9">
+notNull </li>
+<li class="calibre9">
+playable </li>
+</ul>
+</td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">restriction.restrictions[...].<b class="calibre13">type</b> * </td><td class="calibre36">array </td><td class="calibre36">An array of possible types.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">restriction.restrictions[...].type <b class="calibre13">[...]</b> </td><td class="calibre36">string </td><td class="calibre36">Possible object type supported. See <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for the list of objects.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">restriction.restrictions[...].<b class="calibre13">sharedOnlyTypes</b> </td><td class="calibre36">array </td><td class="calibre36">An array of types that are only supported as Shared objects (i.e., not Custom) even if the reference can support Custom objects. This is always a subset of "type".   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">restriction.restrictions[...].sharedOnlyTypes <b class="calibre13">[...]</b> </td><td class="calibre36">string </td><td class="calibre36">Possible object type supported as Shared only. See <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for the list of objects.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">restriction.restrictions[...].<b class="calibre13">category</b> * </td><td class="calibre36">array </td><td class="calibre36">An array of supported categories.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">restriction.restrictions[...].category <b class="calibre13">[...]</b> </td><td class="calibre36">string </td><td class="calibre36">Possible category supported.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">restriction.restrictions[...].<b class="calibre13">childOfReference</b> * </td><td class="calibre36">string </td><td class="calibre36">Name of the reference.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">restriction.<b class="calibre13">type</b> * </td><td class="calibre36">string </td><td class="calibre36"><b class="calibre13">enum</b> : The value restriction of the property.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">restriction.<b class="calibre13">values</b> * </td><td class="calibre36">array </td><td class="calibre36">Array of the possible enumerated values the property is restricted to.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">restriction.values <b class="calibre13">[...]</b> </td><td class="calibre36">object </td><td class="calibre36">An enumerated value with a name.   </td></tr>
+<tr class="calibre16">
+<td rowspan="3" class="calibre36">restriction.values[...].<b class="calibre13">value</b> </td><td class="calibre36"/><td class="calibre36"><p class="starttd">The enumerated value. </p>
+<p class="endtd">One of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">number </td><td class="calibre36">A numerical value.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">boolean </td><td class="calibre36">A boolean value.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">restriction.values[...].<b class="calibre13">displayName</b> </td><td class="calibre36">string </td><td class="calibre36">The name associated with the value.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">ui</b> </td><td class="calibre36">object </td><td class="calibre36">Information related to how the property is displayed.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">ui.<b class="calibre13">value</b> </td><td class="calibre36">object </td><td class="calibre36">Specifies how the property value is handled by Wwise UI.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">ui.value.<b class="calibre13">decimals</b> </td><td class="calibre36">integer </td><td class="calibre36">The number of decimals displayed for the value.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">ui.value.<b class="calibre13">step</b> </td><td class="calibre36">number </td><td class="calibre36">The amount by which the display increments the value.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">ui.value.<b class="calibre13">fine</b> </td><td class="calibre36">number </td><td class="calibre36">The amount by which the display increments the value for fine adjustment.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">ui.value.<b class="calibre13">min</b> </td><td class="calibre36">number </td><td class="calibre36">The minimum display value.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">ui.value.<b class="calibre13">max</b> </td><td class="calibre36">number </td><td class="calibre36">The maximum display value.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">ui.value.<b class="calibre13">infinity</b> </td><td class="calibre36">number </td><td class="calibre36">The number used to represent infinity.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">ui.<b class="calibre13">displayAs</b> </td><td class="calibre36">object </td><td class="calibre36">Describe how the property is displayed.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">ui.displayAs.<b class="calibre13">lrMix</b> </td><td class="calibre36">boolean </td><td class="calibre36">Indicates if the property should be displayed as a left-right mix.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">ui.displayAs.<b class="calibre13">musicNote</b> </td><td class="calibre36">boolean </td><td class="calibre36">Indicates if the property should be displayed as a music note (MIDI).   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">ui.displayAs.<b class="calibre13">bitfield</b> </td><td class="calibre36">boolean </td><td class="calibre36">Indicates if the property should be displayed as a bitfield.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">ui.displayAs.<b class="calibre13">percentage</b> </td><td class="calibre36">boolean </td><td class="calibre36">Indicates if the property should be displayed as a percentage.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">ui.<b class="calibre13">dataMeaning</b> </td><td class="calibre36">string </td><td class="calibre36">The unit type of the property. Possible values: <ul class="calibre8">
+<li class="calibre9">
+None </li>
+<li class="calibre9">
+Frequency </li>
+<li class="calibre9">
+Decibels </li>
+<li class="calibre9">
+PitchCents </li>
+</ul>
+</td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">ui.<b class="calibre13">autoUpdate</b> </td><td class="calibre36">boolean </td><td class="calibre36">Indicates if the value of the property is updated while moving the slider.   </td></tr>
+</tbody></table>
+<p class="calibre7"></p>
+<p class="calibre7"><a class="pcalibre el" href="ak_wwise_core_object_getpropertyinfo_result_schema_split_000.html">Result Schema</a></p>
+</div></div></div></body></html>

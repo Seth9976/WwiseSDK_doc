@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2021.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="spatial_audio_migration_21_1"></a>
+Spatial Audio</h1>
+<p class="calibre7">Wwise Spatial Audio has standardized the usage of the term <em class="calibre11">transmission loss</em> to define an occlusion factor due to sound transmission through rooms or through geometry, both in the API and in the Authoring tool. Consequently, AkRoomParams::WallOcclusion has been renamed to <code class="calibre14"><a class="pcalibre el" href="struct_ak_room_params_a9ab66218e7be0c8bf5d60060bded14a0_split_000.html#a9ab66218e7be0c8bf5d60060bded14a0">AkRoomParams::TransmissionLoss</a></code>, and AkAcousticSurface::occlusion has been renamed to <code class="calibre14"><a class="pcalibre el" href="struct_ak_acoustic_surface_ab0ec8a6eee25b28b4f8b9e91dbff17da_split_000.html#ab0ec8a6eee25b28b4f8b9e91dbff17da">AkAcousticSurface::transmissionLoss</a></code>.</p>
+<p class="calibre7">In an effort to simplify the design and implementation of physically plausible sound propagation, all options to enable diffraction and transmission processing have been combined into a single option.</p><ul class="calibre8">
+<li class="calibre9">In the Positioning tab, <b class="calibre13">Enable Diffraction</b> has been renamed to <b class="calibre13">Enable Diffraction and Transmission</b>.</li>
+<li class="calibre9">The initialization setting bEnableTransmission has been removed; transmission simulation is always enabled for sounds that have <b class="calibre13">Enable Diffraction and Transmission</b> selected in the Authoring tool. If sound transmission is not expected to play a significant role in your game, use the default transmission loss coefficient of 1.0 for all rooms and geometries, and use the default occlusion curve, which renders a transmission loss coefficient of 100% inaudible.</li>
+</ul>
+<p class="calibre7">Furthermore, to simplify the setup of Spatial Audio, the following fields of <code class="calibre14"><a class="pcalibre el" href="struct_ak_spatial_audio_init_settings_split_000.html" title="Initialization settings of the spatial audio module.">AkSpatialAudioInitSettings</a></code> have changed:</p><ul class="calibre8">
+<li class="calibre9"><code class="calibre14">AkDiffractionFlags</code> has been removed with the following substitutions:<ul class="calibre15">
+<li class="calibre9"><code class="calibre14">DiffractionFlags_UseBuiltInParam</code> is effectively always true. The Diffraction built-in parameter can now be used without explicit configuration.</li>
+<li class="calibre9"><code class="calibre14">DiffractionFlags_UseObstruction</code> has been replaced by a boolean, AkSpatialAudioInitSettings::bUseObstruction, with the same logic.</li>
+<li class="calibre9"><code class="calibre14">DiffractionFlags_CalcEmitterVirtualPosition</code> has been replaced by a boolean, <code class="calibre14"><a class="pcalibre el" href="struct_ak_spatial_audio_init_settings_a7b44a84de6c25d0abe4004c1c264aa13_split_000.html#a7b44a84de6c25d0abe4004c1c264aa13" title="An emitter that is diffracted through a portal or around geometry will have its apparent or virtual p...">AkSpatialAudioInitSettings::bCalcEmitterVirtualPosition</a></code>, with the same logic.</li>
+</ul>
+</li>
+<li class="calibre9"><code class="calibre14">bEnableDirectPathDiffraction</code> has been renamed to <a class="pcalibre el" href="struct_ak_spatial_audio_init_settings_ae7b27a1b56cb22eb2903de626f43f017_split_000.html#ae7b27a1b56cb22eb2903de626f43f017">AkSpatialAudioInitSettings::bEnableGeometricDiffractionAndTransmission</a> to provide a more accurate description of the option.</li>
+<li class="calibre9"><code class="calibre14">fDiffractionShadowAttenFactor</code> and <code class="calibre14">fDiffractionShadowDegrees</code> have been removed. These options were complicated to use and not recommended for physically plausible sound rendering.</li>
+</ul>
+</div></div></div></body></html>

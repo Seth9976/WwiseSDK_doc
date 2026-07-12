@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2023.1.8</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="generic_bugs_2023_1_8"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-68568</b> Fixed: Crash in the Integration Demo on Mac when exiting the microphone demo page after enabling the microphone input.</li>
+<li class="calibre9"><b class="calibre13">WG-68572</b> Fixed: Clearing the Project Explorer focus can stop the active play in the Transport.</li>
+<li class="calibre9"><b class="calibre13">WG-70733</b> Fixed: Closing and then re-opening a project in Wwise Authoring incorrectly raises an error that the project is already open by another process.</li>
+<li class="calibre9"><b class="calibre13">WG-72860</b> Fixed: Possible crash when an object is deleted and the WAAPI topic <code class="calibre14"><a class="pcalibre el" href="ak_wwise_ui_commands_executed_split_000.html">ak.wwise.ui.commands.executed</a></code> is used.</li>
+<li class="calibre9"><b class="calibre13">WG-72976</b> Fixed: Truncated text in the Project Migration dialog.</li>
+<li class="calibre9"><b class="calibre13">WG-73603</b> Fixed: (Spatial Audio) Edge case geometries can lead to false detection of "non-watertight" boundary edges and unnecessary assertions.</li>
+<li class="calibre9"><b class="calibre13">WG-73759</b> Fixed: When changing the type or scope of an action in an event, the internal order of actions is affected.</li>
+<li class="calibre9"><b class="calibre13">WG-73860</b> Fixed: False positive reported in Integrity Report when using an RTPC with bypass all effects.</li>
+<li class="calibre9"><b class="calibre13">WG-73901</b> Fixed: Crash when opening a new Window from an Effect set to None.</li>
+<li class="calibre9"><b class="calibre13">WG-73977</b> Fixed: (Spatial Audio) Reverb Zones are missing some diffraction on paths through portals.</li>
+<li class="calibre9"><b class="calibre13">WG-73997</b> Fixed: (Spatial Audio) Paths through Portals with gaps report the wrong distance when using a Distance Probe.</li>
+<li class="calibre9"><b class="calibre13">WG-74076</b> Fixed: (Spatial Audio) Assert caused by low memory conditions.</li>
+<li class="calibre9"><b class="calibre13">WG-74152</b> Fixed: Crash when deleting an effect while connected to the game.</li>
+<li class="calibre9"><b class="calibre13">WG-74210</b> Fixed: Assertion failure in Spatial Audio module in Debug configuration under low memory conditions.</li>
+<li class="calibre9"><b class="calibre13">WG-74212</b> Fixed: (Spatial Audio) Path calculations do not scale the value used for maximum path length when <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_split_000.html">AK::SoundEngine</a>:SetScalingFactor</code> is applied to the Spatial Audio Listener, causing sounds to cut off abruptly.</li>
+<li class="calibre9"><b class="calibre13">WG-74278</b> Fixed: Infinite loop in Wwise Recorder plug-in termination under low memory conditions.</li>
+<li class="calibre9"><b class="calibre13">WG-74279</b> Fixed: (Spatial Audio) If more than eight diffraction paths exist, more prominent paths are sometimes discarded in favor of less prominent ones.</li>
+<li class="calibre9"><b class="calibre13">WG-74316</b> Fixed: An extra undo is necessary to undo adding a Game Parameter (for example Envelope, or LFO) for the X axis of an RTPC.</li>
+<li class="calibre9"><b class="calibre13">WG-74426</b> Fixed: (Spatial Audio) Crash when connecting Wwise Authoring 23.1.6 to a profile session or game using Wwise 23.1.5 or earlier.</li>
+<li class="calibre9"><b class="calibre13">WG-74469</b> Fixed: Voices and Buses in the CPU Timeline view are not displayed with their color as specified in the Wwise Project.</li>
+</ul>
+</div></div></div></body></html>

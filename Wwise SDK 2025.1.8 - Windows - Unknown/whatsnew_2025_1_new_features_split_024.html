@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>New Features Overview 2025.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_23"><a class="pcalibre1 anchor" id="features_25_1_rooms"></a>
+Room Distance Behavior</h2>
+<p class="calibre7"><code class="calibre14">AKSpatialAudioVolume</code> adds a Distance Behavior property to Rooms that determines how the Room interacts with other Rooms that it overlaps or is nested within.</p>
+<div class="calibre2">
+<img alt="" src="distance_behavior.png" class="inline"/>
+</div>
+<p class="calibre7"><b class="calibre13">Subtract</b>: When set to Subtract, the child Room is subtracted from the shape of the parent Room, along with any overlapping Rooms of lower priority. In this case, distance attenuation is applied to other Rooms when the listener is in this Room, because this Room is a distinct space.</p>
+<p class="calibre7">In this example, the listener doesn't hear the Room Tone of the parent Room because the child Room is set to "subtract" the shape of the Room and apply distance attenuation.</p>
+<div class="calibre2">
+<img alt="" src="room_subtract.png" class="inline"/>
+</div>
+<table border="1" cellpadding="1" cellspacing="0" width="800px" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td width="50px" class="calibre17"><div class="calibre2">
+<img alt="" src="callout1.png" class="inline"/>
+</div>
+ </td><td width="750px" class="calibre17">Parent Room  </td></tr>
+<tr class="calibre16">
+<td class="calibre17"><div class="calibre2">
+<img alt="" src="callout2.png" class="inline"/>
+</div>
+ </td><td class="calibre17">Child Room  </td></tr>
+<tr class="calibre16">
+<td width="50px" class="calibre17"><div class="calibre2">
+<img alt="" src="callout3.png" class="inline"/>
+</div>
+ </td><td width="750px" class="calibre17">Listener  </td></tr>
+</tbody></table>
+<p class="calibre7"><b class="calibre13">Exclude</b>: When set to Exclude, the Room does not participate in the distance calculation of other Rooms. Distance attenuation does not apply to this Room's parents, or overlapping sections of lower priority Rooms, because this Room does not form a distinct space and is not subtracted from the shape of other Rooms.</p>
+<p class="calibre7">In this example, the listener hears the Room Tone of the parent Room with no attenuation because the child Room is set to "exclude" the shape of the Room from the distance calculation.</p>
+<div class="calibre2">
+<img alt="" src="room_exclude.png" class="inline"/>
+</div>
+<table border="1" cellpadding="1" cellspacing="0" width="800px" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td width="50px" class="calibre17"><div class="calibre2">
+<img alt="" src="callout1.png" class="inline"/>
+</div>
+ </td><td width="750px" class="calibre17">Parent Room  </td></tr>
+<tr class="calibre16">
+<td class="calibre17"><div class="calibre2">
+<img alt="" src="callout2.png" class="inline"/>
+</div>
+ </td><td class="calibre17">Child Room  </td></tr>
+<tr class="calibre16">
+<td width="50px" class="calibre17"><div class="calibre2">
+<img alt="" src="callout3.png" class="inline"/>
+</div>
+ </td><td width="750px" class="calibre17">Listener  </td></tr>
+</tbody></table>
+</div></div></div></body></html>

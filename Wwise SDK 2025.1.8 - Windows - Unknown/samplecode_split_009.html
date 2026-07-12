@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Samples</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_8"><a class="pcalibre1 anchor" id="samplecode_integration_filepackagelowlevelio"></a>
+File Package Low-Level I/O Implementation</h2>
+<p class="calibre7">This sample enhances the default Low-Level I/O implementation by supporting usage of file packages generated using the File Packager utility (see <a class="pcalibre el" href="samplecode_split_010.html#samplecode_integration_filepackager">File Packager Utility</a>). Refer to <a class="pcalibre el" href="streamingmanager_lowlevel_split_000.html">Low-Level I/O</a> for an explanation of the concepts behind the Low-Level I/O module. There is a description of the features of the File Package Low-Level I/O implementation at the end of this section (<a class="pcalibre el" href="streamingmanager_lowlevel_split_016.html#streamingmanager_lowlevel_filepackage_implementation_walkthrough">Sample File Package Low-Level I/O Implementation Walkthrough</a>).</p>
+<p class="calibre7">You can use file packages directly in your game by including the classes below to your game, along with the code of the Default Low-Level I/O. You can also edit this implementation, and the File Packager, to include your own game-specific files. This is useful especially if you plan to use Audiokinetic's Stream Manager for all I/O in your game. Or, the code can be seen as a proof of concept in order to help you implement your own strategy for mapping file IDs to file descriptors.</p>
+<p class="calibre7">Location:</p><ul class="calibre8">
+<li class="calibre9">"samples\SoundEngine\Common\AkFilePackageLowLevelIO.h"</li>
+<li class="calibre9">"samples\SoundEngine\Common\AkFilePackageLowLevelIO.inl"</li>
+<li class="calibre9">"samples\SoundEngine\Common\AkFilePackage.h"</li>
+<li class="calibre9">"samples\SoundEngine\Common\AkFilePackage.cpp"</li>
+<li class="calibre9">"samples\SoundEngine\Common\AkFilePackageLUT.cpp"</li>
+<li class="calibre9">"samples\SoundEngine\Common\AkFilePackageLUT.cpp"</li>
+</ul>
+<p class="calibre7">CAkFilePackageLowLevelIO&lt;&gt; is a template class that adds services to the default, platform-specific implementations of the low-level I/O hooks. The concrete definitions of File Package Low-Level I/O class is in the platform-specific folders:</p><ul class="calibre8">
+<li class="calibre9">"samples\SoundEngine\{Platform name}\AkFilePackageLowLevelIODeferred.h"</li>
+</ul>
+</div></div></div></body></html>

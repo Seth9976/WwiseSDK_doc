@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Documenting your Plug-in Properties</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="effectplugin_tools_build_property_help"></a>
+Building the Property Help Files</h1>
+<p class="calibre7">Property help documentation source files must be located in <code class="calibre14">&lt;PluginProject&gt;/WwisePlugin/res/Md/&lt;language&gt;/PropertyName.md</code>, one file per property.</p>
+<p class="calibre7">The text in these files is in Markdown format, which will be converted to HTML by the <code class="calibre14">wp.py</code> development tool. For more detail about development tools, refer to <a class="pcalibre el" href="effectplugin_tools_split_000.html">Using the Development Tools</a>. Any markdown styles, such as bold emphasis, list block or hyperlink, can be used to format the help message.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> To build the Property Help documentation, install these two Python dependencies: <div class="fragment"><div class="line">pip install markdown</div>
+<div class="line">pip install jinja2</div>
+</div><!-- fragment --> </td></tr>
+</tbody></table>
+<p class="calibre7">Use <code class="calibre14">wp.py</code> to build the Wwise Property Help files for the plug-in:</p>
+<div class="fragment"><div class="line">python "%WWISEROOT%/Scripts/Build/Plugins/wp.py" build Documentation</div>
+</div><!-- fragment --><p class="calibre7">This command will perform the Markdown to HTML conversion and will save the resulting files in the appropriate Wwise directory.</p>
+</div></div></div></body></html>

@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AkTransmissionOperation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="_ak_spatial_audio_types_8h_aa15f2f697dced35d82fcc58bc437cfb8_split_000.html#aa15f2f697dced35d82fcc58bc437cfb8" class="pcalibre1 anchor">◆ </a></span>AkTransmissionOperation</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">enum <a class="pcalibre el" href="_ak_spatial_audio_types_8h_aa15f2f697dced35d82fcc58bc437cfb8_split_000.html#aa15f2f697dced35d82fcc58bc437cfb8">AkTransmissionOperation</a></td>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Determines the operation used to calculate the transmission loss value for a transmission path. A ray is cast from listener to emitter, and this operation is applied to combine the current surface with the previous. A geometry instance can be marked as solid by using <code class="calibre14"><a class="pcalibre el" href="struct_ak_geometry_instance_params_a05d132d8d90222fdb7a54c5b4c506fb5_split_000.html#a05d132d8d90222fdb7a54c5b4c506fb5">AkGeometryInstanceParams::IsSolid</a></code>. If a geometry instance is solid, transmission loss is applied for each pair of hit surfaces, representing an entrance and exit through the geometry. The transmission loss from a pair of hits through a solid geometry instance will be the max of both hits. </p>
+<table class="calibre3">
+<tbody class="calibre4"><tr class="calibre16"><th colspan="2" class="calibre35">Enumerator</th></tr><tr class="calibre16"><td class="calibre17"><a id="aa15f2f697dced35d82fcc58bc437cfb8a7470a989ed27a4d675a30c93d38aa88f" class="pcalibre calibre12"></a>AkTransmissionOperation_Add </td><td class="calibre17"><p class="calibre7">Transmission loss of each hit surface is summed until it reaches 100%. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="aa15f2f697dced35d82fcc58bc437cfb8ac4e0ed23f7633390d14a0a931c309c4b" class="pcalibre calibre12"></a>AkTransmissionOperation_Multiply </td><td class="calibre17"><p class="calibre7">The inverse of transmission loss (1 - TL) is multiplied in succession, and the result inverted. With each hit surface, the effect of additional transmission loss is reduced. The total loss will approach but never reach 100% unless a surface with 100% loss is found. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="aa15f2f697dced35d82fcc58bc437cfb8a95879c785b57231bc052e5d7fb217097" class="pcalibre calibre12"></a>AkTransmissionOperation_Max </td><td class="calibre17"><p class="calibre7">The highest transmission loss of all hit surfaces is used. </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="aa15f2f697dced35d82fcc58bc437cfb8ab97cea07b902b95eafd844f796c6a16d" class="pcalibre calibre12"></a>AkTransmissionOperation_Default </td><td class="calibre17"/></tr>
+</tbody></table>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_ak_spatial_audio_types_8h_source_split_000.html#l00061">61</a> of file <a class="pcalibre el" href="_ak_spatial_audio_types_8h_source_split_000.html">AkSpatialAudioTypes.h</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

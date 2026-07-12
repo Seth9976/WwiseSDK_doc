@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>New Features Overview 2021.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_1"><a class="pcalibre1 anchor" id="features_21_1_system_audio_device_update"></a>
+System Audio Device Update</h2>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="features_21_1_audio_device_properties"></a>
+Audio Device Properties</h3>
+<p class="calibre7">The revised cross-platform System Audio Device now supports 3D Audio for selected platforms, eliminating the need for platform-specific Mixer plugins. The System Audio Device allows for the differentiation between outputs that can be delivered to an endpoint: Main Mix, Passthrough Mix, and Objects. The different output types that can be received by an endpoint depend on the capabilities enabled by the Audio Device properties associated with the platform. These settings can be configured in the Audio Device Editor. Enabling the <b class="calibre13">Allow 3D Audio</b> option gives the Audio Device permission to attempt activation of the existing 3D Audio features of the platform. Note that this is not a guarantee that 3D Audio will be activated; 3D Audio is only activated if the platform supports it. Deselecting this option opts out of all potential 3D Audio features. Additional properties help guide the Audio Device to choose the best configuration for every platform supported by your project. Refer to <a href="https://www.audiokinetic.com/library/edge/?source=Help&amp;id=audio_devices_editor" target="_blank" class="pcalibre calibre12">Audio Device Editor</a> for details on the Audio Device properties.</p>
+<div class="calibre2">
+<img alt="" src="systemaudiodeviceeditor.png" class="inline"/>
+</div>
+<p class="calibre7"> 
+ </p><div class="calibre2">
+<img alt="" src="audiodeviceproperties.png" class="inline"/>
+</div>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="features_21_1_audio_device_metering"></a>
+Audio Device Metering</h3>
+<p class="calibre7">Meters have been added to the Audio Device Editor. These show the peak amplitude of the Main Mix, Passthrough Mix, and individual Audio Objects, depending on the output types enabled for the Audio Device.</p>
+<div class="calibre2">
+<img alt="" src="audiodevicemetering.png" class="inline"/>
+</div>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="features_21_1_audio_device_info"></a>
+Audio Device Info</h3>
+<p class="calibre7">Information about the initialized Audio Device properties brings a greater understanding of the settings used to render audio by the endpoint. The Device Info panel shows the status and configuration of Audio Device properties, including: Is 3D Audio Active, Is Passthrough Active, Available System Audio Objects (if any), System Audio Objects Used (if any), Main Mix Channel Configuration, Passthrough Channel Configuration, Endpoint Channel Configuration, and Main Mix Buffer Size.</p>
+<div class="calibre2">
+<img alt="" src="audiodeviceinfo.png" class="inline"/>
+</div>
+</div></div></div></body></html>

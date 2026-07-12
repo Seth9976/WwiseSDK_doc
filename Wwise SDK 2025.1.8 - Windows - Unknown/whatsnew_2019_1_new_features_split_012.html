@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>New Features Overview 2019.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_11"><a class="pcalibre1 anchor" id="features_19_1_performance_optimization"></a>
+Performance Optimization</h1>
+<p class="calibre7">Several areas of Wwise were optimized.</p><ul class="calibre8">
+<li class="calibre9">The in-game overhead of profiling with Wwise has been greatly improved. Users who noticed slowdowns in the past when profiling should see significant improvements.</li>
+<li class="calibre9">The Performance Monitor now displays averages for which the sampling interval is configurable per curve. The Audio Thread CPU and Total Plug-in CPU timers have been set to high frequency per audio frame resolution, while the other curves have been left to the old sampling interval of 200 ms.</li>
+<li class="calibre9">Spatial Audio can now issue individual reflection and diffraction processing tasks to the game engine's job scheduler, allowing tasks to be executed in parallel across CPU cores and improving overall system efficiency by better utilizing available CPU resources.</li>
+<li class="calibre9">RTPC and Virtual Voice Management performance improvements.</li>
+<li class="calibre9">The Crankcase REV source plug-in now runs from 4x to 10x faster than before.</li>
+<li class="calibre9">ADPCM and Opus codecs:<ul class="calibre15">
+<li class="calibre9">The original ADPCM encoder has been replaced by Platinum Games' version, which offers better quality encoding. Old ADPCM files are still compatible. Please also see the <a class="pcalibre el" href="whatsnew_2019_1_migration_split_001.html#adpcm_codec_change">There is no longer an Encoding Mode property associated with the ADPCM codec</a> migration note.</li>
+<li class="calibre9">The Opus codec has been updated to <a href="https://people.xiph.org/~jm/opus/opus-1.3/" target="_blank" class="pcalibre calibre12">version 1.3</a>, which brings quality improvements, especially for speech at low bitrates. Ambisonics is also fully supported now with this update.</li>
+</ul>
+</li>
+<li class="calibre9">Android latency:<ul class="calibre15">
+<li class="calibre9">For devices running Android 8.1 and above, Wwise now supports the AAudio low-latency API.</li>
+<li class="calibre9">Based on hardware, Wwise now automatically increases buffer sizes in cases of voice starvation.</li>
+</ul>
+</li>
+</ul>
+</div></div></div></body></html>

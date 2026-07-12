@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Adding Media to an Audio Plug-in</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_1"><a class="pcalibre1 anchor" id="effectplugin_media_converting"></a>
+Converting the Media for Runtime</h2>
+<p class="calibre7">If the plug-in definition file uses <code class="calibre14">CanReferenceDataFile</code>, you must convert your imported original WAV media at runtime to an appropriate format for the real-time component.</p>
+<p class="calibre7">To implement conversion functions, inherit from <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_aca00f70c566ab8b103a983d07890f430_split_000.html#aca00f70c566ab8b103a983d07890f430" title="Latest version of the C++ MediaConverter interface.">AK::Wwise::Plugin::MediaConverter</a></code> and implement the required functions:</p>
+<ul class="calibre8">
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_media_converter_a4324f69ea75774cbb8270c01bf607dd7_split_000.html#a4324f69ea75774cbb8270c01bf607dd7" title="Converts a file.">AK::Wwise::Plugin::MediaConverter::ConvertFile</a></code> </li>
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_media_converter_a5523307ba4ba9bd1debd7d8cf40e3f5e_split_000.html#a5523307ba4ba9bd1debd7d8cf40e3f5e" title="Calculates the conversion setting's hash.">AK::Wwise::Plugin::MediaConverter::GetCurrentConversionSettingsHash</a></code> </li>
+</ul>
+<div class="fragment"><div class="line"><span class="keyword">class </span>MyPlugin</div>
+<div class="line">:   <span class="keyword">public</span> <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_audio_plugin_split_000.html">AK::Wwise::Plugin::AudioPlugin</a>,</div>
+<div class="line">,   <span class="keyword">public</span> <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_media_converter_split_000.html">AK::Wwise::Plugin::MediaConverter</a></div>
+</div><!-- fragment --><p class="calibre7">Here is an example implementation of the <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_aca00f70c566ab8b103a983d07890f430_split_000.html#aca00f70c566ab8b103a983d07890f430" title="Latest version of the C++ MediaConverter interface.">AK::Wwise::Plugin::MediaConverter</a></code> functions:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="pcalibre code" href="_ak_f_n_v_hash_8h_split_000.html">AK/Tools/Common/AkFNVHash.h</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;filesystem&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;ctype.h&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_wwise_1_1_plugin_a63998463d5dba5bfb0df9321dbe3e5c3_split_000.html#a63998463d5dba5bfb0df9321dbe3e5c3">AK::Wwise::Plugin::ConversionResult</a> MyPlugin::ConvertFile(</div>
+<div class="line">    <span class="keyword">const</span> GUID&amp; in_guidPlatform,</div>
+<div class="line">    <span class="keyword">const</span> <a class="pcalibre code" href="struct_base_platform_i_d_split_000.html">BasePlatformID</a>&amp; in_basePlatform,</div>
+<div class="line">    <span class="keyword">const</span> <a class="pcalibre code" href="_platforms_2_windows_2_ak_types_8h_af48843ed095e0ea7dd05bd1b64070664_split_000.html#af48843ed095e0ea7dd05bd1b64070664">AkOSChar</a>* in_szSourceFile,</div>
+<div class="line">    <span class="keyword">const</span> <a class="pcalibre code" href="_platforms_2_windows_2_ak_types_8h_af48843ed095e0ea7dd05bd1b64070664_split_000.html#af48843ed095e0ea7dd05bd1b64070664">AkOSChar</a>* in_szDestFile,</div>
+<div class="line">    <a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> in_uSampleRate,</div>
+<div class="line">    <a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> in_uBlockLength,</div>
+<div class="line">    IProgress* in_pProgress,</div>
+<div class="line">    IWriteString* io_pError)</div>
+<div class="line">{</div>
+<div class="line">    <span class="comment">// Convert the original source to a converted file.</span></div>
+<div class="line">    <span class="comment">// At minimum, copy the original file to converted</span></div>
+<div class="line">    std::error_code ec;</div>
+<div class="line">    std::filesystem::copy(</div>
+<div class="line">        in_szSourceFile,</div>
+<div class="line">        in_szDestFile,</div>
+<div class="line">        std::filesystem::copy_options::overwrite_existing,</div>
+<div class="line">        ec</div>
+<div class="line">    );</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">if</span> (ec)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordflow">return</span> <a class="pcalibre code" href="namespace_a_k_split_000.html">AK</a>:<a class="pcalibre code" href="namespace_a_k_1_1_wwise_1_1_plugin_a63998463d5dba5bfb0df9321dbe3e5c3_split_001.html#a63998463d5dba5bfb0df9321dbe3e5c3a067c828fdfd88765697e4914fa192efc">Wwise::Plugin::ConversionFailed</a>;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">return</span> <a class="pcalibre code" href="namespace_a_k_1_1_wwise_1_1_plugin_a63998463d5dba5bfb0df9321dbe3e5c3_split_001.html#a63998463d5dba5bfb0df9321dbe3e5c3a292220d538f5f5381f6f0514c782059f">AK::Wwise::Plugin::ConversionSuccess</a>;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line">uint32_t MyPlugin::GetCurrentConversionSettingsHash(</div>
+<div class="line">    <span class="keyword">const</span> GUID&amp; in_guidPlatform,</div>
+<div class="line">    <a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> in_uSampleRate,</div>
+<div class="line">    <a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> in_uBlockLength)</div>
+<div class="line">{</div>
+<div class="line">    <a class="pcalibre code" href="class_a_k_1_1_f_n_v_hash_split_000.html">AK::FNVHash32</a> hashFunc;</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Generate a Hash from parameters that have an influence on the conversion.</span></div>
+<div class="line">    <span class="comment">// Take the source file name.</span></div>
+<div class="line">    <span class="keywordtype">char</span> szInputFileName[_MAX_PATH];</div>
+<div class="line">    <span class="keyword">auto</span> size = m_pObjMedia-&gt;GetMediaSourceFileName(szInputFileName, _MAX_PATH);</div>
+<div class="line">    <span class="keywordflow">if</span> (size == 0)</div>
+<div class="line">        <span class="keywordflow">return</span> 0;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; size; ++i)</div>
+<div class="line">    {</div>
+<div class="line">        szInputFileName[i] = tolower(szInputFileName[i]);</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">return</span> hashFunc.<a class="pcalibre code" href="class_a_k_1_1_f_n_v_hash_a907841bf37541824958d382686b1fb1f_split_000.html#a907841bf37541824958d382686b1fb1f">Compute</a>(szInputFileName, size);</div>
+<div class="line">}</div>
+</div><!-- fragment --></div></div></div></body></html>

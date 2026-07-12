@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Sound Engine Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_12"><a class="pcalibre1 anchor" id="software_effect_interface"></a>
+Audio Plug-in Interface Implementation</h1>
+<p class="calibre7">To develop an audio plug-in, you must implement certain functions to allow the plug-in to function properly within the engine's audio data flow. For source plug-ins you should derive from the <a class="pcalibre el" href="class_a_k_1_1_i_ak_source_plugin_split_000.html" title="Wwise sound engine source plug-in interface (see Creating Sound Engine Source Plug-ins).">AK::IAkSourcePlugin</a> interface, for effects that can replace the input buffer with the output (e.g. no need for unordered access or change in data rate) you should derive from the <a class="pcalibre el" href="class_a_k_1_1_i_ak_in_place_effect_plugin_split_000.html" title="Software effect plug-in interface for in-place processing (see Creating Sound Engine Effect Plug-ins)...">AK::IAkInPlaceEffectPlugin</a>. For other effects that require out of place implementation, you should derive from the <a class="pcalibre el" href="class_a_k_1_1_i_ak_out_of_place_effect_plugin_split_000.html" title="Software effect plug-in interface for out-of-place processing (see Creating Sound Engine Effect Plug-...">AK::IAkOutOfPlaceEffectPlugin</a> interface.</p>
+<p class="calibre7">A plug-in life cycle always begins with a call to one of the <a class="pcalibre el" href="class_a_k_1_1_i_ak_audio_device_effect_plugin_ac2b7ed06052a176e4445b743e7b3dfe7_split_000.html#ac2b7ed06052a176e4445b743e7b3dfe7">AK::IAkAudioDeviceEffectPlugin::Init()</a>, <a class="pcalibre el" href="class_a_k_1_1_i_ak_effect_plugin_ae5a44837c4adddf6ff58fab57453b020_split_000.html#ae5a44837c4adddf6ff58fab57453b020">AK::IAkEffectPlugin::Init()</a>, <a class="pcalibre el" href="class_a_k_1_1_i_ak_sink_plugin_base_ab13c519292782b8e485912cb85506f25_split_000.html#ab13c519292782b8e485912cb85506f25">AK::IAkSinkPluginBase::Init()</a> or <a class="pcalibre el" href="class_a_k_1_1_i_ak_source_plugin_a101429095bd300db35cb0795254a9a53_split_000.html#a101429095bd300db35cb0795254a9a53">AK::IAkSourcePlugin::Init()</a> functions, immediately followed by a call to <a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_a08c841c8b811acb993acd0353bd9db75_split_000.html#a08c841c8b811acb993acd0353bd9db75">AK::IAkPlugin::Reset()</a>. As long as the plug-in needs to output more data, AK::IAkPlugin::Execute() is called with new buffers. When the plug-in is no longer needed, <a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_a29db8d2afc4fe2571c2c75deb00a359d_split_000.html#a29db8d2afc4fe2571c2c75deb00a359d">AK::IAkPlugin::Term()</a> is called.</p>
+</div></div></div></body></html>

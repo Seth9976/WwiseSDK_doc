@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Source Control Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_7"><a class="pcalibre1 anchor" id="source_control_dll_creation_object_init_term"></a>
+Initializing and Terminating the Plug-in Instance</h2>
+<p class="calibre7">When the plug-in instance is created, Wwise calls the AK::Wwise::ISourceControl::Init( ISourceControlUtilities* in_pUtilities ) method. The parameter of this function is a pointer to Wwise's implementation of the <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_utilities_split_000.html">AK::Wwise::ISourceControlUtilities</a> interface. You might want to copy this pointer to a member of your plug-in class to be able to create dialogs, show a progress dialog, display message boxes, or load and save plug-in configuration. For more information on this topic, refer to <a class="pcalibre el" href="source_control_dll_split_010.html#source_control_dll_creation_utilities">Using the Source Control Utilities Interface</a>.</p>
+<p class="calibre7">A typical implementation of <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_a965c84c993e7b9644a7d51dafcdeb113_split_000.html#a965c84c993e7b9644a7d51dafcdeb113" title="This function is called when the plug-in is initialized after its creation.">AK::Wwise::ISourceControl::Init()</a> is:</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> <a class="pcalibre code" href="namespace_a_k_1_1_comm_a596691b552b507c26b4df958ee1c6de8_split_000.html#a596691b552b507c26b4df958ee1c6de8">SamplePlugin::Init</a>( ISourceControlUtilities* in_pUtilities )</div>
+<div class="line">{</div>
+<div class="line">    m_pSourceControlUtilities = in_pUtilities;</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Load the plug-in configuration from the registry</span></div>
+<div class="line">}</div>
+</div><!-- fragment --><p class="calibre7">Just before the plug-in instance is destroyed, Wwise calls the <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_a488a4e256024111dc7c3eceef7970b11_split_000.html#a488a4e256024111dc7c3eceef7970b11" title="This function is called when the plug-in is terminated before its destruction.">AK::Wwise::ISourceControl::Term()</a> method.</p>
+<p class="calibre7">A typical implementation of <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_a488a4e256024111dc7c3eceef7970b11_split_000.html#a488a4e256024111dc7c3eceef7970b11" title="This function is called when the plug-in is terminated before its destruction.">AK::Wwise::ISourceControl::Term()</a> is:</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> <a class="pcalibre code" href="namespace_a_k_1_1_comm_a94e307d2974b89cc4fbc8ab0fef20d2f_split_000.html#a94e307d2974b89cc4fbc8ab0fef20d2f">SamplePlugin::Term</a>()</div>
+<div class="line">{</div>
+<div class="line">    <span class="comment">// Save the plug-in configuration to the registry</span></div>
+<div class="line">    m_pSourceControlUtilities = NULL;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p class="calibre7">For more information about loading/saving plug-in configuration to the registry, refer to <a class="pcalibre el" href="referencematerial_samplecode_source_control_split_000.html">Source Control Plug-in Sample Code</a>.</p>
+<p class="calibre7">For more information about when these functions are called, refer to <a class="pcalibre el" href="source_control_dll_split_009.html#source_control_dll_creation_object_destroy">Destroying the Plug-in Instance</a>.</p>
+</div></div></div></body></html>

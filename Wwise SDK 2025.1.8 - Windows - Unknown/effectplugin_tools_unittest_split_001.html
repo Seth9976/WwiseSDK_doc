@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Unit Testing Your Plug-in</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2"><h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="effectplugin_tools_unittest_development_target"></a>
+Developing Unit Tests for Your Plug-in</h1>
+<p class="calibre7">If you included the unit test infrastructure when you created your plug-in project, you can develop your own tests. Your plug-in project includes templates for two tests: one for the sound engine plug-in implementation and another for the parameters it uses.</p>
+<p class="calibre7">The code is located in the <code class="calibre14">SoundEnginePluginTest</code> directory and has the following structure: </p><pre class="fragment">SoundEnginePluginTest
+├───main.cpp
+├───MyNewFXFXParamsTest.cpp
+└───MyNewFXFXTest.cpp
+</pre><p class="calibre7">The test project uses the Catch2 open-source unit testing framework. For more information about Catch2, such as how to define test cases, see <a href="https://github.com/catchorg/Catch2" class="pcalibre calibre12">Catch2</a>.</p>
+<p class="calibre7">The unit tests are automatically built alongside your plug-in when you use the <code class="calibre14">wp.py build</code> command.</p>
+</div></div></div></body></html>

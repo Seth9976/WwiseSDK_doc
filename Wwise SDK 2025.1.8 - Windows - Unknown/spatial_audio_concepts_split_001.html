@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Wwise Acoustics Concepts</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="spatial_audio_concepts_diffraction"></a>
+Diffraction</h1>
+<p class="calibre7">Diffraction occurs when a sound wave strikes a small obstacle, or the edge of a large obstacle or opening, and bends around it. It represents sound that propagates through openings (portals) and towards the sides, which means that a listener does not need to be directly in front of the opening to hear it. Diffraction is important in games because it informs players about paths that exist between them and sound emitters. The following figure is a sound field plot of a plane wave that comes from the top right and hits a finite surface (the black line) that starts in the center of the figure. The perturbation caused by this edge is called diffraction. The region on the left is the View Region, where the plane wave passes through unaltered. The top right is the Reflection Region, where reflection with the surface occurs and is mixed with the incident wave, which results in the jagged pattern. The lower right is the Shadow Region, where diffraction is significant. The figure is an approximation. In reality, the field is continuous at the region boundaries, and edge diffraction occurs in the View Region as well, although it is generally negligible compared to the incident wave itself.</p>
+<div class="calibre2">
+<img alt="" src="diffraction_field_plot.png" class="inline"/>
+</div>
+<p class="calibre7">Consider the edge to be a point source, with amplitude that decreases with distance. Also, the amplitude of higher frequencies decreases faster than that of lower frequencies, which means that it can be adequately modeled with a low-pass filter. Wwise Acoustics models diffraction with two of its APIs. Refer to <a class="pcalibre el" href="spatial_audio_roomsportals_apioverview_split_003.html#spatial_audio_roomsportals_modelingsoundpropagationfromotherrooms_diffraction">Diffraction</a> to learn how to use Rooms and Portals to model portal diffraction, and <a class="pcalibre el" href="spatial_audio_apigeometry_diffract_split_000.html">Using the Geometry API for Simulating Diffraction and Transmission</a> to learn how to use geometry to model diffraction of emitters and their early reflections.</p>
+</div></div></div></body></html>

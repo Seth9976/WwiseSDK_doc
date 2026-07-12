@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2016.2.2</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="bugs_2016_2_2"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-30561</b> Fixed: Divide by Zero exception thrown in Meter FX.</li>
+<li class="calibre9"><b class="calibre13">WG-30641</b> Fixed: Incorrect return value and broken internal state when <code class="calibre14">IReadBytes::ReadString</code> has insufficient buffer size.</li>
+<li class="calibre9"><b class="calibre13">WG-31068</b> Fixed: (PS4) Issue when disconnecting and reconnecting headphones.</li>
+<li class="calibre9"><b class="calibre13">WG-31287</b> Fixed: Unloading a SoundBank containing MIDI doesn't stop the sound and waits.</li>
+<li class="calibre9"><b class="calibre13">WG-31663</b> Fixed: Game Parameter Simulation Value is not available in a control surface binding.</li>
+<li class="calibre9"><b class="calibre13">WG-31703</b> Fixed: Importing a folder does not respect object hierarchy.</li>
+<li class="calibre9"><b class="calibre13">WG-31895</b> Fixed: Custom References and Properties cannot be linked/unlinked from the Multi Editor on some object types.</li>
+<li class="calibre9"><b class="calibre13">WG-31907</b> Fixed: Clicking on reference properties while in the Multi Editor wrongly replaces the current value.</li>
+<li class="calibre9"><b class="calibre13">WG-32019</b> Fixed: Crash when selecting no object in Music Transition source/destination browser.</li>
+<li class="calibre9"><b class="calibre13">WG-32021</b> Fixed: Crash when connecting if Switch Containers are not synchronized (<code class="calibre14">WALSwitchCntr::SetSwitchGroup</code>).</li>
+<li class="calibre9"><b class="calibre13">WG-32026</b> Fixed: Interactive Music PlayBack Speed not always updated by RTPC.</li>
+<li class="calibre9"><b class="calibre13">WG-32076</b> Fixed: Content of the WCUSTOMPROPERTIES file is empty after modifying custom properties in Project Settings.</li>
+<li class="calibre9"><b class="calibre13">WG-32192</b> Fixed: The Advanced Profiler incorrectly displays Game Object in Voices tab when playing in multiple secondary outputs.</li>
+<li class="calibre9"><b class="calibre13">WG-32250</b> Fixed: <code class="calibre14">AK::StreamMgr::IAkIOHookDeferred::Cancel()</code> is only called once for a given transfer even if it changes <code class="calibre14">io_bCancelAllTransfersForThisFile</code> from true to false.</li>
+<li class="calibre9"><b class="calibre13">WG-32309</b> Fixed: <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">LoadBank()</a></code> failing caused by unreferenced modulator.</li>
+<li class="calibre9"><b class="calibre13">WG-32320</b> Fixed: Convolution Reverb crash on ambisonics input.</li>
+<li class="calibre9"><b class="calibre13">WG-32357</b> Fixed: When Convolution Reverb is used on a bus with an ambisonic order higher than that of the IR, the dry level is not applied to excess channels.</li>
+<li class="calibre9"><b class="calibre13">WG-32396</b> Fixed: Ambisonics may break in SCE Audio 3D plug-in when using lots of high priority panned objects.</li>
+<li class="calibre9"><b class="calibre13">WG-32417</b> Fixed: (iOS) Crash on sink initialization with iOS 10.3 Beta.</li>
+<li class="calibre9"><b class="calibre13">WG-32421</b> Fixed: Wrong mapping of input channels when using <code class="calibre14">SetMultiplePositions</code> with <code class="calibre14"><a class="pcalibre el" href="struct_ak_channel_emitter_split_000.html" title="Positioning information for a sound, with specified subset of its channels.">AkChannelEmitter</a></code>.</li>
+</ul>
+</div></div></div></body></html>

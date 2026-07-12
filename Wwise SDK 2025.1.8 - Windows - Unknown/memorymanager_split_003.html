@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Memory Manager</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_2"><a class="pcalibre1 anchor" id="memorymanager_custom_malloc"></a>
+Using a Custom Memory Allocator</h2>
+<p class="calibre7">To override the use of AkMemoryArena and use a custom allocator for every memory allocation, provide overrides of all of these callbacks:</p>
+<ul class="calibre8">
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_mem_settings_a64de7db44eeaaf01011d473529667b7d_split_000.html#a64de7db44eeaaf01011d473529667b7d" title="(Optional) Thread-specific allocator initialization hook.">AkMemSettings::pfInitForThread</a></li>
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_mem_settings_adec2f9a28716236a5e1b2c7a258b8c6e_split_000.html#adec2f9a28716236a5e1b2c7a258b8c6e" title="(Optional) Thread-specific allocator termination hook.">AkMemSettings::pfTermForThread</a></li>
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_mem_settings_afbf907696820f2fd30f88af36620bdd8_split_000.html#afbf907696820f2fd30f88af36620bdd8" title="(Optional) Thread-specific allocator &quot;trimming&quot; hook. Used to relinquish memory resources when thread...">AkMemSettings::pfTrimForThread</a></li>
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_mem_settings_a7b0974f6f5480a8fd549d5350b960079_split_000.html#a7b0974f6f5480a8fd549d5350b960079" title="(Optional) Memory allocation hook.">AkMemSettings::pfMalloc</a></li>
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_mem_settings_a71352af10d5b691094fb319ab5e36b38_split_000.html#a71352af10d5b691094fb319ab5e36b38" title="(Optional) Memory allocation hook.">AkMemSettings::pfMalign</a></li>
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_mem_settings_a6ccdc83c31c9dfdc5b9d22423bd7aee9_split_000.html#a6ccdc83c31c9dfdc5b9d22423bd7aee9" title="(Optional) Memory allocation hook.">AkMemSettings::pfRealloc</a></li>
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_mem_settings_a3acf39bd77470f4b6adf8441b5f8ddd2_split_000.html#a3acf39bd77470f4b6adf8441b5f8ddd2" title="(Optional) Memory allocation hook.">AkMemSettings::pfFree</a></li>
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_mem_settings_ad1f86b301a24dceb8622a9ee74466bcb_split_000.html#ad1f86b301a24dceb8622a9ee74466bcb" title="(Optional) Memory allocation statistics hook.">AkMemSettings::pfTotalReservedMemorySize</a></li>
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_mem_settings_a27eaf83daea702267d7d71e734cba836_split_000.html#a27eaf83daea702267d7d71e734cba836" title="(Optional) Memory allocation statistics hook.">AkMemSettings::pfSizeOfMemory</a></li>
+</ul>
+<p class="calibre7">It is important for the allocation functions above to honor the <code class="calibre14">AkMemType_Device</code> bit by returning device memory when the bit is set.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> Profiling of AkMemoryArenas in Wwise is not available when using a custom memory allocator. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

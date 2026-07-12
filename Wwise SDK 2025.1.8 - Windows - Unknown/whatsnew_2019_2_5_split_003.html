@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2019.2.5</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="generic_bugs_2019_2_5"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-49233</b> Fixed: A null pointer crash when calling <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a88b75aa4b2b512be235bc16cc37c04c2_split_000.html#a88b75aa4b2b512be235bc16cc37c04c2">AK::SoundEngine::AddListener()</a></code>, after not having called <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a4fe9102cd3cb2b59dda5d3d635dc49fe_split_000.html#a4fe9102cd3cb2b59dda5d3d635dc49fe">AK::SoundEngine::SetDefaultListeners()</a></code>.</li>
+<li class="calibre9"><b class="calibre13">WG-49745</b> Fixed: In the Events tab of the Project Explorer, the Event ID field is displayed incorrectly.</li>
+<li class="calibre9"><b class="calibre13">WG-49903</b> Fixed: It's not possible to properly select an application to connect to when two Wwise applications are running on the same PC.</li>
+<li class="calibre9"><b class="calibre13">WG-49919</b> Fixed: Wwise does not create a new .mediaid file when the original file is missing.</li>
+<li class="calibre9"><b class="calibre13">WG-49901</b> Fixed: Performance slowdown after a copy/paste in the Actor-Mixer hierarchy under an item that has one or more Effects.</li>
+<li class="calibre9"><b class="calibre13">WG-49292</b> Fixed: Spatial Audio early reflections busses do not send to the assigned room game object and room aux bus when <b class="calibre13">Use game-defined aux sends</b> is enabled.</li>
+<li class="calibre9"><b class="calibre13">WG-49636</b> Fixed: Mixer plug-in name is not always refreshed correctly.</li>
+<li class="calibre9"><b class="calibre13">WG-49572</b> Fixed: Exception thrown on file permission error.</li>
+<li class="calibre9"><b class="calibre13">WG-49145</b> Fixed: Rare crash when setting up tracks in a Blend Container.</li>
+<li class="calibre9"><b class="calibre13">WG-49755</b> Fixed: Marker position wrongly set when the source file sample rate was converted.</li>
+<li class="calibre9"><b class="calibre13">WG-49996</b> Fixed: Media IDs for non-ShareSet plug-ins are not evaluated following a copy/paste operation of multiple objects.</li>
+<li class="calibre9"><b class="calibre13">WG-49965</b> Fixed: Benign assert in Convolution Reverb plug-in.</li>
+<li class="calibre9"><b class="calibre13">WG-49820</b> Fixed: Dialog not automatically closing after SoundBank generation commands.</li>
+<li class="calibre9"><b class="calibre13">WG-49904</b> Fixed: An assert check for RTPC interpolation calculations is slightly too strict.</li>
+<li class="calibre9"><b class="calibre13">WG-49970</b> Fixed: Potential array out-of-bounds access when playing back PCM or ADPCM audio with an odd number of channels.</li>
+<li class="calibre9"><b class="calibre13">WG-48578</b> Fixed: <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a81521a4611d3891c499ec9c5eb421ac2_split_000.html#a81521a4611d3891c499ec9c5eb421ac2">ReplaceOutput()</a></code>, <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a0932ed2a3669258ecc3bbe6448314020_split_000.html#a0932ed2a3669258ecc3bbe6448314020">RemoveOutput()</a></code>, and <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a596df07185afdcb66a83e034ea0e32eb_split_000.html#a596df07185afdcb66a83e034ea0e32eb">GetSpeakerConfiguration()</a></code> can not use AkDeviceOutputID provided by <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a15ab79f954a307902f529d8ccde8ad48_split_000.html#a15ab79f954a307902f529d8ccde8ad48">AddOutput()</a></code>.</li>
+<li class="calibre9"><b class="calibre13">WG-50041</b> Fixed: Crash when selecting an object in the Project Explorer that has an invalid reference to a State Group.</li>
+<li class="calibre9"><b class="calibre13">WG-50057</b> Fixed: Mute and Solo buttons don't work on sounds played via <code class="calibre14">PostMIDIOnEvent</code>.</li>
+</ul>
+</div></div></div></body></html>

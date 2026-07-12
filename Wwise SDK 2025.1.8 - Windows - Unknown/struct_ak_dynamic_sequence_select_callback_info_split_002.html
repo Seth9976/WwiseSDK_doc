@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AkDynamicSequenceSelectCallbackInfo Struct Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_1">Detailed Description</h2>
+<div class="calibre2"><p class="calibre7">Callback information structure corresponding to <a class="pcalibre el" href="_ak_callback_types_8h_a948c083ff18dc4c8dfe1d32cb0eb6732_split_001.html#a948c083ff18dc4c8dfe1d32cb0eb6732a5711d007422c8abda1cfc88174a56d11">AK_DynamicSequenceSelect</a>. Called when a dynamic sequence must select its next item to play. The callee is expected to fill out the information contained in this structure. If there is no item available to play, the callee must set <code class="calibre14">audioNodeID</code> to <code class="calibre14">AK_INVALID_UNIQUE_ID</code>. This will cause the dynamic sequence to stop. Use <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_1_1_dynamic_sequence_ae2ac4c400d0145c6c25e050d752064bd_split_000.html#ae2ac4c400d0145c6c25e050d752064bd">AK::SoundEngine::DynamicSequence::Play</a></code> to start playback again.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="warning.gif"/></td><td class="calibre17"><b class="calibre13">Warning:</b> When opening a dynamic sequence with the callback flag <code class="calibre14">AK_DynamicSequenceSelect</code>, the callback is the ONLY way to determine the next item to play. <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_1_1_dynamic_sequence_af72d304486f19cc81d24c4488c6ea652_split_000.html#af72d304486f19cc81d24c4488c6ea652">AK::SoundEngine::DynamicSequence::LockPlaylist</a></code> always returns <code class="calibre14">NULL</code> for dynamic sequences opened with <code class="calibre14">AK_DynamicSequenceSelect</code>. </td></tr>
+</tbody></table>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_1_1_dynamic_sequence_ab6daddd96e109dc7669889733ce4f2cc_split_000.html#ab6daddd96e109dc7669889733ce4f2cc">AK::SoundEngine::DynamicSequence::Open()</a></li>
+<li class="calibre9"><a class="pcalibre el" href="soundengine_dynamicdialogue_split_000.html">Integration Details - Dynamic Dialogue</a> </li>
+</ul>
+</dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_ak_callback_types_8h_source.html#l00327">327</a> of file <a class="pcalibre el" href="_ak_callback_types_8h_source.html">AkCallbackTypes.h</a>.</p>
+</div></div><!-- contents -->
+
+
+</body></html>

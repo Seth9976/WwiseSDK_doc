@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>waapi-server</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="ak_wwise_cli_waapiserverOptions"></a>
+Options</h1>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--allow-migration</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Allow migration and save of the Wwise project before executing the operation.<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--allowed-addr ADDRESS</code></b><br class="calibre10"/>
+<b class="calibre13"><code class="calibre14">--allowed-addr ADDRESS1,ADDRESS2,...</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Specifies the IP addresses that are allowed to connect to WAAPI. This option must be followed by a comma-separated list, for example: "127.0.0.1". Default value is "127.0.0.1".<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--allowed-origin HOST</code></b><br class="calibre10"/>
+<b class="calibre13"><code class="calibre14">--allowed-origin HOST1,HOST2,...</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Specifies the hosts that are allowed to connect to WAAPI. This option must be followed by a comma-separated list, for example: "www.myhost.com,www.myhost2.com". Validation is performed on the HTTP header Origin. Connections that do not provide the Origin header, as well as file-based connections (for example: <a href="file://" class="pcalibre calibre12">file://</a>), are always allowed.<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--http-max-clients NUM</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Specifies the maximum number of concurrent WAAPI clients that can connect to the server when using HTTP POST. This option must be followed by a number between 0 and 100. Using 0 prevents the server from running. Default value is 2.<br class="calibre10"/>
+ Range: [0,100]</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--http-port PORT</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Specifies the port number used by WAAPI when using HTTP POST. This option must be followed by a port number between 0 and 65,535. Using 0 prevents the server from running. Default value is 8090.<br class="calibre10"/>
+ Range: [0,65535]</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--no-source-control</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Skip automatic checkout (if supported by project's source control plugin) of migrated files from source control.<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--quiet</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Disables all non-error console text output.<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--verbose</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Enables extra console text output.<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--wamp-max-clients NUM</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Specifies the maximum number of concurrent WAAPI clients that can connect to the server when using WAMP. This option must be followed by a number between 0 and 100. Using 0 prevents the server from running. Default value is 5.<br class="calibre10"/>
+ Range: [0,100]</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--wamp-port PORT</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Specifies the port number used by WAAPI when using WAMP. This option, which takes precedence over the User Preferences, must be followed by a port number between 0 and 65,535. Using 0 prevents the server from running. Default value is 8080.<br class="calibre10"/>
+ Range: [0,65535]</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--watchdog-timeout 30</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Time in seconds to set as a watchdog threshold. The watchdog is signaled every time a WAAPI function call is made. By default, the value is 0 and the watchdog is disabled.<br class="calibre10"/>
+ Range: [0,*]</p>
+<p class="calibre7"><a class="pcalibre el" href="ak_wwise_cli_waapiserver_options_schema_split_000.html">Options Schema</a></p>
+</div></div></div></body></html>

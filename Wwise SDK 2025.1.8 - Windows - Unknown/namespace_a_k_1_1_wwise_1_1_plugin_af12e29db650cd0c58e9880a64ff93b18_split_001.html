@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK.Wwise::Plugin::BaseInterface</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="namespace_a_k_1_1_wwise_1_1_plugin_af12e29db650cd0c58e9880a64ff93b18_split_000.html#af12e29db650cd0c58e9880a64ff93b18" class="pcalibre1 anchor">◆ </a></span>BaseInterface</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">using <a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_af12e29db650cd0c58e9880a64ff93b18_split_000.html#af12e29db650cd0c58e9880a64ff93b18">AK::Wwise::Plugin::BaseInterface</a> = typedef <a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_a069641ed8537ba2dafcb828dfd5916a9_split_000.html#a069641ed8537ba2dafcb828dfd5916a9">CBaseInterface</a></td>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+
+<p class="calibre7">Interface description and base class for every <a class="pcalibre el" href="namespace_a_k_1_1_wwise_split_000.html">Wwise</a> Authoring plug-in interface. </p>
+<p class="calibre7">Pointer to a generic base from a plug-in interface.</p>
+<p class="calibre7">The interface description is expected to never change, and to contain two basic values: the interface type, which is an incrementing value for every single possibility of known interfaces, as well as the version of this interface, starting from 1 at the interface's public release.</p>
+<p class="calibre7">An interface can either be provided by the plug-in (for example, AK_WWISE_PLUGIN_INTERFACE_TYPE_AUDIO_PLUGIN), where the plug-in provides the functionality of the callback; or it can be requested to the <a class="pcalibre el" href="namespace_a_k_1_1_wwise_split_000.html">Wwise</a> Authoring host (for example, AK_WWISE_PLUGIN_INTERFACE_TYPE_HOST_PROPERTY_SET), where the data will be filled by the host for the plug-in to call.</p>
+<p class="calibre7">All requested or provided interfaces are deemed mandatory in order to instantiate a plug-in. An unknown or an invalid interface in a context (AK_WWISE_PLUGIN_INTERFACE_TYPE_GUI_WINDOWS in WwiseConsole.exe or on Linux) causes the host to skip the plug-in. </p>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_plugin_instance_types_8h_source.html#l00534">534</a> of file <a class="pcalibre el" href="_plugin_instance_types_8h_source.html">PluginInstanceTypes.h</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

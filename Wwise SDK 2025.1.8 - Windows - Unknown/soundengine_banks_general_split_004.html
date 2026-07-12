@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>General Information</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="soundengine_banks_general_id_vs_string"></a>
+Using IDs or Strings (Unicode or ANSI)</h1>
+<p class="calibre7">The SDK provides two ways of accessing items inside a bank: using strings or using IDs. There are a few things that you should consider before deciding which option to use in your game, including:</p><ul class="calibre8">
+<li class="calibre9">The importance of having reader-friendly code</li>
+<li class="calibre9">The use of strings in other areas of your development environment</li>
+<li class="calibre9">CPU usage</li>
+<li class="calibre9">Memory usage</li>
+</ul>
+<p class="calibre7"><b class="calibre13">Using Strings</b></p><ul class="calibre8">
+<li class="calibre9">Makes code more readable, which makes it suitable for development.</li>
+<li class="calibre9">Appropriate for development environments that normally use strings.</li>
+<li class="calibre9">A small amount of CPU is required to convert strings to the IDs used by sound engine. However, most games will not notice the difference in CPU usage unless thousands of stings are converted per game frame.</li>
+<li class="calibre9">Strings are not stored in the sound engine, so if the strings are already used in the game engine, then no additional memory will be used. If, however, the game doesn't use strings, then some memory will be used on the game side to store the strings before they are converted.</li>
+</ul>
+<p class="calibre7"><b class="calibre13">Using IDs</b></p><ul class="calibre8">
+<li class="calibre9">Code is less readable, which makes it more difficult to troubleshoot problems during development.</li>
+<li class="calibre9">Doesn't require any additional CPU usage because the sound engine uses IDs internally.</li>
+<li class="calibre9">Doesn't require any additional memory.</li>
+</ul>
+<p class="calibre7">In most cases, you can get away with using strings; but, if your game is very squeezed in terms of memory and CPU, you might want to consider using IDs.</p>
+</div></div></div></body></html>

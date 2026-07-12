@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Parameter Smoothing [Experimental]</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="spatial_audio_parameter_smoothing_parameters"></a>
+Acoustics Parameters</h1>
+<p class="calibre7">The Acoustics Engine simulates sound propagation within a virtual environment. It does this by generating and calculating discrete sound paths, which are then passed on to the sound engine for audio rendering. You can use the Voice Inspector to examine individual sound paths, which are characterized by the following parameters:</p>
+<ul class="calibre8">
+<li class="calibre9">Position</li>
+<li class="calibre9">Orientation</li>
+<li class="calibre9">Distance</li>
+<li class="calibre9">Occlusion</li>
+<li class="calibre9">Obstruction</li>
+<li class="calibre9">Diffraction</li>
+<li class="calibre9">Transmission Loss</li>
+<li class="calibre9">Spread</li>
+<li class="calibre9">Aperture</li>
+<li class="calibre9">Volume (called Smoothing in the Voice Inspector)</li>
+</ul>
+<p class="calibre7">These parameters are dynamic and can change rapidly in response to various inputs. For instance, the movement of Game Objects or the discovery of new environmental data by the Acoustics Engine can alter these values. Parameter smoothing uses an exponential moving average filter to limit the rate of change of these parameters over time.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> Parameter smoothing only applies to diffraction, transmission, and direct paths. Reflection paths are not processed by parameter smoothing. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

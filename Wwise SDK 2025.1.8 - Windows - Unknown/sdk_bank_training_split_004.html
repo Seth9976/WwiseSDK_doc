@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>SoundBank Integration Samples</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="sdk_bank_training_Method_4"></a>
+Preparing Action Events</h1>
+<p class="calibre7">Consider this strategy if you require a high level of media granularity to keep memory usage low and do not want to manage the structure and media related to Events. For a discussion of this strategy and its implementation in Wwise Authoring, see <a href="https://www.audiokinetic.com/library/edge/?source=Help&amp;id=method_4_preparing_action_events" target="_blank" class="pcalibre calibre12">Preparing Action Events</a> in the Wwise Help.</p>
+<p class="calibre7">In the game, load the Events' SoundBank at the beginning of the game, then prepare the Events when they are required in game. The corresponding structures and media will be loaded automatically.</p>
+<div class="fragment"><div class="line"><span class="comment">// Initializing the sound engine.</span></div>
+<div class="line"> </div>
+<div class="line"><a class="pcalibre code" href="struct_ak_init_settings_split_000.html">AkInitSettings</a> initSettings;</div>
+<div class="line"><a class="pcalibre code" href="struct_ak_platform_init_settings_split_000.html">AkPlatformInitSettings</a> platformInitSettings;</div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a03381fc17e1b0ee16c2ab501c647ab9e_split_000.html#a03381fc17e1b0ee16c2ab501c647ab9e">AK::SoundEngine::GetDefaultInitSettings</a>( initSettings );</div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_aecdb9cd8f2d7f461ef1a58f5f5f5725d_split_000.html#aecdb9cd8f2d7f461ef1a58f5f5f5725d">AK::SoundEngine::GetDefaultPlatformInitSettings</a>( platformInitSettings );</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Set the required settings</span></div>
+<div class="line"> </div>
+<div class="line">...</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Set PrepareEvent related settings</span></div>
+<div class="line">initSettings.bEnableGameSyncPreparation = <span class="keyword">false</span>; <span class="comment">// Not used in the current sample.</span></div>
+<div class="line"> </div>
+<div class="line"><a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> eResult = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a9a26da64092b97243844df77cbcdbf5f_split_000.html#a9a26da64092b97243844df77cbcdbf5f">AK::SoundEngine::Init</a>( initSettings, platformInitSettings );</div>
+<div class="line"><span class="keywordflow">if</span>( eResult != <a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_001.html#a64f7d1f79613cc4dcc49a4efba6caa63ad7c47fea3da641e7422573c6a13dc35e">AK_Success</a> )</div>
+<div class="line">{</div>
+<div class="line">    <span class="comment">// Handle error.</span></div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Load Init bank and the event/structure bank.</span></div>
+<div class="line"><a class="pcalibre code" href="_ak_typedefs_8h_a472a3d18cbb0c4f081b3b619e4a2f349_split_000.html#a472a3d18cbb0c4f081b3b619e4a2f349">AkBankID</a>    bankID; <span class="comment">// Not used in this sample.</span></div>
+<div class="line"><a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> eResult = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">AK::SoundEngine::LoadBank</a>( L<span class="stringliteral">"Init.bnk"</span>, bankID );</div>
+<div class="line"><span class="keywordflow">if</span>( eResult == <a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_001.html#a64f7d1f79613cc4dcc49a4efba6caa63ad7c47fea3da641e7422573c6a13dc35e">AK_Success</a> )</div>
+<div class="line">{</div>
+<div class="line">    eResult = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">AK::SoundEngine::LoadBank</a>( L<span class="stringliteral">"Events.bnk"</span>, bankID );</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line">...</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// And then, at various points in the code:</span></div>
+<div class="line"> </div>
+<div class="line">const <span class="keywordtype">char</span> * pEventsNameArray[1] = { <span class="stringliteral">"My_Event_Name"</span> };</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Preparing an event:</span></div>
+<div class="line">eResult = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a2e6ebb779470b43d78984c27f6a0c238_split_000.html#a2e6ebb779470b43d78984c27f6a0c238">AK::SoundEngine::PrepareEvent</a>( <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a21e0dbb1f9aebfc22fdd88634dc1067b_split_001.html#a21e0dbb1f9aebfc22fdd88634dc1067ba7bb39cc6dfafe005cddfbf12c0d62ad0">Preparation_Load</a>, pEventsNameArray, 1 ); <span class="comment">// 1 is the array size</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Unpreparing an event:</span></div>
+<div class="line">eResult = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a2e6ebb779470b43d78984c27f6a0c238_split_000.html#a2e6ebb779470b43d78984c27f6a0c238">AK::SoundEngine::PrepareEvent</a>( <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a21e0dbb1f9aebfc22fdd88634dc1067b_split_001.html#a21e0dbb1f9aebfc22fdd88634dc1067ba37375e4d359e99b67d0a69f4a5714b92">Preparation_Unload</a>, pEventsNameArray, 1 ); <span class="comment">// 1 is the array size</span></div>
+</div><!-- fragment --></div></div></div></body></html>

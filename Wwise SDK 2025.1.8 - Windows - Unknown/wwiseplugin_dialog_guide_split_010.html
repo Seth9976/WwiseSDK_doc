@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Wwise Plug-in Dialog Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_9"><a class="pcalibre1 anchor" id="wwiseplugin_dialog_guide_controls_wwise_propname"></a>
+"Prop" Control Attribute</h2>
+<p class="calibre7">The <code class="calibre14">Prop</code> attribute lets you bind a control to one of your plug-in's properties. This attribute has the following format:</p>
+<div class="fragment"><div class="line">Prop=[Propname]</div>
+</div><!-- fragment --><p class="calibre7">where <em class="calibre11">[PropName]</em> specifies the name of the property the control should be bound to. That name is the same name that is specified in the plug-in's XML definition file (Refer to <a class="pcalibre el" href="plugin_xml_properties_split_001.html#wwiseplugin_xml_properties_tag">Properties Element</a> for more information).</p>
+<p class="calibre7">This attribute is optional. If it is not specified, the control will still be created but it will not be bound to a property. For example you could use a <code class="calibre14">Caption</code> control to display some text you would set on the control using <code class="calibre14">SetWindowText()</code>.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="caution.gif"/></td><td class="calibre17"><b class="calibre13">Caution:</b> Controls that are bound to properties set the text they display based on the value of their property. Never explicitly set the window text on these controls. </td></tr>
+</tbody></table>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="caution.gif"/></td><td class="calibre17"><b class="calibre13">Caution:</b> When creating a control that is <em class="calibre11">not</em> bound to a property, be sure to leave the control's text intact until <em class="calibre11">after</em> the dialog is fully created. If you change the control's text too early, for example while handling the <code class="calibre14">WM_INITDIALOG</code> message in the <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_g_u_i_windows_a8ea33835cc026463f2f64b4327f89b17_split_000.html#a8ea33835cc026463f2f64b4327f89b17" title="Window message handler for dialogs.">AK::Wwise::Plugin::GUIWindows::WindowProc()</a> method, the <code class="calibre14">Class</code> attribute set in the resource text will not be available when required, and Wwise will not be able to create the appropriate control. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

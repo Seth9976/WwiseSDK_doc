@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integrating External Sources</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="external_source_example1"></a>
+Example: Playing a single sound through the external source mechanism</h1>
+<p class="calibre7">The project must contain:</p><ul class="calibre8">
+<li class="calibre9">A sound called MySound with a External Source also named "MyExternal" (added through the "Add Source" button)</li>
+<li class="calibre9">A play event "Play_MySound"</li>
+<li class="calibre9">A bank with the event included</li>
+<li class="calibre9">An External Sources List file in the Project Settings (see example above)</li>
+<li class="calibre9">The External Sources List file must define the source "One.wav" (implicitly converted into "One.wem").</li>
+</ul>
+<div class="fragment"><div class="line"><a class="pcalibre code" href="struct_ak_external_source_info_split_000.html">AkExternalSourceInfo</a> source;</div>
+<div class="line">source.<a class="pcalibre code" href="struct_ak_external_source_info_a198a69d12cc42071f764a6f793060c77_split_000.html#a198a69d12cc42071f764a6f793060c77">iExternalSrcCookie</a> = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a1aae6ebdec25946fb2897ce0e025366d_split_000.html#a1aae6ebdec25946fb2897ce0e025366d">AK::SoundEngine::GetIDFromString</a>(<span class="stringliteral">"MyExternal"</span>); <span class="comment">//The cookie is a hash of the name of the external source object.</span></div>
+<div class="line">source.<a class="pcalibre code" href="struct_ak_external_source_info_af29151c09e6b12f9b4f5b4c9a9389ba1_split_000.html#af29151c09e6b12f9b4f5b4c9a9389ba1">szFile</a> = <a class="pcalibre code" href="_platforms_2_windows_2_ak_types_8h_ab37c4500d1c5377b3f54077b8222dde7_split_000.html#ab37c4500d1c5377b3f54077b8222dde7">AKTEXT</a>(<span class="stringliteral">"One.wem"</span>);  <span class="comment">//The file we're going to play. </span></div>
+<div class="line">source.<a class="pcalibre code" href="struct_ak_external_source_info_aa414d16c9d27dee981e13ce4ba8da2d5_split_000.html#aa414d16c9d27dee981e13ce4ba8da2d5">idCodec</a> = <a class="pcalibre code" href="_ak_constants_8h_a9d668f1ec7a3a4f5bada195815866870_split_000.html#a9d668f1ec7a3a4f5bada195815866870">AKCODECID_PCM</a>;     <span class="comment">//The file is in PCM.</span></div>
+<div class="line">        </div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a41e9ef8d42951871fe4a8ae58a29a68e_split_000.html#a41e9ef8d42951871fe4a8ae58a29a68e">AK::SoundEngine::PostEvent</a>( <span class="stringliteral">"Play_MySound"</span>, 2, 0, NULL, 0, 1, &amp;source );</div>
+<div class="line">    </div>
+<div class="line">source.<a class="pcalibre code" href="struct_ak_external_source_info_af29151c09e6b12f9b4f5b4c9a9389ba1_split_000.html#af29151c09e6b12f9b4f5b4c9a9389ba1">szFile</a> = <a class="pcalibre code" href="_platforms_2_windows_2_ak_types_8h_ab37c4500d1c5377b3f54077b8222dde7_split_000.html#ab37c4500d1c5377b3f54077b8222dde7">AKTEXT</a>(<span class="stringliteral">"Two.wav"</span>);  <span class="comment">//Let's play a different file with the same event/source, in WAV format</span></div>
+<div class="line">source.<a class="pcalibre code" href="struct_ak_external_source_info_aa414d16c9d27dee981e13ce4ba8da2d5_split_000.html#aa414d16c9d27dee981e13ce4ba8da2d5">idCodec</a> = <a class="pcalibre code" href="_ak_constants_8h_a2550b7306afb24dac74d1753b00e7f00_split_000.html#a2550b7306afb24dac74d1753b00e7f00">AKCODECID_PCM_WAV</a>; <span class="comment">//The file is in PCM, WAV format.</span></div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a41e9ef8d42951871fe4a8ae58a29a68e_split_000.html#a41e9ef8d42951871fe4a8ae58a29a68e">AK::SoundEngine::PostEvent</a>( <span class="stringliteral">"Play_MySound"</span>, 2, 0, NULL, 0, 1, &amp;source );</div>
+</div><!-- fragment --><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> When using WEM files, the extension of the file has to be ".wem". In the External Sources List file, you may rename the destination file, but cannot change its extension. Once converted, a file's extension is always ".wem". If you package a converted file into a File Package, you also need to refer to it in your code with the extension ".wem": the File Packager generates lookup IDs by hashing the full name, including the extension. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

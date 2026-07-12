@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Source Control Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_6"><a class="pcalibre1 anchor" id="source_control_dll_creation_object_information"></a>
+Establishing the Source Control Plug-in Information Class</h2>
+<p class="calibre7">When Wwise requires information about your plug-in, it calls the AkSourceControlGetPluginInfo function exported from your DLL. (For more information, refer to <a class="pcalibre el" href="source_control_dll_split_003.html#source_control_dll_creation_exported">Establishing Exported Functions</a>. ) The <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_1_1_plugin_info_split_000.html" title="Plug-in information structure. This structure gives a simple overview of the plug-in's capabilities.">AK::Wwise::ISourceControl::PluginInfo</a> class is composed of the following data:</p><ul class="calibre8">
+<li class="calibre9">The name of the plug-in displayed to the user</li>
+<li class="calibre9">The version of the plug-in</li>
+<li class="calibre9">A Boolean value that notifies Wwise that source control icons for work unit nodes can be displayed in the Project Explorer</li>
+<li class="calibre9">A Boolean value that informs Wwise that it is possible to configure the plug-in</li>
+<li class="calibre9">A Boolean value that informs Wwise that the Update All operation is available</li>
+<li class="calibre9">The name of the Update All operation to be displayed to the user</li>
+</ul>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="tip.gif"/></td><td class="calibre17"><p class="starttd"><b class="calibre13">Tip:</b> A simple way to obtain the plug-in information is to make the AkSourceControlGetPluginInfo (<a class="pcalibre el" href="source_control_dll_split_003.html#source_control_dll_creation_exported">Establishing Exported Functions</a>) call a static method created inside your implementation of the <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_split_000.html">AK::Wwise::ISourceControl</a> interface.</p>
+<p class="calibre7">A simple implementation of this static method is:</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> SamplePlugin::GetPluginInfo( <a class="pcalibre code" href="namespace_a_k_1_1_wwise_1_1_plugin_a69141ebf4159597c1e76aad07862c823_split_000.html#a69141ebf4159597c1e76aad07862c823">PluginInfo</a>&amp; out_rPluginInfo )</div>
+<div class="line">{</div>
+<div class="line">    <span class="comment">// Plug-in name and version</span></div>
+<div class="line">    out_rPluginInfo.m_bstrName = ::SysAllocString( L<span class="stringliteral">"Sample Source Control Plug-in"</span> );</div>
+<div class="line">    out_rPluginInfo.m_uiVersion = 1;</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Function availability</span></div>
+<div class="line">    out_rPluginInfo.m_bShowConfigDlgAvailable = <span class="keyword">false</span>;</div>
+<div class="line">    out_rPluginInfo.m_dwUpdateCommandID = <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_source_control_constant_ab76ee63c449ed45e8e4f4cdf693dbbb5_split_000.html#ab76ee63c449ed45e8e4f4cdf693dbbb5">AK::Wwise::SourceControlConstant::s_dwInvalidOperationID</a>;<span class="comment">// Replace with your ID</span></div>
+<div class="line">    out_rPluginInfo.m_dwCommitCommandID = <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_source_control_constant_ab76ee63c449ed45e8e4f4cdf693dbbb5_split_000.html#ab76ee63c449ed45e8e4f4cdf693dbbb5">AK::Wwise::SourceControlConstant::s_dwInvalidOperationID</a>;<span class="comment">// Replace with your ID</span></div>
+<div class="line">    out_rPluginInfo.m_bStatusIconAvailable = <span class="keyword">false</span>;</div>
+<div class="line">}</div>
+</div><!-- fragment --> </td></tr>
+</tbody></table>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="warning.gif"/></td><td class="calibre17"><b class="calibre13">Warning:</b> The plug-in name and the Update All operation name must be allocated using the SysAllocString function, because Wwise is responsible for deleting this memory. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Defining Command Add-ons</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_4"><a class="pcalibre1 anchor" id="defining_custom_commands_examples"></a>
+Command Add-ons Examples</h1>
+<h2 class="calibre31"><a class="pcalibre1 anchor" id="defining_custom_commands_file_example"></a>
+Examples Using a Command Definition File</h2>
+<p class="calibre7">To create new commands, create a JSON file under one of the directories listed in <a class="pcalibre el" href="defining_custom_commands_split_000.html">Defining Command Add-ons</a> and specify the version to be 2. Please be aware that multiple 3rd parties can create files under these directories. In order to reduce the risk of filename conflicts, we recommend using the following convention for the filenames: companyname_productname.json</p>
+<p class="calibre7">Example: <b class="calibre13">mycompany_myproduct.json</b> </p><div class="fragment"><div class="line">{</div>
+<div class="line">    <span class="stringliteral">"version"</span>:2,</div>
+<div class="line">    <span class="stringliteral">"commands"</span>:[</div>
+<div class="line">        {</div>
+<div class="line">            <span class="stringliteral">"id"</span>:<span class="stringliteral">"ak.edit_in_vscode"</span>,</div>
+<div class="line">            <span class="stringliteral">"displayName"</span>:<span class="stringliteral">"Edit in Visual Studio Code"</span>,</div>
+<div class="line">            <span class="stringliteral">"defaultShortcut"</span>:<span class="stringliteral">"C"</span>,</div>
+<div class="line">            <span class="stringliteral">"program"</span>:<span class="stringliteral">"code"</span>,</div>
+<div class="line">            <span class="stringliteral">"startMode"</span>:<span class="stringliteral">"MultipleSelectionSingleProcessSpaceSeparated"</span>,</div>
+<div class="line">            <span class="stringliteral">"args"</span>:<span class="stringliteral">"${filePath}"</span>,</div>
+<div class="line">            <span class="stringliteral">"cwd"</span>:<span class="stringliteral">""</span>,</div>
+<div class="line">            <span class="stringliteral">"contextMenu"</span>:{</div>
+<div class="line">                    <span class="stringliteral">"basePath"</span>:<span class="stringliteral">"Editors"</span>,</div>
+<div class="line">                    <span class="stringliteral">"enabledFor"</span>:<span class="stringliteral">"Sound,PropertyContainer,SwitchContainer,RandomSequenceContainer"</span></div>
+<div class="line">                },          </div>
+<div class="line">            <span class="stringliteral">"mainMenu"</span>:{</div>
+<div class="line">                    <span class="stringliteral">"basePath"</span>:<span class="stringliteral">"Extra"</span></div>
+<div class="line">                }</div>
+<div class="line">        },</div>
+<div class="line">        {</div>
+<div class="line">            <span class="stringliteral">"id"</span>:<span class="stringliteral">"ak.open_in_wavosaur"</span>,</div>
+<div class="line">            <span class="stringliteral">"displayName"</span>:<span class="stringliteral">"Edit in My Wav Editor"</span>,</div>
+<div class="line">            <span class="stringliteral">"defaultShortcut"</span>:<span class="stringliteral">"W"</span>,</div>
+<div class="line">            <span class="stringliteral">"program"</span>:<span class="stringliteral">"c:\\MyWavEditor\\WavEditor.exe"</span>,</div>
+<div class="line">            <span class="stringliteral">"args"</span>:<span class="stringliteral">"${originalWavFilePath}"</span>,</div>
+<div class="line">            <span class="stringliteral">"cwd"</span>:<span class="stringliteral">""</span>,</div>
+<div class="line">            <span class="stringliteral">"contextMenu"</span>:{}</div>
+<div class="line">        }          </div>
+<div class="line">    ]</div>
+<div class="line">}</div>
+</div><!-- fragment --></div></div></div></body></html>

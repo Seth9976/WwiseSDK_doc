@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak.wwise.core.profiler.getGameObjects Result Schema</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2"><h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="section_ak_wwise_core_profiler_getgameobjects_resultSchema"></a>
+Schema</h1>
+<div class="fragment"><div class="line">{</div>
+<div class="line">    "type": "object",</div>
+<div class="line">    "properties": {</div>
+<div class="line">        "return": {</div>
+<div class="line">            "type": "array",</div>
+<div class="line">            "items": {</div>
+<div class="line">                "type": "object",</div>
+<div class="line">                "description": "The game object and its registration data.",</div>
+<div class="line">                "properties": {</div>
+<div class="line">                    "id": {</div>
+<div class="line">                        "anyOf": [</div>
+<div class="line">                            {</div>
+<div class="line">                                "type": "integer",</div>
+<div class="line">                                "description": "Unsigned Integer 64-bit.",</div>
+<div class="line">                                "minimum": 0,</div>
+<div class="line">                                "maximum": 18446744073709551615</div>
+<div class="line">                            },</div>
+<div class="line">                            {</div>
+<div class="line">                                "type": "integer",</div>
+<div class="line">                                "description": "Integer 64-bit.",</div>
+<div class="line">                                "minimum": -9223372036854775808,</div>
+<div class="line">                                "maximum": 9223372036854775807</div>
+<div class="line">                            }</div>
+<div class="line">                        ],</div>
+<div class="line">                        "description": "The ID of the game object."</div>
+<div class="line">                    },</div>
+<div class="line">                    "name": {</div>
+<div class="line">                        "type": "string",</div>
+<div class="line">                        "description": "The name of the game object."</div>
+<div class="line">                    },</div>
+<div class="line">                    "registerTime": {</div>
+<div class="line">                        "type": "integer",</div>
+<div class="line">                        "description": "The time at which the game object was registered.\\n Integer 32-bit.",</div>
+<div class="line">                        "minimum": -2147483648,</div>
+<div class="line">                        "maximum": 2147483647</div>
+<div class="line">                    },</div>
+<div class="line">                    "unregisterTime": {</div>
+<div class="line">                        "type": "integer",</div>
+<div class="line">                        "description": "The time at which the game object was unregistered.\\n Integer 32-bit.",</div>
+<div class="line">                        "minimum": -2147483648,</div>
+<div class="line">                        "maximum": 2147483647</div>
+<div class="line">                    }</div>
+<div class="line">                },</div>
+<div class="line">                "required": [</div>
+<div class="line">                    "id",</div>
+<div class="line">                    "name",</div>
+<div class="line">                    "registerTime",</div>
+<div class="line">                    "unregisterTime"</div>
+<div class="line">                ],</div>
+<div class="line">                "additionalProperties": false</div>
+<div class="line">            },</div>
+<div class="line">            "description": "An array of objects containing game object data."</div>
+<div class="line">        }</div>
+<div class="line">    },</div>
+<div class="line">    "required": [</div>
+<div class="line">        "return"</div>
+<div class="line">    ],</div>
+<div class="line">    "additionalProperties": false</div>
+<div class="line">}</div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

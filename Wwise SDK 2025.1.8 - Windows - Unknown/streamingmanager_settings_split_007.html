@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Audiokinetic Stream Manager Initialization Settings</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_6"><a class="pcalibre1 anchor" id="streamingmanager_settings_defmanagerinit_device_uMaxConcurrentIO"></a>
+Maximum Number of Concurrent I/O Transfers</h2>
+<p class="calibre7"><a class="pcalibre el" href="struct_ak_device_settings_af49f8b3af816b58296e952b20de2d7a3_split_000.html#af49f8b3af816b58296e952b20de2d7a3" title="Maximum number of transfers that can be sent simultaneously to the Low-Level I/O.">AkDeviceSettings::uMaxConcurrentIO</a> concerns asynchronous low-level devices only. It is the maximum amount of low-level I/O transfers that the streaming device may post concurrently to the low-level I/O at any given time. When the limit is reached, the I/O thread will stop posting requests to the low-level I/O even if there are streams buffered below their target. You may use this value to safely allocate static arrays of structures that you need to track each pending transfer.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="tip.gif"/></td><td class="calibre17"><p class="starttd"><b class="calibre13">Tip:</b> If you specify 1, you get the same behavior as with a synchronous device, with asynchronous handshaking instead. This can be useful if your I/O manager only exposes an asynchronous API.</p>
+<p class="calibre7">You may be tempted to use a large value for this parameter, but there are downsides to this. The streaming device's scheduler posts low-level requests according to the state of each stream at the time it inspects them. If you let it send a lot of requests, and let them remain in the low-level I/O for a long time, the situation is more likely to change in the meantime. For example, streaming sounds may stop, or stop looping. In such cases, these transfers are cancelled and I/O data is flushed upon reception. This may result in a lot of wasted bandwidth.</p>
+<p class="endtd">Large amounts of concurrent requests should only be used with devices whose throughput is not linear with the amount of requests. For example, some DMA controllers can be programmed to process many transfers, but the moment when they complete is mostly independent of the amount of transfers that were programmed. </p>
+</td></tr>
+</tbody></table>
+<p class="calibre7">Default: 8.</p>
+</div></div></div></body></html>

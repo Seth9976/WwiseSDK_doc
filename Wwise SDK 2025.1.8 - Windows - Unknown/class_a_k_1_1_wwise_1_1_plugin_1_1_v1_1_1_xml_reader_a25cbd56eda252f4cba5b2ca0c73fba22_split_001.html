@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK.Wwise::Plugin::V1::XmlReader::ReadElementString</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_xml_reader_a25cbd56eda252f4cba5b2ca0c73fba22_split_000.html#a25cbd56eda252f4cba5b2ca0c73fba22" class="pcalibre1 anchor">◆ </a></span>ReadElementString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="calibre3">
+  <tbody class="calibre4"><tr class="calibre16">
+  <td class="calibre17">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">const char* AK.Wwise::Plugin::V1::XmlReader::ReadElementString </td>
+          <td class="calibre17">(</td>
+          <td class="paramname"/><td class="calibre17">)</td>
+          <td class="calibre17"/>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="calibre17">
+<span><span>inline</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+
+<p class="calibre7">Reads simple text-only elements, and increments the pointer. </p>
+<p class="calibre7">Since strings can span multiple content elements, this method will read all the sequential string-like elements and append them, returning one simple string. This function also works with empty nodes and multiple lines.</p>
+<p class="calibre7">If no processing or incrementing is warranted, <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_xml_reader_aaf2aa8d1886d7590e29e70d450509fb5_split_000.html#aaf2aa8d1886d7590e29e70d450509fb5">Read</a>, <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_xml_reader_ae2377d898baed48ce83ea217c5379519_split_000.html#ae2377d898baed48ce83ea217c5379519">MoveToContent</a> and <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_xml_reader_a13bdbca50afb46c79a00b60fb05ebdf7_split_000.html#a13bdbca50afb46c79a00b60fb05ebdf7">GetValue</a> should be used instead.</p>
+<p class="calibre7">This method goes past the ending element node, or the equivalent of calling Read once more.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> The string is available until the next Host operation. If storing is required, a copy should be made at the earliest convenience. </td></tr>
+</tbody></table>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">The string of the current nodes, an empty string if the value is empty. The buffer is owned by Authoring and is valid until the next API call. </dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_host_xml_8h_source_split_000.html#l00698">698</a> of file <a class="pcalibre el" href="_host_xml_8h_source_split_000.html">HostXml.h</a>.</p>
+
+<p class="calibre7">References <a class="pcalibre el" href="_plugin_info_generator_8h_source.html#l00089">AK.Wwise::Plugin::CBaseInterfaceGlue&lt; CHostXml &gt;::g_cinterface</a>, and <a class="pcalibre el" href="_host_xml_8h_source_split_000.html#l00311">ak_wwise_plugin_host_xml_v1::ReadElementString</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Implementing a Windows Frontend</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_4"><a class="pcalibre1 anchor" id="wwiseplugin_help"></a>
+Displaying Help for a Plug-in</h1>
+<p class="calibre7">When a Wwise user clicks on the '?' icon in a plug-in's dialog title bar, <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_g_u_i_windows_a4923a0688cfc1bca88fcd33196c897a7_split_000.html#a4923a0688cfc1bca88fcd33196c897a7" title="Called when the user clicks on the '?' icon.">AK::Wwise::Plugin::GUIWindows::Help()</a></code> is called on that plug-in's frontend. You can implement Help with various tools, including HTMLHelp, WinHelp, or a third-party Help browser. The function receives a window handle that can be used as the parent for any window you want to display. The <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_a5a9328b141630d1de228c92e81e9034d_split_000.html#a5a9328b141630d1de228c92e81e9034d">AK::Wwise::Plugin::eDialog</a></code> parameter allows you to choose a specific Help topic to match the dialog the Wwise user currently has open. This function must return <code class="calibre14">true</code> if you handled the Help request, or <code class="calibre14">false</code> otherwise, in which case Wwise will display a Help topic related to the Plug-in Manager.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> As previously mentioned, source plug-ins have two dialogs. The <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_a5a9328b141630d1de228c92e81e9034d_split_000.html#a5a9328b141630d1de228c92e81e9034d">AK::Wwise::Plugin::eDialog</a></code> parameter should be used if your source plug-in has separate Help topics for its two dialogs. </td></tr>
+</tbody></table>
+<p class="calibre7">Here is an example of a source plug-in that uses HTML help, with MFC providing the path to the file:</p>
+<div class="fragment"><div class="line"><span class="comment">// Implement online help when the user clicks on the "?" icon</span></div>
+<div class="line"><span class="keywordtype">bool</span> FrontendSourcePluginMFC::Help(HWND in_hWnd, <a class="pcalibre code" href="namespace_a_k_1_1_wwise_1_1_plugin_a5a9328b141630d1de228c92e81e9034d_split_000.html#a5a9328b141630d1de228c92e81e9034d">AK::Wwise::Plugin::eDialog</a> in_eDialog)<span class="keyword"> const</span></div>
+<div class="line"><span class="keyword"></span>{</div>
+<div class="line">    AFX_MANAGE_STATE( ::AfxGetStaticModuleState() );</div>
+<div class="line"> </div>
+<div class="line">    DWORD dwTopic = ONLINEHELP::Tone_Generator_Settings;</div>
+<div class="line">    <span class="keywordflow">if</span> ( in_eDialog == <a class="pcalibre code" href="namespace_a_k_1_1_wwise_1_1_plugin_a5a9328b141630d1de228c92e81e9034d_split_001.html#a5a9328b141630d1de228c92e81e9034da6d085e723d1240d119005b403573dfb5">AK::Wwise::Plugin::ContentsEditorDialog</a> )</div>
+<div class="line">        dwTopic = ONLINEHELP::Tone_Generator_ContentsEditor;</div>
+<div class="line"> </div>
+<div class="line">    ::HtmlHelp(</div>
+<div class="line">        NULL, <span class="comment">// &lt;&lt;&lt; Must be NULL to launch on the correct parent window</span></div>
+<div class="line">        AfxGetApp()-&gt;m_pszHelpFilePath,</div>
+<div class="line">        HH_HELP_CONTEXT,</div>
+<div class="line">        dwTopic</div>
+<div class="line">    );</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">}</div>
+</div><!-- fragment --><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="caution.gif"/></td><td class="calibre17"><b class="calibre13">Caution:</b> The <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_g_u_i_windows_a4923a0688cfc1bca88fcd33196c897a7_split_000.html#a4923a0688cfc1bca88fcd33196c897a7" title="Called when the user clicks on the '?' icon.">AK::Wwise::Plugin::GUIWindows::Help()</a></code> method should NOT call AfxGetApp()-&gt;HtmlHelp(). It will launch the Help window from the wrong parent window which will make floating views behave unexpectedly. Instead, use <code class="calibre14">HtmlHelp()</code> with a NULL window handle, as shown the example above. </td></tr>
+</tbody></table>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<div class="ttc" id="anamespace_a_k_1_1_wwise_1_1_plugin_a5a9328b141630d1de228c92e81e9034d_html_a5a9328b141630d1de228c92e81e9034d"><div class="calibre2"><a href="namespace_a_k_1_1_wwise_1_1_plugin_a5a9328b141630d1de228c92e81e9034d_split_000.html#a5a9328b141630d1de228c92e81e9034d" class="pcalibre calibre12">AK.Wwise::Plugin::eDialog</a></div><div class="calibre2">eDialog</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_plugin_def_8h_source.html#l00137" class="pcalibre calibre12">PluginDef.h:138</a></div></div>
+<div class="ttc" id="anamespace_a_k_1_1_wwise_1_1_plugin_a5a9328b141630d1de228c92e81e9034d_html_a5a9328b141630d1de228c92e81e9034da6d085e723d1240d119005b403573dfb5"><div class="calibre2"><a href="namespace_a_k_1_1_wwise_1_1_plugin_a5a9328b141630d1de228c92e81e9034d_split_001.html#a5a9328b141630d1de228c92e81e9034da6d085e723d1240d119005b403573dfb5" class="pcalibre calibre12">AK.Wwise::Plugin::ContentsEditorDialog</a></div><div class="calibre2">@ ContentsEditorDialog</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_plugin_def_8h_source.html#l00144" class="pcalibre calibre12">PluginDef.h:142</a></div></div>
+<div class="ttc" id="anamespace_a_k_1_1_wwise_1_1_plugin_a5a9328b141630d1de228c92e81e9034d_html_a5a9328b141630d1de228c92e81e9034da70f74e61c5e7bef5d95559c73c9978cc"><div class="calibre2"><a href="namespace_a_k_1_1_wwise_1_1_plugin_a5a9328b141630d1de228c92e81e9034d_split_001.html#a5a9328b141630d1de228c92e81e9034da70f74e61c5e7bef5d95559c73c9978cc" class="pcalibre calibre12">AK.Wwise::Plugin::SettingsDialog</a></div><div class="calibre2">@ SettingsDialog</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_plugin_def_8h_source.html#l00141" class="pcalibre calibre12">PluginDef.h:139</a></div></div>
+<div class="ttc" id="a_g_u_i_windows_8h_a286a575e82a4a1b002ff737b186d4c76_html_a286a575e82a4a1b002ff737b186d4c76"><div class="calibre2"><a href="_g_u_i_windows_8h_a286a575e82a4a1b002ff737b186d4c76_split_000.html#a286a575e82a4a1b002ff737b186d4c76" class="pcalibre calibre12">AK_WWISE_PLUGIN_GUI_WINDOWS_END_POPULATE_TABLE</a></div><div class="calibre2">#define AK_WWISE_PLUGIN_GUI_WINDOWS_END_POPULATE_TABLE()</div><div class="calibre2">Ends the declaration of a property-control bindings table.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_g_u_i_windows_8h_source.html#l00078" class="pcalibre calibre12">GUIWindows.h:78</a></div></div>
+<div class="ttc" id="a_g_u_i_windows_8h_af6140142c9fe6ff132aee5ad0fde1caf_html_af6140142c9fe6ff132aee5ad0fde1caf"><div class="calibre2"><a href="_g_u_i_windows_8h_af6140142c9fe6ff132aee5ad0fde1caf_split_000.html#af6140142c9fe6ff132aee5ad0fde1caf" class="pcalibre calibre12">AK_WWISE_PLUGIN_GUI_WINDOWS_POP_ITEM</a></div><div class="calibre2">#define AK_WWISE_PLUGIN_GUI_WINDOWS_POP_ITEM(theID, theProp)</div><div class="calibre2">Declares an association between a control and a property within a property-control bindings table.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_g_u_i_windows_8h_source.html#l00068" class="pcalibre calibre12">GUIWindows.h:68</a></div></div>
+<div class="ttc" id="astruct_a_k_1_1_wwise_1_1_plugin_1_1_populate_table_item_html"><div class="calibre2"><a href="struct_a_k_1_1_wwise_1_1_plugin_1_1_populate_table_item_split_000.html" class="pcalibre calibre12">AK.Wwise::Plugin::PopulateTableItem</a></div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_plugin_def_8h_source.html#l00126" class="pcalibre calibre12">PluginDef.h:127</a></div></div>
+<div class="ttc" id="aclass_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_g_u_i_windows_html"><div class="calibre2"><a href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_g_u_i_windows_split_000.html" class="pcalibre calibre12">AK.Wwise::Plugin::V1::GUIWindows</a></div><div class="calibre2">Windows frontend plug-in API for Audio plug-ins.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_g_u_i_windows_8h_source.html#l00199" class="pcalibre calibre12">GUIWindows.h:200</a></div></div>
+<div class="ttc" id="a_g_u_i_windows_8h_ace7e697c1d8a310c9794cf05ce8ce1d8_html_ace7e697c1d8a310c9794cf05ce8ce1d8"><div class="calibre2"><a href="_g_u_i_windows_8h_ace7e697c1d8a310c9794cf05ce8ce1d8_split_000.html#ace7e697c1d8a310c9794cf05ce8ce1d8" class="pcalibre calibre12">AK_WWISE_PLUGIN_GUI_WINDOWS_BEGIN_POPULATE_TABLE</a></div><div class="calibre2">#define AK_WWISE_PLUGIN_GUI_WINDOWS_BEGIN_POPULATE_TABLE(theName)</div><div class="calibre2">Starts a new property-control bindings table.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_g_u_i_windows_8h_source.html#l00054" class="pcalibre calibre12">GUIWindows.h:54</a></div></div>
+<div class="ttc" id="a_g_u_i_windows_8h_a983773bd0fac8b545d479971ff56db4d_html_a983773bd0fac8b545d479971ff56db4d"><div class="calibre2"><a href="_g_u_i_windows_8h_a983773bd0fac8b545d479971ff56db4d_split_000.html#a983773bd0fac8b545d479971ff56db4d" class="pcalibre calibre12">__ImageBase</a></div><div class="calibre2">IMAGE_DOS_HEADER __ImageBase</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_g_u_i_windows_8h_source.html#l00039" class="pcalibre calibre12">GUIWindows.h:39</a></div></div>
+<div class="ttc" id="aclass_a_k_1_1_wwise_1_1_plugin_1_1_plugin_m_f_c_windows_html"><div class="calibre2"><a href="class_a_k_1_1_wwise_1_1_plugin_1_1_plugin_m_f_c_windows_split_000.html" class="pcalibre calibre12">AK.Wwise::Plugin::PluginMFCWindows</a></div><div class="calibre2">Initializes MFC for this plug-in.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_plugin_m_f_c_windows_8h_source.html#l00068" class="pcalibre calibre12">PluginMFCWindows.h:69</a></div></div>
+
+
+</body></html>

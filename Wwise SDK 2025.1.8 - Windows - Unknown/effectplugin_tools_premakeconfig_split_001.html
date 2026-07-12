@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Configuring Your Project With Premake</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="effectplugin_tools_premake_staticauthoring"></a>
+Static Authoring Configuration</h1>
+<p class="calibre7">Even though it is not included in the generated <code class="calibre14">PremakePlugin.lua</code> file, there is also an optional <code class="calibre14">Plugin.sdk.authoringstatic</code> table. This is used for unique use cases and provides a different configuration for the static SDK plug-in that is linked to the Authoring plug-in. For example, this demonstrates how to re-use the same SDK plug-in code with a <code class="calibre14">FOR_AUTHORING</code> compiler define: </p><div class="fragment"><div class="line">Plugin.sdk.staticauthoring = {}</div>
+<div class="line"> </div>
+<div class="line">-- SDK STATIC AUTHORING PLUGIN SECTION</div>
+<div class="line">Plugin.sdk.staticauthoring.includedirs = Plugin.sdk.static.includedirs</div>
+<div class="line">Plugin.sdk.staticauthoring.files = Plugin.sdk.static.files</div>
+<div class="line">Plugin.sdk.staticauthoring.excludes = Plugin.sdk.static.excludes</div>
+<div class="line">Plugin.sdk.staticauthoring.links = Plugin.sdk.static.links</div>
+<div class="line">Plugin.sdk.staticauthoring.libdirs = Plugin.sdk.static.libdirs</div>
+<div class="line">Plugin.sdk.staticauthoring.defines = table.join(Plugin.sdk.static.defines, { <span class="stringliteral">"FOR_AUTHORING"</span> })</div>
+</div><!-- fragment --></div></div></div></body></html>

@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Propagation Paths in the Rooms and Portals Signal Model</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="spatial_audio_roomsportals_paths_connections"></a>
+Paths and Connections</h1>
+<p class="calibre7">At runtime, voices and busses are connected to other busses, as can be seen in the Voice Graph or the Voice Inspector views of the Wwise Profiler. The "wires" between these Wwise Objects are referred to as Connections. An Emitter-Listener pair is created whenever a voice or bus associated to a game object (an Emitter or a Room) is connected to a different game object (another Room, or the top-level Listener). Emitter-Listener pairs, which we will refer to as paths for the rest of this discussion, are used to compute attenuation curves, amongst other things. There can be zero, one, or many paths within one connection. For example, when the game sets multiple positions to a game object using <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_aec6be4dca0249557ea2680b755bd218a_split_000.html#aec6be4dca0249557ea2680b755bd218a">AK::SoundEngine::SetMultiplePositions</a>, multiple paths are created. Wwise Acoustics uses paths extensively. In the following discussion, we will examine the paths within each connection in the simple scenario where an Emitter is located in a Room, adjacent to that of the Listener, as illustrated by the signal graph below.</p>
+<div class="calibre2">
+<img alt="" src="voicegraph.png" class="inline"/>
+</div>
+</div></div></div></body></html>

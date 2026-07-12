@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AkCmd_SA_SetGameObjectRadius Struct Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_1">Detailed Description</h2>
+<div class="calibre2"><p class="calibre7">Define an inner and outer radius around each sound position for a specified game object. If the radii are set to 0, the game object is a point source. Non-zero radii create a Radial Emitter. The radii are used in spread and distance calculations that simulates sound emitting from a spherical volume of space. When applying attenuation curves, the distance between the listener and the inner sphere (defined by the sound position and <code class="calibre14">innerRadius</code>) is used. The spread for each sound position is calculated as follows:</p><ul class="calibre8">
+<li class="calibre9">If the listener is outside the outer radius, the spread is defined by the area that the sphere occupies in the listener field of view. Specifically, this angle is calculated as <code class="calibre14">2.0*asinf( outerRadius / distance )</code>, where distance is the distance between the listener and the sound position.</li>
+<li class="calibre9">When the listener intersects the outer radius (the listener is exactly <code class="calibre14">outerRadius</code> units away from the sound position), the spread is exactly 50%.</li>
+<li class="calibre9">When the listener is between the inner and outer radii, the spread interpolates linearly from 50% to 100% as the listener transitions from the outer radius towards the inner radius.</li>
+<li class="calibre9">If the listener is inside the inner radius, the spread is 100%. <table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><p class="starttd"><b class="calibre13">Note:</b> Transmission and diffraction calculations in Spatial Audio always use the center of the sphere (the position(s) passed into <code class="calibre14"><a class="pcalibre el" href="struct_ak_cmd___set_position_split_000.html">AkCmd_SetPosition</a></code> or <code class="calibre14"><a class="pcalibre el" href="struct_ak_cmd___set_multiple_positions_split_000.html">AkCmd_SetMultiplePositions</a></code>) for raycasting. To obtain accurate diffraction and transmission calculations for radial sources, where different parts of the volume may take different paths through or around geometry, it is necessary to pass multiple sound positions into <code class="calibre14"><a class="pcalibre el" href="struct_ak_cmd___set_multiple_positions_split_000.html">AkCmd_SetMultiplePositions</a></code> to allow the engine to 'sample' the area at different points.</p>
+<p class="endtd">This command can fail for the following reasons:</p>
+</td></tr>
+</tbody></table>
+</li>
+<li class="calibre9">AK_InvalidParameter: <code class="calibre14">gameObjectID</code> is invalid or <code class="calibre14">outerRadius</code> &gt; <code class="calibre14">innerRadius</code> </li>
+<li class="calibre9">AK_IDNotFound: <code class="calibre14">gameObjectID</code> is specified but is not a registered game object.</li>
+<li class="calibre9">AK_InsufficientMemory: Not enough memory to complete the operation.</li>
+</ul>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="_ak_command_types_8h_a001b78645b8b0335c0dd2e128cca2cfd_split_001.html#a001b78645b8b0335c0dd2e128cca2cfdaaaa4a14c77692f932cca22c7b94a85a1">AkCommand_SA_SetGameObjectRadius</a></li>
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_cmd___set_position_split_000.html">AkCmd_SetPosition</a></li>
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_cmd___set_multiple_positions_split_000.html">AkCmd_SetMultiplePositions</a> </li>
+</ul>
+</dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_ak_command_types_8h_source_split_002.html#l01781">1781</a> of file <a class="pcalibre el" href="_ak_command_types_8h_source_split_000.html">AkCommandTypes.h</a>.</p>
+</div></div><!-- contents -->
+
+
+</body></html>

@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2021.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="generic_perf_changes_2021_1"></a>
+Performance Changes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-47172</b> Improved performance of audio resampling algorithms, especially where AVX2 is available. Most notably, this should provide a 10% increase in throughput performance when playing back most Vorbis audio sources.</li>
+<li class="calibre9"><b class="calibre13">WG-47544</b> Improved performance for Effects that utilize the Fast Fourier Transform (FFT) algorithm, especially on platforms where AVX2 is active and enabled. This delivers improvements, such as:<ul class="calibre15">
+<li class="calibre9">Throughput performance of Convolution Reverb and Filter Effects improved by 1.3x-1.7x.</li>
+<li class="calibre9">Throughput performance of Harmonizer and Time Stretch Effects improved by 1.5x-1.75x.</li>
+</ul>
+</li>
+<li class="calibre9"><b class="calibre13">WG-51121</b> Advanced mode of the Mastering Suite's Limiter module has been optimized. The module is now 37% more efficient.</li>
+<li class="calibre9"><b class="calibre13">WG-51334</b> Improved Spatial Audio monitoring data memory usage.</li>
+<li class="calibre9"><b class="calibre13">WG-51775</b> Meter drawing has been optimized for better performance.</li>
+</ul>
+</div></div></div></body></html>

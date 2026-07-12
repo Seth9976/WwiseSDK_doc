@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Audio Input Source Plug-in</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="referencematerial_audioinput_integrating"></a>
+Integrating the plug-in</h1>
+<p class="calibre7">Aside from regular plug-in initialization (see <a class="pcalibre el" href="soundengine_integration_plugins_split_000.html">Integration Details - Plug-Ins</a>), integrating the Audio Input plugin requires the game to provide input audio data used by the various instances of the plug-in in the Wwise project. This is done through a callback mechanism, as exposed in <a class="pcalibre el" href="_ak_audio_input_source_factory_8h_split_000.html">AkAudioInputSourceFactory.h</a>:</p>
+<ul class="calibre8">
+<li class="calibre9">At first, the game calls <a class="pcalibre el" href="_ak_audio_input_plugin_8h_a8af9a8fca59e66e75f68b987e3f48db7_split_000.html#a8af9a8fca59e66e75f68b987e3f48db7" title="This function should be called at the same place the AudioInput plug-in is being registered.">SetAudioInputCallbacks()</a> to set the mandatory <a class="pcalibre el" href="_ak_audio_input_plugin_8h_a27b5a1a19c611de4eb85beb4e5fbb698_split_000.html#a27b5a1a19c611de4eb85beb4e5fbb698">AkAudioInputPluginExecuteCallbackFunc</a> which will be called whenever an instance of audio input requires more audio data.<ul class="calibre15">
+<li class="calibre9"><p class="starttd">If the audio data is not a mono stream of 32-bit floating point values, the <a class="pcalibre el" href="_ak_audio_input_plugin_8h_aad871e20a8b120f2b436d22157ac7187_split_000.html#aad871e20a8b120f2b436d22157ac7187">AkAudioInputPluginGetFormatCallbackFunc</a> must be set. This callback only accepts audio data in the following formats, where the left and right channels are stored as shown for a 16-frame buffer:</p><ul class="calibre30">
+<li class="calibre9">interleaved 16-bit integer (also known as <em class="calibre11">planar</em>) <div class="calibre2">
+<img alt="" src="dgm_interleaved_audio_format.png" class="inline"/>
+</div>
+</li>
+<li class="calibre9">non-interleaved 32-bit floating point <div class="calibre2">
+<img alt="" src="dgm_non_interleaved_audio_format.png" class="inline"/>
+</div>
+</li>
+</ul>
+<p class="starttd"><a class="pcalibre el" href="_ak_audio_input_plugin_8h_aad871e20a8b120f2b436d22157ac7187_split_000.html#aad871e20a8b120f2b436d22157ac7187">AkAudioInputPluginGetFormatCallbackFunc</a> uses <a class="pcalibre el" href="struct_ak_audio_format_split_000.html">AkAudioFormat</a> which can be populated as shown in the example below. <a class="pcalibre el" href="struct_ak_audio_format_split_000.html">AkAudioFormat</a> consists of audio data format specifications and channel configuration <a class="pcalibre el" href="struct_ak_channel_config_split_000.html">AkChannelConfig</a>.</p>
+<p class="starttd"><a class="pcalibre el" href="struct_ak_channel_config_split_000.html">AkChannelConfig</a> can be set with the help of one of the calls mentioned below: AkChannelConfig.SetAnonymous(...), AkChannelConfig.SetStandard(...) or AkChannelConfig.SetAmbisonic(...)</p>
+<p class="starttd">ChannelMask: There are no restrictions on channelmask. Standard and custom channelmasks are supported.</p>
+<p class="starttd">Interleaved format (<code class="calibre14">AK_INTERLEAVED</code>) only supports <code class="calibre14">AK_INT</code>, and non-interleaved format (<code class="calibre14">AK_NONINTERLEAVED</code>) only supports <code class="calibre14">AK_FLOAT</code>.</p>
+</li>
+</ul>
+</li>
+</ul>
+<div class="fragment"><div class="line"><a class="pcalibre code" href="struct_ak_audio_format_split_000.html">AkAudioFormat</a> audioFormat;</div>
+<div class="line"><a class="pcalibre code" href="struct_ak_channel_config_split_000.html">AkChannelConfig</a> audioChConfig;</div>
+<div class="line">audioChConfig.<a class="pcalibre code" href="struct_ak_channel_config_a4c0f4b3d39608a10c9b330c1ef8281a7_split_000.html#a4c0f4b3d39608a10c9b330c1ef8281a7">SetStandard</a>(0);</div>
+<div class="line">audioFormat.<a class="pcalibre code" href="struct_ak_audio_format_a9faddafaebebeb550993315c8f610aea_split_000.html#a9faddafaebebeb550993315c8f610aea">SetAll</a>(</div>
+<div class="line">    48000,                  <span class="comment">// Sample rate</span></div>
+<div class="line">    audioChConfig, <span class="comment">// \ref AkChannelConfig</span></div>
+<div class="line">    16,                     <span class="comment">// Bits per samples</span></div>
+<div class="line">    2,                      <span class="comment">// 2 bytes per samples</span></div>
+<div class="line">    <a class="pcalibre code" href="_ak_common_defs_8h_a27e63de612e818dbe8b87e583bc175e7_split_000.html#a27e63de612e818dbe8b87e583bc175e7">AK_INT</a>,                 <span class="comment">// feeding integers(signed)</span></div>
+<div class="line">    <a class="pcalibre code" href="_ak_common_defs_8h_a7fa3ccbf7577c429ea9612d9528350b8_split_000.html#a7fa3ccbf7577c429ea9612d9528350b8">AK_INTERLEAVED</a></div>
+<div class="line">    );</div>
+</div><!-- fragment --><ul class="calibre8">
+<li class="calibre9">Next, the game calls PostEvent to start the audio input plug-in.</li>
+<li class="calibre9">The Sound Engine will call <a class="pcalibre el" href="_ak_audio_input_plugin_8h_aad871e20a8b120f2b436d22157ac7187_split_000.html#aad871e20a8b120f2b436d22157ac7187">AkAudioInputPluginGetFormatCallbackFunc</a> once at the beginning of playback and then <a class="pcalibre el" href="_ak_audio_input_plugin_8h_a27b5a1a19c611de4eb85beb4e5fbb698_split_000.html#a27b5a1a19c611de4eb85beb4e5fbb698">AkAudioInputPluginExecuteCallbackFunc</a> at each audio frame until the plug-in finishes execution (either through a stop action or the execute callback setting <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_001.html#a64f7d1f79613cc4dcc49a4efba6caa63a94ba10d374d31161770fc490e0245802">AK_NoMoreData</a> on io_pBufferOut-&gt;eState).</li>
+</ul>
+<p class="calibre7">A very simple integration is demonstrated in the <a class="pcalibre el" href="soundengine_integration_samplecode_split_014.html#integrationdemo_demos_micro">Microphone/AudioInput Demo</a> demo, using a microphone as the input. In the Integration Demo Wwise Project, a Sound Voice named Microphone uses the Audio Input plug-in as a source. <br class="calibre10"/>
+</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> In Wwise, the audio input plugin is fed with audio from the microphone input of the PC. If no microphone is connected, it will be silent. </td></tr>
+</tbody></table>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<div class="ttc" id="astruct_ak_channel_config_html"><div class="calibre2"><a href="struct_ak_channel_config_split_000.html" class="pcalibre calibre12">AkChannelConfig</a></div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_speaker_config_8h_source.html#l00440" class="pcalibre calibre12">AkSpeakerConfig.h:441</a></div></div>
+<div class="ttc" id="astruct_ak_channel_config_a4c0f4b3d39608a10c9b330c1ef8281a7_html_a4c0f4b3d39608a10c9b330c1ef8281a7"><div class="calibre2"><a href="struct_ak_channel_config_a4c0f4b3d39608a10c9b330c1ef8281a7_split_000.html#a4c0f4b3d39608a10c9b330c1ef8281a7" class="pcalibre calibre12">AkChannelConfig::SetStandard</a></div><div class="calibre2">AkForceInline void SetStandard(AkUInt32 in_uChannelMask)</div><div class="calibre2">Set channel config as a standard configuration specified with given channel mask.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_speaker_config_8h_source.html#l00516" class="pcalibre calibre12">AkSpeakerConfig.h:516</a></div></div>
+<div class="ttc" id="a_ak_common_defs_8h_a27e63de612e818dbe8b87e583bc175e7_html_a27e63de612e818dbe8b87e583bc175e7"><div class="calibre2"><a href="_ak_common_defs_8h_a27e63de612e818dbe8b87e583bc175e7_split_000.html#a27e63de612e818dbe8b87e583bc175e7" class="pcalibre calibre12">AK_INT</a></div><div class="calibre2">const AkDataTypeID AK_INT</div><div class="calibre2">Integer data type (uchar, short, and so on)</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_common_defs_8h_source.html#l00048" class="pcalibre calibre12">AkCommonDefs.h:48</a></div></div>
+<div class="ttc" id="astruct_ak_audio_format_html"><div class="calibre2"><a href="struct_ak_audio_format_split_000.html" class="pcalibre calibre12">AkAudioFormat</a></div><div class="calibre2">Defines the parameters of an audio buffer format.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_common_defs_8h_source.html#l00060" class="pcalibre calibre12">AkCommonDefs.h:61</a></div></div>
+<div class="ttc" id="a_ak_common_defs_8h_a7fa3ccbf7577c429ea9612d9528350b8_html_a7fa3ccbf7577c429ea9612d9528350b8"><div class="calibre2"><a href="_ak_common_defs_8h_a7fa3ccbf7577c429ea9612d9528350b8_split_000.html#a7fa3ccbf7577c429ea9612d9528350b8" class="pcalibre calibre12">AK_INTERLEAVED</a></div><div class="calibre2">const AkDataInterleaveID AK_INTERLEAVED</div><div class="calibre2">Interleaved data.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_common_defs_8h_source.html#l00051" class="pcalibre calibre12">AkCommonDefs.h:51</a></div></div>
+<div class="ttc" id="astruct_ak_audio_format_a9faddafaebebeb550993315c8f610aea_html_a9faddafaebebeb550993315c8f610aea"><div class="calibre2"><a href="struct_ak_audio_format_a9faddafaebebeb550993315c8f610aea_split_000.html#a9faddafaebebeb550993315c8f610aea" class="pcalibre calibre12">AkAudioFormat::SetAll</a></div><div class="calibre2">void SetAll(AkUInt32 in_uSampleRate, AkChannelConfig in_channelConfig, AkUInt32 in_uBitsPerSample, AkUInt32 in_uBlockAlign, AkUInt32 in_uTypeID, AkUInt32 in_uInterleaveID)</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_common_defs_8h_source.html#l00124" class="pcalibre calibre12">AkCommonDefs.h:124</a></div></div>
+
+
+</body></html>

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2025.1.3</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="generic_api_changes_2025_1_3"></a>
+API Changes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-74336</b> (WAAPI) Changed the WAAPI data model for some of the object lists. See <a class="pcalibre el" href="whatsnew_2025_1_migration_split_000.html">Important Migration Notes 2025.1</a> for details.</li>
+<li class="calibre9"><b class="calibre13">WG-80340</b> Added function to plug-in API to get speaker connections for an anonymous configuration.</li>
+<li class="calibre9"><b class="calibre13">WG-80420</b> Removed support for the <code class="calibre14">IAkPluginServiceTempAlloc::GetTempAllocAudioRenderdouble</code> API to address reliability and design complications with sound engine plug-ins. Other functions on the <code class="calibre14">IAkPluginServiceTempAlloc</code> interface are unchanged. Related to this, calling <code class="calibre14">IAkEffectPluginContext::CreateOutputObjects</code> outside of <code class="calibre14">IAkOutOfPlaceObjectPlugin::Execute</code>, such as during <code class="calibre14">IAkEffectPlugin::Init</code> or <code class="calibre14">IAkPlugin::Reset</code>, now creates new <a class="pcalibre el" href="struct_ak_audio_objects_split_000.html" title="A collection of audio objects. Encapsulates the audio data and metadata of each audio object in separ...">AkAudioObjects</a>, but the associated <a class="pcalibre el" href="class_ak_audio_buffer_split_000.html">AkAudioBuffer</a> no longer has any pre-allocated memory for the audio data.</li>
+</ul>
+</div></div></div></body></html>

@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Example: Developing a Lowpass Filter Plug-in</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="effectplugin_runthrough_add_param"></a>
+Using an RTPC Parameter to Control the Filter's Frequency</h1>
+<p class="calibre7">At this point, our filter is pretty boring because there is no way to interact with it. The next step is to bind an RTPC parameter to the filter's frequency so that we can change its value in real time. There are four changes to make to allow our plug-in to use an RTPC parameter.</p>
+<p class="calibre7">First, we must add its definition in <code class="calibre14">WwisePlugin/Lowpass.xml</code>. There is already a parameter skeleton, named "PlaceHolder", in the plug-in template. We will use it to define a "Frequency" parameter. In <code class="calibre14">WwisePlugin/Lowpass.xml</code>, replace the placeholder property with this:</p>
+<div class="fragment"><div class="line">&lt;<span class="keywordtype">Property</span> <span class="keyword">Name</span>=<span class="stringliteral">"Frequency"</span> <span class="keyword">Type</span>=<span class="stringliteral">"Real32"</span> <span class="keyword">SupportRTPCType</span>=<span class="stringliteral">"Exclusive"</span> <span class="keyword">DisplayName</span>=<span class="stringliteral">"Cutoff Frequency"</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">UserInterface</span> <span class="keyword">Step</span>=<span class="stringliteral">"0.1"</span> <span class="keyword">Fine</span>=<span class="stringliteral">"0.001"</span> <span class="keyword">Decimals</span>=<span class="stringliteral">"3"</span> <span class="keyword">UIMax</span>=<span class="stringliteral">"10000"</span> /&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">DefaultValue</span>&gt;1000.0&lt;/<span class="keywordtype">DefaultValue</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">AudioEnginePropertyID</span>&gt;0&lt;/<span class="keywordtype">AudioEnginePropertyID</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">Restrictions</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">ValueRestriction</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">Range</span> <span class="keyword">Type</span>=<span class="stringliteral">"Real32"</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">Min</span>&gt;20.0&lt;/<span class="keywordtype">Min</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">Max</span>&gt;10000.0&lt;/<span class="keywordtype">Max</span>&gt;</div>
+<div class="line">      &lt;/<span class="keywordtype">Range</span>&gt;</div>
+<div class="line">    &lt;/<span class="keywordtype">ValueRestriction</span>&gt;</div>
+<div class="line">  &lt;/<span class="keywordtype">Restrictions</span>&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">Property</span>&gt;</div>
+</div><!-- fragment --><p class="calibre7">Second, we need to update <code class="calibre14">LowpassFXParams.h</code> and <code class="calibre14">LowpassFXParams.cpp</code> in the SoundEnginePlugin folder to reflect our property changes.</p>
+<p class="calibre7">In <code class="calibre14">LowpassFXParams.h</code>, update the parameter IDs and the name of the parameter in the <code class="calibre14">LowpassRTPCParams</code> structure.</p>
+<div class="fragment"><div class="line"><span class="keyword">static</span> <span class="keyword">const</span> <a class="pcalibre code" href="_ak_typedefs_8h_a4cb8ff0b7014efdaa21697f4ef928926_split_000.html#a4cb8ff0b7014efdaa21697f4ef928926">AkPluginParamID</a> PARAM_FREQUENCY_ID = 0;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">struct </span>LowpassRTPCParams</div>
+<div class="line">{</div>
+<div class="line">    <a class="pcalibre code" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a> fFrequency;</div>
+<div class="line">};</div>
+</div><!-- fragment --><p class="calibre7">Update <code class="calibre14">LowpassFXParams.cpp</code> as well:</p>
+<div class="fragment"><div class="line"><a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> <a class="pcalibre code" href="namespace_a_k_1_1_comm_a596691b552b507c26b4df958ee1c6de8_split_000.html#a596691b552b507c26b4df958ee1c6de8">LowpassFXParams::Init</a>(<a class="pcalibre code" href="class_a_k_1_1_i_ak_plugin_mem_alloc_split_000.html">AK::IAkPluginMemAlloc</a>* in_pAllocator, <span class="keyword">const</span> <span class="keywordtype">void</span>* in_pParamsBlock, <a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> in_ulBlockSize)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordflow">if</span> (in_ulBlockSize == 0)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="comment">// Initialize default parameters here</span></div>
+<div class="line">        RTPC.fFrequency = 1000.0f;</div>
+<div class="line">        <span class="comment">//...</span></div>
+<div class="line">    }</div>
+<div class="line">    <span class="comment">//...</span></div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> LowpassFXParams::SetParamsBlock(<span class="keyword">const</span> <span class="keywordtype">void</span>* in_pParamsBlock, <a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> in_ulBlockSize)</div>
+<div class="line">{</div>
+<div class="line">    <span class="comment">//...</span></div>
+<div class="line">    <span class="comment">// Read bank data here</span></div>
+<div class="line">    RTPC.fFrequency = <a class="pcalibre code" href="_ak_bank_read_helpers_8h_a18513ab855bc8316634d74b9a17138c5_split_000.html#a18513ab855bc8316634d74b9a17138c5">READBANKDATA</a>(<a class="pcalibre code" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a>, pParamsBlock, in_ulBlockSize);</div>
+<div class="line">    <span class="comment">//...</span></div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> LowpassFXParams::SetParam(<a class="pcalibre code" href="_ak_typedefs_8h_a4cb8ff0b7014efdaa21697f4ef928926_split_000.html#a4cb8ff0b7014efdaa21697f4ef928926">AkPluginParamID</a> in_paramID, <span class="keyword">const</span> <span class="keywordtype">void</span>* in_pValue, <a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> in_ulParamSize)</div>
+<div class="line">{</div>
+<div class="line">    <span class="comment">//...</span></div>
+<div class="line">    <span class="comment">// Handle parameter change here</span></div>
+<div class="line">    <span class="keywordflow">case</span> PARAM_FREQUENCY_ID:</div>
+<div class="line">        RTPC.fFrequency = *((<a class="pcalibre code" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a>*)in_pValue);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">//...</span></div>
+<div class="line">}</div>
+</div><!-- fragment --><p class="calibre7">Third, in the <code class="calibre14">WwisePlugin</code> folder, we need to update the <code class="calibre14">Lowpass::GetBankParameters</code> function to write the "Frequency" parameter in the bank:</p>
+<div class="fragment"><div class="line"><span class="keywordtype">bool</span> LowpassPlugin::GetBankParameters(<span class="keyword">const</span> GUID &amp; in_guidPlatform, <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_data_writer_split_000.html">AK::Wwise::Plugin::DataWriter</a>* in_pDataWriter)<span class="keyword"> const</span></div>
+<div class="line"><span class="keyword"></span>{</div>
+<div class="line">    <span class="comment">// Write bank data here</span></div>
+<div class="line">    in_pDataWriter-&gt;<a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_data_writer_a8d9b58e2ecba7f95721d4b89b7f9630f_split_000.html#a8d9b58e2ecba7f95721d4b89b7f9630f">WriteReal32</a>(m_propertySet.GetReal32(in_guidPlatform, <span class="stringliteral">"Frequency"</span>));</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p class="calibre7">Finally, in our processing loop, we want to use the current frequency to compute the filter's coefficient with this formula:</p>
+<pre class="fragment">coeff = exp(-2 * pi * f / sr)
+</pre><p class="calibre7">We need to retrieve the current sampling rate,</p>
+<div class="fragment"><div class="line"><span class="comment">// LowpassFX.h</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">private</span>:</div>
+<div class="line">    <span class="comment">//...</span></div>
+<div class="line">    <a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> m_sampleRate;</div>
+</div><!-- fragment --><div class="fragment"><div class="line"><span class="comment">// LowpassFX.cpp</span></div>
+<div class="line"> </div>
+<div class="line"><a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> <a class="pcalibre code" href="namespace_a_k_1_1_comm_a596691b552b507c26b4df958ee1c6de8_split_000.html#a596691b552b507c26b4df958ee1c6de8">LowpassFX::Init</a>(<a class="pcalibre code" href="class_a_k_1_1_i_ak_plugin_mem_alloc_split_000.html">AK::IAkPluginMemAlloc</a>* in_pAllocator, <a class="pcalibre code" href="class_a_k_1_1_i_ak_effect_plugin_context_split_000.html">AK::IAkEffectPluginContext</a>* in_pContext, <a class="pcalibre code" href="class_a_k_1_1_i_ak_plugin_param_split_000.html">AK::IAkPluginParam</a>* in_pParams, <a class="pcalibre code" href="struct_ak_audio_format_split_000.html">AkAudioFormat</a>&amp; in_rFormat)</div>
+<div class="line">{</div>
+<div class="line">    <span class="comment">//...</span></div>
+<div class="line">    m_sampleRate = in_rFormat.<a class="pcalibre code" href="struct_ak_audio_format_ad94d7b21266cb1d8a9aa5557f875d0fa_split_000.html#ad94d7b21266cb1d8a9aa5557f875d0fa">uSampleRate</a>;</div>
+<div class="line">    <span class="comment">//...</span></div>
+<div class="line">}</div>
+</div><!-- fragment --><p class="calibre7">include some math symbols:</p>
+<div class="fragment"><div class="line"><span class="comment">// LowpassFX.cpp</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;cmath&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#ifndef M_PI</span></div>
+<div class="line"><span class="preprocessor">#define M_PI 3.14159265359</span></div>
+<div class="line"><span class="preprocessor">#endif</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">//...</span></div>
+</div><!-- fragment --><p class="calibre7">and compute the filter coefficient:</p>
+<div class="fragment"><div class="line"><span class="comment">// LowpassFX.cpp</span></div>
+<div class="line"><span class="keywordtype">void</span> LowpassFX::Execute(<a class="pcalibre code" href="class_ak_audio_buffer_split_000.html">AkAudioBuffer</a>* io_pBuffer)</div>
+<div class="line">{</div>
+<div class="line">    m_coeff = <span class="keyword">static_cast&lt;</span><a class="pcalibre code" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a><span class="keyword">&gt;</span>(exp(-2.0 * M_PI * m_pParams-&gt;RTPC.fFrequency / m_sampleRate));</div>
+<div class="line">    <span class="comment">//...</span></div>
+<div class="line">}</div>
+</div><!-- fragment --></div></div></div></body></html>

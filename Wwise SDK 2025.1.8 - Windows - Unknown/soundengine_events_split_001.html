@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integration Details - Events</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2"><h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="soundengine_events_intro"></a>
+Introduction</h1>
+<p class="calibre7">Events are created by the Wwise user, specifying actions to be performed on Wwise objects. For example, an event might contain a Play action on sound <em class="calibre11">Bird1</em>, and a Stop action on sound <em class="calibre11">Bird2</em>. A second event could contain a Set Volume action on sound <em class="calibre11">CarEngine</em>, setting a relative volume offset of -2, and a Set Switch action that changes switch group <em class="calibre11">Ground_Material</em> to <em class="calibre11">Tiles</em>.</p>
+<p class="calibre7">Events are then packaged into SoundBanks which can be loaded in your game, after which those events can be triggered by your game's code. For example, when the player enters the kitchen, you would trigger the event that sets the <em class="calibre11">Ground_Material</em> switch to <em class="calibre11">Tiles</em>.</p>
+<p class="calibre7">Once events are integrated in the game, the Wwise user can continue working on them, changing or modifying the actions they contain, or the objects they refer to. Since your game is still triggering the same event, the changes made by the Wwise user will take effect in the game without requiring extra work from the programmer, and without recompiling the code.</p>
+</div></div></div></body></html>

@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Optimizing CPU usage</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="eventmgrthread_jobmgr"></a>
+Leveraging the Job Manager for Concurrent Execution of Audio Rendering Jobs</h1>
+<p class="calibre7">By default, the Wwise Sound Engine executes its various audio rendering tasks, or "jobs", on the audio rendering thread in a sequential fashion. These jobs include, but are not limited to, bus and voice processing tasks.</p>
+<p class="calibre7">Concurrent execution of these audio jobs can be enabled by specifying a callback that allows the Wwise Sound Engine to request CPU time on game-managed threads. When the game provides an implementation for this callback via <code class="calibre14"><a class="pcalibre el" href="struct_ak_job_mgr_settings_a9a6278f869a1a10e613da6e77f343303_split_000.html#a9a6278f869a1a10e613da6e77f343303" title="Function called by the job manager when a new worker needs to be requested. When null,...">AkJobMgrSettings::fnRequestJobWorker</a></code>, concurrent execution is enabled in the Wwise Sound Engine.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> When enabling concurrent job execution, some <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_split_000.html">AK::SoundEngine</a> callbacks will be generated from concurrent job worker threads. Additionally, some plug-ins may not be compatible with concurrent job execution. </td></tr>
+</tbody></table>
+<p class="calibre7">To understand how the Sound Engine's Job Manager works, it is important to learn the difference between two important callbacks:</p>
+<ol class="calibre26">
+<li class="calibre9">The <b class="calibre13">worker request function</b> is defined by the <em class="calibre11">game engine</em> and is called by the <em class="calibre11">Wwise Sound Engine</em>.</li>
+<li class="calibre9">The <b class="calibre13">worker function</b> is defined by the <em class="calibre11">Wwise Sound Engine</em> and is called by the <em class="calibre11">game engine</em>.</li>
+</ol>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> The Wwise Sound Engine expects exactly one call to the <b class="calibre13">worker function</b> for each worker request. For example, if the <b class="calibre13">worker request function</b> is called once to request three workers of type <code class="calibre14">AkJobType_AudioProcessing</code>, and then called again to request two workers of type <code class="calibre14">AkJobType_Generic</code>, then the Sound Engine will expect the game to call the <b class="calibre13">worker function</b> three times with <code class="calibre14">AkJobType_AudioProcessing</code>, and two times with <code class="calibre14">AkJobType_Generic</code>. The calls may be issued in any order, sequentially or concurrently from different threads. </td></tr>
+</tbody></table>
+<p class="calibre7">When the <b class="calibre13">worker request function</b> is defined, the audio rendering thread will behave as follows:</p>
+<div class="calibre2">
+<img alt="" src="jobmanagersequencediagram.png" class="inline"/>
+<div class="calibre2">
+Figure: Sequence Diagram of Worker Execution</div></div>
+<ol class="calibre26">
+<li class="calibre9">Audio rendering thread identifies jobs that can be performed on multiple threads, such as voice or bus processing.</li>
+<li class="calibre9">Audio rendering thread calls the game's <b class="calibre13">worker request function</b> to request CPU time on another thread. In this step, the game engine receives the address of the <b class="calibre13">worker function</b> to call.</li>
+<li class="calibre9">The game engine schedules the requests on its thread pool. A number of worker threads are woken up accordingly.</li>
+<li class="calibre9">The game's worker threads call the <b class="calibre13">worker functions</b> provided by the Sound Engine in step 2.</li>
+<li class="calibre9">Each call to the <b class="calibre13">worker function</b> executes at least one audio rendering job, but can execute more if they are available.</li>
+<li class="calibre9">The audio rendering thread resumes processing as soon as all required jobs have finished executing.</li>
+</ol>
+<p class="calibre7">This process can repeat multiple times throughout one audio rendering pass, and the audio rendering thread will attempt to pipeline work as much as possible. For example, when rendering the bus graph, processing time for a given bus will be requested as soon as all inputs have finished processing, and may run independently of other busses. In this way, the Job Manager will always attempt to maximize throughput.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> The <b class="calibre13">worker request function</b> can be called from any thread executing Sound Engine code, and <em class="calibre11">must</em> be implemented in a thread-safe manner. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

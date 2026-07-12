@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Ray Tracing Engine Geometry Guide</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_8"><a class="pcalibre1 anchor" id="raytracing_geometry_guide_load_balancing"></a>
+Load Balancing</h1>
+<p class="calibre7">Load balancing provides a way to flatten CPU peaks by distributing Wwise Acoustics task computation over several frames. Wwise Acoustics executes different types of tasks, such as ray casting and path validation, to compute the sound propagation paths (reflections and diffraction). Whenever one of these tasks needs to be performed, it is placed in a priority queue for further processing instead of being executed immediately. The tasks in the queue are then executed over the number of frames specified in the load balancing spread setting.</p>
+</div></div></div></body></html>

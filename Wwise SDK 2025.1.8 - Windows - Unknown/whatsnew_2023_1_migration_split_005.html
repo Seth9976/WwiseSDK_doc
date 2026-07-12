@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2023.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_4"><a class="pcalibre1 anchor" id="io_hook_merge"></a>
+Interfaces Merged</h2>
+<p class="calibre7">The <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_split_000.html">AK::StreamMgr::IAkLowLevelIOHook</a></code>, <code class="calibre14">AK::StreamMgr::IAkIOHookDeferred</code>, and <code class="calibre14">AK::StreamMgr::IAkIOHookDeferredBatch</code> interfaces were merged into <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_split_000.html">AK::StreamMgr::IAkLowLevelIOHook</a></code>. Previously, these interfaces were separated to allow the "blocking" variant, but now that this isn't supported, there is no reason to maintain such divisions. If your I/O hook derived from <code class="calibre14">IAkIOHookBlocking</code>, <code class="calibre14">IAkIOHookDeferred</code>, or <code class="calibre14">IAkIOHookDeferredBatch</code>, replace it with <code class="calibre14">IAkLowLevelIOHook</code> and implement any missing functions.</p>
+</div></div></div></body></html>

@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Advanced Topics in Rooms and Portals</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2"><h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="spatial_audio_roomsportals_obsocc"></a>
+Combining Rooms and Portals with Obstruction and Occlusion</h1>
+<p class="calibre7">In the context of Wwise Acoustics, sound propagation from other Rooms is entirely managed by the Rooms and Portals abstraction. Rooms with at least one propagation path to the listener through open Portals simulate diffraction. Additionally, Rooms model sound transmission through walls. Diffraction and Transmission Loss values are applied to the emitter game object. In Wwise Authoring, you can choose whether you want these values to attenuate the sound using the attenuation curves or using built-in game parameters instead. If a sound doesn't have an attenuation instance (either custom or ShareSet), the project diffraction and transmission curves are used to attenuate the sound.</p>
+<p class="calibre7">If you are using built-in game parameters to drive RTPCs, any obstruction and occlusion values set on a Portal do not affect the RTPC values. This behavior is intentional and occurs because RTPCs only provide one value per game object, but a single game object can have multiple paths through different Portals, each with different obstruction and occlusion values.</p>
+<p class="calibre7">If you want to implement your own solution for obstruction (for example, one driven by game-side ray casting) in conjunction with diffraction set from Wwise Acoustics, the game can use the <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a1b3e18a25b405e55ba82de9b70cd11ba_split_000.html#a1b3e18a25b405e55ba82de9b70cd11ba">AK::SoundEngine::SetObjectObstructionAndOcclusion</a></code> sound engine API. For the occlusion of Portal openings, the game can use the Spatial Audio API <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_a41b9dee6e3af84e5ce3075319e16740d_split_000.html#a41b9dee6e3af84e5ce3075319e16740d">AK::SpatialAudio::SetPortalObstructionAndOcclusion</a></code>. You can also apply obstruction on the sound path between an emitter and a nearby Portal, a listener and a nearby Portal or a pair of consecutive Portals with the help of <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_a97160dbbde1cd5d6dd6a78332e4739a7_split_000.html#a97160dbbde1cd5d6dd6a78332e4739a7">AK::SpatialAudio::SetGameObjectToPortalObstruction</a></code> and <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_a88445d79b3f405a5d1ed2dd5b3276452_split_000.html#a88445d79b3f405a5d1ed2dd5b3276452">AK::SpatialAudio::SetPortalToPortalObstruction</a></code>. Under no circumstances should the game call <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a1b3e18a25b405e55ba82de9b70cd11ba_split_000.html#a1b3e18a25b405e55ba82de9b70cd11ba">AK::SoundEngine::SetObjectObstructionAndOcclusion</a></code> with a Room ID as the game object parameters, as the results are undefined. Refer to section <a class="pcalibre el" href="spatial_audio_roomsportals_advancedtopics_split_002.html#spatial_audio_roomsportals_modelingsoundpropagationfromsameroom">Modeling Obstacles Within a Room</a> for more detail on how to use same-Room obstruction with Wwise Acoustics.</p>
+<p class="calibre7">Refer to <a class="pcalibre el" href="spatial_audio_concepts_split_000.html">Wwise Acoustics Concepts</a> for a review of these acoustic concepts.</p>
+</div></div></div></body></html>

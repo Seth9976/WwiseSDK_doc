@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak.wwise.core.audio.import</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="ak_wwise_core_audio_importArguments"></a>
+Arguments</h1>
+<p class="calibre7"></p><table class="doxtable">
+<tbody class="calibre4"><tr class="calibre16">
+<th class="calibre46">Name </th><th class="calibre46">Type </th><th class="calibre46">Description  </th></tr>
+<tr class="calibre16">
+<td rowspan="4" class="calibre36"><b class="calibre13">importOperation</b> </td><td class="calibre36">string </td><td class="calibre36"><p class="starttd">Determines how imported objects are created. </p>
+<p class="endtd">One of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">createNew</b> : Creates a new object; the object is given the desired name if possible, otherwise a new unique name is used.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">useExisting</b> : Uses the object if it exists, updating the specified properties; otherwise it creates a new object. This is the default value.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36"/><td class="calibre36"><b class="calibre13">replaceExisting</b> : Creates a new object; if an existing object has the same name then the existing object is destroyed.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">default</b> </td><td class="calibre36">object </td><td class="calibre36">Default values for each item in "imports". Use this object to avoid repeating common properties of every imported element.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">default.<b class="calibre13">importLanguage</b> </td><td class="calibre36">string </td><td class="calibre36">Imports the language for the audio file import (taken from the project's defined languages, found in the WPROJ file LanguageList).   </td></tr>
+<tr class="calibre16">
+<td rowspan="4" class="calibre36">default.<b class="calibre13">importLocation</b> </td><td class="calibre36"/><td class="calibre36"><p class="starttd">Object ID (GUID), name, or path used as root relative object paths. </p>
+<p class="endtd">Any of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">The name of the object qualified by its type or Short ID in the form of type:name or Global:shortId. Only object types that have globally-unique names or Short Ids are supported. Ex: Event:Play_Sound_01, Global:245489792   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">A project path to a Wwise object, including the category and the work-unit. For example: \Containers\Default Work Unit\New Sound SFX.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">default.<b class="calibre13">audioFile</b> </td><td class="calibre36">string </td><td class="calibre36">Path to media file to import. This path must be accessible from Wwise. For using WAAPI on Mac, please see <a class="pcalibre el" href="waapi_prepare_split_005.html#waapi_path_on_mac">Using WAAPI on Mac</a> .   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">default.<b class="calibre13">audioFileBase64</b> </td><td class="calibre36">string </td><td class="calibre36">Base64 encoded WAV audio file data to import with its target file path relative to the Originals folder, separated by a vertical bar. E.g. 'MySound.wav|UklGRu...'.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">default.<b class="calibre13">originalsSubFolder</b> </td><td class="calibre36">string </td><td class="calibre36">Specifies the 'originals' sub-folder in which to place the imported audio file. This folder is relative to the 'originals' folder in which the file would normally be imported. Example: if importing an SFX, then the audio file is imported to the folder Originals\SFX\originalsPath.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">default.<b class="calibre13">objectPath</b> </td><td class="calibre36">string </td><td class="calibre36">The path and name of the object(s) to be created. The path uses backslashes and can either be absolute or relative. Object types can be specified before the name. For example: <pre class="fragment">\\Containers\\Default Work Unit\\&lt;Random Container&gt;MyContainer\\&lt;Sound&gt;MySound. </pre> See <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for the available types.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">default.<b class="calibre13">objectType</b> </td><td class="calibre36">string </td><td class="calibre36">Specifies the type of object to create when importing an audio file. This type can also be specified directly in the objectPath. See <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for the available types.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">default.<b class="calibre13">notes</b> </td><td class="calibre36">string </td><td class="calibre36">The "Notes" field of the created object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">default.<b class="calibre13">audioSourceNotes</b> </td><td class="calibre36">string </td><td class="calibre36">The "Notes" field of the created audio source object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">default.<b class="calibre13">switchAssignation</b> </td><td class="calibre36">string </td><td class="calibre36">Defines a Switch Group or State Group that is associated to a Switch Container, within the Containers only. Also defines which Switch Container's child is assigned to which Switch or State from the associated group. See Tab Delimited Import in the Wwise Help documentation for more information.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">default.<b class="calibre13">event</b> </td><td class="calibre36">string </td><td class="calibre36">Defines the path and name of an Event to be created for the imported object. See Tab Delimited Import in the Wwise Help documentation for more information.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">default.<b class="calibre13">dialogueEvent</b> </td><td class="calibre36">string </td><td class="calibre36">Defines the path and name of a Dialogue Event to be created for the imported object. See Tab Delimited Import in the Wwise Help documentation for more information.   </td></tr>
+<tr class="calibre16">
+<td rowspan="5" class="calibre36">default.<b class="calibre13">regex(^@[:_a-zA-Z0-9]+$)</b> </td><td class="calibre36"/><td class="calibre36"><p class="starttd">Specifies a Wwise object property and its value. Property names are prefixed with . See <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for the properties available. For example: @Volume:3<br class="calibre10"/>
+ The value of a property. </p>
+<p class="endtd">Any of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">null </td><td class="calibre36">A null value. No reference to an object.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">A string value.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">number </td><td class="calibre36">A numerical value.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">boolean </td><td class="calibre36">A boolean value.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">imports</b> * </td><td class="calibre36">array </td><td class="calibre36">Array of import commands.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">imports <b class="calibre13">[...]</b> </td><td class="calibre36">object </td><td class="calibre36">Import command. The members of this object are combined with those of "default", with this object's members having precedence. In addition to the listed properties, you can also set wobject properties and references using @Property. For example, you can set the volume by adding the @Volume property. References that have constraints from other references, such as a Switch Container's State/Switch, which is constrained to being a child of a State/Switch Group, should not be set because WAAPI cannot ensure that a reference is set in the required order.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">imports[...].<b class="calibre13">importLanguage</b> </td><td class="calibre36">string </td><td class="calibre36">Imports the language for the audio file import (taken from the project's defined languages, found in the WPROJ file LanguageList).   </td></tr>
+<tr class="calibre16">
+<td rowspan="4" class="calibre36">imports[...].<b class="calibre13">importLocation</b> </td><td class="calibre36"/><td class="calibre36"><p class="starttd">Object ID (GUID), name, or path used as root relative object paths. </p>
+<p class="endtd">Any of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">The name of the object qualified by its type or Short ID in the form of type:name or Global:shortId. Only object types that have globally-unique names or Short Ids are supported. Ex: Event:Play_Sound_01, Global:245489792   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">A project path to a Wwise object, including the category and the work-unit. For example: \Containers\Default Work Unit\New Sound SFX.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">imports[...].<b class="calibre13">audioFile</b> </td><td class="calibre36">string </td><td class="calibre36">Path to media file to import. This path must be accessible from Wwise. For using WAAPI on Mac, please see <a class="pcalibre el" href="waapi_prepare_split_005.html#waapi_path_on_mac">Using WAAPI on Mac</a> .   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">imports[...].<b class="calibre13">audioFileBase64</b> </td><td class="calibre36">string </td><td class="calibre36">Base64 encoded WAV audio file data to import with its target file path relative to the Originals folder, separated by a vertical bar. E.g. 'MySound.wav|UklGRu...'.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">imports[...].<b class="calibre13">originalsSubFolder</b> </td><td class="calibre36">string </td><td class="calibre36">Specifies the 'originals' sub-folder in which to place the imported audio file. This folder is relative to the 'originals' folder in which the file would normally be imported. Example: if importing an SFX, then the audio file is imported to the folder Originals\SFX\originalsPath.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">imports[...].<b class="calibre13">objectPath</b> * </td><td class="calibre36">string </td><td class="calibre36">The path and name of the object(s) to be created. The path uses backslashes and can either be absolute or relative. Object types can be specified before the name. For example: <pre class="fragment">\\Containers\\Default Work Unit\\&lt;Random Container&gt;MyContainer\\&lt;Sound&gt;MySound. </pre> See <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for the available types.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">imports[...].<b class="calibre13">objectType</b> </td><td class="calibre36">string </td><td class="calibre36">Specifies the type of object to create when importing an audio file. This type can also be specified directly in the objectPath. See <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for the available types.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">imports[...].<b class="calibre13">notes</b> </td><td class="calibre36">string </td><td class="calibre36">The "Notes" field of the created object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">imports[...].<b class="calibre13">audioSourceNotes</b> </td><td class="calibre36">string </td><td class="calibre36">The "Notes" field of the created audio source object.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">imports[...].<b class="calibre13">switchAssignation</b> </td><td class="calibre36">string </td><td class="calibre36">Defines a Switch Group or State Group that is associated to a Switch Container, within the Containers only. Also defines which Switch Container's child is assigned to which Switch or State from the associated group. See Tab Delimited Import in the Wwise Help documentation for more information.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">imports[...].<b class="calibre13">event</b> </td><td class="calibre36">string </td><td class="calibre36">Defines the path and name of an Event to be created for the imported object. See Tab Delimited Import in the Wwise Help documentation for more information.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">imports[...].<b class="calibre13">dialogueEvent</b> </td><td class="calibre36">string </td><td class="calibre36">Defines the path and name of a Dialogue Event to be created for the imported object. See Tab Delimited Import in the Wwise Help documentation for more information.   </td></tr>
+<tr class="calibre16">
+<td rowspan="5" class="calibre36">imports[...].<b class="calibre13">regex(^@[:_a-zA-Z0-9]+$)</b> </td><td class="calibre36"/><td class="calibre36"><p class="starttd">Specifies the value of the property. See <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for the properties available.<br class="calibre10"/>
+ The value of a property. </p>
+<p class="endtd">Any of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">null </td><td class="calibre36">A null value. No reference to an object.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">A string value.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">number </td><td class="calibre36">A numerical value.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">boolean </td><td class="calibre36">A boolean value.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">autoAddToSourceControl</b> </td><td class="calibre36">boolean </td><td class="calibre36">Determines if Wwise automatically performs a source control Add operation on the imported files. Defaults to true.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">autoCheckOutToSourceControl</b> </td><td class="calibre36">boolean </td><td class="calibre36">Determines if Wwise automatically performs a source control Checkout operation (when applicable) on the modified files. Defaults to true.   </td></tr>
+</tbody></table>
+<p class="calibre7">(Required *)</p>
+<p class="calibre7"><a class="pcalibre el" href="ak_wwise_core_audio_import_args_schema_split_000.html">Arguments Schema</a></p>
+</div></div></div></body></html>

@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AkRoomParams::GeometryInstanceID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="struct_ak_room_params_ac63a7f55f7bf863dde9af7e3e3a69758_split_000.html#ac63a7f55f7bf863dde9af7e3e3a69758" class="pcalibre1 anchor">◆ </a></span>GeometryInstanceID</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_spatial_audio_types_8h_a4eccc0cc5fbd68160830c3201a8878a5_split_000.html#a4eccc0cc5fbd68160830c3201a8878a5">AkGeometrySetID</a> AkRoomParams::GeometryInstanceID</td>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Assign a Geometry Instance <code class="calibre14">GeometryInstanceID</code>, which describes the size and shape of the Room. Assigning a Geometry Instance to a Room serves several purposes: the shape and surface properties of the geometry are used to calculate the transmission of reverb and room tones through walls, it allows Spatial Audio to automatically determine which Game Objects are in which Room, and it allows for visualization of the room inside the Game Object 3D Viewer. To create Room geometry, a Geometry Set must be created using <a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_a0cada36fab682ebb3005a79dd05a5640_split_000.html#a0cada36fab682ebb3005a79dd05a5640">AK::SpatialAudio::SetGeometry</a>, and then a Geometry Instance must be created using <a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_ac2d5e660de0cc2a323d50f44a2731fa9_split_000.html#ac2d5e660de0cc2a323d50f44a2731fa9">AK::SpatialAudio::SetGeometryInstance</a>. The Room itself, however, can be created either before or after the geometry is created. </p><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> If the geometry instance is only used for room containment and not for reflection, diffraction, or transmission, then set <code class="calibre14"><a class="pcalibre el" href="struct_ak_geometry_instance_params_a30ef95f856b020642d4a45d43c3df86d_split_000.html#a30ef95f856b020642d4a45d43c3df86d">AkGeometryInstanceParams::UseForReflectionAndDiffraction</a></code> to false. <dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="spatial_audio_roomsportals_apiconfig_split_003.html#spatial_audio_roomsportals_apiconfigroomgeometry">Setting up Room Geometry</a></li>
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_geometry_instance_params_split_000.html">AkGeometryInstanceParams</a></li>
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_a3f080206f12c04b3464838cb18c43f4e_split_000.html#a3f080206f12c04b3464838cb18c43f4e">AK::SpatialAudio::SetGameObjectInRoom</a> </li>
+</ul>
+</dd></dl>
+</td></tr>
+</tbody></table>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_ak_spatial_audio_types_8h_source_split_000.html#l00750">750</a> of file <a class="pcalibre el" href="_ak_spatial_audio_types_8h_source_split_000.html">AkSpatialAudioTypes.h</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

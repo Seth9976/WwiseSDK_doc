@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>I/O Tips, Troubleshooting and Optimization</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="streamingmanager_tips_dvddevice"></a>
+Tuning Streaming Device Settings</h1>
+<p class="calibre7">The default device settings (obtained from <a class="pcalibre el" href="namespace_a_k_1_1_stream_mgr_a7d01e09a9bb6b6d34c2bb8f4c8995214_split_000.html#a7d01e09a9bb6b6d34c2bb8f4c8995214">AK::StreamMgr::GetDefaultDeviceSettings</a>) are appropriate for a DVD device. The default granularity is 16 KB, but larger granularities often result in better DVD throughput <em class="calibre11">for a single stream</em>. 32 KB seems to be a good choice for most DVD drives. Use a larger granularity only if you never stream more than one or two audio files. Otherwise, you might optimize the throughput of a single stream at the expense of others. Also, be aware that a larger granularity requires more stream I/O memory.</p>
+<p class="calibre7">If you use the soundengine to load soundbanks from files, it may also be beneficial to modify one of the sound engine initialization settings, <a class="pcalibre el" href="struct_ak_init_settings_ae4c40fd9bab28527705d43b2247bbe21_split_000.html#ae4c40fd9bab28527705d43b2247bbe21" title="The number of bytes read by the BankReader when new data needs to be loaded from disk during serializ...">AkInitSettings::uBankReadBufferSize</a>. This is the amount of data requested at a time when reading in soundbank data from a file. Larger values will issue fewer reads, or fewer sets of reads, at the cost of more memory. This will have no effect if you are loading soundbanks from memory.</p>
+<p class="calibre7">At some point, you will probably wish to optimize the memory usage. You may find useful information about this in <a class="pcalibre el" href="streamingmanager_tips_split_009.html#streamingmanager_tips_iomemorypool">Reducing the I/O Pool Memory Usage</a>.</p>
+</div></div></div></body></html>

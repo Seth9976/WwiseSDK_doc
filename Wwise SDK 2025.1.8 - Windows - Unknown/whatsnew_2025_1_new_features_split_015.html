@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>New Features Overview 2025.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_14"><a class="pcalibre1 anchor" id="features_25_1_unreal_dyn_dialogue"></a>
+Unreal Dynamic Dialogue</h2>
+<p class="calibre7">Dynamic Dialogue in Wwise uses a set of rules in a decision tree to determine which sound to play at any particular moment in game. It is a flexible way to determine which sound to play, as decided by user-defined path associations as part of a Dialogue Event. It is a way to use States and Switches to choose the best sound. The benefits of the Dynamic Dialogue system include familiar setup using State and Switch associations, object sharing without containers, granular asset management, and runtime flexibility. For more information about Dynamic Dialogue in Wwise, see <a href="https://www.audiokinetic.com/library/edge/?source=Help&amp;id=managing_dynamic_dialogue" target="_blank" class="pcalibre calibre12">Managing dynamic dialogue</a>.</p>
+<div class="calibre2">
+<img alt="" src="unreal_dyn_dialoque.png" class="inline"/>
+</div>
+<p class="calibre7"> <br class="calibre10"/>
+ </p><div class="calibre2">
+<img alt="" src="footstep_dialogue.png" class="inline"/>
+</div>
+<p class="calibre7">The dynamic dialogue system is composed of two systems:</p>
+<ul class="calibre8">
+<li class="calibre9">Dialogue Events, which contain decision-tree structures that resolve to audio nodes.<ul class="calibre15">
+<li class="calibre9">Dialogue Events consist of paths of Switch and State Groups that resolve into an assigned object in one of two ways: through the provision of Switch and State values, or through a default path.</li>
+</ul>
+</li>
+<li class="calibre9">Dynamic Sequences, are associated with regular game objects (AkComponents in Unreal) that contain sequential playlists of resolved audio nodes.<ul class="calibre15">
+<li class="calibre9">A Dynamic Sequence is a playlist of audio nodes bound to a game object. It is similar to a game-controlled music playlist container, or to a sequence container.</li>
+</ul>
+</li>
+</ul>
+<p class="calibre7">The <em class="calibre11">audio nodes</em> that these systems use are any objects in the Containers Hierarchy that can be played in a regular Event, such as sound effects, voices, and containers.</p>
+<p class="calibre7">Features include:</p><ul class="calibre8">
+<li class="calibre9">Dynamic Dialogue features are available as C++ functions and Blueprint Nodes</li>
+<li class="calibre9">Dialogue Events can be imported through the Wwise Browser, like any other type of Event.</li>
+<li class="calibre9">Dialogue Events can be previewed using the default path.</li>
+<li class="calibre9">Path Arguments can be defined.</li>
+<li class="calibre9">Argument can be added to the Resolve operation.</li>
+<li class="calibre9">Audio Nodes can be added to Dynamic Sequence Playlists.</li>
+</ul>
+</div></div></div></body></html>

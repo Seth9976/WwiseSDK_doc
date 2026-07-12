@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::SpatialAudio::SetAdjacentRoomBleed</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="namespace_a_k_1_1_spatial_audio_acfd8b560df7015bbf1a2c747d4444d3a_split_000.html#acfd8b560df7015bbf1a2c747d4444d3a" class="pcalibre1 anchor">◆ </a></span>SetAdjacentRoomBleed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_sound_engine_export_8h_ac6e96d34dfc0e12f9aaa7a47f4e9c322_split_000.html#ac6e96d34dfc0e12f9aaa7a47f4e9c322">AKSOUNDENGINE_API</a> <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::SpatialAudio::SetAdjacentRoomBleed </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a> </td>
+          <td class="paramname"><em class="calibre59">in_fAdjacentRoomBleed</em></td><td class="calibre17">)</td>
+          <td class="calibre17"/>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Set a global scaling factor that manipulates reverb send values. <a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_acfd8b560df7015bbf1a2c747d4444d3a_split_000.html#acfd8b560df7015bbf1a2c747d4444d3a">AK::SpatialAudio::SetAdjacentRoomBleed</a> affects the proportion of audio sent to adjacent rooms versus the proportion sent to the emitter's current room. It updates the initialization setting specified in <a class="pcalibre el" href="struct_ak_spatial_audio_init_settings_ab75b8c41dbd117179bf344a469c7f5b1_split_000.html#ab75b8c41dbd117179bf344a469c7f5b1">AkSpatialAudioInitSettings::fAdjacentRoomBleed</a>. This value is multiplied by <a class="pcalibre el" href="struct_ak_portal_params_a8cca592e2a38f8719b6e5a03eddecb07_split_000.html#a8cca592e2a38f8719b6e5a03eddecb07">AkPortalParams::AdjacentRoomBleed</a>, which is used to scale reverb bleed for individual portals. When calculating reverb send amounts, each portal's aperture is multiplied by fAdjacentRoomBleed, altering its perceived size:</p><ul class="calibre8">
+<li class="calibre9">1.0 (default): Maintain portals at its true geometric size (no scaling).</li>
+<li class="calibre9">&gt; 1.0: Increases the perceived size of all portals, allowing more bleed into adjacent rooms.</li>
+<li class="calibre9">&lt; 1.0: Decreases the perceived size of all portals, reducing bleed into adjacent rooms. Valid range: (0.0 - infinity) Note: Values approaching 0 may result in abrupt portal transitions. </li>
+</ul>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

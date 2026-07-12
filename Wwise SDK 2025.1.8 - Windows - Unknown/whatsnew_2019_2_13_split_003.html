@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2019.2.13</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="generic_bugs_2019_2_13"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-54043</b> Fixed: Music event cues that set States/Switches used by Interactive Music may lead to a crash.</li>
+<li class="calibre9"><b class="calibre13">WG-54291</b> Fixed: Crash in <code class="calibre14">AkPipelineBufferBase::GetCachedBuffer</code> when using multi-core rendering.</li>
+<li class="calibre9"><b class="calibre13">WG-55183</b> Fixed: Source starvation when playing long Vorbis sounds with small Seek Table Granularity.</li>
+<li class="calibre9"><b class="calibre13">WG-55371</b> Fixed: Crash when playing sample accurate sequence container with child container that has an effect.</li>
+<li class="calibre9"><b class="calibre13">WG-55536</b> Fixed: Hang when the main Audio Device resets while the main output is replaced using <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a81521a4611d3891c499ec9c5eb421ac2_split_000.html#a81521a4611d3891c499ec9c5eb421ac2">AK::SoundEngine::ReplaceOutput</a></code>, after adding secondary outputs with <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a15ab79f954a307902f529d8ccde8ad48_split_000.html#a15ab79f954a307902f529d8ccde8ad48">AK::SoundEngine::AddOutput</a></code>.</li>
+<li class="calibre9"><b class="calibre13">WG-55622</b> Fixed: Rare crash when using Blend Containers.</li>
+<li class="calibre9"><b class="calibre13">WG-55740</b> Fixed: (Mac Authoring) Nuendo Game Audio Connect import fails with file not found.</li>
+<li class="calibre9"><b class="calibre13">WG-55744</b> Fixed: Nuendo Game Audio Connect does not detect corresponding files in subdirectories.</li>
+<li class="calibre9"><b class="calibre13">WG-55794</b> Fixed: SoundBank generation does not delete a pre-existing .bnk file when in a different folder.</li>
+<li class="calibre9"><b class="calibre13">WG-55798</b> Fixed: (Spatial Audio) An uninitialized variable causes paths from portals to be inconsistent.</li>
+<li class="calibre9"><b class="calibre13">WG-56074</b> Fixed: Command Queue Size in Profiler reports 100% when the command queue is actually empty.</li>
+<li class="calibre9"><b class="calibre13">WG-56110</b> Fixed: The default selected version of Wwise Motion does not always match Wwise's.</li>
+</ul>
+</div></div></div></body></html>

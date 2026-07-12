@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integrating Wwise Motion</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_12"><a class="pcalibre1 anchor" id="motion_checklist_troubleshooting"></a>
+Checklist and Troubleshooting</h1>
+<p class="calibre7">For a specific device to receive motion with one device, you must:</p><ol class="calibre26">
+<li class="calibre9">Add a Wwise Motion Audio Device ShareSet to your project.</li>
+<li class="calibre9">Create a top-level Audio Bus and set its Audio Device to the Wwise Motion Audio Device ShareSet you just added.</li>
+<li class="calibre9">Create Sound SFXs and route them to the motion bus hierarchy.</li>
+<li class="calibre9">In the game, link to the <code class="calibre14">AkMotionSink</code> library. Include <code class="calibre14"><a class="pcalibre el" href="_ak_motion_sink_factory_8h_split_000.html">AkMotionSinkFactory.h</a></code> and link with the <code class="calibre14">AkMotionSink</code> library. <table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> In Unity and Unreal, plug-in libraries are managed automatically. This step is unnecessary. </td></tr>
+</tbody></table>
+</li>
+<li class="calibre9">Create a Game Object to call and receive motion Events with <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a895ed0f83a0dea8fc284491c0ee0152c_split_000.html#a895ed0f83a0dea8fc284491c0ee0152c">AK::SoundEngine::RegisterGameObj</a></code>.</li>
+<li class="calibre9">Call <code class="calibre14">Ak::SoundEngine::AddOutput</code> with the Wwise Motion ShareSet and a device ID. For multiplayer, provide a Listener object for each.</li>
+<li class="calibre9">Trigger your Events the same way you do for audio Events.</li>
+</ol>
+<p class="calibre7">To add Motion to the Wwise project:</p><ol class="calibre26">
+<li class="calibre9">Add a Wwise Motion Audio Device ShareSet to your project.</li>
+<li class="calibre9">Create a top-level Audio Bus and set its Audio Device to the Wwise Motion Audio Device ShareSet you just added.</li>
+<li class="calibre9">Create Sound SFXs and route them to the motion bus hierarchy.</li>
+<li class="calibre9">In the Audio Preferences, locate the busses you want to use motion with and, from the list, set the device of each bus to the motion device of your choice.</li>
+</ol>
+</div></div></div></body></html>

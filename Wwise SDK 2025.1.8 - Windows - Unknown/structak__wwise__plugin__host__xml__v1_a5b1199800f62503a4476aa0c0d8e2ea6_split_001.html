@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak_wwise_plugin_host_xml_v1::MoveToContent</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="structak__wwise__plugin__host__xml__v1_a5b1199800f62503a4476aa0c0d8e2ea6_split_000.html#a5b1199800f62503a4476aa0c0d8e2ea6" class="pcalibre1 anchor">◆ </a></span>MoveToContent</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_1_1_xml_node_type_a2fa372cb0681531259c177a5938a22ff_split_000.html#a2fa372cb0681531259c177a5938a22ff">AK::Wwise::Plugin::XmlNodeType::NodeType</a>(* ak_wwise_plugin_host_xml_v1::MoveToContent) (struct <a class="pcalibre el" href="structak__wwise__plugin__host__xml__reader__instance__v1_split_000.html">ak_wwise_plugin_host_xml_reader_instance_v1</a> *in_this)</td>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+
+<p class="calibre7">Makes sure the cursor points to a content-type entity while reading XML. </p>
+<p class="calibre7">If the node is not a content node, the reader skips ahead to the next content entity until the end of file. More specifically, it will skip over the following usual node types:</p><ul class="calibre8">
+<li class="calibre9"><code class="calibre14">ProcessingInstruction</code> </li>
+<li class="calibre9"><code class="calibre14">DocumentType</code> </li>
+<li class="calibre9"><code class="calibre14">Comment</code> </li>
+<li class="calibre9"><code class="calibre14">Whitespace</code> </li>
+<li class="calibre9"><code class="calibre14">SignificantWhitespace</code> </li>
+</ul>
+<p class="calibre7">Content entities are specifically:</p><ul class="calibre8">
+<li class="calibre9"><code class="calibre14">Text</code> (Non-whitespace text)</li>
+<li class="calibre9"><code class="calibre14">CDATA</code> </li>
+<li class="calibre9"><code class="calibre14">Element</code> </li>
+<li class="calibre9"><code class="calibre14">EndElement</code> </li>
+<li class="calibre9"><code class="calibre14">EndEntity</code> </li>
+<li class="calibre9"><code class="calibre14">EntityReference</code> </li>
+</ul>
+<p class="calibre7">This method will also move to the element part of an <code class="calibre14">Attribute</code>.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><p class="starttd"><b class="calibre13">Note:</b> This method is mostly a convenience and could be easily coded by a simple loop.</p>
+<p class="endtd">Once the current node hierarchy information is determined by proper use of <a class="pcalibre el" href="structak__wwise__plugin__host__xml__v1_a4cd5cb7f09d7bb150d1d8edf28cb85b6_split_000.html#a4cd5cb7f09d7bb150d1d8edf28cb85b6">Read</a>, MoveToContent will make sure to provide the actual content of the entity. If no content is available, it will return <a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_1_1_xml_node_type_a2fa372cb0681531259c177a5938a22ff_split_001.html#a2fa372cb0681531259c177a5938a22ffa3be434228dd402b79c5f5aad76d4613a">EndElement</a> or <a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_1_1_xml_node_type_a2fa372cb0681531259c177a5938a22ff_split_001.html#a2fa372cb0681531259c177a5938a22ffa02d284c7b7b4bed8031c66ae246bc550">EndEntity</a>. </p>
+</td></tr>
+</tbody></table>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_this</td><td class="calibre17">Current reader instance of this interface. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">The new node type. <code class="calibre14">None</code> if the reader has reached the end of file. </dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_host_xml_8h_source_split_000.html#l00278">278</a> of file <a class="pcalibre el" href="_host_xml_8h_source_split_000.html">HostXml.h</a>.</p>
+
+<p class="calibre7">Referenced by <a class="pcalibre el" href="_host_xml_8h_source_split_000.html#l00667">AK.Wwise::Plugin::V1::XmlReader::MoveToContent()</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

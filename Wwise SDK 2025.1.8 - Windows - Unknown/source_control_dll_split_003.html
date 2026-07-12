@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Source Control Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_2"><a class="pcalibre1 anchor" id="source_control_dll_creation_exported"></a>
+Establishing Exported Functions</h2>
+<p class="calibre7">Each plug-in DLL must export three functions:</p><ul class="calibre8">
+<li class="calibre9">AkSourceControlGetPluginIDList(): Lets Wwise access the list of plug-ins contained in the DLL by getting the list of all plug-in IDs.</li>
+<li class="calibre9">AkSourceControlGetPluginInfo(): Lets Wwise access the <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_1_1_plugin_info_split_000.html" title="Plug-in information structure. This structure gives a simple overview of the plug-in's capabilities.">AK::Wwise::ISourceControl::PluginInfo</a> class associated with a given plug-in.</li>
+<li class="calibre9">AkSourceControlCreatePlugin(): Creates an instance of your <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_split_000.html">AK::Wwise::ISourceControl</a> object.</li>
+</ul>
+<p class="calibre7">Prototypes of these exported functions can be found in the following type definitions:</p><ul class="calibre8">
+<li class="calibre9"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_a5884432f102b445c4c3de021a3867e46_split_000.html#a5884432f102b445c4c3de021a3867e46" title="Gets the plug-in ID list contained by the DLL file.">AK::Wwise::ISourceControl::GetSourceControlIDListFuncPtr</a></li>
+<li class="calibre9"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_a9e3376c6dbaa3e6094e21e04aa2a28e1_split_000.html#a9e3376c6dbaa3e6094e21e04aa2a28e1" title="Gets the AK::Wwise::ISourceControl::PluginInfo class associated with a given plug-in ID.">AK::Wwise::ISourceControl::GetSourceControlPluginInfoFuncPtr</a></li>
+<li class="calibre9"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_a5ea75c450aecec73c2b29f51d990a206_split_000.html#a5ea75c450aecec73c2b29f51d990a206">AK::Wwise::ISourceControl::GetSourceControlInstanceFuncPtr</a></li>
+</ul>
+<p class="calibre7">Here is an example of the exported functions for a plug-in DLL containing two plug-ins:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include "<a class="pcalibre code" href="_i_source_control_8h_split_000.html">AK/Wwise/SourceControl/ISourceControl.h</a>"</span></div>
+<div class="line"><span class="preprocessor">#include "SamplePlugin.h"</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">namespace</span></div>
+<div class="line">{</div>
+<div class="line">    <span class="comment">// FirstSamplePlugin ID = {BD47DF98-1700-4542-A33F-E44705C25AF0}</span></div>
+<div class="line">    <span class="keyword">static</span> <span class="keyword">const</span> GUID s_guidFirstSamplePluginID = </div>
+<div class="line">    { 0xbd47df98, 0x1700, 0x4542, { 0xa3, 0x3f, 0xe4, 0x47, 0x5, 0xc2, 0x5a, 0xf0 } };</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// SecondSamplePlugin ID = {57168691-2354-4166-82BF-DD07A36C16C6}</span></div>
+<div class="line">    <span class="keyword">static</span> <span class="keyword">const</span> GUID s_guidSecondSamplePluginID = </div>
+<div class="line">    { 0x57168691, 0x2354, 0x4166, { 0x82, 0xbf, 0xdd, 0x7, 0xa3, 0x6c, 0x16, 0xc6 } };</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> __stdcall AkSourceControlGetPluginIDList ( <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_source_control_containers_1_1_i_ak_list_split_000.html">AK::Wwise::ISourceControl::PluginIDList</a>&amp; out_rPluginIDList )</div>
+<div class="line">{</div>
+<div class="line">    out_rPluginIDList.<a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_source_control_containers_1_1_i_ak_list_ad148966a617cb4164a43b3772bb4f321_split_000.html#ad148966a617cb4164a43b3772bb4f321">AddTail</a>( s_guidFirstSamplePluginID ); </div>
+<div class="line">    out_rPluginIDList.<a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_source_control_containers_1_1_i_ak_list_ad148966a617cb4164a43b3772bb4f321_split_000.html#ad148966a617cb4164a43b3772bb4f321">AddTail</a>( s_guidSecondSamplePluginID );</div>
+<div class="line"> </div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> __stdcall AkSourceControlGetPluginInfo ( <span class="keyword">const</span> GUID&amp; in_rguidPluginID, </div>
+<div class="line">    <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_i_source_control_1_1_plugin_info_split_000.html">AK::Wwise::ISourceControl::PluginInfo</a>&amp; out_rPluginInfo )</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordflow">if</span> ( in_rguidPluginID == s_guidFirstSamplePluginID )</div>
+<div class="line">    {</div>
+<div class="line">        FirstSamplePlugin::GetPluginInfo( out_rPluginInfo );</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( in_rguidPluginID == s_guidSecondSamplePluginID )</div>
+<div class="line">    {</div>
+<div class="line">        SecondSamplePlugin::GetPluginInfo( out_rPluginInfo );</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_i_source_control_split_000.html">AK::Wwise::ISourceControl</a>* __stdcall AkSourceControlCreatePlugin ( <span class="keyword">const</span> GUID&amp; in_rguidPluginID )</div>
+<div class="line">{</div>
+<div class="line">    <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_i_source_control_split_000.html">AK::Wwise::ISourceControl</a>* pSourceControl = NULL;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">if</span> ( in_rguidPluginID == s_guidFirstSamplePluginID )</div>
+<div class="line">    {</div>
+<div class="line">        pSourceControl =  <span class="keyword">new</span> FirstSamplePlugin();</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( in_rguidPluginID == s_guidSecondSamplePluginID )</div>
+<div class="line">    {</div>
+<div class="line">        pSourceControl =  <span class="keyword">new</span> SecondSamplePlugin();</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">return</span> pSourceControl;</div>
+<div class="line">}</div>
+</div><!-- fragment --><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="warning.gif"/></td><td class="calibre17"><b class="calibre13">Warning:</b> You must change the plug-in GUID value to avoid ID conflicts with other plug-ins. </td></tr>
+</tbody></table>
+<p class="calibre7">When you create a project with Visual Studio, you need to export these functions by adding the function names to the .def file of the project. If no module definition file exists, you must create one.</p>
+<p class="calibre7">To create a module definition file, follow these steps:</p><ol class="calibre26">
+<li class="calibre9">Click on the <b class="calibre13">Add New Item</b> button in the tool bar.</li>
+<li class="calibre9">In the template list, select the <b class="calibre13">Module-Definition File (.def)</b> template.</li>
+</ol>
+<p class="calibre7">A typical module definition file looks like this:</p>
+<div class="fragment"><div class="line">LIBRARY      <span class="stringliteral">"SamplePlugin"</span></div>
+<div class="line"> </div>
+<div class="line">EXPORTS</div>
+<div class="line">    AkSourceControlGetPluginIDList</div>
+<div class="line">    AkSourceControlGetPluginInfo</div>
+<div class="line">    AkSourceControlCreatePlugin</div>
+</div><!-- fragment --></div></div></div></body></html>

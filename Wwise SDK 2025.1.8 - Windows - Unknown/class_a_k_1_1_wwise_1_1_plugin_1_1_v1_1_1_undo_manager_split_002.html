@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK.Wwise::Plugin::V1::UndoManager Class Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table class="calibre3">
+<tbody class="calibre4"><tr class="calibre16"><td colspan="2" class="calibre17"><h2 class="calibre21" id="calibre_pb_1"><a class="pcalibre1 anchor" id="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="calibre16"><td class="memitemleft"><a class="pcalibre el" href="group__global_gaa45e88025407465159f485763021d524_split_000.html#gaa45e88025407465159f485763021d524">ak_wwise_plugin_undo_group_id</a> </td><td class="memitemright"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_undo_manager_ac3e57e2518e901d81ddc4d88724f4cec_split_000.html#ac3e57e2518e901d81ddc4d88724f4cec">OpenGroup</a> (<a class="pcalibre el" href="group__global_gaa45e88025407465159f485763021d524_split_000.html#gaa45e88025407465159f485763021d524">ak_wwise_plugin_undo_group_id</a> in_reopenGroupId=0)</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Open a group that will contain all subsequent undo events.  <a href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_undo_manager_ac3e57e2518e901d81ddc4d88724f4cec_split_000.html#ac3e57e2518e901d81ddc4d88724f4cec" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">bool </td><td class="memitemright"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_undo_manager_a8df113c765722217518ad343d516adce_split_000.html#a8df113c765722217518ad343d516adce">CloseGroup</a> (<a class="pcalibre el" href="group__global_ga49b0af3e4205b935aa476d7ab1c9f65c_split_000.html#ga49b0af3e4205b935aa476d7ab1c9f65c">ak_wwise_plugin_undo_group_close_action</a> in_action=<a class="pcalibre el" href="group__global_ga49b0af3e4205b935aa476d7ab1c9f65c_split_001.html#gga49b0af3e4205b935aa476d7ab1c9f65ca7b066ecc400936abe8602ec9deb27e5f">AK_WWISE_PLUGIN_UNDO_GROUP_CLOSE_ACTION_APPLY</a>, <a class="pcalibre el" href="group__global_gaa45e88025407465159f485763021d524_split_000.html#gaa45e88025407465159f485763021d524">ak_wwise_plugin_undo_group_id</a> in_groupId=0, const char *in_szApplyEventName=nullptr)</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Closes the last opened group, in stack ordering.  <a href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_undo_manager_a8df113c765722217518ad343d516adce_split_000.html#a8df113c765722217518ad343d516adce" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">bool </td><td class="memitemright"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_undo_manager_aeb06646805b2ed1844e2af28c188fe3d_split_000.html#aeb06646805b2ed1844e2af28c188fe3d">AddCustomEvent</a> (<a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_base_undo_event_split_000.html">BaseUndoEvent</a> *in_pEvent)</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Adds a custom event to the currently opened group.  <a href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_undo_manager_aeb06646805b2ed1844e2af28c188fe3d_split_000.html#aeb06646805b2ed1844e2af28c188fe3d" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">bool </td><td class="memitemright"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_undo_manager_a50469bb416b73bf94d8f7c31bb87a9bc_split_000.html#a50469bb416b73bf94d8f7c31bb87a9bc">CanAddEvent</a> () const</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Check if we are currently in a state where we can add undo events.  <a href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_undo_manager_a50469bb416b73bf94d8f7c31bb87a9bc_split_000.html#a50469bb416b73bf94d8f7c31bb87a9bc" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">bool </td><td class="memitemright"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_undo_manager_a3ebcf7bbe7f7cebb3af27340f35f329a_split_000.html#a3ebcf7bbe7f7cebb3af27340f35f329a">IsBusy</a> () const</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Check if we are busy (undoing or redoing).  <a href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_undo_manager_a3ebcf7bbe7f7cebb3af27340f35f329a_split_000.html#a3ebcf7bbe7f7cebb3af27340f35f329a" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">bool </td><td class="memitemright"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_undo_manager_a153df8eddf6d395fb2383b7e72ccaf47_split_000.html#a153df8eddf6d395fb2383b7e72ccaf47">CanLogUndos</a> () const</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Returns whether logging can occur or not.  <a href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_undo_manager_a153df8eddf6d395fb2383b7e72ccaf47_split_000.html#a153df8eddf6d395fb2383b7e72ccaf47" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+</tbody></table></div></body></html>

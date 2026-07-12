@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2018.1.3</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="bugs_2018_1_3"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-30329</b> Fixed: Occasional crash in Batch Rename while modifying the project.</li>
+<li class="calibre9"><b class="calibre13">WG-31497</b> Fixed: Wwise Remote Connect dialog does not display all applications when running on a machine with multiple network adapters.</li>
+<li class="calibre9"><b class="calibre13">WG-37689</b> Fixed: With diffraction enabled, large triangles that are just barely non-planar may result in an error reported by Spatial Audio (<em class="calibre11"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_a0cada36fab682ebb3005a79dd05a5640_split_000.html#a0cada36fab682ebb3005a79dd05a5640">AK::SpatialAudio::SetGeometry</a> - Invalid diffraction edge formed by vertices [X, Y] and triangles (U, V)</em>).</li>
+<li class="calibre9"><b class="calibre13">WG-39454</b> Fixed: Lengthy Init of Audio Output plug-in may cause sound engine to consider it a timeout.</li>
+<li class="calibre9"><b class="calibre13">WG-39515</b> Fixed: Rare crash with Delay line management in Reflect.</li>
+<li class="calibre9"><b class="calibre13">WG-39541</b> Fixed: Calling <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a362a652b7fb7881e3d036facc173dfa1_split_000.html#a362a652b7fb7881e3d036facc173dfa1">StopPlayingID()</a></code> on one of multiple game objects playing the same Switch Container clears the Switch history for the other game objects.</li>
+<li class="calibre9"><b class="calibre13">WG-39544</b> Fixed: Calling function <code class="calibre14">SetRPTCValueByPlayingID</code> ignores Playing ID if a transition time is specified.</li>
+<li class="calibre9"><b class="calibre13">WG-39560</b> Fixed: Sink clean-up now occurs in the same thread as sink initialization (in the audio thread) instead of after stopping the audio thread.</li>
+<li class="calibre9"><b class="calibre13">WG-39605</b> Fixed: Cannot use a Windows-specific audio output plug-in when auditioning sounds for a different target platform in authoring.</li>
+<li class="calibre9"><b class="calibre13">WG-39624</b> Fixed: The Wwise Effect Editor is not updated when a new mixer plug-in is selected for a bus.</li>
+<li class="calibre9"><b class="calibre13">WG-39674</b> Fixed: API function names <code class="calibre14">AK::SpatialAudio::SetEmitterAuxSendValues</code>. <code class="calibre14">AK::SpatialAudio::SetPosition</code>, <code class="calibre14">AK::SpatialAudio::SetEmitterObstructionAndOcclusion</code>, and <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_a41b9dee6e3af84e5ce3075319e16740d_split_000.html#a41b9dee6e3af84e5ce3075319e16740d">AK::SpatialAudio::SetPortalObstructionAndOcclusion</a></code> are incorrectly reported in the Capture Log as, respectively, AuxSends, Position, SetEmitterObstruction, and SetPortalObstruction.</li>
+<li class="calibre9"><b class="calibre13">WG-39678</b> Fixed: Long AkRecorder filepaths are truncated.</li>
+<li class="calibre9"><b class="calibre13">WG-39680</b> Fixed: Frequent Opus file source starvation on highly compressed files. <table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> If you are using your own implementation of IAkAutoStream, you most likely need to recompile it and implement the new function: <code class="calibre14">IAkAutoStream::SetMinTargetBufferSize</code>. This function allows setting a minimal auto stream buffer size to be made ready by the auto stream system. </td></tr>
+</tbody></table>
+</li>
+<li class="calibre9"><b class="calibre13">WG-39682</b> Fixed: Crash in <code class="calibre14">Meter3DUserPref::GetValue</code> when closing Wwise Authoring.</li>
+<li class="calibre9"><b class="calibre13">WG-39693</b> Fixed: Possible memory corruption in class <code class="calibre14">CAkVPL3dMixable</code> on delete.</li>
+<li class="calibre9"><b class="calibre13">WG-39705</b> Fixed: When watching game objects in the Attenuation Editor, some additional flags were shown and some flags that were expected to be shown were not.</li>
+<li class="calibre9"><b class="calibre13">WG-39717</b> Fixed: Image sources in Wwise Reflect sometimes get replaced by ones with new IDs.</li>
+<li class="calibre9"><b class="calibre13">WG-39726</b> Fixed: A crash in Spatial Audio when disabling reflections by setting the reflection order to 0, while simultaneously adding or removing geometry.</li>
+<li class="calibre9"><b class="calibre13">WG-39737</b> Fixed: Using the auto-generated user interface does not work for Source plug-ins.</li>
+<li class="calibre9"><b class="calibre13">WG-39745</b> Fixed: Glitches when ramping up or down the LPF parameter on devices with a 44,100 Hz sample rate.</li>
+<li class="calibre9"><b class="calibre13">WG-39765</b> Fixed: Jumping to an object by name in the Project Explorer.</li>
+<li class="calibre9"><b class="calibre13">WG-39783</b> Fixed: Timing issue with <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a02ad46cabd64c04e8be198bfdc44be6b_split_000.html#a02ad46cabd64c04e8be198bfdc44be6b">GetSpeakerAngles()</a></code>. If called too closely to <code class="calibre14">LoadBank("Init.bnk")</code>, it could fail.</li>
+<li class="calibre9"><b class="calibre13">WG-39794</b> Fixed: (Xbox One) Rare hang while using MSSpatialAudio.</li>
+<li class="calibre9"><b class="calibre13">WG-39838</b> Fixed: Spatial Audio reflections in the Game Object Profiler are sometimes drawn with incorrect transparency.</li>
+<li class="calibre9"><b class="calibre13">WG-39846</b> Fixed: Connecting the Wwise Profiler to a game resets the Audio Device set in <code class="calibre14"><a class="pcalibre el" href="struct_ak_init_settings_split_000.html">AkInitSettings</a></code>.</li>
+<li class="calibre9"><b class="calibre13">WG-39850</b> Fixed: (macOS) Command add-ons are not supported.</li>
+<li class="calibre9"><b class="calibre13">WG-39882</b> Fixed: Positioning's "Override Parent" setting not properly pushed to sound engine.</li>
+<li class="calibre9"><b class="calibre13">WG-39886</b> Fixed: Multi-channel source files with more than two channels converted to Opus with a quality factor inferior to 16 generate noise on playback.</li>
+<li class="calibre9"><b class="calibre13">WG-39891</b> Fixed: Updated DirectX device status handling.</li>
+</ul>
+<p class="calibre7">
+ </p><dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="reference_platform_2018_1_3_split_000.html">Platform Requirements 2018.1.3</a> </li>
+</ul>
+</dd></dl>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

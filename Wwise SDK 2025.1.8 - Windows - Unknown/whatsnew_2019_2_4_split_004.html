@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2019.2.4</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="bugs_2019_2_4"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-48057</b> Fixed: tvOS sends channels to wrong speakers in non-stereo speaker setup.</li>
+<li class="calibre9"><b class="calibre13">WG-48340</b> Fixed: Unloading of FilePackages is not thread safe.</li>
+<li class="calibre9"><b class="calibre13">WG-49012</b> Fixed: Potential freeze in Wwise Authoring at the start of SoundBank generation.</li>
+<li class="calibre9"><b class="calibre13">WG-49094</b> Fixed: (WAAPI) Creating Work Units with <a class="pcalibre el" href="ak_wwise_core_object_create_split_000.html">ak.wwise.core.object.create</a> and <code class="calibre14"> onNameConflict</code> set to <code class="calibre14">rename</code> or <code class="calibre14">merge</code> generates an error.</li>
+<li class="calibre9"><b class="calibre13">WG-49111</b> Fixed: The Perforce submit keyboard shortcut (Ctrl+Shift+Alt+C) doesn't work from the Project Explorer when it's undocked.</li>
+<li class="calibre9"><b class="calibre13">WG-49130</b> Fixed: Changing the X or Y edit value in the RTPC editor and then clicking in the curve editor does not change the position set in the value edit.</li>
+<li class="calibre9"><b class="calibre13">WG-49319</b> Fixed: Copying a hierarchy of objects may change the media ID of the original objects.</li>
+<li class="calibre9"><b class="calibre13">WG-49320</b> Fixed: Possible crash when the number of sounds sharing the same User-Defined Path at one time exceeds 255.</li>
+<li class="calibre9"><b class="calibre13">WG-49371</b> Fixed: Enabling the bDebugOutOfRangeCheckEnabled option causes the system to erroneously send the message "Wwise audio out of range: After calling GetBuffer on a source" for sources that contain valid data.</li>
+<li class="calibre9"><b class="calibre13">WG-49477</b> Fixed: An instability in the spatial audio diffraction calculation causes paths to be periodically dropped.</li>
+<li class="calibre9"><b class="calibre13">WG-49498</b> Fixed: Music Transition is removed at project load when the source or destination is located under a nested Work Unit.</li>
+<li class="calibre9"><b class="calibre13">WG-49522</b> Fixed: S-Curve and Inverted S-Curve segments in Spread attenuation curve may result in slightly negative spread values, which flip the perceived sound direction.</li>
+<li class="calibre9"><b class="calibre13">WG-49550</b> Fixed: Wwise updates media IDs file (&lt;project-name&gt;.mediaid) on project save.</li>
+<li class="calibre9"><b class="calibre13">WG-49643</b> Fixed: Using MS Spatial output plug-in may result in unwanted COM uninitialization.</li>
+<li class="calibre9"><b class="calibre13">WG-49739</b> Fixed: AkGeometry component position and acoustic texture bugs when used in a blueprint.</li>
+</ul>
+</div></div></div></body></html>

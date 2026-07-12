@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2017.2</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_4"><a class="pcalibre1 anchor" id="audio_to_motion_no_aux_send_override"></a>
+Migrating an Audio-to-Motion object that did not have 'Override parent' for its user aux sends enabled</h2>
+<ul class="calibre8">
+<li class="calibre9">The override is enabled.</li>
+<li class="calibre9">User aux sends of the ancestor from which the migrated object inherited are copied to the object. If the ancestor has an aux send stemming from a migrated audio-to-motion it is not copied.<ul class="calibre15">
+<li class="calibre9">Because of the limitation of 4 aux sends on an object, it is possible that not all of the ancestor's aux sends would be copied. In this case the audio-to-motion will not be migrated as priority is given to maintaining existing audio behavior.</li>
+</ul>
+</li>
+</ul>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="audio_to_motion_aux_send_override"></a>
+Migrating an Audio-to-Motion object that did have 'Override parent' for its user aux sends enabled</h3>
+<ul class="calibre8">
+<li class="calibre9">The override remains enabled.</li>
+<li class="calibre9">As it was already overriding its parent, there is no need to copy user aux sends from above.</li>
+</ul>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="audio_to_motion_with_children"></a>
+Migrating an Audio-to-Motion on an object with descendants</h3>
+<ul class="calibre8">
+<li class="calibre9">If a descendant already overrides its (migrated) parent's user aux sends and doesn't have its own (overriding) audio-to-motion we copy the migrated node's new "motion" aux send to the descendant. If the descendant already has 4 aux sends the copy is not performed. The downward traversal through descendants stops when we reach a node with an audio-to-motion as it is the source for its descendants. <br class="calibre10"/>
+</li>
+<li class="calibre9">If a descendant does not override its parent's user aux sends there is no need to copy to the descendant - it will inherit the "motion" from above.</li>
+</ul>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="motion_migration_limitations"></a>
+Additional limitations/changes of motion migration</h3>
+<ul class="calibre8">
+<li class="calibre9">Nested Work Units are not treated correctly - we do not traverse up the node hierarchy through nested Work Units when determining if an object is a top-level object. Consequences:<ul class="calibre15">
+<li class="calibre9">Some nodes will be considered top-level when they are not, so they may be considered as having audio-to-motion when they do not. This can occur if there is a Motion Bus reference and the <em class="calibre11">Override Motion Output</em> is disabled.</li>
+</ul>
+</li>
+<li class="calibre9">We delete motion related info in Presets. That is, we don't try to migrate it. This covers:<ul class="calibre15">
+<li class="calibre9">Motion FX and Motion Source objects</li>
+<li class="calibre9">Motion Volume, Motion Lowpass, and Override Motion Output properties</li>
+<li class="calibre9">Motion Bus references</li>
+</ul>
+</li>
+<li class="calibre9">The references to these in the Wwise Authoring application have been removed.</li>
+<li class="calibre9">We delete motion-related info in queries. This covers:<ul class="calibre15">
+<li class="calibre9">Motion Volume, Motion Lowpass, and Override Motion Output properties</li>
+<li class="calibre9">MotionBus, Motion FX, and Motion Source object types</li>
+<li class="calibre9">Motion Output Bus routing</li>
+<li class="calibre9">Motion Device sources</li>
+</ul>
+</li>
+<li class="calibre9">The references to these in the Wwise Authoring application have been removed.</li>
+</ul>
+</div></div></div></body></html>

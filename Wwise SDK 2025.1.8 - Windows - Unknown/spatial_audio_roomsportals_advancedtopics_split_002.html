@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Advanced Topics in Rooms and Portals</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="spatial_audio_roomsportals_modelingsoundpropagationfromsameroom"></a>
+Modeling Obstacles Within a Room</h1>
+<p class="calibre7">Obstruction of sound emitted from the same Room as that of the listener can be handled by using Geometric Diffraction (see <a class="pcalibre el" href="spatial_audio_apigeometry_diffract_split_000.html">Using the Geometry API for Simulating Diffraction and Transmission</a> and <a class="pcalibre el" href="spatial_audio_apigeometry_diffract_split_012.html#spatial_audio_api_geometry_aware_rooms">Combining the Geometric APIs with Rooms and Portals</a>) but it is not covered by Wwise Acoustics Rooms and Portals alone. If one does not wish to send geometry to Wwise Acoustics for the purpose of obstruction calculation, obstruction in the same Room must be handled on the game side. The representation of geometry, methods, and the desired level of details for computing in-Room obstruction is highly game-engine specific. Games typically employ ray-casting, with various degrees of sophistication, to carry out this task. This section provides some tips on how to implement obstruction on the game side in conjunction with Rooms and Portals.</p>
+<p class="calibre7">With Wwise Acoustics Rooms and Portals though, you don't need to do this for all emitters, but only those that are in the same Room as the listener. This is beneficial because ray casting is usually much more expensive than the algorithm used by Wwise Acoustics for computing propagation paths. Since in-Room obstruction between an emitter and the listener happens in the same Room, by definition, we assume that the obstacle will not cover the listener or emitter integrally, and that the sound will reach the listener through its reflections in the Room. This can be properly modeled by affecting the dry/direct signal path only, and not the auxiliary send, which means that Obstruction is the proper mechanism. For this purpose, the game should call <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a1b3e18a25b405e55ba82de9b70cd11ba_split_000.html#a1b3e18a25b405e55ba82de9b70cd11ba">AK::SoundEngine::SetObjectObstructionAndOcclusion</a></code>.</p>
+<p class="calibre7">Furthermore, Portals to adjacent Rooms should be considered like sound emitters in the listener's Room. Therefore, games should also run their obstruction algorithms between the listener and the Portals of the Room in which it is. Then, they need to call <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_a41b9dee6e3af84e5ce3075319e16740d_split_000.html#a41b9dee6e3af84e5ce3075319e16740d">AK::SpatialAudio::SetPortalObstructionAndOcclusion</a></code> for each of these Portals in order to safely declare in-Room obstruction with the listener.</p>
+</div></div></div></body></html>

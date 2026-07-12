@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2021.1.4</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_4"><a class="pcalibre1 anchor" id="generic_community_bugs_2021_1_4"></a>
+Fixes for Community-Reported Bugs</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-54475</b> Fixed: (WAAPI) It's possible to delete the Master Audio Bus.</li>
+<li class="calibre9"><b class="calibre13">WG-55009</b> Fixed: Crash in <code class="calibre14">CAkRTPCMgr::AkRTPCSubscription::PushUpdate</code> when using Blend Containers.</li>
+<li class="calibre9"><b class="calibre13">WG-55024</b> Fixed: Playing streamed media with headers larger than the stream I/O granularity, such as some long WEM Opus files, would result in an error of "File header too large".</li>
+<li class="calibre9"><b class="calibre13">WG-55265</b> Fixed: Multiple Mastering Suite instances are allowed to run simultaneously.</li>
+<li class="calibre9"><b class="calibre13">WG-55353</b> Fixed: Sound Engine hangs when replacing the main output after adding a Secondary Output.</li>
+<li class="calibre9"><b class="calibre13">WG-55451</b> Fixed: Compilation error when building the Sound Engine sources using Windows locales without UTF-8 code page support.</li>
+<li class="calibre9"><b class="calibre13">WG-55528</b> Fixed: Column widths in the Event Editor and Contents Editor change after the user adjusted them.</li>
+<li class="calibre9"><b class="calibre13">WG-55531</b> Fixed: MIDI file source references are sometimes removed from Work Unit files.</li>
+<li class="calibre9"><b class="calibre13">WG-55616</b> Fixed: Short but audible pop when looping or seeking certain source files encoded in WEM Opus.</li>
+<li class="calibre9"><b class="calibre13">WG-55631</b> Fixed: (Mac Authoring) Crash when adding an Audio Input source when Wwise was launched from the Project tab of the Launcher.</li>
+<li class="calibre9"><b class="calibre13">WG-55678</b> Fixed: An invalid regular expression passed to "where" : "name:matches" in ak.wwise.core.object.get WAAPI query leads to a Wwise crash.</li>
+<li class="calibre9"><b class="calibre13">WG-55691</b> Fixed: (Spatial Audio) The room game object rotates with the listener instead of remaining fixed to the room's orientation.</li>
+<li class="calibre9"><b class="calibre13">WG-55710</b> Fixed: Crash with File Packager when loading a SoundbanksInfo.xml file larger than 1GB.</li>
+<li class="calibre9"><b class="calibre13">WG-55723</b> Fixed: Wwise can crash on a division by zero with .wav files containing invalid or unsupported data in the 'fmt' chunk.</li>
+<li class="calibre9"><b class="calibre13">WG-55795</b> Fixed: (Spatial Audio) Diffraction paths between a stationary emitter and a portal are not computed if the listener goes out of range and then comes back into range.</li>
+<li class="calibre9"><b class="calibre13">WG-55875</b> Fixed: <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_aafa66841a791ef5e024fe4e99caf3e91_split_000.html#aafa66841a791ef5e024fe4e99caf3e91">AK::SoundEngine::ExecuteActionOnPlayingID()</a></code> pauses and resumes global State transitions.</li>
+<li class="calibre9"><b class="calibre13">WG-55929</b> Fixed: In the General Properties page, Master Bus config shows "Unknown" when outputting to an audio device other than System.</li>
+<li class="calibre9"><b class="calibre13">WG-56180</b> Fixed: Wwise allows to connect to incompatible versions despite the WG-54349 behavior change.</li>
+<li class="calibre9"><b class="calibre13">WG-56209</b> Fixed: (Spatial Audio) Transmission loss value of an internal room is not applied to ambience and reverb of an external room with a lower transmission loss when transitioning through a portal.</li>
+<li class="calibre9"><b class="calibre13">WG-56290</b> Fixed: Game crash when connecting Wwise if Blend Containers were updated offline. </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

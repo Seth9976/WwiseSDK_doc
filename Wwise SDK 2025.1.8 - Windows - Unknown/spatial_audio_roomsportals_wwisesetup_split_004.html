@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Rooms and Portals Setup in Wwise</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="spatial_audio_roomsportals_roomtonesinwwise"></a>
+Setting Up a Room Tone in Wwise</h1>
+<p class="calibre7">A sound that is to be used as a Room tone should have most of the same settings as a Room Auxiliary Bus (refer to <a class="pcalibre el" href="spatial_audio_roomsportals_wwisesetup_split_002.html#spatial_audio_roomsportals_using3dreverbs">Setting Up a Room Auxiliary Bus in Wwise</a>), in the Positioning tab of the Property Editor in Wwise. <br class="calibre10"/>
+</p>
+<p class="calibre7">The setup of a Room tone is similar to the setup of a Room Auxiliary Bus. In both cases:</p><ul class="calibre8">
+<li class="calibre9"><b class="calibre13">Listener Relative Routing</b> is enabled.</li>
+<li class="calibre9"><b class="calibre13">3D Spatialization</b> is set to <b class="calibre13">Position + Orientation</b>.</li>
+<li class="calibre9"><b class="calibre13">3D Position</b> is set to <b class="calibre13">Emitter</b>.</li>
+<li class="calibre9"><b class="calibre13">Use game-defined aux sends</b> is enabled if it is desired for the Room tone to excite the reverb of the Room (if configured to do so, see <a class="pcalibre el" href="spatial_audio_roomsportals_apiconfig_split_002.html#spatial_audio_roomsportals_apiconfigroomtones">Posting Events on Room Game Objects</a>) and adjoining Rooms.</li>
+</ul>
+<p class="calibre7">There is one distinction between the two setups:</p><ul class="calibre8">
+<li class="calibre9">A Room tone will likely have a unique Attenuation ShareSet, whereas a Room Auxiliary Bus will not have an attenuation defined (a Room bus will instead use the Auxiliary Send Volume curve of the sound playing on the emitter Game Object). Keep in mind the positioning behavior of the Room Game Object when designing this curve: the distance evaluated will be zero when the listener is inside the Room, or exactly at a connected Portal, and will increase as the listener moves away from the Portal. </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

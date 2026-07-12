@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Source Control Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_1"><a class="pcalibre1 anchor" id="source_control_dll_creation_new_project"></a>
+Creating the Project</h2>
+<p class="calibre7">To create a project using Visual Studio, do the following:</p>
+<ol class="calibre26">
+<li class="calibre9">Create an MFC DLL C++ Project. In the MFC DLL Wizard dialog, the DLL type must be set to Regular DLL using shared MFC DLL.</li>
+<li class="calibre9">In the new project, open the Project Properties dialog and follow these steps:</li>
+</ol>
+<ul class="calibre8">
+<li class="calibre9">In the General Property page, set the Character Set property to Use Unicode Character Set.</li>
+<li class="calibre9">In the C/C++/General Property page, add the path to the SDK includes directory in the Additional Include Directories property.</li>
+</ul>
+<p class="calibre7">The project is now created and configured to use the Wwise Source Control SDK. The next thing to do is to create the functions that Wwise will use to manage your plug-in DLL.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="tip.gif"/></td><td class="calibre17"><b class="calibre13">Tip:</b> Strictly speaking, you do not have to create an MFC DLL project. However, this does facilitate certain string and dialog manipulations. If you choose not to use an MFC DLL, make sure to include the oleauto.h header in the stdafx.h file to be able to use the <code class="calibre14">SysAllocString</code> function. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Sound Engine Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_17"><a class="pcalibre1 anchor" id="fx_audiobuffer_interleaved"></a>
+Retrieving Interleaved Data.</h2>
+<p class="calibre7">A plug-in can access a buffer of interleaved data through <a class="pcalibre el" href="class_ak_audio_buffer_a8b3f75d4e95d5ce9af0b4573fae87510_split_000.html#a8b3f75d4e95d5ce9af0b4573fae87510">AkAudioBuffer::GetInterleavedData()</a>. Only source plug-ins should access and output interleaved data. In order to do so, they must correctly prepare the sound engine during initialization (see <a class="pcalibre el" href="soundengine_plugins_source_split_002.html#iaksourceeffect_init">AK::IAkSourcePlugin::Init()</a>). The sound engine will instantiate the DSP processed in order to properly convert the data into the native pipeline format.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="tip.gif"/></td><td class="calibre17"><b class="calibre13">Tip:</b> You can get better performance, if the source plug-in outputs data that is already in the sound engine's native format. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

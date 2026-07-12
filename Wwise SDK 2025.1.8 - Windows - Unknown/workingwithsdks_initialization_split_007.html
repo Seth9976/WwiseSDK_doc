@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Initializing Sound Engine Modules</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_6"><a class="pcalibre1 anchor" id="initialization_comm_ports"></a>
+Communication ports</h2>
+<p class="calibre7">The <a class="pcalibre el" href="struct_ak_comm_settings_a270a524ba5f6bad393b4de9b64a3981c_split_000.html#a270a524ba5f6bad393b4de9b64a3981c">AkCommSettings::ports</a> member of the <a class="pcalibre el" href="struct_ak_comm_settings_split_000.html">AkCommSettings</a> structure represents network ports used for communication between the Wwise authoring application and the sound engine. All of these ports are opened in the game when Wwise communication is enabled.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="initialization_comm_ports_discovery_broadcast"></a>
+One Fixed Port: Discovery Broadcast</h3>
+<p class="calibre7">One of the ports, <a class="pcalibre el" href="struct_ak_comm_settings_1_1_ports_ac18f3080b45b5eba2634527d5d27e75c_split_000.html#ac18f3080b45b5eba2634527d5d27e75c">AkCommSettings::Ports::uDiscoveryBroadcast</a>, cannot be dynamic (cannot be set to 0). The authoring application needs to be aware of it in order to discover games on the network. Furthermore, the value specified here must be the same value specified in the Network tab of the Project Settings within the authoring application.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="tip.gif"/></td><td class="calibre17"><b class="calibre13">Tip:</b> If your team is working on multiple games using Wwise, you might want to use different Discovery Broadcast ports for each game. That way when you open the Remote Connections window in the Wwise authoring application, only games corresponding to the currently opened Wwise project will be listed. When changing this port, be sure to change it both in the Project Settings within the authoring application <em class="calibre11">and</em> in the <a class="pcalibre el" href="struct_ak_comm_settings_split_000.html">AkCommSettings</a> structure you pass to <a class="pcalibre el" href="namespace_a_k_1_1_comm_a596691b552b507c26b4df958ee1c6de8_split_000.html#a596691b552b507c26b4df958ee1c6de8">AK::Comm::Init()</a> in the game. </td></tr>
+</tbody></table>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="initialization_comm_ports_dynamic"></a>
+One Dynamic Port</h3>
+<p class="calibre7">The other port in the structure can be dynamic (or "ephemeral"). This means that instead of using a fixed port, one is automatically picked by the operating system:</p>
+<ul class="calibre8">
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_comm_settings_1_1_ports_a2980cfef40f976dd403f8f48c0789265_split_000.html#a2980cfef40f976dd403f8f48c0789265">AkCommSettings::Ports::uCommand</a></li>
+</ul>
+<p class="calibre7">This ports is dynamic by default. It is recommended to keep it dynamic in order to minimize chances of conflicts with other applications.</p>
+<p class="calibre7">If it conflicts with ports used by other components of your game, change it in the <a class="pcalibre el" href="struct_ak_comm_settings_split_000.html">AkCommSettings</a> structure before calling <a class="pcalibre el" href="namespace_a_k_1_1_comm_a596691b552b507c26b4df958ee1c6de8_split_000.html#a596691b552b507c26b4df958ee1c6de8">AK::Comm::Init()</a>.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> In a multi-platform game, it is valid to use different ports on different platforms for <a class="pcalibre el" href="struct_ak_comm_settings_1_1_ports_a2980cfef40f976dd403f8f48c0789265_split_000.html#a2980cfef40f976dd403f8f48c0789265">AkCommSettings::Ports::uCommand</a>. </td></tr>
+</tbody></table>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="tip.gif"/></td><td class="calibre17"><p class="starttd"><b class="calibre13">Tip:</b> For more information on dynamic/ephemeral ports, consult these articles:</p>
+<ul class="calibre8">
+<li class="calibre9"><a href="http://www.iana.org/assignments/port-numbers" target="_blank" class="pcalibre calibre12">Service Name and Transport Protocol Port Number Registry</a></li>
+<li class="calibre9"><a href="http://en.wikipedia.org/wiki/Ephemeral_port" target="_blank" class="pcalibre calibre12">Ephemeral port</a></li>
+<li class="calibre9"><a href="https://support.microsoft.com/en-us/help/929851/the-default-dynamic-port-range-for-tcp-ip-has-changed-in-windows-vista" target="_blank" class="pcalibre calibre12">The default dynamic port range for TCP/IP has changed since Windows Vista and in Windows Server 2008</a> </li>
+</ul>
+</td></tr>
+</tbody></table>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="initialization_comm_ports_discovery_response"></a>
+One More Port (Authoring Application Only)</h3>
+<p class="calibre7">There is one more port involved in Wwise communications, but since it is opened in the authoring application only, it is not part of the <a class="pcalibre el" href="struct_ak_comm_settings_1_1_ports_split_000.html">AkCommSettings::Ports</a> structure.</p>
+<p class="calibre7">That port is used by the authoring application to receive reponses to the Discovery Broadcast messages sent to detect games running on the network. It is dynamic by default (set to 0) but can be changed in the Project Settings within the authoring application. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<div class="ttc" id="a_ak_communication_8h_html"><div class="calibre2"><a href="_ak_communication_8h_split_000.html" class="pcalibre calibre12">AkCommunication.h</a></div></div>
+<div class="ttc" id="a_ak_sound_engine_8h_html"><div class="calibre2"><a href="_ak_sound_engine_8h_split_000.html" class="pcalibre calibre12">AkSoundEngine.h</a></div></div>
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_a9a26da64092b97243844df77cbcdbf5f_html_a9a26da64092b97243844df77cbcdbf5f"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_a9a26da64092b97243844df77cbcdbf5f_split_000.html#a9a26da64092b97243844df77cbcdbf5f" class="pcalibre calibre12">AK::SoundEngine::Init</a></div><div class="calibre2">AKSOUNDENGINE_API AKRESULT Init(AkInitSettings *in_pSettings, AkPlatformInitSettings *in_pPlatformSettings)</div></div>
+<div class="ttc" id="a_ak_memory_mgr_module_8h_html"><div class="calibre2"><a href="_ak_memory_mgr_module_8h_split_000.html" class="pcalibre calibre12">AkMemoryMgrModule.h</a></div></div>
+<div class="ttc" id="anamespace_a_k_1_1_spatial_audio_a389709f9aaee2b3bdfbbe5cb352522ee_html_a389709f9aaee2b3bdfbbe5cb352522ee"><div class="calibre2"><a href="namespace_a_k_1_1_spatial_audio_a389709f9aaee2b3bdfbbe5cb352522ee_split_000.html#a389709f9aaee2b3bdfbbe5cb352522ee" class="pcalibre calibre12">AK::SpatialAudio::Init</a></div><div class="calibre2">AKSOUNDENGINE_API AKRESULT Init(const AkSpatialAudioInitSettings &amp;in_initSettings)</div><div class="calibre2">Initialize the SpatialAudio API.</div></div>
+<div class="ttc" id="anamespace_a_k_1_1_memory_mgr_a570a4ed4f667c187d21a821d846f4567_html_a570a4ed4f667c187d21a821d846f4567"><div class="calibre2"><a href="namespace_a_k_1_1_memory_mgr_a570a4ed4f667c187d21a821d846f4567_split_000.html#a570a4ed4f667c187d21a821d846f4567" class="pcalibre calibre12">AK::MemoryMgr::Init</a></div><div class="calibre2">AKSOUNDENGINE_API AKRESULT Init(AkMemSettings *in_pSettings)</div></div>
+<div class="ttc" id="astruct_ak_platform_init_settings_html"><div class="calibre2"><a href="struct_ak_platform_init_settings_split_000.html" class="pcalibre calibre12">AkPlatformInitSettings</a></div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_win_sound_engine_8h_source.html#l00042" class="pcalibre calibre12">AkWinSoundEngine.h:43</a></div></div>
+<div class="ttc" id="anamespace_a_k_1_1_stream_mgr_a50fe8111fcb883651390fab6e9dc5ebc_html_a50fe8111fcb883651390fab6e9dc5ebc"><div class="calibre2"><a href="namespace_a_k_1_1_stream_mgr_a50fe8111fcb883651390fab6e9dc5ebc_split_000.html#a50fe8111fcb883651390fab6e9dc5ebc" class="pcalibre calibre12">AK::StreamMgr::GetDefaultSettings</a></div><div class="calibre2">AKSOUNDENGINE_API void GetDefaultSettings(AkStreamMgrSettings &amp;out_settings)</div></div>
+<div class="ttc" id="anamespace_a_k_1_1_comm_a596691b552b507c26b4df958ee1c6de8_html_a596691b552b507c26b4df958ee1c6de8"><div class="calibre2"><a href="namespace_a_k_1_1_comm_a596691b552b507c26b4df958ee1c6de8_split_000.html#a596691b552b507c26b4df958ee1c6de8" class="pcalibre calibre12">AK::Comm::Init</a></div><div class="calibre2">AKSOUNDENGINE_API AKRESULT Init(const AkCommSettings &amp;in_settings)</div></div>
+<div class="ttc" id="astruct_ak_device_settings_html"><div class="calibre2"><a href="struct_ak_device_settings_split_000.html" class="pcalibre calibre12">AkDeviceSettings</a></div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_stream_mgr_module_8h_source.html#l00058" class="pcalibre calibre12">AkStreamMgrModule.h:59</a></div></div>
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_a03381fc17e1b0ee16c2ab501c647ab9e_html_a03381fc17e1b0ee16c2ab501c647ab9e"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_a03381fc17e1b0ee16c2ab501c647ab9e_split_000.html#a03381fc17e1b0ee16c2ab501c647ab9e" class="pcalibre calibre12">AK::SoundEngine::GetDefaultInitSettings</a></div><div class="calibre2">AKSOUNDENGINE_API void GetDefaultInitSettings(AkInitSettings &amp;out_settings)</div></div>
+<div class="ttc" id="a_i_ak_stream_mgr_8h_html"><div class="calibre2"><a href="_i_ak_stream_mgr_8h_split_000.html" class="pcalibre calibre12">IAkStreamMgr.h</a></div></div>
+<div class="ttc" id="astruct_ak_mem_settings_html"><div class="calibre2"><a href="struct_ak_mem_settings_split_000.html" class="pcalibre calibre12">AkMemSettings</a></div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_memory_mgr_module_8h_source.html#l00148" class="pcalibre calibre12">AkMemoryMgrModule.h:149</a></div></div>
+<div class="ttc" id="anamespace_a_k_1_1_memory_mgr_ada3c244e4c16e6863cec97eef039319b_html_ada3c244e4c16e6863cec97eef039319b"><div class="calibre2"><a href="namespace_a_k_1_1_memory_mgr_ada3c244e4c16e6863cec97eef039319b_split_000.html#ada3c244e4c16e6863cec97eef039319b" class="pcalibre calibre12">AK::MemoryMgr::GetDefaultSettings</a></div><div class="calibre2">AKSOUNDENGINE_API void GetDefaultSettings(AkMemSettings &amp;out_pMemSettings)</div><div class="calibre2">Obtain the default initialization settings for the default implementation of the Memory Manager.</div></div>
+<div class="ttc" id="anamespace_a_k_1_1_comm_a3280f8b7ad6261d8b2a4bdf39c234fa7_html_a3280f8b7ad6261d8b2a4bdf39c234fa7"><div class="calibre2"><a href="namespace_a_k_1_1_comm_a3280f8b7ad6261d8b2a4bdf39c234fa7_split_000.html#a3280f8b7ad6261d8b2a4bdf39c234fa7" class="pcalibre calibre12">AK::Comm::GetDefaultInitSettings</a></div><div class="calibre2">AKSOUNDENGINE_API void GetDefaultInitSettings(AkCommSettings &amp;out_settings)</div></div>
+<div class="ttc" id="astruct_ak_spatial_audio_init_settings_html"><div class="calibre2"><a href="struct_ak_spatial_audio_init_settings_split_000.html" class="pcalibre calibre12">AkSpatialAudioInitSettings</a></div><div class="calibre2">Initialization settings of the spatial audio module.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_spatial_audio_types_8h_source_split_000.html#l00219" class="pcalibre calibre12">AkSpatialAudioTypes.h:220</a></div></div>
+<div class="ttc" id="a_ak_memory_mgr_8h_html"><div class="calibre2"><a href="_ak_memory_mgr_8h_split_000.html" class="pcalibre calibre12">AkMemoryMgr.h</a></div></div>
+<div class="ttc" id="a_common_2_ak_platform_funcs_8h_html"><div class="calibre2"><a href="_common_2_ak_platform_funcs_8h_split_000.html" class="pcalibre calibre12">AkPlatformFuncs.h</a></div></div>
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_aecdb9cd8f2d7f461ef1a58f5f5f5725d_html_aecdb9cd8f2d7f461ef1a58f5f5f5725d"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_aecdb9cd8f2d7f461ef1a58f5f5f5725d_split_000.html#aecdb9cd8f2d7f461ef1a58f5f5f5725d" class="pcalibre calibre12">AK::SoundEngine::GetDefaultPlatformInitSettings</a></div><div class="calibre2">AKSOUNDENGINE_API void GetDefaultPlatformInitSettings(AkPlatformInitSettings &amp;out_platformSettings)</div></div>
+<div class="ttc" id="anamespace_a_k_1_1_stream_mgr_af9d67dd0e502e5603a2921099916e2ab_html_af9d67dd0e502e5603a2921099916e2ab"><div class="calibre2"><a href="namespace_a_k_1_1_stream_mgr_af9d67dd0e502e5603a2921099916e2ab_split_000.html#af9d67dd0e502e5603a2921099916e2ab" class="pcalibre calibre12">AK::StreamMgr::Create</a></div><div class="calibre2">AKSOUNDENGINE_API IAkStreamMgr * Create(const AkStreamMgrSettings &amp;in_settings)</div></div>
+<div class="ttc" id="anamespace_a_k_1_1_stream_mgr_a7d01e09a9bb6b6d34c2bb8f4c8995214_html_a7d01e09a9bb6b6d34c2bb8f4c8995214"><div class="calibre2"><a href="namespace_a_k_1_1_stream_mgr_a7d01e09a9bb6b6d34c2bb8f4c8995214_split_000.html#a7d01e09a9bb6b6d34c2bb8f4c8995214" class="pcalibre calibre12">AK::StreamMgr::GetDefaultDeviceSettings</a></div><div class="calibre2">AKSOUNDENGINE_API void GetDefaultDeviceSettings(AkDeviceSettings &amp;out_settings)</div></div>
+<div class="ttc" id="astruct_ak_init_settings_html"><div class="calibre2"><a href="struct_ak_init_settings_split_000.html" class="pcalibre calibre12">AkInitSettings</a></div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_sound_engine_8h_source_split_000.html#l00192" class="pcalibre calibre12">AkSoundEngine.h:193</a></div></div>
+<div class="ttc" id="a_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_html_a64f7d1f79613cc4dcc49a4efba6caa63ad7c47fea3da641e7422573c6a13dc35e"><div class="calibre2"><a href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_001.html#a64f7d1f79613cc4dcc49a4efba6caa63ad7c47fea3da641e7422573c6a13dc35e" class="pcalibre calibre12">AK_Success</a></div><div class="calibre2">@ AK_Success</div><div class="calibre2">The operation was successful.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_enums_8h_source_split_000.html#l00034" class="pcalibre calibre12">AkEnums.h:34</a></div></div>
+<div class="ttc" id="astruct_ak_stream_mgr_settings_html"><div class="calibre2"><a href="struct_ak_stream_mgr_settings_split_000.html" class="pcalibre calibre12">AkStreamMgrSettings</a></div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_stream_mgr_module_8h_source.html#l00049" class="pcalibre calibre12">AkStreamMgrModule.h:50</a></div></div>
+<div class="ttc" id="a_ak_spatial_audio_8h_html"><div class="calibre2"><a href="_ak_spatial_audio_8h_split_000.html" class="pcalibre calibre12">AkSpatialAudio.h</a></div></div>
+<div class="ttc" id="astruct_ak_comm_settings_html"><div class="calibre2"><a href="struct_ak_comm_settings_split_000.html" class="pcalibre calibre12">AkCommSettings</a></div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_communication_8h_source.html#l00046" class="pcalibre calibre12">AkCommunication.h:47</a></div></div>
+
+
+</body></html>

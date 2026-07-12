@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2018.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="feature_changes_2018_1"></a>
+New Features</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-15220</b> Made Contents Editor's column headers resizable.</li>
+<li class="calibre9"><b class="calibre13">WG-18255</b> Added support for keyboard "Tab" key in various views.</li>
+<li class="calibre9"><b class="calibre13">WG-19121</b> Added support for copying Effects in the Effect tab of the Property Editor.</li>
+<li class="calibre9"><b class="calibre13">WG-19255</b> Added Convert to Sound SFX/Voice option to shortcut menu.</li>
+<li class="calibre9"><b class="calibre13">WG-33754</b> Added support on all platforms for the Opus codec. Opus is a great alternative to Wwise Vorbis when file size has to be particularly compact because, with some extra CPU, it can compress more at comparable quality to Wwise Vorbis. In tandem, these codecs complement each other well to meet the competing demands of file size and CPU.</li>
+<li class="calibre9"><b class="calibre13">WG-33869</b> Split Event Action property Fade Curve into Fade-in Curve and Fade-out Curve; curve list now shows the curve images.</li>
+<li class="calibre9"><b class="calibre13">WG-34847</b> Added controls to Reflect to provide users the to ability fine-tune or reduce the effect of Doppler pitch shift that occurs with moving emitters or listeners.</li>
+<li class="calibre9"><b class="calibre13">WG-34918</b> Created the Wwise Motion Source plug-in as a replacement for the now deprecated Wwise Motion Generator. It permits one to use RTPCs to modulate the curves for the actuators.</li>
+<li class="calibre9"><b class="calibre13">WG-34940</b> (WAAPI) Added SoundBank functions and topics: <a class="pcalibre el" href="ak_wwise_core_log_get_split_000.html">ak.wwise.core.log.get</a>, <a class="pcalibre el" href="ak_wwise_core_log_itemadded_split_000.html">ak.wwise.core.log.itemAdded</a>, and <a class="pcalibre el" href="ak_wwise_core_soundbank_generated_split_000.html">ak.wwise.core.soundbank.generated</a>.</li>
+<li class="calibre9"><b class="calibre13">WG-35325</b> Created customizable themes with built-in classic and dark variants.</li>
+<li class="calibre9"><b class="calibre13">WG-35327</b> Added the Create ShareSet from Custom Object dialog to allow you to change the mode of an Effect from <em class="calibre11">Define custom</em> to <em class="calibre11">Use ShareSets</em> without conflict.</li>
+<li class="calibre9"><b class="calibre13">WG-35329</b> Added a splitter at the top of the Property Editor to adjust the relative width of the Notes field.</li>
+<li class="calibre9"><b class="calibre13">WG-35330</b> Added a splitter on each side of the Game Sync Monitor to allow adjustment of the panes for, respectively, the Game Sync Watches and the Game Syncs lists.</li>
+<li class="calibre9"><b class="calibre13">WG-35331</b> Added resizable controls at the top of the Mixing Desk.</li>
+<li class="calibre9"><b class="calibre13">WG-35332</b> Added customizable shortcuts for expand/collapse in the Project Explorer.</li>
+<li class="calibre9"><b class="calibre13">WG-35336</b> Improved States tab to retain expand/collapse status.</li>
+<li class="calibre9"><b class="calibre13">WG-35471</b> Added shortcut indicators to the Project Explorer's contextual sub-menus.</li>
+<li class="calibre9"><b class="calibre13">WG-36008</b> (Experimental feature) Added diffraction on direct paths and early reflections using geometry data. <b class="calibre13">API Change</b>: New API for Spatial Audio triangle meshes.</li>
+<li class="calibre9"><b class="calibre13">WG-36184</b> Added customizable theme color settings: hue, saturation, brightness, and contrast.</li>
+<li class="calibre9"><b class="calibre13">WG-36320</b> Added Property Help view to display the Wwise Help entry for any selected property.</li>
+<li class="calibre9"><b class="calibre13">WG-36460</b> Added the ability to set property values over time using an RTPC curve.</li>
+<li class="calibre9"><b class="calibre13">WG-36487</b> Added AmbiX format support for ambisonic files recorded using the <a href="https://www.audiokinetic.com/library/edge/?source=Help&amp;id=wwise_recorder_plug_in_effect" target="_blank" class="pcalibre calibre12">Wwise Recorder</a> plug-in Effect.</li>
+<li class="calibre9"><b class="calibre13">WG-36607</b> Added 3D Meter mode to the Meter view. The 3D Meter provides directional data for an ambisonics bus.</li>
+<li class="calibre9"><b class="calibre13">WG-36647</b> Added control buttons to split tabs section, horizontally or vertically, into separate panes.</li>
+<li class="calibre9"><b class="calibre13">WG-36650</b> Added <b class="calibre13">Reset to Default</b> button in the Object Property Settings (Configure Columns) dialog of several lists, including List View, Query Editor, Reference View, and Contents Editor.</li>
+<li class="calibre9"><b class="calibre13">WG-36687</b> Added source plug-in creation to a Project Explorer sub-menu.</li>
+<li class="calibre9"><b class="calibre13">WG-36969</b> (WAAPI) Added <a class="pcalibre el" href="ak_wwise_debug_enableautomationmode_split_000.html">ak.wwise.debug.enableAutomationMode</a> to reduce the potential interruptions caused by message boxes and dialogs during automation tasks.</li>
+<li class="calibre9"><b class="calibre13">WG-37161</b> Improved Capture Log to, upon connection, list errors that occurred before the connection to the game.</li>
+<li class="calibre9"><b class="calibre13">WG-37205</b> Expanded Hardware Device column to list the full ShareSet name.</li>
+<li class="calibre9"><b class="calibre13">WG-37284</b> Added shortcut to directly open the Effect Editor from the Voices Graph by double-clicking on an Effect.</li>
+<li class="calibre9"><b class="calibre13">WG-37913</b> Added Preset and copy and paste options to Audio and Auxiliary Busses.</li>
+<li class="calibre9"><b class="calibre13">WG-38071</b> Added two new lights to Game Object 3D Viewer for a total three lights, thereby providing a better ambience setup.</li>
+<li class="calibre9"><b class="calibre13">WG-38127</b> Added new services to <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_global_plugin_context_split_000.html">AK::IAkGlobalPluginContext</a></code>, allowing plug-ins to post Events and MIDI from the global callback.</li>
+<li class="calibre9"><b class="calibre13">WG-38349</b> New Motion Factory Presets available for Motion Effects.</li>
+<li class="calibre9"><b class="calibre13">WG-38508</b> Updated to new version of REV plug-in by Crankcase Audio.</li>
+<li class="calibre9"><b class="calibre13">WG-38588</b> The CPU usages of Spatial Audio and Interactive Music have been added to the Advanced Profiler Plug-ins tab, and now contribute to the Total Plug-in CPU usage in the Performance monitor.</li>
+</ul>
+</div></div></div></body></html>

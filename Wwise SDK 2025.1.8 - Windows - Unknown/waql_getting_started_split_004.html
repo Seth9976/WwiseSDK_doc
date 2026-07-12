@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Getting Started with WAQL</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="waql_gs_diff_source"></a>
+Using a Different Source</h1>
+<p class="calibre7">So far, we have been filtering objects from the entire project. However, in some instances we may wish to focus our search on a narrower set of objects.</p>
+<p class="calibre7">Type the following:</p>
+<p class="calibre7"><code class="calibre14">$ from type sound</code></p>
+<p class="calibre7">This query will list all sound objects from the project. The <b class="calibre13">from</b> keyword defines a source from which to start our query. This is a very efficient way to narrow the search. WAQL will be able restrict the iteration to the specified source.</p>
+<p class="calibre7">It's also possible to specify multiple object types:</p>
+<p class="calibre7"><code class="calibre14">$ from type randomsequencecontainer, switchcontainer, blendcontainer</code></p>
+<p class="calibre7">The previous query could also be written with a filter search using the <b class="calibre13">where</b> keyword:</p>
+<p class="calibre7"><code class="calibre14">$ where type = "randomsequencecontainer" or type = "switchcontainer" or type = "blendcontainer"</code></p>
+<p class="calibre7">However, the filtering would have to go through all project objects, including Events, busses, sounds, etc. The execution time will be slower.</p>
+<p class="calibre7">Additional exercises:</p>
+<ul class="calibre8">
+<li class="calibre9">Try with other object types. Refer to <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a>.</li>
+</ul>
+</div></div></div></body></html>

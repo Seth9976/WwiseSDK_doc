@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK/SoundEngine/Platforms/SSE/AkSimd.h File Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table class="calibre3">
+<tbody class="calibre4"><tr class="calibre16"><td colspan="2" class="calibre17"><h2 class="calibre21" id="calibre_pb_6"><a class="pcalibre1 anchor"></a>
+AKSIMD conversion</h2></td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_platforms_2_s_s_e_2_ak_simd_8h_a717dfec12d054b2301e9531a32f9dc69_split_000.html#a717dfec12d054b2301e9531a32f9dc69">AKSIMD_CONVERT_V4I32_TO_V4F32</a>(__vec__)   _mm_cvtepi32_ps( (__vec__) )</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_platforms_2_s_s_e_2_ak_simd_8h_a2c5b3b1e5c889d5bb43777dd19d0aa1d_split_000.html#a2c5b3b1e5c889d5bb43777dd19d0aa1d">AKSIMD_ROUND_V4F32_TO_V4I32</a>(__vec__)   _mm_cvtps_epi32( (__vec__) )</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_platforms_2_s_s_e_2_ak_simd_8h_acc068c1fb13c2240448986dc99a1285a_split_000.html#acc068c1fb13c2240448986dc99a1285a">AKSIMD_TRUNCATE_V4F32_TO_V4I32</a>(__vec__)   _mm_cvttps_epi32( (__vec__) )</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_platforms_2_s_s_e_2_ak_simd_8h_ab256c6af68fab56f302a62267bd905cd_split_000.html#ab256c6af68fab56f302a62267bd905cd">AKSIMD_AND_V4I32</a>(__a__,  __b__)   _mm_and_si128( (__a__), (__b__) )</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_platforms_2_s_s_e_2_ak_simd_8h_ab57d46f959f2af8aca25a1e945210589_split_000.html#ab57d46f959f2af8aca25a1e945210589">AKSIMD_CMPGT_V8I16</a>(__a__,  __b__)   _mm_cmpgt_epi16( (__a__), (__b__) )</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_platforms_2_s_s_e_2_ak_simd_8h_a1b7521e13ccf24522d83c2688d81ba8d_split_000.html#a1b7521e13ccf24522d83c2688d81ba8d">AKSIMD_CONVERT_V4F16_TO_V4F32_LO</a>(__vec__)   <a class="pcalibre el" href="_platforms_2_s_s_e_2_ak_simd_8h_a8696abc9df18ce26a762fae27cc2c6dd_split_000.html#a8696abc9df18ce26a762fae27cc2c6dd">AKSIMD_CONVERT_V4F16_TO_V4F32_HELPER</a>( _mm_unpacklo_epi16(_mm_setzero_si128(), __vec__))</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_platforms_2_s_s_e_2_ak_simd_8h_a269d856d133d3a7e973516d3ee90ee23_split_000.html#a269d856d133d3a7e973516d3ee90ee23">AKSIMD_CONVERT_V4F16_TO_V4F32_HI</a>(__vec__)   <a class="pcalibre el" href="_platforms_2_s_s_e_2_ak_simd_8h_a8696abc9df18ce26a762fae27cc2c6dd_split_000.html#a8696abc9df18ce26a762fae27cc2c6dd">AKSIMD_CONVERT_V4F16_TO_V4F32_HELPER</a>( _mm_unpackhi_epi16(_mm_setzero_si128(), __vec__))</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">static <a class="pcalibre el" href="_platforms_2_windows_2_ak_types_8h_a3b6f41972bf6fa55e80b687ca50fbd12_split_000.html#a3b6f41972bf6fa55e80b687ca50fbd12">AkForceInline</a> <a class="pcalibre el" href="_platforms_2arm__neon_2_ak_simd_types_8h_a3b875ede86d9b294cff47d890c9ae3ef_split_000.html#a3b875ede86d9b294cff47d890c9ae3ef">AKSIMD_V4F32</a> </td><td class="memitemright"><a class="pcalibre el" href="_platforms_2_s_s_e_2_ak_simd_8h_a8696abc9df18ce26a762fae27cc2c6dd_split_000.html#a8696abc9df18ce26a762fae27cc2c6dd">AKSIMD_CONVERT_V4F16_TO_V4F32_HELPER</a> (<a class="pcalibre el" href="_platforms_2arm__neon_2_ak_simd_types_8h_adb17cf12c601673ed735f7505bf30e5e_split_000.html#adb17cf12c601673ed735f7505bf30e5e">AKSIMD_V4I32</a> vec)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">static <a class="pcalibre el" href="_platforms_2_windows_2_ak_types_8h_a3b6f41972bf6fa55e80b687ca50fbd12_split_000.html#a3b6f41972bf6fa55e80b687ca50fbd12">AkForceInline</a> <a class="pcalibre el" href="_platforms_2arm__neon_2_ak_simd_types_8h_adb17cf12c601673ed735f7505bf30e5e_split_000.html#adb17cf12c601673ed735f7505bf30e5e">AKSIMD_V4I32</a> </td><td class="memitemright"><a class="pcalibre el" href="_platforms_2_s_s_e_2_ak_simd_8h_aeda52aa529192fa3633bf7ee1a8ac06b_split_000.html#aeda52aa529192fa3633bf7ee1a8ac06b">AKSIMD_CONVERT_V4F32_TO_V4F16</a> (<a class="pcalibre el" href="_platforms_2arm__neon_2_ak_simd_types_8h_a3b875ede86d9b294cff47d890c9ae3ef_split_000.html#a3b875ede86d9b294cff47d890c9ae3ef">AKSIMD_V4F32</a> vec)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+</tbody></table>
+<a id="details" class="pcalibre calibre12"></a></div></body></html>

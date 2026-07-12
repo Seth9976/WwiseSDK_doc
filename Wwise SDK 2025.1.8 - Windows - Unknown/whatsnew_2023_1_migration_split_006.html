@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2023.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_5"><a class="pcalibre1 anchor" id="io_hook_async_open"></a>
+AK::StreamMgr::IAkFileLocationResolver::Open() Function Replaced by AK::StreamMgr::IAkLowLevelIOHook::BatchOpen()</h2>
+<p class="calibre7">If the game already uses the default <code class="calibre14">CAkDefaultIOHookDeferred</code> sample class, this section is not relevant because all necessary changes were made to the sample.</p>
+<p class="calibre7">If your game implements its own I/O hook or file location resolver, the most important change is the relocation and rename of <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_1_1_dynamic_sequence_ab6daddd96e109dc7669889733ce4f2cc_split_000.html#ab6daddd96e109dc7669889733ce4f2cc">AK::StreamMgr::IAkFileLocationResolver::Open()</a></code> to the I/O device-specific interface. In the new interface, the <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_a0abfde848b599b5e5b8e8ed63dc8b555_split_000.html#a0abfde848b599b5e5b8e8ed63dc8b555">AK::StreamMgr::IAkLowLevelIOHook::BatchOpen()</a></code> function accepts multiple file open requests at the same time, instead of just one. It can either perform the operation immediately (synchronous) or dispatch it and notify later (asynchronous). Like the <code class="calibre14">BatchRead()</code> function, <code class="calibre14">BatchOpen()</code> now receives a callback function pointer to send a notification of the operation result. For more information about this change, refer to <a class="pcalibre el" href="streamingmanager_lowlevel_split_004.html#streamingmanager_lowlevel_location_deferred_open">Deferred Opening</a>.</p>
+<p class="calibre7">If your game handles multiple I/O devices, be aware of the implementation of the new <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_file_location_resolver_a5c7515d84fe8b7ce1e1c06690447673d_split_000.html#a5c7515d84fe8b7ce1e1c06690447673d">AK::StreamMgr::IAkFileLocationResolver::GetNextPreferredDevice</a></code> function. For single-device games it can return AK_NotImplemented and the system behaves correctly. However, for multiple devices you must either use the <code class="calibre14">CAkDefaultLowLevelIODispatcher</code> sample or read more about the subject here: <a class="pcalibre el" href="streamingmanager_lowlevel_split_002.html#streamingmanager_lowlevel_location_filelocationresolver">File Location Resolver</a></p>
+</div></div></div></body></html>

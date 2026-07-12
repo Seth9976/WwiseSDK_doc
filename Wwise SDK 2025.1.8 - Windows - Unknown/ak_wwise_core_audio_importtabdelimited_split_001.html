@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak.wwise.core.audio.importTabDelimited</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="ak_wwise_core_audio_importtabdelimitedArguments"></a>
+Arguments</h1>
+<p class="calibre7"></p><table class="doxtable">
+<tbody class="calibre4"><tr class="calibre16">
+<th class="calibre46">Name </th><th class="calibre46">Type </th><th class="calibre46">Description  </th></tr>
+<tr class="calibre16">
+<td rowspan="4" class="calibre36"><b class="calibre13">importLocation</b> </td><td class="calibre36"/><td class="calibre36"><p class="starttd">Object ID (GUID), name, or path used as root relative object paths. </p>
+<p class="endtd">Any of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">The name of the object qualified by its type or Short ID in the form of type:name or Global:shortId. Only object types that have globally-unique names or Short Ids are supported. Ex: Event:Play_Sound_01, Global:245489792   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">A project path to a Wwise object, including the category and the work-unit. For example: \Containers\Default Work Unit\New Sound SFX.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">importLanguage</b> * </td><td class="calibre36">string </td><td class="calibre36">Imports language for audio file import (taken from the project's defined languages, found in the WPROJ file LanguageList).   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">importOperation</b> * </td><td class="calibre36">string </td><td class="calibre36">Determines how imported objects are created. For each object created:<ul class="calibre8">
+<li class="calibre9">createNew: creates a new object; the object is given the desired name if possible, otherwise a new unique name is used.</li>
+<li class="calibre9">useExisting: uses the object if it exists, updating the specified properties; otherwise it creates a new object. This is the default value.</li>
+<li class="calibre9">replaceExisting: creates a new object. If an existing object has the same name, the existing object is destroyed. Possible values: <ul class="calibre15">
+<li class="calibre9">
+createNew </li>
+<li class="calibre9">
+useExisting </li>
+<li class="calibre9">
+replaceExisting </li>
+</ul>
+</li>
+</ul>
+</td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">importFile</b> * </td><td class="calibre36">string </td><td class="calibre36">Location of tab-delimited import file. For using WAAPI on Mac, please see <a class="pcalibre el" href="waapi_prepare_split_005.html#waapi_path_on_mac">Using WAAPI on Mac</a> .   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">autoAddToSourceControl</b> </td><td class="calibre36">boolean </td><td class="calibre36">Determines if Wwise automatically performs a source control Add operation on the imported files. Defaults to true.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">autoCheckOutToSourceControl</b> </td><td class="calibre36">boolean </td><td class="calibre36">Determines if Wwise automatically performs a source control Checkout operation (when applicable) on the modified files. Defaults to true.   </td></tr>
+</tbody></table>
+<p class="calibre7">(Required *)</p>
+<p class="calibre7"><a class="pcalibre el" href="ak_wwise_core_audio_importtabdelimited_args_schema_split_000.html">Arguments Schema</a></p>
+</div></div></div></body></html>

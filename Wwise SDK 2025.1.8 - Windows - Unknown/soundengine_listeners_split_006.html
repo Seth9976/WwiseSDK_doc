@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integrating Listeners</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_5"><a class="pcalibre1 anchor" id="third_person_attenuation"></a>
+Distance-Based Attenuation</h2>
+<p class="calibre7">A 3D sound is typically attenuated according to the distance between the Emitter and the Listener Game Objects, applied to the sound’s attenuation curve to get volume, high-pass and low-pass filter values. The result is that closer sounds, which are more important to the experience, are louder.</p>
+<p class="calibre7">In a TPP game, however, the focus of attention is not the camera itself, but is instead the character that the player controls. For this reason, a greater sense of immersion is experienced when sounds attenuate according to the distance between the Emitter and the player character, instead of between the Emitter and the camera.</p>
+<p class="calibre7">To understand why this is so, it’s helpful to consider a scenario where we get undesirable volume fluctuations when distance attenuation is based on the position of the camera. Picture a TPP game where a camera is following the player character down a hallway lit with torches. Each torch emits a low-intensity sound with a sharp falloff. To turn the camera around and face the other direction, it’s necessary to orbit the camera around the character. In doing so, the camera passes closely to one or more of the torches, getting louder and then quieter again. The player character hasn’t moved, the relative importance of the torches in the scene hasn’t changed, and yet the volume fluctuations suggest otherwise.</p>
+<p class="calibre7">To achieve the goal of having sounds attenuate based on the distance to the player character, a Game Object must be placed at the position of the player character and designated as the Distance Probe for the main Listener.</p>
+</div></div></div></body></html>

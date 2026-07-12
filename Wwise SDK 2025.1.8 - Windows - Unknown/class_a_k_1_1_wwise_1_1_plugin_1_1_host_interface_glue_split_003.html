@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK.Wwise::Plugin::HostInterfaceGlue&lt; CPPInstance, in_baseInstance &gt; Class Template Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_2">Detailed Description</h2>
+<div class="calibre2"><h3 class="calibre22">template&lt;typename CPPInstance, bool in_baseInstance&gt;<br class="calibre10"/>
+class AK.Wwise::Plugin::HostInterfaceGlue&lt; CPPInstance, in_baseInstance &gt;</h3>
+
+<p class="calibre7"><a class="pcalibre el" href="struct_a_k_1_1_wwise_1_1_plugin_1_1_plugin_info_generator_split_000.html" title="C++ PluginInfo Generator.">PluginInfoGenerator</a>: Base class for every C++ instance that retrieves a service from the <a class="pcalibre el" href="namespace_a_k_1_1_wwise_split_000.html">Wwise</a> Authoring host. </p>
+<p class="calibre7">Compared to C, where the interface contains all the functions and the instance is an opaque block, the C++ version is the opposite; the instance is a class containing all the methods, and the interface is hidden as implementation details.</p>
+<p class="calibre7">The <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_host_interface_glue_split_000.html" title="PluginInfoGenerator: Base class for every C++ instance that retrieves a service from the Wwise Author...">HostInterfaceGlue</a> helper class provides that distinction. Depending on the in_baseInstance parameter, it will either have only a C interface (true) or also have its default instantiation (false).</p>
+<dl class="calibre7"><dt class="calibre23">Template Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">CPPInstance</td><td class="calibre17">The C++ instance to instantiate. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_baseInstance</td><td class="calibre17">Only provide a bridge (true) or also a default instance (false).</td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="struct_a_k_1_1_wwise_1_1_plugin_1_1_plugin_info_generator_split_000.html">AK::Wwise::Plugin::PluginInfoGenerator</a> </li>
+</ul>
+</dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_plugin_info_generator_8h_source.html#l00126">126</a> of file <a class="pcalibre el" href="_plugin_info_generator_8h_source.html">PluginInfoGenerator.h</a>.</p>
+</div></div><!-- contents -->
+
+
+</body></html>

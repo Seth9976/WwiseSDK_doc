@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2025.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_23"><a class="pcalibre1 anchor" id="remove_akexpander_lib"></a>
+AK Expander Plug-in Library Removed</h1>
+<p class="calibre7">The <a class="pcalibre el" href="namespace_a_k_split_000.html" title="Definition of data structures for AkAudioObject.">AK</a> Expander plug-in is no longer a standalone library or DLL, and all of its functionality has been moved into the <a class="pcalibre el" href="namespace_a_k_split_000.html" title="Definition of data structures for AkAudioObject.">AK</a> Compressor library. References to the AkExpanderFX library or AkExpanderFXFactory for compilation should be removed, or updated to refer to the AKCompressorFX library instead. If the Wwise Authoring installation is updated in-place, make sure that the AkExpander library in Wwise Authoring's <code class="calibre14">Plugins</code> directory is deleted, to avoid errors during project load of duplicate plug-in IDs.</p>
+</div></div></div></body></html>

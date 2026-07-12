@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Using the Geometry API for Simulating Early Reflections</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2"><h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="spatial_audio_apigeometry_er_intro"></a>
+Introduction</h1>
+<p class="calibre7">The Geometry API uses emitter and listener positions, and triangles of your game's (typically simplified) geometry in order to compute image sources for simulating dynamic early reflections, in conjunction with the <a href="https://www.audiokinetic.com/library/edge/?source=Help&amp;id=wwise_reflect_plug_in_effect" target="_blank" class="pcalibre calibre12">Reflect</a> plug-in. Sound designers control translation of image source positions directly in Reflect, per tweaking of properties based on distance and materials.</p>
+<p class="calibre7">Refer to the Reflect Diffraction demo and its code in the <a class="pcalibre el" href="soundengine_integration_samplecode_split_000.html">Integration Demo Sample</a> (in <em class="calibre11">SDK/samples/IntegrationDemo</em>) for an example of using the geometry API to simulate Early Reflections in conjuction with with the Reflect plug-in. Look for Spatial Audio Demos &gt; Reflect Demo.</p>
+<p class="calibre7">Please refer to our <a href="https://blog.audiokinetic.com/image-source-approach-to-dynamic-early-reflections/" target="_blank" class="pcalibre calibre12">Image Source Approach to Dynamic Early Reflections</a> and <a href="https://blog.audiokinetic.com/creating-compelling-reverberations-for-virtual-reality/" target="_blank" class="pcalibre calibre12">Creating compelling reverberations for virtual reality</a> blogs, for example, for an introduction to geometry-driven early reflections (ER for short).</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><p class="starttd"><b class="calibre13">Note:</b> The reflection order refers to the number of surfaces hit by a wavefront before reaching the listener. For example, in a shoebox-shaped room with six surfaces, simulating first order reflections means that there will be six times one early reflections, also known as image sources, per emitter. This results in a total of six reflections. Simulating second order reflections means that there will be six first order reflections, plus six times five, accounting for the other walls, second order reflections. This results in a total of 36 reflections per emitter. The number of reflections grows exponentially with the order.</p>
+<p class="endtd">Wwise Acoustics currently supports simulating up to fourth order reflections. The reflection order is set globally, with the <a class="pcalibre el" href="struct_ak_spatial_audio_init_settings_a346377be1b9f6905fb2d8d3e1540eb39_split_000.html#a346377be1b9f6905fb2d8d3e1540eb39" title="Maximum reflection order [1, 4] - the number of 'bounces' in a reflection path. A high reflection ord...">AkSpatialAudioInitSettings::uMaxReflectionOrder</a> init setting. It can also be changed dynamically with <a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_adbda0987d76ef56f38389a21479cf1ad_split_000.html#adbda0987d76ef56f38389a21479cf1ad">AK::SpatialAudio::SetReflectionsOrder</a>. </p>
+</td></tr>
+</tbody></table>
+</div></div></div></body></html>

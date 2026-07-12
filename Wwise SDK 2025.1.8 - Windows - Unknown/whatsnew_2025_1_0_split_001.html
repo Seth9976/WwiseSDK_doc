@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2025.1.0 Beta 1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="generic_feature_changes_2025_1_0"></a>
+New Features</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-42269</b> Added support for dynamic dialog in Unreal.</li>
+<li class="calibre9"><b class="calibre13">WG-46563</b> (WAAPI) Added the <a class="pcalibre el" href="ak_wwise_core_object_structurechanged_split_000.html">ak.wwise.core.object.structureChanged</a> topic to receive project structure changes in batch after the undo stack is modified.</li>
+<li class="calibre9"><b class="calibre13">WG-55874</b> (Spatial Audio) Added Dynamic Load Balancing.</li>
+<li class="calibre9"><b class="calibre13">WG-56147</b> Added the <code class="calibre14">HostReferenceSet</code> plug-in interface for Wwise Authoring. Plug-ins can use it to retrieve information about References to other objects in a Wwise project, which can simplify the development of plug-ins that refer to Game Parameters or Sidechain Mix ShareSets. See <a class="pcalibre el" href="plugin_backend_model_split_003.html#wwiseplugin_referenceset">Reference Set</a> and <a class="pcalibre el" href="plugin_backend_model_split_004.html#wwiseplugin_referenceset_notification">Reference Set Notification</a> for more information. If your plug-ins already used References and used <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_notifications_1_1_property_set___a90d279b0b03eed79cb10a5b56b0aff90_split_000.html#a90d279b0b03eed79cb10a5b56b0aff90" title="This function is called by Wwise when a plug-in property changes.">AK::Wwise::Plugin::Notifications::PropertySet::NotifyPropertyChanged</a></code> to receive notifications when References changed, update them to use <code class="calibre14"><code class="calibre14">AK::Wwise::Plugin::Notifications::Referenceset::NotifyReferenceChanged</code></code> instead.</li>
+<li class="calibre9"><b class="calibre13">WG-56964</b> Files in standard WAV format can now be specified as external sources (<code class="calibre14"><a class="pcalibre el" href="struct_ak_external_source_info_split_000.html">AkExternalSourceInfo</a></code>) when posting Events.</li>
+<li class="calibre9"><b class="calibre13">WG-60211</b> Added an option to hide the Diffraction and Transmission percentages in the 3D Viewer.</li>
+<li class="calibre9"><b class="calibre13">WG-62551</b> (Spatial Audio) A new flag, <code class="calibre14">in_bTransition</code>, was added to <code class="calibre14">SetPortalObstructionAndOcclusion</code>. When true, obstruction and occlusion are interpolated over the depth of the Portal.</li>
+<li class="calibre9"><b class="calibre13">WG-62681</b> A customizable toolbar was added to the top of the 3D View of the Game Object 3D Viewer. It replaces the Game Object 3D Viewer Options view. The toolbar has four buttons by default, each representing a category of options. Each category button opens a context menu with more options. You can pin options to the toolbar for quick access.</li>
+<li class="calibre9"><b class="calibre13">WG-62683</b> You can now select Game Objects, diffraction paths, and reflection paths in the 3D viewer to view information about them.</li>
+<li class="calibre9"><b class="calibre13">WG-62855</b> Added a selection property panel to the Game Object 3D Viewer, which displays the relevant properties of selected Game Objects, diffraction paths, and reflection paths.</li>
+<li class="calibre9"><b class="calibre13">WG-66841</b> Added an option to hide Virtual Positions in the 3D Viewer.</li>
+<li class="calibre9"><b class="calibre13">WG-68856</b> Auto-defined SoundBanks now package prefetch data. A new field, ContainsPrefetch, was added to the SoundBank metadata files.</li>
+<li class="calibre9"><b class="calibre13">WG-69303</b> Added a "Sidechain Mix" ShareSet to Wwise, which carries audio signals across Effect plug-ins so that Effects can use other audio signals as a part of their processing.</li>
+<li class="calibre9"><b class="calibre13">WG-72676</b> Added a Save Profiler Session command to the Profiler menu.</li>
+<li class="calibre9"><b class="calibre13">WG-73774</b> In the Property Editor, Notes are now shown on multiple lines when required.</li>
+<li class="calibre9"><b class="calibre13">WG-74448</b> New context menus were added to the Switch Container editor.</li>
+<li class="calibre9"><b class="calibre13">WG-74497</b> Added an "Open in New Window" button for references in the Property Editor.</li>
+<li class="calibre9"><b class="calibre13">WG-75163</b> (Spatial Audio) Added the ability to automatically cluster nearby sound emitters so that their paths are only computed once per cluster. See <code class="calibre14"><a class="pcalibre el" href="struct_ak_spatial_audio_init_settings_a66dd539940098f9ed9bfd600262c1fa5_split_000.html#a66dd539940098f9ed9bfd600262c1fa5">AkSpatialAudioInitSettings::uClusteringMinPoints</a></code>, <code class="calibre14"><a class="pcalibre el" href="struct_ak_spatial_audio_init_settings_ac3eab08f2b45134b17d0a4d34f14a77d_split_000.html#ac3eab08f2b45134b17d0a4d34f14a77d" title="Max distance between emitters to be considered as neighbors. This distance is specified for the refer...">AkSpatialAudioInitSettings::fClusteringMaxDistance</a></code>, and <code class="calibre14"><a class="pcalibre el" href="struct_ak_spatial_audio_init_settings_ada511d087ecb7f920a1ff0f62460e8d7_split_000.html#ada511d087ecb7f920a1ff0f62460e8d7" title="Defines a dead zone around the listener where no emitters are clusters. Default value is 10....">AkSpatialAudioInitSettings::fClusteringDeadZoneDistance</a></code>.</li>
+<li class="calibre9"><b class="calibre13">WG-75197</b> (Spatial Audio) Added a new scaling factor to manipulate reverb send values for Rooms and Portals. <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_acfd8b560df7015bbf1a2c747d4444d3a_split_000.html#acfd8b560df7015bbf1a2c747d4444d3a">AK::SpatialAudio::SetAdjacentRoomBleed</a></code> and <code class="calibre14">AkPorrtalParams::AdjacentRoomBleed</code> affect the proportion of audio sent to adjacent Rooms versus the proportion sent to the emitter's current Room.</li>
+<li class="calibre9"><b class="calibre13">WG-75355</b> New WAQL accessors were added for various features.</li>
+<li class="calibre9"><b class="calibre13">WG-75356</b> Added a criterion for WAQL expressions to the Query Editor.</li>
+<li class="calibre9"><b class="calibre13">WG-75380</b> (Spatial Audio) "Propagation Path Gain" has been divided into separate drivers in the Voice Inspector.</li>
+<li class="calibre9"><b class="calibre13">WG-75559</b> External sources can now use WAV files.</li>
+<li class="calibre9"><b class="calibre13">WG-75584</b> Added a new effect plug-in to Wwise, the Multiband Meter. This plug-in expands on the existing Meter plug-in by mixing down an input signal and metering it at a series of user-specified frequency ranges to drive a set of user-defined game parameters.</li>
+<li class="calibre9"><b class="calibre13">WG-75589</b> Added Sidechain Mix support to the Compressor Effect.</li>
+<li class="calibre9"><b class="calibre13">WG-75676</b> A High Shelf Filter Emphasis setting was added to the Project Settings.</li>
+<li class="calibre9"><b class="calibre13">WG-75680</b> In the Game Object 3D Viewer, filtering the Game Object List and showing/hiding game objects in the 3D Viewer are now decoupled.</li>
+<li class="calibre9"><b class="calibre13">WG-75693</b> Added a cooldown feature to Events, configurable by time, maximum number of instances, and scope.</li>
+<li class="calibre9"><b class="calibre13">WG-76148</b> The Audio File Importer is now available as a view and can be docked to the layout.</li>
+<li class="calibre9"><b class="calibre13">WG-76399</b> Added a button to configure gain reduction meter range in the Compressor Effect editor.</li>
+<li class="calibre9"><b class="calibre13">WG-76401</b> Context menus were updated in the Music Playlist Editor and the Sequence Editor.</li>
+<li class="calibre9"><b class="calibre13">WG-76494</b> A new plug-in service, <code class="calibre14">PluginServiceType_Meter</code> was added. Plug-ins can use it for audio signal metering.</li>
+<li class="calibre9"><b class="calibre13">WG-76636</b> Wwise projects now have global Attenuation ShareSets instead of project curves. A migration transfers all project curves to a new Attenuation ShareSet called Envrionmental Curves Migration. Migration does not affect project behavior.</li>
+</ul>
+<p class="calibre7">An Attenuation ShareSet can now set its Distance Volume curve to None, which has the same effect as a Constant curve at 0dB for all distance values.</p><ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-76670</b> Some Media Pool settings are available in the <code class="calibre14">settings/MediaPool.wpref</code> file .</li>
+<li class="calibre9"><b class="calibre13">WG-76739</b> Added "Tick Interval" performance counter to the Performance Monitor.</li>
+<li class="calibre9"><b class="calibre13">WG-76841</b> (Spatial Audio) Added <code class="calibre14">AkRoomParams::SubtractFromParent</code> to determine whether or not a Room causes distance attenuation to apply to a parent Room, or to a Room in which it is nested.</li>
+<li class="calibre9"><b class="calibre13">WG-77379</b> In an Attenuation ShareSet, you can now set the Distance Volume curve to None, which ensures that the volume of a sound does not change when the distance between the emitter and listener changes. If you also set game or user-defined curves to Use Distance Volume, they are also considered to be set to None.</li>
+<li class="calibre9"><b class="calibre13">WG-77381</b> The Audio File Importer has new context menu entries to add files and folders to the import list, and a new buttons to remove files and folders from the import list.</li>
+<li class="calibre9"><b class="calibre13">WG-77482</b> Spatial Audio emitters can now be clustered to optimize path computation.</li>
+<li class="calibre9"><b class="calibre13">WG-77788</b> Added the ability to control a Dynamic Sequence from a user callback instead of a Playlist array.</li>
+<li class="calibre9"><b class="calibre13">WG-78342</b> The Expander plug-in is no longer built as a separate library or DLL, and is now included as a part of the Compressor plug-in, which reduces overall memory usage. Any references to the AkExpanderFX library or DLL can be removed because only the AkCompressorFX needs to be included. See <a class="pcalibre el" href="whatsnew_2025_1_migration_split_024.html#remove_akexpander_lib">AK Expander Plug-in Library Removed</a> for more information.</li>
+</ul>
+</div></div></div></body></html>

@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::SoundEngine::PrepareEvent</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="namespace_a_k_1_1_sound_engine_a98b617d05618e6d18680d198845ff3d7_split_000.html#a98b617d05618e6d18680d198845ff3d7" class="pcalibre1 anchor">◆ </a></span>PrepareEvent() <span class="permalink">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_sound_engine_export_8h_ac6e96d34dfc0e12f9aaa7a47f4e9c322_split_000.html#ac6e96d34dfc0e12f9aaa7a47f4e9c322">AKSOUNDENGINE_API</a> <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::SoundEngine::PrepareEvent </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a21e0dbb1f9aebfc22fdd88634dc1067b_split_000.html#a21e0dbb1f9aebfc22fdd88634dc1067b">PreparationType</a> </td>
+          <td class="paramname"><em class="calibre59">in_PreparationType</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_a8341fa4d01d2fa852c3cc410401b04dc_split_000.html#a8341fa4d01d2fa852c3cc410401b04dc">AkUniqueID</a> * </td>
+          <td class="paramname"><em class="calibre59">in_pEventID</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> </td>
+          <td class="paramname"><em class="calibre59">in_uNumEvent</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Prepares or unprepares events synchronously (by ID). The Events are identified by their ID (see <a class="pcalibre el" href="soundengine_banks_general_split_000.html">General Information</a> for a discussion on using strings and IDs). Before invoking <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a2e6ebb779470b43d78984c27f6a0c238_split_000.html#a2e6ebb779470b43d78984c27f6a0c238">PrepareEvent()</a>, use <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">LoadBank()</a> to explicitly load the SoundBank(s) that contain the Events and structures. When a request is posted to the Bank Manager consumer thread, it will resolve all dependencies needed to successfully post the specified Events and load the required loose media files. </p><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> Before version 2015.1, the required media files could be included in a separate media SoundBank. As described in <a class="pcalibre el" href="whatsnew_2015_1_migration.html">Important Migration Notes 2015.1</a>, however, <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a2e6ebb779470b43d78984c27f6a0c238_split_000.html#a2e6ebb779470b43d78984c27f6a0c238">PrepareEvent()</a> now only looks for loose media files. </td></tr>
+</tbody></table>
+<p class="calibre7">The function returns when the request is completely processed. </p><dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><code class="calibre14">AK_Success:</code> Prepare/un-prepare successful.</li>
+<li class="calibre9"><code class="calibre14">AK_IDNotFound:</code> At least one of the event/game sync identifiers passed to <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a2e6ebb779470b43d78984c27f6a0c238_split_000.html#a2e6ebb779470b43d78984c27f6a0c238">PrepareEvent()</a> does not exist.</li>
+<li class="calibre9"><code class="calibre14">AK_InsufficientMemory:</code> Insufficient memory to store bank data.</li>
+<li class="calibre9"><code class="calibre14">AK_BankReadError:</code> I/O error.</li>
+<li class="calibre9"><code class="calibre14">AK_WrongBankVersion:</code> Invalid bank version: make sure the version of <a class="pcalibre el" href="namespace_a_k_1_1_wwise_split_000.html">Wwise</a> that you used to generate the SoundBanks matches that of the SDK you are currently using.</li>
+<li class="calibre9"><code class="calibre14">AK_InvalidFile:</code> File specified could not be opened.</li>
+<li class="calibre9"><code class="calibre14">AK_InvalidParameter:</code> Invalid parameter, invalid memory alignment. <br class="calibre10"/>
+</li>
+<li class="calibre9"><code class="calibre14">AK_Fail:</code> Load or unload failed for any other reason. (Most likely small allocation failure) </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Remarks</dt><dd class="calibre24">Whenever at least one event fails to be resolved, the actions performed for all other events are cancelled. </dd></dl>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a2e6ebb779470b43d78984c27f6a0c238_split_000.html#a2e6ebb779470b43d78984c27f6a0c238">AK::SoundEngine::PrepareEvent()</a></code></li>
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_af9648460be2ed1a0093ff09b42ef36f5_split_000.html#af9648460be2ed1a0093ff09b42ef36f5">AK::SoundEngine::ClearPreparedEvents()</a></code></li>
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a1aae6ebdec25946fb2897ce0e025366d_split_000.html#a1aae6ebdec25946fb2897ce0e025366d">AK::SoundEngine::GetIDFromString()</a></code></li>
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">AK::SoundEngine::LoadBank()</a></code></li>
+<li class="calibre9"><a class="pcalibre el" href="soundengine_banks.html">Integration Details - Banks</a></li>
+<li class="calibre9"><a class="pcalibre el" href="sdk_bank_training_split_000.html">SoundBank Integration Samples</a> </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_PreparationType</td><td class="calibre17">Preparation type ( Preparation_Load or Preparation_Unload ) </td></tr>
+    <tr class="calibre16"><td class="paramname">in_pEventID</td><td class="calibre17">Array of event IDs </td></tr>
+    <tr class="calibre16"><td class="paramname">in_uNumEvent</td><td class="calibre17">Number of event IDs in the array </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

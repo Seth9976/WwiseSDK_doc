@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Obstruction and Occlusion with Game-defined Auxiliary Sends</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="soundengine_environments_setting_obsocc"></a>
+Setting Obstruction and Occlusion</h1>
+<p class="calibre7">The game engine determines the obstruction and occlusion values from the position of the objects and listeners in the game's geometry.</p>
+<p class="calibre7">You can set curves in Wwise Authoring to determine how the volume, LPF, HPF, or DSF react to calculated obstruction and occlusion values. You can also enable or disable any curve to best suit their performance and realism needs.</p>
+<p class="calibre7">By default, all sounds use the curves specified in the Wwise project. For more information, see <a href="https://www.audiokinetic.com/library/edge/?source=Help&amp;id=defining_obstruction_and_occlusion_curves_for_project" target="_blank" class="pcalibre calibre12">Defining Obstruction and Occlusion Curves for Your Project</a>.</p>
+<p class="calibre7">You can also use Attenuation ShareSets to enable, disable, and set obstruction and occlusion for separate sounds. For more information, see <a href="https://www.audiokinetic.com/library/edge/?source=Help&amp;id=applying_distance_based_attenuation" target="_blank" class="pcalibre calibre12">Applying Attenuation</a>.</p>
+<p class="calibre7">In both cases, modifying the obstruction and occlusion curves is done in Wwise, in the Attenuation Editor. In the following example, an obstruction value of 1.0f (100%) produces a volume change of -6 dB on the source object. Obstruction and Occlusion levels are between 0.0f and 1.0f.</p>
+<div class="calibre2">
+<img alt="" src="obs_occ_curves.png" class="inline"/>
+<div class="calibre2">
+Customizing the Obstruction and Occlusion Curves in Wwise</div></div>
+<p class="calibre7">Game designers must calculate the obstruction and occlusion for each game object that affects each listener and pass the values to the sound engine with the <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a1b3e18a25b405e55ba82de9b70cd11ba_split_000.html#a1b3e18a25b405e55ba82de9b70cd11ba">AK::SoundEngine::SetObjectObstructionAndOcclusion()</a> call.</p>
+<p class="calibre7">When multiple listeners are enabled for a game object, the sound engine determines the minimum LPF value and maximum volume value that all listeners can hear. It then uses those values to compute the resulting obstruction/occlusion.</p>
+</div></div></div></body></html>

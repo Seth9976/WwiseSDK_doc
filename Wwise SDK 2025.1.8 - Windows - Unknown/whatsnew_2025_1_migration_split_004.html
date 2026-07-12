@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2025.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_3"><a class="pcalibre1 anchor" id="c_cxx_api_changes_25_1_callbacks"></a>
+Callback system</h2>
+<p class="calibre7">The PostEvent callback signature has changed. The previous callback info structure has been split in two:</p>
+<ul class="calibre8">
+<li class="calibre9">Data common to all callback types is passed as a pointer to an <a class="pcalibre el" href="struct_ak_event_callback_info_split_000.html">AkEventCallbackInfo</a> structure. This pointer must not be cast to a different type.</li>
+<li class="calibre9">Data unique to a callback type is passed as a <code class="calibre14">void</code> pointer. Cast this pointer to the appropriate callback info structure type based on the value of the <code class="calibre14">in_eType</code> parameter. Note that this pointer is null for some callback types where no additional information is necessary (i.e. AK_EndOfEvent, AK_Starvation, and AK_MusicPlayStarted).</li>
+</ul>
+<p class="calibre7">In addition, both the PostEvent and BusVolume callbacks now have the user cookie passed as an explicit parameter. The cookie is no longer stored in the info structure.</p>
+</div></div></div></body></html>

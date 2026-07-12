@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2018.1.9</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_4"><a class="pcalibre1 anchor" id="bugs_2018_1_9"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-14711</b> Fixed: Music sync callbacks can trigger an extra illegal beat at the end of a bar with certain BPM values.</li>
+<li class="calibre9"><b class="calibre13">WG-37311</b> Fixed: Possible crash when calling <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a4935dbc8c375c82c03475a1dbde37a51_split_000.html#a4935dbc8c375c82c03475a1dbde37a51">AK::SoundEngine::RegisterBusMeteringCallback</a> from the game thread.</li>
+<li class="calibre9"><b class="calibre13">WG-42340</b> Fixed: Soundbanks containing CrankCaseAudio REV data were sometimes not binary identical at each generation. Fixed: Overall stability fixes.</li>
+<li class="calibre9"><b class="calibre13">WG-42488</b> Fixed: (UWP) Gamepad vibration would persist for several seconds after Motion output was removed.</li>
+<li class="calibre9"><b class="calibre13">WG-43113</b> Fixed: Crash when loading project with invalid Music Switch Container or Dialogue Event arguments.</li>
+<li class="calibre9"><b class="calibre13">WG-43336</b> Fixed: Rare crash while generating banks.</li>
+<li class="calibre9"><b class="calibre13">WG-43438</b> Fixed: Plug-ins generated with wp.py cannot build when located on a different drive than WWISEROOT%.</li>
+<li class="calibre9"><b class="calibre13">WG-43480</b> Fixed: Severe delay when connecting to a game with a large bus hierarchy.</li>
+<li class="calibre9"><b class="calibre13">WG-43586</b> Fixed: Project change notifications are not always shown when doing file operations outside of Wwise.</li>
+<li class="calibre9"><b class="calibre13">WG-43814</b> Fixed: Wrong application of static values in-game on Exclusive RTPCs upon Wwise connection.</li>
+<li class="calibre9"><b class="calibre13">WG-43832</b> Fixed: Crash when initializing sound engine in 5.1 and 7.1 on Android.</li>
+<li class="calibre9"><b class="calibre13">WG-44023</b> Fixed: AK_ENABLE_ASSERTS not defined in some Sound Engine solutions for Windows.</li>
+<li class="calibre9"><b class="calibre13">WG-44057</b> Custom Command files now have versions.</li>
+<li class="calibre9"><b class="calibre13">WG-44110</b> Fixed: (Linux) PulseAudio sink plug-in may be initialized with non-optimal buffer attributes.</li>
+<li class="calibre9"><b class="calibre13">WG-44160</b> Fixed: Wwise freeze/crash when right-clicking on the Target field of a Post Event Action.</li>
+<li class="calibre9"><b class="calibre13">WG-44194</b> Fixed: Crash in Dynamic Dialogue editor when selecting "Remove Path(s)" context menu option with nothing selected.</li>
+<li class="calibre9"><b class="calibre13">WG-44234</b> Fixed: Rare crash on nullptr access when performing an undo action on a Sound SFX object.</li>
+<li class="calibre9"><b class="calibre13">WG-44267</b> Fixed: (Android) Crash when initializing the sound engine with an unsupported speaker setup.</li>
+<li class="calibre9"><b class="calibre13">WG-44280</b> Fixed: Migration of very large Work Unit files (over 10,000,000 XML node objects in the file) was potentially causing incomplete projects.</li>
+<li class="calibre9"><b class="calibre13">WG-44541</b> Fixed: Failure to write converted files for concurrent instances.</li>
+<li class="calibre9"><b class="calibre13">WG-44544</b> Fixed: Opening a new Multi Editor window does not always update or disable properties correctly.</li>
+<li class="calibre9"><b class="calibre13">WG-44566</b> Fixed: Crash on NSW when changing primary output device, or some scenarios involving a temporary loss of audio hardware.</li>
+<li class="calibre9"><b class="calibre13">WG-44700</b> Fixed: Possible audio glitch when using EQ on multichannel files.</li>
+</ul>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="reference_platform_2018_1_9_split_000.html">Platform Requirements 2018.1.9</a> </li>
+</ul>
+</dd></dl>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

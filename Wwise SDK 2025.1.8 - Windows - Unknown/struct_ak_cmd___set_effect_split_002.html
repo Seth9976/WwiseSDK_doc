@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AkCmd_SetEffect Struct Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_1">Detailed Description</h2>
+<div class="calibre2"><p class="calibre7">Sets an Effect ShareSet at the specified slot of a container, bus, or output device.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> Replacing effects is preferably done through a Set Effect Event Action. </td></tr>
+</tbody></table>
+<p class="calibre7">This operation adds a reference on the audio node to an existing ShareSet.</p>
+<p class="calibre7">To specify a bus, set <code class="calibre14">nodeType</code> to <code class="calibre14">AkNodeType_Bus</code>. The bus can be an Audio Bus or an Auxiliary Bus.</p>
+<p class="calibre7">To specify an output device, set <code class="calibre14">nodeType</code> to <code class="calibre14">AkNodeType_AudioDevice</code>. The ID can refer to a specific ID returned by <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_adc0d4b9a62088bc4cebf8cf95672b132_split_000.html#adc0d4b9a62088bc4cebf8cf95672b132">AK::SoundEngine::GetOutputID</a></code> or 0 to designate the main (default) output device. In this case, only audio device effect sharesets are accepted.</p>
+<p class="calibre7">When specifying any other container (e.g. Switch, Blend, Sound SFX, etc.) set <code class="calibre14">nodeType</code> to <code class="calibre14">AkNodeType_Default</code>.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> This function has unspecified behavior when adding an Effect to a currently playing Bus which does not have any Effects, or removing the last Effect on a currently playing bus. </td></tr>
+</tbody></table>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> This function will replace existing Effects on the node. If the target node is not at the top of the hierarchy and is in the Containers hierarchy, the option "Override Parent" in the Effect section in Wwise must be enabled for this node, otherwise the parent's Effect will still be the one in use and SetEffect will have no impact. </td></tr>
+</tbody></table>
+<p class="calibre7">This command can fail for the following reasons:</p><ul class="calibre8">
+<li class="calibre9"><code class="calibre14">AK_InvalidParameter</code> when <code class="calibre14">nodeID</code> is an invalid ID, or when <code class="calibre14">fxIndex</code> or <code class="calibre14">nodeType</code> is out of range.</li>
+<li class="calibre9"><code class="calibre14">AK_IDNotFound</code> when either the Node ID or the Shareset ID are not present in the Init bank.</li>
+<li class="calibre9"><code class="calibre14">AK_RenderedFX</code> when the current effect in the slot is rendered at bank-generation time (rendered effects cannot be replaced).</li>
+<li class="calibre9"><code class="calibre14">AK_NotCompatible</code> when <code class="calibre14">nodeType</code> is <code class="calibre14">AkNodeType_AudioDevice</code> and the effect shareset is not an output device effect.</li>
+<li class="calibre9"><code class="calibre14">AK_InsufficientMemory</code> when there is not enough memory to complete the operation.</li>
+</ul>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="_ak_command_types_8h_a001b78645b8b0335c0dd2e128cca2cfd_split_001.html#a001b78645b8b0335c0dd2e128cca2cfdaa0443ddf9f9de5f5ebac01ccc66ea1f8" title="See AkCmd_SetEffect.">AkCommand_SetEffect</a></li>
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a00256bfd86c2bed14c626922fc4417b0_split_000.html#a00256bfd86c2bed14c626922fc4417b0">AK::SoundEngine::SetActorMixerEffect</a></li>
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_aabbeadd26d528e82003a0c143908d825_split_000.html#aabbeadd26d528e82003a0c143908d825">AK::SoundEngine::SetBusEffect</a></li>
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ad455f291883c352a87b5b03da64549aa_split_000.html#ad455f291883c352a87b5b03da64549aa">AK::SoundEngine::SetOutputDeviceEffect</a> </li>
+</ul>
+</dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_ak_command_types_8h_source_split_002.html#l01046">1046</a> of file <a class="pcalibre el" href="_ak_command_types_8h_source_split_000.html">AkCommandTypes.h</a>.</p>
+</div></div><!-- contents -->
+
+
+</body></html>

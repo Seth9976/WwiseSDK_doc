@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integrating Wwise Motion</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_13"><a class="pcalibre1 anchor" id="motion_profiling"></a>
+Profiling</h2>
+<p class="calibre7">To troubleshoot problems, we recommend that you profile your application. In Wwise Authoring, you can profile your application as described in <a href="https://www.audiokinetic.com/library/edge/?source=Help&amp;id=profiling" class="pcalibre calibre12">Profiling</a>. Several tools can help you understand the source of a problem. The Capture Log view lists error codes in red. The Graph view displays a visual representation of the sound engine pipeline. The motion devices appear at the end of the pipeline. If no motion devices are displayed, the sound engine could not find the device you specified. Finally, the Emitter/Listener tab displays all Emitter-Listener pairs. If the Motion Effect does not work, the Emitter might not be associated with the Listener you specified for your motion device.</p>
+<p class="calibre7">If you trigger a Motion effect but it doesn't work, do the following:</p><ul class="calibre8">
+<li class="calibre9">Check the Capture Log to ensure that there are no registration errors with the plug-in. If there are, confirm that you included the <code class="calibre14"><a class="pcalibre el" href="_ak_motion_sink_factory_8h_split_000.html">AkMotionSinkFactory.h</a></code> and linked to the <code class="calibre14">AkMotionSink</code> library.</li>
+<li class="calibre9">Ensure that the sound engine initialized the device. If it didn't, an error is displayed in the Capture Log when <code class="calibre14">AddOutput</code> is called from the game.</li>
+<li class="calibre9">Ensure that the Sound SFX you play is routed to a bus that leads to a motion device. Check the Audio Bus property of the Sound SFX, and the Audio Device property of the bus.</li>
+<li class="calibre9">From the Voices Graph tab, identify which Emitter triggered. Ensure that there is an associated Listener in the Emitter-Listener tab. The same Game Object can emit and listen. If there is no associated Listener, review your calls to <code class="calibre14">RegisterGameObj</code>, <code class="calibre14">SetListeners</code>, and <code class="calibre14">AddOutput</code>.</li>
+<li class="calibre9">Ensure that the Listener is associated with the desired output device.</li>
+<li class="calibre9">Review the results of any API calls you made and check for errors.</li>
+</ul>
+<p class="calibre7">For Android devices, add the permission in the application's AndroidManifest.xml file: </p><div class="fragment"><div class="line">&lt;uses-permission android:name=<span class="stringliteral">"android.permission.VIBRATE"</span>/&gt;</div>
+</div><!-- fragment --></div></div></div></body></html>

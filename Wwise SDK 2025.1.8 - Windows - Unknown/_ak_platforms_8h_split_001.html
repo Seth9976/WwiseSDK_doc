@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK/AkPlatforms.h File Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table class="calibre3">
+<tbody class="calibre4"><tr class="calibre16"><td colspan="2" class="calibre17"><h2 class="calibre21" id="calibre_pb_0"><a class="pcalibre1 anchor" id="define-members"></a>
+Macros</h2></td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_platforms_8h_a51602f641089d986e226ed0ba0097d04_split_000.html#a51602f641089d986e226ed0ba0097d04">AK_ALIGN</a>(_declaration_,  _alignment_)   _declaration_ __attribute__( ( aligned( _alignment_ ) ) )</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_platforms_8h_aeea979ecc1d2b33bff7a49def566a87c_split_000.html#aeea979ecc1d2b33bff7a49def566a87c">AK_ALIGN_TO_NEXT_BOUNDARY</a>(__num__,  __boundary__)   (((__num__) + ((__boundary__)-1)) &amp; ~((__boundary__)-1))</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_platforms_8h_ab696f456053547e7d983bcc6cadecae6_split_000.html#ab696f456053547e7d983bcc6cadecae6">AK_IS_POWER_OF_TWO</a>(__num__)   (((__num__) &amp; ((__num__) - 1)) == 0)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_platforms_8h_a43129f33569a64905954068e93781a77_split_000.html#a43129f33569a64905954068e93781a77">AK_ENDIANNESS_LITTLE</a></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_platforms_8h_acead03f1e665d8ec282067b72db8e7b6_split_000.html#acead03f1e665d8ec282067b72db8e7b6">AK_UNALIGNED</a></td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">AK_UNALIGNED refers to the __unaligned compilation flag available on some platforms. Note that so far, on the tested platform this should always be placed before the pointer symbol *.  <a href="_ak_platforms_8h_acead03f1e665d8ec282067b72db8e7b6_split_000.html#acead03f1e665d8ec282067b72db8e7b6" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_platforms_8h_aace42721bf834d460bc43bf1c87c7c67_split_000.html#aace42721bf834d460bc43bf1c87c7c67">AK_SELECTANY</a></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_platforms_8h_afdad98a324f1b63271ac05b0730074de_split_000.html#afdad98a324f1b63271ac05b0730074de">AK_NODISCARD</a></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_platforms_8h_a30feac218b1f7cd4084906e12a7a2bdf_split_000.html#a30feac218b1f7cd4084906e12a7a2bdf">AK_POINTER_64</a></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_platforms_8h_a8480b535dbd765ff758a7b80d8f2bc4e_split_000.html#a8480b535dbd765ff758a7b80d8f2bc4e">AK_UNUSEDVAR</a>(x)   ((void)(x))</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_platforms_8h_ab570f541b59332b92a43b8a9b7b43d4e_split_000.html#ab570f541b59332b92a43b8a9b7b43d4e">AK_THREAD_LOCAL</a></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_platforms_8h_a1830b75eb0a32b6bfaed6930bf528238_split_000.html#a1830b75eb0a32b6bfaed6930bf528238">AkAllocaTypedArray</a>(_type_,  _count_)   ( (_type_*)AkAlloca(sizeof(_type_) * _count_) )</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Stack allocation helpers.  <a href="_ak_platforms_8h_a1830b75eb0a32b6bfaed6930bf528238_split_000.html#a1830b75eb0a32b6bfaed6930bf528238" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+</tbody></table>
+<a id="details" class="pcalibre calibre12"></a></div></body></html>

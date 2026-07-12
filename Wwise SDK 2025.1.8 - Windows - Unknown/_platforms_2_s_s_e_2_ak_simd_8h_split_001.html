@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK/SoundEngine/Platforms/SSE/AkSimd.h File Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table class="calibre3">
+<tbody class="calibre4"><tr class="calibre16"><td colspan="2" class="calibre17"><h2 class="calibre21" id="calibre_pb_0"><a class="pcalibre1 anchor" id="define-members"></a>
+Macros</h2></td></tr>
+<tr class="calibre16"><td colspan="2" class="calibre17"><div class="groupheader">Platform specific memory size alignment for allocation purposes</div></td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_platforms_2_s_s_e_2_ak_simd_8h_a3d3b66234162b20984a289b91221edce_split_000.html#a3d3b66234162b20984a289b91221edce">AKSIMD_ALIGNSIZE</a>(__Size__)   (((__Size__) + 15) &amp; ~15)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td colspan="2" class="calibre17"><div class="groupheader">AKSIMD storing</div></td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_platforms_2_s_s_e_2_ak_simd_8h_a0b847f202de2519c5f11b305bcf6ddbf_split_000.html#a0b847f202de2519c5f11b305bcf6ddbf">AKSIMD_STORE_V4F32</a>(__addr__,  __vec__)   _mm_storeu_ps( (<a class="pcalibre el" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a>*)(__addr__), (__vec__) )</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_platforms_2_s_s_e_2_ak_simd_8h_a7385d0ac1aaac1a0f36ad2824fcafced_split_000.html#a7385d0ac1aaac1a0f36ad2824fcafced">AKSIMD_STOREU_V4F32</a>(__addr__,  __vec__)   _mm_storeu_ps( (<a class="pcalibre el" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a>*)(__addr__), (__vec__) )</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_platforms_2_s_s_e_2_ak_simd_8h_afe50fedb76aae89ee30100936c370190_split_000.html#afe50fedb76aae89ee30100936c370190">AKSIMD_STORE1_V4F32</a>(__addr__,  __vec__)   _mm_store_ss( (<a class="pcalibre el" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a>*)(__addr__), (__vec__) )</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_platforms_2_s_s_e_2_ak_simd_8h_a6e606216a5918612ae1013234dfc80a3_split_000.html#a6e606216a5918612ae1013234dfc80a3">AKSIMD_STORE1_V2F64</a>(__addr__,  __vec__)   _mm_store_sd( (<a class="pcalibre el" href="_ak_numeral_types_8h_a3d90a976d004c34e2707f7bf48f3a39e_split_000.html#a3d90a976d004c34e2707f7bf48f3a39e">AkReal64</a>*)(__addr__), _mm_castps_pd(__vec__) )</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td colspan="2" class="calibre17"><div class="groupheader">AKSIMD shuffling</div></td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_platforms_2_s_s_e_2_ak_simd_8h_abad6d59ebb4b74aa95322a6293db519f_split_000.html#abad6d59ebb4b74aa95322a6293db519f">AKSIMD_SHUFFLE</a>(fp3,  fp2,  fp1,  fp0)   _MM_SHUFFLE( (fp3), (fp2), (fp1), (fp0) )</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_platforms_2_s_s_e_2_ak_simd_8h_a54594e2872b2c35c6310d02e554e17d1_split_000.html#a54594e2872b2c35c6310d02e554e17d1">AKSIMD_SHUFFLE_V4F32</a>(a,  b,  i)   _mm_shuffle_ps( a, b, i )</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_platforms_2_s_s_e_2_ak_simd_8h_aa301b336562543f29e156984bf6cc25c_split_000.html#aa301b336562543f29e156984bf6cc25c">AKSIMD_SHUFFLE_V4I32</a>(a,  b,  i)   _mm_castps_si128(_mm_shuffle_ps( _mm_castsi128_ps(a), _mm_castsi128_ps(b), i ))</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_platforms_2_s_s_e_2_ak_simd_8h_ae390732f9187c4c5e0ef6625bef0149c_split_000.html#ae390732f9187c4c5e0ef6625bef0149c">AKSIMD_MOVEHL_V4F32</a>(a,  b)   _mm_movehl_ps( a, b )</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_platforms_2_s_s_e_2_ak_simd_8h_abdb3636c28f7b86dbbf9ccd83dd5f72c_split_000.html#abdb3636c28f7b86dbbf9ccd83dd5f72c">AKSIMD_MOVELH_V4F32</a>(a,  b)   _mm_movelh_ps( a, b )</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_platforms_2_s_s_e_2_ak_simd_8h_a3fb7b565678447c7c4cb10c1acb24639_split_000.html#a3fb7b565678447c7c4cb10c1acb24639">AKSIMD_SHUFFLE_BADC</a>(__a__)   _mm_shuffle_ps( (__a__), (__a__), _MM_SHUFFLE(2,3,0,1))</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Swap the 2 lower floats together and the 2 higher floats together. <br class="calibre10"/>
+  <a href="_platforms_2_s_s_e_2_ak_simd_8h_a3fb7b565678447c7c4cb10c1acb24639_split_000.html#a3fb7b565678447c7c4cb10c1acb24639" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_platforms_2_s_s_e_2_ak_simd_8h_a1f88f3d1e6d8249631d4a6e6ba15fae7_split_000.html#a1f88f3d1e6d8249631d4a6e6ba15fae7">AKSIMD_SHUFFLE_CDAB</a>(__a__)   _mm_shuffle_ps( (__a__), (__a__), _MM_SHUFFLE(1,0,3,2))</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Swap the 2 lower floats with the 2 higher floats. <br class="calibre10"/>
+  <a href="_platforms_2_s_s_e_2_ak_simd_8h_a1f88f3d1e6d8249631d4a6e6ba15fae7_split_000.html#a1f88f3d1e6d8249631d4a6e6ba15fae7" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_platforms_2_s_s_e_2_ak_simd_8h_ac7af866f529cbb1653901a4448f37b95_split_000.html#ac7af866f529cbb1653901a4448f37b95">AKSIMD_SHUFFLE_BCDA</a>(__a__)   <a class="pcalibre el" href="_platforms_2_s_s_e_2_ak_simd_8h_a54594e2872b2c35c6310d02e554e17d1_split_000.html#a54594e2872b2c35c6310d02e554e17d1">AKSIMD_SHUFFLE_V4F32</a>( (__a__), (__a__), _MM_SHUFFLE(0,3,2,1))</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Barrel-shift all floats by one.  <a href="_platforms_2_s_s_e_2_ak_simd_8h_ac7af866f529cbb1653901a4448f37b95_split_000.html#ac7af866f529cbb1653901a4448f37b95" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_platforms_2_s_s_e_2_ak_simd_8h_afcdf0cc52223e0d8d9026c22c8e3d54b_split_000.html#afcdf0cc52223e0d8d9026c22c8e3d54b">AKSIMD_DUP_ODD</a>(__vv)   <a class="pcalibre el" href="_platforms_2_s_s_e_2_ak_simd_8h_a54594e2872b2c35c6310d02e554e17d1_split_000.html#a54594e2872b2c35c6310d02e554e17d1">AKSIMD_SHUFFLE_V4F32</a>(__vv, __vv, <a class="pcalibre el" href="_platforms_2_s_s_e_2_ak_simd_8h_abad6d59ebb4b74aa95322a6293db519f_split_000.html#abad6d59ebb4b74aa95322a6293db519f">AKSIMD_SHUFFLE</a>(3,3,1,1))</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Duplicates the odd items into the even items (d c b a -&gt; d d b b )  <a href="_platforms_2_s_s_e_2_ak_simd_8h_afcdf0cc52223e0d8d9026c22c8e3d54b_split_000.html#afcdf0cc52223e0d8d9026c22c8e3d54b" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_platforms_2_s_s_e_2_ak_simd_8h_a38e9e11f3fc37f04ba4afe8ad79c7e0d_split_000.html#a38e9e11f3fc37f04ba4afe8ad79c7e0d">AKSIMD_DUP_EVEN</a>(__vv)   <a class="pcalibre el" href="_platforms_2_s_s_e_2_ak_simd_8h_a54594e2872b2c35c6310d02e554e17d1_split_000.html#a54594e2872b2c35c6310d02e554e17d1">AKSIMD_SHUFFLE_V4F32</a>(__vv, __vv, <a class="pcalibre el" href="_platforms_2_s_s_e_2_ak_simd_8h_abad6d59ebb4b74aa95322a6293db519f_split_000.html#abad6d59ebb4b74aa95322a6293db519f">AKSIMD_SHUFFLE</a>(2,2,0,0))</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Duplicates the even items into the odd items (d c b a -&gt; c c a a )  <a href="_platforms_2_s_s_e_2_ak_simd_8h_a38e9e11f3fc37f04ba4afe8ad79c7e0d_split_000.html#a38e9e11f3fc37f04ba4afe8ad79c7e0d" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td colspan="2" class="calibre17"><div class="groupheader">AKSIMD cast</div></td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_platforms_2_s_s_e_2_ak_simd_8h_a5995c4f077bd1b3ac8da0f5957e2eb79_split_000.html#a5995c4f077bd1b3ac8da0f5957e2eb79">AKSIMD_CAST_V2F64_TO_V4F32</a>(__vec__)   _mm_castpd_ps(__vec__)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_platforms_2_s_s_e_2_ak_simd_8h_a8d07d2801aa83b61501285ba301fe30e_split_000.html#a8d07d2801aa83b61501285ba301fe30e">AKSIMD_CAST_V2F64_TO_V4I32</a>(__vec__)   _mm_castpd_si128(__vec__)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_platforms_2_s_s_e_2_ak_simd_8h_a89e43df2cb020b1050f2e56815a07a2d_split_000.html#a89e43df2cb020b1050f2e56815a07a2d">AKSIMD_CAST_V4F32_TO_V2F64</a>(__vec__)   _mm_castps_pd(__vec__)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_platforms_2_s_s_e_2_ak_simd_8h_a9c0fe7b5707191ad39fb7442b4d1a806_split_000.html#a9c0fe7b5707191ad39fb7442b4d1a806">AKSIMD_CAST_V4F32_TO_V4I32</a>(__vec__)   _mm_castps_si128(__vec__)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_platforms_2_s_s_e_2_ak_simd_8h_a2d1c9668d1aa444057606f71a5462243_split_000.html#a2d1c9668d1aa444057606f71a5462243">AKSIMD_CAST_V4I32_TO_V2F64</a>(__vec__)   _mm_castsi128_pd(__vec__)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_platforms_2_s_s_e_2_ak_simd_8h_acaf082ecb6defbf62043b74972ba5efc_split_000.html#acaf082ecb6defbf62043b74972ba5efc">AKSIMD_CAST_V4I32_TO_V4F32</a>(__vec__)   _mm_castsi128_ps(__vec__)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_platforms_2_s_s_e_2_ak_simd_8h_ae199ce79d53dadef32fafc1b38d1d358_split_000.html#ae199ce79d53dadef32fafc1b38d1d358">AKSIMD_CAST_V4COND_TO_V4F32</a>(__vec__)   (__vec__)</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Cast vector of type AKSIMD_V4COND to AKSIMD_V4F32.  <a href="_platforms_2_s_s_e_2_ak_simd_8h_ae199ce79d53dadef32fafc1b38d1d358_split_000.html#ae199ce79d53dadef32fafc1b38d1d358" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_platforms_2_s_s_e_2_ak_simd_8h_a0601230d41eb107ee09a9a24a5441115_split_000.html#a0601230d41eb107ee09a9a24a5441115">AKSIMD_CAST_V4F32_TO_V4COND</a>(__vec__)   (__vec__)</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Cast vector of type AKSIMD_V4F32 to AKSIMD_V4COND.  <a href="_platforms_2_s_s_e_2_ak_simd_8h_a0601230d41eb107ee09a9a24a5441115_split_000.html#a0601230d41eb107ee09a9a24a5441115" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_platforms_2_s_s_e_2_ak_simd_8h_a8b7d2aae8a4f20475d9cdfe76c1237ba_split_000.html#a8b7d2aae8a4f20475d9cdfe76c1237ba">AKSIMD_CAST_V4COND_TO_V4I32</a>(__vec__)   _mm_castps_si128(__vec__)</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Cast vector of type AKSIMD_V4COND to AKSIMD_V4I32.  <a href="_platforms_2_s_s_e_2_ak_simd_8h_a8b7d2aae8a4f20475d9cdfe76c1237ba_split_000.html#a8b7d2aae8a4f20475d9cdfe76c1237ba" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_platforms_2_s_s_e_2_ak_simd_8h_a788601f9e55d28c483a0bca73c88eea0_split_000.html#a788601f9e55d28c483a0bca73c88eea0">AKSIMD_CAST_V4I32_TO_V4COND</a>(__vec__)   _mm_castsi128_ps(__vec__)</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Cast vector of type AKSIMD_V4I32 to AKSIMD_V4COND.  <a href="_platforms_2_s_s_e_2_ak_simd_8h_a788601f9e55d28c483a0bca73c88eea0_split_000.html#a788601f9e55d28c483a0bca73c88eea0" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_platforms_2_s_s_e_2_ak_simd_8h_a24bda4bb8b1087307c5def6d53dfba33_split_000.html#a24bda4bb8b1087307c5def6d53dfba33">AKSIMD_UNPACKLO_VECTOR8I16</a>(a,  b)   _mm_unpacklo_epi16( a, b )</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_platforms_2_s_s_e_2_ak_simd_8h_a31ee32f119f00336c0a31a34d74bc156_split_000.html#a31ee32f119f00336c0a31a34d74bc156">AKSIMD_UNPACKHI_VECTOR8I16</a>(a,  b)   _mm_unpackhi_epi16( a, b )</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_platforms_2_s_s_e_2_ak_simd_8h_adef16f41caa2c2cb55221a4bd873e3e1_split_000.html#adef16f41caa2c2cb55221a4bd873e3e1">AKSIMD_PACKS_V4I32</a>(a,  b)   _mm_packs_epi32( a, b )</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td colspan="2" class="calibre17"><div class="groupheader">AKSIMD shifting</div></td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_platforms_2_s_s_e_2_ak_simd_8h_a8e838aafab18bfd8c850dfcc94b6ffbe_split_000.html#a8e838aafab18bfd8c850dfcc94b6ffbe">AKSIMD_SHIFTLEFT_V4I32</a>(__vec__,  __shiftBy__)   	_mm_slli_epi32( (__vec__), (__shiftBy__) )</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_platforms_2_s_s_e_2_ak_simd_8h_a7474e815f712eb877ee8da017f08fc0c_split_000.html#a7474e815f712eb877ee8da017f08fc0c">AKSIMD_SHIFTRIGHT_V4I32</a>(__vec__,  __shiftBy__)   	_mm_srli_epi32( (__vec__), (__shiftBy__) )</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_platforms_2_s_s_e_2_ak_simd_8h_aa63c4a5285da3a8d172712987a7c11cc_split_000.html#aa63c4a5285da3a8d172712987a7c11cc">AKSIMD_SHIFTRIGHTARITH_V4I32</a>(__vec__,  __shiftBy__)   	_mm_srai_epi32( (__vec__), (__shiftBy__) )</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td colspan="2" class="calibre17"><div class="groupheader">AKSIMD int16 helpers</div></td></tr>
+<tr class="calibre16"><td colspan="2" class="calibre17"><div class="grouptext"><p class="calibre7">MMX </p>
+</div></td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_platforms_2_s_s_e_2_ak_simd_8h_abbaf4b66f6ab214539111ed574925971_split_000.html#abbaf4b66f6ab214539111ed574925971">AKSIMD_LOAD_V1I64_LO</a>(__addr__)   _mm_loadl_epi64(reinterpret_cast&lt;const __m128i*&gt;(__addr__) )</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+</tbody></table></div></body></html>

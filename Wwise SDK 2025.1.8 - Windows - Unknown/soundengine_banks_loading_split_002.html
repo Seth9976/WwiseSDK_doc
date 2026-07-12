@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Loading Banks</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_1"><a class="pcalibre1 anchor" id="soundengine_banks_loading_explicit_vs_implicit_explicit"></a>
+Explicit Bank Loading</h2>
+<p class="calibre7">You can load a SoundBank explicitly by using one of the <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">AK::SoundEngine::LoadBank()</a> methods of the sound engine API. After a SoundBank is loaded, all the objects within it are ready to be used.</p>
+<p class="calibre7">In the following example, the SoundBank BANK_01 is loaded explicitly. It is identified by an ID, which is defined in the Wwise_IDs.h header file. For a discussion on identifying SoundBanks using strings (Unicode or ANSI) or IDs, refer to <a class="pcalibre el" href="soundengine_banks_general_split_009.html#soundengine_banks_general_identification">Identifying Banks</a> ). It contains the Event PLAY_SOUND_01, along with its associated sound structures and media (consult the <a href="https://www.audiokinetic.com/library/?source=Help&amp;id=managing_soundbanks" target="_blank" class="pcalibre calibre12">Wwise Help</a> for more information on generating SoundBanks with Wwise). When it is loaded, the Event is posted to the sound engine.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include "Wwise_IDs.h"</span></div>
+<div class="line"><span class="comment">// ...</span></div>
+<div class="line"><a class="pcalibre code" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> gameObj = 3;</div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a895ed0f83a0dea8fc284491c0ee0152c_split_000.html#a895ed0f83a0dea8fc284491c0ee0152c">AK::SoundEngine::RegisterGameObj</a>( gameObj );</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Load a bank synchronously, using its ID.</span></div>
+<div class="line"><a class="pcalibre code" href="_ak_typedefs_8h_a472a3d18cbb0c4f081b3b619e4a2f349_split_000.html#a472a3d18cbb0c4f081b3b619e4a2f349">AkBankID</a> returnedBankID;</div>
+<div class="line"><a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> eResult = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">LoadBank</a>(</div>
+<div class="line">    AK::BANKS::BANK_01,         <span class="comment">// Identifier of the bank to be loaded.</span></div>
+<div class="line">    returnedBankID              <span class="comment">// Returned bank ID.</span></div>
+<div class="line">    );</div>
+<div class="line"><span class="keywordflow">if</span>( eResult != <a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_001.html#a64f7d1f79613cc4dcc49a4efba6caa63ad7c47fea3da641e7422573c6a13dc35e">AK_Success</a> )</div>
+<div class="line">{</div>
+<div class="line">    <span class="comment">// Failed loading bank.</span></div>
+<div class="line">    <span class="comment">// Handle error...</span></div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Load succeeded.</span></div>
+<div class="line"><span class="comment">// Use the bank as required...</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// For example, if the bank contained the event PLAY_SOUND_01, along with its</span></div>
+<div class="line"><span class="comment">// associated sound structures and media.</span></div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a41e9ef8d42951871fe4a8ae58a29a68e_split_000.html#a41e9ef8d42951871fe4a8ae58a29a68e">AK::SoundEngine::PostEvent</a>(</div>
+<div class="line">    AK::EVENTS::PLAY_SOUND_01,      <span class="comment">// Unique ID of the event</span></div>
+<div class="line">    gameObj                         <span class="comment">// Associated game object ID</span></div>
+<div class="line">    );</div>
+</div><!-- fragment --></div></div></div></body></html>

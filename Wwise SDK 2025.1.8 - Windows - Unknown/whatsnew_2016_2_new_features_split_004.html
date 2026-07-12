@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>New Features Overview 2016.2</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="whatsnew_2016_2_new_feature_blend_container_optimization"></a>
+Blend Container – Performance Optimization</h1>
+<p class="calibre7">The new Blend Container <em class="calibre11">continuous</em> option allows to play and stop child objects based on their clip regions in a Blend Track. This new behavior greatly optimizes memory usage and, in multiple scenarios, CPU usage. Here’s an overview of the two behaviors:</p><ul class="calibre8">
+<li class="calibre9"><b class="calibre13">Step:</b> The Blend Container starts playback of all children upon Play. The Blend Container playback is considered to have ended once all child voices have stopped playing (or when a Stop action is received).</li>
+<li class="calibre9"><b class="calibre13">Continuous:</b> The Blend Container actively manages the play and stop of children based on a crossfade region which plays the child when the RTPC value is inside the clip region, and stops it when it is outside the clip region. The container has to be stopped with a Stop Action as it would remain alive and monitor RTPC changes even when no voices are playing. (Note that this is very similar to the Switch Container in Continuous Mode).</li>
+</ul>
+</div></div></div></body></html>

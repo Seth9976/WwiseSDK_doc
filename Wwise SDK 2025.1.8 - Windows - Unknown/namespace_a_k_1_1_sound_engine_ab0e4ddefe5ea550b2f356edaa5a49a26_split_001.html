@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::SoundEngine::SetRTPCValue</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="namespace_a_k_1_1_sound_engine_ab0e4ddefe5ea550b2f356edaa5a49a26_split_000.html#ab0e4ddefe5ea550b2f356edaa5a49a26" class="pcalibre1 anchor">◆ </a></span>SetRTPCValue() <span class="permalink">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_sound_engine_export_8h_ac6e96d34dfc0e12f9aaa7a47f4e9c322_split_000.html#ac6e96d34dfc0e12f9aaa7a47f4e9c322">AKSOUNDENGINE_API</a> <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::SoundEngine::SetRTPCValue </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_a77a3b6fec7d9181ef8e5bae2b37b80d0_split_000.html#a77a3b6fec7d9181ef8e5bae2b37b80d0">AkRtpcID</a> </td>
+          <td class="paramname"><em class="calibre59">in_rtpcID</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_a86459d5c3b5e6055cc885b833661f140_split_000.html#a86459d5c3b5e6055cc885b833661f140">AkRtpcValue</a> </td>
+          <td class="paramname"><em class="calibre59">in_value</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> </td>
+          <td class="paramname"><em class="calibre59">in_gameObjectID</em> = <code class="calibre14"><a class="pcalibre el" href="_ak_constants_8h_a82290a98a9cf7901722a69a590aeee34_split_000.html#a82290a98a9cf7901722a69a590aeee34">AK_INVALID_GAME_OBJECT</a></code>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_a8a4d0aa5dba6f9922d6b7b3e48958b24_split_000.html#a8a4d0aa5dba6f9922d6b7b3e48958b24">AkTimeMs</a> </td>
+          <td class="paramname"><em class="calibre59">in_uValueChangeDuration</em> = <code class="calibre14">0</code>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_enums_8h_a77872044bca52a4d20324739154f2399_split_000.html#a77872044bca52a4d20324739154f2399">AkCurveInterpolation</a> </td>
+          <td class="paramname"><em class="calibre59">in_eFadeCurve</em> = <code class="calibre14"><a class="pcalibre el" href="_ak_enums_8h_a77872044bca52a4d20324739154f2399_split_001.html#a77872044bca52a4d20324739154f2399a4bc8df1cfffac8b5239808faf94a112b">AkCurveInterpolation_Linear</a></code>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">bool </td>
+          <td class="paramname"><em class="calibre59">in_bBypassInternalValueInterpolation</em> = <code class="calibre14">false</code> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Sets the value of a real-time parameter control (by ID). With this function, you may set a game parameter value with global scope or with game object scope. Game object scope supersedes global scope. (Once a value is set for the game object scope, it will not be affected by changes to the global scope value.) Game parameter values set with a global scope are applied to all game objects that not yet registered, or already registered but not overridden with a value with game object scope. To set a game parameter value with global scope, pass <code class="calibre14">AK_INVALID_GAME_OBJECT</code> as the game object. With this function, you may also change the value of a game parameter over time. To do so, specify a non-zero value for <code class="calibre14">in_uValueChangeDuration</code>. At each audio frame, the game parameter value will be updated internally according to the interpolation curve. If you call <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ab0e4ddefe5ea550b2f356edaa5a49a26_split_000.html#ab0e4ddefe5ea550b2f356edaa5a49a26">SetRTPCValue()</a></code> with <code class="calibre14">in_uValueChangeDuration = 0</code> in the middle of an interpolation, the interpolation stops and the new value is set directly. Thus, if you call this function at every game frame, you should not use <code class="calibre14">in_uValueChangeDuration</code>, as it would have no effect and it is less efficient. See <a class="pcalibre el" href="soundengine_rtpc_split_004.html#soundengine_rtpc_pergameobject">RTPCs and Game Objects</a>, <a class="pcalibre el" href="soundengine_rtpc_split_005.html#soundengine_rtpc_buses">RTPCs and Busses</a> and <a class="pcalibre el" href="soundengine_rtpc_split_006.html#soundengine_rtpc_effects">RTPCs and Plug-Ins</a> for more details on RTPC scope. </p><dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><code class="calibre14">AK_Success</code> if the value was successfully set</li>
+<li class="calibre9"><code class="calibre14">AK_InvalidFloatValue</code> if the value specified was NaN, Inf or FLT_MAX (3.402823e+38)</li>
+<li class="calibre9"><code class="calibre14">AK_InvalidID</code> if in_rtpcID is AK_INVALID_UNIQUE_ID (0) </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="soundengine_rtpc_split_000.html">Integration Details - RTPCs</a></li>
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a1aae6ebdec25946fb2897ce0e025366d_split_000.html#a1aae6ebdec25946fb2897ce0e025366d">AK::SoundEngine::GetIDFromString()</a></code> </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_rtpcID</td><td class="calibre17">ID of the game parameter </td></tr>
+    <tr class="calibre16"><td class="paramname">in_value</td><td class="calibre17">Value to set </td></tr>
+    <tr class="calibre16"><td class="paramname">in_gameObjectID</td><td class="calibre17">Associated game object ID </td></tr>
+    <tr class="calibre16"><td class="paramname">in_uValueChangeDuration</td><td class="calibre17">Duration during which the game parameter is interpolated towards in_value </td></tr>
+    <tr class="calibre16"><td class="paramname">in_eFadeCurve</td><td class="calibre17">Curve type to be used for the game parameter interpolation </td></tr>
+    <tr class="calibre16"><td class="paramname">in_bBypassInternalValueInterpolation</td><td class="calibre17">True if you want to bypass the internal "slew rate" or "over time filtering" specified by the sound designer. This is meant to be used when for example loading a level and you dont want the values to interpolate. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

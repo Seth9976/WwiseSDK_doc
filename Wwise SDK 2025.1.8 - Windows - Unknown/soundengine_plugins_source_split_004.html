@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Sound Engine Source Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_3"><a class="pcalibre1 anchor" id="iaksourceeffect_stoplooping"></a>
+AK::IAkSourcePlugin::StopLooping()</h2>
+<p class="calibre7">This method is called by the sound engine when a break action is received. A break action is a smooth stop. The plug-in may implement a way to smoothly terminate playing in this function. Usually it should simply stop looping and play the release if there is one. The function must return AK_Success if it ignores the break command or if it handles it. If the plug-in does not handle it, then this function should return AK_Fail, which will cause the source to stop playing.</p>
+<p class="calibre7">Stop playback after the current loop iteration AKRESULT CAkDCOffset::StopLooping() { m_DurationHandler.SetLooping( 1 ); // No longer looping. return AK_Success; }</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> This function is optional. If you don't implement it, the source will ignore break commands and play normally until the end. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

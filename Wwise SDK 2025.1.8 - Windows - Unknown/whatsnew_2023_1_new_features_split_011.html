@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>New Features Overview 2023.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_10"><a class="pcalibre1 anchor" id="features_23_1_waapi"></a>
+WAAPI</h1>
+<ul class="calibre8">
+<li class="calibre9">WAAPI Audio File Import<ul class="calibre15">
+<li class="calibre9">Audio File Import is now possible in ak.wwise.core.object.set.</li>
+</ul>
+</li>
+<li class="calibre9">New WAAPI Functions<ul class="calibre15">
+<li class="calibre9">New functions have been added to the Wwise Authoring API that provide access to operations and properties available for improving development workflows with Wwise Authoring.</li>
+<li class="calibre9">Project: Adds control over the Wwise Project Loading and Project Creation.<ul class="calibre30">
+<li class="calibre9">ak.wwise.console.project.close</li>
+<li class="calibre9">ak.wwise.console.project.create</li>
+<li class="calibre9">ak.wwise.console.project.open</li>
+<li class="calibre9">ak.wwise.ui.project.create</li>
+</ul>
+</li>
+<li class="calibre9">Mute/Solo: Adds control over the Mute/Solo status.<ul class="calibre30">
+<li class="calibre9">ak.wwise.core.audio.mute</li>
+<li class="calibre9">ak.wwise.core.audio.solo</li>
+<li class="calibre9">ak.wwise.core.audio.resetMute</li>
+<li class="calibre9">ak.wwise.core.audio.resetSolo</li>
+</ul>
+</li>
+<li class="calibre9">Objects: Adds support for linking, state, and undo/redo properties.<ul class="calibre30">
+<li class="calibre9">ak.wwise.core.object.isLinked</li>
+<li class="calibre9">ak.wwise.core.object.setLinked</li>
+<li class="calibre9">ak.wwise.core.object.setStateGroups</li>
+<li class="calibre9">ak.wwise.core.object.setStateProperties</li>
+<li class="calibre9">ak.wwise.core.undo.redo</li>
+</ul>
+</li>
+<li class="calibre9">Profiler: Adds more Profiler information and adds the ability to save capture data.<ul class="calibre30">
+<li class="calibre9">ak.wwise.core.profiler.getCpuUsage</li>
+<li class="calibre9">ak.wwise.core.profiler.getLoadedMedia</li>
+<li class="calibre9">ak.wwise.core.profiler.getPerformanceMonitor</li>
+<li class="calibre9">ak.wwise.core.profiler.getStreamedMedia</li>
+<li class="calibre9">ak.wwise.core.profiler.saveCapture</li>
+</ul>
+</li>
+<li class="calibre9">Source Control: Adds Source Control operations.<ul class="calibre30">
+<li class="calibre9">ak.wwise.core.sourceControl.add</li>
+<li class="calibre9">ak.wwise.core.sourceControl.checkOut</li>
+<li class="calibre9">ak.wwise.core.sourceControl.commit</li>
+<li class="calibre9">ak.wwise.core.sourceControl.delete</li>
+<li class="calibre9">ak.wwise.core.sourceControl.getSourceFiles</li>
+<li class="calibre9">ak.wwise.core.sourceControl.getStatus</li>
+<li class="calibre9">ak.wwise.core.sourceControl.move</li>
+<li class="calibre9">ak.wwise.core.sourceControl.revert</li>
+<li class="calibre9">ak.wwise.core.sourceControl.setProvider</li>
+</ul>
+</li>
+<li class="calibre9">Misc<ul class="calibre30">
+<li class="calibre9">ak.wwise.core.executeLuaScript</li>
+<li class="calibre9">ak.wwise.debug.generateToneWAV</li>
+<li class="calibre9">ak.wwise.core.log.addItem</li>
+<li class="calibre9">ak.wwise.core.log.clear</li>
+</ul>
+</li>
+<li class="calibre9">Topics:<ul class="calibre30">
+<li class="calibre9">ak.wwise.core.log.itemAdded: new 'SourceControl' channel added</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="calibre9">WAAPI Work Units and Perforce<ul class="calibre15">
+<li class="calibre9">Source Control operations are now supported through the command line with <b class="calibre13">waapi-server</b> mode.</li>
+<li class="calibre9">WAAPI operations involving Source Control are now completely silent and do not cause pop-ups.</li>
+<li class="calibre9">Added support for Work Unit operations inside WAAPI functions.</li>
+<li class="calibre9">Added support for Automatic Source Control Check Out and Add in several WAAPI functions.</li>
+<li class="calibre9">Added complete Source Control API through WAAPI.</li>
+</ul>
+</li>
+<li class="calibre9">Object Model<ul class="calibre15">
+<li class="calibre9">The following elements have been refactored and are now accessible in WAAPI and WAQL:<ul class="calibre30">
+<li class="calibre9">Playlist in Random/Sequence Container</li>
+<li class="calibre9">Markers in Audio File Source</li>
+<li class="calibre9">Associations and Arguments in Music Switch Container</li>
+<li class="calibre9">Entries in Dialogue Events</li>
+<li class="calibre9">Trigger and Segment Reference in Music Stinger</li>
+<li class="calibre9">Transition Root in music objects</li>
+<li class="calibre9">Playlist Root in Music Sequence Container</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div></div></div></body></html>

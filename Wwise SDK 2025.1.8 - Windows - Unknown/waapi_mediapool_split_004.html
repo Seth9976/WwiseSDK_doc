@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Managing and Querying the Media Pool</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_3"><a class="pcalibre1 anchor" id="waapi_mediapool_fields"></a>
+Media Pool Fields</h2>
+<p class="calibre7">The Media Pool provides access to various metadata fields. In Wwise Authoring, these fields appear in the Media Pool's metadata pane.</p>
+<p class="calibre7">You can use Media Pool fields to do the following:</p><ul class="calibre8">
+<li class="calibre9">Filter audio files by properties set in the "filters" argument in <a class="pcalibre el" href="ak_wwise_core_mediapool_get_split_000.html">ak.wwise.core.mediaPool.get</a>.</li>
+<li class="calibre9">Specify return values in the options of <a class="pcalibre el" href="ak_wwise_core_mediapool_get_split_000.html">ak.wwise.core.mediaPool.get</a>. If you do not specify any return values, the query returns the <code class="calibre14">Path</code>, <code class="calibre14">FileId</code>, and <code class="calibre14">Db</code> for each file.</li>
+</ul>
+<p class="calibre7">The Media Pool supports additional return options such as "Markers" and "DetectedRegions". See the <code class="calibre14">return</code> option in <a class="pcalibre el" href="ak_wwise_core_mediapool_get_split_000.html">ak.wwise.core.mediaPool.get</a> for the complete list.</p>
+<p class="calibre7">The fields are collected from the audio files and arranged under the following categories:</p><ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WAV</b>: Standard fields available for all audio files. Common fields include the following:<ul class="calibre15">
+<li class="calibre9">"WAV/Sample Rate"</li>
+<li class="calibre9">"WAV/Bit Depth"</li>
+<li class="calibre9">"WAV/Duration"</li>
+<li class="calibre9">"WAV/Channel Configuration"</li>
+<li class="calibre9">...</li>
+</ul>
+</li>
+<li class="calibre9"><b class="calibre13">BWFXML</b>: Fields specific to the BWFXML format (IXML), which some audio files might contain. They are grouped into different sections, and the supported sections include the following:<ul class="calibre15">
+<li class="calibre9">"BWFXML/ASWG": Contains Audio Software Working Group (ASWG) metadata.</li>
+<li class="calibre9">"BWFXML/BWF": Contains Broadcast Wave Format (BWF) metadata.</li>
+<li class="calibre9">"BWFXML/USER": Contains user-defined metadata.</li>
+</ul>
+</li>
+</ul>
+<p class="calibre7">To retrieve the full list of available fields, use <a class="pcalibre el" href="ak_wwise_core_mediapool_getfields_split_000.html">ak.wwise.core.mediaPool.getFields</a>. Fields under the BWFXML section are discovered dynamically when Wwise scans the audio files.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="waapi_mediapool_ucs_fields"></a>
+Universal Category System Fields</h3>
+<p class="calibre7">The <a href="https://universalcategorysystem.com/" target="_blank" class="pcalibre calibre12">Universal Category System (UCS)</a> is an attempt to standardize audio file naming and categorization to improve organization, searchability, and interoperability across different sound libraries and software. UCS fields are located under the BWFXML/ASWG and BWFXML/USER sections in the Media Pool:</p>
+<ul class="calibre8">
+<li class="calibre9">BWFXML/ASWG/category</li>
+<li class="calibre9">BWFXML/ASWG/subCategory</li>
+<li class="calibre9">BWFXML/ASWG/catId</li>
+<li class="calibre9">BWFXML/USER/CATID</li>
+<li class="calibre9">BWFXML/USER/CATEGORY</li>
+<li class="calibre9">BWFXML/USER/SUBCATEGORY </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

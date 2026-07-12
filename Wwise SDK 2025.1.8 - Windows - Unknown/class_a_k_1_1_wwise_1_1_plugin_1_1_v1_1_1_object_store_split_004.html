@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK.Wwise::Plugin::V1::ObjectStore&lt; PropertySetT &gt; Class Template Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_3">Detailed Description</h2>
+<div class="calibre2"><h3 class="calibre22">template&lt;typename PropertySetT = AK::Wwise::Plugin::PropertySet&gt;<br class="calibre10"/>
+class AK.Wwise::Plugin::V1::ObjectStore&lt; PropertySetT &gt;</h3>
+
+<p class="calibre7">Custom inner property set interface. </p>
+<p class="calibre7">The Object Store contains named lists, and those named lists each contains a vector of inner property sets.</p>
+<p class="calibre7">For example, you can create a list named "Property curve points" and have 12 inner property sets with coordinates, configuration and information for the 12 user-created curve points.</p>
+<p class="calibre7">Inner property sets can be created from any inner types, as defined in the plug-in's XML definition file <code class="calibre14">InnerTypes</code> section. Your lists should contain recognizable types, as there is no way to poll the type of the created object. This system was created with a one-list-one-type design pattern; however, there is no actual restriction in using different types in a same list.</p>
+<p class="calibre7">You can define as many named lists as required. You should consider creating different inner property sets or lists for each platform if the property set indexes aren't linked.</p>
+<p class="calibre7">You can create new inner property set with <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_object_store_a1a507782ef4fee515e91df6426c6fd88_split_000.html#a1a507782ef4fee515e91df6426c6fd88">CreatePropertySet</a>, and insert it in a list's index with <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_object_store_a23316a944101ac1a01d331fd6c187606_split_000.html#a23316a944101ac1a01d331fd6c187606">InsertPropertySet</a>.</p>
+<p class="calibre7">You can also subscribe to notifications through <a class="pcalibre el" href="structak__wwise__plugin__notifications__object__store__v1_split_000.html" title="Interface able to receive notifications for custom inner property sets.">ak_wwise_plugin_notifications_object_store_v1</a> in order to be informed when some inner property set changed.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> In order to manage property sets, you must make sure to use <a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_a5eb9b772d01c414e7c77b44ef66e661f_split_000.html#a5eb9b772d01c414e7c77b44ef66e661f">AK::Wwise::Plugin::RequestPropertySet</a> in your plug-in. </td></tr>
+</tbody></table>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> Historical naming convention described it as "inner object" and "inner type". For simplicity, since we are talking about property sets, the naming has been standardized to "inner property set". However, the names are interchangeable and are still being used. </td></tr>
+</tbody></table>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="plugin_xml_split_012.html#wwiseplugin_objectstore">Inner Objects</a></li>
+<li class="calibre9"><a class="pcalibre el" href="plugin_xml_properties_split_001.html#wwiseplugin_xml_properties_tag">Properties Element</a></li>
+<li class="calibre9"><a class="pcalibre el" href="structak__wwise__plugin__notifications__object__store__v1_split_000.html">ak_wwise_plugin_notifications_object_store_v1</a> </li>
+</ul>
+</dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_host_object_store_8h_source.html#l00381">381</a> of file <a class="pcalibre el" href="_host_object_store_8h_source.html">HostObjectStore.h</a>.</p>
+</div></div><!-- contents -->
+
+
+</body></html>

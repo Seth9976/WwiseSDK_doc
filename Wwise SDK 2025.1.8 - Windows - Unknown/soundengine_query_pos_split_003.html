@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integration Details - GetSourcePlayPosition</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="soundengine_query_pos_limitations"></a>
+Limitations</h1>
+<ul class="calibre8">
+<li class="calibre9">When an event contains multiple play actions, <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ae0b469d9fb8a099b40f52f004882d283_split_000.html#ae0b469d9fb8a099b40f52f004882d283">GetSourcePlayPosition()</a> returns the position of the first source played by the target of the first play action occurring at time 0. When this source stops, the source whose position is returned is undefined.</li>
+<li class="calibre9">Continuous (random or sequence) containers return the position of the sound that is currently playing. When there are many sounds, the source whose position is returned is undefined. In crossfade or sample-accurate transitions, the next source returns its position only when the previous source has finished playing.</li>
+<li class="calibre9">When used with extrapolation, looping sources may overshoot the loop end for a short period of time when the loop occurs.</li>
+<li class="calibre9">Some virtual voices are killed when their priority falls under a certain threshold. When this happens, you might receive an error code from <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ae0b469d9fb8a099b40f52f004882d283_split_000.html#ae0b469d9fb8a099b40f52f004882d283">AK::SoundEngine::GetSourcePlayPosition()</a>. You should always check the return value when calling <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ae0b469d9fb8a099b40f52f004882d283_split_000.html#ae0b469d9fb8a099b40f52f004882d283">AK::SoundEngine::GetSourcePlayPosition()</a>.</li>
+<li class="calibre9">Dynamic pitch changes may result in slightly offset playback positions for a short period of time during the transition.</li>
+</ul>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="soundengine_events_split_000.html">Integration Details - Events</a></li>
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a41e9ef8d42951871fe4a8ae58a29a68e_split_000.html#a41e9ef8d42951871fe4a8ae58a29a68e">AK::SoundEngine::PostEvent()</a></li>
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ae0b469d9fb8a099b40f52f004882d283_split_000.html#ae0b469d9fb8a099b40f52f004882d283">AK::SoundEngine::GetSourcePlayPosition()</a> </li>
+</ul>
+</dd></dl>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<div class="ttc" id="a_ak_typedefs_8h_a8a4d0aa5dba6f9922d6b7b3e48958b24_html_a8a4d0aa5dba6f9922d6b7b3e48958b24"><div class="calibre2"><a href="_ak_typedefs_8h_a8a4d0aa5dba6f9922d6b7b3e48958b24_split_000.html#a8a4d0aa5dba6f9922d6b7b3e48958b24" class="pcalibre calibre12">AkTimeMs</a></div><div class="calibre2">AkInt32 AkTimeMs</div><div class="calibre2">Time in ms.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_typedefs_8h_source.html#l00035" class="pcalibre calibre12">AkTypedefs.h:35</a></div></div>
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_ae0b469d9fb8a099b40f52f004882d283_html_ae0b469d9fb8a099b40f52f004882d283"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_ae0b469d9fb8a099b40f52f004882d283_split_000.html#ae0b469d9fb8a099b40f52f004882d283" class="pcalibre calibre12">AK::SoundEngine::GetSourcePlayPosition</a></div><div class="calibre2">AKSOUNDENGINE_API AKRESULT GetSourcePlayPosition(AkPlayingID in_PlayingID, AkTimeMs *out_puPosition, bool in_bExtrapolate=true)</div></div>
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_a41e9ef8d42951871fe4a8ae58a29a68e_html_a41e9ef8d42951871fe4a8ae58a29a68e"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_a41e9ef8d42951871fe4a8ae58a29a68e_split_000.html#a41e9ef8d42951871fe4a8ae58a29a68e" class="pcalibre calibre12">AK::SoundEngine::PostEvent</a></div><div class="calibre2">AKSOUNDENGINE_API AkPlayingID PostEvent(AkUniqueID in_eventID, AkGameObjectID in_gameObjectID, AkUInt32 in_uFlags=0, AkCallbackFunc in_pfnCallback=NULL, void *in_pCookie=NULL, AkUInt32 in_cExternals=0, AkExternalSourceInfo *in_pExternalSources=NULL, AkPlayingID in_PlayingID=AK_INVALID_PLAYING_ID)</div></div>
+<div class="ttc" id="a_ak_typedefs_8h_a9270609771369ea575443fe080bbe9c3_html_a9270609771369ea575443fe080bbe9c3"><div class="calibre2"><a href="_ak_typedefs_8h_a9270609771369ea575443fe080bbe9c3_split_000.html#a9270609771369ea575443fe080bbe9c3" class="pcalibre calibre12">AkPlayingID</a></div><div class="calibre2">AkUInt32 AkPlayingID</div><div class="calibre2">A unique identifier generated whenever a PostEvent is called (or when a Dynamic Sequence is created)....</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_typedefs_8h_source.html#l00034" class="pcalibre calibre12">AkTypedefs.h:34</a></div></div>
+
+
+</body></html>

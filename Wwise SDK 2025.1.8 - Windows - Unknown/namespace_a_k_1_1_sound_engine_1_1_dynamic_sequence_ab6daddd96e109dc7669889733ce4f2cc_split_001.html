@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::SoundEngine::DynamicSequence::Open</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="namespace_a_k_1_1_sound_engine_1_1_dynamic_sequence_ab6daddd96e109dc7669889733ce4f2cc_split_000.html#ab6daddd96e109dc7669889733ce4f2cc" class="pcalibre1 anchor">◆ </a></span>Open()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_sound_engine_export_8h_ac6e96d34dfc0e12f9aaa7a47f4e9c322_split_000.html#ac6e96d34dfc0e12f9aaa7a47f4e9c322">AKSOUNDENGINE_API</a> <a class="pcalibre el" href="_ak_typedefs_8h_a9270609771369ea575443fe080bbe9c3_split_000.html#a9270609771369ea575443fe080bbe9c3">AkPlayingID</a> AK::SoundEngine::DynamicSequence::Open </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> </td>
+          <td class="paramname"><em class="calibre59">in_gameObjectID</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> </td>
+          <td class="paramname"><em class="calibre59">in_uFlags</em> = <code class="calibre14">0</code>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_callback_types_8h_af644072775b1cdd813e2d32792a22005_split_000.html#af644072775b1cdd813e2d32792a22005">AkCallbackFunc</a> </td>
+          <td class="paramname"><em class="calibre59">in_pfnCallback</em> = <code class="calibre14">NULL</code>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">void * </td>
+          <td class="paramname"><em class="calibre59">in_pCookie</em> = <code class="calibre14">NULL</code>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_enums_8h_ab4eb43aa36ac35ebfbb93d22d1667d7b_split_000.html#ab4eb43aa36ac35ebfbb93d22d1667d7b">AkDynamicSequenceType</a> </td>
+          <td class="paramname"><em class="calibre59">in_eDynamicSequenceType</em> = <code class="calibre14"><a class="pcalibre el" href="_ak_enums_8h_ab4eb43aa36ac35ebfbb93d22d1667d7b_split_001.html#ab4eb43aa36ac35ebfbb93d22d1667d7ba479a583eefb6b793b7935694be36c574">AkDynamicSequenceType_SampleAccurate</a></code> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Open a new Dynamic Sequence. </p><dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">Playing ID of the dynamic sequence, or AK_INVALID_PLAYING_ID in failure case and an error message in the debug console and <a class="pcalibre el" href="namespace_a_k_1_1_wwise_split_000.html">Wwise</a> Profiler</dd></dl>
+<p class="calibre7">If <code class="calibre14">AK_DynamicSequenceSelect</code> bit is set in <code class="calibre14">in_uFlags</code>, the dynamic sequence uses the callback for determining the next item to play. If this bit is not set, then the dynamic sequence uses the <a class="pcalibre el" href="class_a_k_1_1_sound_engine_1_1_dynamic_sequence_1_1_playlist_split_000.html">Playlist</a> to determine the next item to play.</p>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_1_1_dynamic_sequence_a8a2d2e9917fc300d080436c871b03b51_split_000.html#a8a2d2e9917fc300d080436c871b03b51">AK::SoundEngine::DynamicSequence::DynamicSequenceType</a> </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_gameObjectID</td><td class="calibre17">Associated game object ID </td></tr>
+    <tr class="calibre16"><td class="paramname">in_uFlags</td><td class="calibre17">Bitmask: see <a class="pcalibre el" href="_ak_callback_types_8h_a948c083ff18dc4c8dfe1d32cb0eb6732_split_000.html#a948c083ff18dc4c8dfe1d32cb0eb6732">AkCallbackType</a> </td></tr>
+    <tr class="calibre16"><td class="paramname">in_pfnCallback</td><td class="calibre17">Callback function </td></tr>
+    <tr class="calibre16"><td class="paramname">in_pCookie</td><td class="calibre17">Callback cookie that will be sent to the callback function along with additional information; </td></tr>
+    <tr class="calibre16"><td class="paramname">in_eDynamicSequenceType</td><td class="calibre17">See : <a class="pcalibre el" href="_ak_enums_8h_ab4eb43aa36ac35ebfbb93d22d1667d7b_split_000.html#ab4eb43aa36ac35ebfbb93d22d1667d7b">AkDynamicSequenceType</a> </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Source Control Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_4"><a class="pcalibre1 anchor" id="source_control_dll_creation_object"></a>
+Building the Source Control Plug-in Interface</h1>
+<p class="calibre7">When you implement the methods of <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_split_000.html">AK::Wwise::ISourceControl</a>, you define the behavior of your plug-in in response to various situations in Wwise. The methods allow the plug-in to react to the following situations:</p>
+<ul class="calibre8">
+<li class="calibre9">The plug-in instance is initialized or terminated</li>
+<li class="calibre9">The plug-in instance is destroyed</li>
+<li class="calibre9">The Wwise user clicks the "Config…" button in the Project Settings dialog</li>
+<li class="calibre9">Wwise refreshes the icons of the Project Explorer</li>
+<li class="calibre9">The file lists of the File Manager's Work Units or Sources tab are refreshed</li>
+<li class="calibre9">A contextual menu that contains source control operations is displayed</li>
+<li class="calibre9">The Wwise user selects an operation from the contextual menu in the File Manager or in the Project Explorer</li>
+<li class="calibre9">The files are updated</li>
+<li class="calibre9">The Wwise user imports audio files, creates a new work unit, or saves the project.</li>
+</ul>
+<p class="calibre7">Some of these situations are covered in the following sections, but you can refer directly to the <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_split_000.html">AK::Wwise::ISourceControl</a> reference for a complete description of the interface and the functions you need to implement.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="tip.gif"/></td><td class="calibre17"><b class="calibre13">Tip:</b> Many methods in this interface have the <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_acf444a7a6671eacbee4a2a29aeb82286_split_000.html#acf444a7a6671eacbee4a2a29aeb82286">AK::Wwise::ISourceControl::OperationResult</a> enumeration as return type. It is important to note that the OperationResult_Failed result must be used only when the operation fails globally; that is, when you don't want Wwise to consider data that is returned by the plug-in. Such failures include the following:<ul class="calibre8">
+<li class="calibre9">The connection has failed.</li>
+<li class="calibre9">An internal plug-in error has occurred. </li>
+</ul>
+</td></tr>
+</tbody></table>
+</div></div></div></body></html>

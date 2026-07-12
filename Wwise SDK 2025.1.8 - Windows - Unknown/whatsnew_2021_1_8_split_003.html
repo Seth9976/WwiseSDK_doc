@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2021.1.8</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="generic_community_bugs_2021_1_8"></a>
+Fixes for Community-Reported Bugs</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-57147</b> Fixed: Crash in <code class="calibre14">GameObject3DCtrl::TermScene</code> when activating the Game Object 3D Viewer.</li>
+<li class="calibre9"><b class="calibre13">WG-57941</b> Fixed: Priority "offset by distance" is not updated when a voice is virtual due to playback limit and the sound has the Hold Emitter Position and Orientation option selected.</li>
+<li class="calibre9"><b class="calibre13">WG-58626</b> Fixed: (Spatial Audio) Spread applied by Spatial Audio is sometimes discontinuous when either the emitter or listener transitions into a portal that is not already on the path.</li>
+<li class="calibre9"><b class="calibre13">WG-58706</b> Fixed: Missing migration step to remove boxmodel.wav original file from iZotope Box Modeler factory assets.</li>
+<li class="calibre9"><b class="calibre13">WG-58743</b> Fixed: When crossing a portal, long diffraction paths may cut out, even if the diffraction value does not exceed 100%.</li>
+<li class="calibre9"><b class="calibre13">WG-58802</b> Fixed: Uninitialized variable in struct <code class="calibre14">AkBufferPosInformation</code>.</li>
+<li class="calibre9"><b class="calibre13">WG-58837</b> Fixed: Audio Device Effects sometimes fail to load when Init.bnk is loaded asynchronously.</li>
+<li class="calibre9"><b class="calibre13">WG-58943</b> Fixed: Possible crash and audio corruption when using 3D Audio on Windows and Xbox.</li>
+<li class="calibre9"><b class="calibre13">WG-59019</b> Fixed: Possible crash if <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a15ab79f954a307902f529d8ccde8ad48_split_000.html#a15ab79f954a307902f529d8ccde8ad48">AK::SoundEngine::AddOutput()</a></code> is called immediately after <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a9a26da64092b97243844df77cbcdbf5f_split_000.html#a9a26da64092b97243844df77cbcdbf5f">AK::SoundEngine::Init()</a></code>.</li>
+<li class="calibre9"><b class="calibre13">WG-59259</b> Fixed: Crash when setting an RTPC value with transition under low memory conditions.</li>
+<li class="calibre9"><b class="calibre13">WG-59382</b> Fixed: (Spatial Audio) Straight line paths through multiple portals can sometimes have non-zero diffraction.</li>
+<li class="calibre9"><b class="calibre13">WG-59449</b> Fixed: codecvt dependency in WwiseAuthoringAPI SampleClient's AkAutoBahn library.</li>
+<li class="calibre9"><b class="calibre13">WG-59602</b> Fixed: Some SoundSeed Woosh randomizer options don't work as expected when starting new instances.</li>
+<li class="calibre9"><b class="calibre13">WG-59751</b> Fixed: Hang during SoundBank Generation when using a specific Switch Container structure. </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

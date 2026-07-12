@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integration Details - Dynamic Dialogue</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_3"><a class="pcalibre1 anchor" id="soundengine_dynamicdialogue_dynamicsequence_playlist"></a>
+Playlist-based sequences</h2>
+<p class="calibre7">Playlist-based sequences determine the next item to play from a <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_sound_engine_1_1_dynamic_sequence_1_1_playlist_split_000.html">AK::SoundEngine::DynamicSequence::Playlist</a></code> object. The playlist is progressively emptied until it contains no more items and playback stops.</p>
+<p class="calibre7">To modify the playlist, you must <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_1_1_dynamic_sequence_af72d304486f19cc81d24c4488c6ea652_split_000.html#af72d304486f19cc81d24c4488c6ea652">lock </a> it. A corresponding <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_1_1_dynamic_sequence_aa7b7bbc2b6158423a0006682b44b40c5_split_000.html#aa7b7bbc2b6158423a0006682b44b40c5">unlock </a> call needs to be made once the modifications are done. Holding the lock will block the sound engine thread from accessing the playlist. It is therefore necessary to hold the lock for as little time as possible.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><p class="starttd"><b class="calibre13">Note:</b> Modifying the playlist content is a synchronous call while Pause, Stop, Resume, and Break are done asynchronously.</p>
+<p class="calibre7">The <a class="pcalibre el" href="class_a_k_1_1_sound_engine_1_1_dynamic_sequence_1_1_playlist_split_000.html">Playlist </a> class is derived from <a class="pcalibre el" href="class_ak_array_split_000.html" title="Specific implementation of array.">AkArray</a>, so standard array access methods can be used to modify the playlist. A simple <a class="pcalibre el" href="class_a_k_1_1_sound_engine_1_1_dynamic_sequence_1_1_playlist_a9155f633c7fdda4283d318d89c2cd4bb_split_000.html#a9155f633c7fdda4283d318d89c2cd4bb">Enqueue </a> method is provided for convenience. A playlist item consists of an audio node ID, a delay time in milliseconds and a user-data field.</p>
+<p class="endtd"></p>
+</td></tr>
+</tbody></table>
+</div></div></div></body></html>

@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Using the Geometry API for Simulating Diffraction and Transmission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_6"><a class="pcalibre1 anchor" id="spatial_audio_apigeometry_diffract_direct_wwise"></a>
+Direct Path Diffraction and Transmission in Wwise</h2>
+<p class="calibre7">Diffraction and transmission may be observed in the Game Object 3D Viewer, provided the proper profiling settings and view options are set (see the following images).</p>
+<p class="calibre7">The calculated diffraction factor on a path from emitter to listener is displayed for each diffracting edge. Built-in Game Parameter values may be profiled by adding the bound Game Parameter to the Game Sync Monitor, and Obstruction and Diffraction may be profiled in the Profiler's Obs/Occ tab.</p>
+<p class="calibre7">The calculated transmission loss factor is displayed beside the corresponding transmission path in the Game Object 3D Viewer. If the source of the transmission loss is from geometry, a hit point is indicated, with the accompanying transmission loss percentage. If the source of the transmission loss is from a Room, the transmission loss percentage is displayed with the text "(Room)" appended below.</p>
+<div class="calibre2">
+<img alt="" src="profiler_settings.png" class="inline"/>
+</div>
+<div class="calibre2">
+<img alt="" src="3dviewer_settings.png" class="inline"/>
+</div>
+<p class="calibre7">Like with Portals, the Diffraction value is 0 when the emitter is in direct sight of the listener, and it begins to increase as the emitter penetrates the shadow zone (see <a class="pcalibre el" href="spatial_audio_concepts_split_001.html#spatial_audio_concepts_diffraction">Diffraction</a>). Also, please refer to Rooms and Portals' <a class="pcalibre el" href="spatial_audio_roomsportals_apioverview_split_003.html#spatial_audio_roomsportals_modelingsoundpropagationfromotherrooms_diffraction">Diffraction</a> for more details on shadow zone diffraction and for a discussion about using curves versus the Built-in Diffraction Game Parameter.</p>
+</div></div></div></body></html>

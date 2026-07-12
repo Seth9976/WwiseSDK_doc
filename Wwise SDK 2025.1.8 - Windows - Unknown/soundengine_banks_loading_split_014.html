@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Loading Banks</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_13"><a class="pcalibre1 anchor" id="soundengine_banks_AkBankContent_All"></a>
+AkBankContent_All</h2>
+<p class="calibre7">Preparing a bank using <code class="calibre14">AkBankContent_All</code> allows you to overcome some of the drawbacks of the <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">LoadBank()</a> mechanism, while taking advantage of the benefits of the <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a2e6ebb779470b43d78984c27f6a0c238_split_000.html#a2e6ebb779470b43d78984c27f6a0c238">PrepareEvent()</a> mechanism. When using this method, the SoundBanks may still include all content types (events, structure data, and media files), but instead of loading the media files outright, this method loads all media into memory by using a mechanism similar to the prepare event mechanism. When loading media with <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a7d92b3c386cd60e76be54ca69f051c09_split_000.html#a7d92b3c386cd60e76be54ca69f051c09">PrepareBank()</a>, Wwise first checks to see if a media file already exists in memory before loading it. This keeps memory usage at a minimum by avoiding any duplication of media files in memory.</p>
+<p class="calibre7">AkBankContent_All is the default loading mechanism for <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a7d92b3c386cd60e76be54ca69f051c09_split_000.html#a7d92b3c386cd60e76be54ca69f051c09">PrepareBank()</a> and will check the bank for media items to load. If media for a particular event does not exist in the bank, it can be loaded later from a loose file with a call to <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a2e6ebb779470b43d78984c27f6a0c238_split_000.html#a2e6ebb779470b43d78984c27f6a0c238">PrepareEvent()</a>.</p>
+</div></div></div></body></html>

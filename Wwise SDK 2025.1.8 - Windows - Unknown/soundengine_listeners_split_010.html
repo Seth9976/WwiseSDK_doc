@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integrating Listeners</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_9"><a class="pcalibre1 anchor" id="soundengine_listeners_multi"></a>
+Multiple Listeners In A Single Output Device</h1>
+<p class="calibre7">In a single-player game where you always see only one point of view in the game, one listener is enough. However, if multiple players can play on the same system, or if multiple views are displayed at the same time, each view requires its own listener so audio is appropriately rendered for all of these views.</p>
+<p class="calibre7">The main difficulty involved with implementing multiple listeners comes from the fact that the positioning of the sound sources doesn't always makes sense in relation to what players are seeing. This is mostly caused by a game using only a single set of speakers to reproduce a 3D environment for several players.</p>
+<p class="calibre7">A simple representation of this problem is shown in the following figure. It is very hard to tell in which speakers the source should be played, because Listener 0 expects to hear the source in the left speaker while Listener 1 expects to hear it in the right one.</p>
+<div class="calibre2">
+<img alt="" src="multiplelisteners_issues_whichspeaker.gif" class="inline"/>
+<div class="calibre2">
+Figure: Two listeners hearing the same source in different speakers</div></div>
+<p class="calibre7">Wwise can have any number of listeners, and by default all listeners will mix in the main output device, unless:</p><ul class="calibre8">
+<li class="calibre9">they are explicitly made to emit towards another listener, via <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a2f85a55c38afa2e0dbc6172a7bec91d1_split_000.html#a2f85a55c38afa2e0dbc6172a7bec91d1">AK::SoundEngine::SetListeners</a></code>, or</li>
+<li class="calibre9">they are explicitly routed to a secondary device , via <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a15ab79f954a307902f529d8ccde8ad48_split_000.html#a15ab79f954a307902f529d8ccde8ad48">AK::SoundEngine::AddOutput</a></code>.</li>
+</ul>
+<p class="calibre7">The following sections cover the cases where all listeners merge into the same output device, and describe how the Wwise sound engine lets the programmer manipulate these listeners to achieve the expected behavior.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> Everything related to multiple listeners is only available through game programmer implementation via the SDK. There are no special options in the Wwise authoring application to manage the in-game positioning of sources for multiple listeners. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

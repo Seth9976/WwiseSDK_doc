@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>SoundBank Integration Samples</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="sdk_bank_training_Method_2"></a>
+Multiple Complete SoundBanks</h1>
+<p class="calibre7">This strategy works well for single player games, where all possible sounds depend on the location of the player in the game. For a discussion of this strategy and its implementation in Wwise Authoring, see <a href="https://www.audiokinetic.com/library/edge/?source=Help&amp;id=method_2_multiple_complete_banks" target="_blank" class="pcalibre calibre12">Multiple Complete SoundBanks</a> in the Wwise Help.</p>
+<p class="calibre7">In the game, load the correct bank at the correct time. For example, the game could load the general bank at the beginning and then load the other banks based on the player's actual location in the game. Note that some games will need to have enough memory to load more than one "level" at a time to allow for transitions between levels.</p>
+<p class="calibre7">As an alternative to <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">LoadBank()</a></code>, you could prepare your SoundBanks using AkBankContent_All. This has the advantage of avoiding duplicating media in memory. See <a class="pcalibre el" href="soundengine_banks_loading_split_013.html#soundengine_banks_preparingbanks">Preparing Banks</a>.</p>
+<div class="fragment"><div class="line">...</div>
+<div class="line"><span class="comment">// Initialize the sound engine here.</span></div>
+<div class="line">...</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Load Init bank and Common bank.</span></div>
+<div class="line"><a class="pcalibre code" href="_ak_typedefs_8h_a472a3d18cbb0c4f081b3b619e4a2f349_split_000.html#a472a3d18cbb0c4f081b3b619e4a2f349">AkBankID</a>    bankID; <span class="comment">// Not used in this sample.</span></div>
+<div class="line"><a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> eResult = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">AK::SoundEngine::LoadBank</a>( L<span class="stringliteral">"Init.bnk"</span>, bankID );</div>
+<div class="line"><span class="keywordflow">if</span>( eResult == <a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_001.html#a64f7d1f79613cc4dcc49a4efba6caa63ad7c47fea3da641e7422573c6a13dc35e">AK_Success</a> )</div>
+<div class="line">{</div>
+<div class="line">    eResult = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">AK::SoundEngine::LoadBank</a>( L<span class="stringliteral">"CommonEvents.bnk"</span>, bankID );</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line">...</div>
+<div class="line"><span class="comment">// And at various places in the code, based on the actual needs:</span></div>
+<div class="line">eResult = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">AK::SoundEngine::LoadBank</a>( L<span class="stringliteral">"Level_1.bnk"</span>, bankID );</div>
+<div class="line">...</div>
+<div class="line">eResult = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">AK::SoundEngine::LoadBank</a>( L<span class="stringliteral">"Level_2.bnk"</span>, bankID );</div>
+<div class="line">...</div>
+<div class="line">eResult = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">AK::SoundEngine::LoadBank</a>( L<span class="stringliteral">"Level_3.bnk"</span>, bankID );</div>
+<div class="line">...</div>
+<div class="line">eResult = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_ac91406bc2fe061e4248cb448207b5a64_split_000.html#ac91406bc2fe061e4248cb448207b5a64">AK::SoundEngine::UnloadBank</a>( L<span class="stringliteral">"Level_1.bnk"</span>, NULL );</div>
+<div class="line">...</div>
+<div class="line">eResult = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_ac91406bc2fe061e4248cb448207b5a64_split_000.html#ac91406bc2fe061e4248cb448207b5a64">AK::SoundEngine::UnloadBank</a>( L<span class="stringliteral">"Level_2.bnk"</span>, NULL );</div>
+<div class="line">...</div>
+<div class="line">eResult = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_ac91406bc2fe061e4248cb448207b5a64_split_000.html#ac91406bc2fe061e4248cb448207b5a64">AK::SoundEngine::UnloadBank</a>( L<span class="stringliteral">"Level_3.bnk"</span>, NULL );</div>
+</div><!-- fragment --></div></div></div></body></html>

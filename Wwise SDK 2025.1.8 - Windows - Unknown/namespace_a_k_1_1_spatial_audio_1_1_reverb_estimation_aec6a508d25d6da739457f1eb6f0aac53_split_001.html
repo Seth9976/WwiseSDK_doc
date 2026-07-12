@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::SpatialAudio::ReverbEstimation::EstimateT60Decay</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="namespace_a_k_1_1_spatial_audio_1_1_reverb_estimation_aec6a508d25d6da739457f1eb6f0aac53_split_000.html#aec6a508d25d6da739457f1eb6f0aac53" class="pcalibre1 anchor">◆ </a></span>EstimateT60Decay()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_sound_engine_export_8h_ac6e96d34dfc0e12f9aaa7a47f4e9c322_split_000.html#ac6e96d34dfc0e12f9aaa7a47f4e9c322">AKSOUNDENGINE_API</a> <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::SpatialAudio::ReverbEstimation::EstimateT60Decay </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a> </td>
+          <td class="paramname"><em class="calibre59">in_volumeCubicMeters</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a> </td>
+          <td class="paramname"><em class="calibre59">in_surfaceAreaSquaredMeters</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a> </td>
+          <td class="paramname"><em class="calibre59">in_environmentAverageAbsorption</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a> &amp; </td>
+          <td class="paramname"><em class="calibre59">out_decayEstimate</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Estimate the time taken (in seconds) for the sound reverberation in a physical environment to decay by 60 dB. This is estimated using the Sabine equation. The T60 decay time can be used to drive the decay parameter of a reverb effect. </p>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_volumeCubicMeters</td><td class="calibre17">The volume (in cubic meters) of the physical environment. 0 volume or negative volume will give a decay estimate of 0. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_surfaceAreaSquaredMeters</td><td class="calibre17">The surface area (in squared meters) of the physical environment. Must be &gt;= AK_SA_MIN_ENVIRONMENT_SURFACE_AREA </td></tr>
+    <tr class="calibre16"><td class="paramname">in_environmentAverageAbsorption</td><td class="calibre17">The average absorption amount of the surfaces in the environment. Must be between AK_SA_MIN_ENVIRONMENT_ABSORPTION and 1. </td></tr>
+    <tr class="calibre16"><td class="paramname">out_decayEstimate</td><td class="calibre17">Returns the time taken (in seconds) for the reverberation to decay bu 60 dB. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_ak_reverb_estimation_8h_source.html#l00105">105</a> of file <a class="pcalibre el" href="_ak_reverb_estimation_8h_source.html">AkReverbEstimation.h</a>.</p>
+
+<p class="calibre7">References <a class="pcalibre el" href="_ak_enums_8h_source_split_000.html#l00035">AK_Fail</a>, <a class="pcalibre el" href="_ak_spatial_audio_types_8h_source_split_000.html#l00048">AK_SA_MIN_ENVIRONMENT_SURFACE_AREA</a>, <a class="pcalibre el" href="_ak_enums_8h_source_split_000.html#l00034">AK_Success</a>, and <a class="pcalibre el" href="_ak_assert_8h_source.html#l00069">AKASSERT</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

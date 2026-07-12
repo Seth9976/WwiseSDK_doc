@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak.wwise.cli.executeLuaScript Options Schema</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2"><h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="section_ak_wwise_cli_executeluascript_optionsSchema"></a>
+Schema</h1>
+<div class="fragment"><div class="line">{</div>
+<div class="line">    "properties": {</div>
+<div class="line">        "project": {</div>
+<div class="line">            "type": "string",</div>
+<div class="line">            "description": "When no project is specified, no project is loaded. See \\ref ak_wwise_console_project_open for information on how to open a project.\\n The path to the project file (.wproj).",</div>
+<div class="line">            "synopsis": [</div>
+<div class="line">                "--project PROJECT"</div>
+<div class="line">            ]</div>
+<div class="line">        },</div>
+<div class="line">        "require": {</div>
+<div class="line">            "oneOf": [</div>
+<div class="line">                {</div>
+<div class="line">                    "type": "string",</div>
+<div class="line">                    "description": "A single value provided for the option."</div>
+<div class="line">                },</div>
+<div class="line">                {</div>
+<div class="line">                    "type": "array",</div>
+<div class="line">                    "description": "Several values provided for the option.",</div>
+<div class="line">                    "items": {</div>
+<div class="line">                        "type": "string",</div>
+<div class="line">                        "description": "A value for the option."</div>
+<div class="line">                    }</div>
+<div class="line">                }</div>
+<div class="line">            ],</div>
+<div class="line">            "description": "Specify an array of Lua module to load at runtime using the require system. This option must be followed by a Lua module name. The module name must be found in the Lua path. Ex: '--require debug.lua'.",</div>
+<div class="line">            "synopsis": [</div>
+<div class="line">                "--require MODULE1",</div>
+<div class="line">                "--require MODULE1 MODULE2 ...",</div>
+<div class="line">                "--require MODULE1 --require MODULE2 ..."</div>
+<div class="line">            ]</div>
+<div class="line">        },</div>
+<div class="line">        "do-file": {</div>
+<div class="line">            "oneOf": [</div>
+<div class="line">                {</div>
+<div class="line">                    "type": "string",</div>
+<div class="line">                    "description": "A single value provided for the option."</div>
+<div class="line">                },</div>
+<div class="line">                {</div>
+<div class="line">                    "type": "array",</div>
+<div class="line">                    "description": "Several values provided for the option.",</div>
+<div class="line">                    "items": {</div>
+<div class="line">                        "type": "string",</div>
+<div class="line">                        "description": "A value for the option."</div>
+<div class="line">                    }</div>
+<div class="line">                }</div>
+<div class="line">            ],</div>
+<div class="line">            "description": "Specify an array of Lua files to load before the main Lua script is loaded and executed. This option must be followed by a absolute file name.",</div>
+<div class="line">            "synopsis": [</div>
+<div class="line">                "--do-file LUAFILE1",</div>
+<div class="line">                "--do-file LUAFILE1 LUAFILE2 ...",</div>
+<div class="line">                "--do-file LUAFILE1 --do-file LUAFILE2 ..."</div>
+<div class="line">            ]</div>
+<div class="line">        },</div>
+<div class="line">        "lua-path": {</div>
+<div class="line">            "oneOf": [</div>
+<div class="line">                {</div>
+<div class="line">                    "type": "string",</div>
+<div class="line">                    "description": "A single value provided for the option."</div>
+<div class="line">                },</div>
+<div class="line">                {</div>
+<div class="line">                    "type": "array",</div>
+<div class="line">                    "description": "Several values provided for the option.",</div>
+<div class="line">                    "items": {</div>
+<div class="line">                        "type": "string",</div>
+<div class="line">                        "description": "A value for the option."</div>
+<div class="line">                    }</div>
+<div class="line">                }</div>
+<div class="line">            ],</div>
+<div class="line">            "description": "Specify a search path for Lua modules loaded. This option must be followed by a Lua path. Ex: '--lua-path C:\\\\module\\\\?.lua'.",</div>
+<div class="line">            "synopsis": [</div>
+<div class="line">                "--lua-path PATH1",</div>
+<div class="line">                "--lua-path PATH1 PATH2 ...",</div>
+<div class="line">                "--lua-path PATH1 --lua-path PATH2 ..."</div>
+<div class="line">            ]</div>
+<div class="line">        },</div>
+<div class="line">        "allow-migration": {</div>
+<div class="line">            "type": "boolean",</div>
+<div class="line">            "description": "Allow migration and save of the Wwise project before executing the operation.",</div>
+<div class="line">            "synopsis": [</div>
+<div class="line">                "--allow-migration"</div>
+<div class="line">            ]</div>
+<div class="line">        },</div>
+<div class="line">        "watchdog-timeout": {</div>
+<div class="line">            "type": "integer",</div>
+<div class="line">            "minimum": 0,</div>
+<div class="line">            "description": "Time in seconds to set as a watchdog threshold. The watchdog is signaled every time a WAAPI function call is made. By default, the value is 0 and the watchdog is disabled.",</div>
+<div class="line">            "synopsis": [</div>
+<div class="line">                "--watchdog-timeout 30"</div>
+<div class="line">            ]</div>
+<div class="line">        },</div>
+<div class="line">        "no-color": {</div>
+<div class="line">            "type": "boolean",</div>
+<div class="line">            "description": "Disable ANSI coded terminal colors.",</div>
+<div class="line">            "synopsis": [</div>
+<div class="line">                "--no-color"</div>
+<div class="line">            ]</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

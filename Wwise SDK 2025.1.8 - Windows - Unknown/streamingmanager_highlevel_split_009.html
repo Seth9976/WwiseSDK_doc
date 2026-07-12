@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>High-Level Stream Manager API Description</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_8"><a class="pcalibre1 anchor" id="streamingmanager_highlevel_standardstreams_dataaccess"></a>
+Standard Stream Data Access Schemes</h2>
+<p class="calibre7">A standard stream operation can be launched in two different ways:</p>
+<ul class="calibre8">
+<li class="calibre9">Synchronously: When the in_bWait parameter of <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_std_stream_a2b12fb0cd1beb3c1d77c8206a8b5796d_split_000.html#a2b12fb0cd1beb3c1d77c8206a8b5796d">AK::IAkStdStream::Read()</a></code> or <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_std_stream_af983e5aec5edd20b88a6b01e466d8779_split_000.html#af983e5aec5edd20b88a6b01e466d8779">AK::IAkStdStream::Write()</a></code> is true, the method will immediately block until all I/O is complete.</li>
+<li class="calibre9">Asynchronously: When the in_bWait parameter of <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_std_stream_a2b12fb0cd1beb3c1d77c8206a8b5796d_split_000.html#a2b12fb0cd1beb3c1d77c8206a8b5796d">AK::IAkStdStream::Read()</a></code> or <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_std_stream_af983e5aec5edd20b88a6b01e466d8779_split_000.html#af983e5aec5edd20b88a6b01e466d8779">AK::IAkStdStream::Write()</a></code> is false, the methods will return before I/O is complete, and the remainder of the operation will complete asynchronously. The status of the stream can be polled by calling <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_std_stream_a165ff91b84857e73891f7943261ba275_split_000.html#a165ff91b84857e73891f7943261ba275">AK::IAkStdStream::GetStatus()</a></code> until AK_StmStatusCompleted is returned, or it is possible to do a blocking wait for completion of the asynchronous task by calling <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_std_stream_ac1dbc6c6e84ef70c877544545c45007b_split_000.html#ac1dbc6c6e84ef70c877544545c45007b">AK::IAkStdStream::WaitForPendingOperation()</a></code>. For a read opepration, data can then be safely accessed by calling <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_std_stream_ac5726fc41a0e0f9f05d262a85b200909_split_000.html#ac5726fc41a0e0f9f05d262a85b200909">AK::IAkStdStream::GetData()</a></code>, or reading the buffer provided during the initial call to <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_std_stream_a2b12fb0cd1beb3c1d77c8206a8b5796d_split_000.html#a2b12fb0cd1beb3c1d77c8206a8b5796d">AK::IAkStdStream::Read()</a></code>.</li>
+</ul>
+</div></div></div></body></html>

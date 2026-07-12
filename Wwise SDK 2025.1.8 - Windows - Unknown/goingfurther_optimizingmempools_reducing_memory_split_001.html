@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Tips to Reduce Memory Usage</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="goingfurther_optimizingmempools_reducing_memory_object"></a>
+Object Memory</h1>
+<p class="calibre7">Object memory usage is directly impacted by the number of sounds and events loaded in-memory and the amount of game objects. It contains all the properties of the objects in your project necessary to implement the behaviors of the sound design. It also contains all the game objects and their related information (game syncs values, position, orientation, and so on). The more banks are loaded, the more memory needs to be allocated. The size needed depends only on the number of sounds that can possibly be played in one scenario, level, map, game area, or the like. There are practices that can help reduce these allocations:</p><ul class="calibre8">
+<li class="calibre9"><b class="calibre13">Split big SoundBanks with lots of sound structures and Events into smaller SoundBanks</b>. For guidance, you can check the Advanced Profiler's SoundBanks tab to see in the Object Memory column how much memory each SoundBank is taking. Then you can load and unload SoundBanks dynamically as needed. Think strategically in dividing them. For example, in dividing dialog SoundBanks, avoid creating ones with all lines for a single character. Instead, group the dialog contextually.</li>
+<li class="calibre9"><b class="calibre13">Use the <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ac55e3d6ac464b0579a8487c88a755d8c_split_000.html#ac55e3d6ac464b0579a8487c88a755d8c">AK::SoundEngine::ExecuteActionOnEvent</a> API to reduce the number of events</b>. Play/Stop pairs can be replaced by a single Play event and a call to <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ac55e3d6ac464b0579a8487c88a755d8c_split_000.html#ac55e3d6ac464b0579a8487c88a755d8c">ExecuteActionOnEvent</a> for the Stop and the Pause/Resume (it could be the same Play event).</li>
+<li class="calibre9"><b class="calibre13">Tightly manage your game objects</b>. Unregister them as soon as their role is finished. Avoid keeping a pool of unused game objects alive; there is absolutely no gain in doing this, but it can cost in memory. For example, imagine an NPC dies. Unregister its game object; do not reuse it for something else. Register a brand new one when needed. As a general rule, if you have thousands of game objects alive, it is too many.</li>
+<li class="calibre9"><b class="calibre13">Do not use Property Containers only to organize sounds</b>. Folders and Work Units do not take memory, Property Containers do. Unless they DO share similar properties that are not the default, then you save memory because the property is there once only. Of course, this also depends if the Property Container is referenced by events (such as SetVolume or SetPitch).</li>
+<li class="calibre9"><b class="calibre13">Try to reduce the size and complexity of large hierarchies</b>. A common example of a large hierarchy would be an "Impact" hierarchy or a "Footstep" hierarchy. With lots of variables, it can grow large and take lots of memory for structure. Here are a few ways to reduce such a hierarchy:<ul class="calibre15">
+<li class="calibre9">Use RTPCs if the only thing changing in the Switch is a simple property (same samples but different volume/pitch/randomizer etc.).</li>
+<li class="calibre9">Split your Switch Container hierarchy into multiple banks. In the SoundBank Manager, when you include a Switch container, all its sub-branches are also included. However, you can exclude some of the branches manually in the SoundBank Editor view, in the Game Sync tab or in the Edit tab. For example, in a "Footstep" hierarchy, the first Switch variable could be the Surface Type. You could then split the Switch across different SoundBanks and load them depending on the context. You could have a main "Footstep" SoundBank containing the surfaces that are encountered throughout the game, such as concrete and metal stairs in a city environment, and other contextual SoundBanks with specific surfaces, such as mud being used only in one scene/section of the game.</li>
+</ul>
+</li>
+<li class="calibre9"><b class="calibre13">Use "external sources" to reduce the overhead of sounds that do not need as much control as offered by the Wwise Containers hierarchy</b>. This is usually appropriate for voice-overs.</li>
+</ul>
+</div></div></div></body></html>

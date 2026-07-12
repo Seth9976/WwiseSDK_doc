@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak.soundengine.executeActionOnEvent Arguments Schema</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2"><h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="section_ak_soundengine_executeactiononevent_argsSchema"></a>
+Schema</h1>
+<div class="fragment"><div class="line">{</div>
+<div class="line">    "type": "object",</div>
+<div class="line">    "properties": {</div>
+<div class="line">        "event": {</div>
+<div class="line">            "anyOf": [</div>
+<div class="line">                {</div>
+<div class="line">                    "type": "string",</div>
+<div class="line">                    "pattern": "^[a-zA-Z_]+[a-zA-Z_0-9()]*$",</div>
+<div class="line">                    "description": "The name of the object."</div>
+<div class="line">                },</div>
+<div class="line">                {</div>
+<div class="line">                    "type": "string",</div>
+<div class="line">                    "pattern": "^\\{[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}\\}$",</div>
+<div class="line">                    "description": "An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}."</div>
+<div class="line">                },</div>
+<div class="line">                {</div>
+<div class="line">                    "type": "integer",</div>
+<div class="line">                    "description": "The Short ID of a Wwise Object.\\n Unsigned Integer 32-bit.",</div>
+<div class="line">                    "minimum": 0,</div>
+<div class="line">                    "maximum": 4294967295</div>
+<div class="line">                }</div>
+<div class="line">            ],</div>
+<div class="line">            "description": "Either the ID (GUID), name or Short ID of the event."</div>
+<div class="line">        },</div>
+<div class="line">        "actionType": {</div>
+<div class="line">            "type": "integer",</div>
+<div class="line">            "minimum": 0,</div>
+<div class="line">            "maximum": 4,</div>
+<div class="line">            "description": "Action to execute on all the elements that were played using the specified event. Uses values from &lt;tt&gt;AK::SoundEngine::AkActionOnEventType&lt;/tt&gt;."</div>
+<div class="line">        },</div>
+<div class="line">        "gameObject": {</div>
+<div class="line">            "type": "integer",</div>
+<div class="line">            "description": "Associated game object ID.\\n A game object ID, unsigned integer 64-bit.",</div>
+<div class="line">            "minimum": 0,</div>
+<div class="line">            "maximum": 18446744073709551615</div>
+<div class="line">        },</div>
+<div class="line">        "transitionDuration": {</div>
+<div class="line">            "type": "integer",</div>
+<div class="line">            "description": "Fade duration (ms).\\n Integer 32-bit.",</div>
+<div class="line">            "minimum": -2147483648,</div>
+<div class="line">            "maximum": 2147483647</div>
+<div class="line">        },</div>
+<div class="line">        "fadeCurve": {</div>
+<div class="line">            "type": "integer",</div>
+<div class="line">            "minimum": 0,</div>
+<div class="line">            "maximum": 9,</div>
+<div class="line">            "description": "Use values from \\ref AkCurveInterpolation ."</div>
+<div class="line">        }</div>
+<div class="line">    },</div>
+<div class="line">    "required": [</div>
+<div class="line">        "event",</div>
+<div class="line">        "actionType",</div>
+<div class="line">        "gameObject",</div>
+<div class="line">        "transitionDuration",</div>
+<div class="line">        "fadeCurve"</div>
+<div class="line">    ],</div>
+<div class="line">    "additionalProperties": false</div>
+<div class="line">}</div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

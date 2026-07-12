@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>High-Level Stream Manager API Description</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_11"><a class="pcalibre1 anchor" id="streamingmanager_highlevel_standardstreams_watchout"></a>
+Common pitfalls and other considerations</h2>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="streamingmanager_highlevel_standardstreams_watchout_blocksize"></a>
+Block Size</h3>
+<p class="calibre7">The low-level constraint on read and seek granularity and buffer alignment is referred to as "block size" at the Stream Manager level. The <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_std_stream_a1121f1b371a613e020d38b99e65e7a2b_split_000.html#a1121f1b371a613e020d38b99e65e7a2b">AK::IAkStdStream::GetBlockSize()</a></code> method on the streams' interface queries the Low-Level I/O, passing it the file descriptor associated with the stream, and returning that value to the caller. Refer to the Low-Level I/O section for more details on file descriptors and the <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_a5018552d455ddc2a95b727fc543aac9e_split_000.html#a5018552d455ddc2a95b727fc543aac9e">AK::StreamMgr::IAkLowLevelIOHook::GetBlockSize()</a></code> method. Some storage devices have restrictions on data transfer sizes. For example, on Win32 platforms, a file opened with the FILE_FLAG_UNBUFFERED flag will permit transfer sizes that are a multiple of the physical device's sector size only. Read or Write operations will fail if they request a transfer size that is not a multiple of the block size. It is the responsibility of the user of the high-level interface to ask for read sizes that are multiples of the value returned by <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_std_stream_a1121f1b371a613e020d38b99e65e7a2b_split_000.html#a1121f1b371a613e020d38b99e65e7a2b">AK::IAkStdStream::GetBlockSize()</a></code>. <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_std_stream_a5d0c3c6c525a882d89558b1aae485360_split_000.html#a5d0c3c6c525a882d89558b1aae485360">AK::IAkStdStream::SetPosition()</a></code> is subject to the same constraint. However, it automatically snaps to the lower block boundary, and returns the actual file position offset.</p>
+<p class="calibre7">Typically, a game title is a user of the Stream Manager. Since the game title also implements the Low-Level I/O submodule, it is already aware of the transfer sizes it is allowed to use. The sound engine is not aware of storage device constraints, so it always snaps its standard stream read sizes to a block size boundary.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="streamingmanager_highlevel_standardstreams_watchout_callswhilepending"></a>
+Methods Called While Stream Status is Pending</h3>
+<p class="calibre7"><a class="pcalibre el" href="class_a_k_1_1_i_ak_std_stream_a2b12fb0cd1beb3c1d77c8206a8b5796d_split_000.html#a2b12fb0cd1beb3c1d77c8206a8b5796d">AK::IAkStdStream::Read()</a> and <a class="pcalibre el" href="class_a_k_1_1_i_ak_std_stream_af983e5aec5edd20b88a6b01e466d8779_split_000.html#af983e5aec5edd20b88a6b01e466d8779">AK::IAkStdStream::Write()</a> fail if called while a stream is in AK_StmStatusPending state. <a class="pcalibre el" href="class_a_k_1_1_i_ak_std_stream_a7d43a89fb7bc5db13285a2669ec912fa_split_000.html#a7d43a89fb7bc5db13285a2669ec912fa">AK::IAkStdStream::GetPosition()</a> and <a class="pcalibre el" href="class_a_k_1_1_i_ak_std_stream_a5d0c3c6c525a882d89558b1aae485360_split_000.html#a5d0c3c6c525a882d89558b1aae485360">AK::IAkStdStream::SetPosition()</a> yield undetermined results, since they could occur before or after the I/O transfer is complete. However, they do not block on I/O.</p>
+<p class="calibre7"><a class="pcalibre el" href="class_a_k_1_1_i_ak_std_stream_a12c0a90ec223f7d03d265094b0319c88_split_000.html#a12c0a90ec223f7d03d265094b0319c88">AK::IAkStdStream::Cancel()</a> can be used while a transfer is pending, but we do not recommend using it, as performance will suffer. This method confirms to the caller that no I/O is pending. If the call is executed before a request is sent to the Low-Level I/O, the task is simply removed from the queue. However, if a request has already been sent to the Low-Level I/O, the caller is blocked until the I/O is complete.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="tip.gif"/></td><td class="calibre17"><b class="calibre13">Tip:</b> Users do not have to call <a class="pcalibre el" href="class_a_k_1_1_i_ak_std_stream_a12c0a90ec223f7d03d265094b0319c88_split_000.html#a12c0a90ec223f7d03d265094b0319c88">AK::IAkStdStream::Cancel()</a> explicitly before destroying a stream (<a class="pcalibre el" href="class_a_k_1_1_i_ak_std_stream_aaa6bca57f4a01a98dff95f68b1320403_split_000.html#aaa6bca57f4a01a98dff95f68b1320403">AK::IAkStdStream::Destroy()</a>). However, for best performance, users should call Destroy() only when the stream is not in AK_StmStatusPending state. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

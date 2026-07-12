@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Streaming / Stream Manager</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_7"><a class="pcalibre1 anchor" id="streamingdevicemanager_highlevel"></a>
+High-Level Stream Manager</h1>
+<p class="calibre7">The Stream Manager, whose interface is defined in <a class="pcalibre el" href="_i_ak_stream_mgr_8h_split_000.html">IAkStreamMgr.h</a>, is used by the Wwise sound engine to read soundbanks and streamed audio files. You are also welcome to use it for all your game I/O if you don't already have an I/O manager. Likewise, if you write a custom source plug-in, you may access the Stream Manager.</p>
+<p class="calibre7">Section <a class="pcalibre el" href="streamingmanager_highlevel_split_000.html">High-Level Stream Manager API Description</a> explains its API in details. You may skip this chapter if you don't use it directly as a client, and only integrate Wwise I/O into your game by implementing the low-level I/O hooks.</p>
+<p class="calibre7">Here are just a few basic concepts. The Stream Manager manages abstract streams of data of two different types: standard streams and automatic streams.</p>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">Standard streams</b> (<a class="pcalibre el" href="class_a_k_1_1_i_ak_std_stream_split_000.html">AK::IAkStdStream</a>): These post I/O requests to the Stream Manager on demand when a call to <a class="pcalibre el" href="class_a_k_1_1_i_ak_std_stream_a2b12fb0cd1beb3c1d77c8206a8b5796d_split_000.html#a2b12fb0cd1beb3c1d77c8206a8b5796d">AK::IAkStdStream::Read()</a> or <a class="pcalibre el" href="class_a_k_1_1_i_ak_std_stream_af983e5aec5edd20b88a6b01e466d8779_split_000.html#af983e5aec5edd20b88a6b01e466d8779">AK::IAkStdStream::Write()</a> is issued. I/O is performed in user-specified memory.</li>
+<li class="calibre9"><b class="calibre13">Automatic streams</b> (<a class="pcalibre el" href="class_a_k_1_1_i_ak_auto_stream_split_000.html">AK::IAkAutoStream</a>): Automatic streams access data with the <a class="pcalibre el" href="class_a_k_1_1_i_ak_auto_stream_aa8197d63b8e758acb075a437103e573c_split_000.html#aa8197d63b8e758acb075a437103e573c">AK::IAkAutoStream::GetBuffer()</a> / <a class="pcalibre el" href="class_a_k_1_1_i_ak_auto_stream_a4676200056afb266b730f25d5262d2c8_split_000.html#a4676200056afb266b730f25d5262d2c8">AK::IAkAutoStream::ReleaseBuffer()</a> methods, by granting addresses from the internal streaming memory. The main interface, <a class="pcalibre el" href="class_a_k_1_1_i_ak_stream_mgr_split_000.html">AK::IAkStreamMgr</a>, acts as a stream factory. Automatic streams manage memory internally, and I/O requests are posted to the Low-Level IO automatically when that memory is free for writing.</li>
+</ul>
+<p class="calibre7">The Stream Manager is intended to be thread-safe, but only one thread may own a given stream.</p>
+<p class="calibre7">The main interface <a class="pcalibre el" href="class_a_k_1_1_i_ak_stream_mgr_split_000.html">AK::IAkStreamMgr</a> is accessible from anywhere by calling <a class="pcalibre el" href="class_a_k_1_1_i_ak_stream_mgr_ac650db9915bd06d5eebc1852e0d0cd6e_split_000.html#ac650db9915bd06d5eebc1852e0d0cd6e">AK::IAkStreamMgr::Get()</a>. From there, you may create and use stream objects.</p>
+</div></div></div></body></html>

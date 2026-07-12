@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Properties XML Description</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_4"><a class="pcalibre1 anchor" id="wwiseplugin_xml_restrictions_references"></a>
+Reference Restrictions</h2>
+<p class="calibre7">A reference can optionally have a list of any of the following restrictions for referenced objects:</p>
+<p class="calibre7"><b class="calibre13">TypeEnumerationRestriction:</b> Defines a list of valid Wwise object types for the reference. </p><div class="fragment"><div class="line">&lt;Restrictions&gt;</div>
+<div class="line">    &lt;TypeEnumerationRestriction&gt;</div>
+<div class="line">        &lt;<a class="pcalibre code" href="namespace_a_k_1_1_temp_alloc_a94c6067317869a80ec86af6994a0ebd9_split_000.html#a94c6067317869a80ec86af6994a0ebd9">Type</a> Name=<span class="stringliteral">"GameParameter"</span> /&gt;</div>
+<div class="line">        ...</div>
+<div class="line">    &lt;/TypeEnumerationRestriction&gt;</div>
+<div class="line">&lt;/Restrictions&gt;</div>
+</div><!-- fragment --><p class="calibre7"> Type Name can be: PropertyContainer, RandomSequenceContainer, SwitchContainer, BlendContainer, Sound, Bus, Event, SwitchGroup, Switch, State, GameParameter, MidiParameter, SoundBank, Effect, MusicSegment, MusicTrack, MusicTrackSequence, MusicPlaylistContainer, MusicSwitchContainer, Trigger, Attenuation, DialogueEvent, MotionBus, MotionFX, Conversion, AuxBus, ModulatorLfo, ModulatorEnvelope.</p>
+<p class="calibre7"><b class="calibre13">CategoryEnumerationRestriction:</b> Defines a list of valid Wwise object categories for the reference. </p><div class="fragment"><div class="line">&lt;Restrictions&gt;</div>
+<div class="line">    &lt;CategoryEnumerationRestriction&gt;</div>
+<div class="line">        &lt;Category Name=<span class="stringliteral">"AudioObjects"</span> /&gt;</div>
+<div class="line">        ...</div>
+<div class="line">    &lt;/CategoryEnumerationRestriction&gt;</div>
+<div class="line">&lt;/Restrictions&gt;</div>
+</div><!-- fragment --><p class="calibre7"> Category Name can be: Busses, AudioObjects, Events, Switches, States, SoundBanks, GameParameters, Effects, AudioDevices, Presets, SoundcasterSessions, MixingSessions, Queries, InteractiveMusic, Triggers, Attenuations, DynamicDialogue, Conversions, Modulators, ControlSurfaceSessions.</p>
+<p class="calibre7"><b class="calibre13">PlayableRestriction:</b> Defines if the object must be playable. </p><div class="fragment"><div class="line">&lt;Restrictions&gt;</div>
+<div class="line">    &lt;PlayableRestriction /&gt;</div>
+<div class="line">&lt;/Restrictions&gt;</div>
+</div><!-- fragment --><p class="calibre7"><b class="calibre13">NotNullRestriction:</b> Defines if the object must not be null. </p><div class="fragment"><div class="line">&lt;Restrictions&gt;</div>
+<div class="line">    &lt;NotNullRestriction /&gt;</div>
+<div class="line">&lt;/Restrictions&gt;</div>
+</div><!-- fragment --></div></div></div></body></html>

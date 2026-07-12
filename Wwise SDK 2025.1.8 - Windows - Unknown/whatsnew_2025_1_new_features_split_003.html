@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>New Features Overview 2025.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_2"><a class="pcalibre1 anchor" id="features_25_1_event_limiting"></a>
+Event Limiting</h2>
+<p class="calibre7">The ability to limit instances is a fundamental design and optimization strategy at the core of the voice pipeline. It now expands to include the ability to limit Events. You can limit an Event on either a global or game object scope. When the limit is reached, no additional Events are posted. You can also define a Cooldown Time, after which the Event can be posted again.</p>
+<div class="calibre2">
+<img alt="" src="event_limiting.png" class="inline"/>
+</div>
+<p class="calibre7">Limiting Event instances can be useful in cases where the game engine is requesting many of the same Events for playback simultaneously, but you only want one or a few Events to be posted by Wwise. A common scenario is a physics simulation, where a single impact might result in dozens of requests to post the same Impact Event. While there are scenarios where creating a system to limit the posting of Events from the game engine is still considered best practice, Event Limiting is now within reach as part of the workflow in Wwise.</p>
+</div></div></div></body></html>

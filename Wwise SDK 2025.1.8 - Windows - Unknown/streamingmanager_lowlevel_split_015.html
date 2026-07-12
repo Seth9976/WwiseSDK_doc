@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Low-Level I/O</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_14"><a class="pcalibre1 anchor" id="streamingmanager_lowlevel_default_implementation_walkthrough_multidevice"></a>
+Multi-Device I/O System</h2>
+<p class="calibre7">The following figure represents a multi-device I/O system.</p>
+<div class="calibre2">
+<img alt="" src="lowlevelio_multidevices.gif" class="inline"/>
+</div>
+<p class="calibre7">What you need to do to work with multiple streaming devices is to instantiate and register a File Location Resolver that is distinct from the device's low-level I/O hooks. The purpose of this object is to dispatch files to the appropriate device. The strategy you employ to decide which device handles which files is yours to define. You may use <b class="calibre13">CAkDefaultLowLevelIODispatcher</b> as a canvas. The default implementation uses brute force: each device is asked to open the file until one of them succeeds. Thus these devices must also implement the <a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_file_location_resolver_split_000.html">AK::StreamMgr::IAkFileLocationResolver</a> interface. It can be any of the samples provided in the SDK:</p><ul class="calibre8">
+<li class="calibre9">CAkDefaultIOHookDeferred</li>
+<li class="calibre9">CAkFilePackageIOHookDeferred</li>
+</ul>
+<p class="calibre7">Here's how you would instantiate both a deferred device and a file package device in a multi-device system (although this example is not useful in practice).</p>
+<div class="fragment"><div class="line"><span class="comment">// Create Stream Manager.</span></div>
+<div class="line"><a class="pcalibre code" href="struct_ak_stream_mgr_settings_split_000.html">AkStreamMgrSettings</a> stmSettings;</div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_stream_mgr_a50fe8111fcb883651390fab6e9dc5ebc_split_000.html#a50fe8111fcb883651390fab6e9dc5ebc">AK::StreamMgr::GetDefaultSettings</a>( stmSettings );</div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_stream_mgr_af9d67dd0e502e5603a2921099916e2ab_split_000.html#af9d67dd0e502e5603a2921099916e2ab">AK::StreamMgr::Create</a>( stmSettings );</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Create and register the File Location Resolver.</span></div>
+<div class="line">CAkDefaultLowLevelIODispatcher lowLevelIODispatcher;</div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_stream_mgr_ab5c2340963ac5ff81e49969b74ef2520_split_000.html#ab5c2340963ac5ff81e49969b74ef2520">AK::StreamMgr::SetFileLocationResolver</a>( &amp;lowLevelIODispatcher );</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Create a first device.</span></div>
+<div class="line">CAkDefaultIOHookDeferred hookIODeferred;</div>
+<div class="line"><a class="pcalibre code" href="struct_ak_device_settings_split_000.html">AkDeviceSettings</a> deviceSettings1;</div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_stream_mgr_a7d01e09a9bb6b6d34c2bb8f4c8995214_split_000.html#a7d01e09a9bb6b6d34c2bb8f4c8995214">AK::StreamMgr::GetDefaultDeviceSettings</a>( deviceSettings1 );</div>
+<div class="line">hookIODeferred.Init( deviceSettings1 );</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Add it to the global File Location Resolver.</span></div>
+<div class="line">lowLevelIODispatcher.AddDevice( hookIODeferred );</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Create a second device with file package management.</span></div>
+<div class="line">CAkFilePackageIOHookDeferred hookIOFilePackage;</div>
+<div class="line"><a class="pcalibre code" href="struct_ak_device_settings_split_000.html">AkDeviceSettings</a> deviceSettings2;</div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_stream_mgr_a7d01e09a9bb6b6d34c2bb8f4c8995214_split_000.html#a7d01e09a9bb6b6d34c2bb8f4c8995214">AK::StreamMgr::GetDefaultDeviceSettings</a>( deviceSettings2 );</div>
+<div class="line">hookIOFilePackage.Init( deviceSettings2 );</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Add it to the global File Location Resolver.</span></div>
+<div class="line">lowLevelIODispatcher.AddDevice( hookIOFilePackage );</div>
+</div><!-- fragment --><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="tip.gif"/></td><td class="calibre17"><b class="calibre13">Tip:</b> You should only use multiple devices with multiple physical devices. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

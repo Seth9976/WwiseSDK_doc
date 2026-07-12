@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integrating Listeners</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_11"><a class="pcalibre1 anchor" id="soundengine_listeners_spatial"></a>
+Volume Offset and Spatialization</h2>
+<p class="calibre7"><em class="calibre11">3D Spatialization</em> pans sounds across the various speakers based on the positions of those sounds relative to the listeners.</p>
+<p class="calibre7">However, if the game is played by two players on a split screen, you might want to hear listener 1 (the first player) in the left speakers and listener 2 (the second player) in the right speakers, completely bypassing regular positioning of sounds across speakers based on their positions relative to each listener.</p>
+<p class="calibre7">To give more control and flexibility, Wwise allows the game programmer to disable spatialization for a given listener and, optionally, set custom volume offsets for each channel, thus specifying how the sounds captured by this listener will be heard in each speaker.</p>
+<p class="calibre7">These settings can be modified for each listener by calling <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a3e3e9e5335df01fca37f9b3ed518e2bd_split_000.html#a3e3e9e5335df01fca37f9b3ed518e2bd">AK::SoundEngine::SetListenerSpatialization()</a></code>:</p>
+<div class="fragment"><div class="line"><span class="keyword">virtual</span> <a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a3e3e9e5335df01fca37f9b3ed518e2bd_split_000.html#a3e3e9e5335df01fca37f9b3ed518e2bd">AK::SoundEngine::SetListenerSpatialization</a>(</div>
+<div class="line">    <a class="pcalibre code" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> in_uListenerID,              <span class="comment">// Listener game object ID</span></div>
+<div class="line">    <span class="keywordtype">bool</span> in_bSpatialized,                       <span class="comment">// Spatialization toggle (True : enable spatialization, False : disable spatialization)</span></div>
+<div class="line">    <a class="pcalibre code" href="struct_ak_channel_config_split_000.html">AkChannelConfig</a> in_channelConfig,           <span class="comment">// Channel configuration associated with volumes in_pVolumeOffsets. Ignored if in_pVolumeOffsets is NULL.</span></div>
+<div class="line">    <a class="pcalibre code" href="namespace_a_k_1_1_speaker_volumes_ad437e8acf5a9509d22a2d13629502afa_split_000.html#ad437e8acf5a9509d22a2d13629502afa">AK::SpeakerVolumes::VectorPtr</a> in_pVolumeOffsets = NULL  <span class="comment">// Per-speaker volume offset, in dB. See AkSpeakerVolumes.h for how to manipulate this vector.</span></div>
+<div class="line">) = 0;</div>
+</div><!-- fragment --><p class="calibre7">The first parameter is the listener ID. The second parameter must be set to <code class="calibre14">True</code> to enable spatialization for this listener and <code class="calibre14">False</code> to disable it. Finally, the two last parameters represent a vector that contains the attenuation, in dB, for each channel on that listener. If <code class="calibre14">in_bSpatialized</code> is <code class="calibre14">False</code>, then it sets the volume for each channel, which are 0 dB by default. If <code class="calibre14">in_bSpatialized</code> is <code class="calibre14">True</code>, it offsets the volume computed by default 3D spatialization computation by a given amount for each channel.</p>
+<p class="calibre7">The volume vector is tied to the channel configuration <code class="calibre14">in_channelConfig</code>. If <code class="calibre14">in_channelConfig</code> means 5.1, then the volume vector should have 6 values. Use functions defined in the <a class="pcalibre el" href="namespace_a_k_1_1_speaker_volumes_1_1_vector_split_000.html" title="Volume vector services.">AK::SpeakerVolumes::Vector</a> namespace to manipulate it. The channel ordering corresponds to the channel mask bits defined in <a class="pcalibre el" href="_ak_speaker_config_8h_split_000.html">AkSpeakerConfig.h</a>, except for the LFE which is always at the end.</p>
+<p class="calibre7">For the example where two players use a split screen, the programmer could use the following code:</p>
+<div class="fragment"><div class="line"><span class="comment">// Register listeners 1 and 2 as default listeners for all emitters.</span></div>
+<div class="line"><span class="comment">// You may want to explicitly pick and choose which emitters emit to which listeners by using AK::SoundEngine::SetListeners instead.</span></div>
+<div class="line"><a class="pcalibre code" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> listeners[2] = {1,2};</div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a895ed0f83a0dea8fc284491c0ee0152c_split_000.html#a895ed0f83a0dea8fc284491c0ee0152c">AK::SoundEngine::RegisterGameObj</a>(listeners[0]);</div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a895ed0f83a0dea8fc284491c0ee0152c_split_000.html#a895ed0f83a0dea8fc284491c0ee0152c">AK::SoundEngine::RegisterGameObj</a>(listeners[1]);</div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a4fe9102cd3cb2b59dda5d3d635dc49fe_split_000.html#a4fe9102cd3cb2b59dda5d3d635dc49fe">AK::SetDefaultListeners</a>(listeners[0],2);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Define speaker offsets using a 7.1 speaker setup (if platform supports it).</span></div>
+<div class="line"><a class="pcalibre code" href="struct_ak_channel_config_split_000.html">AkChannelConfig</a> cfg;</div>
+<div class="line">cfg.<a class="pcalibre code" href="struct_ak_channel_config_a4c0f4b3d39608a10c9b330c1ef8281a7_split_000.html#a4c0f4b3d39608a10c9b330c1ef8281a7">SetStandard</a>( <a class="pcalibre code" href="_ak_speaker_config_8h_a69b5f93e12513edd50b60f5fe763dfd5_split_000.html#a69b5f93e12513edd50b60f5fe763dfd5">AK_SPEAKER_SETUP_7_1</a> );</div>
+<div class="line"> </div>
+<div class="line"><a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> uVectorSize = <a class="pcalibre code" href="namespace_a_k_1_1_speaker_volumes_1_1_matrix_a59458aba2b1be3fa678021a3aea813b9_split_000.html#a59458aba2b1be3fa678021a3aea813b9">AK::SpeakerVolumes::Vector::GetRequiredSize</a>( cfg.<a class="pcalibre code" href="struct_ak_channel_config_af86d291ad68bcc75d3a47e4582dc69fc_split_000.html#af86d291ad68bcc75d3a47e4582dc69fc">uNumChannels</a> );</div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_speaker_volumes_ad437e8acf5a9509d22a2d13629502afa_split_000.html#ad437e8acf5a9509d22a2d13629502afa">AK::SpeakerVolumes::VectorPtr</a> vVolumes = (<a class="pcalibre code" href="namespace_a_k_1_1_speaker_volumes_ad437e8acf5a9509d22a2d13629502afa_split_000.html#ad437e8acf5a9509d22a2d13629502afa">AK::SpeakerVolumes::VectorPtr</a>)AkAlloca( uVectorSize );</div>
+<div class="line"> </div>
+<div class="line">vVolumes[0] = 0.f;      <span class="comment">// Left</span></div>
+<div class="line">vVolumes[1] = -96.3f;   <span class="comment">// Right</span></div>
+<div class="line">vVolumes[2] = -6.f;     <span class="comment">// Center</span></div>
+<div class="line">vVolumes[3] = 0.f;      <span class="comment">// Rear left</span></div>
+<div class="line">vVolumes[4] = -96.3f;   <span class="comment">// Rear Right</span></div>
+<div class="line">vVolumes[5] = 0.f;      <span class="comment">// Side left</span></div>
+<div class="line">vVolumes[6] = -96.3f;   <span class="comment">// Side Right</span></div>
+<div class="line">vVolumes[7] = 0.f;      <span class="comment">// LFE</span></div>
+<div class="line"> </div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a3e3e9e5335df01fca37f9b3ed518e2bd_split_000.html#a3e3e9e5335df01fca37f9b3ed518e2bd">AK::SoundEngine::SetListenerSpatialization</a>( listeners[0], <span class="keyword">false</span>, cfg, vVolumes );</div>
+<div class="line"> </div>
+<div class="line">vVolumes[0] = -96.3f;   <span class="comment">// Left</span></div>
+<div class="line">vVolumes[1] = 0.f;      <span class="comment">// Right</span></div>
+<div class="line">vVolumes[2] = -6.f;     <span class="comment">// Center</span></div>
+<div class="line">vVolumes[3] = -96.3f;   <span class="comment">// Rear left</span></div>
+<div class="line">vVolumes[4] = 0.f;      <span class="comment">// Rear Right</span></div>
+<div class="line">vVolumes[5] = -96.3f;   <span class="comment">// Side left</span></div>
+<div class="line">vVolumes[6] = 0.f;      <span class="comment">// Side Right</span></div>
+<div class="line">vVolumes[7] = 0.f;      <span class="comment">// LFE</span></div>
+<div class="line"> </div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a3e3e9e5335df01fca37f9b3ed518e2bd_split_000.html#a3e3e9e5335df01fca37f9b3ed518e2bd">AK::SoundEngine::SetListenerSpatialization</a>( listeners[1], <span class="keyword">false</span>, cfg, vVolumes );</div>
+</div><!-- fragment --><p class="calibre7">If the bus in which sounds are routed has a channel configuration other than 7.1, as per its user-defined channel configuration, the vector will be downmixed internally, using standard downmix recipes, before being applied to sounds.</p>
+<p class="calibre7">To go back to regular spatialization, you would call:</p>
+<div class="fragment"><div class="line"><span class="comment">// Enable regular spatialization on listeners 0 and 1</span></div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a3e3e9e5335df01fca37f9b3ed518e2bd_split_000.html#a3e3e9e5335df01fca37f9b3ed518e2bd">AK::SoundEngine::SetListenerSpatialization</a>( 0, <span class="keyword">true</span> );</div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a3e3e9e5335df01fca37f9b3ed518e2bd_split_000.html#a3e3e9e5335df01fca37f9b3ed518e2bd">AK::SoundEngine::SetListenerSpatialization</a>( 1, <span class="keyword">true</span> );</div>
+</div><!-- fragment --><h3 class="calibre22"><a class="calibre12 pcalibre1" id="soundengine_listeners_spatial_pipeline"></a>
+Volume Pipeline</h3>
+<p class="calibre7">The following figure shows, in order, the different operations performed on every source for each listener to compute the final volume in each speaker:</p>
+<div class="calibre2">
+<img alt="" src="multiplelisteners_spatialization.gif" class="inline"/>
+<div class="calibre2">
+Figure: Volume Pipeline in the Wwise Sound Engine</div></div>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="samplecode_split_006.html#samplecode_integration">Game Integration Sample Code</a></li>
+<li class="calibre9"><a class="pcalibre el" href="soundengine_3dpositions_split_000.html">Integration Details - 3D Positions</a></li>
+<li class="calibre9"><a class="pcalibre el" href="soundengine_gameobj_split_000.html">Integration Details - Game Objects</a> </li>
+</ul>
+</dd></dl>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_a4fe9102cd3cb2b59dda5d3d635dc49fe_html_a4fe9102cd3cb2b59dda5d3d635dc49fe"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_a4fe9102cd3cb2b59dda5d3d635dc49fe_split_000.html#a4fe9102cd3cb2b59dda5d3d635dc49fe" class="pcalibre calibre12">AK::SoundEngine::SetDefaultListeners</a></div><div class="calibre2">AKSOUNDENGINE_API AKRESULT SetDefaultListeners(const AkGameObjectID *in_pListenerObjs, AkUInt32 in_uNumListeners)</div></div>
+<div class="ttc" id="a_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_html_a352a1eb6955fa208062e40a9ccdd2560"><div class="calibre2"><a href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560" class="pcalibre calibre12">AkGameObjectID</a></div><div class="calibre2">AkUInt64 AkGameObjectID</div><div class="calibre2">Game object ID.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_typedefs_8h_source.html#l00039" class="pcalibre calibre12">AkTypedefs.h:39</a></div></div>
+<div class="ttc" id="astruct_ak_channel_config_af86d291ad68bcc75d3a47e4582dc69fc_html_af86d291ad68bcc75d3a47e4582dc69fc"><div class="calibre2"><a href="struct_ak_channel_config_af86d291ad68bcc75d3a47e4582dc69fc_split_000.html#af86d291ad68bcc75d3a47e4582dc69fc" class="pcalibre calibre12">AkChannelConfig::uNumChannels</a></div><div class="calibre2">AkUInt32 uNumChannels</div><div class="calibre2">Number of channels.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_speaker_config_8h_source.html#l00449" class="pcalibre calibre12">AkSpeakerConfig.h:449</a></div></div>
+<div class="ttc" id="astruct_ak_channel_config_html"><div class="calibre2"><a href="struct_ak_channel_config_split_000.html" class="pcalibre calibre12">AkChannelConfig</a></div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_speaker_config_8h_source.html#l00440" class="pcalibre calibre12">AkSpeakerConfig.h:441</a></div></div>
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_a895ed0f83a0dea8fc284491c0ee0152c_html_a895ed0f83a0dea8fc284491c0ee0152c"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_a895ed0f83a0dea8fc284491c0ee0152c_split_000.html#a895ed0f83a0dea8fc284491c0ee0152c" class="pcalibre calibre12">AK::SoundEngine::RegisterGameObj</a></div><div class="calibre2">AKSOUNDENGINE_API AKRESULT RegisterGameObj(AkGameObjectID in_gameObjectID)</div></div>
+<div class="ttc" id="anamespace_a_k_1_1_speaker_volumes_1_1_matrix_a59458aba2b1be3fa678021a3aea813b9_html_a59458aba2b1be3fa678021a3aea813b9"><div class="calibre2"><a href="namespace_a_k_1_1_speaker_volumes_1_1_matrix_a59458aba2b1be3fa678021a3aea813b9_split_000.html#a59458aba2b1be3fa678021a3aea813b9" class="pcalibre calibre12">AK::SpeakerVolumes::Matrix::GetRequiredSize</a></div><div class="calibre2">AkForceInline AkUInt32 GetRequiredSize(AkUInt32 in_uNumChannelsIn, AkUInt32 in_uNumChannelsOut)</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_speaker_volumes_8h_source.html#l00303" class="pcalibre calibre12">AkSpeakerVolumes.h:303</a></div></div>
+<div class="ttc" id="astruct_ak_transform_html"><div class="calibre2"><a href="struct_ak_transform_split_000.html" class="pcalibre calibre12">AkTransform</a></div><div class="calibre2">Position and orientation of objects in a "local" space.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak3_d_objects_8h_source.html#l00254" class="pcalibre calibre12">Ak3DObjects.h:255</a></div></div>
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_a3e3e9e5335df01fca37f9b3ed518e2bd_html_a3e3e9e5335df01fca37f9b3ed518e2bd"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_a3e3e9e5335df01fca37f9b3ed518e2bd_split_000.html#a3e3e9e5335df01fca37f9b3ed518e2bd" class="pcalibre calibre12">AK::SoundEngine::SetListenerSpatialization</a></div><div class="calibre2">AKSOUNDENGINE_API AKRESULT SetListenerSpatialization(AkGameObjectID in_uListenerID, bool in_bSpatialized, AkChannelConfig in_channelConfig, AK::SpeakerVolumes::VectorPtr in_pVolumeOffsets=NULL)</div></div>
+<div class="ttc" id="a_ak_speaker_config_8h_a69b5f93e12513edd50b60f5fe763dfd5_html_a69b5f93e12513edd50b60f5fe763dfd5"><div class="calibre2"><a href="_ak_speaker_config_8h_a69b5f93e12513edd50b60f5fe763dfd5_split_000.html#a69b5f93e12513edd50b60f5fe763dfd5" class="pcalibre calibre12">AK_SPEAKER_SETUP_7_1</a></div><div class="calibre2">#define AK_SPEAKER_SETUP_7_1</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_speaker_config_8h_source.html#l00211" class="pcalibre calibre12">AkSpeakerConfig.h:211</a></div></div>
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_a2f85a55c38afa2e0dbc6172a7bec91d1_html_a2f85a55c38afa2e0dbc6172a7bec91d1"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_a2f85a55c38afa2e0dbc6172a7bec91d1_split_000.html#a2f85a55c38afa2e0dbc6172a7bec91d1" class="pcalibre calibre12">AK::SoundEngine::SetListeners</a></div><div class="calibre2">AKSOUNDENGINE_API AKRESULT SetListeners(AkGameObjectID in_emitterGameObj, const AkGameObjectID *in_pListenerGameObjs, AkUInt32 in_uNumListeners)</div></div>
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_a789e25bda32d1e11849afb6584942455_html_a789e25bda32d1e11849afb6584942455"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_a789e25bda32d1e11849afb6584942455_split_000.html#a789e25bda32d1e11849afb6584942455" class="pcalibre calibre12">AK::SoundEngine::SetPosition</a></div><div class="calibre2">AKSOUNDENGINE_API AKRESULT SetPosition(AkGameObjectID in_GameObjectID, const AkSoundPosition &amp;in_Position, AkSetPositionFlags in_eFlags=AkSetPositionFlags_Default)</div></div>
+<div class="ttc" id="a_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_html_a64f7d1f79613cc4dcc49a4efba6caa63"><div class="calibre2"><a href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63" class="pcalibre calibre12">AKRESULT</a></div><div class="calibre2">AKRESULT</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_enums_8h_source_split_000.html#l00031" class="pcalibre calibre12">AkEnums.h:32</a></div></div>
+<div class="ttc" id="astruct_ak_channel_config_a4c0f4b3d39608a10c9b330c1ef8281a7_html_a4c0f4b3d39608a10c9b330c1ef8281a7"><div class="calibre2"><a href="struct_ak_channel_config_a4c0f4b3d39608a10c9b330c1ef8281a7_split_000.html#a4c0f4b3d39608a10c9b330c1ef8281a7" class="pcalibre calibre12">AkChannelConfig::SetStandard</a></div><div class="calibre2">AkForceInline void SetStandard(AkUInt32 in_uChannelMask)</div><div class="calibre2">Set channel config as a standard configuration specified with given channel mask.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_speaker_config_8h_source.html#l00516" class="pcalibre calibre12">AkSpeakerConfig.h:516</a></div></div>
+<div class="ttc" id="a_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_html_a39c6c5d577901802ca77775760b704ce"><div class="calibre2"><a href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce" class="pcalibre calibre12">AkUInt32</a></div><div class="calibre2">uint32_t AkUInt32</div><div class="calibre2">Unsigned 32-bit integer.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_numeral_types_8h_source.html#l00035" class="pcalibre calibre12">AkNumeralTypes.h:35</a></div></div>
+<div class="ttc" id="anamespace_a_k_1_1_speaker_volumes_ad437e8acf5a9509d22a2d13629502afa_html_ad437e8acf5a9509d22a2d13629502afa"><div class="calibre2"><a href="namespace_a_k_1_1_speaker_volumes_ad437e8acf5a9509d22a2d13629502afa_split_000.html#ad437e8acf5a9509d22a2d13629502afa" class="pcalibre calibre12">AK::SpeakerVolumes::VectorPtr</a></div><div class="calibre2">AkSpeakerVolumesMatrixPtr VectorPtr</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_typedefs_8h_source.html#l00095" class="pcalibre calibre12">AkTypedefs.h:95</a></div></div>
+
+
+</body></html>

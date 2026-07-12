@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2016.1.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="bugs_2016_1_1"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-27354</b> Fixed: Trivial assert when bypassing an out-of-place Effect, such as TimeStretch, inserted on a 0.1 (LFE) source.</li>
+<li class="calibre9"><b class="calibre13">WG-28848</b> Fixed: RIFF cues and labels remain in converted files with incorrect timing, even when they are trimmed off using the trim tool.</li>
+<li class="calibre9"><b class="calibre13">WG-29122</b> Fixed: No carriage return in output debug string in AkSinkDirectSound.cpp.</li>
+<li class="calibre9"><b class="calibre13">WG-29313</b> Fixed: Crash when running Profile_EnableAsserts configuration without custom assert hook.</li>
+<li class="calibre9"><b class="calibre13">WG-29480</b> (iOS, tvOS, Mac, Android) Enabled compiling and packaging of Crankcase Audio REV plug-in.</li>
+<li class="calibre9"><b class="calibre13">WG-29805</b> Fixed: (iOS, Mac) AAC codec was uselessly limited to a maximum of 2 channels, now supported up to 7.1.</li>
+<li class="calibre9"><b class="calibre13">WG-29836</b> Fixed: Rare file access failure when converting audio files for the first time on a new machine.</li>
+<li class="calibre9"><b class="calibre13">WG-29849</b> Fixed: Wrong surround speaker angle used for 3D positioning over configurations with height channels but no back speakers (namely 5.1.2, Auro 9.1, Auro 10.1, and Auro 11.1).</li>
+<li class="calibre9"><b class="calibre13">WG-29925</b> Fixed: (iOS) Game freezes after connecting a Bluetooth headphone.</li>
+<li class="calibre9"><b class="calibre13">WG-30026</b> Fixed: (Windows 7) XAudio2.7 can't be used on Win 7, which leads to crash or no sound.</li>
+<li class="calibre9"><b class="calibre13">WG-30035</b> Increased Default Stack Size to 64 KB for all POSIX platforms.</li>
+<li class="calibre9"><b class="calibre13">WG-30111</b> Fixed: (iOS) <code class="calibre14">AudioSessionCategoryAmbient</code> doesn't work in Unity.</li>
+<li class="calibre9"><b class="calibre13">WG-30146</b> Fixed: When generating SoundBanks, the Init.txt definition file was not re-generated if the file does not exist and there were no new changes to Init.bnk.</li>
+<li class="calibre9"><b class="calibre13">WG-30149</b> Fixed: <code class="calibre14">Non-cachable</code> sound property not displayed in the correct subgroup of the <b class="calibre13">All Properties</b> list.</li>
+<li class="calibre9"><b class="calibre13">WG-30186</b> Fixed: Third-party Motion plug-ins cause crashes on load.</li>
+<li class="calibre9"><b class="calibre13">WG-30196</b> Fixed: Div by 0 in AkResamplerSIMD.cpp.</li>
+<li class="calibre9"><b class="calibre13">WG-30211</b> (Android) Changed default <code class="calibre14">platformInitSettings.uNumRefillsInVoice</code> to accommodate Bluetooth (6 buffers instead of 4).</li>
+<li class="calibre9"><b class="calibre13">WG-30232</b> Fixed: Connecting Wwise before loading Init bank causes sink plug-in failures.</li>
+<li class="calibre9"><b class="calibre13">WG-30269</b> Fixed: (PS4) AT9 bank source starvations when pitch is lowered by a large amount over one frame.</li>
+<li class="calibre9"><b class="calibre13">WG-30280</b> Fixed: (Android) Rare crash in <code class="calibre14">CAkSinkOpenSL</code> at start-up.</li>
+<li class="calibre9"><b class="calibre13">WG-30285</b> Fixed: (iOS) Unity ads prevent audio from coming back. <br class="calibre10"/>
+</li>
+<li class="calibre9"><b class="calibre13">WG-30296</b> Fixed: Wwise hangs when converting sample rate of WAV file with erroneous data chunk sizes.</li>
+<li class="calibre9"><b class="calibre13">WG-30312</b> Fixed: (Windows) Crash when calling <code class="calibre14">GetWwiseXAudio2Interface</code> and XAudio isn't initialized.</li>
+<li class="calibre9"><b class="calibre13">WG-30319</b> Fixed: Missing source files in AkSink plug-in sample code.</li>
+<li class="calibre9"><b class="calibre13">WG-30321</b> Fixed: Crash when panning 3D sound on 5.1.2 bus at specific angles.</li>
+<li class="calibre9"><b class="calibre13">WG-30327</b> Fixed: Sink plug-in loading with different ShareSets.</li>
+<li class="calibre9"><b class="calibre13">WG-30332</b> Fixed: Some Blend Container and Switch Container parameters are ignored on playback when a child overrides the output bus.</li>
+<li class="calibre9"><b class="calibre13">WG-30333</b> Fixed: (iOS) AAC sounds take over the user's music (AudioSession SoloAmbient category only).</li>
+<li class="calibre9"><b class="calibre13">WG-30338</b> Fixed: Crash when bypassing an out-of-place bus Effect during tail.</li>
+<li class="calibre9"><b class="calibre13">WG-30371</b> Fixed: (Mac) Authoring: User Defined Position Editor 3D cannot be opened.</li>
+<li class="calibre9"><b class="calibre13">WG-30385</b> Fixed: Perforce preferences are not saved when closing the project.</li>
+<li class="calibre9"><b class="calibre13">WG-30391</b> Fixed: An occasional assert triggered when pausing/resuming sounds with modulators.</li>
+<li class="calibre9"><b class="calibre13">WG-30399</b> Fixed: RTPCs on attachment properties become broken after live-updating an RTPC curve.</li>
+<li class="calibre9"><b class="calibre13">WG-30401</b> Fixed: Potential crash when migrating project.</li>
+<li class="calibre9"><b class="calibre13">WG-30492</b> Fixed: Error Report: SplitWords raise Exception in std::locale constructor. </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

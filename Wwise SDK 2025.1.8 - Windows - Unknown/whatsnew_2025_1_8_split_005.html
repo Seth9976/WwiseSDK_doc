@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2025.1.8</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_4"><a class="pcalibre1 anchor" id="generic_community_bugs_2025_1_8"></a>
+Fixes for Community-Reported Bugs</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-58880</b> Fixed: Possible crash when modifying a Sequence Container.</li>
+<li class="calibre9"><b class="calibre13">WG-82536</b> Fixed: User preferences for the Property Editor can accumulate stale properties over time.</li>
+<li class="calibre9"><b class="calibre13">WG-82869</b> Fixed: Crash in audio thread when another thread is attempting to register or unregister an audio device callback.</li>
+<li class="calibre9"><b class="calibre13">WG-83139</b> Fixed: Audible clicks on some Audio Objects Busses with an active low-pass filter, or when processing some Effects on Audio Objects Busses where the Audio Objects have a non-zero Gain.</li>
+<li class="calibre9"><b class="calibre13">WG-83228</b> Fixed: Blueprint actors with an AkPortal component are destroyed when copy-pasted and moved.</li>
+<li class="calibre9"><b class="calibre13">WG-83238</b> Fixed: Possible crash when using the Voices Graph.</li>
+<li class="calibre9"><b class="calibre13">WG-83268</b> Fixed: Possible crash when using States in the Mixing Desk.</li>
+<li class="calibre9"><b class="calibre13">WG-83307</b> Fixed: Possible crash when loading a corrupted Work Unit.</li>
+<li class="calibre9"><b class="calibre13">WG-83347</b> Fixed: Possible crash in <code class="calibre14">CAkMusicSwitchCtx::ScheduleSwitchTransition</code>.</li>
+<li class="calibre9"><b class="calibre13">WG-83376</b> Fixed: (Acoustics) Jumps in room tone volume for nested Rooms connected with multiple Portals.</li>
+<li class="calibre9"><b class="calibre13">WG-83514</b> Fixed: Hang when calling <code class="calibre14">AkMemoryMgr::DumpToFile</code> in low-memory situations.</li>
+<li class="calibre9"><b class="calibre13">WG-83653</b> Fixed: Possible crash when playing a Music Playlist Container that only contains empty Segments and has entry and end markers set to 0.</li>
+<li class="calibre9"><b class="calibre13">WG-83700</b> Fixed: Crash in Wwise Authoring when connecting to a game with a Portal or Room name set to nullptr.</li>
+<li class="calibre9"><b class="calibre13">WG-83755</b> Fixed: Events leaking with calls to <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ab24b5dc8bd4d1adbdc6aa5c98d94d946_split_000.html#ab24b5dc8bd4d1adbdc6aa5c98d94d946">PostMIDIOnEvent()</a></code> that target containers with Initial Delay.</li>
+<li class="calibre9"><b class="calibre13">WG-83794</b> Fixed: Crash when applying live-edited conversion settings to a sound that was stopped during the conversion process.</li>
+<li class="calibre9"><b class="calibre13">WG-83853</b> Fixed: Dynamic Sequence can enter an infinite loop if started with one or more audio nodes that are not in any loaded SoundBanks.</li>
+<li class="calibre9"><b class="calibre13">WG-83909</b> Fixed: Possible crash in CAkPlayingMgr during a Stop All Action.</li>
+</ul>
+</div></div></div></body></html>

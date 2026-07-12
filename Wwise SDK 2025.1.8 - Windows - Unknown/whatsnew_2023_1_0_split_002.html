@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2023.1.0</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="generic_api_changes_2023_1"></a>
+API Changes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-53660</b> Sound Engine nodes (audio, bus, and output device) now support up to 255 Effects. You can use the following functions to set an Effect on slots 0-254 (parameter in_uFXIndex):<ul class="calibre15">
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a00256bfd86c2bed14c626922fc4417b0_split_000.html#a00256bfd86c2bed14c626922fc4417b0">AK::SoundEngine::SetActorMixerEffect</a></code></li>
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_aabbeadd26d528e82003a0c143908d825_split_000.html#aabbeadd26d528e82003a0c143908d825">AK::SoundEngine::SetBusEffect</a></code></li>
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ad455f291883c352a87b5b03da64549aa_split_000.html#ad455f291883c352a87b5b03da64549aa">AK::SoundEngine::SetOutputDeviceEffect</a></code></li>
+</ul>
+</li>
+<li class="calibre9"><b class="calibre13">WG-61084</b> Removed <code class="calibre14">IAkMixerInputContext</code> from <code class="calibre14"><a class="pcalibre el" href="struct_ak_speaker_volume_matrix_callback_info_split_000.html">AkSpeakerVolumeMatrixCallbackInfo</a></code> due to the Mixer plug-in removal.</li>
+<li class="calibre9"><b class="calibre13">WG-61344</b> Removed the AK_SCHEDULER_BLOCKING scheduler type flag and the related IAkIOHookBlocking interface. IAkIOHookDeferredBatch is now the only low-level I/O hook interface.</li>
+<li class="calibre9"><b class="calibre13">WG-62665</b> Moved function <code class="calibre14">OutputSearchedPaths</code> from <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_file_location_resolver_split_000.html">AK::StreamMgr::IAkFileLocationResolver</a></code> to <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_split_000.html">AK::StreamMgr::IAkLowLevelIOHook</a></code>.</li>
+<li class="calibre9"><b class="calibre13">WG-63463</b> Corrected typo in error code name "AK_CannotAddItseflAsAChild."</li>
+<li class="calibre9"><b class="calibre13">WG-63988</b> Changed the return value of <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_1_1_reverb_estimation_a2be1de76cd8b9ddf95217f06b02ebad6_split_000.html#a2be1de76cd8b9ddf95217f06b02ebad6">EstimateHFDamping()</a></code> from AKRESULT to AkReal32 and it now directly returns the HF Damping value. Removed the argument __ AkReal32 out_hfDamping.</li>
+<li class="calibre9"><b class="calibre13">WG-64048</b> (Spatial Audio) Added <code class="calibre14"><a class="pcalibre el" href="struct_ak_spatial_audio_init_settings_a733e7d1ef6c4bf44af5bd55369ab4a3f_split_000.html#a733e7d1ef6c4bf44af5bd55369ab4a3f" title="Set to 1 to only allow emitters to send directly to their current room, and to the room a listener is...">AkSpatialAudioInitSettings::uMaxEmitterRoomAuxSends</a></code> to limit the maximum number of game-defined auxiliary sends that can originate from a single emitter.</li>
+<li class="calibre9"><b class="calibre13">WG-64966</b> Removed <code class="calibre14">AkMemSettings::bUseDeviceMemAlways</code> in favor of a new setting, <code class="calibre14">AkMemSettings::bEnableSeparateDeviceHeap</code>. <code class="calibre14">AkMemSettings::bEnableSeparateDeviceHeap</code> makes it easier to use just one generic memory heap. If you had <code class="calibre14">AkMemSettings::bUseDeviceMemAlways</code> set to true, you should instead set <code class="calibre14">AkMemSettings::bEnableSeparateDeviceHeap</code> to false, and the custom memory hooks you had set for <code class="calibre14">AkMemSettings::AllocDeviceVM</code> and <code class="calibre14">AkMemSettings::FreeDeviceVM</code> should instead be set for <code class="calibre14">AkMemSettings::AllocVM</code> and <code class="calibre14">AkMemSettings::FreeVM</code>.</li>
+<li class="calibre9"><b class="calibre13">WG-65130</b> (Spatial Audio) Removed <code class="calibre14">AkGeometryParams::EnableTriangles</code> and replaced it with <code class="calibre14"><a class="pcalibre el" href="struct_ak_geometry_instance_params_a30ef95f856b020642d4a45d43c3df86d_split_000.html#a30ef95f856b020642d4a45d43c3df86d">AkGeometryInstanceParams::UseForReflectionAndDiffraction</a></code>.</li>
+<li class="calibre9"><b class="calibre13">WG-65303</b> Simplified <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_split_000.html">AK::StreamMgr::IAkLowLevelIOHook</a></code> interface:<ul class="calibre15">
+<li class="calibre9">I/O functions no longer have to provide a return value.</li>
+<li class="calibre9">Callbacks now only have to be fired for each individual operation and must always be called without exception.</li>
+</ul>
+</li>
+<li class="calibre9"><b class="calibre13">WG-65602</b> (Spatial Audio) Changed the default values of <a class="pcalibre el" href="struct_ak_spatial_audio_init_settings_split_000.html" title="Initialization settings of the spatial audio module.">AkSpatialAudioInitSettings</a> to support the ongoing evolution of Spatial Audio. The default settings are a good starting point for most projects. You will need to review and adjust them as necessary to find a balance between performance and quality for your specific product and platform.</li>
+<li class="calibre9"><b class="calibre13">WG-66128</b> (Spatial Audio) The use of <code class="calibre14">AkGeometryInstanceParams::RoomID</code> is now deprecated and the parameter will be removed in a future version. We recommend that you do not use RoomID and instead leave it set to the default value (-1).</li>
+<li class="calibre9"><b class="calibre13">WG-66185</b> Added new SDK function <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a21095cadf123d0cac1f276db08177139_split_000.html#a21095cadf123d0cac1f276db08177139">AK::SoundEngine::IsPluginRegistered</a></code>.</li>
+<li class="calibre9"><b class="calibre13">WG-66667</b> The sample functions for <code class="calibre14">AKPLATFORM::AllocVM</code> and <code class="calibre14">AKPLATFORM::FreeVM</code>, as well as some other virtual memory-related functions and definitions, have been moved from AkPlatformFuncs.h to AkMemoryMgrFuncs.h. Because of these changes, it might be necessary to modify or add to some header inclusions in code to resolve compiler errors.</li>
+<li class="calibre9"><b class="calibre13">WG-67001</b> Added size member to <code class="calibre14"><a class="pcalibre el" href="struct_ak_marker_callback_info_split_000.html">AkMarkerCallbackInfo</a></code>, added size argument to <code class="calibre14">AddOutputCaptureMarker</code>, and fixed display of concurrent markers in Wwise Wave Viewer.</li>
+<li class="calibre9"><b class="calibre13">WG-67058</b> Moved the core types for AK_SIMD from <code class="calibre14">AkSimd.h</code> to <code class="calibre14">AkSimdTypes.h</code>. You might need to modify some header inclusions in code to resolve compilation errors.</li>
+</ul>
+</div></div></div></body></html>

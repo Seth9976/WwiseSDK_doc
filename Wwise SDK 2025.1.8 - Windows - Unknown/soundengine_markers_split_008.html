@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integrating Markers</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_7"><a class="pcalibre1 anchor" id="soundengine_markers_howto"></a>
+How to Use Marker Notifications</h1>
+<p class="calibre7">Here are instructions on how to design your application so that it receives the marker notifications:</p>
+<ul class="calibre8">
+<li class="calibre9">When posting a play event, you should add the <code class="calibre14">AK_Marker</code> flag to <code class="calibre14">in_uiFlags</code>. If you also want to have the end of event notification, you should use <code class="calibre14">AK_EndOfEvent</code> | <code class="calibre14">AK_Marker</code> since the flags are bitwise exclusive.</li>
+</ul>
+<div class="fragment"><div class="line"><a class="pcalibre code" href="_ak_typedefs_8h_a9270609771369ea575443fe080bbe9c3_split_000.html#a9270609771369ea575443fe080bbe9c3">AkPlayingID</a> <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a41e9ef8d42951871fe4a8ae58a29a68e_split_000.html#a41e9ef8d42951871fe4a8ae58a29a68e">AK::SoundEngine::PostEvent</a>(</div>
+<div class="line">    <a class="pcalibre code" href="_ak_typedefs_8h_a8341fa4d01d2fa852c3cc410401b04dc_split_000.html#a8341fa4d01d2fa852c3cc410401b04dc">AkUniqueID</a> in_eventID,                  <span class="comment">// Unique ID of the event</span></div>
+<div class="line">    <a class="pcalibre code" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> in_gameObjectID,         <span class="comment">// Associated game object ID</span></div>
+<div class="line">    <a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> in_uFlags = 0,                 <span class="comment">// Bitmask: see AkCallbackType</span></div>
+<div class="line">    <a class="pcalibre code" href="_ak_callback_types_8h_af644072775b1cdd813e2d32792a22005_split_000.html#af644072775b1cdd813e2d32792a22005">AkCallbackFunc</a> in_pfnCallback = NULL,   <span class="comment">// Callback function</span></div>
+<div class="line">    <span class="keywordtype">void</span> * in_pCookie = NULL                <span class="comment">// Callback cookie that will be sent to the callback function </span></div>
+<div class="line">                                            <span class="comment">// along with additional information</span></div>
+<div class="line">);</div>
+</div><!-- fragment --><ul class="calibre8">
+<li class="calibre9">Your callback function must have the following form:</li>
+</ul>
+<div class="fragment"><div class="line"><span class="keyword">static</span> <span class="keywordtype">void</span> MarkersCallback(</div>
+<div class="line">    <a class="pcalibre code" href="_ak_callback_types_8h_a948c083ff18dc4c8dfe1d32cb0eb6732_split_000.html#a948c083ff18dc4c8dfe1d32cb0eb6732">AkCallbackType</a> in_eType,            <span class="comment">// Type of callback reason, in this case AK_Marker on </span></div>
+<div class="line">                                        <span class="comment">// reception of a marker event.</span></div>
+<div class="line">    <a class="pcalibre code" href="struct_ak_callback_info_split_000.html">AkCallbackInfo</a>* in_pCallbackInfo    <span class="comment">// Pointer to callback information structure, in this case</span></div>
+<div class="line">                                        <span class="comment">// AkMarkerCallbackInfo*.</span></div>
+<div class="line">    )</div>
+</div><!-- fragment --><ul class="calibre8">
+<li class="calibre9">When your callback function is called, you first need to check what type of notification is passed. For example, if you only want to process <code class="calibre14">AK_Marker</code> notifications, you should return when any other event type is received.</li>
+<li class="calibre9">Based on the type of notification, you can typecast <code class="calibre14">in_pCallbackInfo</code> into the appropriate information structure type. For AK_Marker notification, it is <a class="pcalibre el" href="struct_ak_marker_callback_info_split_000.html">AkMarkerCallbackInfo</a>.</li>
+</ul>
+<div class="fragment"><div class="line"><span class="comment">// Callback information structure corresponding to AK_Marker.</span></div>
+<div class="line"><span class="keyword">struct </span><a class="pcalibre code" href="struct_ak_marker_callback_info_split_000.html">AkMarkerCallbackInfo</a> : <span class="keyword">public</span> <a class="pcalibre code" href="struct_ak_event_callback_info_split_000.html">AkEventCallbackInfo</a></div>
+<div class="line">{</div>
+<div class="line">    <a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a>    <a class="pcalibre code" href="struct_ak_marker_callback_info_aa7748e167a3ef098db4d9bb88be3489c_split_000.html#aa7748e167a3ef098db4d9bb88be3489c">uIdentifier</a>;        <span class="comment">// Cue point identifier</span></div>
+<div class="line">    <a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a>    <a class="pcalibre code" href="struct_ak_marker_callback_info_a3cee8ac29ebb9b0bb14d27317da99535_split_000.html#a3cee8ac29ebb9b0bb14d27317da99535">uPosition</a>;          <span class="comment">// Position in the cue point (unit: sample frames)</span></div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="pcalibre code" href="struct_ak_marker_callback_info_a170f3dc5b73d97dcedfc3f94d258ace2_split_000.html#a170f3dc5b73d97dcedfc3f94d258ace2">strLabel</a>;           <span class="comment">// Label of the marker (null-terminated)</span></div>
+<div class="line">    <a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a>    <a class="pcalibre code" href="struct_ak_marker_callback_info_a6fd9819cd571fafcf79fd0667722c4dd_split_000.html#a6fd9819cd571fafcf79fd0667722c4dd">uLabelSize</a>;         <span class="comment">// Size of the label string (including the terminating null character)</span></div>
+<div class="line">};</div>
+</div><!-- fragment --><ul class="calibre8">
+<li class="calibre9">Make sure you copy the contents of the <code class="calibre14">strLabel</code> string member if you plan to reference it later, as the pointer can be invalidated after the callback returns.</li>
+</ul>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><a class="pcalibre el" href="quickstart_sample_integration_events_split_000.html">Quick Start Sample Integration - Events</a></dd></dl>
+</div></div></div></body></html>

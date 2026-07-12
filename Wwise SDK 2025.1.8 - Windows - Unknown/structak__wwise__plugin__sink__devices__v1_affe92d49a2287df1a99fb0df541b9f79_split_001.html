@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak_wwise_plugin_sink_devices_v1::GetCount</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="structak__wwise__plugin__sink__devices__v1_affe92d49a2287df1a99fb0df541b9f79_split_000.html#affe92d49a2287df1a99fb0df541b9f79" class="pcalibre1 anchor">◆ </a></span>GetCount</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">int(* ak_wwise_plugin_sink_devices_v1::GetCount) (const struct <a class="pcalibre el" href="structak__wwise__plugin__sink__devices__instance__v1_split_000.html">ak_wwise_plugin_sink_devices_instance_v1</a> *in_this)</td>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+
+<p class="calibre7">Get a count of the number of interfaces currently available. </p>
+<p class="calibre7">Provided by your plug-in, this should return a count.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><p class="starttd"><b class="calibre13">Note:</b> Due to the unpredictable nature of hardware configuration changes, an unpadded, basic system would return a configuration that can change between a GetCount and subsequent objects retrieval.</p>
+<p class="calibre7">As a plug-in designer, you are responsible to address this by returning adequate values that make sense as a whole.</p>
+<p class="calibre7">To guide you, Sink Devices interface is used for retrieval and data copy in a tight loop over a single thread at once. Host will retrieve the count, followed by the Name (GetName) and DeviceID (GetDeviceID), in the order the compiler sees fit. Data is expected to survive for the amount of time this tight loop exists.</p>
+<div class="fragment"><div class="line">   <span class="keywordtype">int</span> count = <a class="pcalibre code" href="structak__wwise__plugin__base__interface_a146b64003437eb7327201578ee814bc9_split_000.html#a146b64003437eb7327201578ee814bc9">m_interface</a>-&gt;GetCount(m_instance);</div>
+<div class="line"><span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; count; ++i)</div>
+<div class="line">{</div>
+<div class="line">   result.emplace_back(</div>
+<div class="line">       <a class="pcalibre code" href="structak__wwise__plugin__base__interface_a146b64003437eb7327201578ee814bc9_split_000.html#a146b64003437eb7327201578ee814bc9">m_interface</a>-&gt;GetName(m_instance, i),</div>
+<div class="line">       <a class="pcalibre code" href="structak__wwise__plugin__base__interface_a146b64003437eb7327201578ee814bc9_split_000.html#a146b64003437eb7327201578ee814bc9">m_interface</a>-&gt;GetDeviceID(m_instance, i)</div>
+<div class="line">   );</div>
+<div class="line">}</div>
+</div><!-- fragment --><p class="calibre7">A proposal is to use GetCount to internally retrieve the device names and IDs, make a static internal cache, and then return name and device ID based on this cache.</p>
+<p class="endtd">You can also spawn an event listener or an update thread, and ensure the data is up to date when the calls come in, and block updates until all calls are accounted for. </p>
+</td></tr>
+</tbody></table>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_this</td><td class="calibre17">Current instance of this interface. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">int Count of the number of interfaces available. </dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_sink_devices_8h_source.html#l00111">111</a> of file <a class="pcalibre el" href="_sink_devices_8h_source.html">SinkDevices.h</a>.</p>
+
+<p class="calibre7">Referenced by <a class="pcalibre el" href="_sink_devices_8h_source.html#l00206">AK.Wwise::Plugin::V1::SinkDevices::Interface::Interface()</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+<div class="ttc" id="astructak__wwise__plugin__base__interface_a146b64003437eb7327201578ee814bc9_html_a146b64003437eb7327201578ee814bc9"><div class="calibre2"><a href="structak__wwise__plugin__base__interface_a146b64003437eb7327201578ee814bc9_split_000.html#a146b64003437eb7327201578ee814bc9" class="pcalibre calibre12">ak_wwise_plugin_base_interface::m_interface</a></div><div class="calibre2">ak_wwise_plugin_interface_type m_interface</div><div class="calibre2">Interface type (see ak_wwise_plugin_interface_type)</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_plugin_base_interface_8h_source.html#l00126" class="pcalibre calibre12">PluginBaseInterface.h:126</a></div></div>
+
+
+</body></html>

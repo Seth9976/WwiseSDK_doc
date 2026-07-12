@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Sound Engine Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="soundengine_plugins_binaries"></a>
+Creating Dynamic Libraries</h1>
+<p class="calibre7">There are two ways to use plug-ins in a game: through static libraries and dynamic libraries. Distributing a static library is mandatory. Distributing dynamic libraries is optional but highly recommended because the Wwise integration for <a href="https://www.audiokinetic.com/library/?source=Unity&amp;id=pg__building.html#sect_build_desc" target="_blank" class="pcalibre calibre12">Unity</a> uses dynamic libraries. The Wwise Unreal integration, however, needs to use static libraries.</p>
+<p class="calibre7">Creating a dynamic library from the library is quite easy. Audiokinetic did this for all the Effect plug-ins, so you can find many examples in the folder <code class="calibre14">\SDK\samples\DynamicLibraries</code>. You must:</p><ul class="calibre8">
+<li class="calibre9">Ensure the project links the static library you built.</li>
+<li class="calibre9">Include one reference to AK_STATIC_LINK_PLUGIN either directly or through a header file.</li>
+<li class="calibre9">Make sure your Dynamic library exports the symbol "g_pAKPluginList". Most platforms will export it automatically because it is explicitly declared as exportable. Some will need an explicit DEF file. Use the macro <code class="calibre14">DEFINE_PLUGIN_REGISTER_HOOK</code> to define the symbol.</li>
+<li class="calibre9">Name your dynamic library according to your XML declaration. If you did not specify the <code class="calibre14">EngineDllName</code> attribute in the XML, name it the same name as the XML. Note that you can group multiple plug-ins in a single DLL.</li>
+</ul>
+<p class="calibre7">In short, the code you need to transform your static library into a dynamic library is only: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="pcalibre code" href="_i_ak_plugin_8h_split_000.html">AK/SoundEngine/Common/IAkPlugin.h</a>&gt;</span></div>
+<div class="line"><a class="pcalibre code" href="_i_ak_plugin_8h_a8e9fc150137c878499f2200e7e27a256_split_000.html#a8e9fc150137c878499f2200e7e27a256">AK_STATIC_LINK_PLUGIN</a>(MyPlugin);</div>
+<div class="line"><a class="pcalibre code" href="_i_ak_plugin_8h_a0e58fa7b5f9d73031a83e4667c6f8933_split_000.html#a0e58fa7b5f9d73031a83e4667c6f8933">DEFINE_PLUGIN_REGISTER_HOOK</a>;</div>
+</div><!-- fragment --><p class="calibre7">To deploy your plug-in in Unity, put a copy of the dynamic library in the Wwise\Deployment\Plugins\[Platform]\DSP folder. All DSP plug-ins in that folder should be in an optimized configuration, ready for game release.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> On <b class="calibre13">iOS</b>, the build system prevents the use of dynamic libraries. Therefore, in Unity you must deploy both the .a file and the corresponding Factory.h file. The link between the usage of the dynamic library on other platforms and the static library on iOS is through its name: make sure that the DLL name is the same as the lib name (or a substring), without the "lib" prefix. For example:<ul class="calibre8">
+<li class="calibre9">On Windows: MyPlugin.dll</li>
+<li class="calibre9">On iOS: libMyPlugin.a + MyPluginFactory.h </li>
+</ul>
+</td></tr>
+</tbody></table>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> On <b class="calibre13">Mac</b> Wwise will load only DYLIB files. However, Unity doesn't recognize DYLIB as a valid extension. Therefore, it doesn't copy and deploy those files when building the game. To work around this problem, rename the extension to BUNDLE, even if the file itself is not a BUNDLE. For example:<ul class="calibre8">
+<li class="calibre9">On Windows: MyPlugin.dll</li>
+<li class="calibre9">On Mac (non-Unity game): MyPlugin.dylib</li>
+<li class="calibre9">On Mac (Unity game): MyPlugin.bundle </li>
+</ul>
+</td></tr>
+</tbody></table>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> On <b class="calibre13">Android</b> you need to prefix the dynamic library with "lib", such as libMyPlugin.so. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

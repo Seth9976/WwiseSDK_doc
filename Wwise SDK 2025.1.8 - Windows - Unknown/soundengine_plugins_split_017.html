@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Sound Engine Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_16"><a class="pcalibre1 anchor" id="fx_audiobuffer_struct"></a>
+Accessing Data Using AkAudioBuffer Structure</h1>
+<p class="calibre7">Audio data buffers are passed to plug-ins at execution time through a pointer to an <a class="pcalibre el" href="class_ak_audio_buffer_split_000.html">AkAudioBuffer</a> structure. All audio buffers passed to plug-ins use a fixed format. For platforms supporting software effects, audio buffers’ channels are not interleaved, and all samples are normalized 32-bit floating point in the (-1.f,1.f) range running at a 48 kHz sampling rate.</p>
+<p class="calibre7">The <a class="pcalibre el" href="class_ak_audio_buffer_split_000.html">AkAudioBuffer</a> structure provides means for accessing both interleaved and deinterleaved data. It contains a field to specify the number of sample frames valid in each channel buffer (<a class="pcalibre el" href="class_ak_audio_buffer_ab7f90fd99119b56e92e4cbf3559f98cd_split_000.html#ab7f90fd99119b56e92e4cbf3559f98cd" title="Number of valid sample frames in the audio buffer.">AkAudioBuffer::uValidFrames</a>) along with the maximum number of sample frames that these buffers can contain (returned by <a class="pcalibre el" href="class_ak_audio_buffer_a537445dce6e3ed09dd2c337fd73c6b41_split_000.html#a537445dce6e3ed09dd2c337fd73c6b41">AkAudioBuffer::MaxFrames()</a>).</p>
+<p class="calibre7">The <a class="pcalibre el" href="class_ak_audio_buffer_split_000.html">AkAudioBuffer</a> structure also contains the buffer's channel mask, which defines the channels that are present in the data. If you just need the number of channels, use <a class="pcalibre el" href="class_ak_audio_buffer_a4523322478ec9a0f9de0c7c72e65df2f_split_000.html#a4523322478ec9a0f9de0c7c72e65df2f" title="Get the number of channels.">AkAudioBuffer::NumChannels()</a>.</p>
+</div></div></div></body></html>

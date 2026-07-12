@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Acoustics</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_4"><a class="pcalibre1 anchor" id="spatial_audio_api_emitters"></a>
+Spatial Audio Emitters</h2>
+<p class="calibre7">A game object becomes a Spatial Audio Emitter when it plays a sound that has one or more settings related to Spatial Audio enabled in Wwise Authoring:</p><ul class="calibre8">
+<li class="calibre9">To enable room reverberation, enable game-defined auxiliary sends on the sound's General Settings tab. <br class="calibre10"/>
+</li>
+<li class="calibre9">To enable reflection processing, assign an early reflection bus to the sound in one of the following ways:<ul class="calibre15">
+<li class="calibre9">On the sound's General Settings tab, assign the appropriate Auxiliary Bus.</li>
+<li class="calibre9">Use <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_af9357c33f3ea4f9551b0e169ded73c15_split_000.html#af9357c33f3ea4f9551b0e169ded73c15">AK::SpatialAudio::SetEarlyReflectionsAuxSend</a></code> to assign the bus to the Game Object.</li>
+</ul>
+</li>
+<li class="calibre9">To enable diffraction and transmission processing, select <b class="calibre13">Enable Diffraction and Transmission</b> on the sound's Positioning tab.</li>
+</ul>
+<p class="calibre7">The position of a game object, either an emitter or a listener, is passed to the sound engine with <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a789e25bda32d1e11849afb6584942455_split_000.html#a789e25bda32d1e11849afb6584942455">AK::SoundEngine::SetPosition</a></code>. Spatial Audio retrieves the position information directly from the sound engine to determine the source position for reflection and diffraction processing.</p>
+</div></div></div></body></html>

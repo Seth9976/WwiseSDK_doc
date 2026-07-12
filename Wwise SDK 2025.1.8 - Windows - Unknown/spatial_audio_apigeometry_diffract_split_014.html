@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Using the Geometry API for Simulating Diffraction and Transmission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_13"><a class="pcalibre1 anchor" id="spatial_audio_api_geometry_aware_rooms_diffraction"></a>
+Geometric Diffraction Through Portals</h2>
+<p class="calibre7">In the case where an emitter (assuming it is playing a sound that has been set up correctly for geometric diffraction, see <a class="pcalibre el" href="spatial_audio_apigeometry_diffract_split_006.html#spatial_audio_apigeometry_diffract_direct_api">Setting up a Sound for Diffraction and Transmission</a>), is not in the same Room as the listener, the geometric path is calculated as follows:</p><ul class="calibre8">
+<li class="calibre9">The sound propagation paths from the emitter to the listener are calculated using the Rooms and Portals network.</li>
+<li class="calibre9">For each path, the segment of the path between the emitter and the Portal closest to the emitter is calculated using the geometric diffraction algorithm, as if the Portal were the listener. Unless the emitter is directly behind a single Portal from the perspective of the listener, only one geometric path is calculated (the shortest one found). Calculating additional paths between the emitter and the Portal would not result in unique virtual positions, and is therefore unnecessary.</li>
+<li class="calibre9">Path segments that are between two Portals are also calculated using geometric diffraction if there is no direct line of sight between the Portals. These calculations are done each time geometry and/or Portals are added to or removed from the scene, and reused when required. In most cases, only the shortest path between the two Portals is used. The exception being when the listener is directly behind one of the Portals, in which case multiple paths are used to avoid discontinuities should the listener transition through the Portal.</li>
+<li class="calibre9">For each path, the segment of the path between the listener and the Portal closest to the listener is calculated using the geometric diffraction algorithm, as if the Portal were the emitter.</li>
+<li class="calibre9">The resultant paths are taken as the combination of the above paths, branching and appending paths together where necessary.</li>
+</ul>
+</div></div></div></body></html>

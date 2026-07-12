@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Describing Geometry</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="spatial_audio_apigeometry_creatingmesh"></a>
+Additional Considerations</h1>
+<p class="calibre7">Generally, any triangle mesh can be used with Wwise Acoustics, however there are a number of important considerations.</p>
+<ul class="calibre8">
+<li class="calibre9">The mesh should be as simple as possible. Acoustic calculations involve a large number of ray tracing operations and can get expensive. The smallest number of triangles that can be used to represent a scene is best.</li>
+<li class="calibre9">All triangles are double-sided. Acoustic reflections occur off of both sides of the triangle, therefore it can be beneficial to create meshes that have no interior volume. For example, a wall could be a plane rather than a box.</li>
+<li class="calibre9">Duplicate vertices should be “welded” together in order to create a continuous mesh. In other words, two connected triangles should reference the same two vertices in the vertex array. This is important for diffraction calculations, otherwise it is possible for sound to leak through the mesh.</li>
+<li class="calibre9">All vertex coordinates are in world space.</li>
+<li class="calibre9">Meshes that are sent to Wwise Acoustics via multiple calls to set geometry cannot reference the same vertices, and therefore are not considered connected or continuous. In this case, diffraction edges will not be generated for edges that span multiple meshes.</li>
+<li class="calibre9">Meshes must not have any degenerate triangles. All triangles must have an area greater than zero.</li>
+<li class="calibre9">Additional rules apply if you wish to use Geometric Diffraction with your geometry. Refer to <a class="pcalibre el" href="spatial_audio_apigeometry_diffract_split_000.html">Using the Geometry API for Simulating Diffraction and Transmission</a> for more details. </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

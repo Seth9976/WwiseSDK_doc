@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Sound Engine Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_18"><a class="pcalibre1 anchor" id="fx_audiobuffer_deinterleaved"></a>
+Retrieving Deinterleaved Data.</h2>
+<p class="calibre7">A plug-in accesses individual deinterleaved channels through <a class="pcalibre el" href="class_ak_audio_buffer_ad2bc3b8ddd61eaa0c111798d5f9e8c9c_split_000.html#ad2bc3b8ddd61eaa0c111798d5f9e8c9c">AkAudioBuffer::GetChannel()</a>. The data type always conforms to the sound engine's native format (AkSampleType). The example code below shows how all deinterleaved channels can be retrieved for processing.</p>
+<div class="fragment"><div class="line"><span class="comment">// Process all channels independently.</span></div>
+<div class="line"><span class="keywordtype">void</span> CAkMyPlugin::Execute( <a class="pcalibre code" href="class_ak_audio_buffer_split_000.html">AkAudioBuffer</a> * io_pBuffer )     <span class="comment">// Input/Output buffer (processing is done in place).</span></div>
+<div class="line">{</div>
+<div class="line">    <a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> uNumChannels = io_pBuffer-&gt;<a class="pcalibre code" href="class_ak_audio_buffer_a4523322478ec9a0f9de0c7c72e65df2f_split_000.html#a4523322478ec9a0f9de0c7c72e65df2f">NumChannels</a>();</div>
+<div class="line">    </div>
+<div class="line">    <span class="keywordflow">for</span> ( <a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> uChan=0; uChan&lt;uNumChannels; uChan++ )</div>
+<div class="line">    {</div>
+<div class="line">        <a class="pcalibre code" href="_ak_common_defs_8h_a58f11a728038d16fe4187612a7a842fb_split_000.html#a58f11a728038d16fe4187612a7a842fb">AkSampleType</a> * pChannel = io_pBuffer-&gt;<a class="pcalibre code" href="class_ak_audio_buffer_ad2bc3b8ddd61eaa0c111798d5f9e8c9c_split_000.html#ad2bc3b8ddd61eaa0c111798d5f9e8c9c">GetChannel</a>( uChan );</div>
+<div class="line">        <span class="comment">// Process data of pChannel...</span></div>
+<div class="line">    }</div>
+<div class="line">}</div>
+</div><!-- fragment --><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="caution.gif"/></td><td class="calibre17"><b class="calibre13">Caution:</b> A plug-in must never take for granted that buffers of each channel are contiguous in memory. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

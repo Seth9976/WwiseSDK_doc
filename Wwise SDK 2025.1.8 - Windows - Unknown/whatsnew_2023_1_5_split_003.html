@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2023.1.5</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="generic_community_bugs_2023_1_5"></a>
+Fixes for Community-Reported Bugs</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-67917</b> Fixed: When too many tasks are processed, a deadlock occurs.</li>
+<li class="calibre9"><b class="calibre13">WG-71752</b> Fixed: (Spatial Audio) The diffraction pathfinding algorithm is more CPU intensive in Wwise 2023.1, because of the way diffraction points are calculated. In 2023.1, paths are clamped to corners, producing a smooth fade in or out as the emitter or listener move in or out of the affected area. While the audio quality is improved, the CPU usage in higher. Now paths are only clamped to corners when the diffraction point is up to a single edge length off of the end of the edge. CPU usage is reduced by 15-20% in some scenarios, while maintaining smooth audio output.</li>
+<li class="calibre9"><b class="calibre13">WG-71821</b> Fixed: Wwise freezes when selecting a music object that uses a MIDI file.</li>
+<li class="calibre9"><b class="calibre13">WG-71951</b> Fixed: Rooms and portals crash with load balancing enabled.</li>
+<li class="calibre9"><b class="calibre13">WG-71971</b> Fixed: (Spatial Audio) Room tones jump when entering a portal with a distance probe.</li>
+<li class="calibre9"><b class="calibre13">WG-72060</b> Fixed: Race condition on Windows platform leads to crash in Windows callback during Sound Engine teardown.</li>
+<li class="calibre9"><b class="calibre13">WG-72086</b> Fixed: Object 3D position automation properties are not synched correctly on project load.</li>
+<li class="calibre9"><b class="calibre13">WG-72095</b> Fixed: Mastering Suite's Multiband Compressor generates artifacts when attack or release time is too small.</li>
+<li class="calibre9"><b class="calibre13">WG-72100</b> Fixed: Calls to the I/O hook <code class="calibre14">Close</code> function are delayed. This causes files to remain open longer than necessary. No change to I/O hook code is necessary.</li>
+<li class="calibre9"><b class="calibre13">WG-72101</b> Fixed: Crash when using the Job Manager to execute multiple Spatial Audio tasks concurrently.</li>
+<li class="calibre9"><b class="calibre13">WG-72381</b> Fixed: When using Opus or Vorbis with pitch, 5.1 sounds have the right and center channels swapped.</li>
+<li class="calibre9"><b class="calibre13">WG-72578</b> Fixed: Logic error in <code class="calibre14">AK::HashTable::RemoveIf</code> possibly results in entries in the hashtable being visited multiple times.</li>
+</ul>
+</div></div></div></body></html>

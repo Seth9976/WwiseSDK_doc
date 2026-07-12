@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::StreamMgr::IAkLowLevelIOHook::BatchWrite</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_a8f5041a24e395784437a62cdd2140505_split_000.html#a8f5041a24e395784437a62cdd2140505" class="pcalibre1 anchor">◆ </a></span>BatchWrite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="calibre3">
+  <tbody class="calibre4"><tr class="calibre16">
+  <td class="calibre17">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">virtual void AK::StreamMgr::IAkLowLevelIOHook::BatchWrite </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> </td>
+          <td class="paramname"><em class="calibre59">in_uNumTransfers</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="struct_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_1_1_batch_io_transfer_item_split_000.html">BatchIoTransferItem</a> * </td>
+          <td class="paramname"><em class="calibre59">in_pTransferItems</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="calibre17">
+<span><span>pure virtual</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Write multiple data to multiple files (asynchronous). </p><dl class="calibre7"><dt class="calibre23">Remarks</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9">Queue up multiple write requests at once, using the provided array of in_pTransferItems. There will be in_uNumTransfers number of items in the array.</li>
+<li class="calibre9">The pCallback within each <a class="pcalibre el" href="struct_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_1_1_batch_io_transfer_item_adce7fa7141b286400599ed8964d4ef9b_split_000.html#adce7fa7141b286400599ed8964d4ef9b">BatchIoTransferItem::pTransferInfo</a> must be called when completed.</li>
+<li class="calibre9">The pointer to each <a class="pcalibre el" href="struct_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_1_1_batch_io_transfer_item_adce7fa7141b286400599ed8964d4ef9b_split_000.html#adce7fa7141b286400599ed8964d4ef9b">BatchIoTransferItem::pTransferInfo</a> will be valid until the high-level device is notified through the callback. However, the array of in_pTransferItems will not be valid.</li>
+<li class="calibre9">File position passed in each <a class="pcalibre el" href="struct_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_1_1_batch_io_transfer_item_adce7fa7141b286400599ed8964d4ef9b_split_000.html#adce7fa7141b286400599ed8964d4ef9b">BatchIoTransferItem::pTransferInfo</a> takes the offset of this file relative to <a class="pcalibre el" href="struct_ak_file_desc_ad8ff92ae5cb0cb666d77688189f5ef3f_split_000.html#ad8ff92ae5cb0cb666d77688189f5ef3f" title="File handle/identifier.">AkFileDesc::hFile</a> (described with <a class="pcalibre el" href="struct_ak_file_desc_a3fc9acc74908496f0966c75b41b8e61e_split_000.html#a3fc9acc74908496f0966c75b41b8e61e">AkFileDesc::uSector</a>). It is computed by the high-level device as "pFileDesc-&gt;uSector * Block_Size + Stream_Position", where Block_Size is obtained via <a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_a5018552d455ddc2a95b727fc543aac9e_split_000.html#a5018552d455ddc2a95b727fc543aac9e">AK::StreamMgr::IAkLowLevelIOHook::GetBlockSize()</a>. </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_uNumTransfers</td><td class="calibre17">Number of transfers to process </td></tr>
+    <tr class="calibre16"><td class="paramname">in_pTransferItems</td><td class="calibre17">List of transfer items to process </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

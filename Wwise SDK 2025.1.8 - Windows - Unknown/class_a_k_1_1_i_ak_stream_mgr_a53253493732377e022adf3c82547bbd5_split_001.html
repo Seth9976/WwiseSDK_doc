@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::IAkStreamMgr::CreateAuto</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="class_a_k_1_1_i_ak_stream_mgr_a53253493732377e022adf3c82547bbd5_split_000.html#a53253493732377e022adf3c82547bbd5" class="pcalibre1 anchor">◆ </a></span>CreateAuto() <span class="permalink">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="calibre3">
+  <tbody class="calibre4"><tr class="calibre16">
+  <td class="calibre17">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">virtual <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::IAkStreamMgr::CreateAuto </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype">void * </td>
+          <td class="paramname"><em class="calibre59">in_pBuffer</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_a7b5402d7570cb20a11c8d21f2c2710ec_split_000.html#a7b5402d7570cb20a11c8d21f2c2710ec">AkUInt64</a> </td>
+          <td class="paramname"><em class="calibre59">in_uSize</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">const <a class="pcalibre el" href="struct_ak_auto_stm_heuristics_split_000.html">AkAutoStmHeuristics</a> &amp; </td>
+          <td class="paramname"><em class="calibre59">in_heuristics</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="class_a_k_1_1_i_ak_auto_stream_split_000.html">IAkAutoStream</a> *&amp; </td>
+          <td class="paramname"><em class="calibre59">out_pStream</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="calibre17">
+<span><span>pure virtual</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Create an automatic stream (in-memory buffer overload).</p>
+<p class="calibre7">This overload differs largely from <a class="pcalibre el" href="class_a_k_1_1_i_ak_stream_mgr_afe30a576bd859ff4e9b60a3f8e1710fb_split_000.html#afe30a576bd859ff4e9b60a3f8e1710fb">CreateAuto()</a> implementations, which are file based. This version is provided with a memory space and the resulting automatic stream will simply return the memory space in a similar fashion, but without the need to perform any actual file operations.</p>
+<p class="calibre7">If you are in the process of implementing your own <a class="pcalibre el" href="class_a_k_1_1_i_ak_stream_mgr_split_000.html">IAkStreamMgr</a> object, consider using the initial implementation from <code class="calibre14">\\SDK\\source\\StreamManager\\Common\\AkStreamMgr.cpp</code>.</p>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">AK_Success if the stream was created successfully </dd></dl>
+<dl class="calibre7"><dt class="calibre23">Remarks</dt><dd class="calibre24">The stream needs to be started explicitly with <a class="pcalibre el" href="class_a_k_1_1_i_ak_auto_stream_ae9d58aa42a893863f8fe85a5ee45d638_split_000.html#ae9d58aa42a893863f8fe85a5ee45d638">IAkAutoStream::Start()</a>. </dd></dl>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="streamingdevicemanager_split_000.html">Streaming / Stream Manager</a> </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_pBuffer</td><td class="calibre17">Pointer to the memory area containing stream data </td></tr>
+    <tr class="calibre16"><td class="paramname">in_uSize</td><td class="calibre17">Size of the memory area containing stream data </td></tr>
+    <tr class="calibre16"><td class="paramname">in_heuristics</td><td class="calibre17">Streaming heuristics </td></tr>
+    <tr class="calibre16"><td class="paramname">out_pStream</td><td class="calibre17">Returned interface to an automatic stream. If the function does not return AK_Success, this pointer is left untouched. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

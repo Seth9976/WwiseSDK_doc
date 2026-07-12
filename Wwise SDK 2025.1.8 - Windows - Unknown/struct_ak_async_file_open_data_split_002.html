@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AkAsyncFileOpenData Struct Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table class="calibre3">
+<tbody class="calibre4"><tr class="calibre16"><td colspan="2" class="calibre17"><h2 class="calibre21" id="calibre_pb_1"><a class="pcalibre1 anchor" id="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="calibre16"><td class="memitemleft"><a class="pcalibre el" href="_ak_stream_mgr_module_8h_ae00967344e3fcd553d8cdf391ec7081e_split_000.html#ae00967344e3fcd553d8cdf391ec7081e">AkFileOpenCallback</a> </td><td class="memitemright"><a class="pcalibre el" href="struct_ak_async_file_open_data_a723b3d53794fc8c325d51c455a586229_split_000.html#a723b3d53794fc8c325d51c455a586229">pCallback</a></td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Callback function used to notify the high-level device when Open is done.  <a href="struct_ak_async_file_open_data_a723b3d53794fc8c325d51c455a586229_split_000.html#a723b3d53794fc8c325d51c455a586229" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">void * </td><td class="memitemright"><a class="pcalibre el" href="struct_ak_async_file_open_data_a97743485d9534d61987aacb96c57704f_split_000.html#a97743485d9534d61987aacb96c57704f">pCookie</a></td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Reserved. Pass this unchanged to the callback function. The I/O device uses this cookie to retrieve the owner of the transfer.  <a href="struct_ak_async_file_open_data_a97743485d9534d61987aacb96c57704f_split_000.html#a97743485d9534d61987aacb96c57704f" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft"><a class="pcalibre el" href="struct_ak_file_desc_split_000.html">AkFileDesc</a> * </td><td class="memitemright"><a class="pcalibre el" href="struct_ak_async_file_open_data_ae3694e2a2a9f90364b3f865cc84627e5_split_000.html#ae3694e2a2a9f90364b3f865cc84627e5">pFileDesc</a></td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">File Descriptor to fill once the Open operation is complete.  <a href="struct_ak_async_file_open_data_ae3694e2a2a9f90364b3f865cc84627e5_split_000.html#ae3694e2a2a9f90364b3f865cc84627e5" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">void * </td><td class="memitemright"><a class="pcalibre el" href="struct_ak_async_file_open_data_a496f8e8982ec35bd71d1734c151311c3_split_000.html#a496f8e8982ec35bd71d1734c151311c3">pCustomData</a></td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Convenience pointer for the IO hook implementer. Useful for additional data used in asynchronous implementations, for example.  <a href="struct_ak_async_file_open_data_a496f8e8982ec35bd71d1734c151311c3_split_000.html#a496f8e8982ec35bd71d1734c151311c3" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_struct_ak_file_open_data')" class="calibre17"><img alt="-" src="closed.png" class="inline"/> Public Attributes inherited from <a class="pcalibre el" href="struct_ak_file_open_data_split_000.html">AkFileOpenData</a></td></tr>
+<tr class="calibre16"><td class="memitemleft">const <a class="pcalibre el" href="_platforms_2_windows_2_ak_types_8h_af48843ed095e0ea7dd05bd1b64070664_split_000.html#af48843ed095e0ea7dd05bd1b64070664">AkOSChar</a> * </td><td class="memitemright"><a class="pcalibre el" href="struct_ak_file_open_data_a18974496890d6480cbb45a5dd772c525_split_000.html#a18974496890d6480cbb45a5dd772c525">pszFileName</a></td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">File name. Only one of pszFileName or fileID should be valid (pszFileName null while fileID is not AK_INVALID_FILE_ID, or vice versa)  <a href="struct_ak_file_open_data_a18974496890d6480cbb45a5dd772c525_split_000.html#a18974496890d6480cbb45a5dd772c525" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft"><a class="pcalibre el" href="_ak_typedefs_8h_adff75ad09d4237d128c034afd17f3b35_split_000.html#adff75ad09d4237d128c034afd17f3b35">AkFileID</a> </td><td class="memitemright"><a class="pcalibre el" href="struct_ak_file_open_data_adde8223afb125eee82420b3314f944a3_split_000.html#adde8223afb125eee82420b3314f944a3">fileID</a></td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">File ID. Only one of pszFileName or fileID should be valid (pszFileName null while fileID is not AK_INVALID_FILE_ID, or vice versa)  <a href="struct_ak_file_open_data_adde8223afb125eee82420b3314f944a3_split_000.html#adde8223afb125eee82420b3314f944a3" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft"><a class="pcalibre el" href="struct_ak_file_system_flags_split_000.html">AkFileSystemFlags</a> * </td><td class="memitemright"><a class="pcalibre el" href="struct_ak_file_open_data_a41c41a23a7d7f4fa298c5400329b685a_split_000.html#a41c41a23a7d7f4fa298c5400329b685a">pFlags</a></td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Flags for opening, null when unused.  <a href="struct_ak_file_open_data_a41c41a23a7d7f4fa298c5400329b685a_split_000.html#a41c41a23a7d7f4fa298c5400329b685a" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft"><a class="pcalibre el" href="_i_ak_stream_mgr_8h_afb72442488d89ecc645c457ff48a90b7_split_000.html#afb72442488d89ecc645c457ff48a90b7">AkOpenMode</a> </td><td class="memitemright"><a class="pcalibre el" href="struct_ak_file_open_data_aca6d02f7cc6b7c13a240defcfeb7bbb0_split_000.html#aca6d02f7cc6b7c13a240defcfeb7bbb0">eOpenMode</a></td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Open mode.  <a href="struct_ak_file_open_data_aca6d02f7cc6b7c13a240defcfeb7bbb0_split_000.html#aca6d02f7cc6b7c13a240defcfeb7bbb0" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+</tbody></table>
+<a id="details" class="pcalibre calibre12"></a></div></body></html>

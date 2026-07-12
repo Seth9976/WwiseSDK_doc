@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::IAkPluginServiceHashTable Class Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_3">Detailed Description</h2>
+<div class="calibre2"><p class="calibre7">Interface for an open-addressed hash table (or key-value array). Relatively low-cost (O(1)) lookup, add, and removal by key. Typical use is to add values by key, and then using GetFirstSlotByKey (and GetNextSlotByKey, if keys are not guaranteed to be unique) to get a Slot into the <a class="pcalibre el" href="struct_a_k_1_1_ak_hash_table_base_split_000.html">AkHashTableBase</a>, and then indexing <a class="pcalibre el" href="struct_a_k_1_1_ak_hash_table_base_a220d8b552df2abe10b9460affeb97987_split_000.html#a220d8b552df2abe10b9460affeb97987">AkHashTableBase::pValues</a> by the provided Slot.</p>
+<p class="calibre7">Note that the <a class="pcalibre el" href="struct_a_k_1_1_ak_hash_table_base_split_000.html">AkHashTableBase</a> referred to is not inherently thread-safe, so appropriate protections will be required if the same hashTable is shared across multiple plug-in instances.</p>
+<p class="calibre7">Some hash functions are provided in <a class="pcalibre el" href="_ak_mur_mur_hash_8h_split_000.html">AkMurMurHash.h</a> which can be used for key generation. In particular, this can be very useful for storing data on audio objects, or audio object channels, over time. Note that if indexing by object-channel is desired, GetObjectChannelHash is recommended to mitigate key-collisions from multiple channels of data. However, Audio Object IDs themselves are chaotic enough that they can be used directly. </p>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_i_ak_plugin_hash_table_8h_source.html#l00057">57</a> of file <a class="pcalibre el" href="_i_ak_plugin_hash_table_8h_source.html">IAkPluginHashTable.h</a>.</p>
+</div></div><!-- contents -->
+
+
+</body></html>

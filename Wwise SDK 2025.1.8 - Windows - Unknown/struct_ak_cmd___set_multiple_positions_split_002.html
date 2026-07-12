@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AkCmd_SetMultiplePositions Struct Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_1">Detailed Description</h2>
+<div class="calibre2"><p class="calibre7">Sets multiple positions to a single game object.</p>
+<p class="calibre7">Setting multiple positions on a single game object is a way to simulate multiple emission sources while using the resources of only one voice. This can be used to simulate wall openings, area sounds, or multiple objects emitting the same sound in the same area. </p><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b><ul class="calibre8">
+<li class="calibre9">Using this command with only one position is the same as using AkCommand_SetPosition.</li>
+<li class="calibre9">If a sound has diffraction enabled, it is treated as AkMultiPositionType_MultiDirections. AkMultiPositionType_MultiSources is not supported in this case. </li>
+</ul>
+</td></tr>
+</tbody></table>
+<p class="calibre7">The Sound Engine expects an array of <code class="calibre14"><a class="pcalibre el" href="struct_ak_channel_emitter_split_000.html" title="Positioning information for a sound, with specified subset of its channels.">AkChannelEmitter</a></code> objects after the command. For example: </p><pre class="fragment">auto cmd = (AkCmd_SetMultiplePositions*)AK_CommandBuffer_Add(buffer, AkCommand_SetMultiplePositions);
+// Fill out the command...
+cmd-&gt;numPositions = myPositions.size();
+AK_CommandBuffer_AddArray(buffer, sizeof(AkChannelEmitter), myPositions.size(), myPositions.data());
+</pre><p class="calibre7">This command can fail for the following reasons:</p><ul class="calibre8">
+<li class="calibre9">AK_InvalidParameter: <code class="calibre14">gameObjectID</code> is outside the valid range, or <code class="calibre14">flags</code> are invalid, no positions were added after the command, or at least one position in the array is invalid</li>
+<li class="calibre9">AK_IDNotFound: <code class="calibre14">gameObjectID</code> is not a registered game object ID.</li>
+</ul>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="_ak_command_types_8h_a001b78645b8b0335c0dd2e128cca2cfd_split_001.html#a001b78645b8b0335c0dd2e128cca2cfda5c97cb38cc9ea4849a512bfe412ffdf5" title="See AkCmd_SetMultiplePositions.">AkCommand_SetMultiplePositions</a></li>
+<li class="calibre9"><a class="pcalibre el" href="_ak_command_buffer_8h_a7512f07e3e8f24cf4ed15bebf3a6392e_split_000.html#a7512f07e3e8f24cf4ed15bebf3a6392e">AK_CommandBuffer_AddArray</a></li>
+<li class="calibre9"><a class="pcalibre el" href="soundengine_3dpositions_split_000.html">Integration Details - 3D Positions</a></li>
+<li class="calibre9"><a class="pcalibre el" href="soundengine_3dpositions_split_003.html#soundengine_3dpositions_multiplepos">Setting multiple positions for a single game object</a> </li>
+</ul>
+</dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_ak_command_types_8h_source_split_000.html#l00317">317</a> of file <a class="pcalibre el" href="_ak_command_types_8h_source_split_000.html">AkCommandTypes.h</a>.</p>
+</div></div><!-- contents -->
+
+
+</body></html>

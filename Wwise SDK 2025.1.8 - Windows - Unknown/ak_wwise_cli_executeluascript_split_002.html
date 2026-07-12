@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>execute-lua-script</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="ak_wwise_cli_executeluascriptOptions"></a>
+Options</h1>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--allow-migration</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Allow migration and save of the Wwise project before executing the operation.<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--do-file LUAFILE1</code></b><br class="calibre10"/>
+<b class="calibre13"><code class="calibre14">--do-file LUAFILE1 LUAFILE2 ...</code></b><br class="calibre10"/>
+<b class="calibre13"><code class="calibre14">--do-file LUAFILE1 --do-file LUAFILE2 ...</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Specify an array of Lua files to load before the main Lua script is loaded and executed. This option must be followed by a absolute file name.<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--lua-path PATH1</code></b><br class="calibre10"/>
+<b class="calibre13"><code class="calibre14">--lua-path PATH1 PATH2 ...</code></b><br class="calibre10"/>
+<b class="calibre13"><code class="calibre14">--lua-path PATH1 --lua-path PATH2 ...</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Specify a search path for Lua modules loaded. This option must be followed by a Lua path. Ex: '–lua-path C:\module\?.lua'.<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--no-color</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Disable ANSI coded terminal colors.<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--project PROJECT</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">When no project is specified, no project is loaded. See <a class="pcalibre el" href="ak_wwise_console_project_open_split_000.html">ak.wwise.console.project.open</a> for information on how to open a project.<br class="calibre10"/>
+ The path to the project file (.wproj).<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--require MODULE1</code></b><br class="calibre10"/>
+<b class="calibre13"><code class="calibre14">--require MODULE1 MODULE2 ...</code></b><br class="calibre10"/>
+<b class="calibre13"><code class="calibre14">--require MODULE1 --require MODULE2 ...</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Specify an array of Lua module to load at runtime using the require system. This option must be followed by a Lua module name. The module name must be found in the Lua path. Ex: '–require debug.lua'.<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--watchdog-timeout 30</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Time in seconds to set as a watchdog threshold. The watchdog is signaled every time a WAAPI function call is made. By default, the value is 0 and the watchdog is disabled.<br class="calibre10"/>
+ Range: [0,*]</p>
+<p class="calibre7"><a class="pcalibre el" href="ak_wwise_cli_executeluascript_options_schema_split_000.html">Options Schema</a></p>
+</div></div></div></body></html>

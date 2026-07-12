@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2025.1.4</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_4"><a class="pcalibre1 anchor" id="generic_bugs_2025_1_4"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-47058</b> Fixed: Language exclusions for Sound Voices are not copied when copying platform settings.</li>
+<li class="calibre9"><b class="calibre13">WG-72712</b> Fixed: Contextual Help view sometimes reverts to the default property description instead of displaying the description of the last selected property.</li>
+<li class="calibre9"><b class="calibre13">WG-76035</b> Fixed: Marquee selection on a sound's HDR envelope doesn't select the right points.</li>
+<li class="calibre9"><b class="calibre13">WG-78067</b> Fixed: (Acoustics) The direct path hit point and transmission loss percentage jump around sporadically in the Game Object 3D Viewer.</li>
+<li class="calibre9"><b class="calibre13">WG-78311</b> Fixed: <code class="calibre14">WwiseAuthoring_Tests.sln</code> is missing in Level 3 source code package.</li>
+<li class="calibre9"><b class="calibre13">WG-78866</b> Fixed: Various memory leaks in the authoring tool, including during project migration.</li>
+<li class="calibre9"><b class="calibre13">WG-78876</b> Fixed: The outer area of Solo/Mute buttons cannot be clicked.</li>
+<li class="calibre9"><b class="calibre13">WG-79146</b> Fixed: (Acoustics) Room Transmission Loss doesn't transition smoothly when transition regions overlap.</li>
+<li class="calibre9"><b class="calibre13">WG-79536</b> Fixed: In Media Pool, you can't bring the horizontal splitter all the way down.</li>
+<li class="calibre9"><b class="calibre13">WG-79937</b> Fixed: Possible crash when configuring the columns in the Media Pool Results pane.</li>
+<li class="calibre9"><b class="calibre13">WG-80067</b> Fixed: Possible assert in Wwise Debug when closing a project while sounds are playing in the Transport Control.</li>
+<li class="calibre9"><b class="calibre13">WG-80076</b> Fixed: Unselected objects are drawn on top of selected objects.</li>
+<li class="calibre9"><b class="calibre13">WG-80082</b> Fixed: Incorrect DSF final value in the Voice Inspector when a game-defined auxiliary send DSF is used.</li>
+<li class="calibre9"><b class="calibre13">WG-80235</b> Fixed: Music playback sometimes crashes under low-memory conditions.</li>
+<li class="calibre9"><b class="calibre13">WG-80239</b> Fixed: (Acoustics) Occasional glitch when moving through a Portal with load balancing enabled.</li>
+<li class="calibre9"><b class="calibre13">WG-80337</b> Fixed: Possible crash when interacting with a List View while the Media Pool is scanning new audio files.</li>
+<li class="calibre9"><b class="calibre13">WG-80360</b> Fixed: Copying and pasting in a Sequence Container copies objects multiple times.</li>
+<li class="calibre9"><b class="calibre13">WG-80411</b> Fixed: Closing the search field of the List View can cause an assert.</li>
+<li class="calibre9"><b class="calibre13">WG-80427</b> Fixed: There is no indication that only the Peak metering mode works for Sidechain Mixes.</li>
+<li class="calibre9"><b class="calibre13">WG-80480</b> Fixed: Possible crash when closing a project.</li>
+<li class="calibre9"><b class="calibre13">WG-80490</b> Fixed: Game Object 3D Viewer multiselection doesn't behave as expected.</li>
+<li class="calibre9"><b class="calibre13">WG-80650</b> Fixed: (Acoustics) AKASSERT(i == j || (*this)[i].PathID() != (*this)[j].PathID()) when calculating reflection paths.</li>
+<li class="calibre9"><b class="calibre13">WG-80671</b> Fixed: <b class="calibre13">Split to the Right</b> shortcut menu item splits the wrong tab when not the selected one.</li>
+<li class="calibre9"><b class="calibre13">WG-80672</b> Fixed: Sequence Containers with crossfade start more than two sounds if an unplayable item is part of the sequence.</li>
+<li class="calibre9"><b class="calibre13">WG-80701</b> Fixed: Image source icons have uniform color and alpha in the Game Object 3D Viewer when reflection paths are hidden.</li>
+<li class="calibre9"><b class="calibre13">WG-80706</b> Fixed: In the Media Pool, pressing TAB on the keyboard doesn't set the focus on the correct control.</li>
+<li class="calibre9"><b class="calibre13">WG-80711</b> Fixed: Analysis of invalid originals file can be cached.</li>
+<li class="calibre9"><b class="calibre13">WG-80739</b> Fixed: Editing the automation path of a playing sound can cause silence.</li>
+<li class="calibre9"><b class="calibre13">WG-80791</b> Fixed: A warning message sometimes appears over the search results in Media Pool.</li>
+<li class="calibre9"><b class="calibre13">WG-80798</b> Fixed: Media Pool Database names are truncated when collapsed using arrow keys.</li>
+<li class="calibre9"><b class="calibre13">WG-80897</b> Fixed: (Acoustics) Assert caused by a Portal that has been moved or disconnected.</li>
+<li class="calibre9"><b class="calibre13">WG-80922</b> Fixed: Artifacts when scrolling up and down in the Mixing Desk.</li>
+<li class="calibre9"><b class="calibre13">WG-80923</b> Fixed: The shortcut menu doesn't always appear when right-clicking an expander arrow in the Project Explorer.</li>
+<li class="calibre9"><b class="calibre13">WG-80925</b> Fixed: Double-clicking a cue in the Music Segment Editor or Source Editor starts a marquee selection.</li>
+<li class="calibre9"><b class="calibre13">WG-80929</b> Fixed: Possible crash when calling <code class="calibre14">CAkDefaultIOHookDeferred::Term</code> immediately after <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a90f8c91937038615480db2b57ce2279e_split_000.html#a90f8c91937038615480db2b57ce2279e">AK::SoundEngine::Term</a></code> while streaming sounds are still playing.</li>
+<li class="calibre9"><b class="calibre13">WG-80953</b> Fixed: The HPF icon on bus connections does not appear in the Voice Inspector.</li>
+<li class="calibre9"><b class="calibre13">WG-80960</b> Fixed: (Acoustics) Sounds with large or infinite attenuation distances are sporadic and unstable when the max diffraction path limit is exceeded.</li>
+<li class="calibre9"><b class="calibre13">WG-81030</b> Fixed: Continuous containers are not stopped correctly when played in a MIDI context. Note that for the container to stop correctly, it must have at least one Envelope Modulator configured to stop playback after release.</li>
+<li class="calibre9"><b class="calibre13">WG-81033</b> Fixed: It's sometimes impossible to drag items from a Random Container or a Sequence Container.</li>
+<li class="calibre9"><b class="calibre13">WG-81041</b> Fixed: Crash when loading profiling sessions.</li>
+<li class="calibre9"><b class="calibre13">WG-81076</b> Fixed: DSF Final Value incorrectly reported in Voice Inspector.</li>
+<li class="calibre9"><b class="calibre13">WG-81213</b> Fixed: Crash in Unreal Editor when live editing a new Event.</li>
+<li class="calibre9"><b class="calibre13">WG-81216</b> Fixed: Performance regression when generating SoundBanks through WwiseConsole.</li>
+<li class="calibre9"><b class="calibre13">WG-81268</b> Fixed: (Acoustics) An error in the path segments between an emitter and their nearby Portals causes paths to sometimes not show up until the listener is in the same room as the emitter.</li>
+<li class="calibre9"><b class="calibre13">WG-81365</b> Fixed: Possible memory corruption during Live Media Transfer.</li>
+<li class="calibre9"><b class="calibre13">WG-81404</b> Fixed: Possible failure of file transfer during Live Media Transfer.</li>
+</ul>
+</div></div></div></body></html>

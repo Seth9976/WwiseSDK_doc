@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integrating Wwise Motion</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_11"><a class="pcalibre1 anchor" id="multiplayer_setup"></a>
+Setup for multiple players</h2>
+<p class="calibre7">This section describes how to set up motion for multiple players on the same console, not a networked multiplayer game. In multiplayer scenarios, the mix for motion, or any player-specific output, must be different to represent the player's perspective in the game world. Players therefore need their own Listeners.</p>
+<div class="fragment"><div class="line"><span class="keywordtype">int</span> NUM_PLAYERS = 4;</div>
+<div class="line"><span class="keyword">const</span> <a class="pcalibre code" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> OBJ_FOR_PLAYER[MAX_PLAYERS] = {100 ,200, 300, 400};    <span class="comment">// Game Object IDs are arbitrary.</span></div>
+<div class="line"><span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; NUM_PLAYERS; i++)</div>
+<div class="line">{</div>
+<div class="line">    <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a895ed0f83a0dea8fc284491c0ee0152c_split_000.html#a895ed0f83a0dea8fc284491c0ee0152c">AK::SoundEngine::RegisterGameObj</a>(OBJ_FOR_PLAYER[i]);                    <span class="comment">// Register a GameObject to use as Listener.</span></div>
+<div class="line">    <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a2f85a55c38afa2e0dbc6172a7bec91d1_split_000.html#a2f85a55c38afa2e0dbc6172a7bec91d1">AK::SoundEngine::SetListeners</a>(OBJ_FOR_PLAYER[i], &amp;OBJ_FOR_PLAYER[i], 1);    <span class="comment">// Make the Game Object listen to itself.</span></div>
+<div class="line">}</div>
+</div><!-- fragment --><p class="calibre7">Add an output for every player. You can use an Audio Device ShareSet multiple times, so you don't have to create multiple Audio Device ShareSets. You must provide a real device ID for every controller. This example is for Xbox controllers on Windows. Refer to the table in <a class="pcalibre el" href="integrating_elements_motion_split_007.html#motion_application_setup">Game Setup</a> for information on how to retrieve device IDs for specific platforms.</p>
+<div class="fragment"><div class="line"><span class="keyword">const</span> <a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> DEVICE_SPECIFIC_ID[MAX_PLAYERS] = {0, 1, 2, 3};  <span class="comment">// For Xbox controllers on Windows, device IDs are simply 0 to 3. Other platforms have different requirements.</span></div>
+<div class="line"><span class="keywordflow">for</span>(i = 0; i &lt; NUM_PLAYERS; i++)</div>
+<div class="line">{</div>
+<div class="line">    <a class="pcalibre code" href="struct_ak_output_settings_split_000.html">AkOutputSettings</a> settings(<span class="stringliteral">"Wwise_Motion"</span>, DEVICE_SPECIFIC_ID[i]);   <span class="comment">// Use the "Wwise_Motion" ShareSet to drive device DEVICE_SPECIFIC_ID[i]. </span></div>
+<div class="line">    res = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a15ab79f954a307902f529d8ccde8ad48_split_000.html#a15ab79f954a307902f529d8ccde8ad48">AK::SoundEngine::AddOutput</a>(settings, &amp;motionOutputIDs[i], &amp;OBJ_FOR_PLAYER[i], 1);  <span class="comment">// Add the output, link the appropriate Listener to it.</span></div>
+<div class="line">}</div>
+</div><!-- fragment --><p class="calibre7">Next, play an Event. In the Wwise project, the "Play_GunFire" Event is linked to a Sound SFX that is routed to a bus that has "Wwise_Motion" assigned as its Audio Device ShareSet.</p>
+<div class="fragment"><div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a41e9ef8d42951871fe4a8ae58a29a68e_split_000.html#a41e9ef8d42951871fe4a8ae58a29a68e">AK::SoundEngine::PostEvent</a>(<span class="stringliteral">"Play_GunFire"</span>, OBJ_FOR_PLAYER[0]);  <span class="comment">// This will play only on player's 0 controller because of the Game Object-Listener relation.</span></div>
+</div><!-- fragment --><p class="calibre7">To play an Event that affects multiple devices, set up a new Game Object, and ensure that all player-specific Listeners listen to it.</p>
+<div class="fragment"><div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a895ed0f83a0dea8fc284491c0ee0152c_split_000.html#a895ed0f83a0dea8fc284491c0ee0152c">AK::SoundEngine::RegisterGameObj</a>(explosionGO, <span class="stringliteral">"Explosion"</span>);         <span class="comment">// Register a Game Object to play an explosion.</span></div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a2f85a55c38afa2e0dbc6172a7bec91d1_split_000.html#a2f85a55c38afa2e0dbc6172a7bec91d1">AK::SoundEngine::SetListeners</a>(explosionGO, OBJ_FOR_PLAYER, 4);      <span class="comment">// Attach all 4 listeners of the players to the Game Object, so all can receive the Motion Effect.</span></div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a41e9ef8d42951871fe4a8ae58a29a68e_split_000.html#a41e9ef8d42951871fe4a8ae58a29a68e">AK::SoundEngine::PostEvent</a>(<span class="stringliteral">"Play_Explosion"</span>,explosionGO );          <span class="comment">// Because all 4 listeners are tied to the explosionGO, the Play_Explosion Event will be broadcast to all of them.</span></div>
+</div><!-- fragment --><p class="calibre7">For an example of multiplayer setup, refer to the <code class="calibre14">DemoMotion</code> class in the IntegrationDemo sample.</p>
+</div></div></div></body></html>

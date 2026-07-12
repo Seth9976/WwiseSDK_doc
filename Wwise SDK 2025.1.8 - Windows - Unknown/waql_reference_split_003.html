@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Wwise Authoring Query Language (WAQL) Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_2"><a class="pcalibre1 anchor" id="waql_transforms"></a>
+Transforms</h2>
+<p class="calibre7">Change a sequence of objects into another one. </p><table class="doxtable">
+<tbody class="calibre4"><tr class="calibre16">
+<th colspan="1" class="calibre46">TRANSFORM </th><th colspan="1" class="calibre46">Chainable Transformations </th><th colspan="1" class="calibre46">Examples </th></tr>
+<tr class="calibre16">
+<td colspan="1" class="calibre36">where <b class="calibre13">BOOLEAN_EXPRESSION</b> </td><td colspan="1" class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre43">Filters objects of the input sequence by rejecting objects that don't match the specified expression</span><span class="calibre43">.</span></p>
+<p class="calibre7"></p>
+<p class="calibre7"><span class="calibre43"><b class="calibre13">BOOLEAN_EXPRESSION</b> refers to an expression that returns true or false. The expression will be executed on each object of the input sequence and will reject the objects with an expression returning false.</span></p>
+<p class="calibre7"></p>
+<p class="calibre7"><span class="calibre43">Refer to the expressions section for more information.</span></p>
+<p class="endtd"></p>
+</td><td colspan="1" class="calibre36"><p class="starttd"></p>
+<p class="calibre7">$ from type Sound where @Volume &lt; 0<br class="calibre10"/>
+$ from type Sound where -1 = @Volume<br class="calibre10"/>
+$ from type Sound where @OutputBus="Bus:Main Audio Bus"<br class="calibre10"/>
+$ from type Sound where @UserAuxSend0="AuxBus:Hangar_Env"<br class="calibre10"/>
+$ from type Event select children where @Target.path : "hello"<br class="calibre10"/>
+$ from type RandomSequenceContainer where childrenCount &gt; 2 and childrenCount &lt;= 4<br class="calibre10"/>
+$ from type Sound where notes : "All"<br class="calibre10"/>
+$ from type Sound where notes : "*audiokinetic*"<br class="calibre10"/>
+$ from type Sound where @UserAuxSend0 != null</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td colspan="1" class="calibre36">skip <b class="calibre13">COUNT</b> </td><td colspan="1" class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre43">Bypasses a specified number of objects in the input sequence and then returns the remaining objects.</span></p>
+<p class="calibre7"></p>
+<p class="calibre7"><span class="calibre43"><b class="calibre13">COUNT</b> refers to the number of elements to skip.</span></p>
+<p class="endtd"></p>
+</td><td colspan="1" class="calibre36">$ from type Sound skip 10 </td></tr>
+<tr class="calibre16">
+<td colspan="1" class="calibre36">take <b class="calibre13">COUNT</b> </td><td colspan="1" class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre43">Returns a specified number of contiguous objects from the start of the input sequence.</span></p>
+<p class="calibre7"></p>
+<p class="calibre7"><span class="calibre43"><b class="calibre13">COUNT</b> refers to the number of elements to take.</span></p>
+<p class="endtd"></p>
+</td><td colspan="1" class="calibre36">$ from type Sound take 10 </td></tr>
+<tr class="calibre16">
+<td colspan="1" class="calibre36">select <b class="calibre13">OBJECT_EXPRESSION</b> </td><td colspan="1" class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><span class="calibre43">Projects each object of the input sequence into a new form.</span></p>
+<p class="calibre7"></p>
+<p class="calibre7"><span class="calibre43"><b class="calibre13">OBJECT_EXPRESSION</b> refers to an expression that returns zero to many objects. The expression will be executed on each object of the input sequence and will project the result of the expression in a new sequence.</span></p>
+<p class="calibre7"></p>
+<p class="calibre7"><span class="calibre43">Refer to the expressions section for more information.</span></p>
+<p class="endtd"></p>
+</td><td colspan="1" class="calibre36"><p class="starttd"></p>
+<p class="calibre7">$ from object "{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" select parent<br class="calibre10"/>
+$ from object "Bus:Main Audio Bus" select children<br class="calibre10"/>
+$ from object "\Containers\Default Work Unit" select descendants, this where @Volume &lt; 0<br class="calibre10"/>
+$ from object "\Containers\Default Work Unit\Hello" select @OutputBus<br class="calibre10"/>
+$ from object "{CBCD492C-982D-4EE4-AE75-0019CA6577EF}" select parent.@Attenuation</p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td colspan="1" class="calibre36"><p class="starttd"></p>
+<p class="calibre7">orderby <b class="calibre13">VALUE_EXPRESSION</b></p>
+<p class="calibre7"></p>
+<p class="calibre7">orderby <b class="calibre13">VALUE_EXPRESSION</b> reverse</p>
+<p class="endtd"></p>
+</td><td colspan="1" class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Sorts the objects <span class="calibre43">of the input sequence in ascending order and returns them. To sort in descending order, add <b class="calibre13">reverse</b> after the expression.</span></p>
+<p class="calibre7"></p>
+<p class="calibre7"><span class="calibre43"><b class="calibre13">VALUE_EXPRESSION</b> refers to the expression used to compare objects together in the sort algorithm. The expression must return a comparable value, such as string, numerical, or boolean values.</span></p>
+<p class="calibre7"></p>
+<p class="calibre7"><span class="calibre43"><b class="calibre13">Note</b>: For the sort to occur, orderby requires a memory allocation equal to the size of the input sequence.</span></p>
+<p class="endtd"></p>
+</td><td colspan="1" class="calibre36">$ from type Sound orderby name<br class="calibre10"/>
+$ from type Sound orderby name reverse<br class="calibre10"/>
+$ from type Bus orderby @BusVolume<br class="calibre10"/>
+$ from type Action orderby @Target.name<br class="calibre10"/>
+<br class="calibre10"/>
+ </td></tr>
+<tr class="calibre16">
+<td colspan="1" class="calibre36">distinct </td><td colspan="1" class="calibre36"><p class="starttd"></p>
+<p class="calibre7">Returns only the distinct objects of the <span class="calibre43">input sequence. Duplicated object entries will be reduced to one entry, resulting in each object being unique in the sequence.</span></p>
+<p class="calibre7"></p>
+<p class="calibre7"><span class="calibre43"><b class="calibre13">Note: </b>distinct will change the order of the sequence. For this reason, it is preferable to place the orderby statement after the distinct statement.</span></p>
+<p class="calibre7"></p>
+<p class="calibre7"><span class="calibre43"><b class="calibre13">Note</b>: For the operation to occur, distinct requires a memory allocation equal to the size of the input sequence.</span></p>
+<p class="endtd"></p>
+</td><td colspan="1" class="calibre36"><p class="starttd"></p>
+<p class="calibre7">$ from object "\Containers" select descendants select @OutputBus distinct</p>
+<p class="endtd"></p>
+</td></tr>
+</tbody></table>
+<p class="calibre7"></p>
+</div></div></div></body></html>

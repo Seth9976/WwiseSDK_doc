@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Source Control Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_20"><a class="pcalibre1 anchor" id="source_control_dll_creation_dialog_implement"></a>
+Enabling the Dialog</h2>
+<p class="calibre7">Before Wwise can display your dialog, you must implement the <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_dialog_base_split_000.html">AK::Wwise::ISourceControlDialogBase</a> interface. This interface exposes the following methods:</p><ul class="calibre8">
+<li class="calibre9"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_dialog_base_a32a21b3e259526ad996d00ac946ca30f_split_000.html#a32a21b3e259526ad996d00ac946ca30f">AK::Wwise::ISourceControlDialogBase::GetResourceHandle()</a></li>
+<li class="calibre9"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_dialog_base_ac2e9e65eb75db832fc7ced9a398b1f4c_split_000.html#ac2e9e65eb75db832fc7ced9a398b1f4c" title="This function is called by Wwise to get the plug-in dialog's ID.">AK::Wwise::ISourceControlDialogBase::GetDialog()</a></li>
+<li class="calibre9"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_dialog_base_a8efe7c9ea503058b2acbf848e680245f_split_000.html#a8efe7c9ea503058b2acbf848e680245f">AK::Wwise::ISourceControlDialogBase::HasHelp()</a></li>
+<li class="calibre9"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_dialog_base_a40fff8f04f4b6532f9a21c1b794a5106_split_000.html#a40fff8f04f4b6532f9a21c1b794a5106">AK::Wwise::ISourceControlDialogBase::Help()</a></li>
+<li class="calibre9"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_dialog_base_afc8ab1f13cc6f3be3b423bb58597d4e3_split_000.html#afc8ab1f13cc6f3be3b423bb58597d4e3">AK::Wwise::ISourceControlDialogBase::WindowProc()</a></li>
+</ul>
+<p class="calibre7">Wwise needs to know in which context the resources can be found. Before creating the dialog, Wwise calls the <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_dialog_base_a32a21b3e259526ad996d00ac946ca30f_split_000.html#a32a21b3e259526ad996d00ac946ca30f">AK::Wwise::ISourceControlDialogBase::GetResourceHandle()</a> method. A typical implementation for this method is:</p>
+<div class="fragment"><div class="line">HINSTANCE DlgSimple::GetResourceHandle()<span class="keyword"> const</span></div>
+<div class="line"><span class="keyword"></span>{</div>
+<div class="line">    AFX_MANAGE_STATE( ::AfxGetStaticModuleState() );</div>
+<div class="line">    return ::AfxGetResourceHandle();</div>
+<div class="line">}</div>
+</div><!-- fragment --><p class="calibre7">Wwise also needs the ID of the dialog in the resource to create the dialog. To retrieve it, Wwise calls the <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_dialog_base_ac2e9e65eb75db832fc7ced9a398b1f4c_split_000.html#ac2e9e65eb75db832fc7ced9a398b1f4c" title="This function is called by Wwise to get the plug-in dialog's ID.">AK::Wwise::ISourceControlDialogBase::GetDialog()</a> method. A typical implementation of this method is:</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> DlgSimple::GetDialog( UINT &amp; out_uiDialogID )<span class="keyword"> const</span></div>
+<div class="line"><span class="keyword"></span>{</div>
+<div class="line">    out_uiDialogID = IDD_SIMPLEDIALOGID;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p class="calibre7">To know if the "?" should be shown on the dialog title bar, Wwise calls <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_dialog_base_a8efe7c9ea503058b2acbf848e680245f_split_000.html#a8efe7c9ea503058b2acbf848e680245f">AK::Wwise::ISourceControlDialogBase::HasHelp()</a>. The plug-in must return True if there is a Help section associated with the dialog. If so, the "?" icon appears.</p>
+<div class="fragment"><div class="line"><span class="keywordtype">bool</span> DlgSimple::HasHelp()<span class="keyword"> const</span></div>
+<div class="line"><span class="keyword"></span>{</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p class="calibre7">When the Wwise user clicks the "?" button of the dialog, Wwise calls the <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_dialog_base_a40fff8f04f4b6532f9a21c1b794a5106_split_000.html#a40fff8f04f4b6532f9a21c1b794a5106">AK::Wwise::ISourceControlDialogBase::Help()</a> method. The plug-in must return True when it manages the Help request and false when nothing is done. An implementation example of this method is:</p>
+<div class="fragment"><div class="line"><span class="keywordtype">bool</span> DlgSimple::Help( HWND in_hWnd )<span class="keyword"> const</span></div>
+<div class="line"><span class="keyword"></span>{</div>
+<div class="line">    AFX_MANAGE_STATE( ::AfxGetStaticModuleState() ) ;</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Note: Do NOT call AfxGetApp()-&gt;HtmlHelp() as it will launch the Help</span></div>
+<div class="line">    <span class="comment">// window from the wrong parent window which will make floating views</span></div>
+<div class="line">    <span class="comment">// behave unexpectedly.</span></div>
+<div class="line">    ::HtmlHelp( NULL, AfxGetApp()-&gt;m_pszHelpFilePath, HH_HELP_CONTEXT, ONLINEHELP::Simple_Dialog );</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">}</div>
+</div><!-- fragment --><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="caution.gif"/></td><td class="calibre17"><b class="calibre13">Caution:</b> The Help() method should NOT call AfxGetApp()-&gt;HtmlHelp(). It will launch the Help window from the wrong parent window which will make floating views behave unexpectedly. Instead, use <code class="calibre14">HtmlHelp()</code> with a NULL window handle, as shown in the example above. </td></tr>
+</tbody></table>
+<p class="calibre7">The dialog cannot use the MFC methods to manage Windows messages. Instead, each time the dialog receives a Windows message, the <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_dialog_base_afc8ab1f13cc6f3be3b423bb58597d4e3_split_000.html#afc8ab1f13cc6f3be3b423bb58597d4e3">AK::Wwise::ISourceControlDialogBase::WindowProc()</a> is called. An implementation example of this method is:</p>
+<div class="fragment"><div class="line"><span class="keywordtype">bool</span> DlgConfiguration::WindowProc( HWND in_hWnd, UINT in_message, WPARAM in_wParam, LPARAM in_lParam, </div>
+<div class="line">    LRESULT &amp; out_lResult )</div>
+<div class="line">{</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">if</span> ( in_message == WM_INITDIALOG )</div>
+<div class="line">    {</div>
+<div class="line">        <span class="comment">// Initialize the dialog</span></div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// For example: Catch window command actions (only for the main dialog) to enable/disable controls</span></div>
+<div class="line">    <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( in_message == WM_COMMAND )</div>
+<div class="line">    {</div>
+<div class="line">        <span class="comment">// Notification code</span></div>
+<div class="line">        <span class="keywordflow">switch</span> ( HIWORD( in_wParam ) )</div>
+<div class="line">        {</div>
+<div class="line">        <span class="keywordflow">case</span> BN_CLICKED:</div>
+<div class="line">            <span class="comment">// Check which button was clicked</span></div>
+<div class="line">            <span class="keywordflow">switch</span> ( LOWORD( in_wParam ) )</div>
+<div class="line">            {</div>
+<div class="line">            <span class="keywordflow">case</span> IDOK:</div>
+<div class="line">                <span class="comment">// The user pressed the 'Ok' button</span></div>
+<div class="line">                <span class="keywordflow">break</span>;</div>
+<div class="line">            }           </div>
+<div class="line">        } <span class="comment">// End switch hi word (notification code)</span></div>
+<div class="line"> </div>
+<div class="line">    } <span class="comment">// End command window event</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Return False to let the parent window deal with the message. Return True</span></div>
+<div class="line">    <span class="comment">// for messages you don't want the parent window to handle.</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p class="calibre7">The meaning of this method's return value is as follows:</p><ul class="calibre8">
+<li class="calibre9">False indicates that the message will be propagated to the object's parent class. This is the value that is generally returned</li>
+<li class="calibre9">True indicates that the message will not be propagated to the object's parent class. Return this value when you do not want the parent to react to the message. For example, when receiving the IDOK button message, the parent generally closes the dialog. In certain circumstances, you might want to let the dialog open if some information has not been completed properly.</li>
+</ul>
+<p class="calibre7">To manually close the dialog, you need to use the Windows PostMessage() function. A typical call to this <br class="calibre10"/>
+ function looks like this:</p>
+<div class="fragment"><div class="line">PostMessage( in_hWnd, WM_CLOSE, 0, 0 );</div>
+</div><!-- fragment --></div></div></div></body></html>

@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2017.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="behavior_changes_2017_1"></a>
+Behavior Changes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-30677</b>: Signal paths that do not contain an HDR bus are no longer affected by HDR attenuation. They used to be affected, so long as an HDR bus existed on the dry path.</li>
+<li class="calibre9"><b class="calibre13">WG-31842</b>: <b class="calibre13">Breaking change!</b> Surround ambisonic ambiences (using 3D positioning) now need to be set to 100% Spread. With 0% Spread, they behave as point sources. See <a href="https://www.audiokinetic.com/library/edge/?source=Help&amp;id=positioning_illustrated_3d" target="_blank" class="pcalibre calibre12">the Help documentation</a> for more details about using ambisonics for 3D ambiences.</li>
+<li class="calibre9"><b class="calibre13">WG-31971</b>: The ability to merge a secondary output to the main device on the fly, without reinitializing the sound engine, was removed. In order to merge the secondary hierarchy to main, you now need to initialize the sound engine with <code class="calibre14">AkInitSettings::settingsMainOutput::outputHierarchy = AkBusHierarchy_Primary | AkBusHierarchy_Secondary</code>. However, this can only be done at initialization time. The ability to merge a secondary output to main on the fly will be re-enabled in a future release.</li>
+<li class="calibre9"><b class="calibre13">WG-32235</b>: 3D positioned ambisonics with 0 Spread now behave like point sources (as they should). Previously, they used to behave like surrounding sound fields.</li>
+<li class="calibre9"><b class="calibre13">WG-33084</b>: Removed clamping of trigger rate transition time on Random and Sequence Containers. Prior to Wwise 2017.1, the sound engine was arbitrarily clamping the trigger rate transition time of Random and Sequence Containers to never be less than 22 ms. We removed this limitation to enable creative content. Take note that when migrating to Wwise 2017.1, if your project was specifying a value that was less than 22 ms, it will now be properly honored and could result in sounds properly playing at the specified frequency.</li>
+<li class="calibre9"><b class="calibre13">WG-33584</b>: When panning standard multichannel sounds in 3D, the channels are first rotated according to relative orientations of emitter and listener, prior to being panned onto the output channels. Also, the shape of virtual source spread has changed with configurations with height (such as 7.1.4): they are now in the shape of spherical caps instead of pie slices. Refer to the Wwise Help for more details about 3D positioning.</li>
+<li class="calibre9"><b class="calibre13">WG-34022</b>: Pausing or stopping a bus under the scope of an emitter game object will now only pause or stop the emitters that were played under the same scope. Previously, pausing or stopping a bus under the scope of a game object would result in a pause or stop of all objects playing through the bus.</li>
+</ul>
+</div></div></div></body></html>

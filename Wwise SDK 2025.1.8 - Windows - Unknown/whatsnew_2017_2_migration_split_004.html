@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2017.2</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_3"><a class="pcalibre1 anchor" id="motion_migration_what_changes"></a>
+Breaking changes in motion support</h2>
+<p class="calibre7">The whole motion (rumble) system was refactored to use the generic Audio Device plug-in mechanism and the new output system, instead of the old separate code path. Motion devices are now considered as Audio Devices instead of having a special status. This streamlines the code and data model for Motion objects and allows the use of all the same feature set as the audio pipeline. Therefore many changes to existing code are necessary to get the same Motion effects. Most changes to the Wwise project are done automatically and transparently. See the section <a class="pcalibre el" href="whatsnew_2017_2_migration_split_004.html#motion_migration_basic">Basic project migration changes:</a> below to learn about the changes made to your project.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="motion_API_changes"></a>
+API changes due to Motion refactoring</h3>
+<p class="calibre7">All the <code class="calibre14">AK::MotionEngine</code> namespace was removed. Therefore, to replace <code class="calibre14">AK::MotionEngine::AddPlayerMotionDevice</code>, you must now call <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a15ab79f954a307902f529d8ccde8ad48_split_000.html#a15ab79f954a307902f529d8ccde8ad48">AK::SoundEngine::AddOutput</a>, with the proper Audio Device ShareSet name (usually <em class="calibre11">Wwise_Motion</em>). This Audio Device should have been added automatically to your project.</p>
+<p class="calibre7">Also, the Listener management related to Motion has changed. Instead of calling <code class="calibre14">AK::MotionEngine::SetListenerPipeline</code>, you need to provide the listener linked to the player as a parameter to <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a15ab79f954a307902f529d8ccde8ad48_split_000.html#a15ab79f954a307902f529d8ccde8ad48">AK::SoundEngine::AddOutput</a></code>. Note that this listener is optional now, if you only have one player in the game. Multiplayer games will still need to manage listeners properly.</p>
+<p class="calibre7">Please read more about how to implement motion in your game in the SDK help here: <a class="pcalibre el" href="integrating_elements_motion_split_000.html">Integrating Wwise Motion</a> and about Secondary Outputs in general here: <a class="pcalibre el" href="integrating_secondary_outputs_split_000.html">Integrating Secondary Outputs</a>.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="motion_migration_basic"></a>
+Basic project migration changes:</h3>
+<p class="calibre7">Existing projects will be migrated to the new system automatically. Here's the list of changes to look for in your project:</p>
+<ul class="calibre8">
+<li class="calibre9">In the Master-Mixer Hierarchy a <em class="calibre11">Motion</em> <em class="calibre11">Bus</em> becomes an <em class="calibre11">Audio</em> <em class="calibre11">Bus</em>.</li>
+<li class="calibre9">A <em class="calibre11">Motion</em> <em class="calibre11">FX</em> becomes a <em class="calibre11">Sound</em> <em class="calibre11">FX</em> with the <em class="calibre11">Motion</em> Bus reference changed to an <em class="calibre11">Output</em> <em class="calibre11">Bus</em> reference, and the Output Bus parent override is enabled (if it has a parent); now that we use an <em class="calibre11">Output</em> <em class="calibre11">Bus</em> reference we must ensure the routing occurs.</li>
+<li class="calibre9">A <em class="calibre11">Motion</em> <em class="calibre11">Source</em> becomes a <em class="calibre11">Source</em> <em class="calibre11">Plugin</em> with the SFX Language specification added. <em class="calibre11">DeviceCompanyID</em> and <em class="calibre11">DevicePluginID</em> are removed.</li>
+<li class="calibre9">As we wish motion to work as seamlessly as possible following migration, we automatically add the new <em class="calibre11">Wwise Motion</em> ShareSet in the Audio Devices Default Work Unit if at least one platform in the project is supported by <em class="calibre11">Wwise Motion</em>. See the note below for an exception.</li>
+<li class="calibre9">The Audio Device ShareSet reference for the <em class="calibre11">Master Audio Bus</em>, <em class="calibre11">Master Secondary Bus</em>, and <em class="calibre11">Master Control Bus</em> are set to <em class="calibre11">System</em>, the default.</li>
+<li class="calibre9">If supported in the project, the <em class="calibre11">Wwise Motion</em> ShareSet is assigned to the <em class="calibre11">Master Motion Bus</em> or <em class="calibre11">Motion Master Bus</em>. See the note below for an exception.</li>
+<li class="calibre9">The Motion tab in the Property Editor of the Wwise Authoring application has been removed.</li>
+</ul>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> If motion was not used in a project (there is no reference to a Motion Bus), all Motion Busses in the project will be deleted. Additionally, the <em class="calibre11">Wwise Motion</em> ShareSet will not be added, even for projects that support it. </td></tr>
+</tbody></table>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="motion_migration_audio_to_motion"></a>
+Audio-To-Motion Migration:</h3>
+<ul class="calibre8">
+<li class="calibre9">The <em class="calibre11">Motion</em> <em class="calibre11">Bus</em> reference is now a <em class="calibre11">User Aux Send</em> to an Auxiliary Bus child of the original (Motion) bus (which has been migrated to a regular Audio Bus). Implicit in this is that we enable the user aux send override for the migrated object to ensure the "motion" aux send takes effect. Implications of this are detailed below in <a class="pcalibre el" href="whatsnew_2017_2_migration_split_004.html#motion_migration_aux_sends">Implications of switching from a Motion Bus reference to a User Auxiliary Send for Audio-to-Motion</a>.</li>
+<li class="calibre9">The <em class="calibre11">Motion Low Pass</em> property becomes an auxiliary send LPF.</li>
+<li class="calibre9">The <em class="calibre11">Motion Volume Offset</em> property becomes an auxiliary send volume.</li>
+</ul>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="motion_migration_aux_sends"></a>
+Implications of switching from a Motion Bus reference to a User Auxiliary Send for Audio-to-Motion</h3>
+<p class="calibre7">A few scenarios arise because we are now using a basic user aux bus send rather than a separate Motion Bus path:</p><ul class="calibre8">
+<li class="calibre9">If the Sound SFX or Music Track already has 4 user aux sends, then the audio-to-motion will not be migrated.</li>
+<li class="calibre9">In the process of converting the Motion Bus reference to a user aux send reference, we "clean" the user aux sends for the object in question.<ul class="calibre15">
+<li class="calibre9">If there are any user aux sends defined and the Override parent is not enabled, we remove them. This can help to reduce the number of times an audio-to-motion migration fails because of the number of existing user aux sends.</li>
+</ul>
+</li>
+</ul>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> For the subsections below: In the process of copying a user aux send we copy the bus reference, the volume, and the LPF. Any RTPC, Modulator LFO, Modulator Envelope, and Curve or Modifier on the volume or LPF is copied as well. Any IDs (unique ID and ShortID) are regenerated to mitigate ID clashes when loading the migrated project. For any clashes that remain (more likely with the ShortID) the Wwise project load procedure will resolve them (with a warning in the Project Load Log). </td></tr>
+</tbody></table>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="warning.gif"/></td><td class="calibre17"><b class="calibre13">Warning:</b> Any copying of user aux sends from a node to a descendant has the (initial) equivalent effect of setting the descendant to inherit the node's aux send, but if any change is made to the node's aux send it will not be reflected in the descendant. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

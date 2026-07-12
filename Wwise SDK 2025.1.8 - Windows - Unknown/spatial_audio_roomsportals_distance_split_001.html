@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Geometric Room Distance on Direct Paths</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="spatial_audio_roomsportals_distance_measurement"></a>
+Understanding Direct Distance Measurement</h1>
+<p class="calibre7">At a high level, the direct distance to a Room's geometry is the shortest distance between the listener and the closest point on any surface of the Room.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> Distance can be measured to either the listener or a distance probe. However, this document refers to either as the listener. Although all distance calculations are in 3D, most images in this section are 2D for clarity. Numbered callouts share the same meaning for all images in this section. </td></tr>
+</tbody></table>
+<div class="calibre2">
+<img alt="" src="distance_01_simple_room.jpg" class="inline"/>
+</div>
+ <table class="doxtable">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre36"><div class="calibre2">
+<img alt="" src="callout1.png" class="inline"/>
+</div>
+ </td><td class="calibre36">Position of the Listener  </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><div class="calibre2">
+<img alt="" src="callout2.png" class="inline"/>
+</div>
+ </td><td class="calibre36">Source of the Room Tone  </td></tr>
+</tbody></table>
+<p class="calibre7">When a Room is nested inside of another Room, and the listener is placed inside of the innermost Room, then the space defined by the inner Room is not considered to be part of the outer Room. Therefore, it is not included in calculations of the distance to the outer Room.</p>
+<div class="calibre2">
+<img alt="" src="distance_02_nested_room.jpg" class="inline"/>
+</div>
+<p class="calibre7">The space inside of a Reverb Zone is generally measured the same way as any other nested Rooms. This means the space of the Reverb Zone is omitted of it's parent, and the distance measured to the parent Room increases as the listener travels deeper into the Reverb Zone.</p>
+<div class="calibre2">
+<img alt="" src="distance_03_rz_inner.jpg" class="inline"/>
+</div>
+<p class="calibre7">Room Priority determines which Rooms are inner Rooms and which ones are outer Rooms. If Room Priority is not set, or two Rooms have the same priority, then when Rooms overlap, the one with the smaller volume is considered to be inside of the larger one. We recommend that you set Room Priority for all Rooms.</p>
+<p class="calibre7">If several Rooms overlap, then the closest distance to the outside, or to an outer surrounding Room, is measured to the perimeter of the combined shapes.</p>
+<p class="calibre7">In the following image, the cyan dotted line represents the surfaces from which distance can be measured:</p>
+<div class="calibre2">
+<img alt="" src="distance_04_perimeter.jpg" class="inline"/>
+</div>
+</div></div></div></body></html>

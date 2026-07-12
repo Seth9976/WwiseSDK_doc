@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::IAkAudioDeviceEffectPlugin::Init</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="class_a_k_1_1_i_ak_audio_device_effect_plugin_ac2b7ed06052a176e4445b743e7b3dfe7_split_000.html#ac2b7ed06052a176e4445b743e7b3dfe7" class="pcalibre1 anchor">◆ </a></span>Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="calibre3">
+  <tbody class="calibre4"><tr class="calibre16">
+  <td class="calibre17">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">virtual <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::IAkAudioDeviceEffectPlugin::Init </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_mem_alloc_split_000.html">IAkPluginMemAlloc</a> * </td>
+          <td class="paramname"><em class="calibre59">in_pAllocator</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="class_a_k_1_1_i_ak_audio_device_effect_plugin_context_split_000.html">IAkAudioDeviceEffectPluginContext</a> * </td>
+          <td class="paramname"><em class="calibre59">in_pEffectPluginContext</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_param_split_000.html">IAkPluginParam</a> * </td>
+          <td class="paramname"><em class="calibre59">in_pParams</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">const <a class="pcalibre el" href="struct_ak_audio_format_split_000.html">AkAudioFormat</a> &amp; </td>
+          <td class="paramname"><em class="calibre59">in_rFormat</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">const <a class="pcalibre el" href="struct_ak3_d_audio_sink_capabilities_split_000.html">Ak3DAudioSinkCapabilities</a> &amp; </td>
+          <td class="paramname"><em class="calibre59">in_3dCapabilities</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="calibre17">
+<span><span>pure virtual</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Audio device effect plug-in initialization. Prepares the effect for data processing, allocates memory and sets up the initial conditions. </p><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> Memory allocation should be done through appropriate macros (see <a class="pcalibre el" href="soundengine_plugins_split_005.html#fx_memory_alloc">Allocating/De-allocating Memory in Audio Plug-ins</a>). </td></tr>
+</tbody></table>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_pAllocator</td><td class="calibre17">Interface to memory allocator to be used by the effect </td></tr>
+    <tr class="calibre16"><td class="paramname">in_pEffectPluginContext</td><td class="calibre17">Interface to audio effect's plug-in context </td></tr>
+    <tr class="calibre16"><td class="paramname">in_pParams</td><td class="calibre17">Interface to plug-in parameters </td></tr>
+    <tr class="calibre16"><td class="paramname">in_rFormat</td><td class="calibre17">Audio data format of the input/output signal. Matches the channel configuration of the audio device sink plug-in. If format is object-based (<a class="pcalibre el" href="struct_ak_channel_config_a598c4a4489e9fb252e7022ae99135674_split_000.html#a598c4a4489e9fb252e7022ae99135674" title="Channel config type (AkChannelConfigType).">AkChannelConfig::eConfigType</a> is Ak_ChannelConfigType_Objects), the plug-in should verify <a class="pcalibre el" href="struct_ak3_d_audio_sink_capabilities_split_000.html">Ak3DAudioSinkCapabilities</a> to determine which inputs it can expect in Execute (main mix, passthrough, objects). </td></tr>
+    <tr class="calibre16"><td class="paramname">in_3dCapabilities</td><td class="calibre17">3D capabilities of the output device sink plug-in. If io_rFormat is not object-based, this can be ignored and only the main mix will be submitted to <a class="pcalibre el" href="class_a_k_1_1_i_ak_audio_device_effect_plugin_abcd7834c6db0840f824a35690bbfe89f_split_000.html#abcd7834c6db0840f824a35690bbfe89f">Execute()</a>. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

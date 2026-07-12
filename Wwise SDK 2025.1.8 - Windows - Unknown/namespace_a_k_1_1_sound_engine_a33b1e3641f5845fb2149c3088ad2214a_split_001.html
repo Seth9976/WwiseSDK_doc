@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::SoundEngine::SetDistanceProbe</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="namespace_a_k_1_1_sound_engine_a33b1e3641f5845fb2149c3088ad2214a_split_000.html#a33b1e3641f5845fb2149c3088ad2214a" class="pcalibre1 anchor">◆ </a></span>SetDistanceProbe()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_sound_engine_export_8h_ac6e96d34dfc0e12f9aaa7a47f4e9c322_split_000.html#ac6e96d34dfc0e12f9aaa7a47f4e9c322">AKSOUNDENGINE_API</a> <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::SoundEngine::SetDistanceProbe </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> </td>
+          <td class="paramname"><em class="calibre59">in_listenerGameObjectID</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> </td>
+          <td class="paramname"><em class="calibre59">in_distanceProbeGameObjectID</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Use the position of a separate game object for distance calculations for a specified listener. When <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a33b1e3641f5845fb2149c3088ad2214a_split_000.html#a33b1e3641f5845fb2149c3088ad2214a">AK::SoundEngine::SetDistanceProbe()</a></code> is called, <a class="pcalibre el" href="namespace_a_k_1_1_wwise_split_000.html">Wwise</a> calculates distance attenuation and filtering based on the distance between the distance probe Game Object (<code class="calibre14">in_distanceProbeGameObjectID</code>) and the emitter Game Object's position. In third-person perspective applications, the distance probe Game Object may be set to the player character's position, and the listener Game Object's position to that of the camera. In this scenario, attenuation is based on the distance between the character and the sound, whereas panning, spatialization, and spread and focus calculations are base on the camera. Both Game Objects, <code class="calibre14">in_listenerGameObjectID</code> and <code class="calibre14">in_distanceProbeGameObjectID</code> must have been previously registered using <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a895ed0f83a0dea8fc284491c0ee0152c_split_000.html#a895ed0f83a0dea8fc284491c0ee0152c">AK::SoundEngine::RegisterGameObj</a></code>. This function is optional. if <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a33b1e3641f5845fb2149c3088ad2214a_split_000.html#a33b1e3641f5845fb2149c3088ad2214a">AK::SoundEngine::SetDistanceProbe()</a></code> is never called, distance calculations are based on the listener Game Object position. To clear the distance probe, and revert to using the listener position for distance calculations, pass <code class="calibre14">AK_INVALID_GAME_OBJECT</code> to <code class="calibre14">in_distanceProbeGameObjectID</code>. </p><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> If the distance probe Game Object is assigned multiple positions, then the first position is used for distance calculations by the listener. </td></tr>
+</tbody></table>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><code class="calibre14">AK_Success</code> when successful </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a789e25bda32d1e11849afb6584942455_split_000.html#a789e25bda32d1e11849afb6584942455">AK::SoundEngine::SetPosition()</a></code> </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_listenerGameObjectID</td><td class="calibre17">Game object identifier for the listener. Must have been previously registered via RegisterGameObj. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_distanceProbeGameObjectID</td><td class="calibre17">Game object identifier for the distance probe, or <code class="calibre14">AK_INVALID_GAME_OBJECT</code> to reset distance probe. If valid, must have been previously registered via RegisterGameObj. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

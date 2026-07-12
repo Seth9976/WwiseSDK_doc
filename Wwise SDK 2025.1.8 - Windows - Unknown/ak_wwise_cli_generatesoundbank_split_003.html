@@ -1,0 +1,177 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>generate-soundbank</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="ak_wwise_cli_generatesoundbankOptions"></a>
+Options</h1>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--abort-on-load-issues</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Aborts the operation if a project load issue is detected. All logged project load issues are printed to screen.<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--audio-source-from-original</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">It is possible that a project already contains some audio source files of the same name as the imported ones when doing a tab delimited import. By adding this option, the operation uses those instead of replacing them with those described by the tab-delimited file.<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--bank SOUNDBANK</code></b><br class="calibre10"/>
+<b class="calibre13"><code class="calibre14">--bank SOUNDBANK1 SOUNDBANK2 ...</code></b><br class="calibre10"/>
+<b class="calibre13"><code class="calibre14">--bank FILE</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Specifies which SoundBanks are generated. This option must be followed by the name of the SoundBank to be generated. Multiple SoundBanks can be specified. If no SoundBank is specified, all SoundBanks are generated. Alternatively, a text file containing a list of SoundBank names can be specified, by specifying the full path to the text file, including the extension '.txt'.<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--cache PATH</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Overrides the project's cache directory path and instead uses the (relative) path specified in the command.<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--clear-audio-file-cache</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Deletes the content of the Wwise audio file cache directory prior to converting source files and generating SoundBanks, which ensures that all source files are reconverted. Note that the whole cache is cleared, for all platforms, regardless of the –platform option.<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--continue-on-error</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Use this option if you want to continue even if an error occurred.<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--custom-global-closing-cmd CMD</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Overrides the global closing step that was defined in Wwise. This option must be followed by the new command line (use quotes if there are spaces). An empty string ("") specified for the command-line means no global closing step is executed.<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--custom-global-opening-cmd CMD</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Overrides the global opening step that was defined in Wwise. This option must be followed by the new command line (use quotes if there are spaces). An empty string ("") specified for the command-line means no global opening step is executed.<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--custom-post-gen-cmd PLATFORM CMD</code></b><br class="calibre10"/>
+<b class="calibre13"><code class="calibre14">--custom-post-gen-cmd PLATFORM1 CMD1 --custom-post-gen-cmd PLATFORM2 CMD2 ...</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Overrides the custom post-generation step command line that was defined for this platform in Wwise. This option must be followed by the platform identifier (listed above), followed again by the new command line (use quotes if there are spaces). To override the custom post-generation step command line of another platform, repeat the option –custom-post-gen-cmd followed by the other platform's identifier and its new command line. An empty string ("") specified for the command-line means no post-generation step is executed.<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--custom-pre-gen-cmd PLATFORM CMD</code></b><br class="calibre10"/>
+<b class="calibre13"><code class="calibre14">--custom-pre-gen-cmd PLATFORM1 CMD1 --custom-pre-gen-cmd PLATFORM2 CMD2 ...</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Overrides the custom pre-generation step command line that was defined for this platform in Wwise. This option must be followed by the platform identifier (listed above), followed again by the new command line (use quotes if there are spaces). To override the custom pre-generation step command line of another platform, repeat the option –custom-pre-gen-cmd followed by the other platform's identifier and its new command line. An empty string ("") specified for the command-line means no pre-generation step is executed.<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--header-file</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Generates the header file Wwise_IDs.h, even if this option is not specified in the project settings.<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--header-file-path</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">(DEPRECATED) Use root-output-path instead. Overrides the header file path specified in the project settings. This option must be followed by the path (absolute or relative) in which the header file (Wwise_IDs.h) will be written. This is only effective if the header file's creation is required.<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--import-definition-file FILE</code></b><br class="calibre10"/>
+<b class="calibre13"><code class="calibre14">--import-definition-file FILE1 FILE2 ...</code></b><br class="calibre10"/>
+<b class="calibre13"><code class="calibre14">--import-definition-file FILE1 --import-definition-file FILE2 ...</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Imports a SoundBank definition file. This option must be followed by the full path of the bank definition file to be imported. Multiple files can be specified. If the option –save is not specified, the changes made to the project as a result of the imported definition file do not persist.<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--import-language LANGUAGE</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">With the tab-delimited import operation it is possible to import voices. This option is used to specify the language of the imported voices. This option must be followed by one of the language identifiers listed with the –language option. Note that only audio files are added for this operation; any attempt to concurrently perform other operations, such as volume adjustments, is ignored.<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--language LANGUAGE</code></b><br class="calibre10"/>
+<b class="calibre13"><code class="calibre14">--language LANGUAGE1 --language LANGUAGE2 ...</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Specifies the languages for which the SoundBanks are generated. This option must be followed by a language identifier defined in the project. Each specified language must be prefixed with this option.<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--license LICENSE</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Sets the license text to be used. The license is not saved in the project.<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--license-file FILE</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Sets the license to the contents of the file specified. The license is not saved in the project.<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--no-decode</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Avoids generating DECODED files in the .cache directory, which saves CPU and disk space for your Wwise project. It also reduces the SoundBank generation time. Warning: If you do not generate the DECODED files, playing back these sounds in Wwise Authoring could result in an outdated playback or no playback at all. Clearing the file cache is recommended after using this option.<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--no-source-control</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Skip the Source Control operations, even it is was enabled in the SoundBank Project Settings.<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--output PLATFORM PATH</code></b><br class="calibre10"/>
+<b class="calibre13"><code class="calibre14">--output PLATFORM1 PATH1 --output PLATFORM2 PATH2 ...</code></b><br class="calibre10"/>
+<b class="calibre13"><code class="calibre14">--output PATH</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Allows you to follow this option with a platform and an output path to override the output path of this platform for external source conversion. Repeat this option for other platforms. If only a directory is specified, sources for all platforms are generated in that directory.<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--platform PLATFORM</code></b><br class="calibre10"/>
+<b class="calibre13"><code class="calibre14">--platform PLATFORM1 PLATFORM2 ...</code></b><br class="calibre10"/>
+<b class="calibre13"><code class="calibre14">--platform PLATFORM1 --platform PLATFORM2 ...</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Specifies the platforms for which SoundBanks are generated. This option must be followed by the platform identifiers.<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--quiet</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Disables all non-error console text output.<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--readable-soundbanks</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Generates readable SoundBanks (.rbnk), even if this option is not specified in the project settings.<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--root-output-path</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Overrides the root output path specified in the SoundBank settings. This option must be followed by the path (absolute or relative) in which the project level, platform agnostic files will be written. Examples of such files are Wwise_IDs.h and ProjectInfo.(xml|json).<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--save</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Saves the project before generating SoundBanks. If a tab-delimited import file was provided, the imported content is saved as well. Saving also migrates the project first, if required. This option does not save the project for other instances of Wwise that are currently running.<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--skip-languages</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Will not generate any localized SoundBank in the project.<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--soundbank-path PLATFORM PATH</code></b><br class="calibre10"/>
+<b class="calibre13"><code class="calibre14">--soundbank-path PLATFORM1 PATH1 --soundbank-path PLATFORM2 PATH2 ...</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Overrides the SoundBank path specified for this platform. This option must be followed by the platform identifier (listed above), followed again by the new path (absolute or relative, use quotes if there are spaces). To override the path of another platform, repeat the option –soundbank-path followed by the other platform's specifier and its new path.<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--source-by-platform PLATFORM FILE</code></b><br class="calibre10"/>
+<b class="calibre13"><code class="calibre14">--source-by-platform PLATFORM1 FILE1 --source-by-platform PLATFORM2 FILE2 ...</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Specifies the WSOURCES files to use by platform for external source conversion. When specified for a specific platform, it overrides the WSOURCES files from the project settings for this platform. For platforms for which this is not specified, the project settings are used. Specify the platform first, then the WSOURCES files to use for this platform. Repeat the operation for each platform and WSOURCES file.<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--source-file FILE</code></b><br class="calibre10"/>
+<b class="calibre13"><code class="calibre14">--source-file FILE1 FILE2 ...</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Specifies the WSOURCES files to use for external source conversion. Those WSOURCES files are used for all platforms.<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--tab-delimited-import-file FILE</code></b><br class="calibre10"/>
+<b class="calibre13"><code class="calibre14">--tab-delimited-import-file FILE1 FILE2 ...</code></b><br class="calibre10"/>
+<b class="calibre13"><code class="calibre14">--tab-delimited-import-file FILE1 --tab-delimited-import-file FILE2 ...</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">The tab delimited file to import. Multiple files to import can be specified after this option.<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--tab-delimited-operation createNew</code></b><br class="calibre10"/>
+<b class="calibre13"><code class="calibre14">--tab-delimited-operation useExisting</code></b><br class="calibre10"/>
+<b class="calibre13"><code class="calibre14">--tab-delimited-operation replaceExisting</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Determines how import object creation is performed for each object created. "createNew": creates a new object; the object is given the desired name if possible, otherwise a new unique name is used. "useExisting": uses the object if it exists, updating the specified properties; otherwise it creates a new object. This is the default value. "replaceExisting": creates a new object; if an existing object has the same name then the existing object is destroyed.<br class="calibre10"/>
+ Possible values:</p><ul class="calibre8">
+<li class="calibre9">createNew</li>
+<li class="calibre9">useExisting</li>
+<li class="calibre9">replaceExisting</li>
+</ul>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--use-stable-guid</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Give the SoundBank a stable GUID across multiple builds if you don't want to save the project.<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--use-user-overrides</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Use user overrides for Project Settings and SoundBank Settings.<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--verbose</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Enables extra console text output.<br class="calibre10"/>
+</p>
+<p class="calibre7"><a class="pcalibre el" href="ak_wwise_cli_generatesoundbank_options_schema_split_000.html">Options Schema</a></p>
+</div></div></div></body></html>

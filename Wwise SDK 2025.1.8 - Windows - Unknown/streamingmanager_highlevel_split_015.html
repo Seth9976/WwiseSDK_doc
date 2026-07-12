@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>High-Level Stream Manager API Description</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_14"><a class="pcalibre1 anchor" id="streamingmanager_highlevel_autostreams_dataaccess"></a>
+Automatic Stream Data Access Schemes</h2>
+<p class="calibre7">The data in automatic streams can be accessed in two different ways:</p><ul class="calibre8">
+<li class="calibre9">Blocking on <a class="pcalibre el" href="class_a_k_1_1_i_ak_auto_stream_aa8197d63b8e758acb075a437103e573c_split_000.html#aa8197d63b8e758acb075a437103e573c">AK::IAkAutoStream::GetBuffer()</a></li>
+<li class="calibre9">Polling <a class="pcalibre el" href="class_a_k_1_1_i_ak_auto_stream_aa8197d63b8e758acb075a437103e573c_split_000.html#aa8197d63b8e758acb075a437103e573c">AK::IAkAutoStream::GetBuffer()</a></li>
+</ul>
+<p class="calibre7"><a class="pcalibre el" href="class_a_k_1_1_i_ak_auto_stream_aa8197d63b8e758acb075a437103e573c_split_000.html#aa8197d63b8e758acb075a437103e573c">AK::IAkAutoStream::GetBuffer()</a> has 4 possible return codes:</p>
+<ul class="calibre8">
+<li class="calibre9">AK_DataReady</li>
+<li class="calibre9">AK_NoMoreData</li>
+<li class="calibre9">AK_NoDataReady</li>
+<li class="calibre9">AK_Fail</li>
+</ul>
+<p class="calibre7">If the user is granted a buffer filled with data, the method returns either AK_DataReady, or AK_NoMoreData. If the stream buffer is empty, <a class="pcalibre el" href="class_a_k_1_1_i_ak_auto_stream_aa8197d63b8e758acb075a437103e573c_split_000.html#aa8197d63b8e758acb075a437103e573c">AK::IAkAutoStream::GetBuffer()</a> returns AK_NoDataReady, with a size of zero and a buffer address of null. If the Low-Level I/O reports an error, or the method is called with invalid parameters, it returns AK_Fail.</p>
+<p class="calibre7">AK_NoMoreData is returned instead of AK_DataReady when the last buffer of the file is granted. The Stream Manager evaluates that it is the last buffer by comparing the current position (as seen by the user) with the file size provided by the Low-Level I/O as a member of the file descriptor structure. Subsequent calls to <a class="pcalibre el" href="class_a_k_1_1_i_ak_auto_stream_aa8197d63b8e758acb075a437103e573c_split_000.html#aa8197d63b8e758acb075a437103e573c">AK::IAkAutoStream::GetBuffer()</a> return AK_NoMoreData with a size of zero.</p>
+<p class="calibre7">Every call to <a class="pcalibre el" href="class_a_k_1_1_i_ak_auto_stream_aa8197d63b8e758acb075a437103e573c_split_000.html#aa8197d63b8e758acb075a437103e573c">AK::IAkAutoStream::GetBuffer()</a> provides a new buffer. Buffers must be explicitly released by calling <a class="pcalibre el" href="class_a_k_1_1_i_ak_auto_stream_a4676200056afb266b730f25d5262d2c8_split_000.html#a4676200056afb266b730f25d5262d2c8">AK::IAkAutoStream::ReleaseBuffer()</a>. They are released in the order they were granted by GetBuffer(). When a buffer is released, its address becomes invalid. ReleaseBuffer() returns AK_Fail when the client holds no buffer. However this should not be considered as a fatal error.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="tip.gif"/></td><td class="calibre17"><p class="starttd"><b class="calibre13">Tip:</b> If possible, get only one buffer at a time. This provides more room to the Stream Manager to perform I/O. Using more than one buffer at a time is typically reserved for hardware or other interfaces that need access to a ring/double buffer. If you plan to use more than one buffer at a time for a given stream, you should inform by passing proper heuristics (<a class="pcalibre el" href="struct_ak_auto_stm_heuristics_aeda0fa45777364065a470210b54bffea_split_000.html#aeda0fa45777364065a470210b54bffea">AkAutoStmHeuristics::uMinNumBuffers</a>).</p>
+<p class="endtd"></p>
+</td></tr>
+</tbody></table>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="caution.gif"/></td><td class="calibre17"><b class="calibre13">Caution:</b> A common mistake when using automatic streams is to forget to call ReleaseBuffer(). </td></tr>
+</tbody></table>
+<p class="calibre7">The buffer size granted by a successful GetBuffer() call is decided by the Stream Manager. It must however be a multiple of the block size unless the end of the underlying file was reached. You may also force the size returned by GetBuffer() using buffering contraints (see <a class="pcalibre el" href="struct_ak_auto_stm_buf_settings_split_000.html" title="Automatic streams buffer settings/constraints.">AkAutoStmBufSettings</a>), passed at creation time.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="caution.gif"/></td><td class="calibre17"><b class="calibre13">Caution:</b> Note that forcing buffer sizes may result in suboptimal performance, as streaming memory and/or bandwidth may be wasted. Also, user-specified contraints may not supported. IAkStreamMgr::CreateAuto() would return AK_Fail. </td></tr>
+</tbody></table>
+<table border="1" cellpadding="5" cellspacing="0" class="calibre38">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre17"><b class="calibre13">Default Streaming Manager Information</b><br class="calibre10"/>
+<br class="calibre10"/>
+ This size will usually correspond to the granularity specified in high-level devices creation settings, except if the stream reached its end. </td></tr>
+</tbody></table>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="streamingmanager_highlevel_autostreams_dataaccess_blocking"></a>
+Blocking</h3>
+<p class="calibre7">Calling <a class="pcalibre el" href="class_a_k_1_1_i_ak_auto_stream_aa8197d63b8e758acb075a437103e573c_split_000.html#aa8197d63b8e758acb075a437103e573c">AK::IAkAutoStream::GetBuffer()</a> with the in_bWait flag set to True blocks the user until data is ready. Therefore, the method cannot return AK_NoDataReady. If the final buffer has already been granted and released, the method returns AK_NoMoreData right away with size zero.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="streamingmanager_highlevel_autostreams_dataaccess_polling"></a>
+Polling</h3>
+<p class="calibre7">The user can try to get data by evaluating the code returned by <a class="pcalibre el" href="class_a_k_1_1_i_ak_auto_stream_aa8197d63b8e758acb075a437103e573c_split_000.html#aa8197d63b8e758acb075a437103e573c">AK::IAkAutoStream::GetBuffer()</a>, called with the in_bWait flag set to False. If it is AK_NoDataReady, the user should perform other tasks and try again later.</p>
+</div></div></div></body></html>

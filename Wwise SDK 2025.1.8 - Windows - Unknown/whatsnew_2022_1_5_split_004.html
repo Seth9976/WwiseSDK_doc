@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2022.1.5</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="generic_community_bugs_2022_1_5"></a>
+Fixes for Community-Reported Bugs</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-45904</b> Fixed: Possible crash or assert when changing a Music Segment position during playback.</li>
+<li class="calibre9"><b class="calibre13">WG-58610</b> Fixed: (WAAPI) <a class="pcalibre el" href="ak_wwise_core_soundbank_generate_split_000.html">ak.wwise.core.soundbank.generate</a> doesn't generate SoundBanks when no soundbank, language, and/or platform is provided if the key is provided as an empty array in the arguments. Now SoundBank generation logs are returned in <a class="pcalibre el" href="ak_wwise_core_soundbank_generate_split_000.html">ak.wwise.core.soundbank.generate</a>.</li>
+<li class="calibre9"><b class="calibre13">WG-61704</b> Fixed: Meter plug-in doesn't meter properly when on objects in the Actor-Mixer hierarchy.</li>
+<li class="calibre9"><b class="calibre13">WG-62164</b> Fixed: In the Transitions tab of an Object Tab, changes to column widths are reset when changing focus.</li>
+<li class="calibre9"><b class="calibre13">WG-64397</b> Fixed: Source Control Log window appears during successful Check-Out and Add operations.</li>
+<li class="calibre9"><b class="calibre13">WG-64440</b> Fixed: Possible crash when calling a Stop All Action with an exception list when playing a continuous Switch Container after the SoundBank containing it was unloaded.</li>
+<li class="calibre9"><b class="calibre13">WG-64576</b> Fixed: Crash in <code class="calibre14">AKPerf::PostPipelineStats</code> while running multiple streams with Wwise Authoring connected to the sound engine runtime.</li>
+<li class="calibre9"><b class="calibre13">WG-64918</b> Fixed: Possible crash when stopping Switch or Blend Containers playing in Continuous mode after assets are unloaded.</li>
+<li class="calibre9"><b class="calibre13">WG-65078</b> Fixed: Crash when reporting the ErrorCode_MusicRendererSeekingFailed error message if no valid game object was specified.</li>
+<li class="calibre9"><b class="calibre13">WG-65296</b> Fixed: Benign "Wwise audio out of range: ComputeSpeakerMatrix2D" error when <code class="calibre14"><a class="pcalibre el" href="struct_ak_init_settings_a0ffc62cdbb07d0c8ebb2440fd177625b_split_000.html#a0ffc62cdbb07d0c8ebb2440fd177625b" title="Debug setting: Enable checks for out-of-range (and NAN) floats in the processing code....">AkInitSettings::bDebugOutOfRangeCheckEnabled</a></code> is enabled and decoding an ambisonic source to standard channel configuration.</li>
+<li class="calibre9"><b class="calibre13">WG-65439</b> Fixed: FilePackager cannot package media files tagged as "OtherBank".</li>
+<li class="calibre9"><b class="calibre13">WG-65464</b> Fixed: (WAAPI) The user interface remains in a broken state when ak.wwise.core.undo.endGroup returns an error.</li>
+<li class="calibre9"><b class="calibre13">WG-65465</b> Fixed: (WAAPI) Call to end Undo Group fails after creating Work Units.</li>
+<li class="calibre9"><b class="calibre13">WG-65470</b> Fixed: Switch values can lead to ID clashes, setting the Switch has no effect.</li>
+<li class="calibre9"><b class="calibre13">WG-65653</b> Fixed: (WAAPI) Using <a class="pcalibre el" href="ak_wwise_core_soundbank_generate_split_000.html">ak.wwise.core.soundbank.generate</a> with argument skipLanguages equal to true does not generate SoundBanks.</li>
+<li class="calibre9"><b class="calibre13">WG-65670</b> Fixed: AK Convolution Reverb curve ID conflicts on Work Unit reload.</li>
+<li class="calibre9"><b class="calibre13">WG-65722</b> Fixed: When playing an object, the object selected in the Transport Control is immediately overridden by the last selection in the results list of the Query Editor.</li>
+<li class="calibre9"><b class="calibre13">WG-65746</b> Fixed: Media ID changes after reloading Work Units.</li>
+<li class="calibre9"><b class="calibre13">WG-65759</b> Fixed: (Spatial Audio) Diffraction paths are sometimes lost when the listener is positioned parallel to a portal's wall.</li>
+</ul>
+</div></div></div></body></html>

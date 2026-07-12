@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Getting Started with the Wwise Authoring API (WAAPI)</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="waapi_languages"></a>
+Programming Languages</h1>
+<p class="calibre7">If you wish to use WAMP as the protocol for WAAPI, several options exist. WAMP Implementations are available across different programming languages. You will be able to find a list of existing implementations on <a href="https://wamp-proto.org/" target="_blank" class="pcalibre calibre12">wamp-proto.org</a>.</p>
+<p class="calibre7">However, some of these implementations are more difficult or unfriendly to use. Since WAAPI only uses a subset of the features available in WAMP, and to ease the use of WAAPI, we implemented abstraction layers over some of the implementations available. Here is a table that lists our recommendations for the most popular languages.</p>
+<table class="doxtable">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre36"><b class="calibre13">Language</b>  </td><td class="calibre36"><p class="starttd"><b class="calibre13">Recommendation</b>  </p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">C++ <br class="calibre10"/>
+<br class="calibre10"/>
+ (<b class="calibre13">Recommended</b>) </td><td class="calibre36"><p class="starttd"><b class="calibre13">Use AkAutobahn</b></p>
+<p class="calibre7">AkAutobahn is a fork of Autobahn C++, with reduced dependencies, and provides a simpler interface and high performance.</p>
+<p class="calibre7"><b class="calibre13">Difficulty:</b> Requires intermediate C++ programming skills. <br class="calibre10"/>
+<b class="calibre13">Instructions:</b> <a class="pcalibre el" href="waa_cpp_sample_split_000.html">C++ - WAMP</a> <br class="calibre10"/>
+<b class="calibre13">Sources:</b> \SDK\samples\WwiseAuthoringAPI\cpp\SampleClient\AkAutobahn <br class="calibre10"/>
+<b class="calibre13">Sample:</b> \SDK\samples\WwiseAuthoringAPI\cpp\SampleClient\SampleClient</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre44"><img alt="" class="inline" src="note.gif"/></td><td class="calibre36"><b class="calibre13">Note:</b> C++ can also be used directly inside a Source or Effect plug-in. Refer to <a class="pcalibre el" href="waapi_plugin_split_000.html">Using the Wwise Authoring API in Wwise Plug-ins</a> for more information. </td></tr>
+</tbody></table>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">C# <br class="calibre10"/>
+<br class="calibre10"/>
+ (<b class="calibre13">Recommended</b>) </td><td class="calibre36"><p class="starttd"><b class="calibre13">Use WaapiClientCore or WaapiClientJson</b></p>
+<p class="calibre7">You have the choice of:</p><ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WaapiClientCore:</b> A Waapi client library implemented in C# solely depending on .NET 4.5, with no 3rd party reference. It includes a WAMP client that is able to connect to Wwise and access WAAPI remote procedures and topic subscription. The API is string-based, so you can provide your own JSON serialization. This client is also compatible with Unity 2018.1+.</li>
+<li class="calibre9"><b class="calibre13">WaapiClientJson:</b> A waapi client library implemented in C# with a dependency on <a href="https://www.newtonsoft.com/json" target="_blank" class="pcalibre calibre12">Json.NET</a>. The Json dependency is added as a convenience to manipulate JSON. NuGet package manager extension is required. This client can be compatible with Unity if you also install <code class="calibre14">Json.NET for Unity</code> from Unity Store.</li>
+</ul>
+<p class="calibre7"><b class="calibre13">Difficulty:</b> One of the easiest way to use WAAPI. Requires beginner C# programming skills. <br class="calibre10"/>
+<b class="calibre13">Instructions:</b> <a class="pcalibre el" href="wamp_cs_split_000.html">C# WaapiClient - WAMP</a> <br class="calibre10"/>
+<b class="calibre13">Sample:</b> SDK\samples\WwiseAuthoringAPI\cs\WaapiClientSample </p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">JavaScript/TypeScript with the most recent Node.js LTS<br class="calibre10"/>
+<br class="calibre10"/>
+ (<b class="calibre13">Recommended</b>) </td><td class="calibre36"><p class="starttd"><b class="calibre13">Use waapi-client JS</b></p>
+<p class="calibre7">waapi-client is an abstraction layer over Autobahn JS. It adds promises and async/await support, and only expose the required WAMP functionality. Please note that waapi-client also includes the TypeScript bindings.</p>
+<p class="calibre7"><b class="calibre13">Difficulty:</b> Requires beginner to intermediate JavaScript programming skills. <br class="calibre10"/>
+<b class="calibre13">Instructions:</b> <a class="pcalibre el" href="wamp_js_node_split_000.html">JavaScript, Node.js - WAMP</a> <br class="calibre10"/>
+<b class="calibre13">Npm:</b> <a href="https://www.npmjs.com/package/waapi-client" target="_blank" class="pcalibre calibre12">https://www.npmjs.com/package/waapi-client</a> <br class="calibre10"/>
+<b class="calibre13">Sources:</b> <a href="https://github.com/audiokinetic/waapi-client" target="_blank" class="pcalibre calibre12">https://github.com/audiokinetic/waapi-client</a> <br class="calibre10"/>
+<b class="calibre13">Sample:</b> SDK\samples\WwiseAuthoringAPI\js\hello-wwise-node-wamp </p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">JavaScript with Browser </td><td class="calibre36"><p class="starttd"><b class="calibre13">Use autobahn-browser</b></p>
+<p class="calibre7">autobahn-browser is a WAMP implementation ready to use in a browser.</p>
+<p class="calibre7"><b class="calibre13">Difficulty:</b> Requires intermediate JavaScript &amp; Web programming skills. <br class="calibre10"/>
+<b class="calibre13">Instructions:</b> <a class="pcalibre el" href="wamp_js_browser_split_000.html">JavaScript, In browser - WAMP</a> <br class="calibre10"/>
+<b class="calibre13">Sources:</b> <a href="https://github.com/crossbario/autobahn-js-browser" target="_blank" class="pcalibre calibre12">https://github.com/crossbario/autobahn-js-browser</a> <br class="calibre10"/>
+<b class="calibre13">Sample:</b> SDK\samples\WwiseAuthoringAPI\js\hello-wwise-web-wamp </p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">Python 3.7+ <br class="calibre10"/>
+<br class="calibre10"/>
+ (<b class="calibre13">Recommended</b>) </td><td class="calibre36"><p class="starttd"><b class="calibre13">Use waapi-client Python</b></p>
+<p class="calibre7">waapi-client is an abstraction layer over Autobahn Python. It offers a greatly simplified usage and only exposes the required WAMP functionality.</p>
+<p class="calibre7"><b class="calibre13">Difficulty:</b> One of the easiest way to use WAAPI. Requires only beginner Python programming skills. <br class="calibre10"/>
+<b class="calibre13">Instructions:</b> <a class="pcalibre el" href="waapi_client_python_rpc_split_000.html">Python (Waapi-Client) - Remote Procedure Call</a> <br class="calibre10"/>
+<b class="calibre13">Pypi:</b> <a href="https://pypi.org/project/waapi-client/" target="_blank" class="pcalibre calibre12">https://pypi.org/project/waapi-client/</a> <br class="calibre10"/>
+<b class="calibre13">Sources:</b> <a href="https://github.com/audiokinetic/waapi-client-python" target="_blank" class="pcalibre calibre12">https://github.com/audiokinetic/waapi-client-python</a> <br class="calibre10"/>
+<b class="calibre13">Sample:</b> SDK\samples\WwiseAuthoringAPI\python\waapi-client-py3 </p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">Other languages </td><td class="calibre36"><p class="starttd">Use one of the WAMP implementations listed at <a href="https://wamp-proto.org/" target="_blank" class="pcalibre calibre12">https://wamp-proto.org/</a> or use WAAPI with HTTP directly.</p>
+<p class="calibre7"></p>
+<p class="endtd"></p>
+</td></tr>
+</tbody></table>
+<p class="calibre7">Refer to <a class="pcalibre el" href="waapi_samples.html">WAAPI Samples</a>. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

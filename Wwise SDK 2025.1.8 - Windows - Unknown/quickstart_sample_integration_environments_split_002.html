@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Quick Start Sample Integration - Environments and Game-defined Auxiliary Sends</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="quickstart_sample_integration_environments_example_obsocc"></a>
+Obstruction/Occlusion Example</h1>
+<p class="calibre7">Obstruction and occlusion can be computed for each game object relative to each listener, as it depends on the environment and positions of game objects and listeners.</p>
+<p class="calibre7">Setting obstruction and occlusion is done by calling <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a1b3e18a25b405e55ba82de9b70cd11ba_split_000.html#a1b3e18a25b405e55ba82de9b70cd11ba">AK::SoundEngine::SetObjectObstructionAndOcclusion()</a> as demonstrated here:</p>
+<div class="fragment"><div class="line"><span class="comment">// In this example we use hardcoded values for obstruction and occlusion. In a game you need</span></div>
+<div class="line"><span class="comment">// to compute these values based on the position of the game object and the listener, and</span></div>
+<div class="line"><span class="comment">// the composition of their environments.</span></div>
+<div class="line"><a class="pcalibre code" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a> fObstruction = 0.05f;</div>
+<div class="line"><a class="pcalibre code" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a> fOcclusion   = 0.0f;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// In this case we compute and set the values for Listener 0 only. If you have multiple listeners,</span></div>
+<div class="line"><span class="comment">// the values must be computed and set for each listener independently.</span></div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a1b3e18a25b405e55ba82de9b70cd11ba_split_000.html#a1b3e18a25b405e55ba82de9b70cd11ba">AK::SoundEngine::SetObjectObstructionAndOcclusion</a>( GAME_OBJECT_ID_HUMAN, 0 <span class="comment">/*listener*/</span>, fObstruction, fOcclusion );</div>
+</div><!-- fragment --><p class="calibre7">In the sample program you can experiment with Obstruction and Occlusion by moving the last two sliders in the "Environments: Footsteps" group which let you set the ratio (0 to 100%) for obstruction and occlusion.</p>
+<p class="calibre7">Refer to <a class="pcalibre el" href="soundengine_obsocc_split_000.html">Obstruction and Occlusion with Game-defined Auxiliary Sends</a> for more details, and to <a class="pcalibre el" href="soundengine_integration_samplecode_split_000.html">Integration Demo Sample</a> for the sample project.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> This sample code comes from the Sound Engine Integration Sample Project available in the <a class="pcalibre el" href="samplecode_split_000.html">Samples</a> section. Refer to <a class="pcalibre el" href="soundengine_integration_samplecode_split_000.html">Integration Demo Sample</a> for more information. </td></tr>
+</tbody></table>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<div class="ttc" id="astruct_ak_aux_send_value_a1e3fe0e1490d0e15af8a46d8ab4078f4_html_a1e3fe0e1490d0e15af8a46d8ab4078f4"><div class="calibre2"><a href="struct_ak_aux_send_value_a1e3fe0e1490d0e15af8a46d8ab4078f4_split_000.html#a1e3fe0e1490d0e15af8a46d8ab4078f4" class="pcalibre calibre12">AkAuxSendValue::fControlValue</a></div><div class="calibre2">AkReal32 fControlValue</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_sound_engine_types_8h_source.html#l00121" class="pcalibre calibre12">AkSoundEngineTypes.h:121</a></div></div>
+<div class="ttc" id="a_ak_sound_engine_8h_html"><div class="calibre2"><a href="_ak_sound_engine_8h_split_000.html" class="pcalibre calibre12">AkSoundEngine.h</a></div></div>
+<div class="ttc" id="astruct_ak_aux_send_value_html"><div class="calibre2"><a href="struct_ak_aux_send_value_split_000.html" class="pcalibre calibre12">AkAuxSendValue</a></div><div class="calibre2">Auxiliary bus sends information per game object per given auxiliary bus.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_sound_engine_types_8h_source.html#l00117" class="pcalibre calibre12">AkSoundEngineTypes.h:118</a></div></div>
+<div class="ttc" id="a_ak_constants_8h_a82290a98a9cf7901722a69a590aeee34_html_a82290a98a9cf7901722a69a590aeee34"><div class="calibre2"><a href="_ak_constants_8h_a82290a98a9cf7901722a69a590aeee34_split_000.html#a82290a98a9cf7901722a69a590aeee34" class="pcalibre calibre12">AK_INVALID_GAME_OBJECT</a></div><div class="calibre2">static const AkGameObjectID AK_INVALID_GAME_OBJECT</div><div class="calibre2">Invalid game object (may also mean all game objects)</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_constants_8h_source.html#l00033" class="pcalibre calibre12">AkConstants.h:33</a></div></div>
+<div class="ttc" id="a_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_html_afc38459f26e2b23defe588026e886a98"><div class="calibre2"><a href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98" class="pcalibre calibre12">AkReal32</a></div><div class="calibre2">float AkReal32</div><div class="calibre2">32-bit floating point</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_numeral_types_8h_source.html#l00043" class="pcalibre calibre12">AkNumeralTypes.h:43</a></div></div>
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_a1b3e18a25b405e55ba82de9b70cd11ba_html_a1b3e18a25b405e55ba82de9b70cd11ba"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_a1b3e18a25b405e55ba82de9b70cd11ba_split_000.html#a1b3e18a25b405e55ba82de9b70cd11ba" class="pcalibre calibre12">AK::SoundEngine::SetObjectObstructionAndOcclusion</a></div><div class="calibre2">AKSOUNDENGINE_API AKRESULT SetObjectObstructionAndOcclusion(AkGameObjectID in_EmitterID, AkGameObjectID in_ListenerID, AkReal32 in_fObstructionLevel, AkReal32 in_fOcclusionLevel)</div></div>
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_af960fca0239e219b9d08c2659fe9e5d4_html_af960fca0239e219b9d08c2659fe9e5d4"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_af960fca0239e219b9d08c2659fe9e5d4_split_000.html#af960fca0239e219b9d08c2659fe9e5d4" class="pcalibre calibre12">AK::SoundEngine::SetGameObjectAuxSendValues</a></div><div class="calibre2">AKSOUNDENGINE_API AKRESULT SetGameObjectAuxSendValues(AkGameObjectID in_gameObjectID, AkAuxSendValue *in_aAuxSendValues, AkUInt32 in_uNumSendValues)</div></div>
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_a1aae6ebdec25946fb2897ce0e025366d_html_a1aae6ebdec25946fb2897ce0e025366d"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_a1aae6ebdec25946fb2897ce0e025366d_split_000.html#a1aae6ebdec25946fb2897ce0e025366d" class="pcalibre calibre12">AK::SoundEngine::GetIDFromString</a></div><div class="calibre2">AKSOUNDENGINE_API AkUInt32 GetIDFromString(const char *in_pszString)</div></div>
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_adf1401ce64872af26cdff05b36e98161_html_adf1401ce64872af26cdff05b36e98161"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_adf1401ce64872af26cdff05b36e98161_split_000.html#adf1401ce64872af26cdff05b36e98161" class="pcalibre calibre12">AK::SoundEngine::SetGameObjectOutputBusVolume</a></div><div class="calibre2">AKSOUNDENGINE_API AKRESULT SetGameObjectOutputBusVolume(AkGameObjectID in_emitterObjID, AkGameObjectID in_listenerObjID, AkReal32 in_fControlValue)</div></div>
+<div class="ttc" id="a_ak_room_verb_f_x_factory_8h_html"><div class="calibre2"><a href="_ak_room_verb_f_x_factory_8h_split_000.html" class="pcalibre calibre12">AkRoomVerbFXFactory.h</a></div></div>
+<div class="ttc" id="astruct_ak_aux_send_value_a185a87e879e5a602446b07252bdd8519_html_a185a87e879e5a602446b07252bdd8519"><div class="calibre2"><a href="struct_ak_aux_send_value_a185a87e879e5a602446b07252bdd8519_split_000.html#a185a87e879e5a602446b07252bdd8519" class="pcalibre calibre12">AkAuxSendValue::listenerID</a></div><div class="calibre2">AkGameObjectID listenerID</div><div class="calibre2">Game object ID of the listener associated with this send. Use AK_INVALID_GAME_OBJECT as a wildcard to...</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_sound_engine_types_8h_source.html#l00119" class="pcalibre calibre12">AkSoundEngineTypes.h:119</a></div></div>
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_a3fa34f66e9111147d8c4c0f5ba1f2175_html_a3fa34f66e9111147d8c4c0f5ba1f2175"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_a3fa34f66e9111147d8c4c0f5ba1f2175_split_000.html#a3fa34f66e9111147d8c4c0f5ba1f2175" class="pcalibre calibre12">AK::SoundEngine::GetGlobalPluginContext</a></div><div class="calibre2">AKSOUNDENGINE_API AK::IAkGlobalPluginContext * GetGlobalPluginContext()</div></div>
+<div class="ttc" id="astruct_ak_aux_send_value_a985acf05c92308c7569dd4a91a3e4256_html_a985acf05c92308c7569dd4a91a3e4256"><div class="calibre2"><a href="struct_ak_aux_send_value_a985acf05c92308c7569dd4a91a3e4256_split_000.html#a985acf05c92308c7569dd4a91a3e4256" class="pcalibre calibre12">AkAuxSendValue::auxBusID</a></div><div class="calibre2">AkAuxBusID auxBusID</div><div class="calibre2">Auxiliary bus ID.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_sound_engine_types_8h_source.html#l00120" class="pcalibre calibre12">AkSoundEngineTypes.h:120</a></div></div>
+
+
+</body></html>

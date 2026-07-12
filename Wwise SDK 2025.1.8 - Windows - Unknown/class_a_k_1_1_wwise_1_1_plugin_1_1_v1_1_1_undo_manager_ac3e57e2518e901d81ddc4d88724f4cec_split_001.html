@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK.Wwise::Plugin::V1::UndoManager::OpenGroup</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_undo_manager_ac3e57e2518e901d81ddc4d88724f4cec_split_000.html#ac3e57e2518e901d81ddc4d88724f4cec" class="pcalibre1 anchor">◆ </a></span>OpenGroup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="calibre3">
+  <tbody class="calibre4"><tr class="calibre16">
+  <td class="calibre17">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="group__global_gaa45e88025407465159f485763021d524_split_000.html#gaa45e88025407465159f485763021d524">ak_wwise_plugin_undo_group_id</a> AK.Wwise::Plugin::V1::UndoManager::OpenGroup </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="group__global_gaa45e88025407465159f485763021d524_split_000.html#gaa45e88025407465159f485763021d524">ak_wwise_plugin_undo_group_id</a> </td>
+          <td class="paramname"><em class="calibre59">in_reopenGroupId</em> = <code class="calibre14">0</code></td><td class="calibre17">)</td>
+          <td class="calibre17"/>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="calibre17">
+<span><span>inline</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+
+<p class="calibre7">Open a group that will contain all subsequent undo events. </p>
+<p class="calibre7">This must be done prior to performing any action on PropertySets, or adding custom events, as it is important to have one unique element on the undo stack. You can open multiple groups at once, like a stack, as long as you close them before exiting your function.</p>
+<p class="calibre7">in_reopenGroupId should be set to 0 for a new group.</p>
+<p class="calibre7">Example: <code class="calibre14"> ak_wwise_plugin_undo_group_id m_dragAndDropGroupId = 0; m_dragAndDropGroupId = OpenGroup(this, m_dragAndDropGroupId); if (m_dragAndDropGroupId == 0) return; CloseGroup(this, m_done ? AK_WWISE_PLUGIN_UNDO_GROUP_CLOSE_ACTION_APPLY : AK_WWISE_PLUGIN_UNDO_GROUP_CLOSE_ACTION_CLOSE, "Drag and drop"); if (m_done) m_dragAndDropGroupId = 0; </code></p>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_reopenGroupId</td><td class="calibre17">Previously opened undo group, or 0 for a new group. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">The new undo group that just got created, or 0 if the system cannot open a group at the moment. </dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_host_undo_manager_8h_source.html#l00537">537</a> of file <a class="pcalibre el" href="_host_undo_manager_8h_source.html">HostUndoManager.h</a>.</p>
+
+<p class="calibre7">References <a class="pcalibre el" href="_plugin_info_generator_8h_source.html#l00089">AK.Wwise::Plugin::CBaseInterfaceGlue&lt; CHostUndoManager &gt;::g_cinterface</a>, and <a class="pcalibre el" href="_host_undo_manager_8h_source.html#l00166">ak_wwise_plugin_host_undo_manager_v1::OpenGroup</a>.</p>
+
+<p class="calibre7">Referenced by <a class="pcalibre el" href="_host_undo_manager_8h_source.html#l00662">AK.Wwise::Plugin::AutoUndoGroup::AutoUndoGroup()</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

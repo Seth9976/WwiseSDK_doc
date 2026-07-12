@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>New Features Overview 2019.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_6"><a class="pcalibre1 anchor" id="features_19_1_spatial_audio_optimizations"></a>
+Spatial Audio optimizations</h2>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">Reduced update rate:</b> A new spatial audio initialization parameter controls a movement threshold. As long as the emitter and listener do not move outside of a radius defined by the threshold, then spatial audio will not perform a new calculation. This allows for reduced CPU utilization at the expense of reduced accuracy. In practice, it is not necessary to update the paths calculations every single frame, and a compromise between accuracy and CPU usage can be found.</li>
+<li class="calibre9"><b class="calibre13">Multi-threading support:</b> Enabling multi-threading in the Wwise sound engine via the platform init settings now also allows Spatial Audio to perform path calculations for multiple sound emitters across multiple threads.</li>
+<li class="calibre9"><b class="calibre13">Geometry scope limited to a single room:</b> As an optimization, it is now possible to limit the search space for reflective surfaces and ray intersection calculations by assigning sound propagation geometry sets to individual rooms.</li>
+</ul>
+</div></div></div></body></html>

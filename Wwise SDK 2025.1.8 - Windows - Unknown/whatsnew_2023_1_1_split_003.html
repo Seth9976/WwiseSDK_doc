@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2023.1.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="generic_perf_changes_2023_1_1"></a>
+Performance Changes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-67235</b> Significantly improved the performance of the 3D Audio Bed Mixer Effect plug-in and the 3D Audio triage process for System Audio Devices when processing many Audio Objects.</li>
+<li class="calibre9"><b class="calibre13">WG-68277</b> Significantly improved the performance of busses during audio rendering when processing many Audio Objects.</li>
+<li class="calibre9"><b class="calibre13">WG-69025</b> Audio Objects buses with exclusive incoming connections will no longer cause spikes in Temp Alloc memory usage when processing incoming Audio Objects that are in their AK_NoMoreData state.</li>
+<li class="calibre9"><b class="calibre13">WG-69026</b> Reduced lock contention of Temp Alloc memory system when multiple threads request blocks of memory simultaneously.</li>
+<li class="calibre9"><b class="calibre13">WG-69501</b> Removed short-lived memory allocations in the Object category coming from <code class="calibre14">CAkVolumeRayComponent::GetRayVolumeData</code>.</li>
+</ul>
+</div></div></div></body></html>

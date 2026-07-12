@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integration Details - Events</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_4"><a class="pcalibre1 anchor" id="soundengine_events_latency"></a>
+Latency Between Posting an Event and Actual Sound Playback</h1>
+<p class="calibre7">We can estimate the latency between the time an event is posted and the time audio data starts being played back by the platform.</p>
+<p class="calibre7">From the game thread, call the SDK function <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a41e9ef8d42951871fe4a8ae58a29a68e_split_000.html#a41e9ef8d42951871fe4a8ae58a29a68e">PostEvent()</a>. Posting an event will post a request to play something. This request will not be processed until the game calls the function <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_afe54af0f5be38be061e8a3c7d7642bb1_split_000.html#afe54af0f5be38be061e8a3c7d7642bb1">RenderAudio()</a>; it does not actually render the audio, but simply sets a notification to process the requests that were posted since the last call to <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_afe54af0f5be38be061e8a3c7d7642bb1_split_000.html#afe54af0f5be38be061e8a3c7d7642bb1">RenderAudio()</a>. Normally, <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_afe54af0f5be38be061e8a3c7d7642bb1_split_000.html#afe54af0f5be38be061e8a3c7d7642bb1">RenderAudio()</a> is called by the game once per game frame. But, this is not a requirement; it can be called anytime to force execution of recently posted events as soon as possible.</p>
+<p class="calibre7">Once <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_afe54af0f5be38be061e8a3c7d7642bb1_split_000.html#afe54af0f5be38be061e8a3c7d7642bb1">RenderAudio()</a> is called, the AudioManager thread will be granted the permission to consume the events/commands that were posted previously. However, note that this thread is synchronized with the consumption rate of the platform's audio. An "audio refill" pass is only executed when the audio output module has consumed a buffer and, therefore, made a section of its ring buffer available for writing.</p>
+<p class="calibre7">Finally, there is the output module's ring buffer size to consider. When initializing the sound engine on Windows, you may specify the ring buffer's size in the platform-specific parameters using <a class="pcalibre el" href="struct_ak_platform_init_settings_a953085ec90c00bf53ddafc8af700277d_split_000.html#a953085ec90c00bf53ddafc8af700277d" title="Number of refill buffers in voice buffer. 2 == double-buffered, defaults to 4.">AkPlatformInitSettings::uNumRefillsInVoice</a>. This gives the number of "refill buffers" in the voice buffer, where two is double-buffered and the default is four. Picking this number is a balance between reducing the latency (smaller buffer) and making the system more resistant to memory starvation (larger buffer).</p>
+<p class="calibre7">The "refill buffer" or "audio frame", as it is generally called, is determined by the sample rate over the frequency. So, on Windows in high-quality mode, this typically gives: <code class="calibre14">(1,024 samples) / (48,000 Hz) = <b class="calibre13">21.3 ms</b></code>. If we set samples to 512, using <a class="pcalibre el" href="struct_ak_init_settings_a2438a18ece872c83175f70d7f70d659b_split_000.html#a2438a18ece872c83175f70d7f70d659b" title="Number of samples per audio frame (256, 512, 1024, or 2048).">AkInitSettings::uNumSamplesPerFrame</a>, then the audio frame would be: <code class="calibre14">(512 samples) / (48,000 Hz) = <b class="calibre13">10.6 ms</b></code>.</p>
+<p class="calibre7">So, in summary, the "total sound engine's latency" is determined by:</p>
+<ol class="calibre26">
+<li class="calibre9">The time between the call to <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a41e9ef8d42951871fe4a8ae58a29a68e_split_000.html#a41e9ef8d42951871fe4a8ae58a29a68e">PostEvent()</a> and the call to <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_afe54af0f5be38be061e8a3c7d7642bb1_split_000.html#afe54af0f5be38be061e8a3c7d7642bb1">RenderAudio()</a> (this is up to the game), meaning 16 ms in a 60 frame per second game which calls <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_afe54af0f5be38be061e8a3c7d7642bb1_split_000.html#afe54af0f5be38be061e8a3c7d7642bb1">RenderAudio()</a> once per frame.</li>
+<li class="calibre9">The time between the call to <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_afe54af0f5be38be061e8a3c7d7642bb1_split_000.html#afe54af0f5be38be061e8a3c7d7642bb1">RenderAudio()</a> and an audio frame boundary: <code class="calibre14">0 to 21 ms</code> depending on whether <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_afe54af0f5be38be061e8a3c7d7642bb1_split_000.html#afe54af0f5be38be061e8a3c7d7642bb1">RenderAudio()</a> was called at the end or at the beginning of the current audio frame.</li>
+<li class="calibre9">The output stage buffering. With a double-buffered output stage: <code class="calibre14">2 * 21 ms = 42 ms</code> of latency.<ol class="calibre27">
+<li class="calibre9">The audio frame rate. With a reduced audio frame rate and a double-buffered output stage: <code class="calibre14">2 * 11 ms = 22 ms</code> of latency.</li>
+</ol>
+</li>
+</ol>
+<p class="calibre7">Total, in a 60 frames per second update system:</p><ul class="calibre8">
+<li class="calibre9">42 ms latency in the best case</li>
+<li class="calibre9">79 ms latency in the worst case</li>
+</ul>
+</div></div></div></body></html>

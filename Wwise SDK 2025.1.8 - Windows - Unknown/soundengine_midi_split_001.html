@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integration Details - MIDI</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2"><h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="soundengine_midi_intro"></a>
+Introduction</h1>
+<p class="calibre7">The SDK API provides functions to post MIDI events to the sound engine. The types of MIDI events that may be posted are:</p><ul class="calibre8">
+<li class="calibre9">note-on event.</li>
+<li class="calibre9">note-off event.</li>
+<li class="calibre9">and continuous controller (CC) event.</li>
+</ul>
+<p class="calibre7">For MIDI events to produce sound they must have a target synthesizer. The synthesizer is a collection of Wwise objects created by the Wwise user in the project's Containers hierarchy. Note-on events will typically play the targeted Container object or one of its descendants. If played, the Container object will stop once it has:</p><ul class="calibre8">
+<li class="calibre9">reached the end of its source if it is not set to loop,</li>
+<li class="calibre9">or a corresponding note-off event (same note and channel) is sent to the same target.</li>
+</ul>
+</div></div></div></body></html>

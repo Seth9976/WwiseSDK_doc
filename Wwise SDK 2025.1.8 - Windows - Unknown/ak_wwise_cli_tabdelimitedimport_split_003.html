@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>tab-delimited-import</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="ak_wwise_cli_tabdelimitedimportOptions"></a>
+Options</h1>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--audio-source-from-original</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">It is possible that a project already contains some audio source files of the same name as the imported ones when doing a tab delimited import. By adding this option, the operation uses those instead of replacing them with those described by the tab-delimited file.<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--continue-on-error</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Use this option if you want to continue even if an error occurred.<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--custom-global-closing-cmd CMD</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Overrides the global closing step that was defined in Wwise. This option must be followed by the new command line (use quotes if there are spaces). An empty string ("") specified for the command-line means no global closing step is executed.<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--custom-global-opening-cmd CMD</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Overrides the global opening step that was defined in Wwise. This option must be followed by the new command line (use quotes if there are spaces). An empty string ("") specified for the command-line means no global opening step is executed.<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--import-language LANGUAGE</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">With the tab-delimited import operation it is possible to import voices. This option is used to specify the language of the imported voices. This option must be followed by one of the language identifiers listed with the –language option. Note that only audio files are added for this operation; any attempt to concurrently perform other operations, such as volume adjustments, is ignored.<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--no-source-control</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Skip automatic addition and checkout (if supported by project's source control plugin) of new and modified files to source control.<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--quiet</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Disables all non-error console text output.<br class="calibre10"/>
+</p>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--tab-delimited-operation createNew</code></b><br class="calibre10"/>
+<b class="calibre13"><code class="calibre14">--tab-delimited-operation useExisting</code></b><br class="calibre10"/>
+<b class="calibre13"><code class="calibre14">--tab-delimited-operation replaceExisting</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Determines how import object creation is performed for each object created. "createNew": creates a new object; the object is given the desired name if possible, otherwise a new unique name is used. "useExisting": uses the object if it exists, updating the specified properties; otherwise it creates a new object. This is the default value. "replaceExisting": creates a new object; if an existing object has the same name then the existing object is destroyed.<br class="calibre10"/>
+ Possible values:</p><ul class="calibre8">
+<li class="calibre9">createNew</li>
+<li class="calibre9">useExisting</li>
+<li class="calibre9">replaceExisting</li>
+</ul>
+<p class="calibre7"><b class="calibre13"><code class="calibre14">--verbose</code></b><br class="calibre10"/>
+</p>
+<p class="calibre7">Enables extra console text output.<br class="calibre10"/>
+</p>
+<p class="calibre7"><a class="pcalibre el" href="ak_wwise_cli_tabdelimitedimport_options_schema_split_000.html">Options Schema</a></p>
+</div></div></div></body></html>

@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Migrating a pre-2021.1 Authoring Plug-in</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_4"><a class="pcalibre1 anchor" id="plugin_21_1_migration_porting_audioplugin"></a>
+AudioPlugin</h2>
+<p class="calibre7">In the original API, the <code class="calibre14">AK::Wwise::IAudioPlugin</code> interface contained all the features of the Authoring plug-in API. You could simply subclass <code class="calibre14">AK::Wwise::DefaultAudioPluginImplementation</code> to empty implementations for each method, but your class still had all of these unused methods defined.</p>
+<p class="calibre7">In the new API, there is a similar <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_a989b8417cedde33d928b90171491fcc5_split_000.html#a989b8417cedde33d928b90171491fcc5" title="Latest version of the C++ AudioPlugin interface.">AK::Wwise::Plugin::AudioPlugin</a></code> interface, but its only method is <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_audio_plugin_ae59a3955718ed3bbde0521da21cd8539_split_000.html#ae59a3955718ed3bbde0521da21cd8539" title="Obtains parameters that will be written to a bank.">AK::Wwise::Plugin::AudioPlugin::GetBankParameters()</a></code>. For a simple plug-in that has typical properties being written to a SoundBank, implementing this single interface is all that is needed. Implementing this interface also serves as an indicator that the implementing class is a backend class (as opposed to a frontend class, which is covered in the <a class="pcalibre el" href="plugin_21_1_migration_split_007.html#plugin_21_1_migration_porting_backend_frontend">Implementing a Frontend</a> section).</p>
+<p class="calibre7">Concretely, there are few differences between an original and a new API class:</p>
+<p class="calibre7"><b class="calibre13">Original API</b> </p><div class="fragment"><div class="line"><span class="comment">// MyAudioPlugin.h</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">class </span>MyAudioPlugin: <span class="keyword">public</span> AK::Wwise::DefaultAudioPluginImplementation</div>
+<div class="line">{</div>
+<div class="line">  IPluginPropertySet* m_pPSet = <span class="keyword">nullptr</span>;</div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line">  <span class="keywordtype">void</span> Destroy()<span class="keyword"> override </span>{ <span class="keyword">delete</span> <span class="keyword">this</span>; }</div>
+<div class="line">  <span class="keywordtype">void</span> SetPluginPropertySet(IPluginPropertySet* in_pPSet) <span class="keyword">override</span>;</div>
+<div class="line">  <span class="keywordtype">bool</span> GetBankParameters(<span class="keyword">const</span> GUID &amp; in_guidPlatform, AK::Wwise::IWriteData* in_pDataWriter) <span class="keyword">const override</span>;</div>
+<div class="line">};</div>
+</div><!-- fragment --><p class="calibre7"><b class="calibre13">New API</b> </p><div class="fragment"><div class="line"><span class="comment">// MyAudioPlugin.h</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">class </span>MyAudioPlugin : <span class="keyword">public</span> <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_audio_plugin_split_000.html">AK::Wwise::Plugin::AudioPlugin</a></div>
+<div class="line">{</div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line">  <span class="keywordtype">bool</span> <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_audio_plugin_ae59a3955718ed3bbde0521da21cd8539_split_000.html#ae59a3955718ed3bbde0521da21cd8539">GetBankParameters</a>(</div>
+<div class="line">    <span class="keyword">const</span> GUID&amp; in_guidPlatform,</div>
+<div class="line">    <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_data_writer_split_000.html">AK::Wwise::Plugin::DataWriter</a>&amp; in_dataWriter</div>
+<div class="line">  ) <span class="keyword">const override</span>;</div>
+<div class="line">};</div>
+</div><!-- fragment --><p class="calibre7">Notice that there is only a single method left to implement: <code class="calibre14">GetBankParameters</code>. The AK::Wwise::IAudioPlugin::Destroy() function is also not necessary anymore, as instantiation and destruction is completely handled by the plug-in API. The standard C++ destructor can be use to release resources.</p>
+</div></div></div></body></html>

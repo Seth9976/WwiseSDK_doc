@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Sound Engine Object Processor Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_9"><a class="pcalibre1 anchor" id="soundengine_plugins_objectprocessor_outofplace_binauralizer"></a>
+Software Binauralizer</h2>
+<p class="calibre7">A software binauralizer may be implemented as an out-of-place Object Processor that takes in multiple Audio Objects, and outputs a single Audio Object with a stereo channel configuration. Such a plug-in should be mounted on an Audio Object bus, but it will effectively make this bus output a single stereo signal.</p>
+<p class="calibre7">A convenient way to create the one and only stereo output object is via the handshaking method of <a class="pcalibre el" href="class_a_k_1_1_i_ak_effect_plugin_ae5a44837c4adddf6ff58fab57453b020_split_000.html#ae5a44837c4adddf6ff58fab57453b020">AK::IAkEffectPlugin::Init</a>.</p>
+<div class="fragment"><div class="line"><a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> <a class="pcalibre code" href="namespace_a_k_1_1_comm_a596691b552b507c26b4df958ee1c6de8_split_000.html#a596691b552b507c26b4df958ee1c6de8">ObjectBinauralizerFX::Init</a>(</div>
+<div class="line">    <a class="pcalibre code" href="class_a_k_1_1_i_ak_plugin_mem_alloc_split_000.html">AK::IAkPluginMemAlloc</a>* in_pAllocator, </div>
+<div class="line">    <a class="pcalibre code" href="class_a_k_1_1_i_ak_effect_plugin_context_split_000.html">AK::IAkEffectPluginContext</a>* in_pContext, </div>
+<div class="line">    <a class="pcalibre code" href="class_a_k_1_1_i_ak_plugin_param_split_000.html">AK::IAkPluginParam</a>* in_pParams, </div>
+<div class="line">    <a class="pcalibre code" href="struct_ak_audio_format_split_000.html">AkAudioFormat</a>&amp; io_rFormat)</div>
+<div class="line">{</div>
+<div class="line">    m_pContext = in_pContext;</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// in_rFormat.channelConfig.eConfigType will be different than AK_ChannelConfigType_Objects if the configuration of the input of the plugin is known and does not support a </span></div>
+<div class="line">    <span class="comment">// dynamic number of objects. However this plug-in is pointless if it is not instantiated on an Audio Object bus, so we are better off letting our users know.</span></div>
+<div class="line">    <span class="keywordflow">if</span> (in_rFormat.<a class="pcalibre code" href="struct_ak_audio_format_a73de76fa89ed81baa5265448bd6deefe_split_000.html#a73de76fa89ed81baa5265448bd6deefe">channelConfig</a>.<a class="pcalibre code" href="struct_ak_channel_config_a598c4a4489e9fb252e7022ae99135674_split_000.html#a598c4a4489e9fb252e7022ae99135674">eConfigType</a> != <a class="pcalibre code" href="_ak_enums_8h_a9e3e31d9ff388daa593222da7672a999_split_001.html#a9e3e31d9ff388daa593222da7672a999a338b59e9d7624cbc47fab92e22bc55cc">AK_ChannelConfigType_Objects</a>)</div>
+<div class="line">        <span class="keywordflow">return</span> <a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_001.html#a64f7d1f79613cc4dcc49a4efba6caa63a906fa026b1f04805d30bc474677e73ca">AK_UnsupportedChannelConfig</a>;</div>
+<div class="line">        </div>
+<div class="line">    <span class="comment">// Inform the host that the output will be stereo. The host will create an output object for us and pass it to Execute.</span></div>
+<div class="line">    io_rFormat.<a class="pcalibre code" href="struct_ak_audio_format_a73de76fa89ed81baa5265448bd6deefe_split_000.html#a73de76fa89ed81baa5265448bd6deefe">channelConfig</a>.<a class="pcalibre code" href="struct_ak_channel_config_a4c0f4b3d39608a10c9b330c1ef8281a7_split_000.html#a4c0f4b3d39608a10c9b330c1ef8281a7">SetStandard</a>(<a class="pcalibre code" href="_ak_speaker_config_8h_a472757ac65daebc42373c503d4c3c894_split_000.html#a472757ac65daebc42373c503d4c3c894">AK_SPEAKER_SETUP_STEREO</a>);</div>
+<div class="line">    </div>
+<div class="line">    <span class="keywordflow">return</span> <a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_001.html#a64f7d1f79613cc4dcc49a4efba6caa63ad7c47fea3da641e7422573c6a13dc35e">AK_Success</a>;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p class="calibre7">Then, in Execute:</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> ObjectBinauralizerFX::Execute(</div>
+<div class="line">    <span class="keyword">const</span> <a class="pcalibre code" href="struct_ak_audio_objects_split_000.html">AkAudioObjects</a>&amp; in_objects,   <span class="comment">///&lt; Input objects and object audio buffers.</span></div>
+<div class="line"><span class="comment"></span>    <span class="keyword">const</span> <a class="pcalibre code" href="struct_ak_audio_objects_split_000.html">AkAudioObjects</a>&amp; out_objects   <span class="comment">///&lt; Output objects and object audio buffers.</span></div>
+<div class="line"><span class="comment"></span>)</div>
+<div class="line">{</div>
+<div class="line">    <a class="pcalibre code" href="_ak_assert_8h_ac0e6cc4061c0a7c154a8c921a0af74cb_split_000.html#ac0e6cc4061c0a7c154a8c921a0af74cb">AKASSERT</a>(in_objects.<a class="pcalibre code" href="struct_ak_audio_objects_a9408cb0a160b5e02ce1bc2d2bd63e73a_split_000.html#a9408cb0a160b5e02ce1bc2d2bd63e73a">uNumObjects</a> &gt; 0); <span class="comment">// Should never be called with 0 objects if this plug-in does not force tails.</span></div>
+<div class="line">    <a class="pcalibre code" href="_ak_assert_8h_ac0e6cc4061c0a7c154a8c921a0af74cb_split_000.html#ac0e6cc4061c0a7c154a8c921a0af74cb">AKASSERT</a>(out_objects.<a class="pcalibre code" href="struct_ak_audio_objects_a9408cb0a160b5e02ce1bc2d2bd63e73a_split_000.html#a9408cb0a160b5e02ce1bc2d2bd63e73a">uNumObjects</a> == 1); <span class="comment">// Output config is a stereo channel stream.</span></div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// "Binauralize" (just mix) objects in stereo output buffer.</span></div>
+<div class="line">    <span class="comment">// For the purpose of this demonstration, instead of applying HRTF filters, let's call the built-in service to compute panning gains.</span></div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// The output object should be stereo. Clear its two channels.</span></div>
+<div class="line">    <a class="pcalibre code" href="_ak_assert_8h_ac0e6cc4061c0a7c154a8c921a0af74cb_split_000.html#ac0e6cc4061c0a7c154a8c921a0af74cb">AKASSERT</a>(out_objects.<a class="pcalibre code" href="struct_ak_audio_objects_a0684629542f01bb629b5056edb4880e6_split_000.html#a0684629542f01bb629b5056edb4880e6">ppObjectBuffers</a>[0]-&gt;<a class="pcalibre code" href="class_ak_audio_buffer_a7601d9b814dbcb9dfe2bfbaa05fcb13b_split_000.html#a7601d9b814dbcb9dfe2bfbaa05fcb13b">GetChannelConfig</a>().<a class="pcalibre code" href="struct_ak_channel_config_a8fc646976d669b0b0bdf81371c2a2f76_split_000.html#a8fc646976d669b0b0bdf81371c2a2f76">uChannelMask</a> == <a class="pcalibre code" href="_ak_speaker_config_8h_a472757ac65daebc42373c503d4c3c894_split_000.html#a472757ac65daebc42373c503d4c3c894">AK_SPEAKER_SETUP_STEREO</a>);</div>
+<div class="line">    memset(out_objects.<a class="pcalibre code" href="struct_ak_audio_objects_a0684629542f01bb629b5056edb4880e6_split_000.html#a0684629542f01bb629b5056edb4880e6">ppObjectBuffers</a>[0]-&gt;<a class="pcalibre code" href="class_ak_audio_buffer_ad2bc3b8ddd61eaa0c111798d5f9e8c9c_split_000.html#ad2bc3b8ddd61eaa0c111798d5f9e8c9c">GetChannel</a>(0), 0, out_objects.<a class="pcalibre code" href="struct_ak_audio_objects_a0684629542f01bb629b5056edb4880e6_split_000.html#a0684629542f01bb629b5056edb4880e6">ppObjectBuffers</a>[0]-&gt;<a class="pcalibre code" href="class_ak_audio_buffer_a537445dce6e3ed09dd2c337fd73c6b41_split_000.html#a537445dce6e3ed09dd2c337fd73c6b41">MaxFrames</a>() * <span class="keyword">sizeof</span>(<a class="pcalibre code" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a>));</div>
+<div class="line">    memset(out_objects.<a class="pcalibre code" href="struct_ak_audio_objects_a0684629542f01bb629b5056edb4880e6_split_000.html#a0684629542f01bb629b5056edb4880e6">ppObjectBuffers</a>[0]-&gt;<a class="pcalibre code" href="class_ak_audio_buffer_ad2bc3b8ddd61eaa0c111798d5f9e8c9c_split_000.html#ad2bc3b8ddd61eaa0c111798d5f9e8c9c">GetChannel</a>(1), 0, out_objects.<a class="pcalibre code" href="struct_ak_audio_objects_a0684629542f01bb629b5056edb4880e6_split_000.html#a0684629542f01bb629b5056edb4880e6">ppObjectBuffers</a>[0]-&gt;<a class="pcalibre code" href="class_ak_audio_buffer_a537445dce6e3ed09dd2c337fd73c6b41_split_000.html#a537445dce6e3ed09dd2c337fd73c6b41">MaxFrames</a>() * <span class="keyword">sizeof</span>(<a class="pcalibre code" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a>));</div>
+<div class="line">    </div>
+<div class="line">    <a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> eState = <a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_001.html#a64f7d1f79613cc4dcc49a4efba6caa63a94ba10d374d31161770fc490e0245802">AK_NoMoreData</a>;</div>
+<div class="line">    </div>
+<div class="line">    <span class="keywordflow">for</span> (<a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> i = 0; i &lt; in_objects.<a class="pcalibre code" href="struct_ak_audio_objects_a9408cb0a160b5e02ce1bc2d2bd63e73a_split_000.html#a9408cb0a160b5e02ce1bc2d2bd63e73a">uNumObjects</a>; ++i)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="comment">// State management: set the output to AK_DataReady as long as one of the inputs is AK_DataReady. Otherwise set to AK_NoMoreData.</span></div>
+<div class="line">        <span class="keywordflow">if</span> (in_objects.<a class="pcalibre code" href="struct_ak_audio_objects_a0684629542f01bb629b5056edb4880e6_split_000.html#a0684629542f01bb629b5056edb4880e6">ppObjectBuffers</a>[i]-&gt;<a class="pcalibre code" href="class_ak_audio_buffer_a069d15381980ac4851216e084cf6a0cc_split_000.html#a069d15381980ac4851216e084cf6a0cc">eState</a> != <a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_001.html#a64f7d1f79613cc4dcc49a4efba6caa63a94ba10d374d31161770fc490e0245802">AK_NoMoreData</a>)</div>
+<div class="line">            eState = in_objects.<a class="pcalibre code" href="struct_ak_audio_objects_a0684629542f01bb629b5056edb4880e6_split_000.html#a0684629542f01bb629b5056edb4880e6">ppObjectBuffers</a>[i]-&gt;<a class="pcalibre code" href="class_ak_audio_buffer_a069d15381980ac4851216e084cf6a0cc_split_000.html#a069d15381980ac4851216e084cf6a0cc">eState</a>;</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">// Prepare mixing matrix for this input.</span></div>
+<div class="line">        <span class="keyword">const</span> <a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> uNumChannelsIn = in_objects.<a class="pcalibre code" href="struct_ak_audio_objects_a0684629542f01bb629b5056edb4880e6_split_000.html#a0684629542f01bb629b5056edb4880e6">ppObjectBuffers</a>[i]-&gt;<a class="pcalibre code" href="class_ak_audio_buffer_a4523322478ec9a0f9de0c7c72e65df2f_split_000.html#a4523322478ec9a0f9de0c7c72e65df2f">NumChannels</a>();</div>
+<div class="line">        <a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> uTransmixSize = <a class="pcalibre code" href="namespace_a_k_1_1_speaker_volumes_1_1_matrix_a59458aba2b1be3fa678021a3aea813b9_split_000.html#a59458aba2b1be3fa678021a3aea813b9">AK::SpeakerVolumes::Matrix::GetRequiredSize</a>(</div>
+<div class="line">            uNumChannelsIn,</div>
+<div class="line">            2);</div>
+<div class="line">        <a class="pcalibre code" href="namespace_a_k_1_1_speaker_volumes_a57e0ce3a8225a58dd886853164554074_split_000.html#a57e0ce3a8225a58dd886853164554074">AK::SpeakerVolumes::MatrixPtr</a> mx = (<a class="pcalibre code" href="namespace_a_k_1_1_speaker_volumes_a57e0ce3a8225a58dd886853164554074_split_000.html#a57e0ce3a8225a58dd886853164554074">AK::SpeakerVolumes::MatrixPtr</a>)AkAllocaSIMD(uTransmixSize);</div>
+<div class="line">        <a class="pcalibre code" href="namespace_a_k_1_1_speaker_volumes_1_1_matrix_a46351431a388d100fc2676b4aa3dad0c_split_000.html#a46351431a388d100fc2676b4aa3dad0c">AK::SpeakerVolumes::Matrix::Zero</a>(mx, uNumChannelsIn, 2);</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">// Compute panning gains and fill the mixing matrix.</span></div>
+<div class="line">        m_pContext-&gt;GetMixerCtx()-&gt;ComputePositioning(</div>
+<div class="line">            in_objects.<a class="pcalibre code" href="struct_ak_audio_objects_a4332a296e3e6d98688176aa460584853_split_000.html#a4332a296e3e6d98688176aa460584853">ppObjects</a>[i]-&gt;<a class="pcalibre code" href="struct_ak_audio_object_a1dccda4d0468b93e4347842a9de4e98e_split_000.html#a1dccda4d0468b93e4347842a9de4e98e">positioning</a>,</div>
+<div class="line">            in_objects.<a class="pcalibre code" href="struct_ak_audio_objects_a0684629542f01bb629b5056edb4880e6_split_000.html#a0684629542f01bb629b5056edb4880e6">ppObjectBuffers</a>[i]-&gt;<a class="pcalibre code" href="class_ak_audio_buffer_a7601d9b814dbcb9dfe2bfbaa05fcb13b_split_000.html#a7601d9b814dbcb9dfe2bfbaa05fcb13b">GetChannelConfig</a>(),</div>
+<div class="line">            out_objects.<a class="pcalibre code" href="struct_ak_audio_objects_a0684629542f01bb629b5056edb4880e6_split_000.html#a0684629542f01bb629b5056edb4880e6">ppObjectBuffers</a>[0]-&gt;<a class="pcalibre code" href="class_ak_audio_buffer_a7601d9b814dbcb9dfe2bfbaa05fcb13b_split_000.html#a7601d9b814dbcb9dfe2bfbaa05fcb13b">GetChannelConfig</a>(),</div>
+<div class="line">            mx</div>
+<div class="line">        );</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">// Using the mixing matrix, mix the channels of the ith input object into the one and only stereo output object.</span></div>
+<div class="line">        <a class="pcalibre code" href="_i_ak_plugin_8h_a4793694b5f18e4334d12f70a4da40e04_split_000.html#a4793694b5f18e4334d12f70a4da40e04">AK_GET_PLUGIN_SERVICE_MIXER</a>(m_pContext-&gt;GlobalContext())-&gt;MixNinNChannels(</div>
+<div class="line">            in_objects.<a class="pcalibre code" href="struct_ak_audio_objects_a0684629542f01bb629b5056edb4880e6_split_000.html#a0684629542f01bb629b5056edb4880e6">ppObjectBuffers</a>[i],</div>
+<div class="line">            out_objects.<a class="pcalibre code" href="struct_ak_audio_objects_a0684629542f01bb629b5056edb4880e6_split_000.html#a0684629542f01bb629b5056edb4880e6">ppObjectBuffers</a>[0],</div>
+<div class="line">            1.f,</div>
+<div class="line">            1.f,</div>
+<div class="line">            mx, <span class="comment">/// NOTE: To properly interpolate from frame to frame and avoid any glitch, we would need to store the previous matrix (OR positional information) for each object.</span></div>
+<div class="line"><span class="comment"></span>            mx);</div>
+<div class="line">    }</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Set the output object's state.</span></div>
+<div class="line">    out_objects.<a class="pcalibre code" href="struct_ak_audio_objects_a0684629542f01bb629b5056edb4880e6_split_000.html#a0684629542f01bb629b5056edb4880e6">ppObjectBuffers</a>[0]-&gt;<a class="pcalibre code" href="class_ak_audio_buffer_ab7f90fd99119b56e92e4cbf3559f98cd_split_000.html#ab7f90fd99119b56e92e4cbf3559f98cd">uValidFrames</a> = in_objects.<a class="pcalibre code" href="struct_ak_audio_objects_a0684629542f01bb629b5056edb4880e6_split_000.html#a0684629542f01bb629b5056edb4880e6">ppObjectBuffers</a>[0]-&gt;<a class="pcalibre code" href="class_ak_audio_buffer_a537445dce6e3ed09dd2c337fd73c6b41_split_000.html#a537445dce6e3ed09dd2c337fd73c6b41">MaxFrames</a>();</div>
+<div class="line">    out_objects.<a class="pcalibre code" href="struct_ak_audio_objects_a0684629542f01bb629b5056edb4880e6_split_000.html#a0684629542f01bb629b5056edb4880e6">ppObjectBuffers</a>[0]-&gt;<a class="pcalibre code" href="class_ak_audio_buffer_a069d15381980ac4851216e084cf6a0cc_split_000.html#a069d15381980ac4851216e084cf6a0cc">eState</a> = eState;</div>
+<div class="line">}</div>
+</div><!-- fragment --></div></div></div></body></html>

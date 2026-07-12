@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::IAkGameObjectPluginInfo::GetDistanceProbe</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="class_a_k_1_1_i_ak_game_object_plugin_info_ad0e5372b07eea66fd0d015ccf026dc6d_split_000.html#ad0e5372b07eea66fd0d015ccf026dc6d" class="pcalibre1 anchor">◆ </a></span>GetDistanceProbe()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="calibre3">
+  <tbody class="calibre4"><tr class="calibre16">
+  <td class="calibre17">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">virtual <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::IAkGameObjectPluginInfo::GetDistanceProbe </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_a352a1eb6955fa208062e40a9ccdd2560_split_000.html#a352a1eb6955fa208062e40a9ccdd2560">AkGameObjectID</a> </td>
+          <td class="paramname"><em class="calibre59">in_uListener</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="struct_ak_world_transform_split_000.html">AkWorldTransform</a> &amp; </td>
+          <td class="paramname"><em class="calibre59">out_position</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"> const</td>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="calibre17">
+<span><span>pure virtual</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Get the position of a distance probe associated with the given listener. Use <a class="pcalibre el" href="class_a_k_1_1_i_ak_game_object_plugin_info_a4000e34b25c85c81dca34543072193b8_split_000.html#a4000e34b25c85c81dca34543072193b8">GetListeners()</a> prior to this function in order to know which listeners are listening to the associated game object. Returns AK_Success if a distance probe is associated with the specified listener. If no distance probe game object is associated with the specified listener, or the listener is not valid, AK_Fail is returned.</p><ul class="calibre8">
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a33b1e3641f5845fb2149c3088ad2214a_split_000.html#a33b1e3641f5845fb2149c3088ad2214a">AK::SoundEngine::SetDistanceProbe()</a></li>
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a2f85a55c38afa2e0dbc6172a7bec91d1_split_000.html#a2f85a55c38afa2e0dbc6172a7bec91d1">AK::SoundEngine::SetListeners()</a></li>
+<li class="calibre9"><a class="pcalibre el" href="class_a_k_1_1_i_ak_game_object_plugin_info_a4000e34b25c85c81dca34543072193b8_split_000.html#a4000e34b25c85c81dca34543072193b8">AK::IAkGameObjectPluginInfo::GetListeners()</a> </li>
+</ul>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_uListener</td><td class="calibre17">Listener Game Object </td></tr>
+    <tr class="calibre16"><td class="paramname">out_position</td><td class="calibre17">Returned raw position info. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

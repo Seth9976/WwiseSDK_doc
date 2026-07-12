@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integrating Markers</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_6"><a class="pcalibre1 anchor" id="soundengine_markers_plugins_example"></a>
+Marker Generator Source Plug-in Example</h2>
+<p class="calibre7">Below is an example of a source plug-in that generates marker notifications.</p>
+<div class="fragment"><div class="line"><span class="keyword">class </span>MyMarkerGeneratorSourcePlugin : <span class="keyword">public</span> IAkSourcePlugin</div>
+<div class="line">{</div>
+<div class="line"><span class="keyword">private</span>:</div>
+<div class="line">    IAkSourcePluginContext* m_pSourcePluginContext{};</div>
+<div class="line">    IAkPluginServiceMarkers::IAkMarkerNotificationService* m_pMarkerNotificationService{};</div>
+<div class="line">    <a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> m_uElapsedSamples{};</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">static</span> constexpr <a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> g_uPayloadSize{ 64 };</div>
+<div class="line">    <span class="keywordtype">char</span> m_Payload[g_uPayloadSize]{};</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// ...</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line">    <a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> <a class="pcalibre code" href="namespace_a_k_1_1_comm_a596691b552b507c26b4df958ee1c6de8_split_000.html#a596691b552b507c26b4df958ee1c6de8">Init</a>(</div>
+<div class="line">        IAkPluginMemAlloc *         in_pAllocator,                  <span class="comment">///&lt; Interface to the memory allocator to be used by the plug-in</span></div>
+<div class="line"><span class="comment"></span>        IAkSourcePluginContext *    in_pSourcePluginContext,        <span class="comment">///&lt; Interface to the source plug-in's context</span></div>
+<div class="line"><span class="comment"></span>        IAkPluginParam *            in_pParams,                     <span class="comment">///&lt; Interface to the plug-in parameters</span></div>
+<div class="line"><span class="comment"></span>        <a class="pcalibre code" href="struct_ak_audio_format_split_000.html">AkAudioFormat</a> &amp;             io_rFormat                      <span class="comment">///&lt; Audio format of the output data to be produced by the plug-in (mono native by default)</span></div>
+<div class="line"><span class="comment"></span>        )<span class="keyword"> override</span></div>
+<div class="line"><span class="keyword">    </span>{</div>
+<div class="line">        m_pSourcePluginContext = in_pSourcePluginContext;</div>
+<div class="line">        m_pMarkerNotificationService = <a class="pcalibre code" href="_i_ak_plugin_8h_aca83a0bac8086bebd99fd3b1290926b5_split_000.html#aca83a0bac8086bebd99fd3b1290926b5">AK_GET_PLUGIN_SERVICE_MARKERS</a>(m_pSourcePluginContext)-&gt;CreateMarkerNotificationService(m_pSourcePluginContext);</div>
+<div class="line">        <span class="keywordflow">return</span> <a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_001.html#a64f7d1f79613cc4dcc49a4efba6caa63ad7c47fea3da641e7422573c6a13dc35e">AK_Success</a>;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> <a class="pcalibre code" href="namespace_a_k_1_1_comm_a94e307d2974b89cc4fbc8ab0fef20d2f_split_000.html#a94e307d2974b89cc4fbc8ab0fef20d2f">Term</a>(</div>
+<div class="line">        IAkPluginMemAlloc * in_pAllocator                           <span class="comment">///&lt; Interface to memory allocator to be used by the plug-in</span></div>
+<div class="line"><span class="comment"></span>        )<span class="keyword"> override</span></div>
+<div class="line"><span class="keyword">    </span>{</div>
+<div class="line">        <a class="pcalibre code" href="_i_ak_plugin_8h_aca83a0bac8086bebd99fd3b1290926b5_split_000.html#aca83a0bac8086bebd99fd3b1290926b5">AK_GET_PLUGIN_SERVICE_MARKERS</a>(m_pSourcePluginContext)-&gt;TerminateMarkerNotificationService(m_pMarkerNotificationService);</div>
+<div class="line">        <span class="keywordflow">return</span> <a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_001.html#a64f7d1f79613cc4dcc49a4efba6caa63ad7c47fea3da641e7422573c6a13dc35e">AK_Success</a>;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> Execute(</div>
+<div class="line">        <a class="pcalibre code" href="class_ak_audio_buffer_split_000.html">AkAudioBuffer</a> *             io_pBuffer                      <span class="comment">///&lt; In/Out audio buffer data structure (in-place processing)</span></div>
+<div class="line"><span class="comment"></span>        )<span class="keyword"> override</span></div>
+<div class="line"><span class="keyword">    </span>{</div>
+<div class="line">        <span class="keyword">static</span> constexpr <a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> uNumMarkers{ 1 };</div>
+<div class="line"> </div>
+<div class="line">        <a class="pcalibre code" href="struct_ak_audio_marker_split_000.html">AkAudioMarker</a> markers[uNumMarkers];</div>
+<div class="line">        markers[0].<a class="pcalibre code" href="struct_ak_audio_marker_adef1428c7f4476db4dbeee707eec8984_split_000.html#adef1428c7f4476db4dbeee707eec8984">dwIdentifier</a> = <span class="stringliteral">'mrkr'</span>;</div>
+<div class="line">        markers[0].<a class="pcalibre code" href="struct_ak_audio_marker_a614e69d4179a70b5d096b1812b3bd876_split_000.html#a614e69d4179a70b5d096b1812b3bd876">dwPosition</a> = m_uElapsedSamples;</div>
+<div class="line">        markers[0].<a class="pcalibre code" href="struct_ak_audio_marker_aee87f10b0ad8d8bb5d226221479720a6_split_000.html#aee87f10b0ad8d8bb5d226221479720a6">strLabel</a> = m_Payload;</div>
+<div class="line">        markers[0].<a class="pcalibre code" href="struct_ak_audio_marker_aa1c572e31ad099fb92d0bae6cf1e15f7_split_000.html#aa1c572e31ad099fb92d0bae6cf1e15f7">dwLabelSize</a> = g_uPayloadSize;</div>
+<div class="line"> </div>
+<div class="line">        <span class="keyword">const</span> <a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> offsetsInBuffer[uNumMarkers]{ 0 };</div>
+<div class="line"> </div>
+<div class="line">        m_pMarkerNotificationService-&gt;SubmitMarkerNotifications(markers, offsetsInBuffer, uNumMarkers);</div>
+<div class="line"> </div>
+<div class="line">        <span class="comment">// advance the position of the markers</span></div>
+<div class="line">        m_uElapsedSamples += io_pBuffer-&gt;<a class="pcalibre code" href="class_ak_audio_buffer_a537445dce6e3ed09dd2c337fd73c6b41_split_000.html#a537445dce6e3ed09dd2c337fd73c6b41">MaxFrames</a>();</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// ...</span></div>
+<div class="line">};</div>
+</div><!-- fragment --></div></div></div></body></html>

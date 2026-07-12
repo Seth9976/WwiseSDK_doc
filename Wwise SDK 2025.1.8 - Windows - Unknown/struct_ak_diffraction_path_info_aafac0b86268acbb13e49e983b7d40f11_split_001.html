@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AkDiffractionPathInfo::transmissionLoss</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="struct_ak_diffraction_path_info_aafac0b86268acbb13e49e983b7d40f11_split_000.html#aafac0b86268acbb13e49e983b7d40f11" class="pcalibre1 anchor">◆ </a></span>transmissionLoss</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a> AkDiffractionPathInfo::transmissionLoss</td>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Calculated total transmission loss from this path, normalized to the range [0,1] This field will be 0 for diffraction paths where <code class="calibre14">nodeCount</code> &gt; 0. It may be non-zero for the direct path where <code class="calibre14">nodeCount</code> == 0. The path's transmission loss value might be geometric transmission loss, if geometry was intersected in the path, or room transmission loss, if no geometry was available. The geometric transmission loss is calculated from the transmission loss values assigned to the geometry that this path transmits through. If a path transmits through multiple geometries with different transmission loss values, the largest value is taken. The room transmission loss is taken from the emitter and listener rooms' transmission loss values, and likewise, if the listener's room and the emitter's room have different transmission loss values, the greater of the two is used. This value is applied internally, by spatial audio, as the Transmission Loss value and built-in parameter of the emitter game object. </p><dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_spatial_audio_init_settings_split_000.html">AkSpatialAudioInitSettings</a></li>
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_room_params_split_000.html">AkRoomParams</a></li>
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_acoustic_surface_split_000.html">AkAcousticSurface</a> </li>
+</ul>
+</dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_ak_spatial_audio_types_8h_source_split_000.html#l00579">579</a> of file <a class="pcalibre el" href="_ak_spatial_audio_types_8h_source_split_000.html">AkSpatialAudioTypes.h</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

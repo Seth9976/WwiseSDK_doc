@@ -1,0 +1,547 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>MusicPlaylistContainer</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="wwiseobject_musicplaylistcontainer_objectbase_properties"></a>
+Properties, References, Lists</h1>
+<p class="calibre7"></p><table class="doxtable">
+<tbody class="calibre4"><tr class="calibre16">
+<th class="calibre46">Name</th><th class="calibre46">Display Name</th><th class="calibre46">Type</th><th class="calibre46">Default</th><th class="calibre46">Restriction</th><th class="calibre46">Is Visible</th><th class="calibre46">Supported RTPC Type</th><th class="calibre46">Supports Link/Unlink </th></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">3DPosition</b></td><td class="calibre36">3D Position</td><td class="calibre36">int16</td><td class="calibre36">0</td><td class="calibre36"><p class="starttd"><b class="calibre13">Possible values :</b> </p>
+<table border="1" class="calibre49">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre36">Value </td><td class="calibre36">Display Name  </td></tr>
+<tr class="calibre16">
+<td class="calibre36">0</td><td class="calibre36">Emitter</td></tr>
+<tr class="calibre16">
+<td class="calibre36">1</td><td class="calibre36">Emitter with Automation</td></tr>
+<tr class="calibre16">
+<td class="calibre36">2</td><td class="calibre36">Listener with Automation</td></tr>
+</tbody></table>
+<p class="endtd"></p>
+</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">3DSpatialization</b></td><td class="calibre36">3D Spatialization</td><td class="calibre36">int16</td><td class="calibre36">0</td><td class="calibre36"><p class="starttd"><b class="calibre13">Possible values :</b> </p>
+<table border="1" class="calibre49">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre36">Value </td><td class="calibre36">Display Name  </td></tr>
+<tr class="calibre16">
+<td class="calibre36">0</td><td class="calibre36">None</td></tr>
+<tr class="calibre16">
+<td class="calibre36">1</td><td class="calibre36">Position</td></tr>
+<tr class="calibre16">
+<td class="calibre36">2</td><td class="calibre36">Position + Orientation</td></tr>
+</tbody></table>
+<p class="endtd"></p>
+</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">Attenuation</b></td><td class="calibre36">Attenuation</td><td class="calibre36">Reference</td><td class="calibre36"> </td><td class="calibre36"><p class="starttd"><b class="calibre13">Possible types :</b> </p>
+<table border="1" class="calibre49">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre36">Attenuation</td></tr>
+</tbody></table>
+<p class="endtd"></p>
+</td><td class="calibre36">true</td><td class="calibre36"> </td><td class="calibre36">  </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">AttenuationDistanceScaling</b></td><td class="calibre36">Distance Scaling %</td><td class="calibre36">Real32</td><td class="calibre36">1</td><td class="calibre36">[ 0.01 , 100 ]</td><td class="calibre36">true</td><td class="calibre36">Multiplicative</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">BelowThresholdBehavior</b></td><td class="calibre36">Virtual Voice Behavior</td><td class="calibre36">int16</td><td class="calibre36">0</td><td class="calibre36"><p class="starttd"><b class="calibre13">Possible values :</b> </p>
+<table border="1" class="calibre49">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre36">Value </td><td class="calibre36">Display Name  </td></tr>
+<tr class="calibre16">
+<td class="calibre36">0</td><td class="calibre36">Continue to play</td></tr>
+<tr class="calibre16">
+<td class="calibre36">1</td><td class="calibre36">Kill voice</td></tr>
+<tr class="calibre16">
+<td class="calibre36">2</td><td class="calibre36">Send to virtual voice</td></tr>
+<tr class="calibre16">
+<td class="calibre36">3</td><td class="calibre36">Kill if finite else virtual</td></tr>
+</tbody></table>
+<p class="endtd"></p>
+</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">BypassEffect</b></td><td class="calibre36">Bypass All Effects</td><td class="calibre36">bool</td><td class="calibre36">false</td><td class="calibre36">None</td><td class="calibre36">true</td><td class="calibre36">Boolean</td><td class="calibre36">true </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">CenterPercentage</b></td><td class="calibre36">Center %</td><td class="calibre36">int32</td><td class="calibre36">0</td><td class="calibre36">[ 0 , 100 ]</td><td class="calibre36">true</td><td class="calibre36">Exclusive</td><td class="calibre36">true </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">Color</b></td><td class="calibre36">Color</td><td class="calibre36">int16</td><td class="calibre36">0</td><td class="calibre36">[ 0 , 26 ]</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">Conversion</b></td><td class="calibre36">Conversion Settings</td><td class="calibre36">Reference</td><td class="calibre36"> </td><td class="calibre36"><p class="starttd"><b class="calibre13">Possible types :</b> </p>
+<table border="1" class="calibre49">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre36">Conversion</td></tr>
+</tbody></table>
+<p class="endtd"></p>
+</td><td class="calibre36">true</td><td class="calibre36"> </td><td class="calibre36">  </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">Effects</b></td><td class="calibre36">Effects</td><td class="calibre36">List</td><td class="calibre36"> </td><td class="calibre36"><p class="starttd"><b class="calibre13">Possible types :</b> </p>
+<table border="1" class="calibre49">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre36">EffectSlot</td></tr>
+</tbody></table>
+<p class="endtd"></p>
+</td><td class="calibre36"> </td><td class="calibre36"> </td><td class="calibre36">  </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">EnableAttenuation</b></td><td class="calibre36">Enable Attenuation</td><td class="calibre36">bool</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">true</td><td class="calibre36">Boolean</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">EnableDiffraction</b></td><td class="calibre36">Diffraction and Transmission</td><td class="calibre36">bool</td><td class="calibre36">false</td><td class="calibre36">None</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">EnableLoudnessNormalization</b></td><td class="calibre36">Enable Loudness Normalization</td><td class="calibre36">bool</td><td class="calibre36">false</td><td class="calibre36">None</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">GameAuxSendDSF</b></td><td class="calibre36">Game-Defined Auxiliary Sends DSF</td><td class="calibre36">Real64</td><td class="calibre36">0</td><td class="calibre36">[ -200 , 200 ]</td><td class="calibre36">true</td><td class="calibre36">Additive</td><td class="calibre36">true </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">GameAuxSendHPF</b></td><td class="calibre36">Game-Defined Auxiliary Sends HPF</td><td class="calibre36">int16</td><td class="calibre36">0</td><td class="calibre36">[ 0 , 100 ]</td><td class="calibre36">true</td><td class="calibre36">Additive</td><td class="calibre36">true </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">GameAuxSendLPF</b></td><td class="calibre36">Game-Defined Auxiliary Sends LPF</td><td class="calibre36">int16</td><td class="calibre36">0</td><td class="calibre36">[ 0 , 100 ]</td><td class="calibre36">true</td><td class="calibre36">Additive</td><td class="calibre36">true </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">GameAuxSendVolume</b></td><td class="calibre36">Game-Defined Auxiliary Sends Volume</td><td class="calibre36">Real64</td><td class="calibre36">0</td><td class="calibre36">[ -200 , 200 ]</td><td class="calibre36">true</td><td class="calibre36">Additive</td><td class="calibre36">true </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">GridFrequencyPreset</b></td><td class="calibre36">Grid Frequency</td><td class="calibre36">int16</td><td class="calibre36">50</td><td class="calibre36"><p class="starttd"><b class="calibre13">Possible values :</b> </p>
+<table border="1" class="calibre49">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre36">Value </td><td class="calibre36">Display Name  </td></tr>
+<tr class="calibre16">
+<td class="calibre36">50</td><td class="calibre36">4 Bars</td></tr>
+<tr class="calibre16">
+<td class="calibre36">51</td><td class="calibre36">2 Bars</td></tr>
+<tr class="calibre16">
+<td class="calibre36">52</td><td class="calibre36">1 Bar</td></tr>
+<tr class="calibre16">
+<td class="calibre36">53</td><td class="calibre36">Beat</td></tr>
+<tr class="calibre16">
+<td class="calibre36">54</td><td class="calibre36">1/1 (whole note)</td></tr>
+<tr class="calibre16">
+<td class="calibre36">55</td><td class="calibre36">1/2 (half note)</td></tr>
+<tr class="calibre16">
+<td class="calibre36">56</td><td class="calibre36">1/4 (quarter note)</td></tr>
+<tr class="calibre16">
+<td class="calibre36">57</td><td class="calibre36">1/8 (eighth note)</td></tr>
+<tr class="calibre16">
+<td class="calibre36">64</td><td class="calibre36">1/16</td></tr>
+<tr class="calibre16">
+<td class="calibre36">67</td><td class="calibre36">1/32</td></tr>
+<tr class="calibre16">
+<td class="calibre36">58</td><td class="calibre36">1/2 triplet</td></tr>
+<tr class="calibre16">
+<td class="calibre36">59</td><td class="calibre36">1/4 triplet</td></tr>
+<tr class="calibre16">
+<td class="calibre36">60</td><td class="calibre36">1/8 triplet</td></tr>
+<tr class="calibre16">
+<td class="calibre36">65</td><td class="calibre36">1/16 triplet</td></tr>
+<tr class="calibre16">
+<td class="calibre36">68</td><td class="calibre36">1/32 triplet</td></tr>
+<tr class="calibre16">
+<td class="calibre36">61</td><td class="calibre36">1/2 dotted</td></tr>
+<tr class="calibre16">
+<td class="calibre36">62</td><td class="calibre36">1/4 dotted</td></tr>
+<tr class="calibre16">
+<td class="calibre36">63</td><td class="calibre36">1/8 dotted</td></tr>
+<tr class="calibre16">
+<td class="calibre36">66</td><td class="calibre36">1/16 dotted</td></tr>
+<tr class="calibre16">
+<td class="calibre36">69</td><td class="calibre36">1/32 dotted</td></tr>
+</tbody></table>
+<p class="endtd"></p>
+</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">GridOffsetCustom</b></td><td class="calibre36">Grid Offset Custom</td><td class="calibre36">Real64</td><td class="calibre36">0</td><td class="calibre36">[ 0 , 99999 ]</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">GridOffsetPreset</b></td><td class="calibre36">Grid Offset</td><td class="calibre36">int16</td><td class="calibre36">0</td><td class="calibre36"><p class="starttd"><b class="calibre13">Possible values :</b> </p>
+<table border="1" class="calibre49">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre36">Value </td><td class="calibre36">Display Name  </td></tr>
+<tr class="calibre16">
+<td class="calibre36">0</td><td class="calibre36">No</td></tr>
+<tr class="calibre16">
+<td class="calibre36">1</td><td class="calibre36">Custom</td></tr>
+<tr class="calibre16">
+<td class="calibre36">50</td><td class="calibre36">4 Bars</td></tr>
+<tr class="calibre16">
+<td class="calibre36">51</td><td class="calibre36">2 Bars</td></tr>
+<tr class="calibre16">
+<td class="calibre36">52</td><td class="calibre36">1 Bar</td></tr>
+<tr class="calibre16">
+<td class="calibre36">53</td><td class="calibre36">Beat</td></tr>
+<tr class="calibre16">
+<td class="calibre36">54</td><td class="calibre36">1/1 (whole note)</td></tr>
+<tr class="calibre16">
+<td class="calibre36">55</td><td class="calibre36">1/2 (half note)</td></tr>
+<tr class="calibre16">
+<td class="calibre36">56</td><td class="calibre36">1/4 (quarter note)</td></tr>
+<tr class="calibre16">
+<td class="calibre36">57</td><td class="calibre36">1/8 (eighth note)</td></tr>
+<tr class="calibre16">
+<td class="calibre36">64</td><td class="calibre36">1/16</td></tr>
+<tr class="calibre16">
+<td class="calibre36">67</td><td class="calibre36">1/32</td></tr>
+<tr class="calibre16">
+<td class="calibre36">58</td><td class="calibre36">1/2 triplet</td></tr>
+<tr class="calibre16">
+<td class="calibre36">59</td><td class="calibre36">1/4 triplet</td></tr>
+<tr class="calibre16">
+<td class="calibre36">60</td><td class="calibre36">1/8 triplet</td></tr>
+<tr class="calibre16">
+<td class="calibre36">65</td><td class="calibre36">1/16 triplet</td></tr>
+<tr class="calibre16">
+<td class="calibre36">68</td><td class="calibre36">1/32 triplet</td></tr>
+<tr class="calibre16">
+<td class="calibre36">61</td><td class="calibre36">1/2 dotted</td></tr>
+<tr class="calibre16">
+<td class="calibre36">62</td><td class="calibre36">1/4 dotted</td></tr>
+<tr class="calibre16">
+<td class="calibre36">63</td><td class="calibre36">1/8 dotted</td></tr>
+<tr class="calibre16">
+<td class="calibre36">66</td><td class="calibre36">1/16 dotted</td></tr>
+<tr class="calibre16">
+<td class="calibre36">69</td><td class="calibre36">1/32 dotted</td></tr>
+</tbody></table>
+<p class="endtd"></p>
+</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">HdrActiveRange</b></td><td class="calibre36">HDR Active Range</td><td class="calibre36">Real64</td><td class="calibre36">12</td><td class="calibre36">[ 0 , 96 ]</td><td class="calibre36">true</td><td class="calibre36">Exclusive</td><td class="calibre36">true </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">HdrEnableEnvelope</b></td><td class="calibre36">Enable Envelope Tracking</td><td class="calibre36">bool</td><td class="calibre36">false</td><td class="calibre36">None</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">HdrEnvelopeSensitivity</b></td><td class="calibre36">HDR Envelope Sensitivity</td><td class="calibre36">Real64</td><td class="calibre36">20</td><td class="calibre36">[ 0 , 100 ]</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">Highpass</b></td><td class="calibre36">Voice HPF</td><td class="calibre36">int16</td><td class="calibre36">0</td><td class="calibre36">[ 0 , 100 ]</td><td class="calibre36">true</td><td class="calibre36">Additive</td><td class="calibre36">true </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">HoldEmitterPositionOrientation</b></td><td class="calibre36">Hold Emitter Position and Orientation</td><td class="calibre36">bool</td><td class="calibre36">false</td><td class="calibre36">None</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">HoldListenerOrientation</b></td><td class="calibre36">Hold Listener Orientation</td><td class="calibre36">bool</td><td class="calibre36">false</td><td class="calibre36">None</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">IgnoreParentMaxSoundInstance</b></td><td class="calibre36">Ignore Parent Playback Limit</td><td class="calibre36">bool</td><td class="calibre36">false</td><td class="calibre36">None</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">Inclusion</b></td><td class="calibre36">Inclusion</td><td class="calibre36">bool</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">true </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">IsGlobalLimit</b></td><td class="calibre36">Limitation Scope</td><td class="calibre36">int16</td><td class="calibre36">0</td><td class="calibre36"><p class="starttd"><b class="calibre13">Possible values :</b> </p>
+<table border="1" class="calibre49">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre36">Value </td><td class="calibre36">Display Name  </td></tr>
+<tr class="calibre16">
+<td class="calibre36">0</td><td class="calibre36">Game object</td></tr>
+<tr class="calibre16">
+<td class="calibre36">1</td><td class="calibre36">Global</td></tr>
+</tbody></table>
+<p class="endtd"></p>
+</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">ListenerRelativeRouting</b></td><td class="calibre36">Listener Relative Routing</td><td class="calibre36">bool</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">LoudnessNormalizationTarget</b></td><td class="calibre36">Loudness Normalization Target</td><td class="calibre36">Real64</td><td class="calibre36">-23</td><td class="calibre36">[ -96 , 0 ]</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">LoudnessNormalizationType</b></td><td class="calibre36">Loudness Normalization Type</td><td class="calibre36">int16</td><td class="calibre36">0</td><td class="calibre36"><p class="starttd"><b class="calibre13">Possible values :</b> </p>
+<table border="1" class="calibre49">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre36">Value </td><td class="calibre36">Display Name  </td></tr>
+<tr class="calibre16">
+<td class="calibre36">0</td><td class="calibre36">Integrated</td></tr>
+<tr class="calibre16">
+<td class="calibre36">1</td><td class="calibre36">Momentary Max</td></tr>
+</tbody></table>
+<p class="endtd"></p>
+</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">Lowpass</b></td><td class="calibre36">Voice LPF</td><td class="calibre36">int16</td><td class="calibre36">0</td><td class="calibre36">[ 0 , 100 ]</td><td class="calibre36">true</td><td class="calibre36">Additive</td><td class="calibre36">true </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">MakeUpGain</b></td><td class="calibre36">Make-Up Gain</td><td class="calibre36">Real64</td><td class="calibre36">0</td><td class="calibre36">[ -96 , 96 ]</td><td class="calibre36">true</td><td class="calibre36">Additive</td><td class="calibre36">true </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">MaxReachedBehavior</b></td><td class="calibre36">If Priority Equal</td><td class="calibre36">int16</td><td class="calibre36">0</td><td class="calibre36"><p class="starttd"><b class="calibre13">Possible values :</b> </p>
+<table border="1" class="calibre49">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre36">Value </td><td class="calibre36">Display Name  </td></tr>
+<tr class="calibre16">
+<td class="calibre36">0</td><td class="calibre36">Discard oldest</td></tr>
+<tr class="calibre16">
+<td class="calibre36">1</td><td class="calibre36">Discard newest</td></tr>
+</tbody></table>
+<p class="endtd"></p>
+</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">MaxSoundPerInstance</b></td><td class="calibre36">Sound Instance Limit</td><td class="calibre36">int16</td><td class="calibre36">50</td><td class="calibre36">[ 1 , 1000 ]</td><td class="calibre36">true</td><td class="calibre36">Exclusive</td><td class="calibre36">true </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">Metadata</b></td><td class="calibre36">Metadata</td><td class="calibre36">List</td><td class="calibre36"> </td><td class="calibre36"><p class="starttd"><b class="calibre13">Possible types :</b> </p>
+<table border="1" class="calibre49">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre36">MetadataSlot</td></tr>
+</tbody></table>
+<p class="endtd"></p>
+</td><td class="calibre36"> </td><td class="calibre36"> </td><td class="calibre36">  </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">MidiTarget</b></td><td class="calibre36">MIDI Target</td><td class="calibre36">Reference</td><td class="calibre36"> </td><td class="calibre36"><p class="starttd"><b class="calibre13">Possible types :</b> </p>
+<table border="1" class="calibre49">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre36">RandomSequenceContainer</td></tr>
+<tr class="calibre16">
+<td class="calibre36">SwitchContainer</td></tr>
+<tr class="calibre16">
+<td class="calibre36">BlendContainer</td></tr>
+<tr class="calibre16">
+<td class="calibre36">Sound</td></tr>
+</tbody></table>
+<p class="endtd"></p>
+</td><td class="calibre36">true</td><td class="calibre36"> </td><td class="calibre36">  </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">MidiTempoSource</b></td><td class="calibre36">MIDI Clip Tempo Source</td><td class="calibre36">int16</td><td class="calibre36">0</td><td class="calibre36"><p class="starttd"><b class="calibre13">Possible values :</b> </p>
+<table border="1" class="calibre49">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre36">Value </td><td class="calibre36">Display Name  </td></tr>
+<tr class="calibre16">
+<td class="calibre36">0</td><td class="calibre36">Hierarchy</td></tr>
+<tr class="calibre16">
+<td class="calibre36">1</td><td class="calibre36">File</td></tr>
+</tbody></table>
+<p class="endtd"></p>
+</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">OutputBus</b></td><td class="calibre36">Output Bus</td><td class="calibre36">Reference</td><td class="calibre36"> </td><td class="calibre36"><p class="starttd"><b class="calibre13">Possible types :</b> </p>
+<table border="1" class="calibre49">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre36">Bus</td></tr>
+</tbody></table>
+<p class="calibre7"><br class="calibre10"/>
+</p>
+<p class="endtd"><b class="calibre13">Must not be Null</b></p>
+</td><td class="calibre36">true</td><td class="calibre36"> </td><td class="calibre36">  </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">OutputBusDualshelf</b></td><td class="calibre36">Output Bus DSF</td><td class="calibre36">Real64</td><td class="calibre36">0</td><td class="calibre36">[ -200 , 200 ]</td><td class="calibre36">true</td><td class="calibre36">Additive</td><td class="calibre36">true </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">OutputBusHighpass</b></td><td class="calibre36">Output Bus HPF</td><td class="calibre36">int16</td><td class="calibre36">0</td><td class="calibre36">[ 0 , 100 ]</td><td class="calibre36">true</td><td class="calibre36">Additive</td><td class="calibre36">true </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">OutputBusLowpass</b></td><td class="calibre36">Output Bus LPF</td><td class="calibre36">int16</td><td class="calibre36">0</td><td class="calibre36">[ 0 , 100 ]</td><td class="calibre36">true</td><td class="calibre36">Additive</td><td class="calibre36">true </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">OutputBusVolume</b></td><td class="calibre36">Output Bus Volume</td><td class="calibre36">Real64</td><td class="calibre36">0</td><td class="calibre36">[ -200 , 200 ]</td><td class="calibre36">true</td><td class="calibre36">Additive</td><td class="calibre36">true </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">OverLimitBehavior</b></td><td class="calibre36">If Limit Reached</td><td class="calibre36">int16</td><td class="calibre36">0</td><td class="calibre36"><p class="starttd"><b class="calibre13">Possible values :</b> </p>
+<table border="1" class="calibre49">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre36">Value </td><td class="calibre36">Display Name  </td></tr>
+<tr class="calibre16">
+<td class="calibre36">0</td><td class="calibre36">Kill voice</td></tr>
+<tr class="calibre16">
+<td class="calibre36">1</td><td class="calibre36">Use virtual voice settings</td></tr>
+</tbody></table>
+<p class="endtd"></p>
+</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">OverrideAnalysis</b></td><td class="calibre36">Override Loudness Normalization</td><td class="calibre36">bool</td><td class="calibre36">false</td><td class="calibre36">None</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">OverrideClockSettings</b></td><td class="calibre36">Override Clock Settings</td><td class="calibre36">bool</td><td class="calibre36">false</td><td class="calibre36">None</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">OverrideColor</b></td><td class="calibre36">Override Color</td><td class="calibre36">bool</td><td class="calibre36">false</td><td class="calibre36">None</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">OverrideConversion</b></td><td class="calibre36">Override Conversion Settings</td><td class="calibre36">bool</td><td class="calibre36">false</td><td class="calibre36">None</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">OverrideEarlyReflections</b></td><td class="calibre36">Override Early Reflections Send</td><td class="calibre36">bool</td><td class="calibre36">false</td><td class="calibre36">None</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">OverrideEffect</b></td><td class="calibre36">Override Effects</td><td class="calibre36">bool</td><td class="calibre36">false</td><td class="calibre36">None</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">OverrideGameAuxSends</b></td><td class="calibre36">Override Game-Defined Auxiliary Sends</td><td class="calibre36">bool</td><td class="calibre36">false</td><td class="calibre36">None</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">OverrideHdrEnvelope</b></td><td class="calibre36">Override HDR Envelope</td><td class="calibre36">bool</td><td class="calibre36">false</td><td class="calibre36">None</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">OverrideMetadata</b></td><td class="calibre36">Override Metadata</td><td class="calibre36">bool</td><td class="calibre36">false</td><td class="calibre36">None</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">OverrideMidiTarget</b></td><td class="calibre36">Override MIDI Target</td><td class="calibre36">bool</td><td class="calibre36">false</td><td class="calibre36">None</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">OverrideMidiTempo</b></td><td class="calibre36">Override MIDI Clip Tempo</td><td class="calibre36">bool</td><td class="calibre36">false</td><td class="calibre36">None</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">OverrideOutput</b></td><td class="calibre36">Override Output Bus</td><td class="calibre36">bool</td><td class="calibre36">0</td><td class="calibre36">None</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">OverridePositioning</b></td><td class="calibre36">Override Positioning</td><td class="calibre36">bool</td><td class="calibre36">false</td><td class="calibre36">None</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">OverridePriority</b></td><td class="calibre36">Override Priority</td><td class="calibre36">bool</td><td class="calibre36">false</td><td class="calibre36">None</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">OverrideUserAuxSends</b></td><td class="calibre36">Override User-Defined Auxiliary Sends</td><td class="calibre36">bool</td><td class="calibre36">false</td><td class="calibre36">None</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">OverrideVirtualVoice</b></td><td class="calibre36">Override Virtual Voice</td><td class="calibre36">bool</td><td class="calibre36">false</td><td class="calibre36">None</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">PlaybackSpeed</b></td><td class="calibre36">Playback Speed</td><td class="calibre36">Real64</td><td class="calibre36">1</td><td class="calibre36">[ 0.25 , 4 ]</td><td class="calibre36">true</td><td class="calibre36">Multiplicative</td><td class="calibre36">true </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">PlaylistRoot</b></td><td class="calibre36">Playlist Root</td><td class="calibre36">Reference</td><td class="calibre36"> </td><td class="calibre36"><p class="starttd"><b class="calibre13">Possible types :</b> </p>
+<table border="1" class="calibre49">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre36">MusicPlaylistItem</td></tr>
+</tbody></table>
+<p class="calibre7"><br class="calibre10"/>
+</p>
+<p class="endtd"><b class="calibre13">Must not be Null</b></p>
+</td><td class="calibre36">false</td><td class="calibre36"> </td><td class="calibre36">  </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">Priority</b></td><td class="calibre36">Priority</td><td class="calibre36">int16</td><td class="calibre36">50</td><td class="calibre36">[ 0 , 100 ]</td><td class="calibre36">true</td><td class="calibre36">Additive</td><td class="calibre36">true </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">PriorityDistanceFactor</b></td><td class="calibre36">Use Offset Priority</td><td class="calibre36">bool</td><td class="calibre36">false</td><td class="calibre36">None</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">PriorityDistanceOffset</b></td><td class="calibre36">Offset at Max Distance</td><td class="calibre36">int16</td><td class="calibre36">-10</td><td class="calibre36">[ -100 , 100 ]</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">true </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">RTPC</b></td><td class="calibre36">RTPC</td><td class="calibre36">List</td><td class="calibre36"> </td><td class="calibre36"><p class="starttd"><b class="calibre13">Possible types :</b> </p>
+<table border="1" class="calibre49">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre36">RTPC</td></tr>
+</tbody></table>
+<p class="endtd"></p>
+</td><td class="calibre36"> </td><td class="calibre36"> </td><td class="calibre36">  </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">ReflectionsAuxSend</b></td><td class="calibre36">Early Reflections Auxiliary Send</td><td class="calibre36">Reference</td><td class="calibre36"> </td><td class="calibre36"><p class="starttd"><b class="calibre13">Possible types :</b> </p>
+<table border="1" class="calibre49">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre36">AuxBus</td></tr>
+</tbody></table>
+<p class="endtd"></p>
+</td><td class="calibre36">true</td><td class="calibre36"> </td><td class="calibre36">  </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">ReflectionsVolume</b></td><td class="calibre36">Early Reflections Send Volume</td><td class="calibre36">Real64</td><td class="calibre36">0</td><td class="calibre36">[ -200 , 200 ]</td><td class="calibre36">true</td><td class="calibre36">Additive</td><td class="calibre36">true </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">SpeakerPanning</b></td><td class="calibre36">Speaker Panning</td><td class="calibre36">int16</td><td class="calibre36">0</td><td class="calibre36"><p class="starttd"><b class="calibre13">Possible values :</b> </p>
+<table border="1" class="calibre49">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre36">Value </td><td class="calibre36">Display Name  </td></tr>
+<tr class="calibre16">
+<td class="calibre36">0</td><td class="calibre36">Direct Assignment</td></tr>
+<tr class="calibre16">
+<td class="calibre36">1</td><td class="calibre36">Balance-Fade</td></tr>
+<tr class="calibre16">
+<td class="calibre36">2</td><td class="calibre36">Steering</td></tr>
+</tbody></table>
+<p class="endtd"></p>
+</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">SpeakerPanning3DSpatializationMix</b></td><td class="calibre36">Speaker Panning / 3D Spatialization Mix</td><td class="calibre36">int32</td><td class="calibre36">100</td><td class="calibre36">[ 0 , 100 ]</td><td class="calibre36">true</td><td class="calibre36">Exclusive</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">Stingers</b></td><td class="calibre36">Music Stingers</td><td class="calibre36">List</td><td class="calibre36"> </td><td class="calibre36"><p class="starttd"><b class="calibre13">Possible types :</b> </p>
+<table border="1" class="calibre49">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre36">MusicStinger</td></tr>
+</tbody></table>
+<p class="endtd"></p>
+</td><td class="calibre36"> </td><td class="calibre36"> </td><td class="calibre36">  </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">Tempo</b></td><td class="calibre36">Tempo</td><td class="calibre36">Real64</td><td class="calibre36">120</td><td class="calibre36">[ 1 , 400 ]</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">TimeSignatureLower</b></td><td class="calibre36">Time Signature Lower</td><td class="calibre36">int16</td><td class="calibre36">4</td><td class="calibre36"><p class="starttd"><b class="calibre13">Possible values :</b> </p>
+<table border="1" class="calibre49">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre36">Value </td><td class="calibre36">Display Name  </td></tr>
+<tr class="calibre16">
+<td class="calibre36">1</td><td class="calibre36">1</td></tr>
+<tr class="calibre16">
+<td class="calibre36">2</td><td class="calibre36">2</td></tr>
+<tr class="calibre16">
+<td class="calibre36">4</td><td class="calibre36">4</td></tr>
+<tr class="calibre16">
+<td class="calibre36">8</td><td class="calibre36">8</td></tr>
+<tr class="calibre16">
+<td class="calibre36">16</td><td class="calibre36">16</td></tr>
+<tr class="calibre16">
+<td class="calibre36">32</td><td class="calibre36">32</td></tr>
+</tbody></table>
+<p class="endtd"></p>
+</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">TimeSignatureUpper</b></td><td class="calibre36">Time Signature Upper</td><td class="calibre36">int16</td><td class="calibre36">4</td><td class="calibre36">[ 1 , 64 ]</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">TransitionRoot</b></td><td class="calibre36">Transition Root</td><td class="calibre36">Reference</td><td class="calibre36"> </td><td class="calibre36"><p class="starttd"><b class="calibre13">Possible types :</b> </p>
+<table border="1" class="calibre49">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre36">MusicTransition</td></tr>
+</tbody></table>
+<p class="calibre7"><br class="calibre10"/>
+</p>
+<p class="endtd"><b class="calibre13">Must not be Null</b></p>
+</td><td class="calibre36">false</td><td class="calibre36"> </td><td class="calibre36">  </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">UseGameAuxSends</b></td><td class="calibre36">Use Game-Defined Auxiliary Sends</td><td class="calibre36">bool</td><td class="calibre36">false</td><td class="calibre36">None</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">UseMaxSoundPerInstance</b></td><td class="calibre36">Limit Sound Instances</td><td class="calibre36">bool</td><td class="calibre36">false</td><td class="calibre36">None</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">true </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">UserAuxSend0</b></td><td class="calibre36">User-Defined Auxiliary Send 0</td><td class="calibre36">Reference</td><td class="calibre36"> </td><td class="calibre36"><p class="starttd"><b class="calibre13">Possible types :</b> </p>
+<table border="1" class="calibre49">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre36">AuxBus</td></tr>
+</tbody></table>
+<p class="endtd"></p>
+</td><td class="calibre36">true</td><td class="calibre36"> </td><td class="calibre36">  </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">UserAuxSend1</b></td><td class="calibre36">User-Defined Auxiliary Send 1</td><td class="calibre36">Reference</td><td class="calibre36"> </td><td class="calibre36"><p class="starttd"><b class="calibre13">Possible types :</b> </p>
+<table border="1" class="calibre49">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre36">AuxBus</td></tr>
+</tbody></table>
+<p class="endtd"></p>
+</td><td class="calibre36">true</td><td class="calibre36"> </td><td class="calibre36">  </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">UserAuxSend2</b></td><td class="calibre36">User-Defined Auxiliary Send 2</td><td class="calibre36">Reference</td><td class="calibre36"> </td><td class="calibre36"><p class="starttd"><b class="calibre13">Possible types :</b> </p>
+<table border="1" class="calibre49">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre36">AuxBus</td></tr>
+</tbody></table>
+<p class="endtd"></p>
+</td><td class="calibre36">true</td><td class="calibre36"> </td><td class="calibre36">  </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">UserAuxSend3</b></td><td class="calibre36">User-Defined Auxiliary Send 3</td><td class="calibre36">Reference</td><td class="calibre36"> </td><td class="calibre36"><p class="starttd"><b class="calibre13">Possible types :</b> </p>
+<table border="1" class="calibre49">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre36">AuxBus</td></tr>
+</tbody></table>
+<p class="endtd"></p>
+</td><td class="calibre36">true</td><td class="calibre36"> </td><td class="calibre36">  </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">UserAuxSendHPF0</b></td><td class="calibre36">User-Defined Auxiliary HPF 0</td><td class="calibre36">int16</td><td class="calibre36">0</td><td class="calibre36">[ 0 , 100 ]</td><td class="calibre36">true</td><td class="calibre36">Additive</td><td class="calibre36">true </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">UserAuxSendHPF1</b></td><td class="calibre36">User-Defined Auxiliary HPF 1</td><td class="calibre36">int16</td><td class="calibre36">0</td><td class="calibre36">[ 0 , 100 ]</td><td class="calibre36">true</td><td class="calibre36">Additive</td><td class="calibre36">true </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">UserAuxSendHPF2</b></td><td class="calibre36">User-Defined Auxiliary HPF 2</td><td class="calibre36">int16</td><td class="calibre36">0</td><td class="calibre36">[ 0 , 100 ]</td><td class="calibre36">true</td><td class="calibre36">Additive</td><td class="calibre36">true </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">UserAuxSendHPF3</b></td><td class="calibre36">User-Defined Auxiliary HPF 3</td><td class="calibre36">int16</td><td class="calibre36">0</td><td class="calibre36">[ 0 , 100 ]</td><td class="calibre36">true</td><td class="calibre36">Additive</td><td class="calibre36">true </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">UserAuxSendLPF0</b></td><td class="calibre36">User-Defined Auxiliary LPF 0</td><td class="calibre36">int16</td><td class="calibre36">0</td><td class="calibre36">[ 0 , 100 ]</td><td class="calibre36">true</td><td class="calibre36">Additive</td><td class="calibre36">true </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">UserAuxSendLPF1</b></td><td class="calibre36">User-Defined Auxiliary LPF 1</td><td class="calibre36">int16</td><td class="calibre36">0</td><td class="calibre36">[ 0 , 100 ]</td><td class="calibre36">true</td><td class="calibre36">Additive</td><td class="calibre36">true </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">UserAuxSendLPF2</b></td><td class="calibre36">User-Defined Auxiliary LPF 2</td><td class="calibre36">int16</td><td class="calibre36">0</td><td class="calibre36">[ 0 , 100 ]</td><td class="calibre36">true</td><td class="calibre36">Additive</td><td class="calibre36">true </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">UserAuxSendLPF3</b></td><td class="calibre36">User-Defined Auxiliary LPF 3</td><td class="calibre36">int16</td><td class="calibre36">0</td><td class="calibre36">[ 0 , 100 ]</td><td class="calibre36">true</td><td class="calibre36">Additive</td><td class="calibre36">true </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">UserAuxSendVolume0</b></td><td class="calibre36">User-Defined Auxiliary Send Volume 0</td><td class="calibre36">Real64</td><td class="calibre36">0</td><td class="calibre36">[ -200 , 200 ]</td><td class="calibre36">true</td><td class="calibre36">Additive</td><td class="calibre36">true </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">UserAuxSendVolume1</b></td><td class="calibre36">User-Defined Auxiliary Send Volume 1</td><td class="calibre36">Real64</td><td class="calibre36">0</td><td class="calibre36">[ -200 , 200 ]</td><td class="calibre36">true</td><td class="calibre36">Additive</td><td class="calibre36">true </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">UserAuxSendVolume2</b></td><td class="calibre36">User-Defined Auxiliary Send Volume 2</td><td class="calibre36">Real64</td><td class="calibre36">0</td><td class="calibre36">[ -200 , 200 ]</td><td class="calibre36">true</td><td class="calibre36">Additive</td><td class="calibre36">true </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">UserAuxSendVolume3</b></td><td class="calibre36">User-Defined Auxiliary Send Volume 3</td><td class="calibre36">Real64</td><td class="calibre36">0</td><td class="calibre36">[ -200 , 200 ]</td><td class="calibre36">true</td><td class="calibre36">Additive</td><td class="calibre36">true </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">VirtualVoiceQueueBehavior</b></td><td class="calibre36">On Return to Physical Voice</td><td class="calibre36">int16</td><td class="calibre36">1</td><td class="calibre36"><p class="starttd"><b class="calibre13">Possible values :</b> </p>
+<table border="1" class="calibre49">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre36">Value </td><td class="calibre36">Display Name  </td></tr>
+<tr class="calibre16">
+<td class="calibre36">0</td><td class="calibre36">Play from beginning</td></tr>
+<tr class="calibre16">
+<td class="calibre36">1</td><td class="calibre36">Play from elapsed time</td></tr>
+<tr class="calibre16">
+<td class="calibre36">2</td><td class="calibre36">Resume</td></tr>
+</tbody></table>
+<p class="endtd"></p>
+</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">Volume</b></td><td class="calibre36">Voice Volume</td><td class="calibre36">Real64</td><td class="calibre36">0</td><td class="calibre36">[ -200 , 200 ]</td><td class="calibre36">true</td><td class="calibre36">Additive</td><td class="calibre36">true </td></tr>
+</tbody></table>
+ <p class="calibre7"></p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

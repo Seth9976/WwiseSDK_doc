@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2022.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_4"><a class="pcalibre1 anchor" id="SpatialAudioGeometry_changes_2022_1"></a>
+Spatial Audio Geometry Instances</h1>
+<p class="calibre7">In 2022.1, Spatial Audio supports Geometry Instances. A Geometry Instance allows the user to create multiple copies of a Geometry Set, each with its own position, scale, and orientation. Calling <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_a0cada36fab682ebb3005a79dd05a5640_split_000.html#a0cada36fab682ebb3005a79dd05a5640">AK::SpatialAudio::SetGeometry</a></code> passes the geometry data to Wwise Spatial Audio, but it is no longer added to the scene without creating a Geometry Instance. It is necessary to call to <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_ac2d5e660de0cc2a323d50f44a2731fa9_split_000.html#ac2d5e660de0cc2a323d50f44a2731fa9">AK::SpatialAudio::SetGeometryInstance</a></code> to create a Geometry Instance for each Geometry Set that is to be added to the scene for acoustic simulation.</p>
+</div></div></div></body></html>

@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2019.2</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_5"><a class="pcalibre1 anchor" id="migration_19_2_memmgr"></a>
+New Memory Manager</h1>
+<p class="calibre7">Reflecting the changes described in <a class="pcalibre el" href="whatsnew_2019_2_new_features_split_015.html#features_19_2_memory_categories">Memory Categories Replace and Expand Memory Pools</a>, several related interfaces have been modified.</p>
+<p class="calibre7">On the <a class="pcalibre el" href="namespace_a_k_1_1_memory_mgr_split_000.html">AK::MemoryMgr</a> interface (<a class="pcalibre el" href="_ak_memory_mgr_8h_split_000.html">AkMemoryMgr.h</a>):</p>
+<ul class="calibre8">
+<li class="calibre9">Added debugging function <a class="pcalibre el" href="namespace_a_k_1_1_memory_mgr_ada579cbaf74944b6fb35d31d352bff66_split_000.html#ada579cbaf74944b6fb35d31d352bff66">AK::MemoryMgr::dRealloc</a> as an instrumented counterpart to <a class="pcalibre el" href="namespace_a_k_1_1_memory_mgr_a3713e20d272952a685bf42419a1dd6d3_split_000.html#a3713e20d272952a685bf42419a1dd6d3">AK::MemoryMgr::Realloc</a>.</li>
+<li class="calibre9">Replaced profiling functions AK::MemoryMgr::GetPoolStats and AK::MemoryMgr::GetPoolMemoryUsed with <a class="pcalibre el" href="namespace_a_k_1_1_memory_mgr_a4a00138319c6ee33a6a4c896cabcea34_split_000.html#a4a00138319c6ee33a6a4c896cabcea34">AK::MemoryMgr::GetCategoryStats</a> and <a class="pcalibre el" href="namespace_a_k_1_1_memory_mgr_a49ab92c52b9afa8e034863f2cdd2209e_split_000.html#a49ab92c52b9afa8e034863f2cdd2209e">AK::MemoryMgr::GetGlobalStats</a>.</li>
+<li class="calibre9">Modified return value of <a class="pcalibre el" href="namespace_a_k_1_1_memory_mgr_a6ee20149a37b11b31589c6f23f46db65_split_000.html#a6ee20149a37b11b31589c6f23f46db65">AK::MemoryMgr::Free</a> and AK::MemoryMgr::Falign.</li>
+<li class="calibre9">Removed AkMemPoolId argument from profiling functions <a class="pcalibre el" href="namespace_a_k_1_1_memory_mgr_a83fc28efeaf65ff66ba6011d31f7db92_split_000.html#a83fc28efeaf65ff66ba6011d31f7db92">AK::MemoryMgr::StartProfileThreadUsage</a>, and <a class="pcalibre el" href="namespace_a_k_1_1_memory_mgr_ac01c971988f35fbbdd2db5ed8b056aee_split_000.html#ac01c971988f35fbbdd2db5ed8b056aee">AK::MemoryMgr::StopProfileThreadUsage</a> (allocations in all memory categories are collected for the specified thread).</li>
+<li class="calibre9">Removed pool-related functions AK::MemoryMgr::CreatePool, AK::MemoryMgr::DestroyPool, AK::MemoryMgr::GetNumPools, AK::MemoryMgr::GetMaxPools, AK::MemoryMgr::CheckPoolId, AK::MemoryMgr::GetPoolAttributes, AK::MemoryMgr::SetPoolName, and AK::MemoryMgr::GetPoolName.</li>
+<li class="calibre9">Removed block allocation functions AK::MemoryMgr::GetBlock, AK::MemoryMgr::ReleaseBlock, and AK::MemoryMgr::GetBlockSize.</li>
+<li class="calibre9">Removed debugging functions AK::MemoryMgr::CheckForOverwrite and <a class="pcalibre el" href="namespace_a_k_1_1_memory_mgr_a4f48ed6707ab2f2341f4a81f1c6053d7_split_000.html#a4f48ed6707ab2f2341f4a81f1c6053d7">AK::MemoryMgr::DumpToFile</a>.</li>
+</ul>
+<p class="calibre7">In the default implementation of <a class="pcalibre el" href="namespace_a_k_1_1_memory_mgr_split_000.html">AK::MemoryMgr</a> (AkModule.h):</p>
+<ul class="calibre8">
+<li class="calibre9">Added function <a class="pcalibre el" href="namespace_a_k_1_1_memory_mgr_ada3c244e4c16e6863cec97eef039319b_split_000.html#ada3c244e4c16e6863cec97eef039319b" title="Obtain the default initialization settings for the default implementation of the Memory Manager.">AK::MemoryMgr::GetDefaultSettings</a>.</li>
+<li class="calibre9">Modified structure <a class="pcalibre el" href="struct_ak_mem_settings_split_000.html">AkMemSettings</a>.</li>
+</ul>
+<p class="calibre7">On other interfaces, due to the removal of pools:</p>
+<ul class="calibre8">
+<li class="calibre9">Modified <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">AK::SoundEngine::LoadBank</a> and <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ac91406bc2fe061e4248cb448207b5a64_split_000.html#ac91406bc2fe061e4248cb448207b5a64">AK::SoundEngine::UnloadBank</a>: renamed "from memory" overloads to <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a7e8069027779f518a2049dffbb8ecbcb_split_000.html#a7e8069027779f518a2049dffbb8ecbcb">AK::SoundEngine::LoadBankMemoryView</a> and <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ac16591355aef3ffaf2f8e9ac7a5b95ad_split_000.html#ac16591355aef3ffaf2f8e9ac7a5b95ad">AK::SoundEngine::LoadBankMemoryCopy</a> for clarity.</li>
+<li class="calibre9">Removed AkCommSettings::uPoolSize.</li>
+<li class="calibre9">Removed AkInitSettings::uDefaultPoolSize, AkInitSettings::fDefaultPoolRatioThreshold, AkInitSettings::uPrepareEventMemoryPoolID, and AkInitSettings::uMonitorPoolSize.</li>
+<li class="calibre9">Removed AkPlatformInitSettings::fLEngineDefaultPoolRatioThreshold and AkPlatformInitSettings::uLEngineDefaultPoolSize.</li>
+<li class="calibre9">Removed AkStreamMgrSettings::uMemorySize.</li>
+<li class="calibre9">Removed AK::StreamMgr::GetPoolID.</li>
+</ul>
+</div></div></div></body></html>

@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>C++ - WAMP</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="waa_cpp_sample_whatIsProvided"></a>
+C++ client and WAMP library</h1>
+<p class="calibre7">This sample contains the AkAutobahn library, which is a modified version of the WAMP_POCO library (itself based on Autobahn|Cpp), civetweb library and the <code class="calibre14">Client</code> class. AkAutobahn is provided as part of the Wwise SDK. The class <code class="calibre14">Client</code> provides a simple interface to our API, internally using the "session" class to connect to Wwise Authoring using the WAMP protocol. Feel free to use the <code class="calibre14">Client</code> as-is or modify it to better suit your needs.</p>
+<p class="calibre7">Out of convenience, the <code class="calibre14">Client</code> class uses blocking calls (by calling std::future::get). Therefore, the caller thread gets blocked until Wwise Authoring provides a result. A timeout parameter is available to block for only a specific amount of time. The "session" class returns std::future for thread synchronization, which means that you could implement your own asynchronous version of the <code class="calibre14">Client</code> class if it better suits your needs.</p>
+<p class="calibre7">The <code class="calibre14">Client</code> class does not support being called from within a callback. In other words, you should not call a method of <code class="calibre14">Client</code> when <code class="calibre14">Client</code> is already calling you.</p>
+</div></div></div></body></html>

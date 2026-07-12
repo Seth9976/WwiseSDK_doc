@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Windows and Windows UWP 2022.1.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="windows_behavior_changes_2022_1_1"></a>
+Behavior Changes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-61311</b> The System Output Device on Xbox and Windows platforms now distinguishes between Headphones and Home Theater configurations when 3D Audio is enabled. This includes acknowledging the Headphones and Home Theater configurations in the System Output Settings ShareSet where appropriate, as well as avoiding the creation of a passthrough mix when a Home Theater configuration is detected. Note that when the System output does not create a passthrough mix, all signals intended for passthrough mixes are instead directed to the main mix. In practice, this allows for scenarios such as having a 7.1 signal sent to a bus configured as <b class="calibre13">Same as passthrough</b> to undergo a stereo downmix for a passthrough output when headphones are the detected configuration, or the signal could be directly mixed to a 7.1.4 speaker bed when home theater is the detected configuration. The quality of passthrough mixes for headphone outputs has also been improved, as they no longer undergo virtual surround sound processing on Xbox, providing mixing results in line with other platforms.</li>
+</ul>
+</div></div></div></body></html>

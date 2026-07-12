@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2017.2</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_9"><a class="pcalibre1 anchor" id="dry_path_removal"></a>
+Aux busses will now process the dry signal</h2>
+<p class="calibre7">In Wwise 2017.2, Auxiliary Busses will now process the dry signal; it will not be ignored. A migration was put in place to mute the dry signal of affected Effects that are placed on aux busses. The Effects affected by this change are:</p><ul class="calibre8">
+<li class="calibre9">Wwise RoomVerb</li>
+<li class="calibre9">Wwise Convolution Reverb</li>
+<li class="calibre9">Wwise Matrix Reverb</li>
+<li class="calibre9">Wwise Reflect</li>
+<li class="calibre9">Wwise Delay</li>
+<li class="calibre9">Wwise Harmonizer</li>
+<li class="calibre9">Wwise Pitch Shifter</li>
+<li class="calibre9">Wwise Stereo Delay</li>
+<li class="calibre9">iZotope Hybrid Reverb</li>
+</ul>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="caution.gif"/></td><td class="calibre17"><b class="calibre13">Caution:</b> If an Effect is applied to an aux bus and another type of medium, it will also be muted, which may change the behavior of your project. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

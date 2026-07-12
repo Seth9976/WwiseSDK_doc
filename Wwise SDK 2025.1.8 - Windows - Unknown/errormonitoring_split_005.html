@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Monitoring Errors</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_4"><a class="pcalibre1 anchor" id="new_error_message_translator"></a>
+Creating a New Error Message Translator</h2>
+<p class="calibre7">If needed, it's possible to create a new error message translator. Simply create a new class that inherits from the AssistedErrorMessageTranslator interface.</p>
+<p class="calibre7">This class has two abstract methods:</p>
+<ul class="calibre8">
+<li class="calibre9"><code class="calibre14">InitConnection()</code>: Makes sure the connection to the external source was successful (i.e., ensures the translator is ready to be used)</li>
+<li class="calibre9"><code class="calibre14">GetInfoFromExternalSource()</code>: Determines what to do with a given tag</li>
+</ul>
+<p class="calibre7">Your new translator doesn't need to handle all tags. It can rely on the next translator in the stack.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> If the new translator implements a way to handle the $p tag, make sure it handles both arguments: Plugin Id and ShareSet Id. See the ParseWwiseTag example in AkDefaultErrorMessageTranslator.cpp. </td></tr>
+</tbody></table>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

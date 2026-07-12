@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::IAkOutOfPlaceObjectPlugin::Execute</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="class_a_k_1_1_i_ak_out_of_place_object_plugin_a762b09e1978f3eabdebea17e84581f5a_split_000.html#a762b09e1978f3eabdebea17e84581f5a" class="pcalibre1 anchor">◆ </a></span>Execute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="calibre3">
+  <tbody class="calibre4"><tr class="calibre16">
+  <td class="calibre17">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">virtual void AK::IAkOutOfPlaceObjectPlugin::Execute </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype">const <a class="pcalibre el" href="struct_ak_audio_objects_split_000.html">AkAudioObjects</a> &amp; </td>
+          <td class="paramname"><em class="calibre59">in_objects</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">const <a class="pcalibre el" href="struct_ak_audio_objects_split_000.html">AkAudioObjects</a> &amp; </td>
+          <td class="paramname"><em class="calibre59">out_objects</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="calibre17">
+<span><span>pure virtual</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Out-of-place object processor plug-in DSP execution. </p><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> When running out-of-place, the effect must only update uValidFrames and eState fields of output objects. When the object processor sets an output object's eState field to AK_NoMoreData, the host will garbage collect them afterwards. </td></tr>
+</tbody></table>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="warning.gif"/></td><td class="calibre17"><b class="calibre13">Warning:</b> If an out-of-place object processor calls <a class="pcalibre el" href="class_a_k_1_1_i_ak_effect_plugin_context_a96f65eb02b520f2ca5af497e645971a0_split_000.html#a96f65eb02b520f2ca5af497e645971a0">AK::IAkEffectPluginContext::CreateOutputObjects</a> from within Execute, it must not access the output objects passed in out_objects, as the pointed objects may have moved elsewhere in memory. In that case it must use <a class="pcalibre el" href="class_a_k_1_1_i_ak_effect_plugin_context_ad0b9c549569b25dea349d2a352f02e58_split_000.html#ad0b9c549569b25dea349d2a352f02e58">AK::IAkEffectPluginContext::GetOutputObjects</a>. Arguments in_pObjectBuffersOut and in_pObjectsOut can only be safely used if the plugin creates objects during Init, either via <a class="pcalibre el" href="class_a_k_1_1_i_ak_effect_plugin_context_a96f65eb02b520f2ca5af497e645971a0_split_000.html#a96f65eb02b520f2ca5af497e645971a0">AK::IAkEffectPluginContext::CreateOutputObjects</a>, or by setting the channelConfig field of io_rFormat to a normal channel configuration (i.e. whose eConfigType is not AK_ChannelConfigType_Objects). </td></tr>
+</tbody></table>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><a class="pcalibre el" href="class_a_k_1_1_i_ak_effect_plugin_ae5a44837c4adddf6ff58fab57453b020_split_000.html#ae5a44837c4adddf6ff58fab57453b020">AK::IAkEffectPlugin::Init</a>. </dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_objects</td><td class="calibre17">Input objects and object audio buffers. </td></tr>
+    <tr class="calibre16"><td class="paramname">out_objects</td><td class="calibre17">Output objects and object audio buffers. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

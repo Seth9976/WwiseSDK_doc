@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2019.2.6</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="generic_bugs_2019_2_6"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-46457</b> Fixed: The camera list in the Game Object 3D Viewer contains duplicate entries.</li>
+<li class="calibre9"><b class="calibre13">WG-47032</b> Fixed: Running multiple instances of WwiseConsole simultaneously could result in file conversion failure.</li>
+<li class="calibre9"><b class="calibre13">WG-47776</b> Fixed: Busses with States on BusVolume may incorrectly apply volume changes to child busses. In such cases, the volume change is applied to the child bus's BusVolume, as opposed to its OutputBusVolume.</li>
+<li class="calibre9"><b class="calibre13">WG-48729</b> Fixed: Occasional crash in Voice Inspector when moving the profiler cursor.</li>
+<li class="calibre9"><b class="calibre13">WG-49826</b> Fixed: Copying a transition within a Music Switch Container doesn't copy its source and destination.</li>
+<li class="calibre9"><b class="calibre13">WG-49993</b> Fixed: Transitions are not properly reported by the Voice Inspector when a game object is destroyed during a transition.</li>
+<li class="calibre9"><b class="calibre13">WG-50097</b> Fixed: Wwise Pitch Shifter plug-in input not displayed correctly.</li>
+<li class="calibre9"><b class="calibre13">WG-50164</b> Fixed: Spatial Audio Room reverb tails and early reflection tails are truncated when a single short sound is played on an emitter game object behind a portal, after the listener moves.</li>
+<li class="calibre9"><b class="calibre13">WG-50229</b> Fixed: The "On return to physical voice" check box was erroneously grayed out in the virtual voices options when the "Virtual voice behavior" was set to "kill if finite else virtual".</li>
+<li class="calibre9"><b class="calibre13">WG-50260</b> Fixed: Spatial Audio diffraction angles close to 180 degrees result in 0% diffraction.</li>
+<li class="calibre9"><b class="calibre13">WG-50378</b> Fixed: Spatial Audio: Low memory crash when allocating internal data structures.</li>
+<li class="calibre9"><b class="calibre13">WG-50399</b> Fixed: Slow leak when running Profile or Debug versions of the sound engine when using Spatial Audio features without authoring connected to the game.</li>
+<li class="calibre9"><b class="calibre13">WG-50415</b> Fixed: Filtering in Game Sync Monitor is not working as expected.</li>
+<li class="calibre9"><b class="calibre13">WG-50506</b> Fixed stuttering when MS Spatial driver failed.</li>
+<li class="calibre9"><b class="calibre13">WG-50508</b> Fixed: The PluginName field in the work unit's XML is lost when using the navigator buttons in the Effects list.</li>
+<li class="calibre9"><b class="calibre13">WG-50510</b> Fixed: RTPC on Game Aux Send Value and User Aux Send Value are not clamped, resulting in out-of-range audio samples.</li>
+<li class="calibre9"><b class="calibre13">WG-50511</b> Fixed: Crash when attempting to write in a folder for which the user does not have permissions.</li>
+<li class="calibre9"><b class="calibre13">WG-50514</b> Fixed: Crash when dragging objects from the Voices tab of the Advanced Profiler.</li>
+<li class="calibre9"><b class="calibre13">WG-50515</b> Fixed: Possible crash when generating banks with Max Radius data option and missing events.</li>
+<li class="calibre9"><b class="calibre13">WG-50526</b> Fixed: Win32 ATOM leak when using WwiseConsole.exe.</li>
+<li class="calibre9"><b class="calibre13">WG-50536</b> Fixed: Wwise Pitch Shifter plug-in input and harmonizer not displayed correctly.</li>
+<li class="calibre9"><b class="calibre13">WG-50569</b> Fixed: Crash in Vorbis decoder when files have a channel count greater than 10.</li>
+<li class="calibre9"><b class="calibre13">WG-50638</b> Fixed: Access violation when playing a Music Switch Container with an empty association list.</li>
+<li class="calibre9"><b class="calibre13">WG-50672</b> Fixed: ActionSetState and ActionSetSwitch in the SoundBanksInfo.xsd Schema are inverted.</li>
+<li class="calibre9"><b class="calibre13">WG-50691</b> Fixed: Actuator Configuration in Motion Source plug-in does not properly respect platform linkages.</li>
+<li class="calibre9"><b class="calibre13">WG-50732</b> Fixed: Freeze when generating banks into a directory where the user does not have write access.</li>
+<li class="calibre9"><b class="calibre13">WG-50758</b> Fixed: RTPC tab of Actor-Mixer hierarchy objects shows unrelated game object values during capture.</li>
+<li class="calibre9"><b class="calibre13">WG-50839</b> Fixed: Izotope plug-ins do not support all channel configurations. (Reverb and Box Modeler are unchanged). </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

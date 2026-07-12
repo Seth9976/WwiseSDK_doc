@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Using the Geometry API for Simulating Diffraction and Transmission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_8"><a class="pcalibre1 anchor" id="spatial_audio_apigeometry_diffract_er"></a>
+Geometric Diffraction of Early Reflections</h1>
+<p class="calibre7">Refer to the Reflect Diffraction demo and its code in the <a class="pcalibre el" href="soundengine_integration_samplecode_split_000.html">Integration Demo Sample</a> (in <em class="calibre11">SDK/samples/IntegrationDemo</em>) for an example of using geometry for the purpose of geometric diffraction of Early Reflections. Look for Spatial Audio Demos &gt; Reflect Demo.</p>
+<p class="calibre7">As was noted above, early reflections may diffract off of edges, and Wwise Acoustics supports modeling this phenomenon when emitters are routed to Reflect.</p>
+<p class="calibre7">Prior to explaining how to do it, we need to define view zone diffraction.</p>
+<p class="calibre7">Consider the figure below. The emitter is in direct sight of the listener, but the listener is not hit by specular reflections. It is thus in the <b class="calibre13">view zone</b>. As was said in <a class="pcalibre el" href="spatial_audio_concepts_split_001.html#spatial_audio_concepts_diffraction">Diffraction</a>, diffraction occurs in the view zone as well. However, in Wwise Acoustics, neither the Rooms and Portals or Geometric Diffraction of direct path models consider diffraction in the view zone, as it is negligible compared to the actual direct path. However, for reflections, view zone diffraction has a dramatic impact. Without diffraction, early reflections are heard in the reflection zone only, where they are purely specular. As soon as the listener enters the view zone, reflections become silent. With diffraction enabled, the edge contributes to diffract the reflected wave. Thus, the listener perceives the reflection, albeit with additional filtering and attenuation as they go around and away from the reflection zone.</p>
+<div class="calibre2">
+<img alt="" src="reflection_diffraction_2.png" class="inline"/>
+</div>
+<p class="calibre7">In the reflection zone, there is no diffracted path and, therefore, no diffraction value is calculated, because the specular reflection is assumed to take over. The calculated view zone diffraction of a given edge is 0% at the boundary between the reflection zone and the view zone, and 100% at the boundary between the view zone and the shadow zone.</p>
+<p class="calibre7">With higher orders of early reflections, both view and shadow zone diffraction come into play.</p>
+</div></div></div></body></html>

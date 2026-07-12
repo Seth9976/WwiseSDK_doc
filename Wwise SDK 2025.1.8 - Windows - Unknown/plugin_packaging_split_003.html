@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Plug-in Packaging Format for the Audiokinetic Launcher</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_2"><a class="pcalibre1 anchor" id="plugin_packaging_bundle_dir_struct"></a>
+Bundle directory structure</h2>
+<p class="calibre7">A plug-in bundle is a flat directory or archive that can contain any combination of the following files (no files are mandatory except for bundle.json).</p>
+<table border="1" cellpadding="10" cellspacing="0" width="800px" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre17"><b class="calibre13"><div class="calibre18" style="text-align:center">bundle.json</div></b> </td><td class="calibre17"><p class="starttd">Plug-in bundle description file. <br class="calibre10"/>
+ <b class="calibre13">This file is mandatory.</b>  </p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre17"><b class="calibre13"><div class="calibre18" style="text-align:center">Authoring.tar.xz</div></b> </td><td class="calibre17"><p class="starttd">Package containing all authoring files, including binary, data, and legal notice files. This package can actually be separated in several files if required. Ex: You could split the Data, Binary, and Documentation. However, all packages will always be installed. </p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre17"><b class="calibre13"><div class="calibre18" style="text-align:center">SDK.tar.xz</div></b> </td><td class="calibre17"><p class="starttd">Package containing all non-platform specific SDK files, including the plug-in header files. </p>
+<p class="endtd"></p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre17"><b class="calibre13"><div class="calibre18" style="text-align:center">SDK_&lt;DeploymentPlatforms&gt;.tar.xz</div></b> </td><td class="calibre17"><p class="starttd">Wwise SDK plug-in files specific to a deployment platform. <br class="calibre10"/>
+ <b class="calibre13">Note:</b> The name scheme is only used as a demonstration. No name is mandatory. We are actually using the group/value association to match with specific platforms.  </p>
+<p class="endtd"></p>
+</td></tr>
+</tbody></table>
+<p class="calibre7"><br class="calibre10"/>
+</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> <b class="calibre13">Archive format</b> <br class="calibre10"/>
+ The archive files present inside of a bundle must be provided in the TAR.XZ or ZIP formats and will be extracted by the Audiokinetic Launcher using the metadata specified inside of the bundle.json file. Note that the bundle itself can also be given to the Audiokinetic Launcher as a .tar.xz archive (instead of a folder). </td></tr>
+</tbody></table>
+<p class="calibre7">The folder structure inside of these archives must respect the following format. Please note that we only support 64-bit plug-ins in Wwise Authoring. We removed 32-bit support with Wwise 2017.2.</p>
+<div class="fragment"><div class="line">PluginName/</div>
+<div class="line">├── bundle.json</div>
+<div class="line">│  </div>
+<div class="line">├── Authoring.tar.xz</div>
+<div class="line">│   └── Authoring</div>
+<div class="line">│       ├── Help</div>
+<div class="line">│       ├── Data</div>
+<div class="line">│       |   └── Factory Assets</div>
+<div class="line">│       |       └── PluginName</div>
+<div class="line">│       └── x64</div>
+<div class="line">│           └── Release</div>
+<div class="line">│               └── bin</div>
+<div class="line">│                   └── plugins</div>
+<div class="line">│</div>
+<div class="line">├── SDK.tar.xz</div>
+<div class="line">│   └── SDK</div>
+<div class="line">│       └── include</div>
+<div class="line">│           └── <a class="pcalibre code" href="namespace_a_k_split_000.html">AK</a></div>
+<div class="line">|               └── Plugin</div>
+<div class="line">│  </div>
+<div class="line">└── SDK_&lt;DeploymentPlatforms&gt;.tar.xz</div>
+<div class="line">    └── SDK</div>
+<div class="line">        └── &lt;SDKPlatforms&gt;</div>
+<div class="line">            ├── Release</div>
+<div class="line">            |   ├── bin</div>
+<div class="line">            |   └── lib</div>
+<div class="line">            ├── Debug</div>
+<div class="line">            |   ├── bin</div>
+<div class="line">            |   └── lib</div>
+<div class="line">            └── Profile</div>
+<div class="line">                ├── bin</div>
+<div class="line">                └── lib</div>
+</div><!-- fragment --><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> <b class="calibre13">Legal Notice</b> <br class="calibre10"/>
+ Plug-in programmers should copy any Legal Notice related to their plug-in code here: \Authoring\x64\Release\bin\plugins\PluginName.txt </td></tr>
+</tbody></table>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="plugin_packaging_tree_example"></a>
+Example</h3>
+<p class="calibre7">Here is an example of a plug-in bundle supporting the Wwise Authoring as well as the Linux_x32 and Linux_x64 Wwise SDK platforms.</p>
+<div class="fragment"><div class="line">PluginName/</div>
+<div class="line">├── bundle.json</div>
+<div class="line">│  </div>
+<div class="line">├── Authoring.tar.xz</div>
+<div class="line">│   └── Authoring</div>
+<div class="line">│       ├── Help</div>
+<div class="line">│       |   └── PluginName_UserGuide.pdf</div>
+<div class="line">│       ├── Data</div>
+<div class="line">│       |   └── Factory Assets</div>
+<div class="line">│       |       └── PluginName</div>
+<div class="line">│       |           ├── Manifest.xml</div>
+<div class="line">│       |           └── ...</div>
+<div class="line">│       └── x64</div>
+<div class="line">│           └── Release</div>
+<div class="line">│               └── bin</div>
+<div class="line">│                   └── plugins</div>
+<div class="line">│                       ├── PluginName.dll</div>
+<div class="line">│                       ├── PluginName.xml</div>
+<div class="line">│                       └── PluginName.txt</div>
+<div class="line">├── SDK.tar.xz</div>
+<div class="line">│   └── SDK</div>
+<div class="line">│       └── include</div>
+<div class="line">│           └── <a class="pcalibre code" href="namespace_a_k_split_000.html">AK</a></div>
+<div class="line">|               └── Plugin</div>
+<div class="line">|                   └──  PluginName.h</div>
+<div class="line">│  </div>
+<div class="line">└── SDK_Linux.tar.xz</div>
+<div class="line">    └── SDK</div>
+<div class="line">        ├── Linux_x32</div>
+<div class="line">        |    ├── Release</div>
+<div class="line">        |    |   ├── bin</div>
+<div class="line">        |    |   |   └──  libPluginName.so</div>
+<div class="line">        |    |   └── lib</div>
+<div class="line">        |    |       └──  libPluginNameFX.a</div>
+<div class="line">        |    ├── Debug</div>
+<div class="line">        |    |   ├── bin</div>
+<div class="line">        |    |   |   └──  libPluginName.so</div>
+<div class="line">        |    |   └── lib</div>
+<div class="line">        |    |   |   └──  libPluginNameFX.a</div>
+<div class="line">        |    └── Profile</div>
+<div class="line">        |        ├── bin</div>
+<div class="line">        |        |   └──  libPluginName.so</div>
+<div class="line">        |        └── lib</div>
+<div class="line">        |            └──  libPluginNameFX.a</div>
+<div class="line">        └── Linux_x64</div>
+<div class="line">            ├── Release</div>
+<div class="line">            |   ├── bin</div>
+<div class="line">            |   |   └──  libPluginName.so</div>
+<div class="line">            |   └── lib</div>
+<div class="line">            |       └──  libPluginNameFX.a</div>
+<div class="line">            ├── Debug</div>
+<div class="line">            |   ├── bin</div>
+<div class="line">            |   |   └──  libPluginName.so</div>
+<div class="line">            |   └── lib</div>
+<div class="line">            |       └──  libPluginNameFX.a</div>
+<div class="line">            └── Profile</div>
+<div class="line">                ├── bin</div>
+<div class="line">                |   └──  libPluginName.so</div>
+<div class="line">                └── lib</div>
+<div class="line">                    └──  libPluginNameFX.a</div>
+</div><!-- fragment --></div></div></div></body></html>

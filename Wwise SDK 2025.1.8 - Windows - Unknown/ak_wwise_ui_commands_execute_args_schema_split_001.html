@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak.wwise.ui.commands.execute Arguments Schema</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2"><h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="section_ak_wwise_ui_commands_execute_argsSchema"></a>
+Schema</h1>
+<div class="fragment"><div class="line">{</div>
+<div class="line">    "type": "object",</div>
+<div class="line">    "properties": {</div>
+<div class="line">        "command": {</div>
+<div class="line">            "type": "string",</div>
+<div class="line">            "description": "The ID of the command to execute. See \\ref globalcommandsids for the lists of commands."</div>
+<div class="line">        },</div>
+<div class="line">        "objects": {</div>
+<div class="line">            "type": "array",</div>
+<div class="line">            "items": {</div>
+<div class="line">                "anyOf": [</div>
+<div class="line">                    {</div>
+<div class="line">                        "type": "string",</div>
+<div class="line">                        "pattern": "^(StateGroup|SwitchGroup|SoundBank|GameParameter|Event|Effect|AudioDevice|Trigger|Attenuation|DialogueEvent|Bus|AuxBus|Conversion|ModulatorLfo|ModulatorEnvelope|ModulatorTime|Platform|Language|AcousticTexture|Global):[a-zA-Z0-9_]+$",</div>
+<div class="line">                        "description": "The name of the object qualified by its type or Short ID in the form of type:name or Global:shortId. Only object types that have globally-unique names or Short Ids are supported. Ex: Event:Play_Sound_01, Global:245489792"</div>
+<div class="line">                    },</div>
+<div class="line">                    {</div>
+<div class="line">                        "type": "string",</div>
+<div class="line">                        "pattern": "^\\{[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}\\}$",</div>
+<div class="line">                        "description": "An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}."</div>
+<div class="line">                    },</div>
+<div class="line">                    {</div>
+<div class="line">                        "type": "string",</div>
+<div class="line">                        "pattern": "^\\\\",</div>
+<div class="line">                        "description": "A project path to a Wwise object, including the category and the work-unit. For example: \\\\Containers\\\\Default Work Unit\\\\New Sound SFX."</div>
+<div class="line">                    }</div>
+<div class="line">                ]</div>
+<div class="line">            },</div>
+<div class="line">            "description": "An array of objects. Each object is an ID (GUID), name, or path of the object. Some commands can take objects as arguments. See the commands for more information."</div>
+<div class="line">        },</div>
+<div class="line">        "files": {</div>
+<div class="line">            "type": "array",</div>
+<div class="line">            "items": {</div>
+<div class="line">                "type": "string",</div>
+<div class="line">                "description": "A path to a file. Some commands can take files as arguments. See the commands for more information."</div>
+<div class="line">            },</div>
+<div class="line">            "description": "An array of files. Each object is an path to a file. Some commands can take files as arguments. See the commands for more information."</div>
+<div class="line">        },</div>
+<div class="line">        "platforms": {</div>
+<div class="line">            "type": "array",</div>
+<div class="line">            "items": {</div>
+<div class="line">                "anyOf": [</div>
+<div class="line">                    {</div>
+<div class="line">                        "type": "string",</div>
+<div class="line">                        "pattern": "^[a-zA-Z_]+[a-zA-Z_0-9()]*$",</div>
+<div class="line">                        "description": "The name of the object."</div>
+<div class="line">                    },</div>
+<div class="line">                    {</div>
+<div class="line">                        "type": "string",</div>
+<div class="line">                        "pattern": "^\\{[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}\\}$",</div>
+<div class="line">                        "description": "An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}."</div>
+<div class="line">                    }</div>
+<div class="line">                ]</div>
+<div class="line">            },</div>
+<div class="line">            "description": "An array of platform. Each platform is an ID (GUID) or a unique name. Some commands can take platforms as arguments. See the commands for more information."</div>
+<div class="line">        },</div>
+<div class="line">        "value": {</div>
+<div class="line">            "description": "A value to pass to the command. Some commands can take a value as an argument. See the commands for more information.\\n The value of a property.",</div>
+<div class="line">            "anyOf": [</div>
+<div class="line">                {</div>
+<div class="line">                    "type": "null",</div>
+<div class="line">                    "description": "A null value. No reference to an object."</div>
+<div class="line">                },</div>
+<div class="line">                {</div>
+<div class="line">                    "type": "string",</div>
+<div class="line">                    "description": "A string value."</div>
+<div class="line">                },</div>
+<div class="line">                {</div>
+<div class="line">                    "type": "number",</div>
+<div class="line">                    "description": "A numerical value."</div>
+<div class="line">                },</div>
+<div class="line">                {</div>
+<div class="line">                    "type": "boolean",</div>
+<div class="line">                    "description": "A boolean value."</div>
+<div class="line">                }</div>
+<div class="line">            ]</div>
+<div class="line">        }</div>
+<div class="line">    },</div>
+<div class="line">    "required": [</div>
+<div class="line">        "command"</div>
+<div class="line">    ],</div>
+<div class="line">    "additionalProperties": false</div>
+<div class="line">}</div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

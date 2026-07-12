@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Rooms and Portals Overview</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_7"><a class="pcalibre1 anchor" id="spatial_audio_roomsportals_modelingsoundpropagationfromotherrooms_transmission_no_geometry"></a>
+Modeling Transmission Between Rooms without Geometry</h2>
+<p class="calibre7">If geometry is not available to Wwise Acoustics, the transmission loss value is approximated from each Room's <code class="calibre14">AkRoomParams::transmissionLoss</code> value. Transmission loss between Rooms is calculated from the Room settings' <code class="calibre14"><a class="pcalibre el" href="struct_ak_room_params_a9ab66218e7be0c8bf5d60060bded14a0_split_000.html#a9ab66218e7be0c8bf5d60060bded14a0">AkRoomParams::TransmissionLoss</a></code> parameter, by taking the maximum value between the listener's Room and the emitter's Room. A bounding box for the Room is approximated by fitting a bounding box around all Portals. This bounding box is used to calculate the spread value of the transmission path.</p>
+</div></div></div></body></html>

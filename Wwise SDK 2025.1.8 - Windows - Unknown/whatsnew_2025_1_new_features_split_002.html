@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>New Features Overview 2025.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_1"><a class="pcalibre1 anchor" id="features_25_1_merging"></a>
+Merging and Renaming of Hierarchies</h2>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="features_25_1_containers"></a>
+Goodbye Actor-Mixer Hierarchy and Interactive Music Hierarchy, Hello Containers!</h3>
+<p class="calibre7">The merging of the Interactive Music Hierarchy and Actor-Mixer Hierarchy under a shared Containers hierarchy is the first step toward bringing object types closer together as part of a shared sound, music, and voice design hierarchy. While this change preserves the way that containers have always operated, it paves the way for future opportunities to continue growing and sharing similar workflows across object types.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="features_25_1_prop_container"></a>
+Goodbye Actor-Mixer, Hello Property Container!</h3>
+<p class="calibre7">Simultaneously, the Actor-Mixer has been renamed Property Container to clearly reflect its use as a way to assign properties that can be inherited. This change comes in response to feedback we've received from early learners identifying the difficulty in accessing terminology that doesn't exist in other tools and isn't easily associated with the intended behavior.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="features_25_1_busses"></a>
+Goodbye Master-Mixer Hierarchy, Hello Busses!</h3>
+<p class="calibre7">Additionally, the Master-Mixer Hierarchy has been renamed Busses, in the same spirit of using a name that clearly relates to the contents of the hierarchy. A new top-level Audio Bus will be created as New Main Audio Bus, which marks the removal of the last instance of the term “Master” in the Wwise codebase. This shared initiative comes in collaboration with requests from developers working to remove controversial and insensitive terminology from their pipelines. For the same reason, the Master-Mixer Console has been renamed Busses Console.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="features_25_1_devices"></a>
+Goodbye Audio Devices, Hello Devices!</h3>
+<p class="calibre7">Last but not least, Audio Devices has been renamed Devices. It's shorter and has no spaces!</p>
+<div class="calibre2">
+<img alt="" src="25_1_hierarchy.png" class="inline"/>
+</div>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="features_25_1_"></a>
+Project Folder Structure Migration</h3>
+<p class="calibre7">Migrating from an older version of Wwise results in the following changes:</p>
+<ul class="calibre8">
+<li class="calibre9">"Audio Devices" renamed to "Devices"</li>
+<li class="calibre9">"Master-Mixer Hierarchy" renamed to "Busses"</li>
+<li class="calibre9">"Actor-Mixer Hierarchy" renamed to "Containers"</li>
+<li class="calibre9">"Interactive Music Hierarchy" moved to a Virtual Folder in the Containers hierarchy and renamed "Music (Migrated)"</li>
+</ul>
+<p class="calibre7">See <a class="pcalibre el" href="whatsnew_2025_1_migration_split_000.html">Important Migration Notes 2025.1</a> to understand how these changes affect your project and the integration of WAAPI in your workflow.</p>
+<div class="calibre2">
+<img alt="" src="project_structure_migration.png" class="inline"/>
+</div>
+</div></div></div></body></html>

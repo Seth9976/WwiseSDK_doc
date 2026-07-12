@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK/SoundEngine/Common/AkMemoryMgr.h File Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table class="calibre3">
+<tbody class="calibre4"><tr class="calibre16"><td colspan="2" class="calibre17"><h2 class="calibre21" id="calibre_pb_3"><a class="pcalibre1 anchor" id="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="calibre16"><td class="memitemleft">enum  </td><td class="memitemright"><a class="pcalibre el" href="_ak_memory_mgr_8h_a3af3228fe8c3640b2d2be6d1102dd516_split_000.html#a3af3228fe8c3640b2d2be6d1102dd516">AkMemID</a> { <br class="calibre10"/>
+  <a class="pcalibre el" href="_ak_memory_mgr_8h_a3af3228fe8c3640b2d2be6d1102dd516_split_001.html#a3af3228fe8c3640b2d2be6d1102dd516a57aafbdd3be55093215a3ad89e0db902">AkMemID_Object</a>, 
+<a class="pcalibre el" href="_ak_memory_mgr_8h_a3af3228fe8c3640b2d2be6d1102dd516_split_001.html#a3af3228fe8c3640b2d2be6d1102dd516aa1a8896cb69f45b7e1c5dc5171192f3a">AkMemID_Event</a>, 
+<a class="pcalibre el" href="_ak_memory_mgr_8h_a3af3228fe8c3640b2d2be6d1102dd516_split_001.html#a3af3228fe8c3640b2d2be6d1102dd516a5dd04efbde5be3b98157e17ac2a6a4d4">AkMemID_Structure</a>, 
+<a class="pcalibre el" href="_ak_memory_mgr_8h_a3af3228fe8c3640b2d2be6d1102dd516_split_001.html#a3af3228fe8c3640b2d2be6d1102dd516ab2c92abb950a1f352ff322523d605312">AkMemID_Media</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="_ak_memory_mgr_8h_a3af3228fe8c3640b2d2be6d1102dd516_split_001.html#a3af3228fe8c3640b2d2be6d1102dd516aa8f0f6d38f4a629c21ce42ac5944fd15">AkMemID_GameObject</a>, 
+<a class="pcalibre el" href="_ak_memory_mgr_8h_a3af3228fe8c3640b2d2be6d1102dd516_split_001.html#a3af3228fe8c3640b2d2be6d1102dd516a0c6d546662db0bf99d2b8ad68d132474">AkMemID_Processing</a>, 
+<a class="pcalibre el" href="_ak_memory_mgr_8h_a3af3228fe8c3640b2d2be6d1102dd516_split_001.html#a3af3228fe8c3640b2d2be6d1102dd516a9472ba08ba89770a537f8cdbc5785724">AkMemID_ProcessingPlugin</a>, 
+<a class="pcalibre el" href="_ak_memory_mgr_8h_a3af3228fe8c3640b2d2be6d1102dd516_split_001.html#a3af3228fe8c3640b2d2be6d1102dd516ae2e003662ee9b306f5b7e4a43dbaeb1b">AkMemID_Streaming</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="_ak_memory_mgr_8h_a3af3228fe8c3640b2d2be6d1102dd516_split_001.html#a3af3228fe8c3640b2d2be6d1102dd516a3080b97e18605ada1b7c2732ab18c322">AkMemID_StreamingIO</a>, 
+<a class="pcalibre el" href="_ak_memory_mgr_8h_a3af3228fe8c3640b2d2be6d1102dd516_split_001.html#a3af3228fe8c3640b2d2be6d1102dd516aa0c9b46cbf0d7c4016eaf029a2da40a2">AkMemID_SpatialAudio</a>, 
+<a class="pcalibre el" href="_ak_memory_mgr_8h_a3af3228fe8c3640b2d2be6d1102dd516_split_001.html#a3af3228fe8c3640b2d2be6d1102dd516ab5a99966c22d680051f85c763ffa45ea">AkMemID_SpatialAudioGeometry</a>, 
+<a class="pcalibre el" href="_ak_memory_mgr_8h_a3af3228fe8c3640b2d2be6d1102dd516_split_001.html#a3af3228fe8c3640b2d2be6d1102dd516a0cfaea3f5c89a0b066bd28f0363ce47e">AkMemID_SpatialAudioPaths</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="_ak_memory_mgr_8h_a3af3228fe8c3640b2d2be6d1102dd516_split_001.html#a3af3228fe8c3640b2d2be6d1102dd516a826ca514b3a5cbd13c95c5468bb3b031">AkMemID_GameSim</a>, 
+<a class="pcalibre el" href="_ak_memory_mgr_8h_a3af3228fe8c3640b2d2be6d1102dd516_split_001.html#a3af3228fe8c3640b2d2be6d1102dd516a7adb5755ff17d591746f2dfdeac2d761">AkMemID_MonitorQueue</a>, 
+<a class="pcalibre el" href="_ak_memory_mgr_8h_a3af3228fe8c3640b2d2be6d1102dd516_split_001.html#a3af3228fe8c3640b2d2be6d1102dd516af31745e6d45df2870b9e2821f2cd93d1">AkMemID_Profiler</a>, 
+<a class="pcalibre el" href="_ak_memory_mgr_8h_a3af3228fe8c3640b2d2be6d1102dd516_split_001.html#a3af3228fe8c3640b2d2be6d1102dd516ae62f54cb7a9d92a2cd820732d9c9cbba">AkMemID_FilePackage</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="_ak_memory_mgr_8h_a3af3228fe8c3640b2d2be6d1102dd516_split_001.html#a3af3228fe8c3640b2d2be6d1102dd516ad2f78907168400d636558ef5d6ae4808">AkMemID_SoundEngine</a>, 
+<a class="pcalibre el" href="_ak_memory_mgr_8h_a3af3228fe8c3640b2d2be6d1102dd516_split_001.html#a3af3228fe8c3640b2d2be6d1102dd516a976b2c0ee55cb601e37177187156a48b">AkMemID_Integration</a>, 
+<a class="pcalibre el" href="_ak_memory_mgr_8h_a3af3228fe8c3640b2d2be6d1102dd516_split_001.html#a3af3228fe8c3640b2d2be6d1102dd516ad92fcf3d0d0c63e93a264faca8bc3f19">AkMemID_JobMgr</a>, 
+<a class="pcalibre el" href="_ak_memory_mgr_8h_a3af3228fe8c3640b2d2be6d1102dd516_split_001.html#a3af3228fe8c3640b2d2be6d1102dd516a9944ff9ff55c7e60d9c46bd58bc80830">AkMemID_TempAudioRender</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="_ak_memory_mgr_8h_a3af3228fe8c3640b2d2be6d1102dd516_split_001.html#a3af3228fe8c3640b2d2be6d1102dd516a27beea169410bcc72748974b57f0ede3">AkMemID_BookmarkAlloc</a>, 
+<a class="pcalibre el" href="_ak_memory_mgr_8h_a3af3228fe8c3640b2d2be6d1102dd516_split_001.html#a3af3228fe8c3640b2d2be6d1102dd516a1f08c2242ab0892540ad61fc9cd4760e">AkMemID_NUM</a>, 
+<a class="pcalibre el" href="_ak_memory_mgr_8h_a3af3228fe8c3640b2d2be6d1102dd516_split_001.html#a3af3228fe8c3640b2d2be6d1102dd516a0ac6db72c920af54b0384f752ff63a2b">AkMemID_MASK</a> = 0x1FFFFFFF, 
+<a class="pcalibre el" href="_ak_memory_mgr_8h_a3af3228fe8c3640b2d2be6d1102dd516_split_001.html#a3af3228fe8c3640b2d2be6d1102dd516a4920e03d383120a5bf0a3aedaf69d836">AkMemType_Media</a> = 0x20000000, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="_ak_memory_mgr_8h_a3af3228fe8c3640b2d2be6d1102dd516_split_001.html#a3af3228fe8c3640b2d2be6d1102dd516a585615b8b0c683825310b81e6329a206">AkMemType_Device</a> = 0x40000000, 
+<a class="pcalibre el" href="_ak_memory_mgr_8h_a3af3228fe8c3640b2d2be6d1102dd516_split_001.html#a3af3228fe8c3640b2d2be6d1102dd516ad88dff6ecda6f2dfdd0eb9658b25a66f">AkMemType_NoTrack</a> = 0x80000000
+<br class="calibre10"/>
+ }</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+</tbody></table></div></body></html>

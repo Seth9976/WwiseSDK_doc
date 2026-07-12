@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Monitoring Errors</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_2"><a class="pcalibre1 anchor" id="emt_types"></a>
+Translator Types</h2>
+<p class="calibre7">There are four translator types:</p>
+<ul class="calibre8">
+<li class="calibre9">Default: Translates error codes into messages, but prints numerical identifiers for Game Objects, Events, Audio Nodes, etc.</li>
+<li class="calibre9">XML: Translates error codes into messages and uses the information found in SoundBanks.xml to resolve identifiers for Event, Audio Node and Media into meaningful names. Game Objects and some other entities are left in numeric format.</li>
+<li class="calibre9">WAAPI (AkAutobahn.lib must be added in the linker-&gt;input project option): Translates error codes into messages and connects to the Wwise project (through a live Wwise instance) to resolve all identifiers into meaningful names.</li>
+<li class="calibre9">Unity: Same as WAAPI, but also uses information from Unity. Usable only in Unity projects.</li>
+</ul>
+<p class="calibre7">Only the Default translator can handle standard printf-style tags (i.e., those that start with %). Each translator type can redefine how Wwise tags ($) should be handled. It's not necessary to handle every tag in a given translator. fallback translator can be defined, which is called after a translation attempt fails. A translator stack can then be created in order to chain multiple translators together until the translation is successful. The translator at the end of the stack is always a Default translator.</p>
+</div></div></div></body></html>

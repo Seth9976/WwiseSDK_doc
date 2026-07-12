@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>New Features Overview 2019.2</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_18"><a class="pcalibre1 anchor" id="features_19_2_device_enumeration"></a>
+Device Enumeration</h1>
+<p class="calibre7">Device enumeration was previously only available from the Audio Preferences menu in Wwise authoring. Now, it's also possible to enumerate available devices for audio device plug-ins from the SDK (using <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a3de19a0cdec459ebdc73fc1d0f8f276e_split_000.html#a3de19a0cdec459ebdc73fc1d0f8f276e">AK::SoundEngine::GetDeviceList</a>). This means it's now possible to implement an in-game Audio Preferences menu using the SDK. It's now also possible to know at runtime whether an audio device plug-in only supports the default device or if multiple devices are available. This API is available for built-in audio devices on all platforms that support multiple devices (PC, Mac, Linux, XboxOne, and PS4). External audio device plug-ins, such as the ASIO audio device plug-in for example, can now also implement device enumeration.</p>
+</div></div></div></body></html>

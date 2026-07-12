@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>New Features Overview 2025.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_7"><a class="pcalibre1 anchor" id="features_25_1_sidechaining"></a>
+Sidechaining</h2>
+<p class="calibre7">Sidechaining has arrived as a suite of plug-ins and additions to existing plug-ins. It allows you to monitor and apply audio signals to dynamically control the mix.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="features_25_1_sidechain_mixes"></a>
+Sidechain Mixes</h3>
+<p class="calibre7">Sidechain mixes have been added as a new system and ShareSet type in Wwise. They make it possible for Effect plug-ins to send and receive audio signals that are separate from the voice graph, allowing audio rendering to combine multiple disparate audio signals.</p>
+<div class="calibre2">
+<img alt="" src="sidechain_mixes.png" class="inline"/>
+</div>
+<p class="calibre7">The Sidechain Mix ShareSet can be used to identify and define a sidechain mix. The sidechain mix receives audio signals from one or more Sidechain Send Effects, and can be read by the Sidechain Receive Effect, or used as a Sidechain Input on other Effects, such as the Compressor and Expander.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="features_25_1_sc_send"></a>
+Sidechain Send Effect</h3>
+<p class="calibre7">The Sidechain Send Effect can be used on an Audio Bus or Aux Bus to send an audio signal to a Sidechain Mix ShareSet.</p>
+<div class="calibre2">
+<img alt="" src="sidechain_send.png" class="inline"/>
+</div>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="features_25_1__sc_receive"></a>
+Sidechain Receive Effect</h3>
+<p class="calibre7">The Sidechain Receive Effect can be used on an Audio Bus or Aux Bus to receive the audio signal from a Sidechain Mix ShareSet. This is useful for testing purposes because it simply monitors the audio signal from an accumulated sidechain mix and uses that audio signal as an output of the Effect's processing.</p>
+<div class="calibre2">
+<img alt="" src="sidechain_receive.png" class="inline"/>
+</div>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="features_25_1_comp_expand"></a>
+Improved Compressor and Expander Effects</h3>
+<p class="calibre7">The Compressor and Expander Effects now allow for the use of a sidechain mix to dynamically control the input audio signal. For example, the Compressor Effect reduces the volume of the input audio signal when the audio signal of the specified sidechain mix increases in volume.</p>
+<p class="calibre7">You can now scale the Gain Reduction meter range between -3 dB and -96 dB. This makes it easier to monitor small gain reductions in the input audio signal.</p>
+<div class="calibre2">
+<img alt="" src="compressor.png" class="inline"/>
+</div>
+</div></div></div></body></html>

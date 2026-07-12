@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2019.2.3</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="behavior_changes_2019_2_3"></a>
+Behavior Changes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-49250</b> Changing the channel configuration of a SCE Audio3d Bed Output no longer changes the volume of Objects captured by a SCE Audio3d Object Panner. Projects that have been mixing with Ambisonics 2-2 and Ambisonics 3-3 channel configurations may need to adjust the volume of their Objects by approximately +2db or +4db, respectively, to compensate for this change.</li>
+<li class="calibre9"><b class="calibre13">WG-49252</b> Multichannel audio that is sent as an Object through the SCE Audio 3D Object Panner is no longer mixed down into a single-channel object. Instead, each channel is now sent as an individual object to SceAudio3d. Due to the change in positioning, and absence of mixdown, multichannel objects may need to adjust their volume to compensate.</li>
+</ul>
+</div></div></div></body></html>

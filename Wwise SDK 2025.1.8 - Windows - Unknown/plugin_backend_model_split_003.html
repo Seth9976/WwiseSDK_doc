@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Model of an Authoring Plug-in</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="wwiseplugin_referenceset"></a>
+Reference Set</h1>
+<p class="calibre7">A Reference Set instance is provided to the plug-in as a member variable <code class="calibre14">m_referenceSet</code> when deriving the <code class="calibre14">AK::Wwise::Plugin::RequestReferenceset</code> request interface. This allows for data about other objects in the Wwise project that the plug-in references to be accessed. In functions such as <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_audio_plugin_ae59a3955718ed3bbde0521da21cd8539_split_000.html#ae59a3955718ed3bbde0521da21cd8539" title="Obtains parameters that will be written to a bank.">AK::Wwise::Plugin::AudioPlugin::GetBankParameters</a></code>, referenced objects such as Game Parameters or Sidechain Mix sharesets can be resolved into Short IDs for use in the runtime with supported sound engine APIs. Some other functions for referenced objects are provided, such as the ability to access the GUID or name of an object, or to update a Reference to a new Object.</p>
+<div class="fragment"><div class="line"><span class="keyword">class </span>MyEffectPlugin</div>
+<div class="line">:   <span class="keyword">public</span> <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_audio_plugin_split_000.html">AK::Wwise::Plugin::AudioPlugin</a></div>
+<div class="line">,   <span class="keyword">public</span> <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_plugin_1_1_requested_host_interface_3_01_reference_set_01_4_split_000.html">AK::Wwise::Plugin::RequestReferenceSet</a></div>
+<div class="line">{</div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line">    <span class="keywordtype">bool</span> <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_audio_plugin_ae59a3955718ed3bbde0521da21cd8539_split_000.html#ae59a3955718ed3bbde0521da21cd8539">GetBankParameters</a>(</div>
+<div class="line">         <span class="keyword">const</span> GUID&amp; in_guidPlatform,</div>
+<div class="line">         <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_data_writer_split_000.html">AK::Wwise::Plugin::DataWriter</a>&amp; in_dataWriter)<span class="keyword"> const override</span></div>
+<div class="line"><span class="keyword">    </span>{</div>
+<div class="line">        <span class="keywordtype">bool</span> result = <span class="keyword">true</span>;</div>
+<div class="line">        <span class="comment">// Access the unique shortId of a referenced object</span></div>
+<div class="line">        AkUniqueId value = m_referenceSet.GetReferenceShortId(in_guidPlatform, <span class="stringliteral">"TargetGameParameter"</span>);</div>
+<div class="line">        <span class="comment">// Write the value into the sound bank</span></div>
+<div class="line">        result &amp;= in_dataWriter.<a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_data_writer_ad7b44a9cfd9992e441695bde4f1d8a8a_split_000.html#ad7b44a9cfd9992e441695bde4f1d8a8a">WriteUInt32</a>(value);</div>
+<div class="line">        <span class="keywordflow">return</span> result;</div>
+<div class="line">    }</div>
+<div class="line">};</div>
+</div><!-- fragment --><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> The lifetime of the <code class="calibre14">m_referenceSet</code> variable is the same as the lifetime of the plug-in instance. Do not store an address or reference to this instance across plug-in instances. You can also request this service both in your backend and your frontend class. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

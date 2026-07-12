@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2018.1.6</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="behavior_changes_2018_1_6"></a>
+Behavior Changes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-39890</b> Spatial Audio's <code class="calibre14">AK::SpatialAudio::SetEmitterAuxSendValues()</code> now takes the listenerID fields directly from what is passed to the function via the <code class="calibre14"><a class="pcalibre el" href="struct_ak_aux_send_value_split_000.html" title="Auxiliary bus sends information per game object per given auxiliary bus.">AkAuxSendValue</a></code> array. Previously, the listenerID field was modified by Spatial Audio and set to the room ID of the emitter's current room, which limited flexibility. If the old behavior is desired, one must now explicitly pass in the <a class="pcalibre el" href="struct_ak_room_i_d_split_000.html">AkRoomID</a> (the one passed to <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_a3f080206f12c04b3464838cb18c43f4e_split_000.html#a3f080206f12c04b3464838cb18c43f4e">AK::SpatialAudio::SetGameObjectInRoom()</a></code>) as the listenerID.</li>
+<li class="calibre9"><b class="calibre13">WG-40964</b> You can now connect to a build version of a Unity game when the game doesn't have the focus.</li>
+<li class="calibre9"><b class="calibre13">WG-41738</b> The onset detector sensitivity in the SoundSeed Grain source tab now picks up more pronounced onsets first. See the <a class="pcalibre el" href="whatsnew_2018_1_6_migration_split_000.html">migration notes</a> for details on how this change may move your markers during migration.</li>
+</ul>
+</div></div></div></body></html>

@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Using Raw Image Sources</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="spatial_audio_gamesidesetup_rawimage"></a>
+Game side setup</h1>
+<p class="calibre7">Call <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_aab4d85317c62724c00d25ba8913fb503_split_000.html#aab4d85317c62724c00d25ba8913fb503">AK::SpatialAudio::SetImageSource</a></code> for each image source. At minimum, include a unique (per game object, per auxiliary bus) image source ID, and the desired <code class="calibre14"><a class="pcalibre el" href="struct_ak_image_source_settings_split_000.html" title="Settings for individual image sources.">AkImageSourceSettings</a></code>. The most straight forward approach is to leave the auxiliary bus and the game object ID empty. The image source will then be used for every registered game object that has an early reflection auxiliary send defined in the authoring tool. Optionally, a target bus ID and game object ID can be specified (note that the game object ID may also be a listener or the main listener). Refer to <code class="calibre14"><a class="pcalibre el" href="struct_ak_reflect_image_source_split_000.html">AkReflectImageSource</a></code> for more details on how to describe an image source.</p>
+</div></div></div></body></html>

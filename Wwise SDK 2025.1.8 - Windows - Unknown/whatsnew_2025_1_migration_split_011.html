@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2025.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_10"><a class="pcalibre1 anchor" id="waapi_project_path"></a>
+WAAPI and WAQL Referring to Project Paths</h2>
+<p class="calibre7">The project structure changes affect WAAPI and WAQL scripts. Any code referencing the paths mentioned above will be impacted.</p>
+<p class="calibre7">We recommend avoiding hardcoding paths like <code class="calibre14">\Actor-Mixer Hierarchy\Default Work Unit</code> in your client code. Instead, call <a class="pcalibre el" href="ak_wwise_core_getprojectinfo_split_000.html">ak.wwise.core.getProjectInfo</a> and retrieve either the <code class="calibre14">defaultWorkUnits</code> or the <code class="calibre14">defaultImportWorkUnit</code>.</p>
+<p class="calibre7">Please note that the <b class="calibre13">Interactive Music Hierarchy</b> no longer exists. Music objects can now be created directly within the <b class="calibre13">Containers</b> hierarchy.</p>
+</div></div></div></body></html>

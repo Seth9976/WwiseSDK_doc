@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2017.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_15"><a class="pcalibre1 anchor" id="no_more_emitter_listener_spherical_coordinates"></a>
+Spherical coordinates are no longer available from AkEmitterListenerPair</h2>
+<p class="calibre7">Spherical coordinates are no longer computed systematically for all emitter-listener pairs. Thus, they are not directly available from <code class="calibre14"><a class="pcalibre el" href="class_ak_emitter_listener_pair_split_000.html" title="Emitter-listener pair: Positioning data pertaining to a single pair of emitter and listener.">AkEmitterListenerPair</a></code> anymore. <code class="calibre14">Azimuth()</code> and <code class="calibre14">Elevation()</code> accessors have been removed. Plug-ins and game code that use <code class="calibre14"><a class="pcalibre el" href="class_ak_emitter_listener_pair_split_000.html" title="Emitter-listener pair: Positioning data pertaining to a single pair of emitter and listener.">AkEmitterListenerPair</a></code> spherical coordinates will need to call the new service <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_global_plugin_context_split_000.html">AK::IAkGlobalPluginContext</a>-&gt;ComputeSphericalCoordinates()</code> to obtain them. The preferred approach is to use Cartesian coordinates with the overload of <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_mixer_plugin_context_aa3aebb0cd836c0dcab14e3d862e13626_split_000.html#aa3aebb0cd836c0dcab14e3d862e13626">AK::IAkMixerPluginContext::Compute3DPositioning()</a></code> that accepts Cartesian transforms.</p>
+</div></div></div></body></html>

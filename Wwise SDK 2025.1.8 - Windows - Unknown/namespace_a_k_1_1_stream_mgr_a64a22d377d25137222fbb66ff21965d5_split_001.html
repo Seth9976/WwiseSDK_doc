@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::StreamMgr::CreateDevice</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="namespace_a_k_1_1_stream_mgr_a64a22d377d25137222fbb66ff21965d5_split_000.html#a64a22d377d25137222fbb66ff21965d5" class="pcalibre1 anchor">◆ </a></span>CreateDevice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_sound_engine_export_8h_ac6e96d34dfc0e12f9aaa7a47f4e9c322_split_000.html#ac6e96d34dfc0e12f9aaa7a47f4e9c322">AKSOUNDENGINE_API</a> <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::StreamMgr::CreateDevice </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype">const <a class="pcalibre el" href="struct_ak_device_settings_split_000.html">AkDeviceSettings</a> &amp; </td>
+          <td class="paramname"><em class="calibre59">in_settings</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_split_000.html">IAkLowLevelIOHook</a> * </td>
+          <td class="paramname"><em class="calibre59">in_pLowLevelHook</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_a9fb6f04697979f304a7b2b4f405e8260_split_000.html#a9fb6f04697979f304a7b2b4f405e8260">AkDeviceID</a> &amp; </td>
+          <td class="paramname"><em class="calibre59">out_idDevice</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Streaming device creation. Creates a high-level device, with specific settings. You need to provide the associated low-level I/O hook, implemented on your side. </p><dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">The device ID. AK_INVALID_DEVICE_ID if there was an error and it could not be created. </dd></dl>
+<dl class="calibre7"><dt class="calibre23">Warning</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9">This function is not thread-safe. </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Remarks</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9">You may use <a class="pcalibre el" href="namespace_a_k_1_1_stream_mgr_a7d01e09a9bb6b6d34c2bb8f4c8995214_split_000.html#a7d01e09a9bb6b6d34c2bb8f4c8995214">AK::StreamMgr::GetDefaultDeviceSettings()</a> first to get default values for the settings, change those you want, then feed the structure to this function.</li>
+<li class="calibre9">The returned device ID should be kept by the Low-Level IO, to assign it to file descriptors in <a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_a0abfde848b599b5e5b8e8ed63dc8b555_split_000.html#a0abfde848b599b5e5b8e8ed63dc8b555">AK::StreamMgr::IAkLowLevelIOHook::BatchOpen()</a>. </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9">AK_Success: Device was added to the system properly</li>
+<li class="calibre9">AK_InsufficientMemory: Not enough memory to complete the operation</li>
+<li class="calibre9">AK_InvalidParameter: One of the settings in <a class="pcalibre el" href="struct_ak_device_settings_split_000.html">AkDeviceSettings</a> is out of range. Check asserts or debug console. </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_split_000.html">AK::StreamMgr::IAkLowLevelIOHook</a></li>
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_stream_mgr_a7d01e09a9bb6b6d34c2bb8f4c8995214_split_000.html#a7d01e09a9bb6b6d34c2bb8f4c8995214">AK::StreamMgr::GetDefaultDeviceSettings()</a></li>
+<li class="calibre9"><a class="pcalibre el" href="streamingmanager_settings_split_000.html">Audiokinetic Stream Manager Initialization Settings</a> </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_settings</td><td class="calibre17">Device settings. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_pLowLevelHook</td><td class="calibre17">Associated low-level I/O hook. Pass either a <a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_split_000.html">IAkLowLevelIOHook</a> interface, consistent with the type of the scheduler. </td></tr>
+    <tr class="calibre16"><td class="paramname">out_idDevice</td><td class="calibre17">Assigned unique device id to use in all other functions of this interface. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

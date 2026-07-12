@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Streaming / Stream Manager</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_3"><a class="pcalibre1 anchor" id="streamingdevicemanager_integratingwwiseio_filepackages"></a>
+File Packages</h2>
+<p class="calibre7">If you instantiated the <b class="calibre13">CAkFilePackageLowLevelIODeferred</b> device, you are a few steps away from being ready to also use file packages. A file package (*.PCK) is a single file resulting from the concatenation of all soundbanks and streaming audio files from a Wwise project. You may also assign soundbanks and streaming files to different file packages. Refer to the File Packager utility documentation for more details.</p>
+<p class="calibre7">1) Have the Wwise tool automatically generate a file package with your soundbanks and streaming files after soundbank generation, using the "FilePackager" executable as a post-soundbank-generation step (see the SoundBank Settings section of the Wwise Help).</p>
+<p class="calibre7">2) In your code, load the file package(s) explicitly using <b class="calibre13">CAkFilePackageLowLevelIODeferred::LoadFilePackage()</b>. <b class="calibre13">LoadFilePackage()</b> opens the file package from the path you specified in <b class="calibre13">SetBasePath()</b>(or <b class="calibre13">AddBasePath()</b> ). In the deployment directory of audio assets, you need to include your file packages, but not the soundbanks and streamed files that they contain. When you load a file package, its header is parsed and a look-up table is created inside <b class="calibre13">CAkFilePackageLowLevelIODeferred</b>. When the sound engine tries to open a file, following a call to <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">AK::SoundEngine::LoadBank()</a> or an event involving playback of a streamed file, <b class="calibre13">CAkFilePackageLowLevelIODeferred</b> searches for it in the look-up tables of all its loaded file packages. If it is not found, the file is searched in the base path.</p>
+</div></div></div></body></html>

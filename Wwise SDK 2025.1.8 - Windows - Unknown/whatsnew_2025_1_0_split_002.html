@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2025.1.0 Beta 1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="generic_api_changes_2025_1_0"></a>
+API Changes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-73367</b> Removed the <code class="calibre14">AK_EnableGetSourcePlayPosition</code> flag used in <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a41e9ef8d42951871fe4a8ae58a29a68e_split_000.html#a41e9ef8d42951871fe4a8ae58a29a68e">AK::SoundEngine::PostEvent</a></code>. <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ae0b469d9fb8a099b40f52f004882d283_split_000.html#ae0b469d9fb8a099b40f52f004882d283">AK::SoundEngine::GetSourcePlayPosition()</a></code> now works on all sources by default. If your code used <code class="calibre14">AK_EnableGetSourcePlayPosition</code>, delete the flag and pass 0 instead, or the other flags needed for <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a41e9ef8d42951871fe4a8ae58a29a68e_split_000.html#a41e9ef8d42951871fe4a8ae58a29a68e">AK::SoundEngine::PostEvent</a></code>.</li>
+<li class="calibre9"><b class="calibre13">WG-75057</b> Removed the obsolete <code class="calibre14">IAkVoicePluginInfo::ComputePriorityWithDistance</code> function.</li>
+<li class="calibre9"><b class="calibre13">WG-76108</b> Added the <a class="pcalibre el" href="ak_wwise_core_workunit_load_split_000.html">ak.wwise.core.workUnit.load</a> and <a class="pcalibre el" href="ak_wwise_core_workunit_unload_split_000.html">ak.wwise.core.workUnit.unload</a> WAAPI functions, as well as the WAAPI/WAQL <code class="calibre14">workunitIsLoaded</code> accessor.</li>
+<li class="calibre9"><b class="calibre13">WG-76684</b> The <code class="calibre14">AK::MusicEngine</code> namespace was removed and <code class="calibre14">AK::MusicEngine::GetPlayingSegmentInfo</code> was moved to <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a8446828c7f31802a83b7b087c44ccbd4_split_000.html#a8446828c7f31802a83b7b087c44ccbd4">AK::SoundEngine::GetPlayingSegmentInfo</a></code>.</li>
+</ul>
+</div></div></div></body></html>

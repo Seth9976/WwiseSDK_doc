@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Python (Waapi-Client) - Subscription</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="waapi_client_python_subscription_code"></a>
+Project Code</h1>
+<p class="calibre7">This file contains the following code, which allows you to connect to the Wwise Authoring API. </p><div class="fragment"><div class="line"><span class="comment">#!/usr/bin/env python3</span></div>
+<div class="line"><span class="keyword">from</span> waapi <span class="keyword">import</span> WaapiClient, CannotConnectToWaapiException</div>
+<div class="line"><span class="keyword">from</span> pprint <span class="keyword">import</span> pprint</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordflow">try</span>:</div>
+<div class="line">    <span class="comment"># Connecting to Waapi using default URL</span></div>
+<div class="line">    client = WaapiClient()</div>
+<div class="line">    <span class="comment"># NOTE: the client must be manually disconnected when instantiated in the global scope</span></div>
+<div class="line"><span class="keywordflow">except</span> CannotConnectToWaapiException:</div>
+<div class="line">    print(<span class="stringliteral">"Could not connect to Waapi: Is Wwise running and Wwise Authoring API enabled?"</span>)</div>
+<div class="line"><span class="keywordflow">else</span>:</div>
+<div class="line">    <span class="comment"># Callback function with a matching signature.</span></div>
+<div class="line">    <span class="comment"># Signature (*args, **kwargs) matches anything, with results being in kwargs.</span></div>
+<div class="line">    <span class="keyword">def </span>on_name_changed(*args, **kwargs):</div>
+<div class="line">        obj_type = kwargs.get(<span class="stringliteral">"object"</span>, {}).get(<span class="stringliteral">"type"</span>)</div>
+<div class="line">        old_name = kwargs.get(<span class="stringliteral">"oldName"</span>)</div>
+<div class="line">        new_name = kwargs.get(<span class="stringliteral">"newName"</span>)</div>
+<div class="line"> </div>
+<div class="line">        print(<span class="stringliteral">"Object '{}' (of type '{}') was renamed to '{}'\n"</span>.format(old_name, obj_type, new_name))</div>
+<div class="line">        client.disconnect()</div>
+<div class="line"> </div>
+<div class="line">    handler = client.subscribe(<span class="stringliteral">"ak.wwise.core.object.nameChanged"</span>, on_name_changed, {<span class="stringliteral">"return"</span>: [<span class="stringliteral">"type"</span>]})</div>
+<div class="line"> </div>
+<div class="line">    print(<span class="stringliteral">"Subscribed 'ak.wwise.core.object.nameChanged', rename an object in Wwise"</span>)</div>
+</div><!-- fragment --></div></div></div></body></html>

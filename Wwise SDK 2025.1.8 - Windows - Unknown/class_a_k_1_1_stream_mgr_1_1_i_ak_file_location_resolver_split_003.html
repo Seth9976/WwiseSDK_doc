@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::StreamMgr::IAkFileLocationResolver Class Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_2">Detailed Description</h2>
+<div class="calibre2"><p class="calibre7">File location resolver interface. There is one and only one File Location Resolver that is registered to the Stream Manager (using <a class="pcalibre el" href="namespace_a_k_1_1_stream_mgr_ab5c2340963ac5ff81e49969b74ef2520_split_000.html#ab5c2340963ac5ff81e49969b74ef2520">AK::StreamMgr::SetFileLocationResolver()</a>). Its purpose is to resolve a file name or ID to a streaming device (I/O hook) that can handle the file. When your Low-Level I/O submodule uses a single device, you should create a standalone I/O hook which implements one of the I/O hooks defined above, as well as the File Location Resolver. You then register this object to the Stream Manager as the File Location Resolver. If you wish to create multiple devices, then you should have a separate object that implements <a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_file_location_resolver_split_000.html">AK::StreamMgr::IAkFileLocationResolver</a> and registers to the Stream Manager as such. This object will be used to dispatch the file open request to the appropriate device. The strategy you will use to select the correct device is up to you to implement. There is a built-in mechanism of chaining devices through <a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_file_location_resolver_a5c7515d84fe8b7ce1e1c06690447673d_split_000.html#a5c7515d84fe8b7ce1e1c06690447673d">GetNextPreferredDevice()</a>. If a device can't open a file GetNextPreferredDevice will be called again to get the next device to check. </p>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_ak_stream_mgr_module_8h_source.html#l00379">379</a> of file <a class="pcalibre el" href="_ak_stream_mgr_module_8h_source.html">AkStreamMgrModule.h</a>.</p>
+</div></div><!-- contents -->
+
+
+</body></html>

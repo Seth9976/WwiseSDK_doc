@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Preparing to use the Wwise Authoring API</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_3"><a class="pcalibre1 anchor" id="waapi_security_origin"></a>
+Preventing Cross-Site Scripting</h2>
+<p class="calibre7">WAAPI provides a security layer against cross-site scripting. Otherwise, when you visit a webpage that contains JavaScript code, for example, that code could theoretically gain access to Wwise by connecting from the loaded webpage. In that scenario, the firewall is not enough.</p>
+<p class="calibre7">This WAAPI security layer relies on your browser security settings. By default, WAAPI will only accept connections from local software or, in the case of browsers, only when opening HTML files on the local file system.</p>
+<p class="calibre7">Using WAAPI in a webpage loaded from another host will fail, unless you add the host in the User Preferences. To add a host as a valid origin for WAAPI:</p><ul class="calibre8">
+<li class="calibre9">Click <em class="calibre11">Project</em> &gt; <em class="calibre11">User Preferences</em>, from the main Wwise menu.</li>
+<li class="calibre9">Add your host URI to the <b class="calibre13">Allow browser connections from origins</b> field. For example:<ul class="calibre15">
+<li class="calibre9"><em class="calibre11"><a href="http://www.myhost.com" class="pcalibre calibre12">http://www.myhost.com</a></em>, assuming port 80; or</li>
+<li class="calibre9"><em class="calibre11"><a href="http://www.myhost.com:1234" class="pcalibre calibre12">http://www.myhost.com:1234</a></em>, assuming not the default 80, but 1234.</li>
+</ul>
+</li>
+<li class="calibre9">Click <b class="calibre13">OK</b>.</li>
+</ul>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="caution.gif"/></td><td class="calibre17"><b class="calibre13">Caution:</b> You can add * to allow connections from webpages of any origin. But, this is insecure and, therefore, unrecommended. </td></tr>
+</tbody></table>
+<p class="calibre7">See <a class="pcalibre el" href="bankscommandline_split_000.html">Using the Command Line</a> for information on using "-Waapi" commands from the command line.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><p class="starttd"><b class="calibre13">Note:</b> <b class="calibre13">Using Multiple Clients</b></p>
+<p class="endtd">WAAPI supports usage from multiple connections at once. The current maximum number of active connections to WAAPI is 20 for WAMP, with another 20 for HTTP POST. </p>
+</td></tr>
+</tbody></table>
+</div></div></div></body></html>

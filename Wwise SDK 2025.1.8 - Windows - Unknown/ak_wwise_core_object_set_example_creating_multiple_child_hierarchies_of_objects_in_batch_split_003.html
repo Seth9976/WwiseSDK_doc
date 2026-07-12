@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating multiple child hierarchies of objects in batch</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="ak_wwise_core_object_set_example_creating_multiple_child_hierarchies_of_objects_in_batch_result"></a>
+Result</h1>
+<div class="fragment"><div class="line">{</div>
+<div class="line">    <span class="stringliteral">"objects"</span>: [</div>
+<div class="line">        {</div>
+<div class="line">            <span class="stringliteral">"id"</span>: <span class="stringliteral">"{7A12D08F-B0D9-4403-9EFA-2E6338C197C1}"</span>,</div>
+<div class="line">            <span class="stringliteral">"name"</span>: <span class="stringliteral">"Default Work Unit"</span>,</div>
+<div class="line">            <span class="stringliteral">"children"</span>: [</div>
+<div class="line">                {</div>
+<div class="line">                    <span class="stringliteral">"id"</span>: <span class="stringliteral">"{66666666-7777-8888-9999-AAAAAAAAAAAA}"</span>,</div>
+<div class="line">                    <span class="stringliteral">"name"</span>: <span class="stringliteral">"Boom"</span></div>
+<div class="line">                }</div>
+<div class="line">            ]</div>
+<div class="line">        },</div>
+<div class="line">        {</div>
+<div class="line">            <span class="stringliteral">"id"</span>: <span class="stringliteral">"{7A12D08F-B0D9-4403-9EFA-2E6338C197C1}"</span>,</div>
+<div class="line">            <span class="stringliteral">"name"</span>: <span class="stringliteral">"Default Work Unit"</span>,</div>
+<div class="line">            <span class="stringliteral">"children"</span>: [</div>
+<div class="line">                {</div>
+<div class="line">                    <span class="stringliteral">"id"</span>: <span class="stringliteral">"{66666666-7777-8888-9999-AAAAAAAAAAAA}"</span>,</div>
+<div class="line">                    <span class="stringliteral">"name"</span>: <span class="stringliteral">"Guns"</span></div>
+<div class="line">                }</div>
+<div class="line">            ]</div>
+<div class="line">        },</div>
+<div class="line">        {</div>
+<div class="line">            <span class="stringliteral">"id"</span>: <span class="stringliteral">"{C6C4338E-99E1-44C2-B881-F98612FEDF5F}"</span>,</div>
+<div class="line">            <span class="stringliteral">"name"</span>: <span class="stringliteral">"Default Work Unit"</span>,</div>
+<div class="line">            <span class="stringliteral">"children"</span>: [</div>
+<div class="line">                {</div>
+<div class="line">                    <span class="stringliteral">"id"</span>: <span class="stringliteral">"{6114659F-9274-4031-B90E-F369568532E0}"</span>,</div>
+<div class="line">                    <span class="stringliteral">"name"</span>: <span class="stringliteral">"WAAPI"</span>,</div>
+<div class="line">                    <span class="stringliteral">"children"</span>: [</div>
+<div class="line">                        {</div>
+<div class="line">                            <span class="stringliteral">"id"</span>: <span class="stringliteral">"{F546017D-201A-49BD-8D4E-0A28F5DBB28D}"</span>,</div>
+<div class="line">                            <span class="stringliteral">"name"</span>: <span class="stringliteral">"Play_SFX"</span>,</div>
+<div class="line">                            <span class="stringliteral">"children"</span>: [</div>
+<div class="line">                                {</div>
+<div class="line">                                    <span class="stringliteral">"id"</span>: <span class="stringliteral">"{400D0354-0FDB-48B4-B341-9DFA0B76078D}"</span>,</div>
+<div class="line">                                    <span class="stringliteral">"name"</span>: <span class="stringliteral">""</span></div>
+<div class="line">                                }</div>
+<div class="line">                            ]</div>
+<div class="line">                        }</div>
+<div class="line">                    ]</div>
+<div class="line">                }</div>
+<div class="line">            ]</div>
+<div class="line">        },</div>
+<div class="line">        {</div>
+<div class="line">            <span class="stringliteral">"id"</span>: <span class="stringliteral">"{7A12D08F-B0D9-4403-9EFA-2E6338C197C1}"</span>,</div>
+<div class="line">            <span class="stringliteral">"name"</span>: <span class="stringliteral">"Default Work Unit"</span>,</div>
+<div class="line">            <span class="stringliteral">"children"</span>: [</div>
+<div class="line">                {</div>
+<div class="line">                    <span class="stringliteral">"id"</span>: <span class="stringliteral">"{66666666-7777-8888-9999-AAAAAAAAAAAA}"</span>,</div>
+<div class="line">                    <span class="stringliteral">"name"</span>: <span class="stringliteral">"Boom"</span>,</div>
+<div class="line">                    <span class="stringliteral">"children"</span>: [</div>
+<div class="line">                        {</div>
+<div class="line">                            <span class="stringliteral">"id"</span>: <span class="stringliteral">"{46813545-2168-3547-8328-681AB678D6F5}"</span>,</div>
+<div class="line">                            <span class="stringliteral">"name"</span>: <span class="stringliteral">"A"</span></div>
+<div class="line">                        },</div>
+<div class="line">                        {</div>
+<div class="line">                            <span class="stringliteral">"id"</span>: <span class="stringliteral">"{68465134-2548-2377-3541-321354318ABD}"</span>,</div>
+<div class="line">                            <span class="stringliteral">"name"</span>: <span class="stringliteral">"B"</span></div>
+<div class="line">                        }</div>
+<div class="line">                    ]</div>
+<div class="line">                }</div>
+<div class="line">            ]</div>
+<div class="line">        },</div>
+<div class="line">        {</div>
+<div class="line">            <span class="stringliteral">"id"</span>: <span class="stringliteral">"{9111F89B-8227-4766-9FEF-BBE6CE5B9F6E}"</span>,</div>
+<div class="line">            <span class="stringliteral">"name"</span>: <span class="stringliteral">"My Segment"</span>,</div>
+<div class="line">            <span class="stringliteral">"@Cues"</span>: [</div>
+<div class="line">                {</div>
+<div class="line">                    <span class="stringliteral">"id"</span>: <span class="stringliteral">"{1629938A-24F7-451F-B01F-49F448CED8FF}"</span>,</div>
+<div class="line">                    <span class="stringliteral">"name"</span>: <span class="stringliteral">"My Music Cue"</span></div>
+<div class="line">                }</div>
+<div class="line">            ]</div>
+<div class="line">        }</div>
+<div class="line">    ]</div>
+<div class="line">}</div>
+</div><!-- fragment --><p class="calibre7">Refer to <a class="pcalibre el" href="waapi_split_000.html">Using the Wwise Authoring API (WAAPI)</a> for more information about Wwise Authoring API. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

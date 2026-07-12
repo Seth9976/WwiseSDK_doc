@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2025.1.7</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_4"><a class="pcalibre1 anchor" id="generic_community_bugs_2025_1_7"></a>
+Fixes for Community-Reported Bugs</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-77412</b> Fixed: Hang when hardware Opus decoder signals a particular error.</li>
+<li class="calibre9"><b class="calibre13">WG-80073</b> Fixed: (Acoustics) Distance is inconsistent when using a Distance Probe, and Rooms are connected with multiple Portals.</li>
+<li class="calibre9"><b class="calibre13">WG-82278</b> Fixed: Crash when continuous Blend Containers are stopped explicitly after bank unload.</li>
+<li class="calibre9"><b class="calibre13">WG-82532</b> Fixed: Some public SDK headers fail to compile on Visual Studio when warning level <code class="calibre14">/W4</code> is used.</li>
+<li class="calibre9"><b class="calibre13">WG-82540</b> Fixed: Possible random binary differences in SoundBanks when pre-rendering McDSP Effect.</li>
+<li class="calibre9"><b class="calibre13">WG-82545</b> Fixed: <b class="calibre13">Paste</b> shortcut menu item prepends the content instead of replacing it.</li>
+<li class="calibre9"><b class="calibre13">WG-82667</b> Fixed: Possible crash in the Audio File Importer when importing a TSV file after removing a folder.</li>
+<li class="calibre9"><b class="calibre13">WG-82676</b> Fixed: Virtual label doesn't appear in the Voice Graph when a voice becomes virtual.</li>
+<li class="calibre9"><b class="calibre13">WG-82692</b> Fixed: (Acoustics) Spread calculations become unstable when the listener has a direct line of sight through a Portal to an emitter that has a spread value larger than the Portal's aperture.</li>
+<li class="calibre9"><b class="calibre13">WG-82734</b> Fixed: Custom data pointer provided in <code class="calibre14">IOHook::BatchOpen</code> isn't carried to calls to <code class="calibre14">IOHook::BatchRead</code>.</li>
+<li class="calibre9"><b class="calibre13">WG-82739</b> Fixed: Incorrect virtual voice behavior can be applied on playback limiting of a looping container with a parent hierarchy.</li>
+<li class="calibre9"><b class="calibre13">WG-82802</b> Fixed: Audio Device Status Callback for the AkAudioDeviceEvent_SystemRemoval event reports the wrong device ID.</li>
+<li class="calibre9"><b class="calibre13">WG-82821</b> Fixed: (Acoustics) Silent game objects require a lot of processing power in scenarios with many Reverb Zones.</li>
+<li class="calibre9"><b class="calibre13">WG-82822</b> Fixed: Possible crash in <code class="calibre14">CAkPBI::CleanupFades()</code>.</li>
+<li class="calibre9"><b class="calibre13">WG-82879</b> Fixed: Crash when deleting a State Group transition.</li>
+<li class="calibre9"><b class="calibre13">WG-82887</b> Fixed: (Acoustics) Crash in <code class="calibre14">PortalIntersector::BeginPortal()</code> after a Portal has moved.</li>
+<li class="calibre9"><b class="calibre13">WG-82929</b> Fixed: Random, Sequence, Switch, and Blend Containers don't react correctly to a break action.</li>
+<li class="calibre9"><b class="calibre13">WG-82936</b> Fixed: (Acoustics) Possible crash in <code class="calibre14">CAkSpatialAudioEmitter::BuildIndirectPaths</code> when the sound engine stops.</li>
+<li class="calibre9"><b class="calibre13">WG-82959</b> Fixed: <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ae0b469d9fb8a099b40f52f004882d283_split_000.html#ae0b469d9fb8a099b40f52f004882d283">GetSourcePlayPosition()</a></code> returns invalid values if called immediately after <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a41e9ef8d42951871fe4a8ae58a29a68e_split_000.html#a41e9ef8d42951871fe4a8ae58a29a68e">PostEvent()</a></code>.</li>
+<li class="calibre9"><b class="calibre13">WG-82985</b> Fixed: (Acoustics) Feedback loops between two Room busses.</li>
+<li class="calibre9"><b class="calibre13">WG-82997</b> Fixed: Possible crash when specifying a list with <code class="calibre14"><a class="pcalibre el" href="ak_wwise_core_object_create_split_000.html">ak.wwise.core.object.create</a></code> for a parent object that doesn't support lists.</li>
+<li class="calibre9"><b class="calibre13">WG-83028</b> Fixed: Crash in Blend Container playback when changing crossfade RTPC value after the playback is stopped.</li>
+<li class="calibre9"><b class="calibre13">WG-83230</b> Fixed: <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a2e6ebb779470b43d78984c27f6a0c238_split_000.html#a2e6ebb779470b43d78984c27f6a0c238">AK::SoundEngine::PrepareEvent()</a></code> doesn't prepare the media for MIDI Target references.</li>
+<li class="calibre9"><b class="calibre13">WG-83356</b> Fixed: <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ab24b5dc8bd4d1adbdc6aa5c98d94d946_split_000.html#ab24b5dc8bd4d1adbdc6aa5c98d94d946">AK::SoundEngine::PostMIDIOnEvent</a></code> doesn't call the provided callback function.</li>
+</ul>
+</div></div></div></body></html>

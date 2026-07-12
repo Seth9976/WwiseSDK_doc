@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integrating Codec Plug-Ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_2"><a class="pcalibre1 anchor" id="soundengine_integration_codec_static"></a>
+Using Static Libraries</h2>
+<p class="calibre7">Registration is done automatically if you include the corresponding factory file from SDK/include/AK/Plugin. For example, the factory file for Vorbis is: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="pcalibre code" href="_ak_vorbis_decoder_factory_8h_split_000.html">AK/Plugin/AkVorbisDecoderFactory.h</a>&gt;</span></div>
+</div><!-- fragment --><p class="calibre7"> For Opus: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="pcalibre code" href="_ak_opus_decoder_factory_8h.html">AK/Plugin/AkOpusDecoderFactory.h</a>&gt;</span></div>
+</div><!-- fragment --><p class="calibre7"> Each codec plug-in is provided as an individual library (LIB file) that must be linked into your game. For example, the Vorbis format decoder library is AkVorbisDecoder.lib.</p>
+</div></div></div></body></html>

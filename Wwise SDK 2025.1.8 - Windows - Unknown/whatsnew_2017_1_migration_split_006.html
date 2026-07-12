@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2017.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_5"><a class="pcalibre1 anchor" id="aux_sends_on_busses"></a>
+Busses may now have auxiliary sends</h2>
+<p class="calibre7">In Wwise 2017.1, busses may now have aux sends to other busses, opening up a wide range of new routing possibilities. As with voices, auxiliary sends may be user defined or game defined. There are a few things to keep in mind when creating aux sends from busses:</p><ul class="calibre8">
+<li class="calibre9">It is possible to define routings that result in signal feedback loops. If a signal feedback loop occurs, the output will continue until the loop is broken by removing the send and may result in unstable output. It is not recommended to create routings that result in signal loops.</li>
+<li class="calibre9">If a bus sends to another bus that is lower in the bus hierarchy, than the audio for the bus will be mixed next audio update, resulting in an additional latency of 1 audio frame. If this occurs, the connection in the Voice Graph of the Advanced Profiler will be displayed in red.</li>
+<li class="calibre9">If a bus sends to the same level of the bus hierarchy (such as a sibling bus), one frame of latency may be induced, depending on the order that the busses are mixed in the sound engine. The sound engine will attempt to resolve the processing order to minimize the amount of latency induced, but in some cases it is not possible.</li>
+</ul>
+</div></div></div></body></html>

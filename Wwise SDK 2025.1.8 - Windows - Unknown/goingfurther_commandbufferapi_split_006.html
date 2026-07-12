@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Increasing simulation data throughput with the Command Buffer API</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_5"><a class="pcalibre1 anchor" id="goingfurther_commandbufferapi_playing_ids"></a>
+Events and Playing IDs</h1>
+<p class="calibre7">When you use the Command Buffer API to post Events, the user generates Playing IDs before the Events are posted. In contrast, the C++ <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a41e9ef8d42951871fe4a8ae58a29a68e_split_000.html#a41e9ef8d42951871fe4a8ae58a29a68e">AK::SoundEngine::PostEvent</a></code> API returns a valid Playing ID after the Event is posted.</p>
+<p class="calibre7">To post an event with Command Buffer, first generate a Playing ID with <code class="calibre14"><a class="pcalibre el" href="_ak_command_buffer_8h_a4d75a81be7be245c1e49cea34e32bfc3_split_000.html#a4d75a81be7be245c1e49cea34e32bfc3" title="Generates a new playing ID. This is guaranteed to return a different value every time this is called.">AK_SoundEngine_GeneratePlayingID()</a></code>. Next, use this ID when you construct the <code class="calibre14"><a class="pcalibre el" href="struct_ak_cmd___post_event_split_000.html">AkCmd_PostEvent</a></code> command. Finally, submit the buffer that contains the commands.</p>
+<p class="calibre7">The PostEvent command consumes its Playing ID when processed. Therefore, it is not possible to share the same Playing ID for multiple PostEvents. A new Playing ID must be generated for each PostEvent command. PostEvent commands that refer to Playing IDs that were previously consumed will fail to process.</p>
+<p class="calibre7">Here is an example of a command buffer that posts two distinct Events:</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span>* buffer = <a class="pcalibre code" href="_ak_command_buffer_8h_a995f9aaba5db0a2afd5ea4c490c2a28c_split_000.html#a995f9aaba5db0a2afd5ea4c490c2a28c">AK_CommandBuffer_Create</a>(<a class="pcalibre code" href="_ak_command_buffer_8h_a82240c411d92107bed90b0d368590845_split_000.html#a82240c411d92107bed90b0d368590845">AK_CommandBuffer_MinSize</a>() + <a class="pcalibre code" href="_ak_command_buffer_8h_a36a84f23dce2a8a1c5184c5461b9726d_split_000.html#a36a84f23dce2a8a1c5184c5461b9726d">AK_CommandBuffer_CmdSize</a>(<a class="pcalibre code" href="_ak_command_types_8h_a001b78645b8b0335c0dd2e128cca2cfd_split_001.html#a001b78645b8b0335c0dd2e128cca2cfdaf20e9790432e3db005cd602adcf4d962">AkCommand_PostEvent</a>) * 2);</div>
+<div class="line">assert(buffer != <span class="keyword">nullptr</span>);</div>
+<div class="line"><a class="pcalibre code" href="struct_ak_cmd___post_event_split_000.html">AkCmd_PostEvent</a>* postEvent1 = (<a class="pcalibre code" href="struct_ak_cmd___post_event_split_000.html">AkCmd_PostEvent</a>*)<a class="pcalibre code" href="_ak_command_buffer_8h_af47a12700e1cd382114958c3d9c31211_split_000.html#af47a12700e1cd382114958c3d9c31211">AK_CommandBuffer_Add</a>(buffer, <a class="pcalibre code" href="_ak_command_types_8h_a001b78645b8b0335c0dd2e128cca2cfd_split_001.html#a001b78645b8b0335c0dd2e128cca2cfdaf20e9790432e3db005cd602adcf4d962">AkCommand_PostEvent</a>, 0);</div>
+<div class="line">postEvent1-&gt;<a class="pcalibre code" href="struct_ak_cmd___post_event_ac2f257b0dc6268b25c6dcb57075ff5a2_split_000.html#ac2f257b0dc6268b25c6dcb57075ff5a2">eventID</a> = <a class="pcalibre code" href="_ak_command_buffer_8h_a1a2169a039c3495d9595dedc08eca2f1_split_000.html#a1a2169a039c3495d9595dedc08eca2f1">AK_SoundEngine_GetIDFromString</a>(<span class="stringliteral">"my_event"</span>);</div>
+<div class="line">postEvent1-&gt;<a class="pcalibre code" href="struct_ak_cmd___post_event_afd6138b4a6f412766540cedc8357482d_split_000.html#afd6138b4a6f412766540cedc8357482d">playingID</a> = <a class="pcalibre code" href="_ak_command_buffer_8h_a4d75a81be7be245c1e49cea34e32bfc3_split_000.html#a4d75a81be7be245c1e49cea34e32bfc3">AK_SoundEngine_GeneratePlayingID</a>();</div>
+<div class="line">postEvent1-&gt;<a class="pcalibre code" href="struct_ak_cmd___post_event_a2a1a6012ddf0620e9778d4ed52905e7e_split_000.html#a2a1a6012ddf0620e9778d4ed52905e7e">gameObjectID</a> = 100;</div>
+<div class="line"><a class="pcalibre code" href="struct_ak_cmd___post_event_split_000.html">AkCmd_PostEvent</a>* postEvent2 = (<a class="pcalibre code" href="struct_ak_cmd___post_event_split_000.html">AkCmd_PostEvent</a>*)<a class="pcalibre code" href="_ak_command_buffer_8h_af47a12700e1cd382114958c3d9c31211_split_000.html#af47a12700e1cd382114958c3d9c31211">AK_CommandBuffer_Add</a>(buffer, <a class="pcalibre code" href="_ak_command_types_8h_a001b78645b8b0335c0dd2e128cca2cfd_split_001.html#a001b78645b8b0335c0dd2e128cca2cfdaf20e9790432e3db005cd602adcf4d962">AkCommand_PostEvent</a>, 0);</div>
+<div class="line">postEvent2-&gt;<a class="pcalibre code" href="struct_ak_cmd___post_event_ac2f257b0dc6268b25c6dcb57075ff5a2_split_000.html#ac2f257b0dc6268b25c6dcb57075ff5a2">eventID</a> = <a class="pcalibre code" href="_ak_command_buffer_8h_a1a2169a039c3495d9595dedc08eca2f1_split_000.html#a1a2169a039c3495d9595dedc08eca2f1">AK_SoundEngine_GetIDFromString</a>(<span class="stringliteral">"another_event"</span>);</div>
+<div class="line">postEvent2-&gt;<a class="pcalibre code" href="struct_ak_cmd___post_event_afd6138b4a6f412766540cedc8357482d_split_000.html#afd6138b4a6f412766540cedc8357482d">playingID</a> = <a class="pcalibre code" href="_ak_command_buffer_8h_a4d75a81be7be245c1e49cea34e32bfc3_split_000.html#a4d75a81be7be245c1e49cea34e32bfc3">AK_SoundEngine_GeneratePlayingID</a>();</div>
+<div class="line">postEvent2-&gt;<a class="pcalibre code" href="struct_ak_cmd___post_event_a2a1a6012ddf0620e9778d4ed52905e7e_split_000.html#a2a1a6012ddf0620e9778d4ed52905e7e">gameObjectID</a> = 100;</div>
+<div class="line"><a class="pcalibre code" href="_ak_command_buffer_8h_ac1446f3c255c5f106fd0da55a340d4e4_split_000.html#ac1446f3c255c5f106fd0da55a340d4e4">AK_CommandBuffer_Submit</a>(buffer);</div>
+</div><!-- fragment --></div></div></div></body></html>

@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Model of an Authoring Plug-in</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_1"><a class="pcalibre1 anchor" id="wwiseplugin_propertyset_notification"></a>
+Property Value Notification</h2>
+<p class="calibre7">Wwise users can change property values either directly through a control in the dialog, or by using the undo/redo commands. When a user changes a property value, <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_notifications_1_1_property_set___a90d279b0b03eed79cb10a5b56b0aff90_split_000.html#a90d279b0b03eed79cb10a5b56b0aff90" title="This function is called by Wwise when a plug-in property changes.">AK::Wwise::Plugin::Notifications::PropertySet::NotifyPropertyChanged()</a></code> is called on your plug-in. This way, it is possible for adapting the value of other properties based on this change, e.g., custom data and property range dependencies. Also, if your dialog is being displayed at that time, you can specify actions to be performed in the dialog such as enabling or disabling controls.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> The XML allows describing dependencies based on rules. See Plug-in XML <a class="pcalibre el" href="plugin_xml_properties_split_006.html#wwiseplugin_xml_dependencies">Dependencies</a> for more details. </td></tr>
+</tbody></table>
+<div class="fragment"><div class="line"><span class="keyword">class </span>MySourcePlugin</div>
+<div class="line">:   <span class="keyword">public</span> <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_audio_plugin_split_000.html">AK::Wwise::Plugin::AudioPlugin</a></div>
+<div class="line">{</div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line">    <span class="keywordtype">void</span> <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_notifications_1_1_property_set___a90d279b0b03eed79cb10a5b56b0aff90_split_000.html#a90d279b0b03eed79cb10a5b56b0aff90">NotifyPropertyChanged</a>(</div>
+<div class="line">         <span class="keyword">const</span> GUID&amp; in_guidPlatform,</div>
+<div class="line">         <span class="keyword">const</span> <span class="keywordtype">char</span>* in_szPropertyName)<span class="keyword"> override</span></div>
+<div class="line"><span class="keyword">    </span>{</div>
+<div class="line">        <span class="keywordflow">if</span> (strcmp(in_szPropertyName, <span class="stringliteral">"PropertyKey"</span>) == 0)</div>
+<div class="line">        {</div>
+<div class="line">            <span class="comment">// Access the property set</span></div>
+<div class="line">            int32_t value = 0;</div>
+<div class="line">            <span class="keywordflow">if</span> (m_propertySet.GetValueInt32(in_guidPlatform, in_szPropertyName, value))</div>
+<div class="line">            {</div>
+<div class="line">                <span class="comment">// Do something with the value</span></div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (strcmp(in_szPropertyName, <span class="stringliteral">"OtherPropertyKey"</span>) == 0)</div>
+<div class="line">        {</div>
+<div class="line">            <span class="comment">// ...</span></div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">};</div>
+</div><!-- fragment --></div></div></div></body></html>

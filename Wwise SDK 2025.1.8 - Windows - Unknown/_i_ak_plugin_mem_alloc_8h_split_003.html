@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK/SoundEngine/Common/IAkPluginMemAlloc.h File Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table class="calibre3">
+<tbody class="calibre4"><tr class="calibre16"><td colspan="2" class="calibre17"><h2 class="calibre21" id="calibre_pb_2"><a class="pcalibre1 anchor" id="define-members"></a>
+Macros</h2></td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_i_ak_plugin_mem_alloc_8h_aca786bdd3829c192297a174d5d2d2479_split_000.html#aca786bdd3829c192297a174d5d2d2479">AK_PLUGIN_NEW</a>(_allocator,  _what)   new( ( _allocator ), __FILE__, __LINE__ ) _what</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_i_ak_plugin_mem_alloc_8h_abf61bf0827a987e8799a75a4d0e2f615_split_000.html#abf61bf0827a987e8799a75a4d0e2f615">AK_PLUGIN_ALLOC</a>(_allocator,  _size)   ( _allocator )-&gt;Malloc( ( _size ), __FILE__, __LINE__ )</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_i_ak_plugin_mem_alloc_8h_a13d68ec9e1946877aefa0499c3aadc92_split_000.html#a13d68ec9e1946877aefa0499c3aadc92">AK_PLUGIN_ALLOC_ALIGN</a>(_allocator,  _size,  _align)   ( _allocator )-&gt;Malign( ( _size ), ( _align ), __FILE__, __LINE__ )</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_i_ak_plugin_mem_alloc_8h_ae671f098aaf0de796b89e8abf1738f5b_split_000.html#ae671f098aaf0de796b89e8abf1738f5b">AK_PLUGIN_REALLOC</a>(_allocator,  _pmem,  _size)   ( _allocator )-&gt;Realloc( ( _pmem ), ( _size ), __FILE__, __LINE__ )</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_i_ak_plugin_mem_alloc_8h_a4b6cf76b6a87396c65ee2ab9970bb388_split_000.html#a4b6cf76b6a87396c65ee2ab9970bb388">AK_PLUGIN_REALLOC_ALIGN</a>(_allocator,  _pmem,  _size,  _align)   ( _allocator )-&gt;ReallocAligned( ( _pmem ), ( _size ), ( _align ), __FILE__, __LINE__ )</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_i_ak_plugin_mem_alloc_8h_a37dac3dbf976521288ecb8f36a16af3a_split_000.html#a37dac3dbf976521288ecb8f36a16af3a">AK_PLUGIN_FREE</a>(_allocator,  _pvmem)   ( _allocator )-&gt;Free( ( _pvmem ) )</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+</tbody></table></div></body></html>

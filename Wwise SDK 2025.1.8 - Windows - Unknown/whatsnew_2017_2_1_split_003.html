@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2017.2.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="behavior_changes_2017_2_1"></a>
+Behavior Changes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-36119</b> Due to this bug introduced in 2017.2.0, and fixed in 2017.2.1, versions 2017.2.0 and 2017.2.1 will not be able to remote connect.</li>
+<li class="calibre9"><b class="calibre13">WG-36287</b> Spatial Audio: Previously, the obstruction value from <code class="calibre14">AK::SpatialAudio::SetEmitterObstruction()</code> was ignored when the emitter was not in the same room as the listener. Now, the maximum of the obstruction value passed from the API and the value calculated by the diffraction system is passed to the sound engine. The game is responsible for differentiating obstruction between the emitter and the portal (where <code class="calibre14">SetEmitterObstruction()</code> should be used), and occlusion from room boundaries, which is better handled by the spatial audio diffraction system. For example, games that use ray-testing for obstruction may report 100% obstruction when an object is very close to the opening of a portal because the ray between the emitter and the listener hits a nearby wall. If the game then sends 100%, this will erroneously override the diffraction angle calculation, which is probably much less than 180 degrees and better matches the expected audibility of the sound. To prevent this scenario, games can ray-test for obstruction objects between the emitter and the portal, passing the results with <code class="calibre14">SetEmitterObstruction()</code>, and then test for obstructing objects between the portal and the listener, passing the results with <code class="calibre14">SetPortalObstruction()</code>.</li>
+</ul>
+</div></div></div></body></html>

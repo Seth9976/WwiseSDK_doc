@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2023.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_8"><a class="pcalibre1 anchor" id="io_hook_akfiledesc_custom"></a>
+AkFileDesc "Custom" Members Removed</h2>
+<p class="calibre7">The <code class="calibre14">AkFileDesc::pCustomParam</code> and <code class="calibre14">AkFileDesc::uCustomParamSize</code> members were removed because their usage was unclear when used in child classes of <code class="calibre14">CAkDefaultIOHookDeferred</code>. If your I/O hook needs to keep additional data along the <code class="calibre14"><a class="pcalibre el" href="struct_ak_file_desc_split_000.html">AkFileDesc</a></code>, derive from the base structure. As explained in the previous section, the I/O hook now creates and destroys <code class="calibre14"><a class="pcalibre el" href="struct_ak_file_desc_split_000.html">AkFileDesc</a></code> structures.</p>
+<p class="calibre7">For I/O hooks that derive from the <code class="calibre14">CAkDefaultIOHookDeferred</code> sample, the <code class="calibre14">AkFileDescType</code> typedef is available for child classes to also derive the <code class="calibre14"><a class="pcalibre el" href="struct_ak_file_desc_split_000.html">AkFileDesc</a></code> type, and intermediate child classes, if necessary. Override the <code class="calibre14">CAkDefaultIOHookDeferred::CreateDescriptor</code> function as well to create the right type, if <code class="calibre14"><a class="pcalibre el" href="struct_ak_file_desc_split_000.html">AkFileDesc</a></code> is extended.</p>
+</div></div></div></body></html>

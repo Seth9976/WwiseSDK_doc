@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Advanced Sound Engine Integration</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2"><h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="soundengine_initialization_advanced_prototype"></a>
+Sound Engine Initialization</h1>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> Before initializing the sound engine itself, the memory manager and streaming manager must be initialized. Please refer to the section <a class="pcalibre el" href="workingwithsdks_initialization_split_000.html">Initializing Sound Engine Modules</a> for more information about global initialization. </td></tr>
+</tbody></table>
+<p class="calibre7">Initializing the sound engine itself is done by calling the <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a9a26da64092b97243844df77cbcdbf5f_split_000.html#a9a26da64092b97243844df77cbcdbf5f">AK::SoundEngine::Init</a> function. The default initialization shown in <a class="pcalibre el" href="workingwithsdks_initialization_split_003.html#initialization_soundengine">Initializing the sound engine</a> is copied here for your convenience.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="pcalibre code" href="_ak_sound_engine_8h_split_000.html">AK/SoundEngine/Common/AkSoundEngine.h</a>&gt;</span>                <span class="comment">// Sound Engine</span></div>
+<div class="line"> </div>
+<div class="line">(...)</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> InitSoundEngine()</div>
+<div class="line">{</div>
+<div class="line">    (...)</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">//</span></div>
+<div class="line">    <span class="comment">// Initialize the sound engine</span></div>
+<div class="line">    <span class="comment">// Using default initialization parameters</span></div>
+<div class="line">    <span class="comment">//</span></div>
+<div class="line">    </div>
+<div class="line">    <span class="keywordflow">if</span> ( <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a9a26da64092b97243844df77cbcdbf5f_split_000.html#a9a26da64092b97243844df77cbcdbf5f">AK::SoundEngine::Init</a>( NULL, NULL ) != <a class="pcalibre code" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_001.html#a64f7d1f79613cc4dcc49a4efba6caa63ad7c47fea3da641e7422573c6a13dc35e">AK_Success</a> )</div>
+<div class="line">    {</div>
+<div class="line">        assert( ! <span class="stringliteral">"Could not initialize the Sound Engine."</span> );</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p class="calibre7">The <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a9a26da64092b97243844df77cbcdbf5f_split_000.html#a9a26da64092b97243844df77cbcdbf5f">AK::SoundEngine::Init</a> function takes 2 parameters.</p>
+<p class="calibre7">First parameter : <a class="pcalibre el" href="struct_ak_init_settings_split_000.html">AkInitSettings</a> * in_pSettings</p>
+<ul class="calibre8">
+<li class="calibre9">This structure contains platform-independent information to initialize the sound engine.</li>
+</ul>
+<p class="calibre7">Second parameter : <a class="pcalibre el" href="struct_ak_platform_init_settings_split_000.html">AkPlatformInitSettings</a> * in_pPlatformSettings</p>
+<ul class="calibre8">
+<li class="calibre9">This structure contains information specific to each platform to initialize the sound engine.</li>
+</ul>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="caution.gif"/></td><td class="calibre17"><b class="calibre13">Caution:</b> Both parameters are considered optional, but we recommend you customize these values to the needs of the game, because some of the default values may cause unnecessarily high memory usage. Refer to the section <a class="pcalibre el" href="goingfurther_optimizingmempools_split_001.html#fixed_allocs">Fixed-size allocations</a> for more information. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

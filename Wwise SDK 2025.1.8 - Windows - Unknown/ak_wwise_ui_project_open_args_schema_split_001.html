@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak.wwise.ui.project.open Arguments Schema</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2"><h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="section_ak_wwise_ui_project_open_argsSchema"></a>
+Schema</h1>
+<div class="fragment"><div class="line">{</div>
+<div class="line">    "type": "object",</div>
+<div class="line">    "properties": {</div>
+<div class="line">        "path": {</div>
+<div class="line">            "type": "string",</div>
+<div class="line">            "pattern": "\\.wproj$",</div>
+<div class="line">            "description": "The path to the project WPROJ file. For using WAAPI on Mac, please see \\ref waapi_path_on_mac."</div>
+<div class="line">        },</div>
+<div class="line">        "onUpgrade": {</div>
+<div class="line">            "type": "string",</div>
+<div class="line">            "enum": [</div>
+<div class="line">                "migrate",</div>
+<div class="line">                "fail"</div>
+<div class="line">            ],</div>
+<div class="line">            "description": "(DEPRECATED) The action to be executed when opening a project that needs to be upgraded. Note, this is deprecated. Please use onMigrationRequired instead."</div>
+<div class="line">        },</div>
+<div class="line">        "onMigrationRequired": {</div>
+<div class="line">            "type": "string",</div>
+<div class="line">            "enum": [</div>
+<div class="line">                "migrate",</div>
+<div class="line">                "fail"</div>
+<div class="line">            ],</div>
+<div class="line">            "description": "The action to be executed when opening a project that needs to be migrated."</div>
+<div class="line">        },</div>
+<div class="line">        "bypassSave": {</div>
+<div class="line">            "type": "boolean",</div>
+<div class="line">            "description": "Indicates if the user should not be prompted to save the current project. Defaults to true."</div>
+<div class="line">        },</div>
+<div class="line">        "autoCheckOutToSourceControl": {</div>
+<div class="line">            "type": "boolean",</div>
+<div class="line">            "description": "Determines if Wwise automatically performs a Checkout source control operation for affected work units and for the project. Defaults to true."</div>
+<div class="line">        }</div>
+<div class="line">    },</div>
+<div class="line">    "required": [</div>
+<div class="line">        "path"</div>
+<div class="line">    ],</div>
+<div class="line">    "additionalProperties": false</div>
+<div class="line">}</div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

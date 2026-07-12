@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::SoundEngine::GetOutputDeviceConfiguration</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="namespace_a_k_1_1_sound_engine_aeb3fd95442f659d38cb0e680a2168d68_split_000.html#aeb3fd95442f659d38cb0e680a2168d68" class="pcalibre1 anchor">◆ </a></span>GetOutputDeviceConfiguration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_sound_engine_export_8h_ac6e96d34dfc0e12f9aaa7a47f4e9c322_split_000.html#ac6e96d34dfc0e12f9aaa7a47f4e9c322">AKSOUNDENGINE_API</a> <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::SoundEngine::GetOutputDeviceConfiguration </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_ab608859e8c575f46ce18433e32aa2ccd_split_000.html#ab608859e8c575f46ce18433e32aa2ccd">AkOutputDeviceID</a> </td>
+          <td class="paramname"><em class="calibre59">in_idOutput</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="struct_ak_channel_config_split_000.html">AkChannelConfig</a> &amp; </td>
+          <td class="paramname"><em class="calibre59">io_channelConfig</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="struct_ak3_d_audio_sink_capabilities_split_000.html">Ak3DAudioSinkCapabilities</a> &amp; </td>
+          <td class="paramname"><em class="calibre59">io_capabilities</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Gets the configuration of the specified output device. Call this function to get the channel configuration of the output device as well as its 3D audio capabilities. If the configuration of the output device is object-based (io_channelConfig.eConfigType == AK_ChannelConfigType_Objects), io_capabilities can be inspected to determine the channel configuration of the main mix (<a class="pcalibre el" href="struct_ak3_d_audio_sink_capabilities_a164aa26ac716a5d4d8373190bcd4f9ab_split_000.html#a164aa26ac716a5d4d8373190bcd4f9ab" title="Channel configuration of the main mix.">Ak3DAudioSinkCapabilities::channelConfig</a>), whether or not the output device uses a passthrough mix (<a class="pcalibre el" href="struct_ak3_d_audio_sink_capabilities_afe3158a19bf34e0e124b08ab4b0b94a1_split_000.html#afe3158a19bf34e0e124b08ab4b0b94a1" title="Separate pass-through mix is supported.">Ak3DAudioSinkCapabilities::bPassthrough</a>) and the maximum number of objects that can play simultaneously on this output device (Ak3DAudioSinkCapabilities::uMax3DAudioObjects). Note that if <a class="pcalibre el" href="struct_ak3_d_audio_sink_capabilities_aac3c507bfe79952bae234720542cf525_split_000.html#aac3c507bfe79952bae234720542cf525" title="Can handle multi-channel objects.">Ak3DAudioSinkCapabilities::bMultiChannelObjects</a> is false, multi-channel objects will be split into multiple mono objects before being sent to the output device.</p>
+<dl class="calibre7"><dt class="calibre23">Warning</dt><dd class="calibre24">Call this function only after the sound engine has been properly initialized. If you are initializing the sound engine with <a class="pcalibre el" href="struct_ak_init_settings_a31218fafe5dea9bca79b979cfb1e6fb2_split_000.html#a31218fafe5dea9bca79b979cfb1e6fb2" title="Use a Wwise-owned thread for processing audio. If set to false, audio processing will occur only insi...">AkInitSettings::bUseLEngineThread</a> to false, it is required to call <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_afe54af0f5be38be061e8a3c7d7642bb1_split_000.html#afe54af0f5be38be061e8a3c7d7642bb1">RenderAudio()</a> at least once before calling this function to complete the sound engine initialization. </dd></dl>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><code class="calibre14">AK_Success</code> if successful</li>
+<li class="calibre9"><code class="calibre14">AK_IDNotFound</code> is the output was not found in the system.</li>
+<li class="calibre9"><code class="calibre14">AK_NotInitialized</code> if the sound engine is not initialized </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="_ak_speaker_config_8h_split_000.html">AkSpeakerConfig.h</a></li>
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_output_settings_split_000.html" title="Platform-independent initialization settings of output devices.">AkOutputSettings</a></li>
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a596df07185afdcb66a83e034ea0e32eb_split_000.html#a596df07185afdcb66a83e034ea0e32eb">AK::SoundEngine::GetSpeakerConfiguration()</a></code> </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Defining Custom Properties</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_5"><a class="pcalibre1 anchor" id="wwiseplugin_xml_effectplugin_custom_properties"></a>
+Properties</h1>
+<p class="calibre7">All custom properties should have a prefix. This is very important to avoid property name conflicts across Audiokinetic built-in properties, 3rd party properties and your own custom properties.</p>
+<p class="calibre7">Properties created in the user interface (Project &gt; Project Settings &gt; Custom Properties) are prefixed with "Custom:" in their name. Do not use the "Custom:" prefix when defining custom properties in .wcustomproperties files directly. Use your own prefix. Only properties found in WPROJECTNAME.wcustomproperties should have the "Custom:" prefix.</p>
+<p class="calibre7"><b class="calibre13">We highly recommend</b> using your company and product name as prefix in the property name. For example:</p>
+<div class="fragment"><div class="line">&lt;Property Name=<span class="stringliteral">"MyCompanyMyProduct:MyProperty"</span> <a class="pcalibre code" href="namespace_a_k_1_1_temp_alloc_a94c6067317869a80ec86af6994a0ebd9_split_000.html#a94c6067317869a80ec86af6994a0ebd9">Type</a>=<span class="stringliteral">"string"</span> DisplayName=<span class="stringliteral">"Game Id"</span>&gt;</div>
+<div class="line">    &lt;DefaultValue&gt;&lt;/DefaultValue&gt;</div>
+<div class="line">&lt;/Property&gt;</div>
+</div><!-- fragment --><p class="calibre7">For more information about properties and references, refer to <a class="pcalibre el" href="plugin_xml_properties_split_000.html">Properties XML Description</a>.</p>
+</div></div></div></body></html>

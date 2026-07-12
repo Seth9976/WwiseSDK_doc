@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Wwise Convolution Reverb</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="wwiseobject_effect_wwise_convolution_reverb_objectbase_properties"></a>
+Properties, References, Lists</h1>
+<p class="calibre7"></p><table class="doxtable">
+<tbody class="calibre4"><tr class="calibre16">
+<th class="calibre46">Name</th><th class="calibre46">Display Name</th><th class="calibre46">Type</th><th class="calibre46">Default</th><th class="calibre46">Restriction</th><th class="calibre46">Is Visible</th><th class="calibre46">Supported RTPC Type</th><th class="calibre46">Supports Link/Unlink </th></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">AlgoTypeSelect</b></td><td class="calibre36">Reverb Type</td><td class="calibre36">int32</td><td class="calibre36">0</td><td class="calibre36"><p class="starttd"><b class="calibre13">Possible values :</b> </p>
+<table border="1" class="calibre49">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre36">Value </td><td class="calibre36">Display Name  </td></tr>
+<tr class="calibre16">
+<td class="calibre36">0</td><td class="calibre36">Reverb</td></tr>
+<tr class="calibre16">
+<td class="calibre36">1</td><td class="calibre36">Filter</td></tr>
+</tbody></table>
+<p class="endtd"></p>
+</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">CenterLevel</b></td><td class="calibre36">Reverb Center Level</td><td class="calibre36">Real32</td><td class="calibre36">0</td><td class="calibre36">[ -96.3 , 0 ]</td><td class="calibre36">true</td><td class="calibre36">Additive</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">ChannelConfigOverride</b></td><td class="calibre36">Channel Configuration Override</td><td class="calibre36">int64</td><td class="calibre36">0</td><td class="calibre36">None</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">DryLevel</b></td><td class="calibre36">Dry Level</td><td class="calibre36">Real32</td><td class="calibre36">-96.3</td><td class="calibre36">[ -96.3 , 24 ]</td><td class="calibre36">true</td><td class="calibre36">Additive</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">FrontLevel</b></td><td class="calibre36">Reverb Front Level</td><td class="calibre36">Real32</td><td class="calibre36">0</td><td class="calibre36">[ -96.3 , 0 ]</td><td class="calibre36">true</td><td class="calibre36">Additive</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">FrontRearDelay</b></td><td class="calibre36">Rear Delay</td><td class="calibre36">Real32</td><td class="calibre36">0</td><td class="calibre36">[ 0 , 200 ]</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">FullPrecisionMedia</b></td><td class="calibre36">Full Precision Convolution (Slow)</td><td class="calibre36">bool</td><td class="calibre36">false</td><td class="calibre36">None</td><td class="calibre36">false</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">HardwareAcceleration</b></td><td class="calibre36">HW Acceleration</td><td class="calibre36">bool</td><td class="calibre36">false</td><td class="calibre36">None</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">true </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">IRChannelSelect</b></td><td class="calibre36">IR Channels</td><td class="calibre36">int32</td><td class="calibre36">4</td><td class="calibre36"><p class="starttd"><b class="calibre13">Possible values :</b> </p>
+<table border="1" class="calibre49">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre36">Value </td><td class="calibre36">Display Name  </td></tr>
+<tr class="calibre16">
+<td class="calibre36">0</td><td class="calibre36">Stereo</td></tr>
+<tr class="calibre16">
+<td class="calibre36">1</td><td class="calibre36">Mixdown</td></tr>
+<tr class="calibre16">
+<td class="calibre36">2</td><td class="calibre36">Left only</td></tr>
+<tr class="calibre16">
+<td class="calibre36">3</td><td class="calibre36">Right only</td></tr>
+<tr class="calibre16">
+<td class="calibre36">4</td><td class="calibre36">As Input</td></tr>
+</tbody></table>
+<p class="endtd"></p>
+</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">true </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">IRConvolutionSmooth</b></td><td class="calibre36">IR Smooth</td><td class="calibre36">Real32</td><td class="calibre36">0</td><td class="calibre36">[ 0 , 100 ]</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">IRConvolutionSmoothMax</b></td><td class="calibre36">IR Convolution Smooth</td><td class="calibre36">Real32</td><td class="calibre36">100</td><td class="calibre36">None</td><td class="calibre36">false</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">IRConvolutionStart</b></td><td class="calibre36">IR Convolution Begin</td><td class="calibre36">Real64</td><td class="calibre36">0</td><td class="calibre36">[ 0 , 20 ]</td><td class="calibre36">false</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">IRConvolutionStop</b></td><td class="calibre36">IR Convolution End</td><td class="calibre36">Real64</td><td class="calibre36">0</td><td class="calibre36">[ 0 , 20 ]</td><td class="calibre36">false</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">IRConvolutionThreshold</b></td><td class="calibre36">IR Threshold</td><td class="calibre36">Real32</td><td class="calibre36">-75</td><td class="calibre36">[ -144 , -30 ]</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">true </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">IRGraphicEQAutomate</b></td><td class="calibre36">IR Enable EQ</td><td class="calibre36">bool</td><td class="calibre36">false</td><td class="calibre36">None</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">IRLPFAutomate</b></td><td class="calibre36">IR Automate LPF</td><td class="calibre36">bool</td><td class="calibre36">false</td><td class="calibre36">None</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">IRLPFSlope</b></td><td class="calibre36"><b class="calibre13">IRLPFSlope</b></td><td class="calibre36">int32</td><td class="calibre36">6</td><td class="calibre36"><p class="starttd"><b class="calibre13">Possible values :</b> </p>
+<table border="1" class="calibre49">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre36">Value </td><td class="calibre36">Display Name  </td></tr>
+<tr class="calibre16">
+<td class="calibre36">6</td><td class="calibre36"/></tr>
+<tr class="calibre16">
+<td class="calibre36">12</td><td class="calibre36"/></tr>
+<tr class="calibre16">
+<td class="calibre36">18</td><td class="calibre36"/></tr>
+<tr class="calibre16">
+<td class="calibre36">24</td><td class="calibre36"/></tr>
+</tbody></table>
+<p class="endtd"></p>
+</td><td class="calibre36">false</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">IRLRMix</b></td><td class="calibre36">IR Balance</td><td class="calibre36">Real32</td><td class="calibre36">0</td><td class="calibre36">[ -100 , 100 ]</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">true </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">IRLevel</b></td><td class="calibre36">IR Volume</td><td class="calibre36">Real32</td><td class="calibre36">0</td><td class="calibre36">[ -96.3 , 24 ]</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">IRLevelAutomate</b></td><td class="calibre36">IR Automate Volume</td><td class="calibre36">bool</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">IRStretch</b></td><td class="calibre36">IR Stretch</td><td class="calibre36">Real32</td><td class="calibre36">100</td><td class="calibre36">[ 50 , 200 ]</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">InputCenterLevel</b></td><td class="calibre36">Center Input Level</td><td class="calibre36">Real32</td><td class="calibre36">0</td><td class="calibre36">[ -96.3 , 0 ]</td><td class="calibre36">true</td><td class="calibre36">Additive</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">InputLFELevel</b></td><td class="calibre36">LFE Input Level</td><td class="calibre36">Real32</td><td class="calibre36">-96.3</td><td class="calibre36">[ -96.3 , 0 ]</td><td class="calibre36">true</td><td class="calibre36">Additive</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">InputStereoWidth</b></td><td class="calibre36">Input Spread</td><td class="calibre36">Real32</td><td class="calibre36">0</td><td class="calibre36">[ 0 , 180 ]</td><td class="calibre36">true</td><td class="calibre36">Additive</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">InputThreshold</b></td><td class="calibre36">Input Threshold</td><td class="calibre36">Real32</td><td class="calibre36">-60</td><td class="calibre36">[ -96.3 , 30.0 ]</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">true </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">LFELevel</b></td><td class="calibre36">Reverb LFE Level</td><td class="calibre36">Real32</td><td class="calibre36">-96.3</td><td class="calibre36">[ -96.3 , 0 ]</td><td class="calibre36">true</td><td class="calibre36">Exclusive</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">PreDelay</b></td><td class="calibre36">Pre Delay</td><td class="calibre36">Real32</td><td class="calibre36">0</td><td class="calibre36">[ 0 , 1000 ]</td><td class="calibre36">true</td><td class="calibre36">Exclusive</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">RearLevel</b></td><td class="calibre36">Reverb Rear Level</td><td class="calibre36">Real32</td><td class="calibre36">0</td><td class="calibre36">[ -96.3 , 0 ]</td><td class="calibre36">true</td><td class="calibre36">Additive</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">SoundEngineBlockSize</b></td><td class="calibre36">Block Size</td><td class="calibre36">int32</td><td class="calibre36">1024</td><td class="calibre36"><p class="starttd"><b class="calibre13">Possible values :</b> </p>
+<table border="1" class="calibre49">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre36">Value </td><td class="calibre36">Display Name  </td></tr>
+<tr class="calibre16">
+<td class="calibre36">256</td><td class="calibre36">256</td></tr>
+<tr class="calibre16">
+<td class="calibre36">512</td><td class="calibre36">512</td></tr>
+<tr class="calibre16">
+<td class="calibre36">1024</td><td class="calibre36">1024</td></tr>
+<tr class="calibre16">
+<td class="calibre36">2048</td><td class="calibre36">2048</td></tr>
+</tbody></table>
+<p class="endtd"></p>
+</td><td class="calibre36">true</td><td class="calibre36">None</td><td class="calibre36">true </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">SoundEngineSampleRateDefault</b></td><td class="calibre36"><b class="calibre13">SoundEngineSampleRateDefault</b></td><td class="calibre36">int32</td><td class="calibre36">48000</td><td class="calibre36">[ 24000 , 48000 ]</td><td class="calibre36">false</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">SoundEngineSampleRateMac</b></td><td class="calibre36"><b class="calibre13">SoundEngineSampleRateMac</b></td><td class="calibre36">int32</td><td class="calibre36">48000</td><td class="calibre36">[ 24000 , 48000 ]</td><td class="calibre36">false</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">SoundEngineSampleRateiOS</b></td><td class="calibre36"><b class="calibre13">SoundEngineSampleRateiOS</b></td><td class="calibre36">int32</td><td class="calibre36">48000</td><td class="calibre36">[ 24000 , 48000 ]</td><td class="calibre36">false</td><td class="calibre36">None</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">StereoWidth</b></td><td class="calibre36">Output Spread</td><td class="calibre36">Real32</td><td class="calibre36">180</td><td class="calibre36">[ 0 , 180 ]</td><td class="calibre36">true</td><td class="calibre36">Additive</td><td class="calibre36">false </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><b class="calibre13">WetLevel</b></td><td class="calibre36">Wet Level</td><td class="calibre36">Real32</td><td class="calibre36">0</td><td class="calibre36">[ -96.3 , 24 ]</td><td class="calibre36">true</td><td class="calibre36">Additive</td><td class="calibre36">false </td></tr>
+</tbody></table>
+ <p class="calibre7"></p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>New Features Overview 2021.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_13"><a class="pcalibre1 anchor" id="features_21_1_sa_unreal"></a>
+Spatial Audio - Unreal</h2>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="features_21_1_fit_rooms_portals"></a>
+Fit Rooms and Portals to Geometry</h3>
+<p class="calibre7">To facilitate quick and accurate placement of AkAcousticPortals and AkSpatialAudioVolumes, the Wwise Unreal Integration is able to detect surrounding static mesh geometry in a scene and determine the appropriate size and location of the portals and volumes within the scene. Fit to Geometry works for a variety of typical room, window, and door shapes. The goal of this feature is to reduce the manual effort required to correctly place geometry for Rooms and Portals. Refer to <a href="https://www.audiokinetic.com/library/edge/?source=UE4&amp;id=sa_fittogeometry.html" target="_blank" class="pcalibre calibre12">Fit to Geometry</a> for a full walk-through of the implementation.</p>
+<div class="calibre2">
+<img alt="" src="fitroomsandportalstogeometry.png" class="inline"/>
+</div>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="features_21_1_rooms_portals_vis"></a>
+Rooms and Portals Visualization</h3>
+<p class="calibre7">There is a new option in the integration settings to draw Room and Portal outlines, and their connections, in the Unreal viewport. This can be useful when placing and aligning Rooms and Portals in a level.</p>
+<div class="calibre2">
+<img alt="" src="visualizeroomsandportals.png" class="inline"/>
+</div>
+<p class="calibre7"> <br class="calibre10"/>
+ </p><div class="calibre2">
+<img alt="" src="visualizeroomsandportalsoption.png" class="inline"/>
+</div>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="features_21_1_acoustic_surf_editor"></a>
+Acoustic Surfaces Editor</h3>
+<p class="calibre7">Acoustic surface properties on Spatial Audio Volumes are now easily identified in Unreal. This includes acoustic texture name, associated color, and the Transmission Loss value. Additionally, you can now use Brush Editing mode in the Unreal Editor to directly change the surface properties associated with one or more faces on a volume.</p>
+<div class="calibre2">
+<img alt="" src="acousticsurfaceseditor.png" class="inline"/>
+</div>
+<p class="calibre7"> <br class="calibre10"/>
+ </p><div class="calibre2">
+<img alt="" src="acousticsurfaceseditor_editsurfacesmode.png" class="inline"/>
+</div>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="features_21_1_sa_comp_update"></a>
+Spatial Audio Component Update</h3>
+<p class="calibre7">The AkRoom, AkPortal, AkLateReverb, and AkGeometry components have all been updated to support a UPrimitiveComponent as the attached parent. This means you can design your own custom Blueprint classes using the Spatial Audio components.</p>
+<div class="calibre2">
+<img alt="" src="spatialaudiocomponents.png" class="inline"/>
+</div>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="features_21_1_auto_aux_bus_assign"></a>
+Automatic Aux Bus Assignment</h3>
+<p class="calibre7">An Aux Bus can now be automatically assigned based on the estimated T60 decay of the AkRoom component.</p>
+<div class="calibre2">
+<img alt="" src="automaticauxbusassignment.png" class="inline"/>
+</div>
+<p class="calibre7">The AKLateReverb component has been updated to allow for the automatic assignment of an Aux Bus according to definitions in the Aux Bus Assignment Map.</p>
+<div class="calibre2">
+<img alt="" src="automaticauxbusassignmentaklatereverb.png" class="inline"/>
+</div>
+<p class="calibre7">The Reverb Assignment Map provides a correlation between the environmental decay value and an Aux Bus in the Wwise Project. This map is then used in conjunction with the AKLateReverb component Auto Assignment property to automate the process of the Late Reverb definition for a volume.</p>
+<div class="calibre2">
+<img alt="" src="auxbusassignmentmap.png" class="inline"/>
+</div>
+</div></div></div></body></html>

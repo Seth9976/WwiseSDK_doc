@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AkInputMapSlot&lt; KEY, USER_DATA &gt; Struct Template Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_2">Detailed Description</h2>
+<div class="calibre2"><h3 class="calibre22">template&lt;class KEY, class USER_DATA&gt;<br class="calibre10"/>
+struct AkInputMapSlot&lt; KEY, USER_DATA &gt;</h3>
+
+<p class="calibre7">Structure of an entry in the <a class="pcalibre el" href="class_ak_mixer_input_map_split_000.html" title="AkMixerInputMap: Map of inputs (identified with AK::IAkMixerInputContext *) to user-defined blocks of...">AkMixerInputMap</a> map. </p>
+<p class="calibre7">Collection class to manage inputs in mixer plugins. The inputs are identified by their context. The type of data attached to it is the template argument USER_DATA. The collection performs allocation/deallocation of user data via AK_PLUGIN_NEW/DELETE(). Usage</p>
+<p class="calibre7">// Init AkMixerInputMap&lt;void*, MyStruct&gt; m_mapInputs; m_mapInputs.Init( in_pAllocator ); // in_pAllocator passed at plugin init.</p>
+<p class="calibre7">// Add an input. m_mapInputs.AddInput( in_pInput ); // void * in_pInput</p>
+<p class="calibre7">// Find an input MyStruct * pInput = m_mapInputs.Exists( in_pInputContext ); // void * in_pInputContext passed to ConsumeInput()</p>
+<p class="calibre7">// Iterate through inputs. AkMixerInputMap&lt;MyStruct&gt;::Iterator it = m_mapInputs.End(); while ( it != m_mapInputs.End() ) { MyStruct * pInput = (*it).pUserData; ... ++it; } </p>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_ak_mixer_input_map_8h_source.html#l00062">62</a> of file <a class="pcalibre el" href="_ak_mixer_input_map_8h_source.html">AkMixerInputMap.h</a>.</p>
+</div></div><!-- contents -->
+
+
+</body></html>

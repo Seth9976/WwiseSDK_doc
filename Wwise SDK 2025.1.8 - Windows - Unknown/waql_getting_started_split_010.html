@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Getting Started with WAQL</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_9"><a class="pcalibre1 anchor" id="waql_gs_conclusion"></a>
+Conclusion</h1>
+<p class="calibre7">Let's summarize what we learned in this tutorial.</p>
+<p class="calibre7">About the composition of a WAQL query:</p>
+<ul class="calibre8">
+<li class="calibre9">A query returns a sequence of Wwise objects.</li>
+<li class="calibre9">A query can be decomposed into sections, defined by <b class="calibre13">from</b>, <b class="calibre13">where</b>, and <b class="calibre13">select</b> statements.</li>
+<li class="calibre9">Each section of a query feeds the next section.</li>
+<li class="calibre9">A query always has a source from which it starts. The source of the query is defined by a <b class="calibre13">from</b> statement.</li>
+<li class="calibre9">When the <b class="calibre13">from</b> statement is omitted, all objects from the project are taken as the source.</li>
+<li class="calibre9">A <b class="calibre13">where</b> statement allows you to filter out objects from the feeding sequence (i.e., the preceding section), keeping only those matching the condition.</li>
+<li class="calibre9">A <b class="calibre13">select</b> statement allows you to obtain new objects from the feeding sequence (i.e., the preceding section).</li>
+<li class="calibre9">The <b class="calibre13">where</b> and <b class="calibre13">select</b> statements can be appended to any sequence.</li>
+</ul>
+<p class="calibre7">About Wwise objects:</p>
+<ul class="calibre8">
+<li class="calibre9">Wwise objects have properties, which can be used in <b class="calibre13">where</b> statements or <b class="calibre13">select</b> statements.</li>
+<li class="calibre9">Properties are either numerical values, Boolean, strings, or references to other objects in the project.</li>
+<li class="calibre9">Some properties are found on any object (i.e., core properties).</li>
+<li class="calibre9">Some properties are specific to one or many object types.</li>
+<li class="calibre9">Properties can be combined with the dot operator.</li>
+</ul>
+<p class="calibre7">What's next? There are many more things you can do with WAQL:</p>
+<ul class="calibre8">
+<li class="calibre9">Refer to <a class="pcalibre el" href="waql_glossary.html">Glossary</a> and <a class="pcalibre el" href="waql_keywords_concepts.html">Important Keywords and Concepts</a> to continue learning about WAQL.</li>
+<li class="calibre9">Refer to <a class="pcalibre el" href="waql_reference_split_000.html">Wwise Authoring Query Language (WAQL) Reference</a> to learn about everything that's possible with WAQL.</li>
+<li class="calibre9">Refer to <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> to learn about Wwise objects and their properties.</li>
+<li class="calibre9">Refer to <a class="pcalibre el" href="ak_wwise_core_object_get_split_000.html">ak.wwise.core.object.get</a> to learn how to use WAQL in WAAPI. </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

@@ -1,0 +1,177 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Offline Rendering with Wwise</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2"><h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="offlinerendering"></a>
+Offline Rendering</h1>
+<p class="calibre7">The Wwise Sound Engine offers offline rendering that allows for non-real-time, compute-intensive audio generation and the synchronization of audio processing with compute-intensive video generation.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="caution.gif"/></td><td class="calibre17"><b class="calibre13">Caution:</b> Care must be taken when enabling offline rendering in applications that use the synchronous <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">AK::SoundEngine::LoadBank</a></code> and <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ac91406bc2fe061e4248cb448207b5a64_split_000.html#ac91406bc2fe061e4248cb448207b5a64">AK::SoundEngine::UnloadBank</a></code> APIs. See <a class="pcalibre el" href="goingfurther_eventmgrthread_split_001.html#eventmgrthread">Audio Rendering Thread</a> for details. </td></tr>
+</tbody></table>
+<p class="calibre7">An audio capture callback can be registered using <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a25dabf28198a55f9c11ab74e640be331_split_000.html#a25dabf28198a55f9c11ab74e640be331">AK::SoundEngine::RegisterCaptureCallback</a></code>, which provides a mechanism for accessing the rendered audio buffers.</p>
+<p class="calibre7">The following is an example that illustrates one possible implementation of offline rendering:</p>
+<div class="fragment"><div class="line"><span class="comment">/// Video capture services accessible in the game code</span></div>
+<div class="line"><span class="comment"></span><span class="keyword">namespace </span>VideoCaptureServices</div>
+<div class="line">{<span class="comment"></span></div>
+<div class="line"><span class="comment">    /// Possibly allocates buffers for video capture</span></div>
+<div class="line"><span class="comment"></span>    <span class="keywordtype">void</span> Initialize();</div>
+<div class="line">    <span class="comment"></span></div>
+<div class="line"><span class="comment">    /// Possibly outputs captured video and audio as a movie file</span></div>
+<div class="line"><span class="comment"></span>    <span class="keywordtype">void</span> Finalize();</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">    /// Possibly captures a single video frame buffer to a file.</span></div>
+<div class="line"><span class="comment"></span>    <span class="keywordtype">void</span> CaptureSingleFrame();</div>
+<div class="line">}</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/// Audio capture services accessible in the game code</span></div>
+<div class="line"><span class="comment"></span><span class="keyword">namespace </span>AudioCaptureServices</div>
+<div class="line">{<span class="comment"></span></div>
+<div class="line"><span class="comment">    /// Allocates buffers or opens files for the eventual capture of audio samples.</span></div>
+<div class="line"><span class="comment"></span>    <span class="keywordtype">void</span> Initialize(<span class="keywordtype">unsigned</span> in_uSampleRate, <span class="keywordtype">unsigned</span> in_uChannels);</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">    /// Releases buffers or file handles once audio sample capture is completed.</span></div>
+<div class="line"><span class="comment"></span>    <span class="keywordtype">void</span> Finalize();</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">    /// Adds audio samples to the allocated buffers</span></div>
+<div class="line"><span class="comment"></span>    <span class="keywordtype">void</span> CaptureInterleavedSamples(<span class="keywordtype">float</span>* in_pfSamples, <span class="keywordtype">unsigned</span> in_uSampleCount);</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">class </span>GameInterface</div>
+<div class="line">{</div>
+<div class="line">    <span class="comment">// ...</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><span class="comment">    /// Function called once per game frame</span></div>
+<div class="line"><span class="comment"></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> UpdateCallback(<span class="keywordtype">float</span> deltaTime <span class="comment">//&lt; elapsed wall clock time in real-time, inverse of the desired frame rate in offline mode</span></div>
+<div class="line">        ) = 0;</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">class </span>Game : <span class="keyword">public</span> GameInterface</div>
+<div class="line">{</div>
+<div class="line">    <span class="comment">// ...</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">private</span>:<span class="comment"></span></div>
+<div class="line"><span class="comment">    /// True when offline rendering is enabled.</span></div>
+<div class="line"><span class="comment"></span>    <span class="keywordtype">bool</span> m_bIsOfflineRendering{ <span class="keyword">false</span> };</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">    /// Output device ID for registration/unregistration of capture callback.</span></div>
+<div class="line"><span class="comment"></span>    <a class="pcalibre code" href="_ak_typedefs_8h_ab608859e8c575f46ce18433e32aa2ccd_split_000.html#ab608859e8c575f46ce18433e32aa2ccd">AkOutputDeviceID</a> m_defaultOutputDeviceId{ <a class="pcalibre code" href="_ak_constants_8h_a10906a6c67e9c74df9aeb174aee77ec4_split_000.html#a10906a6c67e9c74df9aeb174aee77ec4">AK_INVALID_OUTPUT_DEVICE_ID</a> };</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">    /// Wwise audio capture callback.</span></div>
+<div class="line"><span class="comment"></span>    <span class="keyword">static</span> <span class="keywordtype">void</span> CaptureCallback(<a class="pcalibre code" href="class_ak_audio_buffer_split_000.html">AkAudioBuffer</a>&amp; in_CaptureBuffer, <a class="pcalibre code" href="_ak_typedefs_8h_ab608859e8c575f46ce18433e32aa2ccd_split_000.html#ab608859e8c575f46ce18433e32aa2ccd">AkOutputDeviceID</a> <span class="comment">/*in_idOutput*/</span>, <span class="keywordtype">void</span>* <span class="comment">/*in_pCookie*/</span>)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keyword">const</span> <span class="keywordtype">unsigned</span> uSampleCount = <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span><span class="keyword">&gt;</span>(in_CaptureBuffer.<a class="pcalibre code" href="class_ak_audio_buffer_ab7f90fd99119b56e92e4cbf3559f98cd_split_000.html#ab7f90fd99119b56e92e4cbf3559f98cd">uValidFrames</a>) * in_CaptureBuffer.<a class="pcalibre code" href="class_ak_audio_buffer_a4523322478ec9a0f9de0c7c72e65df2f_split_000.html#a4523322478ec9a0f9de0c7c72e65df2f">NumChannels</a>();</div>
+<div class="line">        <span class="keywordflow">if</span> (!uSampleCount)</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line"> </div>
+<div class="line">        AudioCaptureServices::CaptureInterleavedSamples(in_CaptureBuffer.<a class="pcalibre code" href="class_ak_audio_buffer_a8b3f75d4e95d5ce9af0b4573fae87510_split_000.html#a8b3f75d4e95d5ce9af0b4573fae87510">GetInterleavedData</a>(), uSampleCount);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><span class="comment">    /// Function called to enable/disable offline rendering</span></div>
+<div class="line"><span class="comment"></span>    <span class="keywordtype">void</span> <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a609347e86f41f68638fc318d18248ca2_split_000.html#a609347e86f41f68638fc318d18248ca2">SetOfflineRendering</a>(<span class="keywordtype">bool</span> bIsOfflineRendering <span class="comment">//&lt; true for offline rendering, and false for real-time rendering</span></div>
+<div class="line">        )</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keyword">const</span> <span class="keywordtype">bool</span> bWasOfflineRendering{ m_bIsOfflineRendering };</div>
+<div class="line">        m_bIsOfflineRendering = bIsOfflineRendering;</div>
+<div class="line"> </div>
+<div class="line">        <span class="comment">// Posts a message on the message queue to enable/disable offline rendering</span></div>
+<div class="line">        <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a609347e86f41f68638fc318d18248ca2_split_000.html#a609347e86f41f68638fc318d18248ca2">AK::SoundEngine::SetOfflineRendering</a>(m_bIsOfflineRendering);</div>
+<div class="line"> </div>
+<div class="line">        <span class="keywordflow">if</span> (m_bIsOfflineRendering == bWasOfflineRendering)</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line"> </div>
+<div class="line">        <span class="comment">// Posts a message on the message queue to set the offline rendering frame time to zero ensuring that the subsequent call to RenderAudio() will not generate more audio samples.</span></div>
+<div class="line">        <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a2239ac58b4276815dab0645476905150_split_000.html#a2239ac58b4276815dab0645476905150">AK::SoundEngine::SetOfflineRenderingFrameTime</a>(0.0f);</div>
+<div class="line"> </div>
+<div class="line">        <span class="comment">// Call RenderAudio() to flush the message queue. After this call, offline rendering will be enabled/disabled.</span></div>
+<div class="line">        <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_afe54af0f5be38be061e8a3c7d7642bb1_split_000.html#afe54af0f5be38be061e8a3c7d7642bb1">AK::SoundEngine::RenderAudio</a>();</div>
+<div class="line"> </div>
+<div class="line">        <span class="keywordflow">if</span> (m_bIsOfflineRendering)</div>
+<div class="line">        {</div>
+<div class="line">            VideoCaptureServices::Initialize();</div>
+<div class="line"> </div>
+<div class="line">            <span class="comment">// When engaging offline rendering, the output configuration will switch to Stereo output by default</span></div>
+<div class="line">            <span class="comment">// In order to render to a different output speaker layout, replace the output with an explicitly defined one.</span></div>
+<div class="line">            <span class="comment">// In this example, switch to 7.1.4</span></div>
+<div class="line">            <a class="pcalibre code" href="struct_ak_channel_config_split_000.html">AkChannelConfig</a> surroundConfig;</div>
+<div class="line">            surroundConfig.<a class="pcalibre code" href="struct_ak_channel_config_a4c0f4b3d39608a10c9b330c1ef8281a7_split_000.html#a4c0f4b3d39608a10c9b330c1ef8281a7">SetStandard</a>(<a class="pcalibre code" href="_ak_speaker_config_8h_aa900d4eb858c3c0d2b2caa9fbf28a2d0_split_000.html#aa900d4eb858c3c0d2b2caa9fbf28a2d0">AK_SPEAKER_SETUP_DOLBY_7_1_4</a>);</div>
+<div class="line"> </div>
+<div class="line">            <span class="comment">// Post a mesage to replace the output device.</span></div>
+<div class="line">            <a class="pcalibre code" href="struct_ak_output_settings_split_000.html">AkOutputSettings</a> newSettings;</div>
+<div class="line">            newSettings.<a class="pcalibre code" href="struct_ak_output_settings_af1ff3ac68f3fa137c847144117d01535_split_000.html#af1ff3ac68f3fa137c847144117d01535">audioDeviceShareset</a> = AK::AUDIO_DEVICES::SYSTEM;</div>
+<div class="line">            newSettings.<a class="pcalibre code" href="struct_ak_output_settings_a0e145d97af362b7f3267b64ca0e38054_split_000.html#a0e145d97af362b7f3267b64ca0e38054">idDevice</a> = 0;</div>
+<div class="line">            newSettings.<a class="pcalibre code" href="struct_ak_output_settings_aaf1191276e3ac40828eeefb1db8767f7_split_000.html#aaf1191276e3ac40828eeefb1db8767f7">ePanningRule</a> = <a class="pcalibre code" href="_ak_enums_8h_a6a7a16f5e74370707bb7bff7fb29a112_split_001.html#a6a7a16f5e74370707bb7bff7fb29a112a136f30c9cc3bc0be7afbe6223012131b">AkPanningRule_Speakers</a>;</div>
+<div class="line">            newSettings.<a class="pcalibre code" href="struct_ak_output_settings_a5b546b6116a91f422fc0f61615159c06_split_000.html#a5b546b6116a91f422fc0f61615159c06">channelConfig</a> = surroundConfig;</div>
+<div class="line">            <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a81521a4611d3891c499ec9c5eb421ac2_split_000.html#a81521a4611d3891c499ec9c5eb421ac2">AK::SoundEngine::ReplaceOutput</a>(newSettings, 0, &amp;m_defaultOutputDeviceId);</div>
+<div class="line">        </div>
+<div class="line">            <span class="comment">// Flush the message queue again to make sure ReplaceOutput is processed, before registering the capture callback on the offline device</span></div>
+<div class="line">            <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_afe54af0f5be38be061e8a3c7d7642bb1_split_000.html#afe54af0f5be38be061e8a3c7d7642bb1">AK::SoundEngine::RenderAudio</a>(<span class="keyword">true</span>);</div>
+<div class="line"> </div>
+<div class="line">            <span class="keyword">const</span> <a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> uSampleRate{ <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_ad008c85c2aa438f16f2272fd494ecd84_split_000.html#ad008c85c2aa438f16f2272fd494ecd84">AK::SoundEngine::GetSampleRate</a>() };</div>
+<div class="line"> </div>
+<div class="line">            <span class="comment">// Provide the sample rate and number of channels to allocate the appropriate buffers.</span></div>
+<div class="line">            AudioCaptureServices::Initialize(uSampleRate, surroundConfig.<a class="pcalibre code" href="struct_ak_channel_config_af86d291ad68bcc75d3a47e4582dc69fc_split_000.html#af86d291ad68bcc75d3a47e4582dc69fc">uNumChannels</a>);</div>
+<div class="line"> </div>
+<div class="line">            <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a25dabf28198a55f9c11ab74e640be331_split_000.html#a25dabf28198a55f9c11ab74e640be331">AK::SoundEngine::RegisterCaptureCallback</a>(&amp;CaptureCallback, m_defaultOutputDeviceId, <span class="keyword">this</span>);</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span></div>
+<div class="line">        {</div>
+<div class="line">            <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_acc0738332d393048d352d1ca6d92b355_split_000.html#acc0738332d393048d352d1ca6d92b355">AK::SoundEngine::UnregisterCaptureCallback</a>(&amp;CaptureCallback, m_defaultOutputDeviceId, <span class="keyword">this</span>);</div>
+<div class="line"> </div>
+<div class="line">            AudioCaptureServices::Finalize();</div>
+<div class="line">            VideoCaptureServices::Finalize();</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> UpdateCallback(<span class="keywordtype">float</span> deltaTime)<span class="keyword"> override</span></div>
+<div class="line"><span class="keyword">    </span>{</div>
+<div class="line">        <span class="keywordflow">if</span> (m_bIsOfflineRendering)</div>
+<div class="line">            <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a2239ac58b4276815dab0645476905150_split_000.html#a2239ac58b4276815dab0645476905150">AK::SoundEngine::SetOfflineRenderingFrameTime</a>(deltaTime);</div>
+<div class="line"> </div>
+<div class="line">        <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_afe54af0f5be38be061e8a3c7d7642bb1_split_000.html#afe54af0f5be38be061e8a3c7d7642bb1">AK::SoundEngine::RenderAudio</a>();</div>
+<div class="line"> </div>
+<div class="line">        <span class="keywordflow">if</span> (m_bIsOfflineRendering)</div>
+<div class="line">            VideoCaptureServices::CaptureSingleFrame();</div>
+<div class="line">    }</div>
+<div class="line">};</div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_ad008c85c2aa438f16f2272fd494ecd84_html_ad008c85c2aa438f16f2272fd494ecd84"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_ad008c85c2aa438f16f2272fd494ecd84_split_000.html#ad008c85c2aa438f16f2272fd494ecd84" class="pcalibre calibre12">AK::SoundEngine::GetSampleRate</a></div><div class="calibre2">AKSOUNDENGINE_API AkUInt32 GetSampleRate()</div></div>
+<div class="ttc" id="a_ak_constants_8h_a10906a6c67e9c74df9aeb174aee77ec4_html_a10906a6c67e9c74df9aeb174aee77ec4"><div class="calibre2"><a href="_ak_constants_8h_a10906a6c67e9c74df9aeb174aee77ec4_split_000.html#a10906a6c67e9c74df9aeb174aee77ec4" class="pcalibre calibre12">AK_INVALID_OUTPUT_DEVICE_ID</a></div><div class="calibre2">static const AkUInt32 AK_INVALID_OUTPUT_DEVICE_ID</div><div class="calibre2">Invalid Device ID.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_constants_8h_source.html#l00047" class="pcalibre calibre12">AkConstants.h:47</a></div></div>
+<div class="ttc" id="astruct_ak_output_settings_aaf1191276e3ac40828eeefb1db8767f7_html_aaf1191276e3ac40828eeefb1db8767f7"><div class="calibre2"><a href="struct_ak_output_settings_aaf1191276e3ac40828eeefb1db8767f7_split_000.html#aaf1191276e3ac40828eeefb1db8767f7" class="pcalibre calibre12">AkOutputSettings::ePanningRule</a></div><div class="calibre2">enum AkPanningRule ePanningRule</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_sound_engine_types_8h_source.html#l00256" class="pcalibre calibre12">AkSoundEngineTypes.h:261</a></div></div>
+<div class="ttc" id="astruct_ak_channel_config_af86d291ad68bcc75d3a47e4582dc69fc_html_af86d291ad68bcc75d3a47e4582dc69fc"><div class="calibre2"><a href="struct_ak_channel_config_af86d291ad68bcc75d3a47e4582dc69fc_split_000.html#af86d291ad68bcc75d3a47e4582dc69fc" class="pcalibre calibre12">AkChannelConfig::uNumChannels</a></div><div class="calibre2">AkUInt32 uNumChannels</div><div class="calibre2">Number of channels.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_speaker_config_8h_source.html#l00449" class="pcalibre calibre12">AkSpeakerConfig.h:449</a></div></div>
+<div class="ttc" id="aclass_ak_audio_buffer_a4523322478ec9a0f9de0c7c72e65df2f_html_a4523322478ec9a0f9de0c7c72e65df2f"><div class="calibre2"><a href="class_ak_audio_buffer_a4523322478ec9a0f9de0c7c72e65df2f_split_000.html#a4523322478ec9a0f9de0c7c72e65df2f" class="pcalibre calibre12">AkAudioBuffer::NumChannels</a></div><div class="calibre2">AkForceInline AkUInt32 NumChannels() const</div><div class="calibre2">Get the number of channels.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_common_defs_8h_source.html#l00337" class="pcalibre calibre12">AkCommonDefs.h:337</a></div></div>
+<div class="ttc" id="astruct_ak_channel_config_html"><div class="calibre2"><a href="struct_ak_channel_config_split_000.html" class="pcalibre calibre12">AkChannelConfig</a></div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_speaker_config_8h_source.html#l00440" class="pcalibre calibre12">AkSpeakerConfig.h:441</a></div></div>
+<div class="ttc" id="astruct_ak_output_settings_html"><div class="calibre2"><a href="struct_ak_output_settings_split_000.html" class="pcalibre calibre12">AkOutputSettings</a></div><div class="calibre2">Platform-independent initialization settings of output devices.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_sound_engine_types_8h_source.html#l00229" class="pcalibre calibre12">AkSoundEngineTypes.h:230</a></div></div>
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_a2239ac58b4276815dab0645476905150_html_a2239ac58b4276815dab0645476905150"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_a2239ac58b4276815dab0645476905150_split_000.html#a2239ac58b4276815dab0645476905150" class="pcalibre calibre12">AK::SoundEngine::SetOfflineRenderingFrameTime</a></div><div class="calibre2">AKSOUNDENGINE_API AKRESULT SetOfflineRenderingFrameTime(AkReal32 in_fFrameTimeInSeconds)</div></div>
+<div class="ttc" id="a_ak_enums_8h_a6a7a16f5e74370707bb7bff7fb29a112_html_a6a7a16f5e74370707bb7bff7fb29a112a136f30c9cc3bc0be7afbe6223012131b"><div class="calibre2"><a href="_ak_enums_8h_a6a7a16f5e74370707bb7bff7fb29a112_split_001.html#a6a7a16f5e74370707bb7bff7fb29a112a136f30c9cc3bc0be7afbe6223012131b" class="pcalibre calibre12">AkPanningRule_Speakers</a></div><div class="calibre2">@ AkPanningRule_Speakers</div><div class="calibre2">Left and right positioned 60 degrees apart (by default - see AK::SoundEngine::GetSpeakerAngles()).</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_enums_8h_source_split_000.html#l00244" class="pcalibre calibre12">AkEnums.h:244</a></div></div>
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_a81521a4611d3891c499ec9c5eb421ac2_html_a81521a4611d3891c499ec9c5eb421ac2"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_a81521a4611d3891c499ec9c5eb421ac2_split_000.html#a81521a4611d3891c499ec9c5eb421ac2" class="pcalibre calibre12">AK::SoundEngine::ReplaceOutput</a></div><div class="calibre2">AKSOUNDENGINE_API AKRESULT ReplaceOutput(const AkOutputSettings &amp;in_Settings, AkOutputDeviceID in_outputDeviceId, AkOutputDeviceID *out_pOutputDeviceId=NULL)</div></div>
+<div class="ttc" id="aclass_ak_audio_buffer_ab7f90fd99119b56e92e4cbf3559f98cd_html_ab7f90fd99119b56e92e4cbf3559f98cd"><div class="calibre2"><a href="class_ak_audio_buffer_ab7f90fd99119b56e92e4cbf3559f98cd_split_000.html#ab7f90fd99119b56e92e4cbf3559f98cd" class="pcalibre calibre12">AkAudioBuffer::uValidFrames</a></div><div class="calibre2">AkUInt16 uValidFrames</div><div class="calibre2">Number of valid sample frames in the audio buffer.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_common_defs_8h_source.html#l00508" class="pcalibre calibre12">AkCommonDefs.h:508</a></div></div>
+<div class="ttc" id="a_ak_speaker_config_8h_aa900d4eb858c3c0d2b2caa9fbf28a2d0_html_aa900d4eb858c3c0d2b2caa9fbf28a2d0"><div class="calibre2"><a href="_ak_speaker_config_8h_aa900d4eb858c3c0d2b2caa9fbf28a2d0_split_000.html#aa900d4eb858c3c0d2b2caa9fbf28a2d0" class="pcalibre calibre12">AK_SPEAKER_SETUP_DOLBY_7_1_4</a></div><div class="calibre2">#define AK_SPEAKER_SETUP_DOLBY_7_1_4</div><div class="calibre2">Dolby 7.1.4 setup channel mask.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_speaker_config_8h_source.html#l00113" class="pcalibre calibre12">AkSpeakerConfig.h:113</a></div></div>
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_a25dabf28198a55f9c11ab74e640be331_html_a25dabf28198a55f9c11ab74e640be331"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_a25dabf28198a55f9c11ab74e640be331_split_000.html#a25dabf28198a55f9c11ab74e640be331" class="pcalibre calibre12">AK::SoundEngine::RegisterCaptureCallback</a></div><div class="calibre2">AKSOUNDENGINE_API AKRESULT RegisterCaptureCallback(AkCaptureCallbackFunc in_pfnCallback, AkOutputDeviceID in_idOutput=AK_INVALID_OUTPUT_DEVICE_ID, void *in_pCookie=NULL)</div></div>
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_afe54af0f5be38be061e8a3c7d7642bb1_html_afe54af0f5be38be061e8a3c7d7642bb1"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_afe54af0f5be38be061e8a3c7d7642bb1_split_000.html#afe54af0f5be38be061e8a3c7d7642bb1" class="pcalibre calibre12">AK::SoundEngine::RenderAudio</a></div><div class="calibre2">AKSOUNDENGINE_API AKRESULT RenderAudio(bool in_bAllowSyncRender=true)</div></div>
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_acc0738332d393048d352d1ca6d92b355_html_acc0738332d393048d352d1ca6d92b355"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_acc0738332d393048d352d1ca6d92b355_split_000.html#acc0738332d393048d352d1ca6d92b355" class="pcalibre calibre12">AK::SoundEngine::UnregisterCaptureCallback</a></div><div class="calibre2">AKSOUNDENGINE_API AKRESULT UnregisterCaptureCallback(AkCaptureCallbackFunc in_pfnCallback, AkOutputDeviceID in_idOutput=AK_INVALID_OUTPUT_DEVICE_ID, void *in_pCookie=NULL)</div></div>
+<div class="ttc" id="astruct_ak_output_settings_a5b546b6116a91f422fc0f61615159c06_html_a5b546b6116a91f422fc0f61615159c06"><div class="calibre2"><a href="struct_ak_output_settings_a5b546b6116a91f422fc0f61615159c06_split_000.html#a5b546b6116a91f422fc0f61615159c06" class="pcalibre calibre12">AkOutputSettings::channelConfig</a></div><div class="calibre2">struct AkChannelConfig channelConfig</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_sound_engine_types_8h_source.html#l00256" class="pcalibre calibre12">AkSoundEngineTypes.h:265</a></div></div>
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_a609347e86f41f68638fc318d18248ca2_html_a609347e86f41f68638fc318d18248ca2"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_a609347e86f41f68638fc318d18248ca2_split_000.html#a609347e86f41f68638fc318d18248ca2" class="pcalibre calibre12">AK::SoundEngine::SetOfflineRendering</a></div><div class="calibre2">AKSOUNDENGINE_API AKRESULT SetOfflineRendering(bool in_bEnableOfflineRendering)</div></div>
+<div class="ttc" id="astruct_ak_output_settings_a0e145d97af362b7f3267b64ca0e38054_html_a0e145d97af362b7f3267b64ca0e38054"><div class="calibre2"><a href="struct_ak_output_settings_a0e145d97af362b7f3267b64ca0e38054_split_000.html#a0e145d97af362b7f3267b64ca0e38054" class="pcalibre calibre12">AkOutputSettings::idDevice</a></div><div class="calibre2">AkUInt32 idDevice</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_sound_engine_types_8h_source.html#l00256" class="pcalibre calibre12">AkSoundEngineTypes.h:256</a></div></div>
+<div class="ttc" id="astruct_ak_channel_config_a4c0f4b3d39608a10c9b330c1ef8281a7_html_a4c0f4b3d39608a10c9b330c1ef8281a7"><div class="calibre2"><a href="struct_ak_channel_config_a4c0f4b3d39608a10c9b330c1ef8281a7_split_000.html#a4c0f4b3d39608a10c9b330c1ef8281a7" class="pcalibre calibre12">AkChannelConfig::SetStandard</a></div><div class="calibre2">AkForceInline void SetStandard(AkUInt32 in_uChannelMask)</div><div class="calibre2">Set channel config as a standard configuration specified with given channel mask.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_speaker_config_8h_source.html#l00516" class="pcalibre calibre12">AkSpeakerConfig.h:516</a></div></div>
+<div class="ttc" id="astruct_ak_output_settings_af1ff3ac68f3fa137c847144117d01535_html_af1ff3ac68f3fa137c847144117d01535"><div class="calibre2"><a href="struct_ak_output_settings_af1ff3ac68f3fa137c847144117d01535_split_000.html#af1ff3ac68f3fa137c847144117d01535" class="pcalibre calibre12">AkOutputSettings::audioDeviceShareset</a></div><div class="calibre2">AkUniqueID audioDeviceShareset</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_sound_engine_types_8h_source.html#l00252" class="pcalibre calibre12">AkSoundEngineTypes.h:252</a></div></div>
+<div class="ttc" id="a_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_html_a39c6c5d577901802ca77775760b704ce"><div class="calibre2"><a href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce" class="pcalibre calibre12">AkUInt32</a></div><div class="calibre2">uint32_t AkUInt32</div><div class="calibre2">Unsigned 32-bit integer.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_numeral_types_8h_source.html#l00035" class="pcalibre calibre12">AkNumeralTypes.h:35</a></div></div>
+<div class="ttc" id="aclass_ak_audio_buffer_html"><div class="calibre2"><a href="class_ak_audio_buffer_split_000.html" class="pcalibre calibre12">AkAudioBuffer</a></div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_common_defs_8h_source.html#l00309" class="pcalibre calibre12">AkCommonDefs.h:310</a></div></div>
+<div class="ttc" id="aclass_ak_audio_buffer_a8b3f75d4e95d5ce9af0b4573fae87510_html_a8b3f75d4e95d5ce9af0b4573fae87510"><div class="calibre2"><a href="class_ak_audio_buffer_a8b3f75d4e95d5ce9af0b4573fae87510_split_000.html#a8b3f75d4e95d5ce9af0b4573fae87510" class="pcalibre calibre12">AkAudioBuffer::GetInterleavedData</a></div><div class="calibre2">AkForceInline void * GetInterleavedData()</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_common_defs_8h_source.html#l00364" class="pcalibre calibre12">AkCommonDefs.h:364</a></div></div>
+<div class="ttc" id="a_ak_typedefs_8h_ab608859e8c575f46ce18433e32aa2ccd_html_ab608859e8c575f46ce18433e32aa2ccd"><div class="calibre2"><a href="_ak_typedefs_8h_ab608859e8c575f46ce18433e32aa2ccd_split_000.html#ab608859e8c575f46ce18433e32aa2ccd" class="pcalibre calibre12">AkOutputDeviceID</a></div><div class="calibre2">AkUInt64 AkOutputDeviceID</div><div class="calibre2">Audio Output device ID.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_typedefs_8h_source.html#l00064" class="pcalibre calibre12">AkTypedefs.h:64</a></div></div>
+
+
+</body></html>

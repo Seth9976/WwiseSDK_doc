@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Ray Tracing Engine Geometry Guide</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_10"><a class="pcalibre1 anchor" id="raytracing_geometry_guide_load_balancing_examples"></a>
+Load Balancing Example</h2>
+<p class="calibre7">The following example compares the performance in the same scene with three different spread values: 1 (disable), 4, and 10. The scene has 944 triangles and 649 diffraction edges. The number of emitters is 4. Reflection order is set to 4 and diffraction is enabled.</p>
+<div class="calibre2">
+<img alt="" src="tinycity3dview.png" class="inline"/>
+<div class="calibre2">
+An urban environment with several emitters.</div></div>
+<p class="calibre7">The following table shows the effect of different load balancing values on the scene.</p>
+<table border="1" cellpadding="1" cellspacing="0" width="800px" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<th class="calibre35">Spread</th><th class="calibre35">Average CPU %</th><th class="calibre35">Max CPU % </th></tr>
+<tr class="calibre16">
+<td class="calibre17">Disabled </td><td class="calibre17">4.8 </td><td class="calibre17">52.76  </td></tr>
+<tr class="calibre16">
+<td class="calibre17">4 </td><td class="calibre17">3.16 </td><td class="calibre17">23.26  </td></tr>
+<tr class="calibre16">
+<td class="calibre17">10 </td><td class="calibre17">1.71 </td><td class="calibre17">10.22  </td></tr>
+</tbody></table>
+<p class="calibre7"><br class="calibre10"/>
+</p>
+<div class="calibre2">
+<img alt="" src="loadbalancing1.png" class="inline"/>
+<div class="calibre2">
+With load balancing disabled, the number of emitters in a frame can go up to 4, which leads to high CPU peaks.</div></div>
+<p class="calibre7"> <br class="calibre10"/>
+</p>
+<div class="calibre2">
+<img alt="" src="loadbalancing4.png" class="inline"/>
+<div class="calibre2">
+With a spread of 4, a maximum of 2 emitters are processed in a given frame, which lowers the CPU peaks.</div></div>
+<p class="calibre7"> <br class="calibre10"/>
+</p>
+<div class="calibre2">
+<img alt="" src="loadbalancing10.png" class="inline"/>
+<div class="calibre2">
+With a spread of 10, only 1 emitter is processed in a given frame, which reduces CPU peaks even more.</div></div>
+<p class="calibre7"> <br class="calibre10"/>
+</p>
+</div></div></div></body></html>

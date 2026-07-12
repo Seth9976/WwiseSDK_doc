@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2019.2.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_6"><a class="pcalibre1 anchor" id="bugs_2019_2_1"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-30250</b> Fixed: Rare crash in CAkModulator::_Trigger</li>
+<li class="calibre9"><b class="calibre13">WG-36388</b> Fixed: Java exceptions in Android code related to Bluetooth now cleared.</li>
+<li class="calibre9"><b class="calibre13">WG-41384</b> Fixed: Possible crash while unloading a SoundBank with a transition active over a State change.</li>
+<li class="calibre9"><b class="calibre13">WG-41803</b> Fixed: Can't use the left right arrows to move cursor when editing Performance Monitor Settings.</li>
+<li class="calibre9"><b class="calibre13">WG-41974</b> Fixed: Edit in Nuendo does not support Sound Voices.</li>
+<li class="calibre9"><b class="calibre13">WG-44605</b> Fixed: Deleting a Transition with the Remove button will always select two transitions afterwards.</li>
+<li class="calibre9"><b class="calibre13">WG-46140</b> Fixed: Query criteria Property/Value shows duplicate choices in the dropdown menus.</li>
+<li class="calibre9"><b class="calibre13">WG-46172</b> Fixed: Doing a drag&amp;drop of multiple selected objects in a Sequence Container to the playlist resulted in a change in the order of the objects.</li>
+<li class="calibre9"><b class="calibre13">WG-46455</b> Fixed: Edit Marker Label in Source Editor does not update the label.</li>
+<li class="calibre9"><b class="calibre13">WG-46567</b> Fixed: Improved readability of the Game Object missing color (red) in the Locate Object section of the Game Object 3D Viewer.</li>
+<li class="calibre9"><b class="calibre13">WG-46601</b> Fixed: Crash that could occur due to malformed URI in WAAPI requests.</li>
+<li class="calibre9"><b class="calibre13">WG-46745</b> Fixed: rare crash when unloading PCK files.</li>
+<li class="calibre9"><b class="calibre13">WG-46882</b> Fixed: Left Arrow Key cannot be used in Query Editor.</li>
+<li class="calibre9"><b class="calibre13">WG-46899</b> Fixed: Audio glitches with <a class="pcalibre el" href="namespace_microsoft_split_000.html">Microsoft</a> Spatial Sound Platform Audio Device due to working thread pool affinity.</li>
+<li class="calibre9"><b class="calibre13">WG-47185</b> Fixed: Possible crash during RTPC initialization under low memory conditions.</li>
+<li class="calibre9"><b class="calibre13">WG-47239</b> Fixed: crash when pressing Ctrl-W in notes.</li>
+<li class="calibre9"><b class="calibre13">WG-47253</b> Fixed: Newly created command add-on contains invalid JSON.</li>
+<li class="calibre9"><b class="calibre13">WG-47256</b> Fixed: Keyboard shortcut filter is remembered but not applied when returning to dialog.</li>
+<li class="calibre9"><b class="calibre13">WG-47343</b> Fixed: (iOS) Audio session category AkAudioSessionCategorySoloAmbient doesn't stop external music when app is brought back to the foreground.</li>
+<li class="calibre9"><b class="calibre13">WG-47375</b> Fixed: (Soundseed Grain) Modulator and Quantization fields in the Modulator assignment pane disappear when changing Property.</li>
+<li class="calibre9"><b class="calibre13">WG-47391</b> Fixed: Critical errors happening prior to Authoring connection were not reported in Capture Log.</li>
+<li class="calibre9"><b class="calibre13">WG-47534</b> Fixed: Memory leak when playing an external source under low memory conditions.</li>
+<li class="calibre9"><b class="calibre13">WG-47558</b> Fixed: WAAPI C# sample does not compile.</li>
+<li class="calibre9"><b class="calibre13">WG-47562</b> Fixed: Convolution Reverb IR pictures are now vertically aligned.</li>
+<li class="calibre9"><b class="calibre13">WG-47627</b> Fixed: WwiseConsole does not support relative .wproj path.</li>
+<li class="calibre9"><b class="calibre13">WG-47765</b> Fixed: Invalid audio output by the Stereo Delay plug-in 5.1 channels in Profile.</li>
+<li class="calibre9"><b class="calibre13">WG-47810</b> Fixed: Rare crash when stopping a Switch Container in continuous mode with an unregistered Game Object.</li>
+<li class="calibre9"><b class="calibre13">WG-47850</b> Fixed: Music Switch Container entries can't select objects that are nested inside a Work Unit.</li>
+<li class="calibre9"><b class="calibre13">WG-47861</b> Fixed: Crash when deleting SFX object from right click after deleting the content of its name.</li>
+<li class="calibre9"><b class="calibre13">WG-47884</b> Fixed: Content Editor is not sorting objects by name by default.</li>
+<li class="calibre9"><b class="calibre13">WG-47904</b> Fixed: Devices missing from the Audio Preferences dialog.</li>
+<li class="calibre9"><b class="calibre13">WG-47909</b> Fixed: Voice Monitor not showing the HDR window.</li>
+<li class="calibre9"><b class="calibre13">WG-47925</b> Fixed: SoundFrame server was not working in WwiseCLI.</li>
+<li class="calibre9"><b class="calibre13">WG-48025</b> Fixed (PS4): Excessive memory allocation causing voice starvation when playing ATRAC9 streams.</li>
+<li class="calibre9"><b class="calibre13">WG-48032</b> Fixed: Built-in game parameters are not updated properly when spatial audio is initialized,</li>
+<li class="calibre9"><b class="calibre13">WG-48064</b> Fixed: Invalid command add-on files generate incomplete error in the log.</li>
+<li class="calibre9"><b class="calibre13">WG-48085</b> Fixed: File Packager does not import streamed files properly.</li>
+<li class="calibre9"><b class="calibre13">WG-48105</b> Fixed: Performance improvements when filtering with the profiler.</li>
+<li class="calibre9"><b class="calibre13">WG-48115</b> Fixed: Crash when moving a bus and its descendants to another location in the Master Mixer Hierarchy.</li>
+<li class="calibre9"><b class="calibre13">WG-48123</b> Fixed: Hangs in Game Sync Monitor while profiling with a text filter.</li>
+<li class="calibre9"><b class="calibre13">WG-48224</b> Fixed: Potential crash when calling <a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_aeffa58bec3569a1bac5feac3e0c370d9_split_000.html#aeffa58bec3569a1bac5feac3e0c370d9">AK::SpatialAudio::SetPortal</a> on a Portal with no name (name field is blank)</li>
+</ul>
+<p class="calibre7">
+</p>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="reference_platform_2019_2_1_split_000.html">Platform Requirements 2019.2.1</a> </li>
+</ul>
+</dd></dl>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

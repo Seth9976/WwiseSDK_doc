@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>New Features Overview 2024.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_1"><a class="pcalibre1 anchor" id="features_24_1_ux_expanded_live_edit"></a>
+Expanded Live Editing</h2>
+<p class="calibre7">In Wwise, it has always been possible to connect to a game to profile and edit a limited set of properties at runtime in order to immediately hear changes to mixing and sound behavior. Wwise 2024.1 expands live editing options: some property editing restrictions have been removed, and new options have been added, including live editing of RTPC curves, Effects, and more.</p>
+<div class="calibre2">
+<img alt="" src="profiling_241.png" class="inline"/>
+</div>
+<p class="calibre7">Changes you make while profiling are now automatically applied in game at runtime, without the need to regenerate SoundBanks. Supported changes include the following:</p>
+<ul class="calibre8">
+<li class="calibre9">Creation and removal of all objects in the Actor-Mixer hierarchy (Sounds, Containers, and so on), Interactive Music Hierarchy (Tracks, Playlists, and so on), various ShareSets, and Events.</li>
+<li class="calibre9">Reordering the children of containers or playlists, or changing their parents.</li>
+<li class="calibre9">Changing the output bus of an object.</li>
+<li class="calibre9">Renaming objects.</li>
+<li class="calibre9">Several smaller, previously unavailable (grayed out) properties are now available.</li>
+</ul>
+<p class="calibre7">Because of these changes, you can now create an entire audio feature while profiling the game without generating or reloading SoundBanks.</p>
+<p class="calibre7">Although most changes are seamless in the game, live edits might cause audible glitches if they affect audio structures that are currently playing.</p>
+<p class="calibre7">The introduction of Live Media Transfer and expanded live editing capabilities creates the most focused and iterative realtime workflow between the DAW, Wwise, and the game engine yet. For more information about Live Media Transfer, live editing, profiling options, and side effects, see <a href="https://www.audiokinetic.com/library/edge/?source=Help&amp;id=editing_while_profiling" target="_blank" class="pcalibre calibre12">Editing while profiling a game</a>.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="features_24_1_ux_live_editing_unreal"></a>
+Live Editing Improvements in Unreal</h3>
+<p class="calibre7">The live editing improvements in this release have major benefits for Unreal Integration users, who can now iterate on entire sound designs without going through the cooking process. While working in the Unreal Editor, you can now add new Events through the Wwise Browser without triggering SoundBank generation.</p>
+</div></div></div></body></html>

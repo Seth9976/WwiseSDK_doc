@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>New Features Overview 2025.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_26"><a class="pcalibre1 anchor" id="features_25_1_command_buffer"></a>
+Command Buffer API</h2>
+<p class="calibre7">Some games frequently send a high volume of data to the sound engine. For example, games with a lot of game objects and game syncs send hundreds of values to the sound engine at regular intervals. Although you can manage this data transfer using the existing C++ API, the new C-compatible, fully asynchronous Command Buffer API has the following benefits:</p><ul class="calibre8">
+<li class="calibre9">It minimizes both CPU usage and memory allocations for large data transfers.</li>
+<li class="calibre9">It is fully compatible with any C11 compiler, and therefore its functions can be bound directly to other programming languages that have FFI (foreign function interface) capabilities, such as Rust.</li>
+</ul>
+<p class="calibre7">Among other features, you can use the Command Buffer API to:</p><ul class="calibre8">
+<li class="calibre9">Group Events (PostEvent/SetRTPC).</li>
+<li class="calibre9">Package "commands" in a single buffer (or frame).</li>
+<li class="calibre9">Register calls, for example, Post and SetPosition.</li>
+</ul>
+<p class="calibre7">This release introduces functions that will be expanded in future releases.</p>
+</div></div></div></body></html>

@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak.wwise.core.gameParameter.setRange</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="ak_wwise_core_gameparameter_setrangeArguments"></a>
+Arguments</h1>
+<p class="calibre7"></p><table class="doxtable">
+<tbody class="calibre4"><tr class="calibre16">
+<th class="calibre46">Name </th><th class="calibre46">Type </th><th class="calibre46">Description  </th></tr>
+<tr class="calibre16">
+<td rowspan="4" class="calibre36"><b class="calibre13">object</b> * </td><td class="calibre36"/><td class="calibre36"><p class="starttd">The ID (GUID), name, or path of the Game Parameter. </p>
+<p class="endtd">Any of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">The name of the object qualified by its type or Short ID in the form of type:name or Global:shortId. Only object types that have globally-unique names or Short Ids are supported. Ex: Event:Play_Sound_01, Global:245489792   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">A project path to a Wwise object, including the category and the work-unit. For example: \Containers\Default Work Unit\New Sound SFX.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">min</b> * </td><td class="calibre36">number </td><td class="calibre36">The minimum value of the Game Parameter.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">max</b> * </td><td class="calibre36">number </td><td class="calibre36">The maximum value of the Game Parameter.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">onCurveUpdate</b> * </td><td class="calibre36">string </td><td class="calibre36">Modifying the Min or Max value of a Game Parameter affects the RTPC curves and blend tracks that use that Game Parameter for their X axis. Two actions are possible: stretch: All items are kept but their X positions might change as the curve/blend track is stretched or compressed to match the new range in X. Values of Set Game Parameter actions are also scaled. preserve_x: Maintains the X position of all the items, but those that fall outside the new range are deleted. Values of Set Game Parameter actions are clamped. Possible values: <ul class="calibre8">
+<li class="calibre9">
+stretch </li>
+<li class="calibre9">
+preserveX </li>
+</ul>
+</td></tr>
+</tbody></table>
+<p class="calibre7">(Required *)</p>
+<p class="calibre7"><a class="pcalibre el" href="ak_wwise_core_gameparameter_setrange_args_schema_split_000.html">Arguments Schema</a></p>
+</div></div></div></body></html>

@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::StreamMgr::SetCurrentLanguage</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="namespace_a_k_1_1_stream_mgr_ae4820886baae734dd90177a49a2be1eb_split_000.html#ae4820886baae734dd90177a49a2be1eb" class="pcalibre1 anchor">◆ </a></span>SetCurrentLanguage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_sound_engine_export_8h_ac6e96d34dfc0e12f9aaa7a47f4e9c322_split_000.html#ac6e96d34dfc0e12f9aaa7a47f4e9c322">AKSOUNDENGINE_API</a> <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::StreamMgr::SetCurrentLanguage </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype">const <a class="pcalibre el" href="_platforms_2_windows_2_ak_types_8h_af48843ed095e0ea7dd05bd1b64070664_split_000.html#af48843ed095e0ea7dd05bd1b64070664">AkOSChar</a> * </td>
+          <td class="paramname"><em class="calibre59">in_pszLanguageName</em></td><td class="calibre17">)</td>
+          <td class="calibre17"/>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Set the current language once and only once, here. The language name is stored in a static buffer inside the Stream Manager. In order to resolve localized (language-specific) file location, <a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_file_location_resolver_split_000.html">AK::StreamMgr::IAkFileLocationResolver</a> implementations query this string. They may use it to construct a file path (for e.g. SDK/samples/SoundEngine/Common/AkFileLocationBase.cpp), or to find a language-specific file within a look-up table (for e.g. SDK/samples/SoundEngine/Common/AkFilePackageLUT.cpp). Pass a valid null-terminated string, without a trailing slash or backslash. Empty strings are accepted. You may register for language changes (see RegisterToLanguageChangeNotification()). After changing the current language, all observers are notified. </p><dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">AK_Success if successful (if language string has less than AK_MAX_LANGUAGE_NAME_SIZE characters). AK_Fail otherwise. </dd></dl>
+<dl class="calibre7"><dt class="calibre23">Warning</dt><dd class="calibre24">Not multithread safe. </dd></dl>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_stream_mgr_ae24e1f8b35b501eaa97599d5d6e48cc1_split_000.html#ae24e1f8b35b501eaa97599d5d6e48cc1">AK::StreamMgr::GetCurrentLanguage()</a></li>
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_stream_mgr_af547235acd8c151e6bf461f59e5a8eb7_split_000.html#af547235acd8c151e6bf461f59e5a8eb7">AK::StreamMgr::AddLanguageChangeObserver()</a> </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_pszLanguageName</td><td class="calibre17">Language name. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

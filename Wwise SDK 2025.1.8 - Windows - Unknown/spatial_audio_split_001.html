@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Acoustics</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="spatial_audio_intro"></a>
+Introduction</h1>
+<p class="calibre7">The Spatial Audio module exposes a number of services related to spatial audio, notably to do the following:</p><ul class="calibre8">
+<li class="calibre9">compute image sources for Reflect for a given geometry</li>
+<li class="calibre9">model sound propagation from Rooms and Portals by controlling 3D busses</li>
+<li class="calibre9">model sound propagation across geometry</li>
+<li class="calibre9">access the raw API of <a href="https://www.audiokinetic.com/library/edge/?source=Help&amp;id=wwise_reflect_plug_in_effect" target="_blank" class="pcalibre calibre12">Reflect</a></li>
+</ul>
+<p class="calibre7">Internally, Spatial Audio does the following:</p><ul class="calibre8">
+<li class="calibre9">controls 3D busses by managing game objects and their properties (positions, auxiliary sends, obstruction, and occlusion)</li>
+<li class="calibre9">controls (multi-) positions and aux sends of Spatial Audio game objects</li>
+<li class="calibre9">runs geometric sound reflection, diffraction and transmission algorithms</li>
+<li class="calibre9">packages data for <a href="https://www.audiokinetic.com/library/edge/?source=Help&amp;id=wwise_reflect_plug_in_effect" target="_blank" class="pcalibre calibre12">Reflect</a></li>
+</ul>
+<p class="calibre7">It is an SDK component that works with the Wwise sound engine, as shown in the following flowchart.</p>
+<p class="calibre7"> 
+</p><div class="center">
+    <img alt="SpatialAudioFlow" border="10" src="spatialaudio_flowchart.png" class="calibre34"/>
+</div>
+<p class="calibre7"></p>
+</div></div></div></body></html>

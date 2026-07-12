@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integrating External Sources</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="external_sources_conversion"></a>
+Conversion of external sources</h1>
+<p class="calibre7">If you opt to used the recommended WEM proprietary format; you will need to convert your input files in order to pass them to the sound engine at runtime. This is done through the External Sources List file in Wwise Authoring. This is an XML file that contains all files that you need to convert along with the conversion settings you want to use. To specify the WSOURCES file, go in the Project Settings in the External Sources tab. Here is an example of this file:</p>
+<div class="fragment"><div class="line">&lt;?xml version=<span class="stringliteral">"1.0"</span> encoding=<span class="stringliteral">"UTF-8"</span>?&gt;</div>
+<div class="line">&lt;ExternalSourcesList SchemaVersion=<span class="stringliteral">"1"</span> Root=<span class="stringliteral">"d:\TestProject\ExternalSources"</span>&gt;</div>
+<div class="line">    &lt;<a class="pcalibre code" href="namespace_a_k_1_1_wwise_1_1_plugin_a6397b4db19f43bd157d4851720f838af_split_000.html#a6397b4db19f43bd157d4851720f838af">Source</a> Path=<span class="stringliteral">"kaaboom.wav"</span> Conversion=<span class="stringliteral">"VeryCompressed"</span> /&gt;</div>
+<div class="line">    &lt;<a class="pcalibre code" href="namespace_a_k_1_1_wwise_1_1_plugin_a6397b4db19f43bd157d4851720f838af_split_000.html#a6397b4db19f43bd157d4851720f838af">Source</a> Path=<span class="stringliteral">"SomeOtherFolderInTheProject\working.wav"</span> Conversion=<span class="stringliteral">"PCM"</span>/&gt;   </div>
+<div class="line">    &lt;<a class="pcalibre code" href="namespace_a_k_1_1_wwise_1_1_plugin_a6397b4db19f43bd157d4851720f838af_split_000.html#a6397b4db19f43bd157d4851720f838af">Source</a> Path=<span class="stringliteral">"d:\FolderOutsideTheProject\out.wav"</span> Conversion=<span class="stringliteral">"PCM"</span> Destination=<span class="stringliteral">"out.wav"</span>/&gt;  </div>
+<div class="line">    &lt;<a class="pcalibre code" href="namespace_a_k_1_1_wwise_1_1_plugin_a6397b4db19f43bd157d4851720f838af_split_000.html#a6397b4db19f43bd157d4851720f838af">Source</a> Path=<span class="stringliteral">"..\RelativeOutsideTheProject\relative.wav"</span> Conversion=<span class="stringliteral">"PCM"</span> Destination=<span class="stringliteral">"relative.wav"</span>/&gt;  </div>
+<div class="line">    &lt;<a class="pcalibre code" href="namespace_a_k_1_1_wwise_1_1_plugin_a6397b4db19f43bd157d4851720f838af_split_000.html#a6397b4db19f43bd157d4851720f838af">Source</a> Path=<span class="stringliteral">"MyHdrSound.wav"</span> Conversion=<span class="stringliteral">"PCM"</span> AnalysisTypes=<span class="stringliteral">"6"</span>/&gt;</div>
+<div class="line">&lt;/ExternalSourcesList&gt;</div>
+</div><!-- fragment --><p class="calibre7">The Root attribute specifies the root path for the Source entries. If omitted, the project directory is considered the root. The Root path can be a fully qualified path or a path relative to the project directory.</p>
+<p class="calibre7">The Source item specifies one file to convert:</p><ul class="calibre8">
+<li class="calibre9">The Path is always relative to the Root path.</li>
+<li class="calibre9">The Conversion attribute is the name of the Conversion Setting ShareSet to be used to convert the file. If not specified, it will use the Default Conversion Setting of the project.</li>
+<li class="calibre9">The Destination attribute is optional and allows you to specify a different destination filename and path. The path is relative to the output path specified in the Project Settings or command line. You may rename the file with this attribute as well. Note that you cannot use only a file path: you need to specify a file name also. Furthermore, the extension of the converted file will be ".wem", regardless of the extension of the Destination attribute. The hierarchy of folders inside the Root directory is always replicated in the output path if the Destination attribute is not specified. You must specify the Destination attribute if you use a file outside the Root directory.</li>
+<li class="calibre9">AnalysisTypes is used to determine what kind of analysis meta data should be included in the header of the converted file. There are currently two types of analysis usable by the sound engine, loudness and HDR. – Loudness is used for loudness normalization, so if you should add it to your external source if it is used by a sound structure that has the "Enable Loudness Normalization" check box ticked. Set AnalysisTypes to 2 in order to include it. – HDR solely consists of the envelope of the sound. Include it if you plan to use this source inside an HDR system, in a structure that has the "Enable Envelope" check box ticked. Set AnalysisTypes to 4 in order to include it. – Set AnalysisTypes to 6 (that is, 2 + 4) in order to include both types.</li>
+</ul>
+<p class="calibre7">Conversion of the external sources is automatically done when bank generation occurs, along with all the other file conversions. Note that files that are already converted are not reconverted needlessly.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="caution.gif"/></td><td class="calibre17"><b class="calibre13">Caution:</b> To avoid reconversion, Wwise saves some data in a Wwise.dat file in the output directory. This file is not necessary for your game, so you should not include it in your final files. If this file is deleted, all wave files will be reconverted. </td></tr>
+</tbody></table>
+<p class="calibre7">The directory structure of the input directories will be replicated in the output directory, relative to the root path. In the example above, the output directory would contain a "ExternalSources" folder and a "Lower Tests\Originals\SFX" folder. Note that paths that contains ".." will be stripped and start at the first real folder.</p>
+</div></div></div></body></html>

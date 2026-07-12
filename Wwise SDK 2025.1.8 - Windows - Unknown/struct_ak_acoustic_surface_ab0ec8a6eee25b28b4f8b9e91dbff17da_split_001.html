@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AkAcousticSurface::transmissionLoss</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="struct_ak_acoustic_surface_ab0ec8a6eee25b28b4f8b9e91dbff17da_split_000.html#ab0ec8a6eee25b28b4f8b9e91dbff17da" class="pcalibre1 anchor">◆ </a></span>transmissionLoss</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a> AkAcousticSurface::transmissionLoss</td>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Transmission loss value to apply when simulating sound transmission through this geometric surface. Transmission is only simulated on a sound when the sound has <b class="calibre13">Enable Diffraction and Transmission</b> box enabled in Wwise Authoring.</p>
+<p class="calibre7">If more than one surface is intersected between the emitter and the listener, the result depends on <code class="calibre14"><a class="pcalibre el" href="struct_ak_spatial_audio_init_settings_a2580ab2686a91ec9e2f6038815ad6cec_split_000.html#a2580ab2686a91ec9e2f6038815ad6cec" title="The operation used to determine transmission loss on direct paths.">AkSpatialAudioInitSettings::eTransmissionOperation</a></code>. The default behavior is to use the maximum of all surfaces' transmission loss values.</p>
+<p class="calibre7">Transmission loss is applied on the mix connection between the emitter and the listener for the Direct Propagation Path, and between the emitter and the room for the Diffuse Propagation Path. The transmission loss value is converted to volume attenuation, low-pass and/or high-pass filtering, using the transmission loss curves defined on the sound in Wwise Authoring.</p>
+<p class="calibre7">A transmission loss value of 0 has special meaning in some contexts:</p><ul class="calibre8">
+<li class="calibre9">Setting a transmission loss value of 0 effectively disables a surface for ray intersection. It is ignored for all diffraction and reflection calculations.</li>
+<li class="calibre9">When geometry is used to define the shape of a Reverb Zone, surfaces with a transmission loss of 0 define the center of the transition between the Reverb Zone and its parent Room. Only surfaces with transmission loss of 0 define the transition region, allowing the user to have transitions around parts of the geometry (certain walls, for example), and not others. Valid range: (0.f-1.f)</li>
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_room_params_split_000.html">AkRoomParams</a></li>
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_af57f04a0250faecc0246cf0552c03ca6_split_000.html#af57f04a0250faecc0246cf0552c03ca6">AK::SpatialAudio::SetReverbZone</a> </li>
+</ul>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_ak_spatial_audio_types_8h_source_split_000.html#l00483">483</a> of file <a class="pcalibre el" href="_ak_spatial_audio_types_8h_source_split_000.html">AkSpatialAudioTypes.h</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

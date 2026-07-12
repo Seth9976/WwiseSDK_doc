@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2019.2</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_9"><a class="pcalibre1 anchor" id="migration_19_2_spatial_audio_registration"></a>
+No More Emitter Registration</h2>
+<p class="calibre7">Now that we are able to specify settings directly in the project, the Spatial Audio runtime is able to know when a sound is playing on an object that defines Spatial Audio properties and therefore requires processing. With that, you can <em class="calibre11">no longer register a game object as a “Spatial Audio Emitter”</em>, and we have removed AkEmitterSettings as well. In an effort to make Spatial Audio more approachable and user friendly, there are <em class="calibre11">fewer settings</em> in the authoring tool now than there were in AkEmitterSettings. The following is a guide to migrating each field from AkEmitterSettings and where to set the new values in the Wwise project.</p>
+<ul class="calibre8">
+<li class="calibre9"><em class="calibre11">name.</em> No longer applicable, instead use the debug name when registering a game object to the sound engine.</li>
+<li class="calibre9"><em class="calibre11">reflectAuxBusID.</em> Now specified in the Wwise authoring tool on a per-sound basis. The early reflections bus is now defined in the general settings tab for both sounds and busses.</li>
+<li class="calibre9"><em class="calibre11">reflectionMaxPathLength.</em> No longer required. Spatial Audio is now able to access the attenuation curves specified by the sounds that have Spatial Audio settings, and the - maximum distance in the curve is used for reflection distance heuristics.</li>
+<li class="calibre9"><em class="calibre11">reflectionsAuxBusGain.</em> Now specified in the Wwise authoring tool on a per-sound basis. The early reflections send volume is now defined in the general settings tab for both sounds and busses.</li>
+<li class="calibre9"><em class="calibre11">reflectionsOrder.</em> The reflections order is now a global setting that is passed to the Spatial Audio init settings and no longer available on a per-game object basis. The new reflections engine in Wwise 2019.2 is not only much more efficient at processing higher-order reflections, but it does so in a way that is much less sensitive to the number of emitters in the scene. The reflections for all emitters are effectively calculated all at once, so specifying the reflection order per-emitter no longer makes sense.</li>
+<li class="calibre9"><em class="calibre11">reflectorFilterMask.</em> This feature has been removed from Wwise 2019.2 due to limited adoption and detrimental performance characteristics.</li>
+<li class="calibre9"><em class="calibre11">roomReverbAuxBusGain.</em> To change the send level to room aux busses, modify the game-defined send volume in the general settings tab in the authoring tool.</li>
+<li class="calibre9"><em class="calibre11">diffractionMaxEdges.</em> To enable diffraction on a specific sound, set the Enable Diffraction check box in the positioning tab of the authoring tool. The max edges parameter is now a global setting in Wwise 2019.2.</li>
+<li class="calibre9"><em class="calibre11">diffractionMaxPaths.</em> To enable diffraction on a specific sound, set the Enable Diffraction check box in the positioning tab of the authoring tool. The max paths parameter is now a compile-time constant in Wwise 2019.2.</li>
+<li class="calibre9"><em class="calibre11">diffractionMaxPathLength.</em> No longer required. Spatial Audio is now able to access the attenuation curves specified by the sounds that have Spatial Audio settings, and the maximum distance in the curve is used for the diffraction max path length.</li>
+<li class="calibre9"><em class="calibre11">useImageSources.</em> Effectively always true. Since it is possible to specify image sources per-game object this additional setting is not necessary and has been removed.</li>
+</ul>
+</div></div></div></body></html>

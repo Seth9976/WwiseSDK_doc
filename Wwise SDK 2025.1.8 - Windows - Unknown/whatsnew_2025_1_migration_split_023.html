@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2025.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_22"><a class="pcalibre1 anchor" id="reflect_property_changes_25_1_deprecated"></a>
+Hidden and Deprecated Properties</h2>
+<p class="calibre7">The following properties have been deprecated. They still exist, but are hidden from the user interface. They will be removed completely in a later version.</p>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">Smoothing Type</b>: Hidden and deprecated. In the future, only the efficient IIR mode will be supported.</li>
+<li class="calibre9"><b class="calibre13">Threshold Mode</b>: Hidden and deprecated. In Continuous mode, an additional Doppler control algorithm, which is accessible via the new <b class="calibre13">Delay Error Tolerance</b> property, has been added. Its behavior is similar to the former Step mode.</li>
+<li class="calibre9"><b class="calibre13">Distance Threshold</b> is now hidden and deprecated.</li>
+</ul>
+<p class="calibre7">The Step mode has been deprecated. To replicate its behavior, use the new <b class="calibre13">Delay Error Tolerance</b> property in conjunction with a low <b class="calibre13">Pitch Limit</b> value. While related to <b class="calibre13">Distance Threshold</b>, <b class="calibre13">Delay Error Tolerance</b> defines the threshold as a relative measure of delay rather than an absolute distance. Refer to the Reflect Help for more details.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="warning.gif"/></td><td class="calibre17"><b class="calibre13">Warning:</b> If you had set the <b class="calibre13">Threshold Mode</b> to Step and wish to change the deprecated <b class="calibre13">Distance Threshold</b>, or switch to the improved Continuous mode, you need to make the hidden properties visible in the UI. To do so, open Authoring\x64\Debug\bin\Plugins\AkReflect.xml, locate the desired property, and change <code class="calibre14">IsVisible="false"</code> to <code class="calibre14">IsVisible="true"</code>. Then reopen Wwise. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2019.1.9</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="bugs_2019_1_9"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-46449</b> Fixed: (Android) Audio output is garbled on Vivo Y51A phones running older firmware.</li>
+<li class="calibre9"><b class="calibre13">WG-46627</b> Fixed: Live editing a custom property in Wwise doesn't update the value in game.</li>
+<li class="calibre9"><b class="calibre13">WG-46745</b> Fixed: Potential crash when unloading PCK files.</li>
+<li class="calibre9"><b class="calibre13">WG-47646</b> Fixed: Capture Log does not scroll correctly to cursor position.</li>
+<li class="calibre9"><b class="calibre13">WG-47765</b> Fixed: Invalid audio produced by the Stereo Delay plug-in 5.1 channels in Profile.</li>
+<li class="calibre9"><b class="calibre13">WG-47810</b> Fixed: Potential crash when stopping a Switch Container in Continuous mode with an unregistered Game Object.</li>
+<li class="calibre9"><b class="calibre13">WG-48224</b> Fixed: Potential crash when calling <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_aeffa58bec3569a1bac5feac3e0c370d9_split_000.html#aeffa58bec3569a1bac5feac3e0c370d9">AK::SpatialAudio::SetPortal</a></code> on a Portal with a blank name field.</li>
+<li class="calibre9"><b class="calibre13">WG-48235</b> Fixed: <code class="calibre14">FilePackager.Console</code> does not package audio files that are set to streaming.</li>
+<li class="calibre9"><b class="calibre13">WG-48287</b> Fixed: <a class="pcalibre el" href="struct_ak_thread_properties_aaeda98445d886143bf52af06abe59f97_split_000.html#aaeda98445d886143bf52af06abe59f97" title="Affinity mask.">AkThreadProperties::dwAffinityMask</a> is ignored on Linux and Stadia.</li>
+<li class="calibre9"><b class="calibre13">WG-48379</b> Fixed: Small memory leak when terminating the sound engine immediately after calling <code class="calibre14">AddOutputCaptureMarker</code>.</li>
+<li class="calibre9"><b class="calibre13">WG-48392</b> Fixed: Erroneous values are displayed in the Volumes column of the Advanced Profiler view's Listeners tab.</li>
+<li class="calibre9"><b class="calibre13">WG-48396</b> Fixed: Crash on Stadia SDK 1.44 when initializing the sound engine.</li>
+<li class="calibre9"><b class="calibre13">WG-48417</b> Fixed: When enabling the <code class="calibre14"><a class="pcalibre el" href="struct_ak_init_settings_a0ffc62cdbb07d0c8ebb2440fd177625b_split_000.html#a0ffc62cdbb07d0c8ebb2440fd177625b" title="Debug setting: Enable checks for out-of-range (and NAN) floats in the processing code....">AkInitSettings::bDebugOutOfRangeCheckEnabled</a></code> system, it falsely points to the next effect in the pipeline as the source of out of range samples.</li>
+<li class="calibre9"><b class="calibre13">WG-48440</b> Fixed: MS Spatial Audio plug-in crashes on Windows version 1709.</li>
+<li class="calibre9"><b class="calibre13">WG-48442</b> Fixed: Erroneous warnings when generating External Sources from a command line.</li>
+<li class="calibre9"><b class="calibre13">WG-48503</b> Fixed: Out-of-bounds memory read in <code class="calibre14"><a class="pcalibre el" href="class_ak_array_a21687ba2fac7670b6ed2b84e4196ef73_split_000.html#a21687ba2fac7670b6ed2b84e4196ef73">AkArray::BinarySearch</a></code>.</li>
+<li class="calibre9"><b class="calibre13">WG-48776</b> Fixed: Assert when playing a sound that has a custom property.</li>
+<li class="calibre9"><b class="calibre13">WG-48822</b> Fixed: Pause in playback when looping streamed Opus voices.</li>
+<li class="calibre9"><b class="calibre13">WG-48855</b> Fixed: Assert (AkBehavioralCtx.cpp) when running game without connecting Wwise for a long period of time.</li>
+<li class="calibre9"><b class="calibre13">WG-48976</b> Fixed: iOS interrupt handler safeguard code was accidentally removed in the last patch release.</li>
+<li class="calibre9"><b class="calibre13">WG-49030</b> Fixed: (Stadia) Crash in 5.1 Surround Audio channel mode when <code class="calibre14">AkPlatformInitSettings::sampleType</code> is equal to <code class="calibre14">AK_INT</code>.</li>
+</ul>
+</div></div></div></body></html>

@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK.Wwise::Plugin::ReferenceSetBase&lt; CHostReferenceSetT, interface_version &gt; Class Template Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_3">Detailed Description</h2>
+<div class="calibre2"><h3 class="calibre22">template&lt;typename CHostReferenceSetT = CHostReferenceSet, int interface_version = 1&gt;<br class="calibre10"/>
+class AK.Wwise::Plugin::ReferenceSetBase&lt; CHostReferenceSetT, interface_version &gt;</h3>
+
+<p class="calibre7">Interface used to interact with reference sets. </p>
+<p class="calibre7">A reference set is a dictionary of references to other Objects that exist in a user's Authoring project. Whenever a reference name is specified, it corresponds to the reference name set in the plug-in's XML. These Object references can be resolved to GUIDs for use in the Authoring project, or to Short IDs for use in the <a class="pcalibre el" href="namespace_a_k_1_1_wwise_split_000.html">Wwise</a> Runtime.</p>
+<p class="calibre7">The methods in this interface which use in_guidPlatform as an input parameter assume that you have access to a Platform defined as a GUID, either provided by the caller function or retrieved through the Host interface.</p>
+<p class="calibre7">You can retrieve GUIDs in the following ways:</p>
+<ul class="calibre8">
+<li class="calibre9">Use the in_guidPlatform provided as an input parameter in <a class="pcalibre el" href="structak__wwise__plugin__audio__plugin__v1_abd584886ab95277158307efdf633af78_split_000.html#abd584886ab95277158307efdf633af78">ak_wwise_plugin_audio_plugin_v1::GetBankParameters</a> or <a class="pcalibre el" href="structak__wwise__plugin__custom__data__v1_ae2a50eda33df6c0c7da86b967751cf40_split_000.html#ae2a50eda33df6c0c7da86b967751cf40">ak_wwise_plugin_custom_data_v1::GetPluginData</a></li>
+<li class="calibre9">Poll the currently-active platform from <a class="pcalibre el" href="structak__wwise__plugin__host__v1_abb94fc626e520d00c4f77e9b8fab3adb_split_000.html#abb94fc626e520d00c4f77e9b8fab3adb">ak_wwise_plugin_host_v1::GetCurrentPlatform</a> or <a class="pcalibre el" href="structak__wwise__plugin__host__v1_a04c6938e999f9d1b3da2599155680e1f_split_000.html#a04c6938e999f9d1b3da2599155680e1f">ak_wwise_plugin_host_v1::GetAuthoringPlaybackPlatform</a></li>
+</ul>
+<p class="calibre7">You can also provide GUID_NULL as a parameter, which accesses data for all platforms at once as a linked value. However, GUID_NULL only works when no platform-specific data is possible for a value. Using the current platform is always the preferred access method.</p>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="plugin_xml_properties_split_001.html#wwiseplugin_xml_properties_tag">Properties Element</a></li>
+<li class="calibre9"><a class="pcalibre el" href="plugin_backend_model_split_003.html#wwiseplugin_referenceset">Reference Set</a></li>
+<li class="calibre9"><a class="pcalibre el" href="structak__wwise__plugin__notifications__reference__set__v1_split_000.html">ak_wwise_plugin_notifications_reference_set_v1</a></li>
+<li class="calibre9"><a class="pcalibre el" href="structak__wwise__plugin__host__object__store__v1_split_000.html">ak_wwise_plugin_host_object_store_v1</a> </li>
+</ul>
+</dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_host_reference_set_8h_source.html#l00274">274</a> of file <a class="pcalibre el" href="_host_reference_set_8h_source.html">HostReferenceSet.h</a>.</p>
+</div></div><!-- contents -->
+
+
+</body></html>

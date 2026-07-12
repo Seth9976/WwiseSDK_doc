@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Third-Person Perspective and Wwise Acoustics</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="third_person_roomsandportals"></a>
+Rooms and Portals</h1>
+<p class="calibre7">The rooms and Portals system, while also used for diffraction calculations for the dry signal path, is the primary method to spatialize reverberation. Spatialized reverb includes the wet signal path and can generally be thought of as either reverb output from a plug-in, or a room tone playing directly on the Room Game Object.</p><ul class="calibre8">
+<li class="calibre9">When the Listener is inside a room that’s excited by reverb or a room tone:<ul class="calibre15">
+<li class="calibre9">The reverb and/or room tone is omnidirectional. The sound field of the room is counter-rotated such that it remains fixed to the room orientation regardless of the Listener’s orientation. demonstrating this scenario.</li>
+</ul>
+</li>
+<li class="calibre9">When the listener is outside a room that’s excited by reverb or a room tone:<ul class="calibre15">
+<li class="calibre9">The sound from the room is spatialized according to the positions of the Portals leading to the room.</li>
+<li class="calibre9">Each path leading from a Portal to the room also has an associated virtual position. The virtual position is calculated so that the contribution from the Portal is panned to match the angle of the path from the Portal, incident with the listener.</li>
+<li class="calibre9">For the transmission path of the room, the rules are the same as when the Listener is inside the room (except in this case, a transmission loss is applied to the sound).</li>
+</ul>
+</li>
+<li class="calibre9">Distance is evaluated between the Distance Probe and the geometry that represents the shape of a room (or the room extent bounding box if there is no geometry). See <a class="pcalibre el" href="spatial_audio_roomsportals_distance_split_000.html">Geometric Room Distance on Direct Paths</a> for more information on how distance to room geometry is evaluated and affected by other Rooms and Portals features.</li>
+</ul>
+</div></div></div></body></html>

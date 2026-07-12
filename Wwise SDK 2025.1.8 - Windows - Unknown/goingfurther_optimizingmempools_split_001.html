@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Optimizing Memory Utilization</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="fixed_allocs"></a>
+Fixed-size allocations</h1>
+<p class="calibre7">Some of the fixed-size allocations can be controlled via initialization parameters. Here is a list of init-time memory allocation controls:</p>
+<ul class="calibre8">
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_init_settings_aa8137dca0d7b55c06900371c17ce6c8e_split_000.html#aa8137dca0d7b55c06900371c17ce6c8e" title="Maximum number of paths for positioning.">AkInitSettings::uMaxNumPaths</a></li>
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_init_settings_afd6ada0769c6316e7950961c38cc09d0_split_000.html#afd6ada0769c6316e7950961c38cc09d0" title="Size of the command queue, in bytes.">AkInitSettings::uCommandQueueSize</a></li>
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_init_settings_acdb64f2cf024ac17b7db878eb135c523_split_000.html#acdb64f2cf024ac17b7db878eb135c523" title="Size of the monitoring queue, in bytes. This parameter is not used in Release build.">AkInitSettings::uMonitorQueuePoolSize</a> (Debug/Profile only)</li>
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_device_settings_a75893592924a59881fe2cbca4e4ddd04_split_000.html#a75893592924a59881fe2cbca4e4ddd04" title="Size of memory for I/O (for automatic streams). It is passed directly to AK::MemoryMgr::Malign(),...">AkDeviceSettings::uIOMemorySize</a></li>
+</ul>
+<p class="calibre7">Of these, uIOMemorySize is the most significant. This streaming buffer size should be set based on the maximum number of concurrently played streamed sounds, the bitrate of the sounds, and the safety timeline of the streaming sounds. The default value of 8 MB may be seen as a waste of memory for some games, but it is best to start out large and trim down as your memory usage becomes clearer. For more information on streaming buffer memory, refer to <a class="pcalibre el" href="streamingmanager_settings_split_000.html">Audiokinetic Stream Manager Initialization Settings</a>.</p>
+</div></div></div></body></html>

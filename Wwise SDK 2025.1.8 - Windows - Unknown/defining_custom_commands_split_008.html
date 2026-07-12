@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Defining Command Add-ons</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_7"><a class="pcalibre1 anchor" id="mac_specifics"></a>
+Using Add-on Commands on Mac</h1>
+<p class="calibre7">Add-on commands are executed on Mac using</p><div class="fragment"><div class="line">/bin/sh -c </div>
+</div><!-- fragment --><p class="calibre7">. Any app, executable or script can be directly specified in <code class="calibre14">program</code>.</p>
+<p class="calibre7">Example: <b class="calibre13">mycompany_myproduct_forMac.json</b> </p><div class="fragment"><div class="line">{</div>
+<div class="line">    <span class="stringliteral">"version"</span>:2,</div>
+<div class="line">    <span class="stringliteral">"commands"</span>:[</div>
+<div class="line">        {</div>
+<div class="line">            <span class="stringliteral">"id"</span>:<span class="stringliteral">"ak.edit_in_audacity"</span>,</div>
+<div class="line">            <span class="stringliteral">"displayName"</span>:<span class="stringliteral">"Open wav in Audacity"</span>,</div>
+<div class="line">            <span class="stringliteral">"defaultShortcut"</span>:<span class="stringliteral">"A"</span>,</div>
+<div class="line">            <span class="stringliteral">"program"</span>:<span class="stringliteral">"/Applications/Audacity.app"</span>,</div>
+<div class="line">            <span class="stringliteral">"startMode"</span>:<span class="stringliteral">"SingleSelectionSingleProcess"</span>,</div>
+<div class="line">            <span class="stringliteral">"args"</span>:<span class="stringliteral">"${sound:originalWavFilePath}"</span>,</div>
+<div class="line">            <span class="stringliteral">"cwd"</span>:<span class="stringliteral">""</span>,</div>
+<div class="line">            <span class="stringliteral">"contextMenu"</span>: {</div>
+<div class="line">                <span class="stringliteral">"basePath"</span>:<span class="stringliteral">"Editors"</span>,</div>
+<div class="line">                <span class="stringliteral">"enabledFor"</span>:<span class="stringliteral">"Sound"</span></div>
+<div class="line">            }</div>
+<div class="line">        },</div>
+<div class="line">        {</div>
+<div class="line">            <span class="stringliteral">"id"</span>:<span class="stringliteral">"ak.edit_in_script"</span>,</div>
+<div class="line">            <span class="stringliteral">"displayName"</span>:<span class="stringliteral">"Open in script"</span>,</div>
+<div class="line">            <span class="stringliteral">"defaultShortcut"</span>:<span class="stringliteral">"B"</span>,</div>
+<div class="line">            <span class="stringliteral">"program"</span>:<span class="stringliteral">"/path/to/folder with spaces/myScript.sh"</span>,</div>
+<div class="line">            <span class="stringliteral">"startMode"</span>:<span class="stringliteral">"SingleSelectionSingleProcess"</span>,</div>
+<div class="line">            <span class="stringliteral">"args"</span>:<span class="stringliteral">"${sound:originalWavFilePath}"</span>,</div>
+<div class="line">            <span class="stringliteral">"cwd"</span>:<span class="stringliteral">""</span>,</div>
+<div class="line">            <span class="stringliteral">"contextMenu"</span>: {</div>
+<div class="line">                <span class="stringliteral">"basePath"</span>:<span class="stringliteral">"Editors"</span>,</div>
+<div class="line">                <span class="stringliteral">"enabledFor"</span>:<span class="stringliteral">"Sound"</span></div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">    ]</div>
+<div class="line">}</div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

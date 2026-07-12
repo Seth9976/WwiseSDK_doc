@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integration Demo Sample</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_12"><a class="pcalibre1 anchor" id="integration_demos_bank"></a>
+Bank &amp; Event Loading</h2>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="integration_demos_bank_prepare"></a>
+Prepare Event/Bank Demo</h3>
+<p class="calibre7">This page shows how to use the PrepareBank and PrepareEvent API functions.</p>
+<p class="calibre7">When the page is loaded, a PrepareBank operation loads the lightweight structure and event data referenced by this demo, without loading any actual media into memory. When the user moves the cursor to an area button, a PrepareEvent operation loads the corresponding media file (a .wem file on disk) into memory in anticipation of a future PostEvent. When the user finally enters the area, the event is posted and the media is ready to play.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="integrationdemo_demos_externalsources"></a>
+External Sources Demo</h3>
+<p class="calibre7">This demo shows how to use external sources. Both buttons play the same sound structure but set up at run-time with either sources "1", "2" and "3", or sources "4", "5" and "6".</p>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="integrating_external_sources_split_000.html">Integrating External Sources</a></li>
+</ul>
+</dd></dl>
+<p class="calibre7">Additionally, the external sources are packaged in the File Packager and loaded when opening the demo page. See <a href="https://www.audiokinetic.com/library/edge/?source=Help&amp;id=managing_file_packages" target="_blank" class="pcalibre calibre12">Managing file packages</a> for more information on the File Packager, and <a class="pcalibre el" href="streamingdevicemanager_split_000.html">Streaming / Stream Manager</a> for more details on the runtime aspect of file packages.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="integration_demos_autobanks"></a>
+Autobanks Demo</h3>
+<p class="calibre7">This demo demonstrates the pros and cons of automatic event bank generation. When this option is selected in the Project Settings, Wwise generates individual banks for any events that are not contained in manually created banks. However, these auto-banks do not contain any media, only structure and event data. To load media associated with these events, the game must call either <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a2e6ebb779470b43d78984c27f6a0c238_split_000.html#a2e6ebb779470b43d78984c27f6a0c238">AK::SoundEngine::PrepareEvent</a> or <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ae93bba30404755a4d2e592c3bfbf340c_split_000.html#ae93bba30404755a4d2e592c3bfbf340c">AK::SoundEngine::SetMedia</a>.</p>
+</div></div></div></body></html>

@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integration Details - Switches</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_4"><a class="pcalibre1 anchor" id="soundengine_switch_settingswitches"></a>
+Setting Switches with AK::SoundEngine::SetSwitch()</h1>
+<p class="calibre7">There are two ways to set a switch from the SDK: using strings(unicode or ansi) or using IDs.</p>
+<p class="calibre7">Using strings makes code more readable and is suitable during development time, or when working in an environment that normally uses strings. Using IDs avoids string look-up time and saves memory that would be used for storing string mapping.</p>
+<p class="calibre7">Setting a switch from the SDK is as simple as calling:</p>
+<div class="fragment"><div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a9c9d57ba7b3af2b896e26297a7657264_split_000.html#a9c9d57ba7b3af2b896e26297a7657264">AK::SoundEngine::SetSwitch</a>(</div>
+<div class="line">    L<span class="stringliteral">"Ground"</span>,</div>
+<div class="line">    L<span class="stringliteral">"Gravel"</span>,</div>
+<div class="line">    myGameObject1</div>
+<div class="line">);</div>
+</div><!-- fragment --><p class="calibre7">or</p>
+<div class="fragment"><div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a9c9d57ba7b3af2b896e26297a7657264_split_000.html#a9c9d57ba7b3af2b896e26297a7657264">AK::SoundEngine::SetSwitch</a> (</div>
+<div class="line">    AK::SWITCHES::GROUND::GROUP,</div>
+<div class="line">    AK::SWITCHES::GROUND::SWITCH::GRAVEL,</div>
+<div class="line">    myGameObject1</div>
+<div class="line">);</div>
+</div><!-- fragment --><p class="calibre7">The third parameter of the <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a9c9d57ba7b3af2b896e26297a7657264_split_000.html#a9c9d57ba7b3af2b896e26297a7657264">SetSwitch()</a> function is the game object to which the switch should be applied. When an event containing a play action is triggered using this game object, it will use the specified switch to select what to play in the switch container. If a switch has not been set for a game object, the object will use the default switch specified in the switch container options.</p>
+<p class="calibre7">Note that when a game object is unregistered, its current switch is also erased. If the game object is used again later, this switch will have to be reset.</p>
+<p class="calibre7">For more information, refer to <a class="pcalibre el" href="soundengine_gameobj_split_000.html">Integration Details - Game Objects</a>.</p>
+</div></div></div></body></html>

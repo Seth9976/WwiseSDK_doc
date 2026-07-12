@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Getting Started with the Wwise Authoring API (WAAPI)</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2"><h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="waapi_protocols"></a>
+Protocols</h1>
+<p class="calibre7">The Wwise Authoring API is accessible through different protocols and APIs:</p><ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WAMP:</b> WAMP is intended to connect application components in distributed applications. WAMP uses WebSocket as its default transport, which allows for ordered, reliable, bidirectional, and message-oriented communications. WAMP allows the clients to call functions with JSON arguments and retrieve structured JSON results. WAMP also allows clients to subscribe to notifications.</li>
+<li class="calibre9"><b class="calibre13">HTTP</b> <b class="calibre13">POST:</b> HTTP is an application protocol for distributed applications. HTTP is the most used method to transfer content on the Internet. POST enables the caller to send a document body, which, for the Wwise Authoring API, corresponds to the function arguments as JSON. The HTTP response is the JSON result.</li>
+<li class="calibre9"><b class="calibre13">Wwise Plug-ins</b>: The Wwise Authoring plug-in API exposes a way to invoke WAAPI functions: <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v2_1_1_host_a9b037370b1afd2f198efc440a61b6755_split_000.html#a9b037370b1afd2f198efc440a61b6755">AK::Wwise::Plugin::Host::WaapiCall()</a></code>. Refer to <a class="pcalibre el" href="waapi_plugin_split_000.html">Using the Wwise Authoring API in Wwise Plug-ins</a>.</li>
+</ul>
+<p class="calibre7">WAMP and HTTP protocols can be used with a variety of languages, such as C++, C#, JavaScript, Python, and other languages with HTTP or WebSocket support.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> WAMP is an open standard WebSocket subprotocol that provides unified application routing. WAMP implementations are available in the most popular programming languages. Read more about WAMP at <a href="https://wamp-proto.org/" target="_blank" class="pcalibre calibre12">https://wamp-proto.org</a>. </td></tr>
+</tbody></table>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> WAMP provides the best performance and experience because it reuses the same WebSocket connection for the whole session and provides bidirectional communications. </td></tr>
+</tbody></table>
+<p class="calibre7">In summary, here are the features supported by the protocols: </p><table class="doxtable">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre36"><b class="calibre13">API Feature</b> </td><td class="calibre36"><b class="calibre13">WAMP</b> </td><td class="calibre36"><b class="calibre13">HTTP POST</b> </td><td class="calibre36"><b class="calibre13"><code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v2_1_1_host_a9b037370b1afd2f198efc440a61b6755_split_000.html#a9b037370b1afd2f198efc440a61b6755">AK::Wwise::Plugin::Host::WaapiCall()</a></code></b> </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><b class="calibre13">Remote Procedure Calls</b></p>
+<p class="calibre7"></p>
+<p class="calibre7">Allows to call functions remotely on Wwise authoring</p>
+<p class="calibre7"></p>
+<p class="calibre7">Refer to <a class="pcalibre el" href="waapi_index.html">Wwise Authoring API Reference</a></p>
+<p class="endtd"></p>
+</td><td class="calibre36">Supported </td><td class="calibre36">Supported </td><td class="calibre36">Supported  </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><p class="starttd"></p>
+<p class="calibre7"><b class="calibre13">Publish &amp; Subscribe</b></p>
+<p class="calibre7"></p>
+<p class="calibre7"><span>Allows to receive notifications when changes occur in Wwise authoring.</span></p>
+<p class="endtd"></p>
+</td><td class="calibre36"><span>Supported</span> </td><td class="calibre36">Not <span>Supported</span> </td><td class="calibre36">Not <span>Supported</span> </td></tr>
+<tr class="calibre16">
+<td colspan="1" class="calibre36">Optimal performance </td><td colspan="1" class="calibre36">Yes </td><td colspan="1" class="calibre36">No </td><td colspan="1" class="calibre36">Yes </td></tr>
+</tbody></table>
+</div></div></div></body></html>

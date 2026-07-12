@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2025.1.5</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_4"><a class="pcalibre1 anchor" id="generic_community_bugs_2025_1_5"></a>
+Fixes for Community-Reported Bugs</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-74550</b> Fixed: Possible crash when using the CPU profiler.</li>
+<li class="calibre9"><b class="calibre13">WG-80195</b> Fixed: Possible crash when renaming an Effect ShareSet.</li>
+<li class="calibre9"><b class="calibre13">WG-80270</b> Fixed: (Acoustics) CPU usage spikes in <code class="calibre14">AkSoundGeometry::_BuildVisibilityData</code>.</li>
+<li class="calibre9"><b class="calibre13">WG-80447</b> Fixed: On connection, the Profiler overrides Game Parameter global values with their respective default value.</li>
+<li class="calibre9"><b class="calibre13">WG-80616</b> Fixed: Music Track isn't updated after changing an Event cue's position. This bug affects playback in Wwise Authoring and when connected to a game.</li>
+<li class="calibre9"><b class="calibre13">WG-80831</b> Fixed: Importing banks and WEM files while using Unity Addressables is slow and causes the Unity Editor to slow down over time.</li>
+<li class="calibre9"><b class="calibre13">WG-81087</b> Fixed: Possible crash when using WAQL from a WAAPI script.</li>
+<li class="calibre9"><b class="calibre13">WG-81134</b> Fixed: Crash while editing an envelope or fade of a playing music clip.</li>
+<li class="calibre9"><b class="calibre13">WG-81219</b> Fixed: Possible crash in WALBus.</li>
+<li class="calibre9"><b class="calibre13">WG-81334</b> Fixed: Crash when toggling an <b class="calibre13">Override Parent</b> check box in the Property Editor when the Work Unit is not checked out in source control and <b class="calibre13">Prompt for checkout on edit</b> is enabled.</li>
+<li class="calibre9"><b class="calibre13">WG-81337</b> Fixed: <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ae98b64113d2b9bd2e63adef8cee96805_split_000.html#ae98b64113d2b9bd2e63adef8cee96805">AK::SoundEngine::PinEventInStreamCache</a></code> has no effect on caching.</li>
+<li class="calibre9"><b class="calibre13">WG-81414</b> Fixed: Perforce plug-in stays connected to the server indefinitely. Wwise now requests that the plug-in disconnect from the server when it detects inactivity.</li>
+<li class="calibre9"><b class="calibre13">WG-81422</b> Fixed: Crash in <code class="calibre14">CAkSpeakerPan</code> when mixing ambisonic sources and multi-core rendering is enabled.</li>
+<li class="calibre9"><b class="calibre13">WG-81521</b> Fixed: Assert in <code class="calibre14">OpenUpdateBrace</code> when several Music Switch Containers are nested within each other.</li>
+<li class="calibre9"><b class="calibre13">WG-81525</b> Fixed: (Acoustics) Distance calculations are inaccurate for Room geometry that has inward-facing normals.</li>
+<li class="calibre9"><b class="calibre13">WG-81577</b> Fixed: Possible crash when decoding Vorbis-encoded <code class="calibre14">.wem</code> files.</li>
+<li class="calibre9"><b class="calibre13">WG-81635</b> Fixed: Assert in <code class="calibre14">AkLayerCntr.cpp</code> when playing a continuous Blend Container with a crossfade game parameter tied to a built-in value (for example, distance).</li>
+<li class="calibre9"><b class="calibre13">WG-81655</b> Fixed: (Acoustics) Crash in <code class="calibre14">AkAcousticPortal::IsRoomFrontOrBack</code> when adding or removing Rooms and Portals while using load balancing.</li>
+<li class="calibre9"><b class="calibre13">WG-81673</b> Fixed: Possible crash when stopping SoundBank generation.</li>
+<li class="calibre9"><b class="calibre13">WG-81689</b> Fixed: Including <code class="calibre14">AkMotionScePadHelpers.h</code> on non-Windows platforms results in compilation errors.</li>
+<li class="calibre9"><b class="calibre13">WG-81725</b> Fixed: (Acoustics) Crash when using load balancing while unregistering a listener.</li>
+<li class="calibre9"><b class="calibre13">WG-81751</b> Fixed: Division by zero when calling <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ae0b469d9fb8a099b40f52f004882d283_split_000.html#ae0b469d9fb8a099b40f52f004882d283">AK::SoundEngine::GetSourcePlayPosition</a></code>.</li>
+<li class="calibre9"><b class="calibre13">WG-81838</b> Fixed: Continuous Random Container with trigger rate transitions continues to spawn voices when the container is paused at initial play. This might happen, for example, when a parent container plays the Random Container.</li>
+<li class="calibre9"><b class="calibre13">WG-81890</b> Fixed: Break action doesn't break continuous Switch or Blend Containers.</li>
+<li class="calibre9"><b class="calibre13">WG-81891</b> Fixed: Crash when pausing empty music containers or music with MIDI.</li>
+<li class="calibre9"><b class="calibre13">WG-81936</b> Fixed: Sample low-level IO implementation doesn't react to language changes after a full reinitialization.</li>
+<li class="calibre9"><b class="calibre13">WG-81995</b> Fixed: Custom roll-offs for EQ Bands are not properly represented in the Parametric EQ Graph.</li>
+<li class="calibre9"><b class="calibre13">WG-81998</b> Fixed: Sounds with fade-in are deemed below threshold on startup.</li>
+<li class="calibre9"><b class="calibre13">WG-81999</b> Fixed: (Acoustics) Crash in <code class="calibre14">AkAcousticPortal::IsGatewayTo</code> when adding or removing Rooms and Portals while using load balancing.</li>
+</ul>
+</div></div></div></body></html>

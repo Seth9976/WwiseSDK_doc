@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK/SoundEngine/Common/IAkStreamMgr.h File Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table class="calibre3">
+<tbody class="calibre4"><tr class="calibre16"><td colspan="2" class="calibre17"><h2 class="calibre21" id="calibre_pb_2"><a class="pcalibre1 anchor" id="member-group"></a>
+Profiling string lengths.</h2></td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_i_ak_stream_mgr_8h_a202e0d60e7364c98e0b80dec959562c5_split_000.html#a202e0d60e7364c98e0b80dec959562c5">AK_MONITOR_STREAMNAME_MAXLENGTH</a>   (64)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_i_ak_stream_mgr_8h_ac16733718d45598daf254e78868c3f21_split_000.html#ac16733718d45598daf254e78868c3f21">AK_MONITOR_DEVICENAME_MAXLENGTH</a>   (64)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">enum  </td><td class="memitemright"><a class="pcalibre el" href="_i_ak_stream_mgr_8h_ae8711a0190f80248b6e59f1b17f64307_split_000.html#ae8711a0190f80248b6e59f1b17f64307">AkStmStatus</a> { <br class="calibre10"/>
+  <a class="pcalibre el" href="_i_ak_stream_mgr_8h_ae8711a0190f80248b6e59f1b17f64307_split_001.html#ae8711a0190f80248b6e59f1b17f64307ad4ecb6caad030aa72c8ef4d82e8c5500">AK_StmStatusIdle</a> = 0, 
+<a class="pcalibre el" href="_i_ak_stream_mgr_8h_ae8711a0190f80248b6e59f1b17f64307_split_001.html#ae8711a0190f80248b6e59f1b17f64307a4ee943eb5fbd1c15c114a7db3cd9620e">AK_StmStatusCompleted</a> = 1, 
+<a class="pcalibre el" href="_i_ak_stream_mgr_8h_ae8711a0190f80248b6e59f1b17f64307_split_001.html#ae8711a0190f80248b6e59f1b17f64307ae15cf279e956aef361e9191916377b90">AK_StmStatusPending</a> = 2, 
+<a class="pcalibre el" href="_i_ak_stream_mgr_8h_ae8711a0190f80248b6e59f1b17f64307_split_001.html#ae8711a0190f80248b6e59f1b17f64307a8122c26f72bda0dbe4cbeaa94917f4b0">AK_StmStatusCancelled</a> = 3, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="_i_ak_stream_mgr_8h_ae8711a0190f80248b6e59f1b17f64307_split_001.html#ae8711a0190f80248b6e59f1b17f64307acd646559057f6060264897517d7af22e">AK_StmStatusError</a> = 4
+<br class="calibre10"/>
+ }</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Stream status.  <a href="_i_ak_stream_mgr_8h_ae8711a0190f80248b6e59f1b17f64307_split_000.html#ae8711a0190f80248b6e59f1b17f64307" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">enum  </td><td class="memitemright"><a class="pcalibre el" href="_i_ak_stream_mgr_8h_a61588d0ebdfe1148a6ee6f8304bf4865_split_000.html#a61588d0ebdfe1148a6ee6f8304bf4865">AkMoveMethod</a> { <a class="pcalibre el" href="_i_ak_stream_mgr_8h_a61588d0ebdfe1148a6ee6f8304bf4865_split_001.html#a61588d0ebdfe1148a6ee6f8304bf4865aaafcaeced22c9ffabc151a3cf0585fee">AK_MoveBegin</a> = 0, 
+<a class="pcalibre el" href="_i_ak_stream_mgr_8h_a61588d0ebdfe1148a6ee6f8304bf4865_split_001.html#a61588d0ebdfe1148a6ee6f8304bf4865ad7036d3c0758b66299e6c1d0e60a14c5">AK_MoveCurrent</a> = 1, 
+<a class="pcalibre el" href="_i_ak_stream_mgr_8h_a61588d0ebdfe1148a6ee6f8304bf4865_split_001.html#a61588d0ebdfe1148a6ee6f8304bf4865a9e480024dfcc031dff589ed3660f444c">AK_MoveEnd</a> = 2
+ }</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">enum  </td><td class="memitemright"><a class="pcalibre el" href="_i_ak_stream_mgr_8h_afb72442488d89ecc645c457ff48a90b7_split_000.html#afb72442488d89ecc645c457ff48a90b7">AkOpenMode</a> { <a class="pcalibre el" href="_i_ak_stream_mgr_8h_afb72442488d89ecc645c457ff48a90b7_split_001.html#afb72442488d89ecc645c457ff48a90b7ab35230305828a2d0aee87a3190ff661f">AK_OpenModeRead</a> = 0, 
+<a class="pcalibre el" href="_i_ak_stream_mgr_8h_afb72442488d89ecc645c457ff48a90b7_split_001.html#afb72442488d89ecc645c457ff48a90b7af5e576f2a186adb267c05d6d9931879b">AK_OpenModeWrite</a> = 1, 
+<a class="pcalibre el" href="_i_ak_stream_mgr_8h_afb72442488d89ecc645c457ff48a90b7_split_001.html#afb72442488d89ecc645c457ff48a90b7a8880055e60302ffdb7fe89e4068bb926">AK_OpenModeWriteOvrwr</a> = 2, 
+<a class="pcalibre el" href="_i_ak_stream_mgr_8h_afb72442488d89ecc645c457ff48a90b7_split_001.html#afb72442488d89ecc645c457ff48a90b7ab17f6b95edc9ff7cd668878325ffd93a">AK_OpenModeReadWrite</a> = 3
+ }</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">File open mode.  <a href="_i_ak_stream_mgr_8h_afb72442488d89ecc645c457ff48a90b7_split_000.html#afb72442488d89ecc645c457ff48a90b7" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+</tbody></table>
+<a id="details" class="pcalibre calibre12"></a></div></body></html>

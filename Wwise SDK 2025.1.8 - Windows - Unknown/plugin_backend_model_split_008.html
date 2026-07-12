@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Model of an Authoring Plug-in</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_7"><a class="pcalibre1 anchor" id="wwiseplugin_complexproperty_notify"></a>
+Custom Data Notification</h2>
+<p class="calibre7">To inform Wwise that your particular data has changed so that this data can be saved or transferred to the sound engine, use the <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v2_1_1_host_a55d16793cbfce0c58f9a0d004cf1f814_split_000.html#a55d16793cbfce0c58f9a0d004cf1f814">AK::Wwise::Plugin::Host::NotifyInternalDataChanged()</a></code> function. You can specify a ParamID to limit the notification to a subset of your data. We will refer to this internal data unit as a "complex property". You can also use <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_param_a7d4422a73ca832f64edc0465e59be771_split_000.html#a7d4422a73ca832f64edc0465e59be771">AK::IAkPluginParam::ALL_PLUGIN_DATA_ID</a></code> to specify that all your data has changed.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> Do not use NotifyInternalDataChanged for properties declared in the XML and handled by the Property Set. The notification is done automatically when setter functions from <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_a052a63312bad5bdbd0adc1b07decf6de_split_000.html#a052a63312bad5bdbd0adc1b07decf6de" title="Latest version of the C++ PropertySet interface.">AK::Wwise::Plugin::PropertySet</a></code> are used. </td></tr>
+</tbody></table>
+<p class="calibre7">When the user modifies custom properties and the plug-in calls NotifyInternalDataChanged, Wwise will call its <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_custom_data_a6740b8fc3bfeec655cfcbe5fd69e1b98_split_000.html#a6740b8fc3bfeec655cfcbe5fd69e1b98" title="Obtains parameters that will be sent to the sound engine when Wwise is connected.">AK::Wwise::Plugin::CustomData::GetPluginData</a></code> method to obtain the data block that will be transferred to the sound engine part of the plug-in. The sound engine plug-in will receive the block through <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_param_ad47732326b85527316287e923d37a3e1_split_000.html#ad47732326b85527316287e923d37a3e1">AK::IAkPluginParam::SetParam</a></code> with the ParamID specified in NotifyInternalDataChanged.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> If you use custom properties, you must handle <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_param_a7d4422a73ca832f64edc0465e59be771_split_000.html#a7d4422a73ca832f64edc0465e59be771">AK::IAkPluginParam::ALL_PLUGIN_DATA_ID</a></code> in <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_param_ad47732326b85527316287e923d37a3e1_split_000.html#ad47732326b85527316287e923d37a3e1">AK::IAkPluginParam::SetParam</a></code> and <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_custom_data_a6740b8fc3bfeec655cfcbe5fd69e1b98_split_000.html#a6740b8fc3bfeec655cfcbe5fd69e1b98" title="Obtains parameters that will be sent to the sound engine when Wwise is connected.">AK::Wwise::Plugin::CustomData::GetPluginData</a></code>. It will be used at least once, when the plug-in is played the first time. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

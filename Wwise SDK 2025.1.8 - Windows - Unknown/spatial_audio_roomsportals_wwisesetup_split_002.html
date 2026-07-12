@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Rooms and Portals Setup in Wwise</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="spatial_audio_roomsportals_using3dreverbs"></a>
+Setting Up a Room Auxiliary Bus in Wwise</h1>
+<p class="calibre7">Room busses need to be created with the correct positioning options, that is, <b class="calibre13">Listener Relative Routing</b> enabled, 3D Spatialization set to "Position And Orientation", and <b class="calibre13">Use game-defined auxiliary sends</b> enabled. Alternatively, you could create a bus with Preset <b class="calibre13">Room Auxiliary Bus</b>.</p>
+<p class="calibre7">The Auxiliary Bus design used with Rooms and Portals is not fundamentally different than in the traditional modeling of environments. It requires that an Auxiliary Bus be assigned for each Room, mounted with the reverb Effect of the designer's choice, and it is the same bus that is used whether the listener is inside or outside the Room. The only difference is that it should be made 3D by enabling Listener Relative Routing (in the Positioning tab) and setting the 3D Spatialization to either Position + Orientation or Position, as shown in the figure below. This way, Wwise Acoustics can spatialize the reverberation of adjacent Rooms at the location of their Portal by acting on the Rooms' underlying Game Object position and Spread.</p>
+<div class="calibre2">
+<img alt="" src="set_positioning_to_3d.png" class="inline"/>
+</div>
+<p class="calibre7">The Room's reference orientation is defined in the Room settings (<code class="calibre14"><a class="pcalibre el" href="struct_ak_room_params_acdb3c44ed8faab0d6ca9e98f830c1d04_split_000.html#acdb3c44ed8faab0d6ca9e98f830c1d04">AkRoomParams::Up</a></code> and <code class="calibre14"><a class="pcalibre el" href="struct_ak_room_params_a3074c229311d63a2c3d342db0946fd7e_split_000.html#a3074c229311d63a2c3d342db0946fd7e">AkRoomParams::Front</a></code>), and never changes. The corresponding Game Object's orientation is made equal to the Room's orientation. When the listener is in a Room, the bus's Spread is set to 100 (360 degrees) by Wwise Acoustics. Thanks to 3D positioning, the output of the reverb is rotated and panned into the parent bus based on the relative orientation of the listener and the Room. This happens because the Auxiliary Bus is tied to the Room's Game Object, while its parent bus is tied to the listener. The screenshot below shows an emitter, the radio, sending to the Auxiliary Bus <em class="calibre11">Mezzanine2</em>. You can see that a separate Game Object has been created for this Room, <em class="calibre11">Ak_RV_Mezzanine</em>, that is neither the Radio nor the listener (<em class="calibre11">PlayerCameraManager_0</em>).</p>
+<div class="calibre2">
+<img alt="" src="voices_graph.png" class="inline"/>
+</div>
+<p class="calibre7">If, for example, there is a spatialized early reflection pattern "baked" into the reverb (such patterns exist explicitly in the RoomVerb's ER section, and implicitly in multichannel IR recordings used in the AK Convolution Reverb), then they will be tied to the Room instead of following the listener as it turns around. This is desirable for proper immersion. On the other hand, it is preferable to favor configurations that "rotate well". Ambisonic configurations are invariant to rotation, so they are favorable. Standard configurations (4.0, 5.1, and so on), less so. When using standard configurations, it is better to opt for those without a center channel, to use identical configurations for aux busses and their parent, and to set a Focus to 100. In these conditions, with a 4.0 reverb oriented with the Room towards the north, a listener looking at the north would hear the reverb exactly as if it were assigned to speakers directly. A listener looking straight east, west, or south would hear the original reverb but with channels swapped. Finally, a listener looking anywhere in between would hear each channel of the original reverb being mixed into a pair of output channels.</p>
+<p class="calibre7">When the listener is away from a Room's Portal, Wwise Acoustics reduces the spread according to the Portal's extent, which seamlessly contracts the reverb's output to a point source as it gets farther away. The Spread is set to 50 (180 degrees) when the listener is midway into the Portal. And, as it penetrates into the Room, the Spread is increased even more with the "opening" being carefully kept towards the direction of the nearest Portal.</p>
+<p class="calibre7">When mixing sounds into Portals, Wwise Acoustics calculates the distance of the entire path length between the sound source and the listener. This distance is applied to the attenuation curve of each sound before mixing the sound into the Room bus so that the relative volumes of sounds with different attenuations are preserved. An additional attenuation applied directly to the Room bus has no effect.</p>
+<p class="calibre7">The Room Game Object position is maintained by Wwise Acoustics, and when the listener is inside a Room, at the Game Object is placed at the same location as the listener. In this case, the attenuation curves, if assigned, are all evaluated at distance 0.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> Diffraction and Transmission Loss for Room reverb are applied at the Emitter-Room connection, using the attenuation curves of the source sound. Assigning an attenuation to a Room Auxiliary Bus has no effect. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

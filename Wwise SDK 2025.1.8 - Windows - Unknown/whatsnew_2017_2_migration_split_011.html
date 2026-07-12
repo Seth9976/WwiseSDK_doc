@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2017.2</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_10"><a class="pcalibre1 anchor" id="whatsnew_2017_2_migration_spatial_audio"></a>
+Spatial Audio</h2>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="whatsnew_2017_2_migration_spatial_audio_spread"></a>
+Geometry-driven Spread</h3>
+<p class="calibre7">Users must delete the Spread curve of the Attenuation ShareSet used on aux busses (portals) in order to benefit from Spatial Audio's geometry-driven spread calculation.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="whatsnew_2017_2_migration_spatial_audio_room_aux_sends"></a>
+Room aux sends</h3>
+<p class="calibre7"><code class="calibre14">AK::SpatialAudio::SetEmitterAuxSendValue</code> should no longer be called for sending to Rooms' aux sends, as this is now specified in <code class="calibre14"><a class="pcalibre el" href="struct_ak_room_params_split_000.html" title="Parameters passed to SetRoom.">AkRoomParams</a></code> and managed entirely by Spatial Audio. <code class="calibre14">AK::SpatialAudio::SetEmitterAuxSendValue</code> adds its sends to those of Rooms and can thus be used for customizing or implementing more complex reverberation regions within the same room. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

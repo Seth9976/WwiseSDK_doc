@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::IAkEffectPluginContext::GetOutputObjects</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="class_a_k_1_1_i_ak_effect_plugin_context_ad0b9c549569b25dea349d2a352f02e58_split_000.html#ad0b9c549569b25dea349d2a352f02e58" class="pcalibre1 anchor">◆ </a></span>GetOutputObjects()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="calibre3">
+  <tbody class="calibre4"><tr class="calibre16">
+  <td class="calibre17">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">virtual void AK::IAkEffectPluginContext::GetOutputObjects </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="struct_ak_audio_objects_split_000.html">AkAudioObjects</a> &amp; </td>
+          <td class="paramname"><em class="calibre59">io_objects</em></td><td class="calibre17">)</td>
+          <td class="calibre17"/>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="calibre17">
+<span><span>pure virtual</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Access the output objects. This function is helpful when CreateOutputObjects is called from within <a class="pcalibre el" href="class_a_k_1_1_i_ak_out_of_place_object_plugin_a762b09e1978f3eabdebea17e84581f5a_split_000.html#a762b09e1978f3eabdebea17e84581f5a">AK::IAkOutOfPlaceObjectPlugin::Execute</a>. You need to allocate the array of pointers. You may initially obtain the number of objects that will be returned by calling this function with io_numObjects = 0. </p><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> You should never store the pointers returned by GetOutputObjects, as the objects point to may change across audio render passes, or after calls to CreateOutputObjects.</td></tr>
+</tbody></table>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">io_objects</td><td class="calibre17"><a class="pcalibre el" href="struct_ak_audio_objects_a9408cb0a160b5e02ce1bc2d2bd63e73a_split_000.html#a9408cb0a160b5e02ce1bc2d2bd63e73a" title="Number of audio objects.">AkAudioObjects::uNumObjects</a>, The number of objects. If 0 is passed, io_objects::numObjects returns with the total number of objects. <a class="pcalibre el" href="struct_ak_audio_objects_a0684629542f01bb629b5056edb4880e6_split_000.html#a0684629542f01bb629b5056edb4880e6" title="Array of pointers to audio object buffers.">AkAudioObjects::ppObjectBuffers</a>, Returned array of pointers to object buffers, allocated by the caller. The number of objects is the smallest between io_numObjects and the total number of objects. <a class="pcalibre el" href="struct_ak_audio_objects_a4332a296e3e6d98688176aa460584853_split_000.html#a4332a296e3e6d98688176aa460584853" title="Array of pointers to audio objects.">AkAudioObjects::ppObjects</a>, Returned array of pointers to objects, allocated by the caller. The number of objects is the smallest between io_numObjects and the total number of objects. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

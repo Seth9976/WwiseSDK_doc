@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>New Features Overview 2023.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_2"><a class="pcalibre1 anchor" id="features_23_1_unreal_obs_occ"></a>
+Unreal Obstruction and Occlusion Improvements</h2>
+<p class="calibre7">There have been several Spatial Audio improvements that simplify the use of Obstruction in Rooms and Portals.</p>
+<p class="calibre7">The AkComponent has properties for Collision Channel and Refresh Interval. Previously, these properties were only used to calculate obstruction or occlusion values between emitters and listeners in the same Spatial Audio Room. When there are no Rooms, occlusion is applied, and when there are Rooms, obstruction is applied.</p>
+<p class="calibre7">The AkPortalComponent also has properties for Collision Channel and Refresh Interval. Previously, these properties were used to apply obstruction and occlusion values to the Portal that affected all sounds that went through it.</p>
+<p class="calibre7">Now, when a non-zero value is specified for the Refresh Interval property of AkComponents and AkPortalComponents, obstruction is calculated between AkComponents and their listeners (even in different Rooms), AkComponents and AkPortalComponents of the same Room, and AkPortalComponents and other AkPortalComponents of the same Room. This calculation accurately informs the amount of filtering applied to the emitted sound. You can use this feature in scenarios that include Spatial Audio diffraction and transmission, but make sure that the Collision Channel for obstruction checks do not include geometries sent to Spatial Audio for diffraction and transmission.</p>
+<p class="calibre7">The previous behavior of the AkPortalComponent Collision Channel and Refresh Interval is available through occlusion. It is possible to set an initial occlusion value in the details panel or use a Blueprint function to set an occlusion value at a desired moment. It can be used to modulate sound in response to doors opening or closing.</p>
+<div class="calibre2">
+<img alt="" src="ak_component.png" class="inline"/>
+</div>
+<p class="calibre7"> <br class="calibre10"/>
+ </p><div class="calibre2">
+<img alt="" src="ak_portal_component.png" class="inline"/>
+</div>
+</div></div></div></body></html>

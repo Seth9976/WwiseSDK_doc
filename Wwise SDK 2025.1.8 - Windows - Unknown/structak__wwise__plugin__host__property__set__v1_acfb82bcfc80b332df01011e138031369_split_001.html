@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak_wwise_plugin_host_property_set_v1::GetValue</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="structak__wwise__plugin__host__property__set__v1_acfb82bcfc80b332df01011e138031369_split_000.html#acfb82bcfc80b332df01011e138031369" class="pcalibre1 anchor">◆ </a></span>GetValue</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">bool(* ak_wwise_plugin_host_property_set_v1::GetValue) (const struct <a class="pcalibre el" href="structak__wwise__plugin__host__property__set__instance__v1_split_000.html">ak_wwise_plugin_host_property_set_instance_v1</a> *in_this, const GUID *in_guidPlatform, const char *in_pszPropertyName, AK::WwiseAuthoringAPI::AkVariantBase *out_varProperty)</td>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+
+<p class="calibre7">Retrieves the value of a specific property as a variant. </p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="warning.gif"/></td><td class="calibre17"><p class="starttd"><b class="calibre13">Warning:</b> This is a semi-private function. You should use the typed GetValue methods instead.</p>
+<p class="endtd"><a class="pcalibre el" href="structak__wwise__plugin__host__property__set__v1_a805f9eb4ac7e3b08037b89c39a9b6a2e_split_000.html#a805f9eb4ac7e3b08037b89c39a9b6a2e">GetValueString</a>, <a class="pcalibre el" href="structak__wwise__plugin__host__property__set__v1_aba8f5b5ad9475e34281b9aa559681ab7_split_000.html#aba8f5b5ad9475e34281b9aa559681ab7">GetValueInt64</a>, <a class="pcalibre el" href="structak__wwise__plugin__host__property__set__v1_aa648ef55a305d3732a52665245b54d23_split_000.html#aa648ef55a305d3732a52665245b54d23">GetValueInt32</a>, <a class="pcalibre el" href="structak__wwise__plugin__host__property__set__v1_a9751c0a08feade52210099b5d2427a83_split_000.html#a9751c0a08feade52210099b5d2427a83">GetValueInt16</a>, <a class="pcalibre el" href="structak__wwise__plugin__host__property__set__v1_a812a5ac93e2a3f44490c64288444fddf_split_000.html#a812a5ac93e2a3f44490c64288444fddf">GetValueInt8</a>, <a class="pcalibre el" href="structak__wwise__plugin__host__property__set__v1_ab542f075c8072678238a13163f85e5c7_split_000.html#ab542f075c8072678238a13163f85e5c7">GetValueUInt64</a>, <a class="pcalibre el" href="structak__wwise__plugin__host__property__set__v1_a6934cb4d7824fb9123df787b6b9cd8de_split_000.html#a6934cb4d7824fb9123df787b6b9cd8de">GetValueUInt32</a>, <a class="pcalibre el" href="structak__wwise__plugin__host__property__set__v1_ad3ec70d6d895d55b92f0d9876d93caf8_split_000.html#ad3ec70d6d895d55b92f0d9876d93caf8">GetValueUInt16</a>, <a class="pcalibre el" href="structak__wwise__plugin__host__property__set__v1_ad94c8319a4e880c211ec90792bd72dd5_split_000.html#ad94c8319a4e880c211ec90792bd72dd5">GetValueUInt8</a>, <a class="pcalibre el" href="structak__wwise__plugin__host__property__set__v1_adbba9a0947c1d93ff8eb05aaa575d2a6_split_000.html#adbba9a0947c1d93ff8eb05aaa575d2a6">GetValueReal64</a> <a class="pcalibre el" href="structak__wwise__plugin__host__property__set__v1_a909222ae906a73eb5b900b05843cc9bd_split_000.html#a909222ae906a73eb5b900b05843cc9bd">GetValueReal32</a>, <a class="pcalibre el" href="structak__wwise__plugin__host__property__set__v1_aaf501cb71349f937ca87787056620167_split_000.html#aaf501cb71349f937ca87787056620167">GetValueBool</a> </p><pre class="fragment">The function can still be useful if you want to handle parameters as a black box, getting a
+value without knowing the type, and then setting that value elsewhere.
+</pre> </td></tr>
+</tbody></table>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="wwiseplugin_backend_split_001.html#wwiseplugin_bank">Generating SoundBanks</a></li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_this</td><td class="calibre17">Current instance of this interface. </td></tr>
+    <tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_guidPlatform</td><td class="calibre17">The unique ID of the queried platform. </td></tr>
+    <tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_pszPropertyName</td><td class="calibre17">The name of the queried property, based on the XML definition file. </td></tr>
+    <tr class="calibre16"><td class="calibre17">[out]</td><td class="paramname">out_varProperty</td><td class="calibre17">The returned value of the property. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">true if successful. </dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_v1_2_host_property_set_8h_source_split_000.html#l00116">116</a> of file <a class="pcalibre el" href="_v1_2_host_property_set_8h_source_split_000.html">HostPropertySet.h</a>.</p>
+
+<p class="calibre7">Referenced by <a class="pcalibre el" href="_v1_2_host_property_set_8h_source_split_000.html#l01101">AK.Wwise::Plugin::V1::PropertySetBase&lt; CHostPropertySet, 2 &gt;::GetValue()</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

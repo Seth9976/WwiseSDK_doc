@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Geometric Room Distance on Direct Paths</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="spatial_audio_roomsportals_distance_workflow_shell"></a>
+Encapsulating Rooms Inside an Outer Room</h1>
+<p class="calibre7">In some cases, it might be desirable to surround a Room, or a group of Rooms, with an outer Room, to control how distance is calculated to the outside of that arrangement.</p>
+<p class="calibre7">For example, you could position a single large Room on the ground and post a Room tone to the outside. When a listener enters the large Room, the outside sound is attenuated according to the shortest distance out of the Room. However, the closest point to the outside is the floor, as demonstrated in the following image.</p>
+<div class="calibre2">
+<img alt="" src="distance_09_floor.jpg" class="inline"/>
+</div>
+<p class="calibre7">You might also create two Rooms (possibly representing the interior of a single building) separated by a small amount of space (representing the thickness of the wall between the Rooms), using a portal to bridge that gap, with a Room tone posted to outside. The distance to the outside sound approaches 0 as the listener approaches the entrance to the portal, but this is not intuitive because the Room tone comes from a space that is outside of the building that forms this two-Room structure.</p>
+<p class="calibre7">Both of these problems can be mitigated by surrounding the desired structure with an outer Room. A portal can bypass this outer Room to connect an inner Room to the outside. The distance to the outside of any arrangement of Rooms follows the rules of the surrounding outer Room. This outer Room can be a Reverb Zone, and that Reverb Zone's Transition Region and opaque surfaces can be used to control how the distance to outside is measured for the whole structure.</p>
+<p class="calibre7">In the following image, the outer Reverb Zone causes the distance to outside to be measured to the Reverb Zone Transition Region, instead of being measured to the floor:</p>
+<div class="calibre2">
+<img alt="" src="ditance_10_floor_rz_shell.jpg" class="inline"/>
+</div>
+<p class="calibre7">In the following image, the distance is also measured to the Transition Region, instead of being measured to the closest wall, or through the portal to the gap between Rooms:</p>
+<div class="calibre2">
+<img alt="" src="distance_11_multi_room_rz_shell.jpg" class="inline"/>
+</div>
+</div></div></div></body></html>

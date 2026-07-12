@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Sound Engine Object Processor Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="soundengine_plugins_objectprocessor_inplace"></a>
+Implementing an In-Place Object Processor</h1>
+<p class="calibre7">In-place Object Processors receive an array of Audio Objects' buffers and metadata (<a class="pcalibre el" href="class_ak_audio_buffer_split_000.html">AkAudioBuffer</a> and <a class="pcalibre el" href="struct_ak_audio_object_split_000.html">AkAudioObject</a>, respectively) in <a class="pcalibre el" href="class_a_k_1_1_i_ak_in_place_object_plugin_a5a99693f1b77d56fed6eb36c43ff013f_split_000.html#a5a99693f1b77d56fed6eb36c43ff013f">AK::IAkInPlaceObjectPlugin::Execute</a>. They are able to read and modify the audio signal and metadata of all Audio Objects, but they cannot create or remove Audio Objects, or change their channel configuration.</p>
+<p class="calibre7">Note that when in-place Object Processors are inserted as Effects on objects in the Containers hierarchy, as opposed to on busses, Object Metadata will be invalid during Execute, and any modifications to the Metadata will not be preserved. An Object Processor can check for this by determining if Object Keys are equal to AK_INVALID_AUDIO_OBJECT_ID or not, to either gracefully handle this scenario, or flag an error.</p>
+<p class="calibre7">The Compressor is an example of an in-place Object Processor. It needs to be an Object Processor, because its algorithm depends on knowing the audio signal of all Audio Objects at once, but it does not modify the list of Audio Objects. It simply modifies the audio signal of the objects that pass through.</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> CAkCompressorFX::Execute(</div>
+<div class="line">    <span class="keyword">const</span> <a class="pcalibre code" href="struct_ak_audio_objects_split_000.html">AkAudioObjects</a>&amp; io_objects    <span class="comment">// Input objects and object buffers.</span></div>
+<div class="line">)</div>
+<div class="line">{</div>
+<div class="line">    <span class="comment">// Downmix Audio Objects' signal into a working buffer "m_estBuffer", </span></div>
+<div class="line">    <span class="comment">// perform gain estimation from that buffer and compute a gain to apply to each sample of each Audio Object.</span></div>
+<div class="line">    <span class="comment">// ...</span></div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Apply compressor gain (samples of m_estBuffer) to each sample of each Audio Object.</span></div>
+<div class="line">    <span class="comment">// For each object</span></div>
+<div class="line">    <span class="keywordflow">for</span> (<a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> i = 0; i &lt; io_objects.<a class="pcalibre code" href="struct_ak_audio_objects_a9408cb0a160b5e02ce1bc2d2bd63e73a_split_000.html#a9408cb0a160b5e02ce1bc2d2bd63e73a">uNumObjects</a>; ++i)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="comment">// For each channel of this object. </span></div>
+<div class="line">        <span class="keyword">const</span> <a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> uNumChannels = io_objects.<a class="pcalibre code" href="struct_ak_audio_objects_a0684629542f01bb629b5056edb4880e6_split_000.html#a0684629542f01bb629b5056edb4880e6">ppObjectBuffers</a>[i]-&gt;<a class="pcalibre code" href="class_ak_audio_buffer_a4523322478ec9a0f9de0c7c72e65df2f_split_000.html#a4523322478ec9a0f9de0c7c72e65df2f">NumChannels</a>();</div>
+<div class="line">        <span class="keywordflow">for</span> (<a class="pcalibre code" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> j = 0; j &lt; uNumChannels; ++j)</div>
+<div class="line">        {</div>
+<div class="line">            <a class="pcalibre code" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a>* pInBuf = io_objects.<a class="pcalibre code" href="struct_ak_audio_objects_a0684629542f01bb629b5056edb4880e6_split_000.html#a0684629542f01bb629b5056edb4880e6">ppObjectBuffers</a>[i]-&gt;<a class="pcalibre code" href="class_ak_audio_buffer_ad2bc3b8ddd61eaa0c111798d5f9e8c9c_split_000.html#ad2bc3b8ddd61eaa0c111798d5f9e8c9c">GetChannel</a>(j);</div>
+<div class="line">            <span class="keyword">const</span> <a class="pcalibre code" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a>* pInBufEnd = pInBuf + io_objects.<a class="pcalibre code" href="struct_ak_audio_objects_a0684629542f01bb629b5056edb4880e6_split_000.html#a0684629542f01bb629b5056edb4880e6">ppObjectBuffers</a>[i]-&gt;<a class="pcalibre code" href="class_ak_audio_buffer_ab7f90fd99119b56e92e4cbf3559f98cd_split_000.html#ab7f90fd99119b56e92e4cbf3559f98cd">uValidFrames</a>;</div>
+<div class="line">            <a class="pcalibre code" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a>* estBuf = m_estBuffer;</div>
+<div class="line">            <span class="keywordflow">while</span> (pInBuf &lt; pInBufEnd)</div>
+<div class="line">            {</div>
+<div class="line">                 *pInBuf *= *estBuf;</div>
+<div class="line">                ++estBuf;</div>
+<div class="line">                ++pInBuf;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+</div><!-- fragment --><p class="calibre7">The Compressor is of course capable of processing a single object, that is, it works on traditional channel-based busses. It thus supersedes its old Effect Plug-In realization.</p>
+</div></div></div></body></html>

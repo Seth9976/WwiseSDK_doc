@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::SpatialAudio::SetRoom</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="namespace_a_k_1_1_spatial_audio_ab991cec1e8c9f4d2721fea2d37b285c8_split_000.html#ab991cec1e8c9f4d2721fea2d37b285c8" class="pcalibre1 anchor">◆ </a></span>SetRoom()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_sound_engine_export_8h_ac6e96d34dfc0e12f9aaa7a47f4e9c322_split_000.html#ac6e96d34dfc0e12f9aaa7a47f4e9c322">AKSOUNDENGINE_API</a> <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::SpatialAudio::SetRoom </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="struct_ak_room_i_d_split_000.html">AkRoomID</a> </td>
+          <td class="paramname"><em class="calibre59">in_RoomID</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">const <a class="pcalibre el" href="struct_ak_room_params_split_000.html">AkRoomParams</a> &amp; </td>
+          <td class="paramname"><em class="calibre59">in_Params</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">const char * </td>
+          <td class="paramname"><em class="calibre59">in_RoomName</em> = <code class="calibre14">nullptr</code> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Add or update a room. Rooms are used to connect portals and define an orientation for oriented reverbs. This function may be called multiple times with the same ID to update the parameters of the room. </p><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="warning.gif"/></td><td class="calibre17"><b class="calibre13">Warning:</b> The ID (<code class="calibre14">in_RoomID</code>) must be chosen in the same manner as <code class="calibre14">AkGameObjectID's</code>, as they are in the same ID-space. The spatial audio lib manages the registration/unregistration of internal game objects for rooms that use these IDs and, therefore, must not collide. Also, the room ID must not be in the reserved range (AkUInt64)(-32) to (AkUInt64)(-2) inclusively. You may, however, explicitly add the default room ID <a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_a0b178cf8987e4fe5e2b33a6d51116a1c_split_000.html#a0b178cf8987e4fe5e2b33a6d51116a1c" title="The outdoor room ID. This room is created automatically and is typically used for outdoors,...">AK::SpatialAudio::kOutdoorRoomID</a> (-1) in order to customize its <a class="pcalibre el" href="struct_ak_room_params_split_000.html" title="Parameters passed to SetRoom.">AkRoomParams</a>, to provide a valid auxiliary bus, for example.</td></tr>
+</tbody></table>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_room_i_d_split_000.html">AkRoomID</a></li>
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_room_params_split_000.html">AkRoomParams</a></li>
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_a130a8d8fba48b2207aab063ce9ac729c_split_000.html#a130a8d8fba48b2207aab063ce9ac729c">AK::SpatialAudio::RemoveRoom</a> </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_RoomID</td><td class="calibre17">Unique room ID, chosen by the client. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_Params</td><td class="calibre17">Parameter for the room. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_RoomName</td><td class="calibre17">Name used to identify room (optional) </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

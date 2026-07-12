@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Sound Engine Object Processor Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="soundengine_plugins_objectprocessor_implementing"></a>
+Implementing an Object Processor</h1>
+<p class="calibre7">When mounted on an Audio Object bus, an Effect Plug-In will be instantiated as many times as there are Audio Objects, and the lifetime of each instance corresponds to the lifetime of the Audio Object to which it is assigned. Indeed, a single instance cannot be reused to process each Audio Object in turn, because the Effect may be maintaining a state that is required to guarantee continuity of the audio with the following frame.</p>
+<p class="calibre7">On the other hand, an Object Processor is instantiated once, regardless of the number of Audio Objects, and processes all these objects at once.</p>
+<p class="calibre7">Object Processors implement <a class="pcalibre el" href="class_a_k_1_1_i_ak_in_place_object_plugin_split_000.html">AK::IAkInPlaceObjectPlugin</a> or <a class="pcalibre el" href="class_a_k_1_1_i_ak_out_of_place_object_plugin_split_000.html">AK::IAkOutOfPlaceObjectPlugin</a>, depending on whether they are processing in-place or out-of-place. Plug-ins declare that they are Object Processors by returning <a class="pcalibre el" href="struct_ak_plugin_info_abb27da271e4dc15b9b3ef9cb3316cfd3_split_000.html#abb27da271e4dc15b9b3ef9cb3316cfd3" title="Plug-in can process audio objects. They must implement IAkInPlaceObjectPlugin or IAkOutOfPlaceObjectP...">AkPluginInfo::bCanProcessObjects</a> set to true from <a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_a5c4cdef6822950045b66834528bd1b55_split_000.html#a5c4cdef6822950045b66834528bd1b55">AK::IAkPlugin::GetPluginInfo</a>. They declare that they are in-place or out-of-place by setting <a class="pcalibre el" href="struct_ak_plugin_info_a70fb541431bdc08cdb490a926ccc3ee4_split_000.html#a70fb541431bdc08cdb490a926ccc3ee4" title="Buffer usage (in-place or not). If true, and the plug-in is an insert effect, it should implement IAk...">AkPluginInfo::bIsInPlace</a> accordingly.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="warning.gif"/></td><td class="calibre17"><b class="calibre13">Warning:</b> Out-of-place Object Processors are only supported on busses. As is the case with Effect Plug-Ins on busses, they cannot change the rate at which they consume and produce data (<a class="pcalibre el" href="struct_ak_plugin_info_a2b7dda9208b4817d238f207055b40e99_split_000.html#a2b7dda9208b4817d238f207055b40e99" title="True for effects whose sample throughput is different between input and output. Effects that can chan...">AkPluginInfo::bCanChangeRate</a> cannot be true). They can however change the output objects and their channel configuration. </td></tr>
+</tbody></table>
+<p class="calibre7">Only the functions specific to these interfaces are covered here. Refer to <a class="pcalibre el" href="soundengine_plugins_split_000.html">Creating Sound Engine Plug-ins</a>, for information about interface components shared with other plug-in types (<a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_split_000.html">AK::IAkPlugin</a> interface), and <a class="pcalibre el" href="soundengine_plugins_effects_split_001.html#se_insert_effect">Implementing an Effect Plug-in Interface</a> for information about the functionality shared with Effect Plug-Ins, such as initialization, bypassing, and monitoring.</p>
+</div></div></div></body></html>

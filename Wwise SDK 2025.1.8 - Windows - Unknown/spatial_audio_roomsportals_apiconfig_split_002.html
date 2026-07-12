@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Rooms and Portals API Configuration</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="spatial_audio_roomsportals_apiconfigroomtones"></a>
+Posting Events on Room Game Objects</h1>
+<p class="calibre7">It is possible to post an event on a Room Game Object to take advantage of their spatialization behavior. Simply call <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a41e9ef8d42951871fe4a8ae58a29a68e_split_000.html#a41e9ef8d42951871fe4a8ae58a29a68e">AK::SoundEngine::PostEvent</a>, passing the Room ID as the AkGameObjectID. The Room ID can be safely cast to a AkGameObjectID by calling <a class="pcalibre el" href="struct_ak_room_i_d_abe791f0510a62ba13d02ca5e35d3b4eb_split_000.html#abe791f0510a62ba13d02ca5e35d3b4eb">AkRoomID::AsGameObjectID</a>. If a room is to be used for posting events, then Wwise Acoustics must be told not to unregister the Room Game Object when it is not in use. To do so, make sure to set <a class="pcalibre el" href="struct_ak_room_params_abd3091429f5aaa78b09cd2984861be6b_split_000.html#abd3091429f5aaa78b09cd2984861be6b">AkRoomParams::RoomGameObj_KeepRegistered</a> to true.</p>
+<p class="calibre7">Additionally, when using Room tones, it may be useful to have the Game Object send to its own Room Auxiliary Bus. To do so, pass a value greater than zero to <a class="pcalibre el" href="struct_ak_room_params_a07f3e05103b351f449673dfff361aa71_split_000.html#a07f3e05103b351f449673dfff361aa71">AkRoomParams::RoomGameObj_AuxSendLevelToSelf</a>.</p>
+</div></div></div></body></html>

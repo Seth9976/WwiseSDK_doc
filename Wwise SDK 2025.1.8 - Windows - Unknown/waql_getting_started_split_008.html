@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Getting Started with WAQL</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_7"><a class="pcalibre1 anchor" id="waql_gs_play_events"></a>
+Playing with Events</h1>
+<p class="calibre7">Now that we have learned the basic concepts of WAQL, let's try to build concrete examples. In this example, we will try to enumerate all sounds that are referenced by an Event.</p>
+<p class="calibre7">First, enumerate all Events from the project:</p>
+<p class="calibre7"><code class="calibre14">$ from type event</code></p>
+<p class="calibre7">Then obtain the Event actions (direct children) from the Event objects:</p>
+<p class="calibre7"><code class="calibre14">$ from type event select children</code></p>
+<p class="calibre7">Then obtain the targets (reference named target) of each action:</p>
+<p class="calibre7"><code class="calibre14">$ from type event select children select target</code></p>
+<p class="calibre7">Then obtain the targets themselves (using the keyword <b class="calibre13">this</b>) and their descendants:</p>
+<p class="calibre7"><code class="calibre14">$ from type event select children select target select this, descendants</code></p>
+<p class="calibre7">Finally, only keep the sound objects, by filtering on the type:</p>
+<p class="calibre7"><code class="calibre14">$ from type event select children select target select this, descendants where type = "sound"</code></p>
+<p class="calibre7">Additional exercises:</p>
+<ul class="calibre8">
+<li class="calibre9">Instead of starting from all Events from the project, start from a specific Event.</li>
+<li class="calibre9">Try filtering only the Play actions (excluding other types, such as Stop). Refer to <a class="pcalibre el" href="wwiseobject_action_split_000.html">Action</a> to learn about action properties.</li>
+</ul>
+</div></div></div></body></html>

@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak_wwise_plugin_interface_type</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="group__global_ga6611f8c24af9575c6be02f8a963b57c9_split_000.html#ga6611f8c24af9575c6be02f8a963b57c9" class="pcalibre1 anchor">◆ </a></span>ak_wwise_plugin_interface_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">enum <a class="pcalibre el" href="group__global_ga6611f8c24af9575c6be02f8a963b57c9_split_000.html#ga6611f8c24af9575c6be02f8a963b57c9">ak_wwise_plugin_interface_type</a></td>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+
+<p class="calibre7">List of every single interface known to the plug-in system. </p>
+<p class="calibre7">Once the version of a plug-in interface is official, it should always keep the same ID. No ID should be reused, and the order should stay exactly the same all the time. </p>
+<table class="calibre3">
+<tbody class="calibre4"><tr class="calibre16"><th colspan="2" class="calibre35">Enumerator</th></tr><tr class="calibre16"><td class="calibre17"><a id="gga6611f8c24af9575c6be02f8a963b57c9a40958ac64b124869ebf623a003828a53" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_INTERFACE_TYPE_UNKNOWN </td><td class="calibre17"><p class="calibre7"><b class="calibre13">2021.1</b> Unknown plug-in ID (0 - error, invalid, uninitialized) </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga6611f8c24af9575c6be02f8a963b57c9a8624f25f696288e5fee92b38528105b7" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_INTERFACE_TYPE_PLUGIN_CONTAINER </td><td class="calibre17"><p class="calibre7"><b class="calibre13">2021.1</b> Plug-in container plug-in. Contains all the other plug-ins. <a class="pcalibre el" href="structak__wwise__plugin__container_split_000.html" title="Root interface allowing a logical unit (variable, library) to contain more than one interface.">ak_wwise_plugin_container</a> </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga6611f8c24af9575c6be02f8a963b57c9ae716d6886ba8bb4197599bc60010d9a1" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_INTERFACE_TYPE_ANALYSIS_TASK </td><td class="calibre17"><p class="calibre7"><b class="calibre13">2021.1</b> Analysis task plug-in. ak_wwise_plugin_analysis_task_v1 </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga6611f8c24af9575c6be02f8a963b57c9af60f00124117a22873d01c98255478ed" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_INTERFACE_TYPE_AUDIO_PLUGIN </td><td class="calibre17"><p class="calibre7"><b class="calibre13">2021.1</b> Audio backend plug-in. <a class="pcalibre el" href="structak__wwise__plugin__audio__plugin__v1_split_000.html" title="Wwise API for general Audio Plug-in's backend.">ak_wwise_plugin_audio_plugin_v1</a> </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga6611f8c24af9575c6be02f8a963b57c9aacac1da112b7cc901b36d44e2f3651a9" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_INTERFACE_TYPE_CONVERSION </td><td class="calibre17"><p class="calibre7"><b class="calibre13">2021.1</b> Conversion plug-in. ak_wwise_plugin_conversion_v1 </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga6611f8c24af9575c6be02f8a963b57c9a866bd5f3bddd5bde6067ddc08ff882aa" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_INTERFACE_TYPE_CUSTOM_DATA </td><td class="calibre17"><p class="calibre7"><b class="calibre13">2021.1</b> Custom Data reader backend part. <a class="pcalibre el" href="structak__wwise__plugin__custom__data__v1_split_000.html" title="Backend API to load and save custom data in XML format.">ak_wwise_plugin_custom_data_v1</a> </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga6611f8c24af9575c6be02f8a963b57c9ace4bbfc9034adf76f63ab79791598eb4" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_INTERFACE_TYPE_FEEDBACK_AWARE </td><td class="calibre17"><p class="calibre7"><b class="calibre13">2021.1</b> Feedback-aware frontend part. ak_wwise_plugin_feedback_aware_v1 </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga6611f8c24af9575c6be02f8a963b57c9a72c782c40df28013cce3676850064c02" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_INTERFACE_TYPE_FIRST_TIME_CREATION_MESSAGE </td><td class="calibre17"><p class="calibre7"><b class="calibre13">2021.1</b> First Time Creation Message plug-in. <a class="pcalibre el" href="structak__wwise__plugin__first__time__creation__message__v1_split_000.html" title="Plug-in that provides a special usage message when first instantiated.">ak_wwise_plugin_first_time_creation_message_v1</a> </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga6611f8c24af9575c6be02f8a963b57c9aae5f79946e2cbff79d92163117f5dd8b" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_INTERFACE_TYPE_LICENSE </td><td class="calibre17"><p class="calibre7"><b class="calibre13">2021.1</b> Licensing. <a class="pcalibre el" href="structak__wwise__plugin__license__v1_split_000.html" title="Backend API to specify licensing requirements.">ak_wwise_plugin_license_v1</a> </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga6611f8c24af9575c6be02f8a963b57c9acc6b762efd7653cabd05b42068cc7bc7" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_INTERFACE_TYPE_MEDIA_CONVERTER </td><td class="calibre17"><p class="calibre7"><b class="calibre13">2021.1</b> Media Converter backend part. <a class="pcalibre el" href="structak__wwise__plugin__media__converter__v1_split_000.html" title="API to convert used object medias to a format usable by the plug-in's Sound Engine part.">ak_wwise_plugin_media_converter_v1</a> </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga6611f8c24af9575c6be02f8a963b57c9a39cce7a5d163d7e82aac57807a80e831" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_INTERFACE_TYPE_NOTIFICATIONS_HOST </td><td class="calibre17"><p class="calibre7"><b class="calibre13">2021.1</b> Host modification notification. <a class="pcalibre el" href="structak__wwise__plugin__notifications__host__v1_split_000.html" title="API to receive host's update notifications.">ak_wwise_plugin_notifications_host_v1</a> </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga6611f8c24af9575c6be02f8a963b57c9ac04b4cc07950e34f1b4aa9f93ec6d5a3" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_INTERFACE_TYPE_NOTIFICATIONS_MONITOR </td><td class="calibre17"><p class="calibre7"><b class="calibre13">2021.1</b> Monitor data notification. <a class="pcalibre el" href="structak__wwise__plugin__notifications__monitor__v1_split_000.html" title="API for Sound Engine's Monitor Data notification.">ak_wwise_plugin_notifications_monitor_v1</a> </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga6611f8c24af9575c6be02f8a963b57c9a3dad917a24d46fd680f342d8c6c299e8" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_INTERFACE_TYPE_NOTIFICATIONS_OBJECT_MEDIA </td><td class="calibre17"><p class="calibre7"><b class="calibre13">2021.1</b> Object Media modification notification. <a class="pcalibre el" href="structak__wwise__plugin__notifications__object__media__v1_split_000.html">ak_wwise_plugin_notifications_object_media_v1</a> </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga6611f8c24af9575c6be02f8a963b57c9a257b8a3c00de2195a4d19871830f93cd" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_INTERFACE_TYPE_NOTIFICATIONS_OBJECT_STORE </td><td class="calibre17"><p class="calibre7"><b class="calibre13">2021.1</b> Object Store modification notification. <a class="pcalibre el" href="structak__wwise__plugin__notifications__object__store__v1_split_000.html" title="Interface able to receive notifications for custom inner property sets.">ak_wwise_plugin_notifications_object_store_v1</a> </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga6611f8c24af9575c6be02f8a963b57c9a8393a83801f2e47851845c2d09b71659" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_INTERFACE_TYPE_NOTIFICATIONS_PROPERTY_SET </td><td class="calibre17"><p class="calibre7"><b class="calibre13">2021.1</b> Property Set modification notification. <a class="pcalibre el" href="structak__wwise__plugin__notifications__property__set__v1_split_000.html">ak_wwise_plugin_notifications_property_set_v1</a> </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga6611f8c24af9575c6be02f8a963b57c9af99e8cd163b565d2cc56a3822dec423d" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_INTERFACE_TYPE_PROPERTY_DISPLAY_NAME </td><td class="calibre17"><p class="calibre7"><b class="calibre13">2021.1</b> Property display name overrides. <a class="pcalibre el" href="structak__wwise__plugin__property__display__name__v1_split_000.html" title="Backend API to specify display names for properties.">ak_wwise_plugin_property_display_name_v1</a> </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga6611f8c24af9575c6be02f8a963b57c9a821f9229a08f07baaf0783425ced53d1" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_INTERFACE_TYPE_SINK_DEVICES </td><td class="calibre17"><p class="calibre7"><b class="calibre13">2021.1</b> Sink Devices enumeration plug-in. <a class="pcalibre el" href="structak__wwise__plugin__sink__devices__v1_split_000.html" title="Device enumerator for sink plug-ins.">ak_wwise_plugin_sink_devices_v1</a> </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga6611f8c24af9575c6be02f8a963b57c9a8d2a79ba3f9d7006fee4a710c35a2623" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_INTERFACE_TYPE_SOURCE </td><td class="calibre17"><p class="calibre7"><b class="calibre13">2021.1</b> Source-specific backend part. <a class="pcalibre el" href="structak__wwise__plugin__source__v1_split_000.html" title="API specific for source plug-in.">ak_wwise_plugin_source_v1</a> </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga6611f8c24af9575c6be02f8a963b57c9a84bd3a1272d5f343df1bab3a826ffe65" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_INTERFACE_TYPE_UNDO_EVENT </td><td class="calibre17"><p class="calibre7"><b class="calibre13">2021.1</b> Undo Event. <a class="pcalibre el" href="structak__wwise__plugin__undo__event__v1_split_000.html" title="API to create a custom undo event in a plug-in.">ak_wwise_plugin_undo_event_v1</a> </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga6611f8c24af9575c6be02f8a963b57c9a90c4e56d16e50a50d7b5770f531247da" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_INTERFACE_TYPE_GUI_CONVERSION_WINDOWS </td><td class="calibre17"><p class="calibre7"><b class="calibre13">2021.1</b> Conversion frontend plug-in for Windows. ak_wwise_plugin_gui_conversion_windows_v1 </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga6611f8c24af9575c6be02f8a963b57c9af55117f741b99ad4a3d7eb6668dc8efe" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_INTERFACE_TYPE_GUI_WINDOWS </td><td class="calibre17"><p class="calibre7"><b class="calibre13">2021.1</b> Audio frontend plug-in for Windows. <a class="pcalibre el" href="structak__wwise__plugin__gui__windows__v1_split_000.html" title="Windows frontend plug-in API for Audio plug-ins.">ak_wwise_plugin_gui_windows_v1</a> </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga6611f8c24af9575c6be02f8a963b57c9af1c18a159e804b70aa8e3bafd53ccfe1" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_INTERFACE_TYPE_HOST </td><td class="calibre17"><p class="calibre7"><b class="calibre13">2021.1</b> Host services. <a class="pcalibre el" href="structak__wwise__plugin__host__v1_split_000.html" title="API to request host's current state and services.">ak_wwise_plugin_host_v1</a> </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga6611f8c24af9575c6be02f8a963b57c9a28a5d7dd31d6afec3d2a0a3303761df6" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_INTERFACE_TYPE_HOST_CONVERSION_HELPERS </td><td class="calibre17"><p class="calibre7"><b class="calibre13">2021.1</b> Conversion helpers host services. ak_wwise_plugin_host_conversion_helpers_v1 </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga6611f8c24af9575c6be02f8a963b57c9a123cdd811f15c89c6d15915c62fa0116" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_INTERFACE_TYPE_HOST_OBJECT_MEDIA </td><td class="calibre17"><p class="calibre7"><b class="calibre13">2021.1</b> Object Media host service. <a class="pcalibre el" href="structak__wwise__plugin__host__object__media__v1_split_000.html">ak_wwise_plugin_host_object_media_v1</a> </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga6611f8c24af9575c6be02f8a963b57c9a548777b0657519d6b6e634574170c29f" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_INTERFACE_TYPE_HOST_OBJECT_STORE </td><td class="calibre17"><p class="calibre7"><b class="calibre13">2021.1</b> Object Store host service. <a class="pcalibre el" href="structak__wwise__plugin__host__object__store__v1_split_000.html" title="Custom inner property set interface.">ak_wwise_plugin_host_object_store_v1</a> </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga6611f8c24af9575c6be02f8a963b57c9a76f67f330dab04093a4600d4d63d4446" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_INTERFACE_TYPE_HOST_PROPERTY_SET </td><td class="calibre17"><p class="calibre7"><b class="calibre13">2021.1</b> Property Set host service. <a class="pcalibre el" href="structak__wwise__plugin__host__property__set__v1_split_000.html" title="Interface used to interact with property sets.">ak_wwise_plugin_host_property_set_v1</a> </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga6611f8c24af9575c6be02f8a963b57c9a07328d19f39944a12c7b57ae1955f520" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_INTERFACE_TYPE_HOST_UNDO_MANAGER </td><td class="calibre17"><p class="calibre7"><b class="calibre13">2021.1</b> Undo Manager host service. <a class="pcalibre el" href="structak__wwise__plugin__host__undo__manager__v1_split_000.html" title="Host API to handle the plug-in's undo operations.">ak_wwise_plugin_host_undo_manager_v1</a> </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga6611f8c24af9575c6be02f8a963b57c9aa1aa181e6241b63d3a1d204e403a94ad" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_INTERFACE_TYPE_HOST_DATA_WRITER </td><td class="calibre17"><p class="calibre7"><b class="calibre13">2021.1</b> Data Writer host service. <a class="pcalibre el" href="structak__wwise__plugin__host__data__writer__v1_split_000.html" title="Interface used to write data during sound bank generation.">ak_wwise_plugin_host_data_writer_v1</a> </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga6611f8c24af9575c6be02f8a963b57c9a6544a9fc6225dbd24d33f5bef7495d18" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_INTERFACE_TYPE_HOST_XML </td><td class="calibre17"><p class="calibre7"><b class="calibre13">2021.1</b> XML reading and writing host services. <a class="pcalibre el" href="structak__wwise__plugin__host__xml__v1_split_000.html" title="API interface for XML-based plug-in persistence.">ak_wwise_plugin_host_xml_v1</a> </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga6611f8c24af9575c6be02f8a963b57c9a7e6d9382217615a4d0205bcd87ffb8f8" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_INTERFACE_TYPE_LINK_BACKEND </td><td class="calibre17"><p class="calibre7"><b class="calibre13">2021.1</b> Link to the backend plug-in. <a class="pcalibre el" href="structak__wwise__plugin__link__backend__v1_split_000.html" title="Host API to retrieve a link to the plug-in's backend instance.">ak_wwise_plugin_link_backend_v1</a> </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga6611f8c24af9575c6be02f8a963b57c9a487278fb36df685b23d6ffbb7512b80a" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_INTERFACE_TYPE_LINK_FRONTEND </td><td class="calibre17"><p class="calibre7"><b class="calibre13">2021.1</b> Link to the frontend plug-ins. <a class="pcalibre el" href="structak__wwise__plugin__link__frontend__v1_split_000.html" title="Host API to retrieve a link to the plug-in's frontend interfaces.">ak_wwise_plugin_link_frontend_v1</a> </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga6611f8c24af9575c6be02f8a963b57c9a70148864943ddf2510d5f2ea86ab7be2" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_INTERFACE_TYPE_NATIVE_ISERVICEPROVIDER </td><td class="calibre17"/></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga6611f8c24af9575c6be02f8a963b57c9a169314fdd3f8ad945b201194845bfd35" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_INTERFACE_TYPE_NATIVE_IWAUDIODEVICEPLUGIN </td><td class="calibre17"/></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga6611f8c24af9575c6be02f8a963b57c9a59d059908689a126d9d81da1e993100f" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_INTERFACE_TYPE_NATIVE_IWCONVERSIONPLUGIN </td><td class="calibre17"/></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga6611f8c24af9575c6be02f8a963b57c9a99c558667099b96a17fa73d90dc87b5d" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_INTERFACE_TYPE_NATIVE_IWEFFECTPLUGIN </td><td class="calibre17"/></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga6611f8c24af9575c6be02f8a963b57c9a0c676701ca4f200f0f28d1ef2cf2f815" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_INTERFACE_TYPE_NATIVE_IWSOURCEPLUGIN </td><td class="calibre17"/></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga6611f8c24af9575c6be02f8a963b57c9aa350fb41f83e8b444aed3f757dac68f5" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_INTERFACE_TYPE_TESTSERVICE </td><td class="calibre17"/></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga6611f8c24af9575c6be02f8a963b57c9aa58ee40b40c495300ba7b919da18bceb" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_INTERFACE_TYPE_FRONTEND </td><td class="calibre17"/></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga6611f8c24af9575c6be02f8a963b57c9a59544c57eb30361f5a4df4f25fe8ca2a" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_INTERFACE_TYPE_HOST_FRONTEND_MODEL </td><td class="calibre17"/></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga6611f8c24af9575c6be02f8a963b57c9aea11355fbccff969a4def18261402dc5" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_INTERFACE_TYPE_NOTIFICATIONS_REFERENCE_SET </td><td class="calibre17"><p class="calibre7"><b class="calibre13">2025.1</b> Reference Set modification notification. <a class="pcalibre el" href="structak__wwise__plugin__notifications__reference__set__v1_split_000.html">ak_wwise_plugin_notifications_reference_set_v1</a> </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga6611f8c24af9575c6be02f8a963b57c9aaebf595516f8a6f606ec4f08c12d8175" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_INTERFACE_TYPE_HOST_REFERENCE_SET </td><td class="calibre17"><p class="calibre7"><b class="calibre13">2025.1</b> Reference Set host service. <a class="pcalibre el" href="structak__wwise__plugin__host__reference__set__v1_split_000.html" title="Interface used to interact with reference sets.">ak_wwise_plugin_host_reference_set_v1</a> </p>
+</td></tr>
+<tr class="calibre16"><td class="calibre17"><a id="gga6611f8c24af9575c6be02f8a963b57c9ad55211fa812319b74aa814d44f58a146" class="pcalibre calibre12"></a>AK_WWISE_PLUGIN_INTERFACE_TYPE_NUM </td><td class="calibre17"><p class="calibre7">Number of plug-in interfaces. Last value. </p>
+</td></tr>
+</tbody></table>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_plugin_base_interface_8h_source.html#l00050">50</a> of file <a class="pcalibre el" href="_plugin_base_interface_8h_source.html">PluginBaseInterface.h</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

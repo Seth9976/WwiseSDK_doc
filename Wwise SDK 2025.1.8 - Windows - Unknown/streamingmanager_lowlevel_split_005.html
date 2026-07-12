@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Low-Level I/O</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_4"><a class="pcalibre1 anchor" id="streamingmanager_lowlevel_location_fsflags"></a>
+File System Flags</h2>
+<p class="calibre7">The Stream Manager's <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_stream_mgr_a1de2a7935a2d3cddb71e7cc7f48effd6_split_000.html#a1de2a7935a2d3cddb71e7cc7f48effd6">AK::IAkStreamMgr::CreateStd()</a></code> and <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_stream_mgr_afe30a576bd859ff4e9b60a3f8e1710fb_split_000.html#afe30a576bd859ff4e9b60a3f8e1710fb">AK::IAkStreamMgr::CreateAuto()</a></code> methods accept a pointer to an <a class="pcalibre el" href="struct_ak_file_system_flags_split_000.html" title="File system flags for file descriptors mapping.">AkFileSystemFlags</a> structure, which is passed to <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_file_location_resolver_a5c7515d84fe8b7ce1e1c06690447673d_split_000.html#a5c7515d84fe8b7ce1e1c06690447673d">AK::StreamMgr::IAkFileLocationResolver::GetNextPreferredDevice()</a></code> and <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_a0abfde848b599b5e5b8e8ed63dc8b555_split_000.html#a0abfde848b599b5e5b8e8ed63dc8b555">AK::StreamMgr::IAkLowLevelIOHook::BatchOpen()</a></code>. This structure is a way to pass information directly from the users to the Low-Level I/O. This information is used to complete the file location logic, for example. Generic users of the Stream Manager can pass NULL, but the sound engine always passes a structure filled with relevant information, so that the File Location Resolver knows that a request comes from the sound engine.</p>
+<p class="calibre7">The file system flag structure contains the following fields:</p><ul class="calibre8">
+<li class="calibre9">uCompanyID: the sound engine always sets this field to AKCOMPANYID_AUDIOKINETIC, so the implementer of the Low-Level I/O knows that this file must be read by the sound engine. The sound engine passes AKCOMPANYID_AUDIOKINETIC_EXTERNAL in the case of streamed external sources.</li>
+<li class="calibre9">uCodecID: this field can be used to distinguish between file types. It is needed for file types used by the sound engine. The codec IDs used by the sound engine are defined in AkTypes.h. The host program may also define its own IDs with the same values, as long as it does not set the companyID to AKCOMPANYID_AUDIOKINETIC or AKCOMPANYID_AUDIOKINETIC_EXTERNAL. Note the predefined CodecID AKCODECID_BANK, AKCODECID_BANK_EVENT, AKCODECID_BANK_BUS which, on top of the traditional Codecs, can be useful for file organization.</li>
+<li class="calibre9">bIsLanguageSpecific: this field indicates whether the file being looked up is specific to the current language. Typically, a file that has language-specific content exists in different locations (language folders typically). The Low-Level I/O needs to resolve the path according to the language currently selected. See <a class="pcalibre el" href="soundengine_banks_general_split_015.html#soundengine_banks_general_identification_language">Language-Specific ("Voice" and "Mixed") Soundbanks</a> for more details.</li>
+<li class="calibre9">Custom parameter and size: Used for game-specific extensions of the file location scheme. For example, extensions can be copied in the file descriptor. The sound engine always passes 0.</li>
+</ul>
+</div></div></div></body></html>

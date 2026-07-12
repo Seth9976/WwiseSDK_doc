@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak_wwise_plugin_media_converter_v1::GetCurrentConversionSettingsHash</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="structak__wwise__plugin__media__converter__v1_af34464d0979062fae50f8417c1ae984b_split_000.html#af34464d0979062fae50f8417c1ae984b" class="pcalibre1 anchor">◆ </a></span>GetCurrentConversionSettingsHash</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">uint32_t(* ak_wwise_plugin_media_converter_v1::GetCurrentConversionSettingsHash) (const struct <a class="pcalibre el" href="structak__wwise__plugin__media__converter__instance__v1_split_000.html">ak_wwise_plugin_media_converter_instance_v1</a> *in_this, const GUID *in_guidPlatform, <a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> in_uSampleRate, <a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> in_uBlockLength)</td>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+
+<p class="calibre7">Calculates the conversion setting's hash. </p>
+<p class="calibre7">The goal of this function is to return a value that can be used to indicate whether the plug-in information changed between two conversion requests. Each time a SoundBank generation is done, that value is stored, and if it's different from the previous one, or if the file changed, a new ConvertFile will be called.</p>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_this</td><td class="calibre17">Current instance of this interface. </td></tr>
+    <tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_guidPlatform</td><td class="calibre17">The unique ID of the custom platform for which the conversion is being done. </td></tr>
+    <tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_uSampleRate</td><td class="calibre17">The target sample rate for the converted file, passing 0 will default to the platform default. </td></tr>
+    <tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_uBlockLength</td><td class="calibre17">The block length, passing 0 will default to the platform default. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">A hash value for all the plug-in parameters. </dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_media_converter_8h_source.html#l00103">103</a> of file <a class="pcalibre el" href="_media_converter_8h_source.html">MediaConverter.h</a>.</p>
+
+<p class="calibre7">Referenced by <a class="pcalibre el" href="_media_converter_8h_source.html#l00154">AK.Wwise::Plugin::V1::MediaConverter::Interface::Interface()</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

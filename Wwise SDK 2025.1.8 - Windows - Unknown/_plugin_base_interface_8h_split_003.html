@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK/Wwise/Plugin/PluginBaseInterface.h File Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table class="calibre3">
+<tbody class="calibre4"><tr class="calibre16"><td colspan="2" class="calibre17"><h2 class="calibre21" id="calibre_pb_2"><a class="pcalibre1 anchor" id="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="calibre16"><td class="memitemleft">enum  </td><td class="memitemright"><a class="pcalibre el" href="group__global_ga6611f8c24af9575c6be02f8a963b57c9_split_000.html#ga6611f8c24af9575c6be02f8a963b57c9">ak_wwise_plugin_interface_type</a> { <br class="calibre10"/>
+  <a class="pcalibre el" href="group__global_ga6611f8c24af9575c6be02f8a963b57c9_split_001.html#gga6611f8c24af9575c6be02f8a963b57c9a40958ac64b124869ebf623a003828a53">AK_WWISE_PLUGIN_INTERFACE_TYPE_UNKNOWN</a>, 
+<a class="pcalibre el" href="group__global_ga6611f8c24af9575c6be02f8a963b57c9_split_001.html#gga6611f8c24af9575c6be02f8a963b57c9a8624f25f696288e5fee92b38528105b7">AK_WWISE_PLUGIN_INTERFACE_TYPE_PLUGIN_CONTAINER</a>, 
+<a class="pcalibre el" href="group__global_ga6611f8c24af9575c6be02f8a963b57c9_split_001.html#gga6611f8c24af9575c6be02f8a963b57c9ae716d6886ba8bb4197599bc60010d9a1">AK_WWISE_PLUGIN_INTERFACE_TYPE_ANALYSIS_TASK</a>, 
+<a class="pcalibre el" href="group__global_ga6611f8c24af9575c6be02f8a963b57c9_split_001.html#gga6611f8c24af9575c6be02f8a963b57c9af60f00124117a22873d01c98255478ed">AK_WWISE_PLUGIN_INTERFACE_TYPE_AUDIO_PLUGIN</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="group__global_ga6611f8c24af9575c6be02f8a963b57c9_split_001.html#gga6611f8c24af9575c6be02f8a963b57c9aacac1da112b7cc901b36d44e2f3651a9">AK_WWISE_PLUGIN_INTERFACE_TYPE_CONVERSION</a>, 
+<a class="pcalibre el" href="group__global_ga6611f8c24af9575c6be02f8a963b57c9_split_001.html#gga6611f8c24af9575c6be02f8a963b57c9a866bd5f3bddd5bde6067ddc08ff882aa">AK_WWISE_PLUGIN_INTERFACE_TYPE_CUSTOM_DATA</a>, 
+<a class="pcalibre el" href="group__global_ga6611f8c24af9575c6be02f8a963b57c9_split_001.html#gga6611f8c24af9575c6be02f8a963b57c9ace4bbfc9034adf76f63ab79791598eb4">AK_WWISE_PLUGIN_INTERFACE_TYPE_FEEDBACK_AWARE</a>, 
+<a class="pcalibre el" href="group__global_ga6611f8c24af9575c6be02f8a963b57c9_split_001.html#gga6611f8c24af9575c6be02f8a963b57c9a72c782c40df28013cce3676850064c02">AK_WWISE_PLUGIN_INTERFACE_TYPE_FIRST_TIME_CREATION_MESSAGE</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="group__global_ga6611f8c24af9575c6be02f8a963b57c9_split_001.html#gga6611f8c24af9575c6be02f8a963b57c9aae5f79946e2cbff79d92163117f5dd8b">AK_WWISE_PLUGIN_INTERFACE_TYPE_LICENSE</a>, 
+<a class="pcalibre el" href="group__global_ga6611f8c24af9575c6be02f8a963b57c9_split_001.html#gga6611f8c24af9575c6be02f8a963b57c9acc6b762efd7653cabd05b42068cc7bc7">AK_WWISE_PLUGIN_INTERFACE_TYPE_MEDIA_CONVERTER</a>, 
+<a class="pcalibre el" href="group__global_ga6611f8c24af9575c6be02f8a963b57c9_split_001.html#gga6611f8c24af9575c6be02f8a963b57c9a39cce7a5d163d7e82aac57807a80e831">AK_WWISE_PLUGIN_INTERFACE_TYPE_NOTIFICATIONS_HOST</a>, 
+<a class="pcalibre el" href="group__global_ga6611f8c24af9575c6be02f8a963b57c9_split_001.html#gga6611f8c24af9575c6be02f8a963b57c9ac04b4cc07950e34f1b4aa9f93ec6d5a3">AK_WWISE_PLUGIN_INTERFACE_TYPE_NOTIFICATIONS_MONITOR</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="group__global_ga6611f8c24af9575c6be02f8a963b57c9_split_001.html#gga6611f8c24af9575c6be02f8a963b57c9a3dad917a24d46fd680f342d8c6c299e8">AK_WWISE_PLUGIN_INTERFACE_TYPE_NOTIFICATIONS_OBJECT_MEDIA</a>, 
+<a class="pcalibre el" href="group__global_ga6611f8c24af9575c6be02f8a963b57c9_split_001.html#gga6611f8c24af9575c6be02f8a963b57c9a257b8a3c00de2195a4d19871830f93cd">AK_WWISE_PLUGIN_INTERFACE_TYPE_NOTIFICATIONS_OBJECT_STORE</a>, 
+<a class="pcalibre el" href="group__global_ga6611f8c24af9575c6be02f8a963b57c9_split_001.html#gga6611f8c24af9575c6be02f8a963b57c9a8393a83801f2e47851845c2d09b71659">AK_WWISE_PLUGIN_INTERFACE_TYPE_NOTIFICATIONS_PROPERTY_SET</a>, 
+<a class="pcalibre el" href="group__global_ga6611f8c24af9575c6be02f8a963b57c9_split_001.html#gga6611f8c24af9575c6be02f8a963b57c9af99e8cd163b565d2cc56a3822dec423d">AK_WWISE_PLUGIN_INTERFACE_TYPE_PROPERTY_DISPLAY_NAME</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="group__global_ga6611f8c24af9575c6be02f8a963b57c9_split_001.html#gga6611f8c24af9575c6be02f8a963b57c9a821f9229a08f07baaf0783425ced53d1">AK_WWISE_PLUGIN_INTERFACE_TYPE_SINK_DEVICES</a>, 
+<a class="pcalibre el" href="group__global_ga6611f8c24af9575c6be02f8a963b57c9_split_001.html#gga6611f8c24af9575c6be02f8a963b57c9a8d2a79ba3f9d7006fee4a710c35a2623">AK_WWISE_PLUGIN_INTERFACE_TYPE_SOURCE</a>, 
+<a class="pcalibre el" href="group__global_ga6611f8c24af9575c6be02f8a963b57c9_split_001.html#gga6611f8c24af9575c6be02f8a963b57c9a84bd3a1272d5f343df1bab3a826ffe65">AK_WWISE_PLUGIN_INTERFACE_TYPE_UNDO_EVENT</a>, 
+<a class="pcalibre el" href="group__global_ga6611f8c24af9575c6be02f8a963b57c9_split_001.html#gga6611f8c24af9575c6be02f8a963b57c9a90c4e56d16e50a50d7b5770f531247da">AK_WWISE_PLUGIN_INTERFACE_TYPE_GUI_CONVERSION_WINDOWS</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="group__global_ga6611f8c24af9575c6be02f8a963b57c9_split_001.html#gga6611f8c24af9575c6be02f8a963b57c9af55117f741b99ad4a3d7eb6668dc8efe">AK_WWISE_PLUGIN_INTERFACE_TYPE_GUI_WINDOWS</a>, 
+<a class="pcalibre el" href="group__global_ga6611f8c24af9575c6be02f8a963b57c9_split_001.html#gga6611f8c24af9575c6be02f8a963b57c9af1c18a159e804b70aa8e3bafd53ccfe1">AK_WWISE_PLUGIN_INTERFACE_TYPE_HOST</a>, 
+<a class="pcalibre el" href="group__global_ga6611f8c24af9575c6be02f8a963b57c9_split_001.html#gga6611f8c24af9575c6be02f8a963b57c9a28a5d7dd31d6afec3d2a0a3303761df6">AK_WWISE_PLUGIN_INTERFACE_TYPE_HOST_CONVERSION_HELPERS</a>, 
+<a class="pcalibre el" href="group__global_ga6611f8c24af9575c6be02f8a963b57c9_split_001.html#gga6611f8c24af9575c6be02f8a963b57c9a123cdd811f15c89c6d15915c62fa0116">AK_WWISE_PLUGIN_INTERFACE_TYPE_HOST_OBJECT_MEDIA</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="group__global_ga6611f8c24af9575c6be02f8a963b57c9_split_001.html#gga6611f8c24af9575c6be02f8a963b57c9a548777b0657519d6b6e634574170c29f">AK_WWISE_PLUGIN_INTERFACE_TYPE_HOST_OBJECT_STORE</a>, 
+<a class="pcalibre el" href="group__global_ga6611f8c24af9575c6be02f8a963b57c9_split_001.html#gga6611f8c24af9575c6be02f8a963b57c9a76f67f330dab04093a4600d4d63d4446">AK_WWISE_PLUGIN_INTERFACE_TYPE_HOST_PROPERTY_SET</a>, 
+<a class="pcalibre el" href="group__global_ga6611f8c24af9575c6be02f8a963b57c9_split_001.html#gga6611f8c24af9575c6be02f8a963b57c9a07328d19f39944a12c7b57ae1955f520">AK_WWISE_PLUGIN_INTERFACE_TYPE_HOST_UNDO_MANAGER</a>, 
+<a class="pcalibre el" href="group__global_ga6611f8c24af9575c6be02f8a963b57c9_split_001.html#gga6611f8c24af9575c6be02f8a963b57c9aa1aa181e6241b63d3a1d204e403a94ad">AK_WWISE_PLUGIN_INTERFACE_TYPE_HOST_DATA_WRITER</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="group__global_ga6611f8c24af9575c6be02f8a963b57c9_split_001.html#gga6611f8c24af9575c6be02f8a963b57c9a6544a9fc6225dbd24d33f5bef7495d18">AK_WWISE_PLUGIN_INTERFACE_TYPE_HOST_XML</a>, 
+<a class="pcalibre el" href="group__global_ga6611f8c24af9575c6be02f8a963b57c9_split_001.html#gga6611f8c24af9575c6be02f8a963b57c9a7e6d9382217615a4d0205bcd87ffb8f8">AK_WWISE_PLUGIN_INTERFACE_TYPE_LINK_BACKEND</a>, 
+<a class="pcalibre el" href="group__global_ga6611f8c24af9575c6be02f8a963b57c9_split_001.html#gga6611f8c24af9575c6be02f8a963b57c9a487278fb36df685b23d6ffbb7512b80a">AK_WWISE_PLUGIN_INTERFACE_TYPE_LINK_FRONTEND</a>, 
+<a class="pcalibre el" href="group__global_ga6611f8c24af9575c6be02f8a963b57c9_split_001.html#gga6611f8c24af9575c6be02f8a963b57c9a70148864943ddf2510d5f2ea86ab7be2">AK_WWISE_PLUGIN_INTERFACE_TYPE_NATIVE_ISERVICEPROVIDER</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="group__global_ga6611f8c24af9575c6be02f8a963b57c9_split_001.html#gga6611f8c24af9575c6be02f8a963b57c9a169314fdd3f8ad945b201194845bfd35">AK_WWISE_PLUGIN_INTERFACE_TYPE_NATIVE_IWAUDIODEVICEPLUGIN</a>, 
+<a class="pcalibre el" href="group__global_ga6611f8c24af9575c6be02f8a963b57c9_split_001.html#gga6611f8c24af9575c6be02f8a963b57c9a59d059908689a126d9d81da1e993100f">AK_WWISE_PLUGIN_INTERFACE_TYPE_NATIVE_IWCONVERSIONPLUGIN</a>, 
+<a class="pcalibre el" href="group__global_ga6611f8c24af9575c6be02f8a963b57c9_split_001.html#gga6611f8c24af9575c6be02f8a963b57c9a99c558667099b96a17fa73d90dc87b5d">AK_WWISE_PLUGIN_INTERFACE_TYPE_NATIVE_IWEFFECTPLUGIN</a>, 
+<a class="pcalibre el" href="group__global_ga6611f8c24af9575c6be02f8a963b57c9_split_001.html#gga6611f8c24af9575c6be02f8a963b57c9a0c676701ca4f200f0f28d1ef2cf2f815">AK_WWISE_PLUGIN_INTERFACE_TYPE_NATIVE_IWSOURCEPLUGIN</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="group__global_ga6611f8c24af9575c6be02f8a963b57c9_split_001.html#gga6611f8c24af9575c6be02f8a963b57c9aa350fb41f83e8b444aed3f757dac68f5">AK_WWISE_PLUGIN_INTERFACE_TYPE_TESTSERVICE</a>, 
+<a class="pcalibre el" href="group__global_ga6611f8c24af9575c6be02f8a963b57c9_split_001.html#gga6611f8c24af9575c6be02f8a963b57c9aa58ee40b40c495300ba7b919da18bceb">AK_WWISE_PLUGIN_INTERFACE_TYPE_FRONTEND</a>, 
+<a class="pcalibre el" href="group__global_ga6611f8c24af9575c6be02f8a963b57c9_split_001.html#gga6611f8c24af9575c6be02f8a963b57c9a59544c57eb30361f5a4df4f25fe8ca2a">AK_WWISE_PLUGIN_INTERFACE_TYPE_HOST_FRONTEND_MODEL</a>, 
+<a class="pcalibre el" href="group__global_ga6611f8c24af9575c6be02f8a963b57c9_split_001.html#gga6611f8c24af9575c6be02f8a963b57c9aea11355fbccff969a4def18261402dc5">AK_WWISE_PLUGIN_INTERFACE_TYPE_NOTIFICATIONS_REFERENCE_SET</a>, 
+<br class="calibre10"/>
+  <a class="pcalibre el" href="group__global_ga6611f8c24af9575c6be02f8a963b57c9_split_001.html#gga6611f8c24af9575c6be02f8a963b57c9aaebf595516f8a6f606ec4f08c12d8175">AK_WWISE_PLUGIN_INTERFACE_TYPE_HOST_REFERENCE_SET</a>, 
+<a class="pcalibre el" href="group__global_ga6611f8c24af9575c6be02f8a963b57c9_split_001.html#gga6611f8c24af9575c6be02f8a963b57c9ad55211fa812319b74aa814d44f58a146">AK_WWISE_PLUGIN_INTERFACE_TYPE_NUM</a>
+<br class="calibre10"/>
+ }</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">List of every single interface known to the plug-in system.  <a href="group__global_ga6611f8c24af9575c6be02f8a963b57c9_split_000.html#ga6611f8c24af9575c6be02f8a963b57c9" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+</tbody></table>
+<a id="details" class="pcalibre calibre12"></a></div></body></html>

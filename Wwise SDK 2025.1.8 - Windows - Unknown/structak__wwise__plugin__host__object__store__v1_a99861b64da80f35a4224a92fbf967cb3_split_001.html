@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak_wwise_plugin_host_object_store_v1::CreatePropertySet</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="structak__wwise__plugin__host__object__store__v1_a99861b64da80f35a4224a92fbf967cb3_split_000.html#a99861b64da80f35a4224a92fbf967cb3" class="pcalibre1 anchor">◆ </a></span>CreatePropertySet</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">struct <a class="pcalibre el" href="structak__wwise__plugin__host__property__set__instance__v1_split_000.html">ak_wwise_plugin_host_property_set_instance_v1</a>*(* ak_wwise_plugin_host_object_store_v1::CreatePropertySet) (struct <a class="pcalibre el" href="structak__wwise__plugin__host__object__store__instance__v1_split_000.html">ak_wwise_plugin_host_object_store_instance_v1</a> *in_this, const char *in_pszType)</td>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+
+<p class="calibre7">Creates a new inner property set. </p>
+<p class="calibre7">An inner property set must be defined as a particular <code class="calibre14">InnerType</code> in the plug-in's XML definition file.</p>
+<p class="calibre7">When this object is created, it is not bound to any list. As such, this is the only moment where it is under the plug-in's responsibility. You should either call <a class="pcalibre el" href="structak__wwise__plugin__host__object__store__v1_aea505a993b576b48c81a9b1c0818dc9e_split_000.html#aea505a993b576b48c81a9b1c0818dc9e">InsertPropertySet</a> or <a class="pcalibre el" href="structak__wwise__plugin__host__object__store__v1_af005199ea8b58c036505d4137a1dee6a_split_000.html#af005199ea8b58c036505d4137a1dee6a">DeletePropertySet</a> on it to make sure the plug-in doesn't cause a memory leak.</p>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="plugin_xml_split_012.html#wwiseplugin_objectstore">Inner Objects</a></li>
+<li class="calibre9"><a class="pcalibre el" href="plugin_xml_properties_split_001.html#wwiseplugin_xml_properties_tag">Properties Element</a></li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_this</td><td class="calibre17">Current instance of this interface. </td></tr>
+    <tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_pszType</td><td class="calibre17">The requested InnerType, as defined in the plug-in's XML definition file. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">A new inner property set instance. </dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_host_object_store_8h_source.html#l00195">195</a> of file <a class="pcalibre el" href="_host_object_store_8h_source.html">HostObjectStore.h</a>.</p>
+
+<p class="calibre7">Referenced by <a class="pcalibre el" href="_host_object_store_8h_source.html#l00536">AK.Wwise::Plugin::V1::ObjectStore&lt; PropertySetT &gt;::CreatePropertySet()</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

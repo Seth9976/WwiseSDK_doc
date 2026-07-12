@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integrating Wwise Motion</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_6"><a class="pcalibre1 anchor" id="motion_application_setup"></a>
+Game Setup</h2>
+<p class="calibre7">On the game side, link with the separate library called <code class="calibre14">AkMotionSink</code>. This library provides support for the standard controllers of supported platforms. You also need to include the <a class="pcalibre el" href="_ak_motion_sink_factory_8h_split_000.html">AkMotionSinkFactory.h</a> file, located under <code class="calibre14">SDK\include\AK\plugin</code>. It is important to include this file because it automatically registers the plug-in.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> In Unity and Unreal, plug-in libraries are managed automatically. You don't have to add <code class="calibre14">AkMotionSink</code> manually. </td></tr>
+</tbody></table>
+<p class="calibre7">Here are the supported controllers and additional requirements by platform:</p>
+<div open="1" platform="Windows" class="calibre2"></div> <ul class="calibre8">
+<li class="calibre9">
+<b class="calibre13">Windows</b> <ul class="calibre15">
+<li class="calibre9">
+<b class="calibre13">Device</b>: XInput-compatible controllers </li>
+<li class="calibre9">
+<b class="calibre13">Device channel config and layout</b>: Anonymous 2-channel (left motor, right motor) </li>
+<li class="calibre9">
+<b class="calibre13">Additional requirements</b>: <ul class="calibre30">
+<li class="calibre9">
+<code class="calibre14">Xinput.lib</code> </li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="calibre9">
+<b class="calibre13">Windows</b> <ul class="calibre15">
+<li class="calibre9">
+<b class="calibre13">Device</b>: GameInput-compatible controllers </li>
+<li class="calibre9">
+<b class="calibre13">Device channel config and layout</b>: Anonymous 4-channel and Stereo 2-channel </li>
+<li class="calibre9">
+<b class="calibre13">Additional requirements</b>: See <a class="pcalibre el" href="integrating_elements_motion_split_008.html#wwise_motion_gameinput_windows">Support for GameInput on Windows</a> for more information. </li>
+</ul>
+</li>
+<li class="calibre9">
+<b class="calibre13">Windows</b> <ul class="calibre15">
+<li class="calibre9">
+<b class="calibre13">Device</b>: DualShock 4 and DualSense Controllers </li>
+<li class="calibre9">
+<b class="calibre13">Device channel config and layout</b>: Anonymous 4-channel and Stereo 2-channel </li>
+<li class="calibre9">
+<b class="calibre13">Additional requirements</b>: See "Support for DualShock 4 and DualSense on Windows using libScePad" on this page for more information (if viewing this documentation on the Audiokinetic website, you must be logged in and have a Playstation 5 license). </li>
+</ul>
+</li>
+<li class="calibre9">
+<b class="calibre13">Windows (OpenXR – PC VR with Meta Horizon Link)</b> <ul class="calibre15">
+<li class="calibre9">
+<b class="calibre13">Device</b>: Meta Quest Touch controllers connected through Meta Horizon Link </li>
+<li class="calibre9">
+<b class="calibre13">Device channel config and layout</b>: Stereo 2-channel (left controller, right controller) </li>
+<li class="calibre9">
+<b class="calibre13">Additional requirements</b>: See <a class="pcalibre el" href="integrating_elements_motion_split_016.html#wwise_motion_openxr">Support for Meta Quest through OpenXR</a> for more information. </li>
+</ul>
+</li>
+</ul>
+<div open="0" platform="Windows" class="calibre2"></div><p class="calibre7">If your application uses motion with one or more devices, you must add a dedicated output for each device. For example, a split-screen game with four players connected needs four different outputs for the controllers to receive haptic feedback. To add an output device, use the Wwise API's <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a15ab79f954a307902f529d8ccde8ad48_split_000.html#a15ab79f954a307902f529d8ccde8ad48">AK::SoundEngine::AddOutput</a></code> function and specify the ShareSet name (as defined in your Wwise project) in the <code class="calibre14"><a class="pcalibre el" href="struct_ak_output_settings_split_000.html" title="Platform-independent initialization settings of output devices.">AkOutputSettings</a></code> parameter. Additionally, because multiple devices can be connected, you need to provide a device ID. The following list contains more information about device IDs.</p>
+<div open="1" platform="Windows" class="calibre2"></div> <ul class="calibre8">
+<li class="calibre9">
+<b class="calibre13">Windows</b> <ul class="calibre15">
+<li class="calibre9">
+<b class="calibre13">Device</b>: XInput-compatible controllers </li>
+<li class="calibre9">
+<b class="calibre13">Information</b>: Use a player index between 0 to 3. </li>
+</ul>
+</li>
+<li class="calibre9">
+<b class="calibre13">Windows</b> <ul class="calibre15">
+<li class="calibre9">
+<b class="calibre13">Device</b>: GameInput-compatible controllers </li>
+<li class="calibre9">
+<b class="calibre13">Information</b>: Retrieve the <code class="calibre14">GameInputDeviceInfo</code> for a gamepad, and call <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_ab5ba05e30e949f4b26b949af3fe54f48_split_000.html#ab5ba05e30e949f4b26b949af3fe54f48">AK::GetAppLocalDeviceIdHash</a></code> with the address of the <code class="calibre14">GameInputDeviceInfo::deviceId</code> as the parameter.<br class="calibre10"/>
+The Motion output is only initialized for devices with either a non-zero value for <code class="calibre14">GameInputDeviceInfo::supportedRumbleMotors</code> or a non-zero value for <code class="calibre14">GameInputHapticInfo::locationCount</code>.<br class="calibre10"/>
+Devices that only use force feedback, such as some racing wheels and flight sticks, are not supported. </li>
+</ul>
+</li>
+<li class="calibre9">
+<b class="calibre13">Windows (OpenXR – PC VR with Meta Horizon Link)</b> <ul class="calibre15">
+<li class="calibre9">
+<b class="calibre13">Device</b>: Meta Quest Touch controllers connected through Meta Horizon Link </li>
+<li class="calibre9">
+<b class="calibre13">Information</b>: Use 0. After OpenXR functions are initialized through <a class="pcalibre el" href="integrating_elements_motion_split_016.html#wwise_motion_openxr">Support for Meta Quest through OpenXR</a>, a device ID of 0 routes to the OpenXR haptic sink instead of the default XInput device. </li>
+</ul>
+</li>
+</ul>
+<div open="0" platform="Windows" class="calibre2"></div><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> On all platforms except Windows, a device ID of <code class="calibre14">0</code> targets the first available device that supports motion. On Windows, a device ID of <code class="calibre14">0</code> is initialized as an XInput device. </td></tr>
+</tbody></table>
+<p class="calibre7">Remember that game controllers can be disconnected either physically or due to communication problems. Disconnection does not have any adverse effects on the sound engine other than needlessly using resources. If you think a device has been disconnected for a long time, call <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a0932ed2a3669258ecc3bbe6448314020_split_000.html#a0932ed2a3669258ecc3bbe6448314020">AK::SoundEngine::RemoveOutput</a></code> and provide the <code class="calibre14">AkOutputDeviceID</code> returned by the corresponding <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a15ab79f954a307902f529d8ccde8ad48_split_000.html#a15ab79f954a307902f529d8ccde8ad48">AddOutput()</a></code> function call.</p>
+</div></div></div></body></html>

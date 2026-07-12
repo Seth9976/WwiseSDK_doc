@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2022.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_5"><a class="pcalibre1 anchor" id="generic_bugs_2022_1"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-47645</b> Fixed: Up and down arrow keys don't change row selection properly if the user didn't select the current row by choosing the first cell. Up and down arrow keys can now move focus up and down between fields in a list when in edit mode. The Enter key can now be used to both enter and exit editing mode.</li>
+<li class="calibre9"><b class="calibre13">WG-48738</b> Fixed: Time Stretch plug-in reduces amplitude of initial transient.</li>
+<li class="calibre9"><b class="calibre13">WG-49144</b> Fixed: Crash when Source Control plug-in submits an invalid argument to user preferences.</li>
+<li class="calibre9"><b class="calibre13">WG-52204</b> Fixed: Title of Audio File Conversion dialog box is cropped.</li>
+<li class="calibre9"><b class="calibre13">WG-52631</b> Fixed: Log message is shown when changing modes in Profiler Statistics view.</li>
+<li class="calibre9"><b class="calibre13">WG-52675</b> Fixed: Wwise menu bar is available during a project load, which could lead to a crash.</li>
+<li class="calibre9"><b class="calibre13">WG-54476</b> Fixed: Keyboard shortcut conflicts are not always reported correctly.</li>
+<li class="calibre9"><b class="calibre13">WG-54546</b> Fixed: Possible crash when deleting or unlinking a Blend Container's children.</li>
+<li class="calibre9"><b class="calibre13">WG-54817</b> Fixed: Precision errors can occur in automated positioning when the sound engine has been running for several hours or more.</li>
+<li class="calibre9"><b class="calibre13">WG-55005</b> Fixed: Out-of-range State values are not reported nor fixed on project load.</li>
+<li class="calibre9"><b class="calibre13">WG-55028</b> Fixed: Possible crash when a game is loading a SoundBank while connecting to Wwise.</li>
+<li class="calibre9"><b class="calibre13">WG-55439</b> Fixed: Issue monitoring game objects with more than 255 positions.</li>
+<li class="calibre9"><b class="calibre13">WG-55466</b> Fixed: (WAAPI) Header generation scripts are not compatible with Python 3.</li>
+<li class="calibre9"><b class="calibre13">WG-55505</b> Fixed: (Spatial Audio) Portal obstruction isn't consistently displayed when <b class="calibre13">Show Portal Info Text</b> is enabled in the Game Object 3D Viewer Settings.</li>
+<li class="calibre9"><b class="calibre13">WG-55559</b> Fixed: Plug-in's <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_custom_data_a98ef6df5fb929064e5bb3ffef29a1e10_split_000.html#a98ef6df5fb929064e5bb3ffef29a1e10" title="Load the custom data structure from the provided Work Unit's XML.">AK::Wwise::Plugin::CustomData::InitFromWorkunit()</a></code> function not called when Work Unit's PluginData section is empty.</li>
+<li class="calibre9"><b class="calibre13">WG-55950</b> Fixed: Crash when playing an audio file after it's been moved to another folder.</li>
+<li class="calibre9"><b class="calibre13">WG-55978</b> Fixed: Wwise Authoring often experiences starvation when playing back audio to multiple devices with different sample rates.</li>
+<li class="calibre9"><b class="calibre13">WG-55984</b> Fixed: Crash when calling WAAPI function <a class="pcalibre el" href="ak_wwise_core_object_get_split_000.html">ak.wwise.core.object.get</a> with a WAQL query that consists of only a GUID with no double-quotes and no dollar sign.</li>
+<li class="calibre9"><b class="calibre13">WG-56470</b> Fixed: Stochastic ray casting gives slightly different results when executing Spatial Audio jobs concurrently across multiple threads.</li>
+<li class="calibre9"><b class="calibre13">WG-56551</b> Fixed: Missing indication for disabled profiling data types in Performance Monitor.</li>
+<li class="calibre9"><b class="calibre13">WG-56692</b> Fixed: Output Peak is not displayed if profiling is started by calling <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a55e99fc6cc6be2f93c4599e6e1bd1c0d_split_000.html#a55e99fc6cc6be2f93c4599e6e1bd1c0d">StartProfilerCapture()</a></code>.</li>
+<li class="calibre9"><b class="calibre13">WG-56826</b> Fixed: Cone Preview is unresponsive if Cone Use is already enabled when you open the Attenuation Editor.</li>
+<li class="calibre9"><b class="calibre13">WG-56835</b> Fixed: Voice Monitor graph view is cropped when window width is reduced.</li>
+<li class="calibre9"><b class="calibre13">WG-57036</b> Fixed: In Music Segment Editor, numbers in Voice Volume text boxes are cropped with High DPI monitor settings and larger font sizes.</li>
+<li class="calibre9"><b class="calibre13">WG-57048</b> Fixed: Crash when renaming a Work Unit to a name that has close to 260 characters.</li>
+<li class="calibre9"><b class="calibre13">WG-57198</b> Fixed: When hovering over a text box with a slider in the List View, the text alignment changes.</li>
+<li class="calibre9"><b class="calibre13">WG-57371</b> Fixed: Infinite loop in audio resampling when the sound engine is initialized at certain sample rates.</li>
+<li class="calibre9"><b class="calibre13">WG-57379</b> Fixed: Possible crash while generating SoundBanks that contain an Impacter plug-in instance.</li>
+<li class="calibre9"><b class="calibre13">WG-57389</b> Fixed: Game Sync Monitor shows duplicate values from the same line in the tooltip.</li>
+<li class="calibre9"><b class="calibre13">WG-57720</b> Fixed: (Mac Authoring) Floating views are cropped.</li>
+<li class="calibre9"><b class="calibre13">WG-58047</b> Fixed: Crash when generating SoundBanks following a change in the project's languages.</li>
+<li class="calibre9"><b class="calibre13">WG-58463</b> Fixed: Pressing Alt key alone removes keyboard focus from the user interface.</li>
+<li class="calibre9"><b class="calibre13">WG-58959</b> Fixed: No error message generated in response to invalid Perforce configuration.</li>
+<li class="calibre9"><b class="calibre13">WG-59166</b> Fixed: Numerous stalls in Wwise Authoring when opening projects or changing audio settings.</li>
+<li class="calibre9"><b class="calibre13">WG-59356</b> Fixed: Possible case where successive SoundBank generations result in different SoundBank contents. The SoundBanks contain the same items, but in a different order.</li>
+<li class="calibre9"><b class="calibre13">WG-59389</b> Fixed: Wwise reports properties with values for unknown platforms. Saving the project does not remove said values.</li>
+<li class="calibre9"><b class="calibre13">WG-59471</b> Fixed: Voice Inspector monitoring data is corrupted when using built-in RTPCs with multi-positioned Game Objects.</li>
+<li class="calibre9"><b class="calibre13">WG-59496</b> Fixed: Wwise user interface is sometimes slow to respond following a copy-paste operation.</li>
+<li class="calibre9"><b class="calibre13">WG-60024</b> Fixed: Loading a project with any AK Convolution ShareSets causes the project to become dirty.</li>
+<li class="calibre9"><b class="calibre13">WG-60212</b> Fixed: Crash after attempting to load an incompatible profiler session after a first successful session load.</li>
+<li class="calibre9"><b class="calibre13">WG-60406</b> Fixed: Project becomes dirty when the Crankcase Audio REV 2 plug-in source editor is displayed.</li>
+<li class="calibre9"><b class="calibre13">WG-60692</b> Fixed: (Spatial Audio) When a new sound plays, Room Game Objects do not update their sound paths until the listener moves.</li>
+<li class="calibre9"><b class="calibre13">WG-61079</b> Fixed: AK Convolution Reverb plug-in does not update the available controls or statistics when the active platform is changed.</li>
+<li class="calibre9"><b class="calibre13">WG-61209</b> Fixed: (Spatial Audio) Portal occlusion on room tones is applied twice in the signal path.</li>
+<li class="calibre9"><b class="calibre13">WG-61328</b> Fixed: (Spatial Audio) SetGameObjectRadius does not update paths until the listener moves.</li>
+<li class="calibre9"><b class="calibre13">WG-61397</b> Fixed: (Spatial Audio) A diffraction path might be cut off before the end of a sound's attenuation radius if it passes through a portal that has a large width.</li>
+<li class="calibre9"><b class="calibre13">WG-61595</b> Fixed: Connecting Wwise to a game overwrites the game's Effect bypass values set by Event Actions.</li>
+<li class="calibre9"><b class="calibre13">WG-61684</b> Fixed: (wp.py) Crash when discovering installation directory for Visual Studio 2015.</li>
+<li class="calibre9"><b class="calibre13">WG-61691</b> Fixed: Possible crash when connecting the profiler to a remote platform.</li>
+<li class="calibre9"><b class="calibre13">WG-61781</b> Fixed: Possible case where WAV markers are ignored when playing original file in Wwise.</li>
+<li class="calibre9"><b class="calibre13">WG-62116</b> Fixed: System Audio Objects sometimes disappear from Audio Device meter.</li>
+<li class="calibre9"><b class="calibre13">WG-62353</b> Fixed: Project Explorer expanded and collapsed nodes are not always restored correctly.</li>
+<li class="calibre9"><b class="calibre13">WG-62433</b> Fixed: Low-pass filter label overlaps the control.</li>
+</ul>
+</div></div></div></body></html>

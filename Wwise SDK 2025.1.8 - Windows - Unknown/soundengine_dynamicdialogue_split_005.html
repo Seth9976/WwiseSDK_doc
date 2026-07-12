@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integration Details - Dynamic Dialogue</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_4"><a class="pcalibre1 anchor" id="soundengine_dynamicdialogue_dynamicsequence_callback"></a>
+Callback-based sequences</h2>
+<p class="calibre7">Callback-based sequences determine the next item to play from an event callback. A sequence opened with the <code class="calibre14">AK_DynamicSequenceSelect</code> callback flag is a callback-based dynamic sequence. Callback-based sequences have no associated Playlist object.</p>
+<p class="calibre7">When a new item must be selected, the user event callback is invoked with type AK_DynamicSequenceSelect. The callback info pointer can be cast to <code class="calibre14"><a class="pcalibre el" href="struct_ak_dynamic_sequence_select_callback_info_split_000.html">AkDynamicSequenceSelectCallbackInfo</a></code> and then filled out with the playback information for the next item to play. The callback blocks the sound engine thread. It is therefore necessary to return from the callback as soon as possible.</p>
+<p class="calibre7">If the user callback fails to provide a valid audio node ID, the sequence is stopped. Use <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_1_1_dynamic_sequence_ae2ac4c400d0145c6c25e050d752064bd_split_000.html#ae2ac4c400d0145c6c25e050d752064bd">AK::SoundEngine::DynamicSequence::Play</a></code> to start it when you are ready to provide a new playback item. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

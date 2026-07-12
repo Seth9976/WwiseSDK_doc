@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2022.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="waapi_changes_2022_1"></a>
+WAAPI Changes That Affect Backward Compatibility</h1>
+<p class="calibre7">The Capture Log now reports Music Playlist callbacks in addition to transitions between music objects. These two items are now grouped under the <b class="calibre13">Interactive Music</b> name in the Profiler Settings. To reflect this change:</p>
+<ul class="calibre8">
+<li class="calibre9"><a class="pcalibre el" href="ak_wwise_core_profiler_enableprofilerdata_split_000.html">ak.wwise.core.profiler.enableProfilerData</a> : "musicTransitions" has been renamed "interactiveMusic".</li>
+<li class="calibre9"><a class="pcalibre el" href="ak_wwise_core_profiler_capturelog_itemadded_split_000.html">ak.wwise.core.profiler.captureLog.itemAdded</a> : "MusicTransitions" has been renamed "InteractiveMusic".</li>
+<li class="calibre9"><a class="pcalibre el" href="ak_wwise_core_profiler_enableprofilerdata_split_000.html">ak.wwise.core.profiler.enableProfilerData</a> : "inactiveGameSyncs" has been renamed "gameSyncs".</li>
+<li class="calibre9">Fixed typo in property "IsZeroLantency" of Wwise Object MusicTrack and Sound: "IsZeroLantency" has been renamed "IsZeroLatency".</li>
+<li class="calibre9">Function <a class="pcalibre el" href="ak_wwise_ui_capturescreen_split_000.html">ak.wwise.ui.captureScreen</a> argument "viewSyncGroup" has been renamed "viewSelectionChannel".</li>
+<li class="calibre9">accessor originalWavFilePath on Wwise Object Sound has been renamed "originalFilePath".</li>
+<li class="calibre9">accessor convertedWemFilePath on Wwise Object Sound has been renamed "convertedFilePath".</li>
+<li class="calibre9"><a class="pcalibre el" href="ak_wwise_core_remote_getavailableconsoles_split_000.html">ak.wwise.core.remote.getAvailableConsoles</a> : "notificationPort" has been removed.</li>
+<li class="calibre9">Relating to <a class="pcalibre el" href="ak_wwise_ui_commands_execute_split_000.html">ak.wwise.ui.commands.execute</a> , the following commands have been renamed or removed:<ul class="calibre15">
+<li class="calibre9">"ShowUserProjectSettings" has been renamed "ShowDefaultObjectValues".</li>
+<li class="calibre9">"ShowPropertyHelp" has been renamed "ShowContextualHelp".</li>
+<li class="calibre9">"FindInProjectExplorerSyncGroup1" has been renamed "FindInProjectExplorerSelectionChannel1".</li>
+<li class="calibre9">"FindInProjectExplorerSyncGroup2" has been renamed "FindInProjectExplorerSelectionChannel2".</li>
+<li class="calibre9">"FindInProjectExplorerSyncGroup3" has been renamed "FindInProjectExplorerSelectionChannel3".</li>
+<li class="calibre9">"FindInProjectExplorerSyncGroup4" has been renamed "FindInProjectExplorerSelectionChannel4".</li>
+<li class="calibre9">"FindInProjectExplorerNoSyncGroup" has been renamed "FindInProjectExplorerNewPinnedView".</li>
+<li class="calibre9">"ProfilerFilterSetKeyboardFocusToCurrent" has been removed.</li>
+</ul>
+</li>
+</ul>
+</div></div></div></body></html>

@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Parameter Smoothing [Experimental]</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="spatial_audio_parameter_smoothing_cpu"></a>
+Reducing CPU Usage with Parameter Smoothing</h1>
+<p class="calibre7">You can use parameter smoothing to save CPU usage by selecting conservative values for various other initialization settings. You can reduce the number of rays cast (<a class="pcalibre el" href="struct_ak_spatial_audio_init_settings_ae11fb70d949998617a050b5b312ed767_split_000.html#ae11fb70d949998617a050b5b312ed767" title="The number of primary rays used in the ray tracing engine. A larger number of rays will increase the ...">AkSpatialAudioInitSettings::uNumberOfPrimaryRays</a>) and also limit the number of diffraction paths (<a class="pcalibre el" href="struct_ak_spatial_audio_init_settings_a94f819cee9905b9745f9d628aedf7cf2_split_000.html#a94f819cee9905b9745f9d628aedf7cf2">AkSpatialAudioInitSettings::uMaxDiffractionPaths</a>) with only a minimal reduction in audio quality. When using parameter smoothing, we recommend that you experiment with various parameter adjustments to further optimize CPU usage: increase the movement threshold (<a class="pcalibre el" href="struct_ak_spatial_audio_init_settings_a15f96c2d6a69f821c8ae6d677e6d29f4_split_000.html#a15f96c2d6a69f821c8ae6d677e6d29f4" title="Amount that an emitter or listener has to move to trigger a validation of reflections/diffraction....">AkSpatialAudioInitSettings::fMovementThreshold</a>), the load balancing spread (<a class="pcalibre el" href="struct_ak_spatial_audio_init_settings_adb7560b0a616975d9f95fb932380002e_split_000.html#adb7560b0a616975d9f95fb932380002e" title="Spread the computation of paths on uLoadBalancingSpread frames [1..[. When uLoadBalancingSpread is se...">AkSpatialAudioInitSettings::uLoadBalancingSpread</a>), and the maximum diffraction order (<a class="pcalibre el" href="struct_ak_spatial_audio_init_settings_a0e01d0d34659de40a8d84d93e05dfeab_split_000.html#a0e01d0d34659de40a8d84d93e05dfeab">AkSpatialAudioInitSettings::uMaxDiffractionOrder</a>).</p>
+</div></div></div></body></html>

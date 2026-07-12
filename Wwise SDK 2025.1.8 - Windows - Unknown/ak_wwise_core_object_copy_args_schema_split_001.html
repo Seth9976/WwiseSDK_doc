@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak.wwise.core.object.copy Arguments Schema</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2"><h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="section_ak_wwise_core_object_copy_argsSchema"></a>
+Schema</h1>
+<div class="fragment"><div class="line">{</div>
+<div class="line">    "type": "object",</div>
+<div class="line">    "properties": {</div>
+<div class="line">        "object": {</div>
+<div class="line">            "anyOf": [</div>
+<div class="line">                {</div>
+<div class="line">                    "type": "string",</div>
+<div class="line">                    "pattern": "^(StateGroup|SwitchGroup|SoundBank|GameParameter|Event|Effect|AudioDevice|Trigger|Attenuation|DialogueEvent|Bus|AuxBus|Conversion|ModulatorLfo|ModulatorEnvelope|ModulatorTime|Platform|Language|AcousticTexture|Global):[a-zA-Z0-9_]+$",</div>
+<div class="line">                    "description": "The name of the object qualified by its type or Short ID in the form of type:name or Global:shortId. Only object types that have globally-unique names or Short Ids are supported. Ex: Event:Play_Sound_01, Global:245489792"</div>
+<div class="line">                },</div>
+<div class="line">                {</div>
+<div class="line">                    "type": "string",</div>
+<div class="line">                    "pattern": "^\\{[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}\\}$",</div>
+<div class="line">                    "description": "An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}."</div>
+<div class="line">                },</div>
+<div class="line">                {</div>
+<div class="line">                    "type": "string",</div>
+<div class="line">                    "pattern": "^\\\\",</div>
+<div class="line">                    "description": "A project path to a Wwise object, including the category and the work-unit. For example: \\\\Containers\\\\Default Work Unit\\\\New Sound SFX."</div>
+<div class="line">                }</div>
+<div class="line">            ],</div>
+<div class="line">            "description": "The ID (GUID), name, or path of the object to be copied."</div>
+<div class="line">        },</div>
+<div class="line">        "parent": {</div>
+<div class="line">            "anyOf": [</div>
+<div class="line">                {</div>
+<div class="line">                    "type": "string",</div>
+<div class="line">                    "pattern": "^(StateGroup|SwitchGroup|SoundBank|GameParameter|Event|Effect|AudioDevice|Trigger|Attenuation|DialogueEvent|Bus|AuxBus|Conversion|ModulatorLfo|ModulatorEnvelope|ModulatorTime|Platform|Language|AcousticTexture|Global):[a-zA-Z0-9_]+$",</div>
+<div class="line">                    "description": "The name of the object qualified by its type or Short ID in the form of type:name or Global:shortId. Only object types that have globally-unique names or Short Ids are supported. Ex: Event:Play_Sound_01, Global:245489792"</div>
+<div class="line">                },</div>
+<div class="line">                {</div>
+<div class="line">                    "type": "string",</div>
+<div class="line">                    "pattern": "^\\{[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}\\}$",</div>
+<div class="line">                    "description": "An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}."</div>
+<div class="line">                },</div>
+<div class="line">                {</div>
+<div class="line">                    "type": "string",</div>
+<div class="line">                    "pattern": "^\\\\",</div>
+<div class="line">                    "description": "A project path to a Wwise object, including the category and the work-unit. For example: \\\\Containers\\\\Default Work Unit\\\\New Sound SFX."</div>
+<div class="line">                }</div>
+<div class="line">            ],</div>
+<div class="line">            "description": "The ID (GUID), name, or path of the object's new parent."</div>
+<div class="line">        },</div>
+<div class="line">        "onNameConflict": {</div>
+<div class="line">            "type": "string",</div>
+<div class="line">            "description": "The action to take if \"parent\" already has a child with the same name. Default value is \"fail\".",</div>
+<div class="line">            "enum": [</div>
+<div class="line">                "rename",</div>
+<div class="line">                "replace",</div>
+<div class="line">                "fail"</div>
+<div class="line">            ]</div>
+<div class="line">        },</div>
+<div class="line">        "autoCheckOutToSourceControl": {</div>
+<div class="line">            "type": "boolean",</div>
+<div class="line">            "description": "Determines if Wwise automatically performs a Checkout source control operation for affected work units and for the project. Defaults to true."</div>
+<div class="line">        },</div>
+<div class="line">        "autoAddToSourceControl": {</div>
+<div class="line">            "type": "boolean",</div>
+<div class="line">            "description": "Determines if Wwise automatically performs an Add source control operation for affected work units. Defaults to true."</div>
+<div class="line">        }</div>
+<div class="line">    },</div>
+<div class="line">    "required": [</div>
+<div class="line">        "object",</div>
+<div class="line">        "parent"</div>
+<div class="line">    ],</div>
+<div class="line">    "additionalProperties": false</div>
+<div class="line">}</div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

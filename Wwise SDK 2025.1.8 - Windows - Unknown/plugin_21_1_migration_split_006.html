@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Migrating a pre-2021.1 Authoring Plug-in</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_5"><a class="pcalibre1 anchor" id="plugin_21_1_migration_porting_propertyset"></a>
+Using the Property Set</h2>
+<p class="calibre7">You may have noticed that the function <code class="calibre14">AK::Wwise::IAudioPlugin::SetPluginPropertySet()</code> has been removed in the previous section's code example. Indeed, this function is not needed anymore thanks to the <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_a989b8417cedde33d928b90171491fcc5_split_000.html#a989b8417cedde33d928b90171491fcc5" title="Latest version of the C++ AudioPlugin interface.">AK::Wwise::Plugin::AudioPlugin</a></code> interface that <em class="calibre11">requests</em> the property set component for you. By subclassing <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_a5eb9b772d01c414e7c77b44ef66e661f_split_000.html#a5eb9b772d01c414e7c77b44ef66e661f" title="Latest version of the requested C++ PropertySet interface.">AK::Wwise::Plugin::RequestPropertySet</a></code>, the <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_a989b8417cedde33d928b90171491fcc5_split_000.html#a989b8417cedde33d928b90171491fcc5" title="Latest version of the C++ AudioPlugin interface.">AK::Wwise::Plugin::AudioPlugin</a></code> interface adds a <code class="calibre14">PropertySet</code> component requirement to the plug-in description, which will be fulfilled by the Authoring application when the plug-in is instantiated. It also adds a member variable <code class="calibre14">m_propertySet</code> that will automatically be set to the <code class="calibre14">PropertySet</code> component instance at instantiation. This removes the need to manually create this member variable and implement its corresponding setter.</p>
+<p class="calibre7">Implementing a simple Authoring plug-in with only <code class="calibre14">GetBankParameters</code> is therefore simplified:</p>
+<p class="calibre7"><b class="calibre13">Original API</b> </p><div class="fragment"><div class="line"><span class="comment">// MyAudioPlugin.cpp</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> MyAudioPlugin::SetPluginPropertySet(IPluginPropertySet* in_pPSet)</div>
+<div class="line">{</div>
+<div class="line">  m_pPSet = in_pPSet;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> MyAudioPlugin::GetBankParameters(<span class="keyword">const</span> GUID &amp; in_guidPlatform, AK::Wwise::IWriteData* in_pDataWriter)<span class="keyword"> const</span></div>
+<div class="line"><span class="keyword"></span>{</div>
+<div class="line">  CComVariant varProp; m_pPSet-&gt;GetValue(in_guidPlatform, L<span class="stringliteral">"Placeholder"</span>, varProp);</div>
+<div class="line">  in_pDataWriter-&gt;WriteReal32(varProp.fltVal);</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p class="calibre7"><b class="calibre13">New API</b> </p><div class="fragment"><div class="line"><span class="comment">// MyAudioPlugin.cpp</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> MyAudioPlugin::GetBankParameters(<span class="keyword">const</span> GUID&amp; in_guidPlatform, <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_data_writer_split_000.html">AK::Wwise::Plugin::DataWriter</a>&amp; in_dataWriter)<span class="keyword"> const</span></div>
+<div class="line"><span class="keyword"></span>{</div>
+<div class="line">  in_dataWriter.<a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_data_writer_a8d9b58e2ecba7f95721d4b89b7f9630f_split_000.html#a8d9b58e2ecba7f95721d4b89b7f9630f">WriteReal32</a>(m_propertySet.GetReal32(in_guidPlatform, <span class="stringliteral">"Placeholder"</span>));</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p class="calibre7">Some key differences:</p>
+<ul class="calibre8">
+<li class="calibre9">The <code class="calibre14">DataWriter</code> argument is now a reference, as it is not optional (cannot be NULL)</li>
+<li class="calibre9">The property set is accessed through the inherited member variable <code class="calibre14">m_propertySet</code></li>
+<li class="calibre9">The character string for the property name passed to the <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v2_1_1_property_set_a78fe18ba20af4b3b8e087276ace4f780_split_000.html#a78fe18ba20af4b3b8e087276ace4f780">AK::Wwise::Plugin::PropertySet::GetReal32()</a></code> is of type <code class="calibre14">const char*</code>, instead of <code class="calibre14">LPCWSTR</code> (const wchar_t*).</li>
+<li class="calibre9">The type of the property (here, Real32) is specified explicitly in the method signature of the <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_a052a63312bad5bdbd0adc1b07decf6de_split_000.html#a052a63312bad5bdbd0adc1b07decf6de" title="Latest version of the C++ PropertySet interface.">AK::Wwise::Plugin::PropertySet</a></code> accessors for consistency with <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_a32526a23215a4452f561220b527e12f8_split_000.html#a32526a23215a4452f561220b527e12f8" title="Latest version of the C++ DataWriter interface.">AK::Wwise::Plugin::DataWriter</a></code>.</li>
+</ul>
+<p class="calibre7">All of these changes make implementing this function simpler, safer and more portable.</p>
+</div></div></div></body></html>

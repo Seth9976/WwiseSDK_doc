@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Initializing Sound Engine Modules</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_5"><a class="pcalibre1 anchor" id="initialization_comm_console_lib"></a>
+Console specific communication library</h2>
+<p class="calibre7">Some console communication libraries don't balance the initialization/termination calls properly; therefore, calling <a class="pcalibre el" href="namespace_a_k_1_1_comm_a94e307d2974b89cc4fbc8ab0fef20d2f_split_000.html#a94e307d2974b89cc4fbc8ab0fef20d2f">AK::Comm::Term</a> will terminate the underlying low-level communication library for the console. This effectively closes all TCP/IP communication for the game. If your game needs to keep the communication libraries enabled after termination, <a class="pcalibre el" href="struct_ak_comm_settings_split_000.html">AkCommSettings</a> (used with Ak::Comm:Init) has a parameter to initialize the system library or not. If you choose to initialize the communication library yourself, check the code used by the Wwise sound engine below. The game should do something similar.</p>
+<div open="1" platform="Windows" class="calibre2"></div><p class="calibre7"> Windows sockets initialization: <br class="calibre10"/>
+ </p><div class="fragment"><div class="line">WSAData wsaData = { 0 };</div>
+<div class="line">::WSAStartup( MAKEWORD( 2, 2 ), &amp;wsaData )  </div>
+</div><!-- fragment --><p class="calibre7">Termination: </p><div class="fragment"><div class="line">::WSACleanup();</div>
+</div><!-- fragment --> <div open="0" platform="Windows" class="calibre2"></div></div></div></div></body></html>

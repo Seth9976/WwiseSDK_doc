@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Quick Start Sample Integration - RTPCs</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2"><h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="soundengine_integration_rtpc"></a>
+RTPC Example</h1>
+<p class="calibre7">RTPCs let the sound engine compute a property's value by evaluating a curve, defined by the Wwise user, for the X value that corresponds to a parameter within the game. For example, the following code sets the value of the "RPM" game parameter:</p>
+<div class="fragment"><div class="line"><span class="comment">// Set the game parameter's value using its name. We could use its</span></div>
+<div class="line"><span class="comment">// ID instead, AK::GAME_PARAMETERS::RPM (from Wwise_IDs.h)</span></div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_ab0e4ddefe5ea550b2f356edaa5a49a26_split_000.html#ab0e4ddefe5ea550b2f356edaa5a49a26">AK::SoundEngine::SetRTPCValue</a>( L<span class="stringliteral">"RPM"</span>, (<a class="pcalibre code" href="_ak_typedefs_8h_a86459d5c3b5e6055cc885b833661f140_split_000.html#a86459d5c3b5e6055cc885b833661f140">AkRtpcValue</a>)nRPM );</div>
+</div><!-- fragment --><p class="calibre7">In the sample program you can experiment with RTPCs in two ways:</p><ul class="calibre8">
+<li class="calibre9">In the Car section, select the <code class="calibre14">Play_Engine</code> event, click Post, then move the RPM slider. This changes the value of the RPM game parameter which the engine sound uses to alter its volume and pitch properties</li>
+<li class="calibre9">In the Human section, check/uncheck the "Enable Effect" checkbox, then click on Talk. When the checkbox is checked, the "Enable_Effect" game parameter is set to 100. When its unchecked the game parameter is set to 0. The Voices control bus uses this game parameter to set/clear its "Bypass Effect" property.</li>
+</ul>
+<p class="calibre7">Refer to <a class="pcalibre el" href="soundengine_rtpc_split_000.html">Integration Details - RTPCs</a> for more details.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> This sample code comes from the Sound Engine Integration Sample Project available in the <a class="pcalibre el" href="samplecode_split_000.html">Samples</a> section. Refer to <a class="pcalibre el" href="soundengine_integration_samplecode_split_000.html">Integration Demo Sample</a> for more information. </td></tr>
+</tbody></table>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_ab0e4ddefe5ea550b2f356edaa5a49a26_html_ab0e4ddefe5ea550b2f356edaa5a49a26"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_ab0e4ddefe5ea550b2f356edaa5a49a26_split_000.html#ab0e4ddefe5ea550b2f356edaa5a49a26" class="pcalibre calibre12">AK::SoundEngine::SetRTPCValue</a></div><div class="calibre2">AKSOUNDENGINE_API AKRESULT SetRTPCValue(AkRtpcID in_rtpcID, AkRtpcValue in_value, AkGameObjectID in_gameObjectID=AK_INVALID_GAME_OBJECT, AkTimeMs in_uValueChangeDuration=0, AkCurveInterpolation in_eFadeCurve=AkCurveInterpolation_Linear, bool in_bBypassInternalValueInterpolation=false)</div></div>
+<div class="ttc" id="a_ak_typedefs_8h_a86459d5c3b5e6055cc885b833661f140_html_a86459d5c3b5e6055cc885b833661f140"><div class="calibre2"><a href="_ak_typedefs_8h_a86459d5c3b5e6055cc885b833661f140_split_000.html#a86459d5c3b5e6055cc885b833661f140" class="pcalibre calibre12">AkRtpcValue</a></div><div class="calibre2">AkReal32 AkRtpcValue</div><div class="calibre2">Real time parameter control value.</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_typedefs_8h_source.html#l00053" class="pcalibre calibre12">AkTypedefs.h:53</a></div></div>
+
+
+</body></html>

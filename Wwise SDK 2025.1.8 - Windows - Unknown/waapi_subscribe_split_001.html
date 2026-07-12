@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Subscribing to Topics in the Wwise Authoring API</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2"><h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="waapi_subscribe_overview"></a>
+Overview</h1>
+<p class="calibre7">With the Wwise Authoring API, you can call remote procedures (RPC), and can also subscribe to topics and be notified when a topic is published in Wwise (Pub/Sub). You could, therefore, synchronize data between the WAAPI client and the Wwise process or, for example, be informed when the selection changes in Wwise.</p>
+<p class="calibre7">To subscribe to topics, you must use the Web Application Messaging Protocol (WAMP). The details vary by language and library. For examples, see the following documentation topics:</p>
+<ul class="calibre8">
+<li class="calibre9"><a class="pcalibre el" href="waapi_client_python_subscription_split_000.html">Python (Waapi-Client) - Subscription</a></li>
+<li class="calibre9"><a class="pcalibre el" href="wamp_cs_split_000.html">C# WaapiClient - WAMP</a></li>
+</ul>
+<p class="calibre7">When subscribing to a topic, the specified callback is executed whenever the topic is published. Some of the topics support return options you can use to control the content that is passed in the callback, which avoids unnecessary queries.</p>
+<p class="calibre7">For example, someone could subscribe to the <a class="pcalibre el" href="ak_wwise_core_object_namechanged_split_000.html">ak.wwise.core.object.nameChanged</a> topic and provide the following options:</p>
+<div class="fragment"><div class="line">{</div>
+<div class="line">    <span class="stringliteral">"return"</span>: [<span class="stringliteral">"id"</span>, <span class="stringliteral">"name"</span>, <span class="stringliteral">"path"</span>]</div>
+<div class="line">}</div>
+</div><!-- fragment --><p class="calibre7">Every time a Wwise object name changes, the notification is sent to the subscriber with the <b class="calibre13">id</b>, <b class="calibre13">name</b> and <b class="calibre13">path</b> of the object.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> Subscriptions are automatically revoked when the project is closed. However, topics that deal with project events support subscriptions across project loads. The following topics are exempted topics: <a class="pcalibre el" href="ak_wwise_core_project_loaded_split_000.html">ak.wwise.core.project.loaded</a>, <a class="pcalibre el" href="ak_wwise_core_project_preclosed_split_000.html">ak.wwise.core.project.preClosed</a>, and <a class="pcalibre el" href="ak_wwise_core_project_postclosed_split_000.html">ak.wwise.core.project.postClosed</a>. </td></tr>
+</tbody></table>
+<p class="calibre7">See <a class="pcalibre el" href="waapi_query_split_005.html#waapi_query_return">Return Options</a> for more information about the return statement, and <a class="pcalibre el" href="waapi_index.html">Wwise Authoring API Reference</a> for more information about the topics.</p>
+</div></div></div></body></html>

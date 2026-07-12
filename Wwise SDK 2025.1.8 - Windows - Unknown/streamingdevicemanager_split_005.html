@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Streaming / Stream Manager</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_4"><a class="pcalibre1 anchor" id="streamingdevicemanager_integratingwwiseio_goingfurther_routing"></a>
+Routing I/O Reads to Your Own I/O Manager</h2>
+<p class="calibre7"><b class="calibre13">CAkDefaultIOHookDeferred</b> reads files using the platform file system API. If your game engine already has an I/O manager, you might want to route the I/O read request issued from the Wwise Stream Manager to your I/O manager instead. Edit <b class="calibre13">CAkDefaultIOHookDeferred::BatchRead()</b> to call your I/O manager instead of the platform file system. If necessary, you can also edit <b class="calibre13">CAkDefaultIOHookDeferred::BatchOpen()</b>.</p>
+</div></div></div></body></html>

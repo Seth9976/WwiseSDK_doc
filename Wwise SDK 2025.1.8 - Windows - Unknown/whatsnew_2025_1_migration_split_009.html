@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2025.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_8"><a class="pcalibre1 anchor" id="bankmgr_processbanks_25_1"></a>
+Asynchronous operations with custom BankManager thread are now supported</h1>
+<p class="calibre7">When <code class="calibre14"><a class="pcalibre el" href="struct_ak_init_settings_a3f9f40766762c100b829467ffaa31b24_split_000.html#a3f9f40766762c100b829467ffaa31b24" title="Use a Wwise-owned thread for loading sound banks. If set to false, bank-loading will occur only insid...">AkInitSettings::bUseSoundBankMgrThread</a></code> is set to <code class="calibre14">false</code>, asynchronous variants of bank API calls are no longer executed immediately. Instead, the operations are added to a queue and the game must call <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a1bb80e2fe3b8051fb9ece6dc9bb1fbb6_split_000.html#a1bb80e2fe3b8051fb9ece6dc9bb1fbb6">AK::SoundEngine::ProcessBanks</a></code> to process the operations in the queue. Refer to <a class="pcalibre el" href="goingfurther_eventmgrthread_split_000.html">Optimizing CPU usage</a> for more information on customizing Sound Engine threads.</p>
+<p class="calibre7">There is no change in behavior if <code class="calibre14"><a class="pcalibre el" href="struct_ak_init_settings_a3f9f40766762c100b829467ffaa31b24_split_000.html#a3f9f40766762c100b829467ffaa31b24" title="Use a Wwise-owned thread for loading sound banks. If set to false, bank-loading will occur only insid...">AkInitSettings::bUseSoundBankMgrThread</a></code> is set to <code class="calibre14">true</code> (the default).</p>
+</div></div></div></body></html>

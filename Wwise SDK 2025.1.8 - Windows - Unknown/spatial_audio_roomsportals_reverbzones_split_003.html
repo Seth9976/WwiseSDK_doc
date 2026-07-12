@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Using Reverb Zones</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="spatial_audio_roomsportals_reverbzones_creating"></a>
+Creating Reverb Zones</h1>
+<p class="calibre7">This section describes the general Reverb Zone creation process. The following example demonstrates how to create a forest surrounded by an outdoor environment. The forest and the outdoor environment each have a unique reverb effect.</p><ol class="calibre26">
+<li class="calibre9">Customize the "Outdoors" Room parameters. The "Outdoors" Room is created automatically, but you must call <a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_ab991cec1e8c9f4d2721fea2d37b285c8_split_000.html#ab991cec1e8c9f4d2721fea2d37b285c8">AK::SpatialAudio::SetRoom</a> to assign a reverb bus to it. <div class="fragment"><div class="line">paramsRoom.TransmissionLoss = 0.f;</div>
+<div class="line">paramsRoom.ReverbAuxBus = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a1aae6ebdec25946fb2897ce0e025366d_split_000.html#a1aae6ebdec25946fb2897ce0e025366d">AK::SoundEngine::GetIDFromString</a>(<span class="stringliteral">"Outdoors_Reverb"</span>); <span class="comment">// Name of the auxiliary bus, defined in Wwise Authoring.</span></div>
+<div class="line">paramsRoom.RoomPriority = 1; <span class="comment">// We want "Outdoors" to have the lowest priority.</span></div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_spatial_audio_ab991cec1e8c9f4d2721fea2d37b285c8_split_000.html#ab991cec1e8c9f4d2721fea2d37b285c8">AK::SpatialAudio::SetRoom</a>(</div>
+<div class="line">    <a class="pcalibre code" href="namespace_a_k_1_1_spatial_audio_a0b178cf8987e4fe5e2b33a6d51116a1c_split_000.html#a0b178cf8987e4fe5e2b33a6d51116a1c">AK::SpatialAudio::kOutdoorRoomID</a>, <span class="comment">// Outdoors has a special reserved ID</span></div>
+<div class="line">    paramsRoom, </div>
+<div class="line">    <span class="stringliteral">"Outdoors"</span>);</div>
+</div><!-- fragment --></li>
+<li class="calibre9">Define a shape for the Reverb Zone. In this example, the shape is a simple box. The following sample code creates a Geometry Set that defines the surfaces and triangles, and a Geometry Instance that defines the scale and position of the forest. <div class="fragment"><div class="line"><a class="pcalibre code" href="struct_ak_geometry_params_split_000.html">AkGeometryParams</a> geometryParams;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Define a unit size box for the geometry set.</span></div>
+<div class="line"><span class="comment">// You can reuse this same box for multiple transparent rooms, if desired.</span></div>
+<div class="line"><a class="pcalibre code" href="struct_ak_vertex_split_000.html">AkVertex</a> vertices[] = {</div>
+<div class="line">    { 0, 0, 0 },</div>
+<div class="line">    { 0, 1.f, 0 },</div>
+<div class="line">    { 1.f, 0, 0 },</div>
+<div class="line">    { 1.f, 1.f, 0 },</div>
+<div class="line">    { 1.f, 0, 1.f },</div>
+<div class="line">    { 1.f, 1.f, 1.f },</div>
+<div class="line">    { 0, 0, 1.f },</div>
+<div class="line">    { 0, 1.f, 1.f }</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Surface index IDs.</span></div>
+<div class="line"><span class="comment">// Set all to the single transparent surface.</span></div>
+<div class="line"><a class="pcalibre code" href="_ak_typedefs_8h_a1d462cf28f5a36878db54c59ab410fc0_split_000.html#a1d462cf28f5a36878db54c59ab410fc0">AkSurfIdx</a> bottomWall = 0;</div>
+<div class="line"><a class="pcalibre code" href="_ak_typedefs_8h_a1d462cf28f5a36878db54c59ab410fc0_split_000.html#a1d462cf28f5a36878db54c59ab410fc0">AkSurfIdx</a> rightWall = 0;</div>
+<div class="line"><a class="pcalibre code" href="_ak_typedefs_8h_a1d462cf28f5a36878db54c59ab410fc0_split_000.html#a1d462cf28f5a36878db54c59ab410fc0">AkSurfIdx</a> topWall = 0;</div>
+<div class="line"><a class="pcalibre code" href="_ak_typedefs_8h_a1d462cf28f5a36878db54c59ab410fc0_split_000.html#a1d462cf28f5a36878db54c59ab410fc0">AkSurfIdx</a> leftWall = 0;</div>
+<div class="line"><a class="pcalibre code" href="_ak_typedefs_8h_a1d462cf28f5a36878db54c59ab410fc0_split_000.html#a1d462cf28f5a36878db54c59ab410fc0">AkSurfIdx</a> floor = 0;</div>
+<div class="line"><a class="pcalibre code" href="_ak_typedefs_8h_a1d462cf28f5a36878db54c59ab410fc0_split_000.html#a1d462cf28f5a36878db54c59ab410fc0">AkSurfIdx</a> ceiling = 0;</div>
+<div class="line"> </div>
+<div class="line"><a class="pcalibre code" href="struct_ak_triangle_split_000.html">AkTriangle</a> triangles[] = {</div>
+<div class="line">    {0, 1, 2, bottomWall},</div>
+<div class="line">    {1, 2, 3, bottomWall},</div>
+<div class="line">    {2, 3, 4, rightWall},</div>
+<div class="line">    {3, 4, 5, rightWall},</div>
+<div class="line">    {4, 5, 6, topWall},</div>
+<div class="line">    {5, 6, 7, topWall},</div>
+<div class="line">    {6, 7, 0, leftWall},</div>
+<div class="line">    {7, 0, 1, leftWall},</div>
+<div class="line">    {0, 2, 4, floor},</div>
+<div class="line">    {0, 4, 6, floor},</div>
+<div class="line">    {1, 3, 5, ceiling},</div>
+<div class="line">    {1, 5, 7, ceiling}</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Only a single surface is required</span></div>
+<div class="line"><a class="pcalibre code" href="struct_ak_acoustic_surface_split_000.html">AkAcousticSurface</a> surface;</div>
+<div class="line">surface.<a class="pcalibre code" href="struct_ak_acoustic_surface_ab0ec8a6eee25b28b4f8b9e91dbff17da_split_000.html#ab0ec8a6eee25b28b4f8b9e91dbff17da">transmissionLoss</a> = 0.f;</div>
+<div class="line">surface.surface = <span class="stringliteral">"Transparent"</span></div>
+<div class="line"> </div>
+<div class="line">geometryParams.<a class="pcalibre code" href="struct_ak_geometry_params_a1a6ffe46c9c19a547b752a44c71051ca_split_000.html#a1a6ffe46c9c19a547b752a44c71051ca">NumVertices</a> = 8;</div>
+<div class="line">geometryParams.<a class="pcalibre code" href="struct_ak_geometry_params_acc48f1b3060eaf1824086feed5f15c62_split_000.html#acc48f1b3060eaf1824086feed5f15c62">Vertices</a> = vertices;</div>
+<div class="line"> </div>
+<div class="line">geometryParams.<a class="pcalibre code" href="struct_ak_geometry_params_aa4185b0fb36392987a62aff89f1c7925_split_000.html#aa4185b0fb36392987a62aff89f1c7925">NumTriangles</a> = 12;</div>
+<div class="line">geometryParams.<a class="pcalibre code" href="struct_ak_geometry_params_ab808e7f98df0ca947216913c388f1713_split_000.html#ab808e7f98df0ca947216913c388f1713">Triangles</a> = triangles;</div>
+<div class="line"> </div>
+<div class="line">geometryParams.<a class="pcalibre code" href="struct_ak_geometry_params_a7da0be30513e79a77de79c6650944fab_split_000.html#a7da0be30513e79a77de79c6650944fab">NumSurfaces</a> = 1;</div>
+<div class="line">geometryParams.<a class="pcalibre code" href="struct_ak_geometry_params_af7b6645b9c4b14eb2a81bd4179c946ca_split_000.html#af7b6645b9c4b14eb2a81bd4179c946ca">Surfaces</a> = &amp;surface;</div>
+<div class="line"> </div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_spatial_audio_a0cada36fab682ebb3005a79dd05a5640_split_000.html#a0cada36fab682ebb3005a79dd05a5640">AK::SpatialAudio::SetGeometry</a>(BOX_GEOMETRY_ID, geometryParams);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Create an instance of the geometry that defines the Reverb Zone</span></div>
+<div class="line"><span class="comment">//</span></div>
+<div class="line"><a class="pcalibre code" href="struct_ak_geometry_instance_params_split_000.html">AkGeometryInstanceParams</a> instanceParams;</div>
+<div class="line">instanceParams.<a class="pcalibre code" href="struct_ak_geometry_instance_params_a8e7503216a7291f52c09825799cdce53_split_000.html#a8e7503216a7291f52c09825799cdce53">GeometrySetID</a> = BOX_GEOMETRY_ID;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Customize the scale and position of the forest.</span></div>
+<div class="line"><a class="pcalibre code" href="struct_ak_vector_split_000.html">AkVector</a> scale = {WIDTH, HEIGHT, DEPTH};</div>
+<div class="line">instanceParams.<a class="pcalibre code" href="struct_ak_geometry_instance_params_ace410bb740f89af9c10c0ecead3ecb27_split_000.html#ace410bb740f89af9c10c0ecead3ecb27">Scale</a> = scale;</div>
+<div class="line"> </div>
+<div class="line"><a class="pcalibre code" href="struct_ak_world_transform_split_000.html">AkWorldTransform</a> position;</div>
+<div class="line">position.<a class="pcalibre code" href="struct_ak_world_transform_a00d8566d46d54639f8d742b90d415fd6_split_000.html#a00d8566d46d54639f8d742b90d415fd6">SetOrientation</a>(0.f, 0.f, 1.f, 0.f, 1.f, 0.f);</div>
+<div class="line">position.<a class="pcalibre code" href="struct_ak_world_transform_a3b29511546d8d6dcf6cf1ccaabd7e214_split_000.html#a3b29511546d8d6dcf6cf1ccaabd7e214">SetPosition</a>(X, Y, Z);</div>
+<div class="line">instanceParams.<a class="pcalibre code" href="struct_ak_geometry_instance_params_a3287a24b0ce9ff51320b80367d832b31_split_000.html#a3287a24b0ce9ff51320b80367d832b31">PositionAndOrientation</a> = position;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// This geometry instance is only used to define the Reverb Zone</span></div>
+<div class="line">instanceParams.<a class="pcalibre code" href="struct_ak_geometry_instance_params_a30ef95f856b020642d4a45d43c3df86d_split_000.html#a30ef95f856b020642d4a45d43c3df86d">UseForReflectionAndDiffraction</a> = <span class="keyword">false</span>;</div>
+<div class="line"> </div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_spatial_audio_ac2d5e660de0cc2a323d50f44a2731fa9_split_000.html#ac2d5e660de0cc2a323d50f44a2731fa9">AK::SpatialAudio::SetGeometryInstance</a>(FOREST_GEOMETRY_INSTANCE, instanceParams);</div>
+</div><!-- fragment --></li>
+<li class="calibre9">Create a Room for the forest. Call set <a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_af57f04a0250faecc0246cf0552c03ca6_split_000.html#af57f04a0250faecc0246cf0552c03ca6">AK::SpatialAudio::SetReverbZone</a> to assign the Outdoors Room as a parent Room, and set the transition region width. <div class="fragment"><div class="line">paramsRoom.TransmissionLoss = 0.f;  <span class="comment">// Ensure that sound travels from one room to another unoccluded.</span></div>
+<div class="line">paramsRoom.ReverbAuxBus = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a1aae6ebdec25946fb2897ce0e025366d_split_000.html#a1aae6ebdec25946fb2897ce0e025366d">AK::SoundEngine::GetIDFromString</a>(<span class="stringliteral">"Forest_Reverb"</span>); <span class="comment">// The ID of the auxiliary bus, defined in Wwise Authoring.</span></div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_spatial_audio_ab991cec1e8c9f4d2721fea2d37b285c8_split_000.html#ab991cec1e8c9f4d2721fea2d37b285c8">AK::SpatialAudio::SetRoom</a>(FOREST_ROOM_ID, paramsRoom, <span class="stringliteral">"Forest"</span>);</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">const</span> <a class="pcalibre code" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a> kTransitionRegionWidth = 10.f; <span class="comment">// customize as desired.</span></div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_spatial_audio_af57f04a0250faecc0246cf0552c03ca6_split_000.html#af57f04a0250faecc0246cf0552c03ca6">AK::SpatialAudio::SetReverbZone</a>(FOREST_ROOM_ID, <a class="pcalibre code" href="namespace_a_k_1_1_spatial_audio_a0b178cf8987e4fe5e2b33a6d51116a1c_split_000.html#a0b178cf8987e4fe5e2b33a6d51116a1c">AK::SpatialAudio::kOutdoorRoomID</a>, kTransitionRegionWidth)</div>
+</div><!-- fragment --></li>
+</ol>
+</div></div></div></body></html>

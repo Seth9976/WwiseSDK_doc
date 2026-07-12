@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak.wwise.core.soundbank.generate</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="ak_wwise_core_soundbank_generateArguments"></a>
+Arguments</h1>
+<p class="calibre7"></p><table class="doxtable">
+<tbody class="calibre4"><tr class="calibre16">
+<th class="calibre46">Name </th><th class="calibre46">Type </th><th class="calibre46">Description  </th></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">soundbanks</b> </td><td class="calibre36">array </td><td class="calibre36">List of user-defined SoundBanks to generate. If the array is empty then all user-defined SoundBanks are generated. Note that auto-defined SoundBanks cannot be specified, and all auto-defined SoundBanks are generated regardless of this parameter.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">soundbanks <b class="calibre13">[...]</b> </td><td class="calibre36">object </td><td class="calibre36">SoundBank Info.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">soundbanks[...].<b class="calibre13">name</b> * </td><td class="calibre36">string </td><td class="calibre36">The name of the user-defined SoundBank to generate. A temporary SoundBank will be created if the SoundBank doesn't exist. Auto-defined SoundBanks cannot be specified.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">soundbanks[...].<b class="calibre13">events</b> </td><td class="calibre36">array </td><td class="calibre36">List of events to include in this SoundBank. Not required if the bank already exists.   </td></tr>
+<tr class="calibre16">
+<td rowspan="4" class="calibre36">soundbanks[...].events <b class="calibre13">[...]</b> </td><td class="calibre36"/><td class="calibre36"><p class="starttd">The ID (GUID), name, or path of the event to include in the SoundBank. </p>
+<p class="endtd">Any of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">The name of the object qualified by its type or Short ID in the form of type:name or Global:shortId. Only object types that have globally-unique names or Short Ids are supported. Ex: Event:Play_Sound_01, Global:245489792   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">A project path to a Wwise object, including the category and the work-unit. For example: \Containers\Default Work Unit\New Sound SFX.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">soundbanks[...].<b class="calibre13">auxBusses</b> </td><td class="calibre36">array </td><td class="calibre36">List of AuxBus to include in this SoundBank.   </td></tr>
+<tr class="calibre16">
+<td rowspan="4" class="calibre36">soundbanks[...].auxBusses <b class="calibre13">[...]</b> </td><td class="calibre36"/><td class="calibre36"><p class="starttd">The ID (GUID), name, or path of the Auxiliary Bus to include in the SoundBank. </p>
+<p class="endtd">Any of:  </p>
+</td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">The name of the object qualified by its type or Short ID in the form of type:name or Global:shortId. Only object types that have globally-unique names or Short Ids are supported. Ex: Event:Play_Sound_01, Global:245489792   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}.   </td></tr>
+<tr class="calibre16">
+<td class="calibre36">string </td><td class="calibre36">A project path to a Wwise object, including the category and the work-unit. For example: \Containers\Default Work Unit\New Sound SFX.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">soundbanks[...].<b class="calibre13">inclusions</b> </td><td class="calibre36">array </td><td class="calibre36">List of inclusion type to use for this SoundBank. Not required if the bank already exists.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">soundbanks[...].inclusions <b class="calibre13">[...]</b> </td><td class="calibre36">string </td><td class="calibre36">Possible values: <ul class="calibre8">
+<li class="calibre9">
+event </li>
+<li class="calibre9">
+structure </li>
+<li class="calibre9">
+media </li>
+</ul>
+</td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">soundbanks[...].<b class="calibre13">rebuild</b> </td><td class="calibre36">boolean </td><td class="calibre36">Force rebuild of this particular SoundBank. Default value: false   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">platforms</b> </td><td class="calibre36">array </td><td class="calibre36">List of platforms to generate. If you don't specify any platforms, all the platforms will be generated.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">platforms <b class="calibre13">[...]</b> </td><td class="calibre36">string </td><td class="calibre36">The ID (GUID) or the name of the platforms.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">languages</b> </td><td class="calibre36">array </td><td class="calibre36">List of languages to generate. If you don't specify any languages, all the languages will be generated.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36">languages <b class="calibre13">[...]</b> </td><td class="calibre36">string </td><td class="calibre36">The ID (GUID) or name of the language.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">skipLanguages</b> </td><td class="calibre36">boolean </td><td class="calibre36">By default, if you don't specify any languages all languages will be generated. If you set this parameter to true, no localized SoundBank will be generated.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">rebuildSoundBanks</b> </td><td class="calibre36">boolean </td><td class="calibre36">Will rebuild all SoundBanks if true. If you want to clear the converted media as well, use clearAudioFileCache parameter. Default value: false.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">clearAudioFileCache</b> </td><td class="calibre36">boolean </td><td class="calibre36">Deletes the content of the Wwise audio file cache folder prior to converting source files and generating SoundBanks, which ensures that all source files are reconverted. Note that the whole cache is cleared, for all platforms, regardless of the platforms arguments. Default value: false.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">writeToDisk</b> </td><td class="calibre36">boolean </td><td class="calibre36">Use the normal SoundBank generation process and write the sound bank and info file to disk. Default value: false.   </td></tr>
+<tr class="calibre16">
+<td rowspan="1" class="calibre36"><b class="calibre13">rebuildInitBank</b> </td><td class="calibre36">boolean </td><td class="calibre36">If you don't use rebuildSoundBanks, use this option to force a rebuild of the Init bank for each specified platform.   </td></tr>
+</tbody></table>
+<p class="calibre7"></p>
+<p class="calibre7"><a class="pcalibre el" href="ak_wwise_core_soundbank_generate_args_schema_split_000.html">Arguments Schema</a></p>
+</div></div></div></body></html>

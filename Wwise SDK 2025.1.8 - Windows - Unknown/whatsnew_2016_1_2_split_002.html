@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2016.1.2</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="bugs_2016_1_2"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-30154</b> Fixed: Old Plugin DLL requires license when generating banks.</li>
+<li class="calibre9"><b class="calibre13">WG-30242</b> Fixed: Authoring infinite hang when generating banks with a particular combination of music objects.</li>
+<li class="calibre9"><b class="calibre13">WG-30323</b> Fixed: Random crash in <code class="calibre14">CAkRTPCMgr::AkRTPCSubscription::PushUpdate</code>.</li>
+<li class="calibre9"><b class="calibre13">WG-30362</b> Fixed: (iOS) Audio stops at the first gap in the audio content when using a combination of the Wwise Harmonizer on an Aux Bus and HPF on the Master Audio Bus with Vorbis.</li>
+<li class="calibre9"><b class="calibre13">WG-30386</b> Fixed: The crossfade is skipped, resulting in a glitch when seeking into a looping sound in the authoring tool (originals mode only).</li>
+<li class="calibre9"><b class="calibre13">WG-30446</b> Added PlayStation Move support to Wwise Motion on PS4.</li>
+<li class="calibre9"><b class="calibre13">WG-30486</b> Changed SDK header files to avoid generating compilation warnings in AkPlatformFuncs.h.</li>
+<li class="calibre9"><b class="calibre13">WG-30515</b> Fixed: (Windows/PS4) Non-responsive audio hardware could lead to software crash.</li>
+<li class="calibre9"><b class="calibre13">WG-30585</b> Fixed: Auro Headphone <b class="calibre13">Reverb</b> check box not always honored.</li>
+<li class="calibre9"><b class="calibre13">WG-30611</b> Fixed: <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a02ad46cabd64c04e8be198bfdc44be6b_split_000.html#a02ad46cabd64c04e8be198bfdc44be6b">AK::SoundEngine::GetSpeakerAngles()</a></code> returns <code class="calibre14">AK_Fail</code> when called just after <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a9a26da64092b97243844df77cbcdbf5f_split_000.html#a9a26da64092b97243844df77cbcdbf5f">AK::SoundEngine::Init</a></code>.</li>
+<li class="calibre9"><b class="calibre13">WG-30637</b> Fixed: (3DS) Output in mono only.</li>
+<li class="calibre9"><b class="calibre13">WG-30649</b> Fixed: Audio devices not present in Wwise_IDs.h</li>
+<li class="calibre9"><b class="calibre13">WG-30660</b> Fixed: (PS4) Rare crash when seeking in an ATRAC-9 stream.</li>
+<li class="calibre9"><b class="calibre13">WG-30675</b> Fixed: (PS4) SCEAudio3d is missing from the installer.</li>
+<li class="calibre9"><b class="calibre13">WG-30688</b> Fixed: (Android, PS4, Xbox 360) Crash in <code class="calibre14">WakeupEventsConsumer()</code> when <code class="calibre14"><a class="pcalibre el" href="struct_ak_init_settings_a31218fafe5dea9bca79b979cfb1e6fb2_split_000.html#a31218fafe5dea9bca79b979cfb1e6fb2" title="Use a Wwise-owned thread for processing audio. If set to false, audio processing will occur only insi...">AkInitSettings.bUseLEngineThread</a> = false</code>.</li>
+<li class="calibre9"><b class="calibre13">WG-30689</b> Fixed: (3DS) Callbacks not called when used with Dynamic Dialog.</li>
+<li class="calibre9"><b class="calibre13">WG-30692</b> Fixed: Auro Headphone : Memory leak in out-of-memory situation.</li>
+<li class="calibre9"><b class="calibre13">WG-30793</b> Fixed: (Win 7) XAudio 2.7 DLL unloads by itself.</li>
+<li class="calibre9"><b class="calibre13">WG-30840</b> Fixed: Potential null pointer usage in BuildMeterMonitorData when connected to Wwise Authoring. </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

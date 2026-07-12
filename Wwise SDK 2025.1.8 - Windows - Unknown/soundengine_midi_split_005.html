@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integration Details - MIDI</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_4"><a class="pcalibre1 anchor" id="soundengine_midi_update_sequence"></a>
+Updating MIDI Sequences</h1>
+<p class="calibre7">It is important that each a MIDI sequence be played by the sound engine at the exact time intended by the application. There are two ways a MIDI sequence may be posted to the sound engine.</p>
+<p class="calibre7">If the entire MIDI sequence is known, and it is known that the timing of the MIDI sequence will not change, then the entire MIDI sequence may be posted with one call to <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ab24b5dc8bd4d1adbdc6aa5c98d94d946_split_000.html#ab24b5dc8bd4d1adbdc6aa5c98d94d946">AK::SoundEngine::PostMIDIOnEvent</a>.</p>
+<p class="calibre7">However if that is not the case, then the MIDI sequence will have to be updated at each frame. The <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ab24b5dc8bd4d1adbdc6aa5c98d94d946_split_000.html#ab24b5dc8bd4d1adbdc6aa5c98d94d946">AK::SoundEngine::PostMIDIOnEvent</a> function may be called at any moment, and anywhere in the application. However, calling this function in a thread other than the main audio thread may lead to synchronization issues. Calls to <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ab24b5dc8bd4d1adbdc6aa5c98d94d946_split_000.html#ab24b5dc8bd4d1adbdc6aa5c98d94d946">AK::SoundEngine::PostMIDIOnEvent</a> only post the events in the sound engine's message queue. The message queue is processed during a call to <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_afe54af0f5be38be061e8a3c7d7642bb1_split_000.html#afe54af0f5be38be061e8a3c7d7642bb1">AK::SoundEngine::RenderAudio</a>, and such a call may lead to any number of processed audio frames. To ensure proper synchronization, it is recommended that the application register a global callback function as follows:</p>
+<ul class="calibre8">
+<li class="calibre9">AK::SoundEngine::RegisterGlobalCallback( &amp;MyCallbackFunction, AkGlobalCallbackLocation_PreProcessMessageQueueForRender );</li>
+</ul>
+<p class="calibre7">The registered function will be called by the sound engine at each audio frame. The application can use the callback function to keep track of audio frames processed by the sound engine. Thus, posting MIDI events in the callback function will ensure proper synchronization.</p>
+</div></div></div></body></html>

@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Source Control Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_12"><a class="pcalibre1 anchor" id="source_control_dll_creation_object_config"></a>
+Enabling Plug-in Configuration</h2>
+<p class="calibre7">In the Project Settings dialog, the Wwise user can configure the plug-in by clicking the Config… button. This button is enabled only if the <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_1_1_plugin_info_a8bbaffdff539c62271eba2e5ae4b2712_split_000.html#a8bbaffdff539c62271eba2e5ae4b2712" title="Used to enable/disable the 'Config...' button in the Project Settings.">AK::Wwise::ISourceControl::PluginInfo::m_bShowConfigDlgAvailable</a> has been set to True. When you click on this button, Wwise calls the <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_a895acce7b436743e5519245529c97ecd_split_000.html#a895acce7b436743e5519245529c97ecd">AK::Wwise::ISourceControl::ShowConfigDlg()</a> method. The return value of this function is a Boolean value. The meaning of the value is as follows:</p><ul class="calibre8">
+<li class="calibre9">True indicates that you accepted the configuration changes, so the Project Explorer icons will be refreshed.</li>
+<li class="calibre9">False indicates that you rejected the configuration changes, so the Project Explorer icons will not be refreshed.</li>
+</ul>
+<p class="calibre7">A typical implementation of this method is:</p>
+<div class="fragment"><div class="line"><span class="keywordtype">bool</span> SamplePlugin::ShowConfigDlg()</div>
+<div class="line">{</div>
+<div class="line">    DlgConfiguration configurationDialog();</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// return True if the user presses 'OK'</span></div>
+<div class="line">    <span class="keywordflow">return</span> m_pSourceControlUtilities-&gt;CreateModalCustomDialog( &amp;configurationDialog ) == IDOK;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p class="calibre7">In this code sample, the DlgConfiguration class is an implementation of the <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_dialog_base_split_000.html">AK::Wwise::ISourceControlDialogBase</a> interface. For more information, refer to the <a class="pcalibre el" href="source_control_dll_split_019.html#source_control_dll_creation_dialog">Defining the Source Control Plug-in Dialog</a>.</p>
+</div></div></div></body></html>

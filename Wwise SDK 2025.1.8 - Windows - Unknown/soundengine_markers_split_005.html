@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integrating Markers</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_4"><a class="pcalibre1 anchor" id="soundengine_markers_fileformat_labl"></a>
+Label Sub-Chunks</h2>
+<p class="calibre7">The label sub-chunk format is used to store a string associated with a cue point. It should be inside the associated data list chunk.</p>
+<div class="fragment"><div class="line">Offset  Bytes   Description         Value</div>
+<div class="line">0x00    4       Chunk ID            <span class="stringliteral">"labl"</span> (0x6C61626C)</div>
+<div class="line">0x04    4       Chunk Data Size     Depends on size of text</div>
+<div class="line">0x08    4       Cue Point ID        Refers to cue chunk dwIdentifier</div>
+<div class="line">0x0c    Label (variable-size text)</div>
+</div><!-- fragment --></div></div></div></body></html>

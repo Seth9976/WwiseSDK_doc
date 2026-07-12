@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2019.1.5</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="bugs_2019_1_5"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-19780</b> Fixed: Sharing violation when importing a file locked only in read.</li>
+<li class="calibre9"><b class="calibre13">WG-29572</b> Fixed: Importing 96kHz IR files into the convolution reverb produced a reverb tail half the length it should have been.</li>
+<li class="calibre9"><b class="calibre13">WG-42442</b> Fixed: Diffraction LPF and HPF in Reflect produce audible clicks when reaching bypassed frequencies.</li>
+<li class="calibre9"><b class="calibre13">WG-42622</b> Fixed: Crash when converting Opus files with mixed-order Ambisonics channel configuration.</li>
+<li class="calibre9"><b class="calibre13">WG-42840</b> Fixed: Properties field is cropped.</li>
+<li class="calibre9"><b class="calibre13">WG-42929</b> Fixed: Loudness metering not supported with Ambisonics and 0.1 channel configurations.</li>
+<li class="calibre9"><b class="calibre13">WG-44010</b> Fixed: Use of uninitialized memory in Wwise Convolution Reverb, using an Ambisonic 3rd-order bus and mono impulse response.</li>
+<li class="calibre9"><b class="calibre13">WG-44016</b> Fixed: Changing a property in the Multi Editor while connected remotely did not always update the game.</li>
+<li class="calibre9"><b class="calibre13">WG-44059</b> Fixed: Tooltips didn't appear in some views, such as the Voice Monitor, the Mixing Desk and the Music Segment Editor.</li>
+<li class="calibre9"><b class="calibre13">WG-44515</b> Fixed: Upon opening a project, a star (indicating your project was modified) was sometimes displayed in the title bar, even when the project was not modified.</li>
+<li class="calibre9"><b class="calibre13">WG-44785</b> Fixed: Rare crash while updating RTPC values for Blend Containers.</li>
+<li class="calibre9"><b class="calibre13">WG-44843</b> Fixed: Invalid AkInitSettings::audioDeviceShareset cannot fall back to System sink.</li>
+<li class="calibre9"><b class="calibre13">WG-44878</b> Fixed: Rare alignment exception on ARM CPU when decoding Vorbis.</li>
+<li class="calibre9"><b class="calibre13">WG-44912</b> Fixed: 3D Meter option is not available when the bus is configured as parent, even when the parent bus or audio device is set to Ambisonics.</li>
+<li class="calibre9"><b class="calibre13">WG-44930</b> Fixed: Rare crash in Interactive Music Switch Containers with Music Playlists.</li>
+<li class="calibre9"><b class="calibre13">WG-44984</b> Fixed: <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a3e077eddb929881cd5369fd3e6bba5d7_split_000.html#a3e077eddb929881cd5369fd3e6bba5d7">AK::SoundEngine::GetBufferStatusForPinnedEvent</a> no longer returns a buffering value greater than 100%.</li>
+<li class="calibre9"><b class="calibre13">WG-45003</b> Fixed: (Android) Crash due to local reference table overflow on older devices.</li>
+<li class="calibre9"><b class="calibre13">WG-45117</b> Fixed: Assert in the Voice Inspector when pausing transport during playback of a music segment.</li>
+<li class="calibre9"><b class="calibre13">WG-45121</b> Fixed: Music event cues can be placed outside their containing segment by drag-and-dropping multiple cues together.</li>
+<li class="calibre9"><b class="calibre13">WG-45133</b> Fixed: Loading a project with Motion enabled on Windows 7 would sometimes make Wwise unresponsive.</li>
+<li class="calibre9"><b class="calibre13">WG-45161</b> Fixed: Crash when inspecting game defined auxiliary sends in the Voice Inspector.</li>
+<li class="calibre9"><b class="calibre13">WG-45238</b> Fixed: Crash when right-clicking a tree control.</li>
+<li class="calibre9"><b class="calibre13">WG-45314</b> Fixed: Incorrect object type name returned by WAAPI when trying to create an object under an incompatible parent.</li>
+<li class="calibre9"><b class="calibre13">WG-45317</b> Fixed: System would crash when Zero Latency media was duplicated in multiple banks and those banks were unloaded in a particular order.</li>
+<li class="calibre9"><b class="calibre13">WG-45473</b> Fixed: Pulse Audio possible buffer overflow.</li>
+<li class="calibre9"><b class="calibre13">WG-45565</b> Fixed: Rare memory leak when running out of memory while using the PrepareEvent API.</li>
+<li class="calibre9"><b class="calibre13">WG-45568</b> Fixed: Rare crash when Opus decoding error occurs.</li>
+<li class="calibre9"><b class="calibre13">WG-45577</b> Fixed: Possible crashes when connecting Wwise to Unity games.</li>
+<li class="calibre9"><b class="calibre13">WG-45625</b> Fixed: (Android) Default init settings can cause audio glitches on some devices, especially (but not exclusively) when Wwise Motion makes the phone vibrate. <b class="calibre13">IMPORTANT NOTE:</b> The new default settings will slightly increase audio latency on higher-end devices compared to previous 2019.1 versions. If the new settings are not satisfactory, make sure to review <a href="https://www.audiokinetic.com/library/edge/?source=SDK&amp;id=pg__android__fastpath.html" target="_blank" class="pcalibre calibre12">audiokinetic.com/android_fastpath</a> to learn how to optimize latency on Android.</li>
+<li class="calibre9"><b class="calibre13">WG-45643</b> Fixed: (Spatial Audio) Crash would occur after removing a room connected to a portal that contains an object.</li>
+<li class="calibre9"><b class="calibre13">WG-45681</b> Fixed: I/O operations were triggered early, when preparing events with streamed sounds.</li>
+<li class="calibre9"><b class="calibre13">WG-45726</b> Fixed: Failed ASSERT when playing a combination of Random/Sequence Containers and Blend Containers with 3D positioning paths.</li>
+</ul>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="reference_platform_2019_1_5_split_000.html">Platform Requirements 2019.1.5</a> </li>
+</ul>
+</dd></dl>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

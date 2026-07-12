@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2017.2.8</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="bugs_2017_2_8"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-31497</b> Fixed: Wwise Remote Connect dialog does not display all applications when running on a machine with multiple network adapters.</li>
+<li class="calibre9"><b class="calibre13">WG-38280</b> Fixed: Unlinked properties will stay unlinked after loading a Preset that has linked properties.</li>
+<li class="calibre9"><b class="calibre13">WG-38734</b> Fixed: Crash when playing an empty Event via SoundFrame.</li>
+<li class="calibre9"><b class="calibre13">WG-38849</b> Fixed: Crash when deleting music clip while playing parent music segment.</li>
+<li class="calibre9"><b class="calibre13">WG-39078</b> Fixed: (iOS) Rare assert when interrupting the sink.</li>
+<li class="calibre9"><b class="calibre13">WG-39089</b> Fixed: Rare crash in <code class="calibre14">CAkActiveParent</code> when banks are not all in sync.</li>
+<li class="calibre9"><b class="calibre13">WG-39096</b> Fixed: Enabling <b class="calibre13">Include parents and busses</b> in the Capture Log Filter can lead to a crash.</li>
+<li class="calibre9"><b class="calibre13">WG-39098</b> Fixed: User-Defined Auxiliary Send override for a child of a Blend Container has no effect if the child's auxiliary sends are not defined.</li>
+<li class="calibre9"><b class="calibre13">WG-39131</b> Fixed: When watching a game object by name, if the watched object's name is a substring of another game object, the other object may also appear in the 3D Game Object Viewer.</li>
+<li class="calibre9"><b class="calibre13">WG-39168</b> Fixed: Deleting multiple sounds in a Switch Container can lead to a crash if a sound in the container is displayed in the Source Editor.</li>
+<li class="calibre9"><b class="calibre13">WG-39229</b> Fixed: Cannot reorder Switch and State Groups in the Dialogue Event Editor and Music Switch Container Association Editor.</li>
+<li class="calibre9"><b class="calibre13">WG-39249</b> Fixed: <code class="calibre14">GetPanningRule</code>, <code class="calibre14">GetSpeakerAngles</code>, <code class="calibre14">GetSpeakerConfiguration</code>, and <code class="calibre14">GetPS4OutputHandle</code> do not wait for sound engine startup, returning default values.</li>
+<li class="calibre9"><b class="calibre13">WG-39279</b> Fixed: Freeze on Tab Delimited Import when importing a file on the root.</li>
+<li class="calibre9"><b class="calibre13">WG-39286</b> Fixed: (Android) Rare crash at game startup on Android P.</li>
+<li class="calibre9"><b class="calibre13">WG-39312</b> Fixed: Infinite loop in <code class="calibre14">CAkListener::ComputeSpeakerMatrix3D</code> when passing volume offsets to <code class="calibre14">SetListenerSpatialization</code> and using ambisonics.</li>
+<li class="calibre9"><b class="calibre13">WG-39407</b> Fixed: Failure to find Wwise files, such as SoundBanks and WEMs, through reparse points when generating the files.</li>
+<li class="calibre9"><b class="calibre13">WG-39441</b> Fixed: (Windows) Motion is attenuated on Xbox One controllers.</li>
+<li class="calibre9"><b class="calibre13">WG-39467</b> Fixed: The MS Spatial sink plug-in can crash when running low on memory.</li>
+<li class="calibre9"><b class="calibre13">WG-39474</b> Fixed: (Windows) Possible audio glitches when using the WASAPI audio sink on Windows when the Windows Playback Device Settings is set to a high resolution frequency (192 kHz) on some hardware.</li>
+<li class="calibre9"><b class="calibre13">WG-39498</b> Fixed: Crash in XAudio2 when switching project in Wwise Authoring.</li>
+<li class="calibre9"><b class="calibre13">WG-39509</b> Fixed: Filling <code class="calibre14">AkInitSetting.settingMainOutput.audioDeviceShareset</code> doesn't switch the master Audio Bus to the specified device.</li>
+<li class="calibre9"><b class="calibre13">WG-39515</b> Fixed: Rare crash with Delay line management in Reflect.</li>
+<li class="calibre9"><b class="calibre13">WG-39523</b> Fixed: Initial Delay not loaded by Presets.</li>
+<li class="calibre9"><b class="calibre13">WG-39529</b> Fixed: Rare crash on start-up when no output devices are ready.</li>
+<li class="calibre9"><b class="calibre13">WG-39541</b> Fixed: Calling<code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a362a652b7fb7881e3d036facc173dfa1_split_000.html#a362a652b7fb7881e3d036facc173dfa1">StopPlayingID()</a></code> on one of multiple game objects playing the same Switch Container clears the Switch history for the other game objects.</li>
+<li class="calibre9"><b class="calibre13">WG-39544</b> Fixed: Calling function <code class="calibre14">SetRPTCValueByPlayingID</code> ignores Playing ID if a transition time is specified.</li>
+<li class="calibre9"><b class="calibre13">WG-39624</b> Fixed: The Wwise Effect Editor is not updated when a new Mixer Plug-in is selected for a bus.</li>
+<li class="calibre9"><b class="calibre13">WG-39678</b> Fixed: Long AkRecorder filepaths are truncated.</li>
+<li class="calibre9"><b class="calibre13">WG-39745</b> Fixed: Glitches when ramping up or down the LPF parameter on devices with a 44,100 Hz sample rate.</li>
+<li class="calibre9"><b class="calibre13">WG-39783</b> Fixed: Timing issue with <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a02ad46cabd64c04e8be198bfdc44be6b_split_000.html#a02ad46cabd64c04e8be198bfdc44be6b">GetSpeakerAngles()</a></code>. If called too closely to <code class="calibre14">LoadBank("Init.bnk")</code>, it could fail.</li>
+<li class="calibre9"><b class="calibre13">WG-39846</b> Fixed: Connecting the Wwise Profiler to a game resets the Audio Device set in <code class="calibre14"><a class="pcalibre el" href="struct_ak_init_settings_split_000.html">AkInitSettings</a></code>.</li>
+</ul>
+<p class="calibre7">
+ </p><dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="reference_platform_2017_2_8_split_000.html">Platform Requirements 2017.2.8</a> </li>
+</ul>
+</dd></dl>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

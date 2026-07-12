@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Audio Output on Platforms</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="audio_output_windows"></a>
+Windows</h1>
+<p class="calibre7">By default on Windows, Wwise takes the system default device's configuration. You can override the default configuration by changing <code class="calibre14"><a class="pcalibre el" href="struct_ak_init_settings_a9c5254abf13a5c3bf60ddd27c48db4d7_split_000.html#a9c5254abf13a5c3bf60ddd27c48db4d7" title="Main output device settings.">AkInitSettings::settingsMainOutput</a></code> before calling <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a9a26da64092b97243844df77cbcdbf5f_split_000.html#a9a26da64092b97243844df77cbcdbf5f">AK::SoundEngine::Init()</a></code>.</p>
+<p class="calibre7">By default, Wwise outputs at a sample rate of 48 kHz. You can override this sample rate by setting <code class="calibre14"><a class="pcalibre el" href="struct_ak_platform_init_settings_a2bf6f000f256b146d6cd36401a234b85_split_000.html#a2bf6f000f256b146d6cd36401a234b85" title="Sampling Rate. Default is 48000 Hz. Use 24000hz for low quality. Any positive reasonable sample rate ...">AkPlatformInitSettings::uSampleRate</a></code> when calling <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a9a26da64092b97243844df77cbcdbf5f_split_000.html#a9a26da64092b97243844df77cbcdbf5f">AK::SoundEngine::Init()</a></code>.</p>
+<p class="calibre7">When <b class="calibre13">Allow 3D Audio</b> is enabled on the System Audio Device, Wwise can also output a 7.1.4 main mix, an optional stereo passthrough mix, and discrete Audio Objects. For more information on 3D Audio on Windows, see <a class="pcalibre el" href="windows_specificinfo_split_001.html#Windows_Enabling_3DAudio">Enabling 3D Audio</a>.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="tip.gif"/></td><td class="calibre17"><b class="calibre13">Tip:</b> To change the default device configuration on Windows:<ul class="calibre8">
+<li class="calibre9">Right-click the Speaker icon in the system tray</li>
+<li class="calibre9">Select 'Playback Devices'</li>
+<li class="calibre9">In the 'Sound' panel, select the device you want to use (use 'Set Default' to change the default.)</li>
+<li class="calibre9">Click 'Configure' to change the configuration for the selected device </li>
+</ul>
+</td></tr>
+</tbody></table>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="tip.gif"/></td><td class="calibre17"><b class="calibre13">Tip:</b> When using the Wwise Authoring tool, you can force a specific configuration by using the 'Audio' menu. Please refer to the user documentation for more information. </td></tr>
+</tbody></table>
+<div open="0" platform="Windows" class="calibre2"></div> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

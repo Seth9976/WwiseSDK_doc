@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak.wwise.cli.createNewProject Options Schema</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2"><h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="section_ak_wwise_cli_createnewproject_optionsSchema"></a>
+Schema</h1>
+<div class="fragment"><div class="line">{</div>
+<div class="line">    "properties": {</div>
+<div class="line">        "verbose": {</div>
+<div class="line">            "type": "boolean",</div>
+<div class="line">            "description": "Enables extra console text output.",</div>
+<div class="line">            "synopsis": [</div>
+<div class="line">                "--verbose"</div>
+<div class="line">            ]</div>
+<div class="line">        },</div>
+<div class="line">        "quiet": {</div>
+<div class="line">            "type": "boolean",</div>
+<div class="line">            "description": "Disables all non-error console text output.",</div>
+<div class="line">            "synopsis": [</div>
+<div class="line">                "--quiet"</div>
+<div class="line">            ]</div>
+<div class="line">        },</div>
+<div class="line">        "platform": {</div>
+<div class="line">            "oneOf": [</div>
+<div class="line">                {</div>
+<div class="line">                    "type": "string",</div>
+<div class="line">                    "description": "A single value provided for the option."</div>
+<div class="line">                },</div>
+<div class="line">                {</div>
+<div class="line">                    "type": "array",</div>
+<div class="line">                    "description": "Several values provided for the option.",</div>
+<div class="line">                    "items": {</div>
+<div class="line">                        "type": "string",</div>
+<div class="line">                        "description": "A value for the option."</div>
+<div class="line">                    }</div>
+<div class="line">                }</div>
+<div class="line">            ],</div>
+<div class="line">            "description": "Specifies which platform the new project supports. If not specified, Windows only is used.",</div>
+<div class="line">            "synopsis": [</div>
+<div class="line">                "--platform PLATFORM",</div>
+<div class="line">                "--platform PLATFORM1 PLATFORM2 ...",</div>
+<div class="line">                "--platform PLATFORM1 --platform PLATFORM2 ..."</div>
+<div class="line">            ]</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Memory Manager</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_1"><a class="pcalibre1 anchor" id="memorymanager_default_malloc"></a>
+Using the Default Memory Allocator</h2>
+<p class="calibre7">By default, all memory is allocated by Wwise using the built-in AkMemoryArenas, each of which can be configured separately using the <code class="calibre14"><a class="pcalibre el" href="struct_ak_mem_settings_ad938c0122f4ed866a1ae1c459812d597_split_000.html#ad938c0122f4ed866a1ae1c459812d597" title="Configuration of memory arenas for default memory allocator. For more information,...">AkMemSettings::memoryArenaSettings</a></code> array. There are up to four AkMemoryArenas that can be configured:</p>
+<ul class="calibre8">
+<li class="calibre9"><code class="calibre14">AkMemoryMgrArena_Primary</code>: The default AkMemoryArena used by most memory categories.</li>
+<li class="calibre9"><code class="calibre14">AkMemoryMgrArena_Media</code>: The AkMemoryArena used for memory allocations that go to the Media memory category, usually from loading SoundBanks.</li>
+<li class="calibre9"><code class="calibre14">AkMemoryMgrArena_Profiler</code>: The AkMemoryArena used for memory allocations that go to the Profiler and Monitor Queue memory categories. This AkMemoryArena does not exist in the Release build configuration.</li>
+<li class="calibre9"><code class="calibre14">AkMemoryMgrArena_Device</code>: The AkMemoryArena used for handling any device-specific memory allocations. This is present only on specific platforms that use device-specific memory for audio processing, that is, any platform that has <code class="calibre14">AK_DEVICE_MEMORY_SUPPORTED</code> defined.</li>
+</ul>
+<p class="calibre7">We recommend you implement the following callbacks for each of the AkMemoryArenas, for integration into a game engine, as they are used by the AkMemoryArena to acquire and release spans of memory as needed.</p>
+<ul class="calibre8">
+<li class="calibre9"><code class="calibre14">AkMemoryArenaSettings::fnMemAllocSpan</code></li>
+<li class="calibre9"><code class="calibre14">AkMemoryArenaSettings::fnMemFreeSpan</code></li>
+</ul>
+<p class="calibre7"><code class="calibre14">AkMemoryArenaSettings::uMemReservedLimit</code> is also available to set limits on how much memory is reserved by each AkMemoryArena.</p>
+<p class="calibre7">Refer to <a class="pcalibre el" href="goingfurther_memoryarenas_split_000.html">Configuration and Tuning of AkMemoryArenas</a> for information on other settings available for configuring the AkMemoryArena.</p>
+</div></div></div></body></html>

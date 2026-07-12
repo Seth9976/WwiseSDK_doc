@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integration Demo Sample</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_11"><a class="pcalibre1 anchor" id="integrationdemo_demos_spatialaudio"></a>
+Wwise Acoustics</h2>
+<p class="calibre7">These demos show various ways to use Wwise Acoustics to model sound propagation across Rooms, Portals, and Geometry.</p>
+<p class="calibre7">Each demo page includes a movable emitter and a movable listener. You can offset the listener from a Distance Probe to simulate a third-person listening experience.</p>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="spatial_audio_split_000.html">Acoustics</a></li>
+</ul>
+</dd></dl>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="integrationdemo_demos_spatialaudio_portal"></a>
+Portal Demo</h3>
+<p class="calibre7">This demo shows the effect of Portals in Wwise Acoustics positioning. There are two Rooms with Portals and visible sound propagation paths. The resulting diffraction and transmission amounts are displayed in the lower-left corner. Same-room obstruction (emitter-listener and portal-listener) is calculated through a combination of Portal-driven propagation and a native game-side obstruction algorithm. Game object spread is calculated for the emitter with its set radial value. Finally, this demo shows how to use a Room to play multi-channel ambient sounds / room tones that contract and become point sources at portals.</p>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="using_rooms_and_portals.html">Rooms and Portals</a></li>
+</ul>
+</dd></dl>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="integrationdemo_demos_spatialaudio_portal_geometry"></a>
+Portal and Geometry Demo</h3>
+<p class="calibre7">This demo shows the effect of Portals in conjunction with the Geometry API. There are two Rooms with Portals, Geometry for the wall inside and outside of the Room, an obstacle and visible sound propagation paths. The resulting diffraction and transmission amounts are displayed in the lower-left corner. Wwise Acoustics is set up so that diffraction/transmission controls both the project-wide curves and the built-in parameters, although only the former is used in the Wwise project. Wwise Acoustics handles diffraction and transmission using Portals and Geometry respectively. The demo does not compute additional obstruction and occlusion.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="integrationdemo_demos_spatialaudio_geometry"></a>
+Geometry Demo</h3>
+<p class="calibre7">This demo showcases the Geometry API, usable for direct (dry) path diffraction and transmission. There are two walls and visible diffraction paths. The resulting diffraction and transmission amounts are displayed in the lower-left corner. Wwise Acoustics is set up so that diffraction/transmission controls both the project-wide curves and the built-in parameters, although only the former is used in the project.</p>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="spatial_audio_apigeometry_diffract_split_000.html">Using the Geometry API for Simulating Diffraction and Transmission</a></li>
+</ul>
+</dd></dl>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="integrationdemo_demos_spatialaudio_reflect"></a>
+Reflect Demo</h3>
+<p class="calibre7">This demo showcases the Wwise Reflect plug-in using the Geometry API to simulate early reflection. There is a room and a separate wall, defined by Wwise Acoustics Geometry, and visible reflection paths. Wwise Acoustics is set up with a reflection order displayed in the lower-left corner. Additionally, Wwise Acoustics allows reflection paths to diffract. The room Geometry in this demo can change texture and be scaled in size demonstrating the adaptability of the Geometry API.</p>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="spatial_audio_apigeometry_er_split_000.html">Using the Geometry API for Simulating Early Reflections</a></li>
+<li class="calibre9"><a class="pcalibre el" href="spatial_audio_apigeometry_diffract_split_009.html#spatial_audio_apigeometry_diffract_er">Geometric Diffraction of Early Reflections</a></li>
+</ul>
+</dd></dl>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="integrationdemo_demos_spatialaudio_portalandreflect"></a>
+Portal and Reflect Demo</h3>
+<p class="calibre7">This demo showcases the Reflect plug-in within the context of Rooms and Portals. There are five Rooms, connected by Portals that can be toggled open or closed, some additional walls defined by Wwise Acoustics Geometry, and visible reflection paths.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="integrationdemo_demos_spatialaudio_reverbzone"></a>
+Reverb Zone Demo</h3>
+<p class="calibre7">This demo demonstrates the use of a Reverb Zone to create a space that has its own reverb effect and transitions into the outside Room without the use of Portals. There is a Room with a Portal that connects to a Reverb Zone, forming something like a covered balcony. The Reverb Zone's parent is the outdoor Room. There is also Geometry outside to show how paths can diffract around geometry, pass through the transparent surfaces of the Reverb Zone, and then continue through portals.</p>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="spatial_audio_roomsportals_reverbzones_split_000.html">Using Reverb Zones</a></li>
+</ul>
+</dd></dl>
+</div></div></div></body></html>

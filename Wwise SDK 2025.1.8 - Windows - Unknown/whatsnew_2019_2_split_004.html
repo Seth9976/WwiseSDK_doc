@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2019.2</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="behavior_changes_2019_2"></a>
+Behavior Changes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-40568</b> Seeks are now performed without a seek table in Vorbis by default. If a seek table is not provided, Wwise decodes from the start of the file to the seek point. For anything but small files, it is highly recommend to still include a seek table. A warning is displayed when performing a seek operation within larger Vorbis files without a seek table.</li>
+<li class="calibre9"><b class="calibre13">WG-41425</b> The plug-in development tools now require the -x flag when building for Wwise Authoring, since plug-ins can now target either vc_140, vc_150 (vc_141) or vc_160 (vc_142). They were previously restricted to vc_140. The development tools now detect Visual Studio installations with compatibility build tools as potential candidates to build plug-ins.</li>
+<li class="calibre9"><b class="calibre13">WG-42182</b> (WAAPI) Calling WAAPI functions with invalid arguments or options now provides more details in the error message, including inline documentation, and better formatting of error messages.</li>
+<li class="calibre9"><b class="calibre13">WG-42469</b> Changed several things regarding media asset ID assignments: Added undo-redo operations to ensure assignments remain consistent. Moved MediaIDs to their own space; value space is no longer shared with other types of assets. Changed the algorithm used for assigning MediaID values. Changed Work Unit tags for MediaID values from <code class="calibre14">&lt;ConvertedFileIDList&gt;</code> to <code class="calibre14">&lt;MediaIDList&gt;</code>.</li>
+<li class="calibre9"><b class="calibre13">WG-42853</b> Fixed: Previous default shortcut for View Settings did not work on "undocked" views. The default shortcut: Ctrl+Alt+V, has been changed for: Ctrl+Alt+H.</li>
+<li class="calibre9"><b class="calibre13">WG-43056</b> Fixed: Containers with trigger-rate transitions could play out-of-sync when placed inside containers with sample-accurate transitions.</li>
+<li class="calibre9"><b class="calibre13">WG-43643</b> The ID of a State Group's None State is no longer 0.  The None State's ID is now specified in Wwise_IDs.h.</li>
+<li class="calibre9"><b class="calibre13">WG-43897</b> Profiler Settings: Increased maximum memory usage limit from 4000 MB to 32000 MB.</li>
+<li class="calibre9"><b class="calibre13">WG-44440</b> HDR is now disabled on a voice's sends if its dry signal does not pass through an HDR bus.</li>
+<li class="calibre9"><b class="calibre13">WG-44680</b> (WAAPI) "Object ID is unknown" error message now have more information about the ID or the path you where trying to find.</li>
+<li class="calibre9"><b class="calibre13">WG-44707</b> Added dB level to the image sources list, in the Wwise Reflect UI.</li>
+<li class="calibre9"><b class="calibre13">WG-47232</b> Native ambisonics decoding to stereo is now completely symmetrical regardless of whether sounds come from the front or the back. Previously, sounds coming exclusively from the back were silenced.</li>
+</ul>
+</div></div></div></body></html>

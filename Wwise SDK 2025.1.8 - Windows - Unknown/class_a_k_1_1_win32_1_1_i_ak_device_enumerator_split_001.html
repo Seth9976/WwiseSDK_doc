@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::Win32::IAkDeviceEnumerator Class Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table class="calibre3">
+<tbody class="calibre4"><tr class="calibre16"><td colspan="2" class="calibre17"><h2 class="calibre21" id="calibre_pb_0"><a class="pcalibre1 anchor" id="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="calibre16"><td class="memitemleft">virtual <a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> </td><td class="memitemright"><a class="pcalibre el" href="class_a_k_1_1_win32_1_1_i_ak_device_enumerator_a9b7278f8a2a09c316f6cd5b81ada4729_split_000.html#a9b7278f8a2a09c316f6cd5b81ada4729">Count</a> ()=0</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">virtual <a class="pcalibre el" href="class_a_k_1_1_win32_1_1_device_split_000.html">Device</a> </td><td class="memitemright"><a class="pcalibre el" href="class_a_k_1_1_win32_1_1_i_ak_device_enumerator_a6a443d52805294631082cd2665b9c5ce_split_000.html#a6a443d52805294631082cd2665b9c5ce">Item</a> (<a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> in_idx)=0</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Returns the number of devices. This function can block.  <a href="class_a_k_1_1_win32_1_1_i_ak_device_enumerator_a6a443d52805294631082cd2665b9c5ce_split_000.html#a6a443d52805294631082cd2665b9c5ce" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">virtual void </td><td class="memitemright"><a class="pcalibre el" href="class_a_k_1_1_win32_1_1_i_ak_device_enumerator_a146f625398ae22a3537b46d2a483ba49_split_000.html#a146f625398ae22a3537b46d2a483ba49">Lock</a> ()=0</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Gets item in_idx from the cache. Must be smaller than <a class="pcalibre el" href="class_a_k_1_1_win32_1_1_i_ak_device_enumerator_a9b7278f8a2a09c316f6cd5b81ada4729_split_000.html#a9b7278f8a2a09c316f6cd5b81ada4729">Count()</a>. This function can block.  <a href="class_a_k_1_1_win32_1_1_i_ak_device_enumerator_a146f625398ae22a3537b46d2a483ba49_split_000.html#a146f625398ae22a3537b46d2a483ba49" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">virtual void </td><td class="memitemright"><a class="pcalibre el" href="class_a_k_1_1_win32_1_1_i_ak_device_enumerator_ab3a1ff037874797d19317cbc721b4b54_split_000.html#ab3a1ff037874797d19317cbc721b4b54">Unlock</a> ()=0</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">For thread safety. If you iterate through all the devices, lock the enumerator to avoid changes. However, if only accessing one single item, <a class="pcalibre el" href="class_a_k_1_1_win32_1_1_i_ak_device_enumerator_a6a443d52805294631082cd2665b9c5ce_split_000.html#a6a443d52805294631082cd2665b9c5ce" title="Returns the number of devices. This function can block.">Item()</a> is thread safe in itself.  <a href="class_a_k_1_1_win32_1_1_i_ak_device_enumerator_ab3a1ff037874797d19317cbc721b4b54_split_000.html#ab3a1ff037874797d19317cbc721b4b54" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">virtual <a class="pcalibre el" href="class_a_k_1_1_win32_1_1_device_split_000.html">Device</a> </td><td class="memitemright"><a class="pcalibre el" href="class_a_k_1_1_win32_1_1_i_ak_device_enumerator_aa032b287d13fa630155d686c01c2f82e_split_000.html#aa032b287d13fa630155d686c01c2f82e">FindDevice</a> (<a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> in_id)=0</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">For thread safety. See <a class="pcalibre el" href="class_a_k_1_1_win32_1_1_i_ak_device_enumerator_a146f625398ae22a3537b46d2a483ba49_split_000.html#a146f625398ae22a3537b46d2a483ba49">Lock()</a>  <a href="class_a_k_1_1_win32_1_1_i_ak_device_enumerator_aa032b287d13fa630155d686c01c2f82e_split_000.html#aa032b287d13fa630155d686c01c2f82e" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+</tbody></table>
+<a id="details" class="pcalibre calibre12"></a></div></body></html>

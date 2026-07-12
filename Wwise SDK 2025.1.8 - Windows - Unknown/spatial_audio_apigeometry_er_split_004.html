@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Using the Geometry API for Simulating Early Reflections</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_3"><a class="pcalibre1 anchor" id="spatial_audio_wwiseprojectsetup_auxbusdesign"></a>
+Auxiliary bus design</h2>
+<p class="calibre7">Typically, different Auxiliary Busses are used to represent different environments, and these busses may host different reverb ShareSets that emulate the reverberating characteristics of these environments. When using dynamic ER, such as those processed by <a href="https://www.audiokinetic.com/library/edge/?source=Help&amp;id=wwise_reflect_plug_in_effect" target="_blank" class="pcalibre calibre12">Reflect</a> under Acoustics, late reverberation may still be designed using reverbs on Auxiliary Busses. However, you may want to disable the ER section of these reverbs (if applicable), as this should be taken care of by Reflect.</p>
+<p class="calibre7">On the other hand, Reflect should run in parallel with the aux busses used for the late reverberation. The figure below shows a typical bus structure, where the three Auxiliary Busses under the <em class="calibre11">EarlyReflections</em> bus each contain a different ShareSet of Reflect. You will note that in this design, we only use a handful of ShareSets for generating early reflections. This is motivated by the fact that the "spatial aspect" of this Effect is driven by the game geometry at runtime. We only use different ShareSets here because we want different attenuation curves for sounds emitted by the player (listener) than those emitted by other objects. Using Reflect's simplified mode can also reduce the number of Reflect ShareSets needed. You can read more about it in the <a href="https://www.audiokinetic.com/library/edge/?source=Help&amp;id=wwise_reflect_plug_in_effect#reflect_intended" target="_blank" class="pcalibre calibre12">Intended Reflect Workflow</a>.</p>
+<div class="calibre2">
+<img alt="" src="auxbus_hierarchy.png" class="inline"/>
+</div>
+</div></div></div></body></html>

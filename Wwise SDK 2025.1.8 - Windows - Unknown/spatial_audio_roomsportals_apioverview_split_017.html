@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Rooms and Portals Overview</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_16"><a class="pcalibre1 anchor" id="spatial_audio_roomsportals_spreadfinalspread"></a>
+Spread Calculation Summary</h2>
+<p class="calibre7">For a given sound position and listener pair, the final spread value is calculated as follows:</p><ul class="calibre8">
+<li class="calibre9">The sound's spread curve is evaluated at the distance between the sound position and the listener.</li>
+<li class="calibre9">If no spread curve exists, the spread value is determined by the game object's radius (see <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_a8c2e8f50769b6ae29dcbcb636e9c33f2_split_000.html#a8c2e8f50769b6ae29dcbcb636e9c33f2">AK::SpatialAudio::SetGameObjectRadius</a></code>). If no radius is given, and no spread curve is defined, the spread is 0%.</li>
+<li class="calibre9">The sound's Aperture value is calculated from all Portals in the sound position's path. Multiple Portal Apertures are combined by using the minimum value.</li>
+<li class="calibre9">The sound's spread (originating from the spread curve or the Game Object's Spread) and Aperture are combined by using the lesser of the two. This is the final spread value passed to the panner in the sound engine.</li>
+</ul>
+</div></div></div></body></html>

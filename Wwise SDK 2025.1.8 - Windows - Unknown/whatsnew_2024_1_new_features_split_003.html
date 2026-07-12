@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>New Features Overview 2024.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_2"><a class="pcalibre1 anchor" id="features_24_1_ux_editing_workflow"></a>
+Editing Workflow Enhancements</h2>
+<p class="calibre7">In Wwise 2022.1 Object Tabs were introduced. Object tabs provide contextual navigation to the Project Explorer, and also present properties and default editors within a tab-based experience common to many other applications. Although this change made it easier to access the default editors, the position of these editors remained mostly the same, while the new secondary editor improved accessibility. Wwise 2024.1 includes additional improvements to the editing process.</p>
+<div class="calibre2">
+<img alt="" src="obj_editor_new_light.png" class="inline"/>
+</div>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="features_24_1_ux_object_editors"></a>
+Primary Editor: Default Object Editors</h3>
+<p class="calibre7">In 2024.1, the location of objects' default editors has been standardized as part of the primary editor, which displays object behavior in a prominent, central location.</p>
+<div class="calibre2">
+<img alt="" src="obj_editors_centerfocus_light.png" class="inline"/>
+</div>
+<p class="calibre7">As part of this change, some properties have been moved to new places in the user interface, including major changes to the following object editors:</p>
+<ul class="calibre8">
+<li class="calibre9">Random Container Editor <div class="calibre2">
+<img alt="" src="obj_editor_randomcontainer_light.png" class="inline"/>
+</div>
+</li>
+<li class="calibre9">Sequence Container Editor (Playlist) <div class="calibre2">
+<img alt="" src="obj_editor_sequencecontainer_light.png" class="inline"/>
+</div>
+</li>
+<li class="calibre9">Switch Container <div class="calibre2">
+<img alt="" src="obj_editor_switchcontainer_light.png" class="inline"/>
+</div>
+</li>
+</ul>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="features_24_1_ux_pop_out"></a>
+Primary and Secondary Editors: Maximize and Pop-Out</h3>
+<p class="calibre7">Icons to maximize or pop out either the Primary or Secondary Editor have been added.</p>
+<div class="calibre2">
+<img alt="" src="ico_tab_maximize_popout_light.png" class="inline"/>
+</div>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="features_24_1_ux_contents_editor"></a>
+Secondary Editor: Contents Editor</h3>
+<p class="calibre7">The presentation of properties in the Contents Editor has been updated to reduce redundancy.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="features_24_1_ux_property_editor"></a>
+Property Editor Enhancements</h3>
+<p class="calibre7">The Property Editor has been redesigned and now has a vertical layout, which provides a familiar yet enhanced experience.</p>
+<p class="calibre7"><b class="calibre13">Property Editor: Property Category Visibility</b></p>
+<p class="calibre7">As part of this change, you can customize property category visibility within the Property Editor to support different editing workflows. You can therefore preserve the layout of the Property Categories you're familiar with, or use a new type of organization as desired.</p>
+<div class="calibre2">
+<img alt="" src="view_propertyeditor_categories_expanded_light.png" class="inline"/>
+</div>
+<p class="calibre7"><b class="calibre13">Property Editor: Additional Features</b></p>
+<div class="calibre2">
+<img alt="" src="property_editor_annotated.png" class="inline"/>
+</div>
+<table border="1" cellpadding="1" cellspacing="0" width="800px" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td width="50px" class="calibre17"><div class="calibre2">
+<img alt="" src="callout1.png" class="inline"/>
+</div>
+ </td><td width="750px" class="calibre17"><b class="calibre13">Expand/Collapse Property Editor</b>: Collapse the Property Editor to make more space for the Primary and Secondary Editors. This is particularly useful when graphs and curves are displayed in those editors.  </td></tr>
+<tr class="calibre16">
+<td class="calibre17"><div class="calibre2">
+<img alt="" src="callout2.png" class="inline"/>
+</div>
+ </td><td class="calibre17"><b class="calibre13">Search Text Filter</b>: Type a property name to filter the list below. For example, type "pitch" to hide all properties in the list except those that contain the word "pitch".  </td></tr>
+<tr class="calibre16">
+<td width="50px" class="calibre17"><div class="calibre2">
+<img alt="" src="callout3.png" class="inline"/>
+</div>
+ </td><td width="750px" class="calibre17"><b class="calibre13">Only Show Modified</b>: Select to see only properties that have been changed from their default value. These properties are displayed with an orange band.  </td></tr>
+<tr class="calibre16">
+<td class="calibre17"><div class="calibre2">
+<img alt="" src="callout4.png" class="inline"/>
+</div>
+ </td><td class="calibre17"><b class="calibre13">Category Filters</b>: Select a category filter to display all properties in that category. Ctrl+click to select multiple category filters, or select <b class="calibre13">All</b> to see all properties.  </td></tr>
+<tr class="calibre16">
+<td width="50px" class="calibre17"><div class="calibre2">
+<img alt="" src="callout5.png" class="inline"/>
+</div>
+ </td><td width="750px" class="calibre17"><b class="calibre13">Show/Hide Category Filters</b>: Deselect categories in this list to remove their category filter. Select <b class="calibre13">Configure Favorites</b> to open a dialog where you can choose from all possible properties, or right-click any property in the Property Editor and select <b class="calibre13">Add to Favorites</b>. After you configure some favorites, the favorites category filter appears (6).  </td></tr>
+<tr class="calibre16">
+<td class="calibre17"><div class="calibre2">
+<img alt="" src="callout6.png" class="inline"/>
+</div>
+ </td><td class="calibre17"><b class="calibre13">Favorites</b>: Select to display all favorites.  </td></tr>
+<tr class="calibre16">
+<td width="50px" class="calibre17"><div class="calibre2">
+<img alt="" src="callout7.png" class="inline"/>
+</div>
+ </td><td width="750px" class="calibre17"><b class="calibre13">Category Expand/Collapse</b>: Click the arrows to expand or collapse categories or groups within the list of properties.  </td></tr>
+<tr class="calibre16">
+<td class="calibre17"><div class="calibre2">
+<img alt="" src="callout8.png" class="inline"/>
+</div>
+ </td><td class="calibre17"><b class="calibre13">More Options</b>: Use these options to quickly expand or collapse all categories and groups or to return to the default state.  </td></tr>
+</tbody></table>
+<p class="calibre7">For more information, see <a href="https://audiokinetic.com/library/edge/?source=Help&amp;id=getting_to_know_property_editor" target="_blank" class="pcalibre calibre12">Getting to know the Property Editor</a>.</p>
+</div></div></div></body></html>

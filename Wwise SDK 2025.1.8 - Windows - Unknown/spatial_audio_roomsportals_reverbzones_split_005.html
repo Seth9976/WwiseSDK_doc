@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Using Reverb Zones</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_4"><a class="pcalibre1 anchor" id="spatial_audio_roomsportals_reverbzones_transmissionloss"></a>
+Transmission Loss</h2>
+<p class="calibre7">Normally, a diffraction path never carries transmission loss because only a transmission path can pass through a surface. With Reverb Zones, there are exceptions for the wet path and for room tones, if a diffraction path passes through the transition region of a Reverb Zone with <code class="calibre14"><a class="pcalibre el" href="struct_ak_room_params_a9ab66218e7be0c8bf5d60060bded14a0_split_000.html#a9ab66218e7be0c8bf5d60060bded14a0">AkRoomParams::TransmissionLoss</a></code> higher than 0. When this happens, it's possible for different paths from the same room to have different amounts of transmission loss. This can be seen in the Voice Inspector:</p>
+<div class="calibre2">
+<img alt="" src="reverbzones_tlondiffraction_voiceinspector.png" class="inline"/>
+</div>
+<p class="calibre7">In this example of a room tone, there is a transmission path directly from the room to the listener. There is also a path diffracting through a portal. Each path carries a different amount of transmission loss.</p>
+<p class="calibre7">Transmission on the direct transmission path is calculated as described in <a class="pcalibre el" href="spatial_audio_roomsportals_paths_split_002.html#spatial_audio_roomsportals_paths_direct">Emitter-Listener (Direct) Connection</a>, as the max of the listener's room and the emitter's room transmission loss. When those rooms are part of different Reverb Zone hierarchies, then transmission loss will be the max of both room and their parents.</p>
+<p class="calibre7">On a diffraction path, whenever a path crosses a transition region, the transmission loss of the child room applies (as specified by <code class="calibre14"><a class="pcalibre el" href="struct_ak_room_params_a9ab66218e7be0c8bf5d60060bded14a0_split_000.html#a9ab66218e7be0c8bf5d60060bded14a0">AkRoomParams::TransmissionLoss</a></code>), with the final transmission loss being the max of the values found along the path.</p>
+</div></div></div></body></html>

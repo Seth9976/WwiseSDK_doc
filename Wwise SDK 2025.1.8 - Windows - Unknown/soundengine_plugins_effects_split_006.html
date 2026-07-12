@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Sound Engine Effect Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_5"><a class="pcalibre1 anchor" id="fx_tails"></a>
+Implementing Effect Plug-in Tails</h2>
+<p class="calibre7">Some effects have an internal state that must be output after the input is finished playing to decay out properly (most notably effects with delay lines). The effect API makes it possible to continue the execution even without any valid input data. When the eState flag of the <a class="pcalibre el" href="class_ak_audio_buffer_split_000.html">AkAudioBuffer</a> structure becomes AK_NoMoreData, the pipeline will no longer feed valid incoming sample frames to the plug-in after the current execution. The plug-in is then free to write new (subsequent) frames in the buffer (up to the value returned by MaxFrames()) to allow emptying delay lines after the input signal is finished. The audio pipeline should always be told how many frames have been output by properly updating the uValidFrames field. If the plug-in Execute() function needs to be called again to finish flushing the effect tail, the eState member should be set to AK_DataReady. The pipeline will stop calling the plug-in Execute() only when the effect has set AK_NoMoreData for the eState field.</p>
+<p class="calibre7">The easiest way to handle tails is to use the <a class="pcalibre el" href="class_ak_f_x_tail_handler_split_000.html">AkFXTailHandler</a> service class provided in the SDK. With an instance of the <a class="pcalibre el" href="class_ak_f_x_tail_handler_split_000.html">AkFXTailHandler</a> held as a class member for your plug-in, all you need to do within an in-place effect is to call <a class="pcalibre el" href="class_ak_f_x_tail_handler_a3a33b37c47bbcda9fdaac7294cba3bcd_split_000.html#a3a33b37c47bbcda9fdaac7294cba3bcd" title="Handle FX tail and zero pads AkAudioBuffer if necessary.">AkFXTailHandler::HandleTail()</a> and pass it the <a class="pcalibre el" href="class_ak_audio_buffer_split_000.html">AkAudioBuffer</a> and the total number of audio samples to output once the output will be finished (which may change from one execution to the other based on a parameter). Refer to the AkDelay plugin source code for details (<a class="pcalibre el" href="samplecode_split_000.html">Samples</a>).</p>
+<p class="calibre7"><a class="pcalibre calibre12" id="iakeffectplugin_execnotes"></a></p><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><p class="starttd"><b class="calibre13">Note:</b> <b class="calibre13">Important Notes for Executing Effect Plug-ins</b></p>
+<ul class="calibre8">
+<li class="calibre9">When a plug-in is used in Wwise, parameter changes are sent down to the parameter node whether or not the parameter supports RTPCs. This allows the plug-in to support runtime value changes of non-RTPC values if desired for Wwise usage. If you do not want your plug-in to support this, you should make a copy of the parameter values at initialization time to ensure they remain the same throughout the plug-in's duration.</li>
+<li class="calibre9">A plug-in should handle several channel configurations (at least mono, stereo and 5.1 if it can be inserted on busses) or return AK_UnsupportedChannelConfig at inialization time. </li>
+</ul>
+</td></tr>
+</tbody></table>
+</div></div></div></body></html>

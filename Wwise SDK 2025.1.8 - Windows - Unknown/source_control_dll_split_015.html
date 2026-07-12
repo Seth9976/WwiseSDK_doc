@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Source Control Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_14"><a class="pcalibre1 anchor" id="source_control_dll_creation_object_contextual"></a>
+Exposing your Plug-in in Contextual Menus</h2>
+<p class="calibre7">When Wwise displays a contextual menu that includes source control operations, it needs the list of all operations that are available in a specific context. To get this list, Wwise calls the <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_ad7820c108e50155039c92223eff718f3_split_000.html#ad7820c108e50155039c92223eff718f3">AK::Wwise::ISourceControl::GetOperationList( OperationMenuType in_menuType, const StringList&amp; in_rFilenameList, OperationList&amp; out_rOperationList )</a> method. The first parameter is the context in which the operation list will be displayed. Depending on this context, some plug-ins could restrict the user to specific operations. The second parameter is the list of file names that the user has selected. This can be used to enable or disable some operations depending on the status of the files. The third parameter is the list of operations available in the current context. This list of operations must be filled by the plug-in. The information about the operations contained in this list is used to fill the contextual menu and to call back the plug-in with the ID of the operation. There are no restrictions on either IDs.</p>
+<p class="calibre7">Wwise calls the virtual LPCWSTR GetOperationName( DWORD in_dwOperationID ) method to obtain the operation name for displaying in menus and dialogs.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="warning.gif"/></td><td class="calibre17"><b class="calibre13">Warning:</b> Wwise will not delete the memory occupied by the operation name's string. We therefore recommend you create static strings that are created and destroyed at the same time as the plug-in instance. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

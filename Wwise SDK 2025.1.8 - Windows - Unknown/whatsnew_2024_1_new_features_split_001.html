@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>New Features Overview 2024.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="features_24_1_ux"></a>
+User Experience</h1>
+<h2 class="calibre31"><a class="pcalibre1 anchor" id="features_24_1_ux_media_transfer"></a>
+Live Media Transfer</h2>
+<p class="calibre7">When iterating on sounds, you typically render sound files in a digital audio workstation (DAW), then copy the rendered files to the Wwise <code class="calibre14">Originals</code> folder and replace any earlier versions. You can now update media while Wwise is connected to a game engine and hear the new files play in game in without regenerating SoundBanks. You can do this type of Live Media Transfer for audio sources, impulse response files used by the AK Convolution plug-in, and MIDI. You can also create new Sound SFX and Music Segments as usual, such as through the Audio File Importer or by dragging WAV files into the Project Explorer.</p>
+<div class="calibre2">
+<img alt="" src="livemediatransfer.png" class="inline"/>
+</div>
+<p class="calibre7">New and modified media files do not replace files on disk or in the game's packages, but instead stay in memory until you exit the game. Only the media that has been added to or modified in the Wwise project and is currently in use by the game is transferred.</p>
+<p class="calibre7">See <a href="https://www.audiokinetic.com/library/edge/?source=Help&amp;id=user_preferences" target="_blank" class="pcalibre calibre12">User Preferences</a> for details on controlling the amount of memory dedicated to this feature and tracking memory usage.</p>
+</div></div></div></body></html>

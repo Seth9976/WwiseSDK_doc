@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Testing Audio Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_27"><a class="pcalibre1 anchor" id="plugin_tests_in_game_tests"></a>
+In-Game Tests</h1>
+<p class="calibre7">Testing your plug-in in-game is required to cover areas that can't be tested in Wwise, such as: </p><ul class="calibre8">
+<li class="calibre9">
+Code running on other platforms: PS4, Xbox One, and so on </li>
+<li class="calibre9">
+SoundBank generating/loading of plug-in parameters </li>
+<li class="calibre9">
+Rendered effects </li>
+<li class="calibre9">
+Environmental effects </li>
+</ul>
+<p class="calibre7">To facilitate in-game testing, the Game Simulator can be used to build test scripts. Here are the steps required to make a script and run it in the Game Simulator. </p><ol class="calibre26">
+<li class="calibre9">
+In your project: <ol class="calibre41">
+<li class="calibre9">
+Create a SoundBank </li>
+<li class="calibre9">
+Create an event that plays your Sound </li>
+<li class="calibre9">
+Add your event to the SoundBank </li>
+<li class="calibre9">
+Generate your SoundBank </li>
+</ol>
+</li>
+<li class="calibre9">
+Install the Game Simulator (must be the same version of Wwise that you are using)  </li>
+<li class="calibre9">
+Make a copy of AkSampleNoCoroutines.lua or AkSampleWithCoroutines.lua from the Scripts folder in the Game Simulator install directory.  </li>
+<li class="calibre9">
+Modify the lua script so it loads your own bank, and plays your event.  </li>
+<li class="calibre9">
+Run the lua script by using the appropriate Game Simulator, on the selected platform. </li>
+</ol>
+</div></div></div></body></html>

@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2022.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_21"><a class="pcalibre1 anchor" id="akarray_trivial_copy"></a>
+AkArray Move Policy</h1>
+<p class="calibre7"><code class="calibre14"><a class="pcalibre el" href="class_ak_array_a1bf66764d17c04dacf18952acf22af0f_split_000.html#a1bf66764d17c04dacf18952acf22af0f">AkArray::Insert</a></code> and <code class="calibre14"><a class="pcalibre el" href="class_ak_array_a83b57b37e09eddbe82c3bf75c32ef6c7_split_000.html#a83b57b37e09eddbe82c3bf75c32ef6c7" title="Erase the specified iterator from the array.">AkArray::Erase</a></code> now use memmove when <code class="calibre14">TMovePolicy::IsTrivial()</code> is true. That is, both functions now assume that a trivial move policy means that items are trivially relocatable. This assumption was already made in the case of <code class="calibre14"><a class="pcalibre el" href="class_ak_array_a12d3d7f19cbe16983ceba659b6ec6474_split_000.html#a12d3d7f19cbe16983ceba659b6ec6474">AkArray::GrowArray</a></code>.</p>
+</div></div></div></body></html>

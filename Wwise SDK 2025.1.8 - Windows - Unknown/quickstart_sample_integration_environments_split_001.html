@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Quick Start Sample Integration - Environments and Game-defined Auxiliary Sends</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2"><h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="quickstart_sample_integration_environments_example_effect"></a>
+Environmental Effect Example</h1>
+<p class="calibre7">First the user must create Auxiliary busses in the Wwise project that will represent the environments, one aux bus per environment. The option "Use game-defined auxiliary sends" must have been set in the object properties or in the object it inherits its properties from for sounds that should use this feature. For the game to use these parameter sets, the effect in question must be registered in the sound engine. You do this in exactly the same way you register other effect plug-ins (see <a class="pcalibre el" href="quickstart_sample_integration_plugins_split_001.html#soundengine_integration_effects">Plug-in Example</a> for more details), as demonstrated in the following example:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="pcalibre code" href="_ak_sound_engine_8h_split_000.html">AK/SoundEngine/Common/AkSoundEngine.h</a>&gt;</span>                <span class="comment">// Sound Engine</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="pcalibre code" href="_ak_room_verb_f_x_factory_8h_split_000.html">AK/Plugin/AkRoomVerbFXFactory.h</a>&gt;</span>                      <span class="comment">// Effect initialization functions</span></div>
+<div class="line"> </div>
+<div class="line">(...)</div>
+<div class="line">AK::InitAkRoomVerbFX(<a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a3fa34f66e9111147d8c4c0f5ba1f2175_split_000.html#a3fa34f66e9111147d8c4c0f5ba1f2175">AK::SoundEngine::GetGlobalPluginContext</a>());</div>
+</div><!-- fragment --><p class="calibre7">To allow the initialization functions to be found at link time, your C++ project must link with the appropriate plug-in library. Refer to <a class="pcalibre el" href="libraries_split_000.html">Overview of Libraries and Header Files Contained in the SDK</a> for more information on libraries.</p>
+<div class="fragment"><div class="line"><span class="comment">// In this example we hardcode the 3 values for Dry, Hangar, and Tunnel. In</span></div>
+<div class="line"><span class="comment">// a game you would compute these values based on the game object's position</span></div>
+<div class="line"><span class="comment">// in its environment.</span></div>
+<div class="line"><a class="pcalibre code" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a> nDryRatio      = 0.5f;</div>
+<div class="line"><a class="pcalibre code" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a> nHangarRatio   = 0.25f;</div>
+<div class="line"><a class="pcalibre code" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a> nTunnelRatio   = 0.25f;</div>
+<div class="line"> </div>
+<div class="line"><a class="pcalibre code" href="struct_ak_aux_send_value_split_000.html">AkAuxSendValue</a> aEnvs[2];</div>
+<div class="line">aEnvs[0].<a class="pcalibre code" href="struct_ak_aux_send_value_a185a87e879e5a602446b07252bdd8519_split_000.html#a185a87e879e5a602446b07252bdd8519">listenerID</a> = <a class="pcalibre code" href="_ak_constants_8h_a82290a98a9cf7901722a69a590aeee34_split_000.html#a82290a98a9cf7901722a69a590aeee34">AK_INVALID_GAME_OBJECT</a>; <span class="comment">// Use the same set of listeners assigned via the SetListeners/SetDefaultListeners API.</span></div>
+<div class="line">aEnvs[0].<a class="pcalibre code" href="struct_ak_aux_send_value_a985acf05c92308c7569dd4a91a3e4256_split_000.html#a985acf05c92308c7569dd4a91a3e4256">auxBusID</a> = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a1aae6ebdec25946fb2897ce0e025366d_split_000.html#a1aae6ebdec25946fb2897ce0e025366d">AK::SoundEngine::GetIDFromString</a>( L<span class="stringliteral">"Hangar"</span> );</div>
+<div class="line">aEnvs[0].<a class="pcalibre code" href="struct_ak_aux_send_value_a1e3fe0e1490d0e15af8a46d8ab4078f4_split_000.html#a1e3fe0e1490d0e15af8a46d8ab4078f4">fControlValue</a> = nHangarRatio;</div>
+<div class="line">aEnvs[1].<a class="pcalibre code" href="struct_ak_aux_send_value_a185a87e879e5a602446b07252bdd8519_split_000.html#a185a87e879e5a602446b07252bdd8519">listenerID</a> = <a class="pcalibre code" href="_ak_constants_8h_a82290a98a9cf7901722a69a590aeee34_split_000.html#a82290a98a9cf7901722a69a590aeee34">AK_INVALID_GAME_OBJECT</a>; <span class="comment">// Use the same set of listeners assigned via the SetListeners/SetDefaultListeners API.</span></div>
+<div class="line">aEnvs[1].<a class="pcalibre code" href="struct_ak_aux_send_value_a985acf05c92308c7569dd4a91a3e4256_split_000.html#a985acf05c92308c7569dd4a91a3e4256">auxBusID</a> = <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a1aae6ebdec25946fb2897ce0e025366d_split_000.html#a1aae6ebdec25946fb2897ce0e025366d">AK::SoundEngine::GetIDFromString</a>( L<span class="stringliteral">"Tunnel"</span> );</div>
+<div class="line">aEnvs[1].<a class="pcalibre code" href="struct_ak_aux_send_value_a1e3fe0e1490d0e15af8a46d8ab4078f4_split_000.html#a1e3fe0e1490d0e15af8a46d8ab4078f4">fControlValue</a> = nTunnelRatio;</div>
+<div class="line"> </div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_adf1401ce64872af26cdff05b36e98161_split_000.html#adf1401ce64872af26cdff05b36e98161">AK::SoundEngine::SetGameObjectOutputBusVolume</a>( GAME_OBJECT_ID_HUMAN, nDryRatio );</div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_af960fca0239e219b9d08c2659fe9e5d4_split_000.html#af960fca0239e219b9d08c2659fe9e5d4">AK::SoundEngine::SetGameObjectAuxSendValues</a>( GAME_OBJECT_ID_HUMAN, aEnvs, 2 );</div>
+</div><!-- fragment --><p class="calibre7">Refer to <a class="pcalibre el" href="soundengine_environments_split_000.html">Integration Details - Environments and Game-defined Auxiliary Sends</a> for information on the meaning of these ratios.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> The names passed to <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a1aae6ebdec25946fb2897ce0e025366d_split_000.html#a1aae6ebdec25946fb2897ce0e025366d">AK::SoundEngine::GetIDFromString()</a> are the names of the Auxiliary busses as defined in Wwise. Refer to <a class="pcalibre el" href="soundengine_environments_split_002.html#soundengine_environments_id_vs_string">Using IDs or Strings (Unicode or ANSI)</a> for more information. </td></tr>
+</tbody></table>
+<p class="calibre7">In the sample program you can experiment with Environments by moving the first three sliders in the "Environments: Footsteps" group, which let you set the ratio (0% on the left, to 100% on the right) for Dry, Hangar, and Tunnel environments.</p>
+<p class="calibre7">Refer to <a class="pcalibre el" href="soundengine_environments_split_000.html">Integration Details - Environments and Game-defined Auxiliary Sends</a> for more details, and to <a class="pcalibre el" href="soundengine_integration_samplecode_split_000.html">Integration Demo Sample</a> for the sample project.</p>
+</div></div></div></body></html>

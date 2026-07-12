@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2021.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_17"><a class="pcalibre1 anchor" id="misc_api_changes"></a>
+Miscellaneous API Changes</h1>
+<p class="calibre7">Some unused platform-specific alignment defines have been removed:</p><ul class="calibre8">
+<li class="calibre9">AK_ALIGN</li>
+<li class="calibre9">AK_ALIGN_DMA</li>
+<li class="calibre9">AK_ALIGN_FASTDMA</li>
+<li class="calibre9">AK_ALIGN_SIZE_FOR_DMA</li>
+<li class="calibre9">AK_OS_STRUCT_ALIGNED</li>
+<li class="calibre9">AK_64B_OS_STRUCT_ALIGNED</li>
+</ul>
+<p class="calibre7">AK/SoundEngine/Platforms/Android/AkAndroidSoundEngine.h:</p><ul class="calibre8">
+<li class="calibre9">Unused AkPlatformInitSettings::uChannelMask has been removed.</li>
+</ul>
+<p class="calibre7"><a class="pcalibre el" href="_i_ak_plugin_8h_split_000.html">AK/SoundEngine/Common/IAkPlugin.h</a>:</p>
+<ul class="calibre8">
+<li class="calibre9">IAkEffectPluginContext::GetNodeID(), IAkSourcePluginContext::GetNodeID(), and IAkMixerPluginContext::GetBusID() have been replaced with <code class="calibre14">IAkPluginContextBase::GetAudioNodeID()</code>.</li>
+<li class="calibre9">IAkMixerInputContext::GetAudioNodeID has been removed.</li>
+<li class="calibre9">IAkGlobalPluginContext::MixNinNChannels, Mix1inNChannels, MixChannel were moved to a plug-in service: <code class="calibre14">IAkPluginServiceMixer</code> (<code class="calibre14">IAkPluginService</code> of type <code class="calibre14">PluginServiceType_Mixer</code>).</li>
+</ul>
+<p class="calibre7"><a class="pcalibre el" href="_ak_speaker_config_8h_split_000.html">AK/SoundEngine/Common/AkSpeakerConfig.h</a>: <a class="pcalibre el" href="_ak_common_defs_8h_split_000.html">AK/SoundEngine/Common/AkCommonDefs.h</a>:</p>
+<ul class="calibre8">
+<li class="calibre9">AkChannelConfig::IsChannelConfigSupported() has been removed.</li>
+<li class="calibre9">AkAudioFormat::IsChannelConfigSupported has been removed.</li>
+</ul>
+<p class="calibre7">AK/Wwise/Utilities.h:</p><ul class="calibre8">
+<li class="calibre9">AK::Wwise::IWriteData::WritePascalString has been deprecated in favor of AK::Wwise::IWriteData::WriteUtf16String</li>
+</ul>
+</div></div></div></body></html>

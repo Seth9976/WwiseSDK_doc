@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK.Wwise::Plugin::V1::PropertySetBase::SetValue</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_property_set_base_a0ad377dfbc2d0fe2d76d25637a1da659_split_000.html#a0ad377dfbc2d0fe2d76d25637a1da659" class="pcalibre1 anchor">◆ </a></span>SetValue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename CHostPropertySetT  = CHostPropertySet, int interface_version = 1&gt; </div>
+<table class="calibre3">
+  <tbody class="calibre4"><tr class="calibre16">
+  <td class="calibre17">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">bool <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_property_set_base_split_000.html">AK.Wwise::Plugin::V1::PropertySetBase</a>&lt; CHostPropertySetT, interface_version &gt;::SetValue </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype">const GUID &amp; </td>
+          <td class="paramname"><em class="calibre59">in_guidPlatform</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">const char * </td>
+          <td class="paramname"><em class="calibre59">in_pszPropertyName</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">const AK::WwiseAuthoringAPI::AkVariantBase &amp; </td>
+          <td class="paramname"><em class="calibre59">in_varProperty</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="calibre17">
+<span><span>inline</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+
+<p class="calibre7">Modifies the value of a specific property as a variant. </p>
+<p class="calibre7">Updates the property <code class="calibre14">in_pszPropertyName</code> to contain <code class="calibre14">in_varProperty</code> under the <code class="calibre14">in_guidPlatform</code> platform.</p>
+<p class="calibre7">The property type, as contained by <code class="calibre14">in_varProperty</code>, should be equal to the type as defined in the plug-in XML definition file.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><p class="starttd"><b class="calibre13">Note:</b> Your changes might be substantially altered or replaced if your property is bound to an RTPC ( <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_property_set_base_a62e045af1c4842dd5605467a08a40df9_split_000.html#a62e045af1c4842dd5605467a08a40df9">PropertyHasRTPC</a> ) or a State ( <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_property_set_base_ad9fdb2385bdc900fee2169784b9e1d7b_split_000.html#ad9fdb2385bdc900fee2169784b9e1d7b">PropertyHasState</a> ).</p>
+<p class="endtd">More than one platform will be affected if the property is linked ( <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_property_set_base_a0e0c3b2069116d64494f8bc1d23aece3_split_000.html#a0e0c3b2069116d64494f8bc1d23aece3">PropertyPlatformIsLinked</a> ); all platforms are linked by default. </p>
+</td></tr>
+</tbody></table>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="warning.gif"/></td><td class="calibre17"><p class="starttd"><b class="calibre13">Warning:</b> This is a semi-private function. You should use the typed SetValue methods instead.</p>
+<p class="endtd"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_property_set_base_a743d61712d234117b288011deba14e76_split_000.html#a743d61712d234117b288011deba14e76">SetValueString</a>, <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_property_set_base_a203736ad843f5814d25f1f92f54cf8b0_split_000.html#a203736ad843f5814d25f1f92f54cf8b0">SetValueInt64</a>, <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_property_set_base_ab82c20c6927e03f83de2a0449b808b76_split_000.html#ab82c20c6927e03f83de2a0449b808b76">SetValueInt32</a>, <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_property_set_base_abd6ab8e1ece437a790279b5eccb14069_split_000.html#abd6ab8e1ece437a790279b5eccb14069">SetValueInt16</a>, <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_property_set_base_a15114bf05e110341e09c3b9f17d9d67f_split_000.html#a15114bf05e110341e09c3b9f17d9d67f">SetValueInt8</a>, <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_property_set_base_a18866903826ef76fc0f93fbf8aab0258_split_000.html#a18866903826ef76fc0f93fbf8aab0258">SetValueUInt64</a>, <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_property_set_base_a96cf86cb46ecf2c8d6f9ce46bd2c6c8c_split_000.html#a96cf86cb46ecf2c8d6f9ce46bd2c6c8c">SetValueUInt32</a>, <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_property_set_base_aaa10b4fabe6849e5aefd26fca9630f54_split_000.html#aaa10b4fabe6849e5aefd26fca9630f54">SetValueUInt16</a>, <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_property_set_base_a477942a422e4b4f2279cdf51666c8a2e_split_000.html#a477942a422e4b4f2279cdf51666c8a2e">SetValueUInt8</a>, <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_property_set_base_a494c92aa82960491c4cb7bda1d3ff3b9_split_000.html#a494c92aa82960491c4cb7bda1d3ff3b9">SetValueReal64</a> <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_property_set_base_a69924c090f1f6cd6e30b4487670662ce_split_000.html#a69924c090f1f6cd6e30b4487670662ce">SetValueReal32</a>, <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_property_set_base_a3b2aefc388c05b6e4202816481312de6_split_000.html#a3b2aefc388c05b6e4202816481312de6">SetValueBool</a> </p><pre class="fragment">The function can still be useful if you want to handle parameters as a black box, getting a
+value without knowing the type, and then setting that value elsewhere.
+</pre> </td></tr>
+</tbody></table>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="wwiseplugin_backend_split_001.html#wwiseplugin_bank">Generating SoundBanks</a></li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_guidPlatform</td><td class="calibre17">The unique ID of the platform whose property you want to modify. </td></tr>
+    <tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_pszPropertyName</td><td class="calibre17">The name of the property to update, based on the XML definition file. </td></tr>
+    <tr class="calibre16"><td class="calibre17">[out]</td><td class="paramname">in_varProperty</td><td class="calibre17">The new value of the property. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">true if successful. </dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_v1_2_host_property_set_8h_source_split_000.html#l01147">1147</a> of file <a class="pcalibre el" href="_v1_2_host_property_set_8h_source_split_000.html">HostPropertySet.h</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

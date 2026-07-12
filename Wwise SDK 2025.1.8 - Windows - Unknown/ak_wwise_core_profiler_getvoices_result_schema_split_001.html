@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak.wwise.core.profiler.getVoices Result Schema</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2"><h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="section_ak_wwise_core_profiler_getvoices_resultSchema"></a>
+Schema</h1>
+<div class="fragment"><div class="line">{</div>
+<div class="line">    "type": "object",</div>
+<div class="line">    "properties": {</div>
+<div class="line">        "return": {</div>
+<div class="line">            "type": "array",</div>
+<div class="line">            "description": "Array of voices.",</div>
+<div class="line">            "items": {</div>
+<div class="line">                "type": "object",</div>
+<div class="line">                "description": "Voice item.\\n A playing voice. Use the return options to specify which property is required.",</div>
+<div class="line">                "properties": {</div>
+<div class="line">                    "pipelineID": {</div>
+<div class="line">                        "type": "integer",</div>
+<div class="line">                        "description": "Pipeline ID of the voice.\\n Unsigned Integer 32-bit.",</div>
+<div class="line">                        "minimum": 0,</div>
+<div class="line">                        "maximum": 4294967295</div>
+<div class="line">                    },</div>
+<div class="line">                    "playingID": {</div>
+<div class="line">                        "type": "integer",</div>
+<div class="line">                        "description": "Playing ID of the voice.\\n Unsigned Integer 32-bit.",</div>
+<div class="line">                        "minimum": 0,</div>
+<div class="line">                        "maximum": 4294967295</div>
+<div class="line">                    },</div>
+<div class="line">                    "soundID": {</div>
+<div class="line">                        "type": "integer",</div>
+<div class="line">                        "description": "Short ID of the sound object corresponding to the voice.\\n Unsigned Integer 32-bit.",</div>
+<div class="line">                        "minimum": 0,</div>
+<div class="line">                        "maximum": 4294967295</div>
+<div class="line">                    },</div>
+<div class="line">                    "gameObjectID": {</div>
+<div class="line">                        "anyOf": [</div>
+<div class="line">                            {</div>
+<div class="line">                                "type": "integer",</div>
+<div class="line">                                "description": "Unsigned Integer 64-bit.",</div>
+<div class="line">                                "minimum": 0,</div>
+<div class="line">                                "maximum": 18446744073709551615</div>
+<div class="line">                            },</div>
+<div class="line">                            {</div>
+<div class="line">                                "type": "integer",</div>
+<div class="line">                                "description": "Integer 64-bit.",</div>
+<div class="line">                                "minimum": -9223372036854775808,</div>
+<div class="line">                                "maximum": 9223372036854775807</div>
+<div class="line">                            }</div>
+<div class="line">                        ],</div>
+<div class="line">                        "description": "Game Object ID corresponding to the voice."</div>
+<div class="line">                    },</div>
+<div class="line">                    "gameObjectName": {</div>
+<div class="line">                        "type": "string",</div>
+<div class="line">                        "description": "Game Object Name corresponding to the voice."</div>
+<div class="line">                    },</div>
+<div class="line">                    "objectGUID": {</div>
+<div class="line">                        "type": "string",</div>
+<div class="line">                        "pattern": "^\\{[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}\\}$",</div>
+<div class="line">                        "description": "Object GUID corresponding to the voice.\\n An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}."</div>
+<div class="line">                    },</div>
+<div class="line">                    "objectName": {</div>
+<div class="line">                        "type": "string",</div>
+<div class="line">                        "description": "Object Name corresponding to the voice."</div>
+<div class="line">                    },</div>
+<div class="line">                    "playTargetID": {</div>
+<div class="line">                        "type": "integer",</div>
+<div class="line">                        "description": "Short ID of the play target object corresponding to the voice.\\n Unsigned Integer 32-bit.",</div>
+<div class="line">                        "minimum": 0,</div>
+<div class="line">                        "maximum": 4294967295</div>
+<div class="line">                    },</div>
+<div class="line">                    "playTargetGUID": {</div>
+<div class="line">                        "type": "string",</div>
+<div class="line">                        "pattern": "^\\{[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}\\}$",</div>
+<div class="line">                        "description": "GUID of the play target object corresponding to the voice.\\n An object GUID of the form: {aabbcc00-1122-3344-5566-77889900aabb}."</div>
+<div class="line">                    },</div>
+<div class="line">                    "playTargetName": {</div>
+<div class="line">                        "type": "string",</div>
+<div class="line">                        "description": "Name of the play target object corresponding to the voice."</div>
+<div class="line">                    },</div>
+<div class="line">                    "baseVolume": {</div>
+<div class="line">                        "type": "number",</div>
+<div class="line">                        "description": "Voice volume in dB, including HDR attenuation."</div>
+<div class="line">                    },</div>
+<div class="line">                    "gameAuxSendVolume": {</div>
+<div class="line">                        "type": "number",</div>
+<div class="line">                        "description": "Volume send to the auxiliary bus send in dB."</div>
+<div class="line">                    },</div>
+<div class="line">                    "envelope": {</div>
+<div class="line">                        "type": "number",</div>
+<div class="line">                        "description": "Current analyzed envelope value in dB. 0 if unavailable."</div>
+<div class="line">                    },</div>
+<div class="line">                    "normalizationGain": {</div>
+<div class="line">                        "type": "number",</div>
+<div class="line">                        "description": "Loudness normalization and make-up gain in dB."</div>
+<div class="line">                    },</div>
+<div class="line">                    "lowPassFilter": {</div>
+<div class="line">                        "type": "number",</div>
+<div class="line">                        "description": "Low-Pass Filter applied to the voice."</div>
+<div class="line">                    },</div>
+<div class="line">                    "highPassFilter": {</div>
+<div class="line">                        "type": "number",</div>
+<div class="line">                        "description": "High-Pass Filter applied to the voice."</div>
+<div class="line">                    },</div>
+<div class="line">                    "priority": {</div>
+<div class="line">                        "type": "integer",</div>
+<div class="line">                        "description": "Priority given to the voice.\\n Integer 8-bit.",</div>
+<div class="line">                        "minimum": -128,</div>
+<div class="line">                        "maximum": 127</div>
+<div class="line">                    },</div>
+<div class="line">                    "isStarted": {</div>
+<div class="line">                        "type": "boolean",</div>
+<div class="line">                        "description": "True if the voice has started playing, false otherwise."</div>
+<div class="line">                    },</div>
+<div class="line">                    "isVirtual": {</div>
+<div class="line">                        "type": "boolean",</div>
+<div class="line">                        "description": "True if the voice is virtual, false otherwise."</div>
+<div class="line">                    },</div>
+<div class="line">                    "isForcedVirtual": {</div>
+<div class="line">                        "type": "boolean",</div>
+<div class="line">                        "description": "True if the voice was forced as virtual, false otherwise."</div>
+<div class="line">                    }</div>
+<div class="line">                },</div>
+<div class="line">                "additionalProperties": false</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">    },</div>
+<div class="line">    "required": [</div>
+<div class="line">        "return"</div>
+<div class="line">    ],</div>
+<div class="line">    "additionalProperties": false</div>
+<div class="line">}</div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

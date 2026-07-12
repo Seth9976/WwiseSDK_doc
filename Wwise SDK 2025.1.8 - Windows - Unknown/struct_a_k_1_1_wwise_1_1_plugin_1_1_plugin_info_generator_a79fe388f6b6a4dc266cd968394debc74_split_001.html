@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK.Wwise::Plugin::PluginInfoGenerator::Instantiate</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="struct_a_k_1_1_wwise_1_1_plugin_1_1_plugin_info_generator_a79fe388f6b6a4dc266cd968394debc74_split_000.html#a79fe388f6b6a4dc266cd968394debc74" class="pcalibre1 anchor">◆ </a></span>Instantiate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename PluginT &gt; </div>
+<table class="calibre3">
+  <tbody class="calibre4"><tr class="calibre16">
+  <td class="calibre17">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">static <a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_adbf11482a829b3ae6cc67b555e46db8c_split_000.html#adbf11482a829b3ae6cc67b555e46db8c">InterfaceArrayItem</a>* <a class="pcalibre el" href="struct_a_k_1_1_wwise_1_1_plugin_1_1_plugin_info_generator_split_000.html">AK.Wwise::Plugin::PluginInfoGenerator</a>&lt; PluginT &gt;::Instantiate </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_a69141ebf4159597c1e76aad07862c823_split_000.html#a69141ebf4159597c1e76aad07862c823">PluginInfo</a> * </td>
+          <td class="paramname"><em class="calibre59">in_pluginInfo</em></td><td class="calibre17">)</td>
+          <td class="calibre17"/>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="calibre17">
+<span><span>inline</span><span>static</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+
+<p class="calibre7">Plug-in instance constructor, as shared with the host. </p>
+<p class="calibre7">It is currently assumed the in_pluginInfo parameter, as passed, is the same as the one provided in the <a class="pcalibre el" href="structak__wwise__plugin__container_split_000.html" title="Root interface allowing a logical unit (variable, library) to contain more than one interface.">ak_wwise_plugin_container</a> structure. As such, in the current version of the SDK, this is not reentrant, as there is only one structure used to transfer data.</p>
+<dl class="calibre7"><dt class="calibre23">Warning</dt><dd class="calibre24">This function is not reentrant. See <a class="pcalibre el" href="struct_a_k_1_1_wwise_1_1_plugin_1_1_plugin_info_generator_a925f1378056ddb536cb9179084578971_split_000.html#a925f1378056ddb536cb9179084578971">m_interfaceArray</a> for more information.</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_pluginInfo</td><td class="calibre17">Plug-in structure to instantiate. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">InterfaceArrayItem* The new instance: A copy of the structure, containing the instantiated pointers. </dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_plugin_info_generator_8h_source.html#l00716">716</a> of file <a class="pcalibre el" href="_plugin_info_generator_8h_source.html">PluginInfoGenerator.h</a>.</p>
+
+<p class="calibre7">References <a class="pcalibre el" href="_plugin_info_generator_8h_source.html#l00675">AK.Wwise::Plugin::PluginInfoGenerator&lt; PluginT &gt;::GenerateConstructorArray&lt; in_interfaceType &gt;::Constructor()</a>, <a class="pcalibre el" href="_plugin_info_generator_8h_source.html#l00570">AK.Wwise::Plugin::PluginInfoGenerator&lt; PluginT &gt;::k_interfaceCount</a>, <a class="pcalibre el" href="_plugin_info_8h_source.html#l00057">ak_wwise_plugin_info::m_interfaces</a>, and <a class="pcalibre el" href="_plugin_info_generator_8h_source.html#l00659">AK.Wwise::Plugin::PluginInfoGenerator&lt; PluginT &gt;::GenerateConstructorArray&lt; in_interfaceType &gt;::UpdateCInterface()</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

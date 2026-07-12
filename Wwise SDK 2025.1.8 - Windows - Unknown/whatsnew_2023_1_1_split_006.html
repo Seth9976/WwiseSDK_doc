@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2023.1.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_5"><a class="pcalibre1 anchor" id="generic_community_bugs_2023_1_1"></a>
+Fixes for Community-Reported Bugs</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-52007</b> Fixed: In the Music Segment Editor, it's not possible to snap to Beats/Bars or Cues when all tracks are excluded or when there are no tracks.</li>
+<li class="calibre9"><b class="calibre13">WG-65485</b> Fixed: (WAAPI) <a class="pcalibre el" href="ak_wwise_core_object_setlinked_split_000.html">ak.wwise.core.object.setLinked</a> works with references but not with properties.</li>
+<li class="calibre9"><b class="calibre13">WG-66902</b> Fixed: Crash in <code class="calibre14">CAkParameterNode::IsOrIsChildOf()</code> when descendant nodes of a container have been unloaded.</li>
+<li class="calibre9"><b class="calibre13">WG-67373</b> Fixed: Source Editor shows duplicate of Channel Configuration 7.1.4 in the Channel Config Override list.</li>
+<li class="calibre9"><b class="calibre13">WG-67691</b> Fixed: Using the <code class="calibre14">–soundbank-path</code> option of <code class="calibre14">WwiseConsole generate-soundbank</code> fails to generate the SoundBanks if they already existed elsewhere .</li>
+<li class="calibre9"><b class="calibre13">WG-68291</b> Fixed: Function <code class="calibre14">StartProfilerCapture</code> can lead to a crash if the Wwise Profiler is also connected.</li>
+<li class="calibre9"><b class="calibre13">WG-68330</b> Fixed: (WAAPI) Topic <a class="pcalibre el" href="ak_wwise_core_audio_imported_split_000.html">ak.wwise.core.audio.imported</a> is not published under certain conditions.</li>
+<li class="calibre9"><b class="calibre13">WG-68342</b> Fixed: There is no <code class="calibre14">isIncluded</code> WAAPI/WAQL accessor that considers the Inclusion property of an object's ancestors.</li>
+<li class="calibre9"><b class="calibre13">WG-68391</b> Fixed: Wrong volumes are applied to non-mixing busses when the hierarchy contains either a Blend Container or a Switch Container and two nodes are writing the bus output to the same output.</li>
+<li class="calibre9"><b class="calibre13">WG-68719</b> Fixed: RTPC changes to the Playback Speed property are not applied correctly on MIDI clips.</li>
+<li class="calibre9"><b class="calibre13">WG-68803</b> Fixed: Distorted output when building Vorbis decoder library with VS 2022 17.7 or later.</li>
+<li class="calibre9"><b class="calibre13">WG-68832</b> Fixed: Crash when swapping zero-latency streamed PCM media.</li>
+<li class="calibre9"><b class="calibre13">WG-68953</b> Fixed: Crash when scheduling a music transition reversal.</li>
+<li class="calibre9"><b class="calibre13">WG-69000</b> Fixed: Changing the Custom Transition Time of a State Group has no effect.</li>
+<li class="calibre9"><b class="calibre13">WG-69005</b> Fixed: Plug-ins receive runtime string parameters as a Pascal string instead of a null-terminated C string.</li>
+<li class="calibre9"><b class="calibre13">WG-69126</b> Fixed: Crash when copy-pasting a Music Track that has <b class="calibre13">Track Type</b> set to <b class="calibre13">Switch</b>.</li>
+<li class="calibre9"><b class="calibre13">WG-69334</b> Fixed: Running a Compressor or Expander Effect on an Audio Objects bus that is processing only one multi-channel Audio Object only performs compression or expansion on the first channel of the Audio Object.</li>
+<li class="calibre9"><b class="calibre13">WG-69404</b> Fixed: Removed inappropriate assert in the code.</li>
+<li class="calibre9"><b class="calibre13">WG-69444</b> Fixed: Crash in <code class="calibre14">CAkModulatorData::IsEmpty</code> when using hardware codecs (for example, Opus) with multicore processing.</li>
+<li class="calibre9"><b class="calibre13">WG-69481</b> Fixed: Incomplete support for C++20 in Premake scripts.</li>
+<li class="calibre9"><b class="calibre13">WG-69666</b> Fixed: Possible crash when adding a Sub-Track using the keyboard shortcut.</li>
+<li class="calibre9"><b class="calibre13">WG-69675</b> Fixed: Crash when recovering from a hardware failure in the hardware Opus decoder.</li>
+<li class="calibre9"><b class="calibre13">WG-69769</b> Fixed: List View and Multi Editor don't show inherited values for game-defined auxiliary sends.</li>
+</ul>
+</div></div></div></body></html>

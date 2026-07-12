@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak.wwise.core.profiler.getStreamedMedia Result Schema</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2"><h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="section_ak_wwise_core_profiler_getstreamedmedia_resultSchema"></a>
+Schema</h1>
+<div class="fragment"><div class="line">{</div>
+<div class="line">    "type": "object",</div>
+<div class="line">    "properties": {</div>
+<div class="line">        "return": {</div>
+<div class="line">            "type": "array",</div>
+<div class="line">            "description": "Array of Streams.",</div>
+<div class="line">            "items": {</div>
+<div class="line">                "type": "object",</div>
+<div class="line">                "description": "Information about how each of the streams is managed by the Wwise sound engine.",</div>
+<div class="line">                "properties": {</div>
+<div class="line">                    "deviceName": {</div>
+<div class="line">                        "type": "string",</div>
+<div class="line">                        "description": "The name of the device from which the stream eminates."</div>
+<div class="line">                    },</div>
+<div class="line">                    "streamName": {</div>
+<div class="line">                        "type": "string",</div>
+<div class="line">                        "description": "The name given to the stream."</div>
+<div class="line">                    },</div>
+<div class="line">                    "fileSize": {</div>
+<div class="line">                        "type": "integer",</div>
+<div class="line">                        "description": "The size of the file being streamed."</div>
+<div class="line">                    },</div>
+<div class="line">                    "filePosition": {</div>
+<div class="line">                        "type": "number",</div>
+<div class="line">                        "description": "The position of the stream within the file, given as a percentage."</div>
+<div class="line">                    },</div>
+<div class="line">                    "priority": {</div>
+<div class="line">                        "type": "integer",</div>
+<div class="line">                        "description": "The priority of the stream."</div>
+<div class="line">                    },</div>
+<div class="line">                    "bandwidthTotal": {</div>
+<div class="line">                        "type": "integer",</div>
+<div class="line">                        "description": "The rate at which the file was streamed in the last profiling frame. This value takes all transfers into account, including transfers that occurred from the Stream Manager's cache."</div>
+<div class="line">                    },</div>
+<div class="line">                    "bandwidthLowLevel": {</div>
+<div class="line">                        "type": "integer",</div>
+<div class="line">                        "description": "The rate at which the file was streamed in the last profiling frame. Unlike the Total Bandwidth field, this field value considers transfers that occurred from within the low-level device."</div>
+<div class="line">                    },</div>
+<div class="line">                    "referencedMemory": {</div>
+<div class="line">                        "type": "integer",</div>
+<div class="line">                        "description": "The amount of memory that is referenced by the stream. This excludes memory used for I/O transfers. It can be seen as a measure of how much data the stream may grant to the sound engine at any given time."</div>
+<div class="line">                    },</div>
+<div class="line">                    "estimatedThroughput": {</div>
+<div class="line">                        "type": "integer",</div>
+<div class="line">                        "description": "The estimated throughput of the stream. The sound engine estimates the rate at which it consumes data from a stream according to its encoding format and number of channels."</div>
+<div class="line">                    },</div>
+<div class="line">                    "active": {</div>
+<div class="line">                        "type": "boolean",</div>
+<div class="line">                        "description": "Indicates True if the stream was active at least once during the last profiling frame."</div>
+<div class="line">                    },</div>
+<div class="line">                    "targetBufferSize": {</div>
+<div class="line">                        "type": "integer",</div>
+<div class="line">                        "description": "The streaming device's target buffer length."</div>
+<div class="line">                    },</div>
+<div class="line">                    "bufferStatusBuffered": {</div>
+<div class="line">                        "type": "number",</div>
+<div class="line">                        "description": "The portion of requested data that is buffered, given as a percentage of the target buffer size."</div>
+<div class="line">                    }</div>
+<div class="line">                },</div>
+<div class="line">                "required": [</div>
+<div class="line">                    "deviceName",</div>
+<div class="line">                    "streamName",</div>
+<div class="line">                    "fileSize",</div>
+<div class="line">                    "filePosition",</div>
+<div class="line">                    "priority",</div>
+<div class="line">                    "bandwidthTotal",</div>
+<div class="line">                    "bandwidthLowLevel",</div>
+<div class="line">                    "referencedMemory",</div>
+<div class="line">                    "estimatedThroughput",</div>
+<div class="line">                    "active",</div>
+<div class="line">                    "targetBufferSize",</div>
+<div class="line">                    "bufferStatusBuffered"</div>
+<div class="line">                ],</div>
+<div class="line">                "additionalProperties": false</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">    },</div>
+<div class="line">    "required": [</div>
+<div class="line">        "return"</div>
+<div class="line">    ],</div>
+<div class="line">    "additionalProperties": false</div>
+<div class="line">}</div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

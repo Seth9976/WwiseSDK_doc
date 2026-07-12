@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::SoundEngine::GetPlayingSegmentInfo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="namespace_a_k_1_1_sound_engine_a8446828c7f31802a83b7b087c44ccbd4_split_000.html#a8446828c7f31802a83b7b087c44ccbd4" class="pcalibre1 anchor">◆ </a></span>GetPlayingSegmentInfo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_sound_engine_export_8h_ac6e96d34dfc0e12f9aaa7a47f4e9c322_split_000.html#ac6e96d34dfc0e12f9aaa7a47f4e9c322">AKSOUNDENGINE_API</a> <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::SoundEngine::GetPlayingSegmentInfo </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_a9270609771369ea575443fe080bbe9c3_split_000.html#a9270609771369ea575443fe080bbe9c3">AkPlayingID</a> </td>
+          <td class="paramname"><em class="calibre59">in_PlayingID</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="struct_ak_segment_info_split_000.html">AkSegmentInfo</a> &amp; </td>
+          <td class="paramname"><em class="calibre59">out_segmentInfo</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">bool </td>
+          <td class="paramname"><em class="calibre59">in_bExtrapolate</em> = <code class="calibre14">true</code> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_1_1_query_split_000.html">Query</a> information on the active segment of a music object that is playing. Use the playing ID that was returned from <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a41e9ef8d42951871fe4a8ae58a29a68e_split_000.html#a41e9ef8d42951871fe4a8ae58a29a68e">AK::SoundEngine::PostEvent()</a>, provided that the event contained a play action that was targeting a music object. For any interactive music object (Music Segments, Music Switch Containers, and Music Playlist Containers), there is only one segment that is active at a time. To be able to query segment information, you must pass the AK_EnableGetMusicPlayPosition flag to the <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a41e9ef8d42951871fe4a8ae58a29a68e_split_000.html#a41e9ef8d42951871fe4a8ae58a29a68e">AK::SoundEngine::PostEvent()</a> method. This informs the sound engine that the source associated with this event should be given special consideration because <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a8446828c7f31802a83b7b087c44ccbd4_split_000.html#a8446828c7f31802a83b7b087c44ccbd4">GetPlayingSegmentInfo()</a> can be called at any time for this AkPlayingID. Notes:</p><ul class="calibre8">
+<li class="calibre9">If the music object is a single segment, you will get negative values for <a class="pcalibre el" href="struct_ak_segment_info_abd153aaf7f8b8051edd4ae77eaef5f0a_split_000.html#abd153aaf7f8b8051edd4ae77eaef5f0a" title="Current position of the segment, relative to the Entry Cue, in milliseconds. Range is [-iPreEntryDura...">AkSegmentInfo::iCurrentPosition</a> during the pre-entry. This will never occur with other types of music objects because the pre-entry of a segment always overlaps another active segment.</li>
+<li class="calibre9">The active segment during the pre-entry of the first segment of a Playlist Container or a Music Switch Container is "nothing", as well as during the post-exit of the last segment of a Playlist (and beyond).</li>
+<li class="calibre9">When the active segment is "nothing", out_uSegmentInfo is filled with zeros.</li>
+<li class="calibre9">If in_bExtrapolate is true (default), <a class="pcalibre el" href="struct_ak_segment_info_abd153aaf7f8b8051edd4ae77eaef5f0a_split_000.html#abd153aaf7f8b8051edd4ae77eaef5f0a" title="Current position of the segment, relative to the Entry Cue, in milliseconds. Range is [-iPreEntryDura...">AkSegmentInfo::iCurrentPosition</a> is corrected by the amount of time elapsed since the beginning of the audio frame. It is thus possible that it slightly overshoots the total segment length. <dl class="section"><dt class="calibre23">Returns</dt><dd class="calibre24">AK_Success if there is a playing music structure associated with the specified playing ID. </dd></dl>
+<dl class="section"><dt class="calibre23">See also</dt><dd class="calibre24"></dd></dl>
+</li>
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a41e9ef8d42951871fe4a8ae58a29a68e_split_000.html#a41e9ef8d42951871fe4a8ae58a29a68e">AK::SoundEngine::PostEvent</a></li>
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_segment_info_split_000.html" title="Structure used to query info on active playing segments.">AkSegmentInfo</a> </li>
+</ul>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_PlayingID</td><td class="calibre17">Playing ID returned by <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a41e9ef8d42951871fe4a8ae58a29a68e_split_000.html#a41e9ef8d42951871fe4a8ae58a29a68e">AK::SoundEngine::PostEvent()</a>. </td></tr>
+    <tr class="calibre16"><td class="paramname">out_segmentInfo</td><td class="calibre17">Structure containing information about the active segment of the music structure that is playing. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_bExtrapolate</td><td class="calibre17">Position is extrapolated based on time elapsed since last sound engine update. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integration Details - Switches</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_3"><a class="pcalibre1 anchor" id="soundengine_switch_driving"></a>
+Driving Switches</h1>
+<p class="calibre7">You have three options to drive switches: the SDK <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a9c9d57ba7b3af2b896e26297a7657264_split_000.html#a9c9d57ba7b3af2b896e26297a7657264">AK::SoundEngine::SetSwitch()</a> method, the "SetSwitch" action generated in Wwise events, or RTPCs. However, combining these options can be problematic. For example, if sound designers introduce SetSwitch actions inside the events they create while audio programmers drive switches using the SDK <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a9c9d57ba7b3af2b896e26297a7657264_split_000.html#a9c9d57ba7b3af2b896e26297a7657264">AK::SoundEngine::SetSwitch()</a> command, the switches may become difficult to control. We strongly recommend that sound designers and audio programmers decide how the actual switches will be driven, either for each switch group or for the entire project. All three ways can be used together, if there is agreement on how switches will change. For example, the audio programmers can initialize switches using the SDK <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a9c9d57ba7b3af2b896e26297a7657264_split_000.html#a9c9d57ba7b3af2b896e26297a7657264">AK::SoundEngine::SetSwitch()</a> command, but leave the switch to be driven by events for the rest of the game.</p>
+</div></div></div></body></html>

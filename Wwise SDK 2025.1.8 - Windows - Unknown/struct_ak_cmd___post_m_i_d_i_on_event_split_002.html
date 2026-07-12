@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AkCmd_PostMIDIOnEvent Struct Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_1">Detailed Description</h2>
+<div class="calibre2"><p class="calibre7">Executes a number of MIDI Events on all nodes that are referenced in the specified Event in an Action of type Play. The time at which a MIDI Event is posted is determined by <code class="calibre14">is_offset_absolute</code>. If false, each MIDI event will be posted in <code class="calibre14"><a class="pcalibre el" href="struct_ak_m_i_d_i_post_a946b9b31a3345afd96983129151751e9_split_000.html#a946b9b31a3345afd96983129151751e9" title="Frame offset (in samples) for MIDI event post.">AkMIDIPost::uOffset</a></code> samples from the start of the current frame. If true, each MIDI event will be posted at the absolute time <code class="calibre14"><a class="pcalibre el" href="struct_ak_m_i_d_i_post_a946b9b31a3345afd96983129151751e9_split_000.html#a946b9b31a3345afd96983129151751e9" title="Frame offset (in samples) for MIDI event post.">AkMIDIPost::uOffset</a></code> samples. To obtain the current absolute time, see <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ac688bf2d1ae6f2009e7cde602a753b6b_split_000.html#ac688bf2d1ae6f2009e7cde602a753b6b">AK::SoundEngine::GetSampleTick</a></code>. The duration of a sample can be determined from the sound engine's audio settings, via a call to <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a1ecadb91731d6cabe36603fa419b6715_split_000.html#a1ecadb91731d6cabe36603fa419b6715">AK::SoundEngine::GetAudioSettings</a></code>.</p>
+<p class="calibre7">The Sound Engine expects an array of <code class="calibre14"><a class="pcalibre el" href="struct_ak_m_i_d_i_post_split_000.html">AkMIDIPost</a></code> objects after the command. The number of items must correspond to the value of <code class="calibre14">numMidiPosts</code>. For example: </p><pre class="fragment">AkMIDIPost values[2]; // Initialize array as required
+auto cmd = (AkCmd_PostMIDIOnEvent*)AK_CommandBuffer_Add(buffer, AkCommand_PostMIDIOnEvent);
+cmd-&gt;numMidiPosts = 2;
+AK_CommandBuffer_AddArray(buffer, sizeof(AkMIDIPost), cmd-&gt;numMidiPosts, values);
+</pre><p class="calibre7">This command can fail for the following reasons:</p><ul class="calibre8">
+<li class="calibre9">AK_InvalidParameter: <code class="calibre14">playingID</code>, <code class="calibre14">eventID</code> is an invalid ID, or incomplete array after the command.</li>
+<li class="calibre9">AK_InsufficientMemory: Not enough memory to process the command.</li>
+<li class="calibre9">AK_IDNotFound: <code class="calibre14">eventID</code> not found or <code class="calibre14">gameObjectID</code> is specified and not registered, or <code class="calibre14">playingID</code> was not found when adding MIDI posts to an existing sequence.</li>
+<li class="calibre9">AK_PartialSuccess: When connected to the Wwise Profiler, command has been delayed to a later frame until Wwise synchronizes the event.</li>
+</ul>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="_ak_command_types_8h_a001b78645b8b0335c0dd2e128cca2cfd_split_001.html#a001b78645b8b0335c0dd2e128cca2cfdabb16fb8c53fb070bf174b991f33669b2" title="See AkCmd_PostMIDIOnEvent.">AkCommand_PostMIDIOnEvent</a></li>
+<li class="calibre9"><a class="pcalibre el" href="_ak_command_buffer_8h_a7512f07e3e8f24cf4ed15bebf3a6392e_split_000.html#a7512f07e3e8f24cf4ed15bebf3a6392e">AK_CommandBuffer_AddArray</a></li>
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ab24b5dc8bd4d1adbdc6aa5c98d94d946_split_000.html#ab24b5dc8bd4d1adbdc6aa5c98d94d946">AK::SoundEngine::PostMIDIOnEvent</a></code></li>
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_acce4adb3c2bbd018ef375c85379949e3_split_000.html#acce4adb3c2bbd018ef375c85379949e3">AK::SoundEngine::StopMIDIOnEvent</a></code></li>
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a1ecadb91731d6cabe36603fa419b6715_split_000.html#a1ecadb91731d6cabe36603fa419b6715">AK::SoundEngine::GetAudioSettings</a></code></li>
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ac688bf2d1ae6f2009e7cde602a753b6b_split_000.html#ac688bf2d1ae6f2009e7cde602a753b6b">AK::SoundEngine::GetSampleTick</a></code></li>
+<li class="calibre9"><a class="pcalibre el" href="soundengine_midi_split_004.html#soundengine_midi_event_playing_id">MIDI Event Sequences - Playing ID</a> </li>
+</ul>
+</dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_ak_command_types_8h_source_split_001.html#l00753">753</a> of file <a class="pcalibre el" href="_ak_command_types_8h_source_split_000.html">AkCommandTypes.h</a>.</p>
+</div></div><!-- contents -->
+
+
+</body></html>

@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Source Control Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_19"><a class="pcalibre1 anchor" id="source_control_dll_creation_dialog_creation"></a>
+Creating the Dialog Resource</h2>
+<p class="calibre7">You can create both standard Windows controls and controls specific to Wwise.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="source_control_dll_creation_dialog_creation_regular"></a>
+Regular Controls</h3>
+<p class="calibre7">You can add regular controls such as static controls, edit controls, check boxes, push buttons, radio buttons, and group controls directly in the Microsoft Development Environment Dialog Editor using the corresponding tools in the Dialog Editor section of the Toolbox. These controls will be automatically subclassed by Wwise so they have the same look as similar controls elsewhere in the application.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> The dropdown/combobox control is not automatically subclassed. If you need a dropdown control in your dialog, use the Combo custom control instead. Refer to Wwise Controls for more information. </td></tr>
+</tbody></table>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="source_control_dll_creation_dialog_creation_wwise"></a>
+Wwise Controls</h3>
+<p class="calibre7">To integrate Wwise dialog controls (such as Captions and ComboBox) into your dialog, use static text control placeholders with a specially-coded caption text. This text needs to have the following form:</p>
+<div class="fragment"><div class="line">Class=[Classname];</div>
+</div><!-- fragment --><p class="calibre7">where Classname can be one of the following:</p>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">Caption:</b> Read-only text display<br class="calibre10"/>
+The static control in your resources should be exactly 13 units high, and wide enough to accommodate the longest text it might contain. To change the text of the caption, you need to use the following standard Windows functions:<ul class="calibre15">
+<li class="calibre9">SetWindowText</li>
+<li class="calibre9">GetWindowText</li>
+</ul>
+</li>
+<li class="calibre9"><b class="calibre13">Combo:</b> Dropdown list<br class="calibre10"/>
+The static control in your resources should be exactly 13 units high, and wide enough to hold the longest text it might contain. To populate the combo box or either set or get its current selection, you must use the following standard Windows message macros:<ul class="calibre15">
+<li class="calibre9">ComboBox_InsertString</li>
+<li class="calibre9">ComboBox_GetCurSel</li>
+<li class="calibre9">ComboBox_SetCurSel</li>
+</ul>
+</li>
+</ul>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="tip.gif"/></td><td class="calibre17"><b class="calibre13">Tip:</b> To make it easier to view the layout of the dialog controls, set Border to True in the properties of the static placeholders in the Microsoft Development Environment Dialog Editor. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

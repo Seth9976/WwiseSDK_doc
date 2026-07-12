@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak.wwise.core.object.getAttenuationCurve Result Schema</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2"><h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="section_ak_wwise_core_object_getattenuationcurve_resultSchema"></a>
+Schema</h1>
+<div class="fragment"><div class="line">{</div>
+<div class="line">    "type": "object",</div>
+<div class="line">    "properties": {</div>
+<div class="line">        "curveType": {</div>
+<div class="line">            "type": "string",</div>
+<div class="line">            "enum": [</div>
+<div class="line">                "VolumeDryUsage",</div>
+<div class="line">                "VolumeWetGameUsage",</div>
+<div class="line">                "VolumeWetUserUsage",</div>
+<div class="line">                "LowPassFilterUsage",</div>
+<div class="line">                "HighPassFilterUsage",</div>
+<div class="line">                "DualShelfUsage",</div>
+<div class="line">                "SpreadUsage",</div>
+<div class="line">                "FocusUsage",</div>
+<div class="line">                "ObstructionVolumeUsage",</div>
+<div class="line">                "ObstructionHPFUsage",</div>
+<div class="line">                "ObstructionLPFUsage",</div>
+<div class="line">                "ObstructionDSFUsage",</div>
+<div class="line">                "OcclusionVolumeUsage",</div>
+<div class="line">                "OcclusionHPFUsage",</div>
+<div class="line">                "OcclusionLPFUsage",</div>
+<div class="line">                "OcclusionDSFUsage",</div>
+<div class="line">                "DiffractionVolumeUsage",</div>
+<div class="line">                "DiffractionHPFUsage",</div>
+<div class="line">                "DiffractionLPFUsage",</div>
+<div class="line">                "DiffractionDSFUsage",</div>
+<div class="line">                "TransmissionVolumeUsage",</div>
+<div class="line">                "TransmissionHPFUsage",</div>
+<div class="line">                "TransmissionLPFUsage",</div>
+<div class="line">                "TransmissionDSFUsage"</div>
+<div class="line">            ],</div>
+<div class="line">            "description": "Name of attenuation curve."</div>
+<div class="line">        },</div>
+<div class="line">        "use": {</div>
+<div class="line">            "type": "string",</div>
+<div class="line">            "enum": [</div>
+<div class="line">                "None",</div>
+<div class="line">                "Custom",</div>
+<div class="line">                "UseVolumeDry",</div>
+<div class="line">                "UseProject"</div>
+<div class="line">            ],</div>
+<div class="line">            "description": "Defines whether the curve has no points, has its own set of points, uses those of the VolumeDryUsage curve, or uses the global curve defined in the Project Settings."</div>
+<div class="line">        },</div>
+<div class="line">        "points": {</div>
+<div class="line">            "type": "array",</div>
+<div class="line">            "description": "The attenuation curve.\\n An array of points defining a curve.",</div>
+<div class="line">            "items": {</div>
+<div class="line">                "type": "object",</div>
+<div class="line">                "description": "A point in the curve.",</div>
+<div class="line">                "properties": {</div>
+<div class="line">                    "x": {</div>
+<div class="line">                        "type": "number",</div>
+<div class="line">                        "description": "X coordinate of curve point."</div>
+<div class="line">                    },</div>
+<div class="line">                    "y": {</div>
+<div class="line">                        "type": "number",</div>
+<div class="line">                        "description": "Y coordinate of curve point."</div>
+<div class="line">                    },</div>
+<div class="line">                    "shape": {</div>
+<div class="line">                        "type": "string",</div>
+<div class="line">                        "enum": [</div>
+<div class="line">                            "Constant",</div>
+<div class="line">                            "Linear",</div>
+<div class="line">                            "Log3",</div>
+<div class="line">                            "Log2",</div>
+<div class="line">                            "Log1",</div>
+<div class="line">                            "InvertedSCurve",</div>
+<div class="line">                            "SCurve",</div>
+<div class="line">                            "Exp1",</div>
+<div class="line">                            "Exp2",</div>
+<div class="line">                            "Exp3"</div>
+<div class="line">                        ],</div>
+<div class="line">                        "description": "Shape of the curve segment between this point and the next."</div>
+<div class="line">                    }</div>
+<div class="line">                },</div>
+<div class="line">                "required": [</div>
+<div class="line">                    "x",</div>
+<div class="line">                    "y",</div>
+<div class="line">                    "shape"</div>
+<div class="line">                ],</div>
+<div class="line">                "additionalProperties": false</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

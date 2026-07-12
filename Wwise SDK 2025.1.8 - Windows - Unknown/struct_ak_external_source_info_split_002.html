@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AkExternalSourceInfo Struct Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table class="calibre3">
+<tbody class="calibre4"><tr class="calibre16"><td colspan="2" class="calibre17"><h2 class="calibre21" id="calibre_pb_1"><a class="pcalibre1 anchor" id="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="calibre16"><td class="memitemleft"><a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> </td><td class="memitemright"><a class="pcalibre el" href="struct_ak_external_source_info_a198a69d12cc42071f764a6f793060c77_split_000.html#a198a69d12cc42071f764a6f793060c77">iExternalSrcCookie</a></td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Cookie identifying the source, given by hashing the name of the source given in the project. See <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a1aae6ebdec25946fb2897ce0e025366d_split_000.html#a1aae6ebdec25946fb2897ce0e025366d">AK::SoundEngine::GetIDFromString</a>.  <a href="struct_ak_external_source_info_a198a69d12cc42071f764a6f793060c77_split_000.html#a198a69d12cc42071f764a6f793060c77" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft"><a class="pcalibre el" href="_ak_typedefs_8h_ae3cd7c34d31c81aa8ac649ac3a0e2206_split_000.html#ae3cd7c34d31c81aa8ac649ac3a0e2206">AkCodecID</a> </td><td class="memitemright"><a class="pcalibre el" href="struct_ak_external_source_info_aa414d16c9d27dee981e13ce4ba8da2d5_split_000.html#aa414d16c9d27dee981e13ce4ba8da2d5">idCodec</a></td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Codec ID for the file. One of the audio formats defined in AkTypes.h (AKCODECID_XXX)  <a href="struct_ak_external_source_info_aa414d16c9d27dee981e13ce4ba8da2d5_split_000.html#aa414d16c9d27dee981e13ce4ba8da2d5" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">const char * </td><td class="memitemright"><a class="pcalibre el" href="struct_ak_external_source_info_af29151c09e6b12f9b4f5b4c9a9389ba1_split_000.html#af29151c09e6b12f9b4f5b4c9a9389ba1">szFile</a></td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">UTF-8 File path for the source. If not NULL, the source will be streaming from disk. Set pInMemory to NULL. If idFile is set, this field is used as stream name (for profiling purposes). The only file formats accepted are a fully formed WEM file, as converted by Wwise, or a standard WAV file.  <a href="struct_ak_external_source_info_af29151c09e6b12f9b4f5b4c9a9389ba1_split_000.html#af29151c09e6b12f9b4f5b4c9a9389ba1" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">void * </td><td class="memitemright"><a class="pcalibre el" href="struct_ak_external_source_info_a5eda2911fdb2f31d42474eb8e62218ac_split_000.html#a5eda2911fdb2f31d42474eb8e62218ac">pInMemory</a></td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Pointer to the in-memory file. If not NULL, the source will be read from memory. Set szFile and idFile to NULL. The only file format accepted is a fully formed WEM file, as converted by Wwise.  <a href="struct_ak_external_source_info_a5eda2911fdb2f31d42474eb8e62218ac_split_000.html#a5eda2911fdb2f31d42474eb8e62218ac" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft"><a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> </td><td class="memitemright"><a class="pcalibre el" href="struct_ak_external_source_info_a32be3912e313caa6c1882103292c58b8_split_000.html#a32be3912e313caa6c1882103292c58b8">uiMemorySize</a></td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Size of the data pointed by pInMemory.  <a href="struct_ak_external_source_info_a32be3912e313caa6c1882103292c58b8_split_000.html#a32be3912e313caa6c1882103292c58b8" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft"><a class="pcalibre el" href="_ak_typedefs_8h_adff75ad09d4237d128c034afd17f3b35_split_000.html#adff75ad09d4237d128c034afd17f3b35">AkFileID</a> </td><td class="memitemright"><a class="pcalibre el" href="struct_ak_external_source_info_aa97a8c8dfdd8e18a508bac3045ae71c8_split_000.html#aa97a8c8dfdd8e18a508bac3045ae71c8">idFile</a></td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">File ID. If not zero, the source will be streaming from disk. This ID can be anything. Note that you must override the low-level IO to resolve this ID to a real file. See <a class="pcalibre el" href="streamingmanager_lowlevel_split_000.html">Low-Level I/O</a> for more information on overriding the Low Level IO.  <a href="struct_ak_external_source_info_aa97a8c8dfdd8e18a508bac3045ae71c8_split_000.html#aa97a8c8dfdd8e18a508bac3045ae71c8" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+</tbody></table>
+<a id="details" class="pcalibre calibre12"></a></div></body></html>

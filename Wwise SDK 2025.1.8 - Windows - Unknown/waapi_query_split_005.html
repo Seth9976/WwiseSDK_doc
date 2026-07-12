@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Querying the Wwise Project</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_4"><a class="pcalibre1 anchor" id="waapi_query_return"></a>
+Return Options</h1>
+<p class="calibre7">The <b class="calibre13">return</b> expression specifies which elements of the Wwise objects to return. Any number of elements can be returned.</p>
+<p class="calibre7">The return expression can contain:</p><ul class="calibre8">
+<li class="calibre9"><b class="calibre13">Core properties</b>: Refer to <b class="calibre13">OBJECT_EXPRESSION</b> and <b class="calibre13">VALUE_EXPRESSION</b> in <a class="pcalibre el" href="waql_reference_split_000.html">Wwise Authoring Query Language (WAQL) Reference</a>.</li>
+<li class="calibre9"><b class="calibre13">Object properties and references</b>: Refer to <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a>.</li>
+</ul>
+<p class="calibre7">Two optional prefixes exist for property and reference names:</p><ul class="calibre8">
+<li class="calibre9"><b class="calibre13">'@PROPERTYNAME'</b>: Returns the value directly set on the object. This ignores the override system, and may return a value that is unused and hidden.</li>
+<li class="calibre9"><b class="calibre13">'@@PROPERTYNAME'</b>: Returns the value as resolved by the override system. It may return the value inherited from a parent, or the value of the object directly, if the object overrides the property.</li>
+</ul>
+<p class="calibre7">When no prefix is used, it returns the value as resolved by the override system. This is the equivalent of using the @@ prefix. We recommend not using a prefix.</p>
+<p class="calibre7">Examples:</p><ul class="calibre8">
+<li class="calibre9"><b class="calibre13">'volume'</b>, <b class="calibre13">'Volume'</b>, <b class="calibre13">'@Volume'</b>, <b class="calibre13">'@@Volume'</b>: returns the volume of the object. Since the volume is not overridable, all of these are equivalent. Note that property names are case-insensitive.</li>
+<li class="calibre9"><b class="calibre13">'OutputBus'</b>, <b class="calibre13">'outputbus'</b>, <b class="calibre13">'@@OutputBus'</b>: returns the Output Bus as resolved by the override system (using Override Parent). This is the value being used for playback. Note that reference names are case-insensitive.</li>
+<li class="calibre9"><b class="calibre13">'@OutputBus'</b>: returns the Output Bus as set on the object directly. This is also the value persisted on the Work Unit for this object. This value might not be used, and could be hidden, if the object does not have the Override Parent option checked.</li>
+</ul>
+<p class="calibre7">When an expression resolves to a valid reference, it can be queried further for the referenced object's properties. For example, if the reference 'UserAuxSend0' on a Sound object references an existing Auxiliary Bus, it is possible to query a property of this Auxiliary Bus by appending a dot ('.'), followed by the property descriptor. Querying for the Attenuation of the referenced Auxiliary Bus would therefore simply be 'UserAuxSend0.Attenuation'.</p>
+<p class="calibre7">Examples:</p><ul class="calibre8">
+<li class="calibre9"><b class="calibre13">OutputBus.name</b>: returns the name of the output bus.</li>
+<li class="calibre9"><b class="calibre13">parent.name</b>: returns the name of the parent object.</li>
+<li class="calibre9"><b class="calibre13">parent.parent.type</b>: returns the type of the grandparent object. <br class="calibre10"/>
+</li>
+<li class="calibre9"><b class="calibre13">OutputBus.Volume</b>: returns the volume of the output bus.</li>
+<li class="calibre9"><b class="calibre13">OutputBus.Attenuation.name</b>: returns the name of the output bus.</li>
+<li class="calibre9"><b class="calibre13">Attenuation.path</b>: returns the path of the output bus.</li>
+<li class="calibre9"><b class="calibre13">Effects.first.effect.id</b>: returns the ID of the first Effect.</li>
+</ul>
+<p class="calibre7">Some objects have properties with certain capabilities, such as randomization. To retrieve values related to these capabilities, special objects bound to the properties can be queried through function-like accessors. For example, the randomizer feature is described by a Modifier object linked to certain properties of an object. This object can be queried as 'randomizer("PropertyName")', where PropertyName is the name of a property such as 'Volume'. When the accessor provides a valid reference, the object returned can be queried further as described previously. For example, the 'Max' property of the Volume randomizer can be obtained like so: 'randomizer("Volume").@Max'.</p>
+<p class="calibre7">The list possible of accessors is as follows:</p>
+<ul class="calibre8">
+<li class="calibre9">randomizer</li>
+</ul>
+<p class="calibre7">If an item of the return expression is incompatible or not present in the returned object, it won't be part of the results.</p>
+<ul class="calibre8">
+<li class="calibre9">Refer to <a class="pcalibre el" href="ak_wwise_core_object_get_split_000.html">ak.wwise.core.object.get</a> for a complete list of possible accessors.</li>
+<li class="calibre9">Refer to <a class="pcalibre el" href="wobjects_index_split_000.html">Wwise Objects Reference</a> for more information on the properties and references available.</li>
+</ul>
+</div></div></div></body></html>

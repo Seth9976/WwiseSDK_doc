@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Migrating a pre-2021.1 Authoring Plug-in</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="plugin_21_1_migration_features"></a>
+New Features</h1>
+<p class="calibre7">In 2021.1, the plug-in API has been rewritten with a few goals in mind. The main goals are to provide a better default design that separates concerns between the backend and frontend implementations, to offer better support for backward compatibility and to minimize the requirements when creating a plug-in. These goals have been accomplished in the following ways:</p>
+<ul class="calibre8">
+<li class="calibre9">The backend and frontend of a plug-in are separate entities where a backend can exist for multiple frontends. In the context of Wwise, the responsibilities of the backend have to do with model management and bank generation, while the frontend deals with the graphical user interface (GUI) and providing monitoring feedback to the user. This separation also means that only the backend portion of a plug-in needs to be instantiated in the context of a command-line session, which has a positive effect on performance. If no frontend is provided, a default one is generated at runtime.</li>
+<li class="calibre9">The <code class="calibre14">AK::Wwise::IAudioPlugin</code> class has been split into smaller interfaces that are all versioned. Plug-ins are now able to request and provide services to the Authoring application by requesting service instances and implementing specific interfaces. Because there are fewer dependencies for typical plug-ins and the Authoring application has knowledge of the interface versions used, adapters for previous versions can be implemented to support them in future Wwise versions. Also, when interfaces are no longer supported, users can be informed of unsupported plug-ins. A consequence of this design is that plug-in makers will need to update their plug-ins less often to support newer Wwise versions.</li>
+<li class="calibre9">The Authoring plug-in API adopted an architecture that is based on a C API and does not depend on toolset and platform-specific structures such as Windows SDK <code class="calibre14">VARIANT</code>. Plug-in dynamic libraries expose a simple C-defined structure that, for every plug-in, describes its components and provides pointers to implementations. For convenience, a C++ API reproducing the features of the original API produces these lower-level structures at compile time.</li>
+<li class="calibre9">Registration of plug-ins has been simplified and is now embedded in the concept of a "plug-in container", which is a structure that has descriptors of all the plug-ins of a library. Plug-in classes are added to this container and the Sound Engine portion of the plug-in is automatically registered during the construction of this global container. Only a few macros are needed to expose an Authoring plug-in: this is detailed in the <a class="pcalibre el" href="plugin_dll_split_001.html#wwiseplugin_container">Library Plug-in Container</a> section.</li>
+</ul>
+<p class="calibre7">In addition to the aforementioned new features, some functions have been reworked for clarity.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> The Sound Engine part of the plug-in does not adopt the same design, retaining the approach of previous versions. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

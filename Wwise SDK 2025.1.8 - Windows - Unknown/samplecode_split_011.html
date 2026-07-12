@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Samples</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_10"><a class="pcalibre1 anchor" id="samplecode_integration_filepackager_using_file_packages"></a>
+Using File Packages</h2>
+<p class="calibre7">In order to use file packages (created with the <a class="pcalibre el" href="samplecode_split_010.html#samplecode_integration_filepackager">File Packager Utility</a> or any other tool), you need to write the low-level I/O code to handle file packages. Basically, it needs to specify the offset of the requested file in the package with the proper <a class="pcalibre el" href="struct_ak_file_desc_a3fc9acc74908496f0966c75b41b8e61e_split_000.html#a3fc9acc74908496f0966c75b41b8e61e">AkFileDesc::uSector()</a> value.</p>
+<p class="calibre7">The class CAkFilePackageLowLevelIO is provided as sample code. It extends the Default Low-Level I/O and can be used as-is with file packages created with the File Packager. You simply need to instantiate a CAkFilePackageLowLevelIO instead of a CAkDefaultLowLevelIO. Then, before doing anything, you need to load the file package explicitly by calling CAkFilePackageLowLevelIO::LoadFilePackage(). The Low-Level I/O will open and parse the file package's header and build its look-up tables. It does not load the actual packaged files in memory. Then, every time the Stream Manager calls <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_1_1_dynamic_sequence_ab6daddd96e109dc7669889733ce4f2cc_split_000.html#ab6daddd96e109dc7669889733ce4f2cc">AK::StreamMgr::IAkFileLocationResolver::Open()</a>, Wwise searches for the file in all packages. If it is not found, the default implementation is called.</p>
+<p class="calibre7">The order in which packages are searched in this sample corresponds to the opposite order in which they were loaded (using LoadFilePackage()). If you are implementing a DLC with file packages, your game should load the "base" (default) file package first, then the DLC packages. <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_1_1_dynamic_sequence_ab6daddd96e109dc7669889733ce4f2cc_split_000.html#ab6daddd96e109dc7669889733ce4f2cc">CAkFilePackageLowLevelIO::Open()</a> will, therefore, search the DLC packages first. If a file exists in both a DLC package and the "base" package, the one in the DLC package will be picked.</p>
+<p class="calibre7">See a brief presentation of this sample implementation in the above listed <a class="pcalibre el" href="samplecode_split_009.html#samplecode_integration_filepackagelowlevelio">File Package Low-Level I/O Implementation</a>. There, you will find links to other relevant parts of the documentation (such as the Low-Level I/O sample code walk-throughs).</p>
+<p class="calibre7">The CAkFilePackageLowLevelIO and associated <a class="pcalibre el" href="samplecode_split_010.html#samplecode_integration_filepackager">File Packager Utility</a> code can be used as a starting point to implement more complex file packaging solutions.</p>
+</div></div></div></body></html>

@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AkCmd_SA_SetGameObjectInRoom Struct Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_1">Detailed Description</h2>
+<div class="calibre2"><p class="calibre7">Set the room that the game object is currently located in - usually the result of a containment test performed by the client. The room must have been registered with <a class="pcalibre el" href="struct_ak_cmd___s_a___set_room_split_000.html">AkCmd_SA_SetRoom</a>. Setting the room for a game object provides the basis for the sound propagation service, and also sets which room's reverb aux bus to send to. The sound propagation service traces the path of the sound from the emitter to the listener, and calculates the diffraction as the sound passes through each portal. The portals are used to define the spatial location of the diffracted and reverberated audio.</p>
+<p class="calibre7">This command can fail for the following reasons:</p><ul class="calibre8">
+<li class="calibre9">AK_InvalidParameter: <code class="calibre14">gameObjectID</code> or <code class="calibre14">roomID</code> are not valid IDs.</li>
+<li class="calibre9">AK_IDNotFound: Provided <code class="calibre14">gameObjectID</code> is not recognized as a registered game object.</li>
+<li class="calibre9">AK_InsufficientMemory: Not enough memory to complete the operation.</li>
+</ul>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="_ak_command_types_8h_a001b78645b8b0335c0dd2e128cca2cfd_split_001.html#a001b78645b8b0335c0dd2e128cca2cfdaac74bf305672b4e89a7a0ce7d6426099">AkCommand_SA_SetGameObjectInRoom</a></li>
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_cmd___s_a___set_room_split_000.html">AkCmd_SA_SetRoom</a></li>
+<li class="calibre9"><a class="pcalibre el" href="struct_ak_cmd___s_a___remove_room_split_000.html">AkCmd_SA_RemoveRoom</a> </li>
+</ul>
+</dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_ak_command_types_8h_source_split_002.html#l01736">1736</a> of file <a class="pcalibre el" href="_ak_command_types_8h_source_split_000.html">AkCommandTypes.h</a>.</p>
+</div></div><!-- contents -->
+
+
+</body></html>

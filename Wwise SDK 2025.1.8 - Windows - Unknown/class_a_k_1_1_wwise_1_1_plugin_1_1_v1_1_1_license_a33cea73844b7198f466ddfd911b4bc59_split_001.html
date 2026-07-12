@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK.Wwise::Plugin::V1::License::GetLicenseStatus</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_license_a33cea73844b7198f466ddfd911b4bc59_split_000.html#a33cea73844b7198f466ddfd911b4bc59" class="pcalibre1 anchor">◆ </a></span>GetLicenseStatus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="calibre3">
+  <tbody class="calibre4"><tr class="calibre16">
+  <td class="calibre17">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">virtual <a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_a74c80204b884826c56e3d208bd3d1df4_split_000.html#a74c80204b884826c56e3d208bd3d1df4">LicenseStatus</a> AK.Wwise::Plugin::V1::License::GetLicenseStatus </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype">const GUID &amp; </td>
+          <td class="paramname"><em class="calibre59">in_guidPlatform</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_a9c61cf9f6b1cb69de3722982150b67ed_split_000.html#a9c61cf9f6b1cb69de3722982150b67ed">Severity</a> &amp; </td>
+          <td class="paramname"><em class="calibre59">out_eSeverity</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">char * </td>
+          <td class="paramname"><em class="calibre59">out_pszMessage</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">unsigned int </td>
+          <td class="paramname"><em class="calibre59">in_uiBufferSize</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"> const</td>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="calibre17">
+<span><span>inline</span><span>virtual</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+
+<p class="calibre7">Retrieve the licensing status of the plug-in for the given platform. </p>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_guidPlatform</td><td class="calibre17">GUID of the platform. </td></tr>
+    <tr class="calibre16"><td class="calibre17">[out]</td><td class="paramname">out_eSeverity</td><td class="calibre17">(Optional) If set, the string placed in out_pszMessage will be shown in the log with the corresponding severity. </td></tr>
+    <tr class="calibre16"><td class="calibre17">[out]</td><td class="paramname">out_pszMessage</td><td class="calibre17">Pointer to the buffer of size in_uiBufferSize that will hold the message string. </td></tr>
+    <tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_uiBufferSize</td><td class="calibre17">Null-terminated size of the buffer pointed by out_pszMessage.</td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">Licensing status of the plug-in; LicenseStatus_Unlicensed or LicenseStatus_Expired will prevent the plug-in from being included in a SoundBank.</dd></dl>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v2_1_1_host_ad464d7703658e5cfad6de1bfeaa24c66_split_000.html#ad464d7703658e5cfad6de1bfeaa24c66">AK::Wwise::Plugin::Host::GetLicenseStatus</a></li>
+<li class="calibre9"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v2_1_1_host_abaf53b46f9a7bea52dcfcf3c4c18b1e9_split_000.html#abaf53b46f9a7bea52dcfcf3c4c18b1e9">AK::Wwise::Plugin::Host::GetAssetLicenseStatus</a></li>
+<li class="calibre9"><a class="pcalibre el" href="wwiseplugin_backend_split_002.html#wwiseplugin_dll_license">Managing Licenses</a> </li>
+</ul>
+</dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_license_8h_source.html#l00182">182</a> of file <a class="pcalibre el" href="_license_8h_source.html">License.h</a>.</p>
+
+<p class="calibre7">References <a class="pcalibre el" href="_plugin_def_8h_source.html#l00071">AK::Wwise::Plugin::LicenseStatus_Valid</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

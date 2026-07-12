@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2021.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_3"><a class="pcalibre1 anchor" id="threedee_audio_migration_21_1_migrating"></a>
+Migrating</h2>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="threedee_audio_migration_21_1_migrating_single"></a>
+Into A Single Output</h3>
+<p class="calibre7">A Wwise project using a dual-output strategy to split Spatial and Passthrough mixes should be modified to use a single System Audio Device instead, which can now produce both mixes from a single Audio Object stream.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="threedee_audio_migration_21_1_migrating_object_flow"></a>
+Let the Objects Flow</h3>
+<p class="calibre7">Instances of the 3d audio mixer plug-ins should be removed and replaced with the use of the <b class="calibre13">Audio Objects</b> Bus Configuration, allowing the Audio Objects to flow to the top bus and into the System Audio Device. Use of the <b class="calibre13">Same as parent</b> Bus Configuration is recommended in order to automatically inherit the Audio Object configuration from the System Audio Device when operating in 3D Audio mode.</p>
+<p class="calibre7">Any non-3d mono or stereo stream will be automatically directed to the Passthrough Mix by the System Audio Device. It is possible to force any other type of object to be sent to the Passthrough Mix by setting the <b class="calibre13">Mix Behavior</b> to <b class="calibre13">Mix To Passthrough</b> in the Wwise System Output Settings Metadata.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="threedee_audio_migration_21_1_migrating_auto"></a>
+Embrace Automatic Configuration</h3>
+<p class="calibre7">Use of game-side logic was necessary to detect 3d audio and properly switch between Headphone and Surround mode: for example, binding “Bypass all” and “Passthrough objects” object panner settings.</p>
+<p class="calibre7">The System Audio Device now performs this detection and automatically enables Audio Objects and Passthrough Mix based on whether or not 3D audio is active. It is also possible to pick separate configurations for the Main Mix when targeting Headphones or Surround. Finally, any bus can inherit from the Main Mix or Passthrough Mix using the <b class="calibre13">Same as main mix</b> or <b class="calibre13">Same as passthrough mix</b> Bus Configurations.</p>
+</div></div></div></body></html>

@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::IAkGlobalPluginContext::ComputeWeightedAmbisonicsDecodingFromSampledSphere</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="class_a_k_1_1_i_ak_global_plugin_context_af398a343e7d94e08f763544f923a3078_split_000.html#af398a343e7d94e08f763544f923a3078" class="pcalibre1 anchor">◆ </a></span>ComputeWeightedAmbisonicsDecodingFromSampledSphere()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="calibre3">
+  <tbody class="calibre4"><tr class="calibre16">
+  <td class="calibre17">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">virtual <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::IAkGlobalPluginContext::ComputeWeightedAmbisonicsDecodingFromSampledSphere </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype">const <a class="pcalibre el" href="struct_ak_vector_split_000.html">AkVector</a> </td>
+          <td class="paramname"><em class="calibre59">in_samples</em>[], </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> </td>
+          <td class="paramname"><em class="calibre59">in_uNumSamples</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="struct_ak_channel_config_split_000.html">AkChannelConfig</a> </td>
+          <td class="paramname"><em class="calibre59">in_cfgAmbisonics</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="namespace_a_k_1_1_speaker_volumes_a57e0ce3a8225a58dd886853164554074_split_000.html#a57e0ce3a8225a58dd886853164554074">AK::SpeakerVolumes::MatrixPtr</a> </td>
+          <td class="paramname"><em class="calibre59">out_mxVolume</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="calibre17">
+<span><span>pure virtual</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Computes gain matrix for decoding an SN3D-normalized ACN-ordered ambisonic signal of order sqrt(in_cfgAmbisonics.uNumChannels)-1, with max-RE weighting function, on a (regularly) sampled sphere whose samples in_samples are expressed in left-handed cartesian coordinates, with unitary norm. This decoding technique is optimal for regular sampling. The returned matrix has in_cfgAmbisonics.uNumChannels inputs (rows) and in_uNumSamples outputs (columns), and is normalized by the number of samples. You may use the returned volume matrix with <a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_service_mixer_ad6e7845e97312743d2a9e73aa1efb60d_split_000.html#ad6e7845e97312743d2a9e73aa1efb60d" title="N to N channels mix.">IAkPluginServiceMixer::MixNinNChannels</a>. Supported ambisonic configurations are full-sphere 1st to 5th order. </p><dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><code class="calibre14">AK_InvalidParameter</code> if in_cfgAmbisonics is not an ambisonic configuration.</li>
+<li class="calibre9"><code class="calibre14">AK_InvalidParameter</code> if in_cfgAmbisonics does not have enough channel for a valid ambisonic configuration of the specified order.</li>
+<li class="calibre9"><code class="calibre14">AK_InvalidParameter</code> if in_samples contains non-normalized vectors (not unity length).</li>
+<li class="calibre9"><code class="calibre14">AK_Success</code> otherwise. </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_samples</td><td class="calibre17">Array of vector samples expressed in left-handed cartesian coordinates, where (1,0,0) points towards the right and (0,1,0) points towards the top. Vectors must be normalized. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_uNumSamples</td><td class="calibre17">Number of points in in_samples. </td></tr>
+    <tr class="calibre16"><td class="paramname">in_cfgAmbisonics</td><td class="calibre17">Ambisonic configuration. Supported configurations are 1st to 5th order. Determines number of rows (input channels) in matrix out_mxVolume. </td></tr>
+    <tr class="calibre16"><td class="paramname">out_mxVolume</td><td class="calibre17">Returned volume matrix of in_cfgAmbisonics.uNumChannels rows x in_uNumSamples colums. Must be allocated prior to calling this function with the size returned by <a class="pcalibre el" href="namespace_a_k_1_1_speaker_volumes_1_1_matrix_a59458aba2b1be3fa678021a3aea813b9_split_000.html#a59458aba2b1be3fa678021a3aea813b9">AK::SpeakerVolumes::Matrix::GetRequiredSize()</a> for the desired number of channels. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

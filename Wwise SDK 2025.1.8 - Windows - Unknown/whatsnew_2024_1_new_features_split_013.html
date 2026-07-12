@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>New Features Overview 2024.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_12"><a class="pcalibre1 anchor" id="features_24_1_acoustics"></a>
+Spatial Audio: Acoustics</h1>
+<h2 class="calibre31"><a class="pcalibre1 anchor" id="features_24_1_path_interpolation"></a>
+Reflection Improvements and Parameter Smoothing (Experimental)</h2>
+<p class="calibre7">Material filtering has been optimized, and a setting has been added to Reflect to change the mode of material filtering to one of the following options:</p>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">Favor Performance</b>: Approximates the acoustic properties of materials with a shelf filter, which uses four times less CPU than the legacy method. When using Favor Performance, the two mid-band absorptions are not independent and together specify a mid-gain.</li>
+<li class="calibre9"><b class="calibre13">Favor Quality</b>: The legacy method, which realistically models the acoustic properties of materials with a detailed and accurate four-band filter.</li>
+</ul>
+<p class="calibre7">Several features have been added allowing users to fine-tune the performance and quality of Wwise Acoustics:</p>
+<ul class="calibre8">
+<li class="calibre9">Limit the maximum number of diffraction paths per sound emitter. See <a class="pcalibre el" href="struct_ak_spatial_audio_init_settings_a94f819cee9905b9745f9d628aedf7cf2_split_000.html#a94f819cee9905b9745f9d628aedf7cf2">AkSpatialAudioInitSettings::uMaxDiffractionPaths</a> and <a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_afa6911d223cce2c96613fa1ea824e6f1_split_000.html#afa6911d223cce2c96613fa1ea824e6f1">AK::SpatialAudio::SetMaxDiffractionPaths</a>.</li>
+<li class="calibre9">Customize the maximum diffraction coefficient, allowing paths to exceed a diffraction angle of 180 degrees. See <a class="pcalibre el" href="struct_ak_spatial_audio_init_settings_aa22a7e11434285a698fe938d477e8279_split_000.html#aa22a7e11434285a698fe938d477e8279">AkSpatialAudioInitSettings::fMaxDiffractionAngleDegrees</a>.</li>
+<li class="calibre9">Customize how the transmission loss coefficient is accumulated when a sound passes through multiple objects. See <a class="pcalibre el" href="struct_ak_spatial_audio_init_settings_a2580ab2686a91ec9e2f6038815ad6cec_split_000.html#a2580ab2686a91ec9e2f6038815ad6cec">AkSpatialAudioInitSettings::eTransmissionOperation</a>.</li>
+</ul>
+<p class="calibre7">Global Reflection Limit is an experimental feature that you can use to control CPU usage in complex environments. Potential reflection paths, discovered by raycasting, are first sorted according to a heuristic to determine which paths are the most prominent. Afterwards, the full reflection path calculation is performed on only the most prominent paths, as determined by <a class="pcalibre el" href="struct_ak_spatial_audio_init_settings_a79d0a9ef505102dd2960e339e526f6b8_split_000.html#a79d0a9ef505102dd2960e339e526f6b8">AkSpatialAudioInitSettings::uMaxGlobalReflectionPaths</a>. Limiting the total number of reflection path calculations can significantly reduce CPU usage. See <a class="pcalibre el" href="struct_ak_spatial_audio_init_settings_a79d0a9ef505102dd2960e339e526f6b8_split_000.html#a79d0a9ef505102dd2960e339e526f6b8">AkSpatialAudioInitSettings::uMaxGlobalReflectionPaths</a> and <a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_a527726424152b0dd76d6a49828221ef8_split_000.html#a527726424152b0dd76d6a49828221ef8">AK::SpatialAudio::SetMaxGlobalReflectionPaths</a>.</p>
+<p class="calibre7">Parameter Smoothing is an experimental feature that you can enable in order to limit the rate of change of acoustic rendering parameters over time. These parameters include diffraction, transmission loss, obstruction, occlusion, virtual position, and volume. This feature addresses the issue of sound “popping in and out” suddenly across different acoustic contexts when using conservative raycasting and diffraction settings, and allows you to save CPU while maintaining audio quality. See <a class="pcalibre el" href="struct_ak_spatial_audio_init_settings_a406bea3f65e5fef84954eb2603b8ecd0_split_000.html#a406bea3f65e5fef84954eb2603b8ecd0">AkSpatialAudioInitSettings::fSmoothingConstantMs</a> and <a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_a951213b89f613724613a2a0bea1bf80c_split_000.html#a951213b89f613724613a2a0bea1bf80c">AK::SpatialAudio::SetSmoothingConstant</a>.</p>
+<p class="calibre7">Spatial Audio features marked as (Experimental) are disabled by default, have been tested, and are expected to be bug-free to the best of our knowledge. We encourage you to try our new, experimental features and provide feedback and suggestions.</p>
+<div class="calibre2">
+<img alt="" src="ovr_unreal_settings_spatial_audio.png" class="inline"/>
+</div>
+</div></div></div></body></html>

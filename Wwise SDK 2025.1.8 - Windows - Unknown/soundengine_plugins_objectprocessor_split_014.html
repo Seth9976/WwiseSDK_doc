@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Sound Engine Object Processor Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_13"><a class="pcalibre1 anchor" id="soundengine_plugins_objectprocessor_metadata"></a>
+Audio Object Metadata</h1>
+<p class="calibre7">The <a class="pcalibre el" href="struct_ak_audio_object_split_000.html">AkAudioObject</a> struct encompasses all the Audio Object metadata that travels along Audio Objects' audio buffers throughout the object pipeline. It can be split in three categories:</p>
+<ul class="calibre8">
+<li class="calibre9">Identification: <a class="pcalibre el" href="struct_ak_audio_object_a4b5cc754786f067fa2b3fbed875652d8_split_000.html#a4b5cc754786f067fa2b3fbed875652d8" title="Unique ID, local to a given bus. Only the lower 56 of 64 bits are used for the object itself....">AkAudioObject::key</a>, <a class="pcalibre el" href="struct_ak_audio_object_aa66019a628335335705ba44114bd2484_split_000.html#aa66019a628335335705ba44114bd2484" title="Profiling ID of the node from which the object stems (typically the voice, instance of a Property Con...">AkAudioObject::instigatorID</a> and <a class="pcalibre el" href="struct_ak_audio_object_a091f4368a679f03a5c00d2ac6fce2371_split_000.html#a091f4368a679f03a5c00d2ac6fce2371" title="Name string of the object, to appear in the object profiler. This is normally used by out-of-place ob...">AkAudioObject::objectName</a>. They must never be written to by an Object Processor, except objectName which out-of-place Object Processors may set using <a class="pcalibre el" href="struct_ak_audio_object_a0254e6325540e0edec1c72a19a39d70d_split_000.html#a0254e6325540e0edec1c72a19a39d70d">AkAudioObject::SetName</a>.</li>
+<li class="calibre9">Positioning information: <a class="pcalibre el" href="struct_ak_audio_object_a1dccda4d0468b93e4347842a9de4e98e_split_000.html#a1dccda4d0468b93e4347842a9de4e98e" title="Positioning data for deferred 3D rendering.">AkAudioObject::positioning</a>, discussed below in <a class="pcalibre el" href="soundengine_plugins_objectprocessor_split_015.html#soundengine_plugins_objectprocessor_metadata_positioning">Positioning Metadata</a>.</li>
+<li class="calibre9">Cumulative Gain: <a class="pcalibre el" href="struct_ak_audio_object_a3013d844d7544da19d30cf90bef6aef5_split_000.html#a3013d844d7544da19d30cf90bef6aef5" title="Cumulative ramping gain to apply when mixing down to speaker bed or final endpoint.">AkAudioObject::cumulativeGain</a>, discussed below in <a class="pcalibre el" href="soundengine_plugins_objectprocessor_split_016.html#soundengine_plugins_objectprocessor_metadata_cumulativegain">Cumulative Gain Metadata</a>.</li>
+<li class="calibre9">Custom metadata plug-ins: <a class="pcalibre el" href="struct_ak_audio_object_a40f457c25d198d643eb3a93fd844771f_split_000.html#a40f457c25d198d643eb3a93fd844771f" title="Array of custom metadata, gathered from visited objects. Note: any custom metadata is expected to exi...">AkAudioObject::arCustomMetadata</a>, discussed below in <a class="pcalibre el" href="soundengine_plugins_objectprocessor_split_018.html#soundengine_plugins_objectprocessor_metadata_custom">Custom Metadata Plug-Ins</a>.</li>
+</ul>
+</div></div></div></body></html>

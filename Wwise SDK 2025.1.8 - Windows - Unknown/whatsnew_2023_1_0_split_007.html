@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2023.1.0</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_6"><a class="pcalibre1 anchor" id="generic_community_bugs_2023_1"></a>
+Fixes for Community-Reported Bugs</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-39193</b> Fixed: Event short IDs are not updated after renaming.</li>
+<li class="calibre9"><b class="calibre13">WG-43538</b> Fixed: Possible crash when working with the Playlist of a Sequence Container.</li>
+<li class="calibre9"><b class="calibre13">WG-44631</b> Fixed: Can't audition items selected in Search tool results using the spacebar.</li>
+<li class="calibre9"><b class="calibre13">WG-49914</b> Fixed: (WAAPI) It's not possible to automatically check out Work Units when saving a project. The argument autoAddToSourceControl has been added to function <a class="pcalibre el" href="ak_wwise_core_project_save_split_000.html">ak.wwise.core.project.save</a>. The default value is false.</li>
+<li class="calibre9"><b class="calibre13">WG-51233</b> Fixed: It's not possible to create Work Units in the Events hierarchy during tab-delimited import.</li>
+<li class="calibre9"><b class="calibre13">WG-54872</b> Fixed: (WAAPI) Command FindProjectExplorerSyncGroup1 fails to select multiple objects.</li>
+<li class="calibre9"><b class="calibre13">WG-55164</b> Fixed: Changing a property of an existing object through tab-delimited import can lead to duplication of the object.</li>
+<li class="calibre9"><b class="calibre13">WG-60190</b> Fixed: Incorrect display in Voice Monitor in Bus Input mode when a voice outputs to a mix of HDR and non-HDR busses.</li>
+<li class="calibre9"><b class="calibre13">WG-60670</b> Fixed: (Spatial Audio) Portal Obstruction and Occlusion are not applied when there is an intermediate room between Emitter and Listener.</li>
+<li class="calibre9"><b class="calibre13">WG-60975</b> Fixed: (Spatial Audio) Sudden change in panning when entering rooms that have multiple portals.</li>
+<li class="calibre9"><b class="calibre13">WG-62158</b> Fixed: Assert in <code class="calibre14">CAkSrcMedia::PrepareNextBuffer</code> when causing a state transition on the same audio tick as a seek command on a voice running with high-latency decoding.</li>
+<li class="calibre9"><b class="calibre13">WG-63296</b> Fixed: Source Editor incorrectly report errors after floating point errors.</li>
+<li class="calibre9"><b class="calibre13">WG-63450</b> Fixed: Possible crash when saving a project with files to check out.</li>
+<li class="calibre9"><b class="calibre13">WG-63589</b> Fixed: (WAAPI) Missing support for "soundbanks" and "spatialAudioRaycasting" in ak.wwise.core.profiler.enableProfilerData.</li>
+<li class="calibre9"><b class="calibre13">WG-64858</b> Fixed: Audio does not come back when using SetOfflineRendering to false to resume normal playback.</li>
+<li class="calibre9"><b class="calibre13">WG-64934</b> Fixed: Removed RTPC curve in Wwise isn't removed in runtime Sound Engine upon Wwise connection.</li>
+<li class="calibre9"><b class="calibre13">WG-65184</b> Fixed: Possible crash when removing an Effect.</li>
+<li class="calibre9"><b class="calibre13">WG-66145</b> Fixed: Assert in <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a81521a4611d3891c499ec9c5eb421ac2_split_000.html#a81521a4611d3891c499ec9c5eb421ac2">AK::SoundEngine::ReplaceOutput</a></code> call when called with default parameters.</li>
+<li class="calibre9"><b class="calibre13">WG-66303</b> Fixed: Possible crash after doing source operations in the File Manager.</li>
+<li class="calibre9"><b class="calibre13">WG-66366</b> Fixed: Performance issue when loading large SoundBanks with numerous active sounds.</li>
+<li class="calibre9"><b class="calibre13">WG-66370</b> Fixed: <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a81521a4611d3891c499ec9c5eb421ac2_split_000.html#a81521a4611d3891c499ec9c5eb421ac2">AK::SoundEngine::ReplaceOutput</a></code> locks.</li>
+<li class="calibre9"><b class="calibre13">WG-66468</b> Fixed: <code class="calibre14">Wwise_IDs.h</code> is not managed by source control even if the <b class="calibre13">Use Source Control for Generated Files</b> option is enabled in the SoundBanks settings.</li>
+<li class="calibre9"><b class="calibre13">WG-66836</b> Fixed: Inconsistent handling of streamed Music Tracks that begin playback as a virtual voice.</li>
+<li class="calibre9"><b class="calibre13">WG-67027</b> Fixed: Possible assert in debug when multiple music transitions occur at the same time.</li>
+<li class="calibre9"><b class="calibre13">WG-67031</b> Fixed: (WAAPI) <a class="pcalibre el" href="ak_wwise_core_audio_import_split_000.html">ak.wwise.core.audio.import</a> no longer reports an error when a warning or an error is found in the log after doing an import. The log is now also returned in the result.</li>
+<li class="calibre9"><b class="calibre13">WG-67125</b> Fixed: Sounds with Listener Relative Routing enabled, 3D Spatialization set to None, playing on a multipositioned Game Object, and routed to an Audio Objects bus create separate Audio Objects for each of the corresponding Game Object's multiple positions. Now, only one Audio Object will be created, which ensures that the loudness of the playing sound stays consistent regardless of the number of Game Object positions set.</li>
+<li class="calibre9"><b class="calibre13">WG-67128</b> Fixed: Crash when editing some properties while lists are being reloaded.</li>
+<li class="calibre9"><b class="calibre13">WG-67187</b> Fixed: Possible crash when using arrow keys in the Convolution IR info control.</li>
+<li class="calibre9"><b class="calibre13">WG-67349</b> Fixed: Some characters, such as dash, are not accepted in language names used in WAAPI SoundBank generation.</li>
+<li class="calibre9"><b class="calibre13">WG-67469</b> Fixed: The MaxAttenuation attribute in a SoundBank XML file can trigger an invalid format error.</li>
+<li class="calibre9"><b class="calibre13">WG-68026</b> Fixed: <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a77698f766d8d18675e38d91a69987c7a_split_000.html#a77698f766d8d18675e38d91a69987c7a">AK::SoundEngine::TryUnsetMedia</a></code> doesn't succeed for active MIDI files.</li>
+<li class="calibre9"><b class="calibre13">WG-68039</b> Fixed: Streamed sounds going virtual don't release their file handles.</li>
+<li class="calibre9"><b class="calibre13">WG-68060</b> Fixed: Possible crash when typing Perforce password.</li>
+</ul>
+</div></div></div></body></html>

@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Obstruction and Occlusion with Game-defined Auxiliary Sends</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_3"><a class="pcalibre1 anchor" id="soundengine_obsocc_example"></a>
+Example: Setting Obstruction and Occlusion</h2>
+<div class="fragment"><div class="line"><span class="preprocessor">#define MAIN_LISTENER        0</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// game loop</span></div>
+<div class="line"><span class="keywordflow">while</span>( TRUE )</div>
+<div class="line">{</div>
+<div class="line">    (...)</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">for</span>( <span class="keywordtype">int</span> iGameObject = 0; iGameObject &lt; nbObjects; iGameObject++ )</div>
+<div class="line">    {</div>
+<div class="line">        <a class="pcalibre code" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a> fCalculatedObs, fCalculatedOcc;</div>
+<div class="line">        pGeometryModule-&gt;GetObsAndOccForGameObject( iGameObject, MAIN_LISTENER, &amp;fCalculatedObs, &amp;fCalculatedOcc );</div>
+<div class="line">        <a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a1b3e18a25b405e55ba82de9b70cd11ba_split_000.html#a1b3e18a25b405e55ba82de9b70cd11ba">AK::SoundEngine::SetObjectObstructionAndOcclusion</a>( iGameObject, MAIN_LISTENER, fCalculatedObs, fCalculatedOcc );</div>
+<div class="line">    }</div>
+<div class="line">    </div>
+<div class="line">    (...)</div>
+<div class="line">}</div>
+</div><!-- fragment --></div></div></div></body></html>

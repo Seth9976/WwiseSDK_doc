@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::SoundEngine::Query::GetMaxRadius</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="namespace_a_k_1_1_sound_engine_1_1_query_a8cc7c4191a91375d58d6a2de118aece4_split_000.html#a8cc7c4191a91375d58d6a2de118aece4" class="pcalibre1 anchor">◆ </a></span>GetMaxRadius() <span class="permalink">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_sound_engine_export_8h_ac6e96d34dfc0e12f9aaa7a47f4e9c322_split_000.html#ac6e96d34dfc0e12f9aaa7a47f4e9c322">AKSOUNDENGINE_API</a> <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::SoundEngine::Query::GetMaxRadius </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_1_1_query_aa14caa1a935b5a7868e4ae0c994ef3a3_split_000.html#aa14caa1a935b5a7868e4ae0c994ef3a3">AkRadiusList</a> &amp; </td>
+          <td class="paramname"><em class="calibre59">io_RadiusList</em></td><td class="calibre17">)</td>
+          <td class="calibre17"/>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Returns the maximum distance used in attenuations associated to all sounds currently playing. This may be used for example by the game to know if some processing need to be performed on the game side, that would not be required if the object is out of reach anyway.</p>
+<p class="calibre7">Example usage: </p><div class="fragment"><div class="line"><span class="comment">/*******************************************************/</span></div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_1_1_query_aa14caa1a935b5a7868e4ae0c994ef3a3_split_000.html#aa14caa1a935b5a7868e4ae0c994ef3a3">AkRadiusList</a> RadLst; <span class="comment">//creating the list( array ).</span></div>
+<div class="line"><span class="comment">// Do not reserve any size for the array, </span></div>
+<div class="line"><span class="comment">// the system will reserve the correct size.</span></div>
+<div class="line"> </div>
+<div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_1_1_query_a8cc7c4191a91375d58d6a2de118aece4_split_000.html#a8cc7c4191a91375d58d6a2de118aece4">GetMaxRadius</a>( RadLst );</div>
+<div class="line"><span class="comment">// Use the content of the list</span></div>
+<div class="line">(...)</div>
+<div class="line"> </div>
+<div class="line">RadLst.Term();<span class="comment">// the user is responsible to free the memory allocated</span></div>
+<div class="line"><span class="comment">/*******************************************************/</span></div>
+</div><!-- fragment --><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> The returned value is NOT the distance from a listener to an object but the maximum attenuation distance of all sounds playing on this object. This is not related in any way to the current 3D position of the object. </td></tr>
+</tbody></table>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9">AK_Success if succeeded</li>
+<li class="calibre9">AK_InsufficientMemory if there was not enough memory</li>
+</ul>
+</dd></dl>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> The Scaling factor (if one was specified on the game object) is included in the return value. The Scaling factor is not updated once a sound starts playing since it is computed only when the playback starts with the initial scaling factor of this game object. Scaling factor will be re-computed for every playback instance, always using the scaling factor available at this time. </td></tr>
+</tbody></table>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_1_1_query_aa14caa1a935b5a7868e4ae0c994ef3a3_split_000.html#aa14caa1a935b5a7868e4ae0c994ef3a3">AkRadiusList</a> </li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">io_RadiusList</td><td class="calibre17">List that will be filled with <a class="pcalibre el" href="struct_a_k_1_1_sound_engine_1_1_query_1_1_game_obj_dst_split_000.html">AK::SoundEngine::Query::GameObjDst</a> objects. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_1_1_query_a8cc7c4191a91375d58d6a2de118aece4_html_a8cc7c4191a91375d58d6a2de118aece4"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_1_1_query_a8cc7c4191a91375d58d6a2de118aece4_split_000.html#a8cc7c4191a91375d58d6a2de118aece4" class="pcalibre calibre12">AK::SoundEngine::Query::GetMaxRadius</a></div><div class="calibre2">AKSOUNDENGINE_API AKRESULT GetMaxRadius(AkRadiusList &amp;io_RadiusList)</div></div>
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_1_1_query_aa14caa1a935b5a7868e4ae0c994ef3a3_html_aa14caa1a935b5a7868e4ae0c994ef3a3"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_1_1_query_aa14caa1a935b5a7868e4ae0c994ef3a3_split_000.html#aa14caa1a935b5a7868e4ae0c994ef3a3" class="pcalibre calibre12">AK::SoundEngine::Query::AkRadiusList</a></div><div class="calibre2">AkArray&lt; GameObjDst, const GameObjDst &amp; &gt; AkRadiusList</div><div class="calibre2"><b class="calibre13">Definition:</b> <a href="_ak_query_parameters_8h_source.html#l00466" class="pcalibre calibre12">AkQueryParameters.h:466</a></div></div>
+
+
+</body></html>

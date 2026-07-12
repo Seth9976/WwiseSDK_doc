@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Audiokinetic Stream Manager Initialization Settings</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_4"><a class="pcalibre1 anchor" id="streamingmanager_settings_defmanagerinit_device_threadProperties"></a>
+I/O Thread Properties</h2>
+<p class="calibre7">All high-level devices use a separate thread to post transfer requests to the Low-Level I/O called "AK::IOThread". You can specify properties for this thread by using <a class="pcalibre el" href="struct_ak_device_settings_a66496eabd7bf4cd482f2ef9925e489c4_split_000.html#a66496eabd7bf4cd482f2ef9925e489c4" title="Scheduler thread properties.">AkDeviceSettings::threadProperties</a>. <a class="pcalibre el" href="struct_ak_thread_properties_split_000.html">AkThreadProperties</a> is defined for each platform in SDK/include/AK/Tools/{Platform name}/AkPlatformFuncs.h. This method typically specifies thread priority and processor.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="tip.gif"/></td><td class="calibre17"><b class="calibre13">Tip:</b> The I/O scheduler thread should have a priority above normal because it does not use much of the CPU: it spends most of its time waiting for streams to service, or waiting for the disk controller. However, when it needs to choose a task and post it to the Low-Level I/O, it should be able to do so quickly to maximize the storage device throughput. </td></tr>
+</tbody></table>
+<p class="calibre7">Default: Default platform-specific thread properties (as returned by <a class="pcalibre el" href="namespace_a_k_p_l_a_t_f_o_r_m_af8ca5269595a1270425d165061ec182a_split_000.html#af8ca5269595a1270425d165061ec182a">AKPLATFORM::AkGetDefaultThreadProperties()</a>), with a priority equal to AK_THREAD_PRIORITY_ABOVE_NORMAL (defined in AkPlatformFuncs.h).</p>
+</div></div></div></body></html>

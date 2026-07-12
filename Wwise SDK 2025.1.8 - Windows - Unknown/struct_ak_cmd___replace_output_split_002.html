@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AkCmd_ReplaceOutput Struct Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_1">Detailed Description</h2>
+<div class="calibre2"><p class="calibre7">Replaces an output device previously created during engine initialization or from <a class="pcalibre el" href="struct_ak_cmd___add_output_split_000.html">AkCmd_AddOutput</a>, with a new output device. In addition to simply removing one output device and adding a new one, the new output device will also be used on all of the master buses that the old output device was associated with, and preserve all listeners that were attached to the old output device.</p>
+<p class="calibre7">This command can fail for the following reasons:</p><ul class="calibre8">
+<li class="calibre9"><code class="calibre14">AK_InvalidParameter:</code> Out of range parameters or unsupported parameter combinations.</li>
+<li class="calibre9"><code class="calibre14">AK_IDNotFound:</code> The audioDeviceShareset on in_settings doesn't exist. Possibly, the Init bank isn't loaded yet or was not updated with latest changes.</li>
+<li class="calibre9"><code class="calibre14">AK_InsufficientMemory:</code> Not enough memory to complete the operation.</li>
+<li class="calibre9"><code class="calibre14">AK_DeviceNotCompatible:</code> Request output settings are incompatible with current system. A dummy output was created instead.</li>
+</ul>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="_ak_command_types_8h_a001b78645b8b0335c0dd2e128cca2cfd_split_001.html#a001b78645b8b0335c0dd2e128cca2cfda9b3a7bf26e01fa4633f070ee51fa8f68" title="See AkCmd_ReplaceOutput.">AkCommand_ReplaceOutput</a></li>
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a81521a4611d3891c499ec9c5eb421ac2_split_000.html#a81521a4611d3891c499ec9c5eb421ac2">AK::SoundEngine::ReplaceOutput</a></li>
+<li class="calibre9"><a class="pcalibre el" href="integrating_secondary_outputs_split_000.html">Integrating Secondary Outputs</a> </li>
+</ul>
+</dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_ak_command_types_8h_source_split_001.html#l00913">913</a> of file <a class="pcalibre el" href="_ak_command_types_8h_source_split_000.html">AkCommandTypes.h</a>.</p>
+</div></div><!-- contents -->
+
+
+</body></html>

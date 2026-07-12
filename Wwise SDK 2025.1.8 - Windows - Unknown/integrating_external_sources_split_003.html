@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integrating External Sources</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="external_sources_memory"></a>
+Streaming vs In-Memory</h1>
+<p class="calibre7">To provide the audio data to the sound engine, you can either specify a file name or a data pointer (WEM format only) in the <a class="pcalibre el" href="struct_ak_external_source_info_split_000.html">AkExternalSourceInfo</a> structure. This completely overrides the Streaming check box that is on the Sound object in the Wwise project. When using a data pointer, you are responsible for the memory management and ensuring that the data will stay in memory for the entire length of the playback.</p>
+<p class="calibre7">When you specify a file name, the file is opened and streamed from disk exactly like a normal streamed file would. Its location on disk has to be resolved inside your implementation of the File Location Resolver in the Low-Level I/O subsystem. Refer to <a class="pcalibre el" href="streamingmanager_lowlevel_split_000.html">Low-Level I/O</a> for more details on the Low-Level I/O subsystem.</p>
+<p class="calibre7">The default File Location Resolver services are implemented in CAkFileLocationBase, and are provided as a sample in the SDK (see <a class="pcalibre el" href="samplecode_split_008.html#samplecode_integration_defaultlowlevelio">Default Low-Level I/O Implementation</a>). This implementation does not support subfolders; it assumes every external source streaming file is at the same place as the "standard" streaming files.</p>
+<p class="calibre7">The Wwise Stream Manager passes flags to <a class="pcalibre el" href="class_a_k_1_1_stream_mgr_1_1_i_ak_low_level_i_o_hook_a0abfde848b599b5e5b8e8ed63dc8b555_split_000.html#a0abfde848b599b5e5b8e8ed63dc8b555">AK::StreamMgr::IAkLowLevelIOHook::BatchOpen()</a> in order to help you resolve file location correctly (<a class="pcalibre el" href="struct_ak_file_system_flags_split_000.html" title="File system flags for file descriptors mapping.">AkFileSystemFlags</a>). At this level, you may distinguish external sources from standard streaming files with the "company ID" (<a class="pcalibre el" href="struct_ak_file_system_flags_a3afa1ed5022d0c225e3b9eddb92a1a9a_split_000.html#a3afa1ed5022d0c225e3b9eddb92a1a9a" title="Company ID (Wwise uses AKCOMPANYID_AUDIOKINETIC, defined in AkTypes.h, for soundbanks and standard st...">AkFileSystemFlags::uCompanyID</a>). Wwise passes AKCOMPANYID_AUDIOKINETIC for soundbanks and standard streaming files, and AKCOMPANYID_AUDIOKINETIC_EXTERNAL for streaming external sources. You may therefore use this value to search external sources in another location on disk.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> <a class="pcalibre el" href="struct_ak_file_system_flags_a6fc45a77ef8411269da43d3d63b669db_split_000.html#a6fc45a77ef8411269da43d3d63b669db" title="True when the file location depends on language.">AkFileSystemFlags::bIsLanguageSpecific</a> is always set to false with external sources, even if the external source was included in a "Voice" sound structure. In fact, we recommend that you use external sources inside language-independent SFX instead of Voices. Localization has to be handled right from the start, when specifying the file name or ID in <a class="pcalibre el" href="struct_ak_external_source_info_split_000.html">AkExternalSourceInfo</a>. </td></tr>
+</tbody></table>
+</div></div></div></body></html>

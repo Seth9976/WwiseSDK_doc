@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::SoundEngine::DynamicSequence::Playlist::Enqueue</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="class_a_k_1_1_sound_engine_1_1_dynamic_sequence_1_1_playlist_a9155f633c7fdda4283d318d89c2cd4bb_split_000.html#a9155f633c7fdda4283d318d89c2cd4bb" class="pcalibre1 anchor">◆ </a></span>Enqueue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="calibre3">
+  <tbody class="calibre4"><tr class="calibre16">
+  <td class="calibre17">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_platforms_2_windows_2_ak_types_8h_a3b6f41972bf6fa55e80b687ca50fbd12_split_000.html#a3b6f41972bf6fa55e80b687ca50fbd12">AkForceInline</a> <a class="pcalibre el" href="_ak_enums_8h_a64f7d1f79613cc4dcc49a4efba6caa63_split_000.html#a64f7d1f79613cc4dcc49a4efba6caa63">AKRESULT</a> AK::SoundEngine::DynamicSequence::Playlist::Enqueue </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_a8341fa4d01d2fa852c3cc410401b04dc_split_000.html#a8341fa4d01d2fa852c3cc410401b04dc">AkUniqueID</a> </td>
+          <td class="paramname"><em class="calibre59">in_audioNodeID</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_typedefs_8h_a8a4d0aa5dba6f9922d6b7b3e48958b24_split_000.html#a8a4d0aa5dba6f9922d6b7b3e48958b24">AkTimeMs</a> </td>
+          <td class="paramname"><em class="calibre59">in_msDelay</em> = <code class="calibre14">0</code>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">void * </td>
+          <td class="paramname"><em class="calibre59">in_pCustomInfo</em> = <code class="calibre14">NULL</code>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="_ak_numeral_types_8h_a39c6c5d577901802ca77775760b704ce_split_000.html#a39c6c5d577901802ca77775760b704ce">AkUInt32</a> </td>
+          <td class="paramname"><em class="calibre59">in_cExternals</em> = <code class="calibre14">0</code>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype"><a class="pcalibre el" href="struct_ak_external_source_info_split_000.html">AkExternalSourceInfo</a> * </td>
+          <td class="paramname"><em class="calibre59">in_pExternalSources</em> = <code class="calibre14">NULL</code> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="calibre17">
+<span><span>inline</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Enqueue an Audio Node. </p><dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">AK_Success if successful, AK_Fail otherwise </dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="paramname">in_audioNodeID</td><td class="calibre17">Unique ID of Audio Node </td></tr>
+    <tr class="calibre16"><td class="paramname">in_msDelay</td><td class="calibre17">Delay before playing this item, in milliseconds </td></tr>
+    <tr class="calibre16"><td class="paramname">in_pCustomInfo</td><td class="calibre17">Optional user data </td></tr>
+    <tr class="calibre16"><td class="paramname">in_cExternals</td><td class="calibre17">Optional count of external source structures </td></tr>
+    <tr class="calibre16"><td class="paramname">in_pExternalSources</td><td class="calibre17">Optional array of external source resolution information </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_ak_dynamic_sequence_8h_source.html#l00083">83</a> of file <a class="pcalibre el" href="_ak_dynamic_sequence_8h_source.html">AkDynamicSequence.h</a>.</p>
+
+<p class="calibre7">References <a class="pcalibre el" href="_ak_array_8h_source.html#l00594">AkArray&lt; PlaylistItem, const PlaylistItem &amp; &gt;::AddLast()</a>, <a class="pcalibre el" href="_ak_enums_8h_source_split_000.html#l00062">AK_InsufficientMemory</a>, <a class="pcalibre el" href="_ak_dynamic_sequence_8h_source.html#l00067">AK::SoundEngine::DynamicSequence::PlaylistItem::audioNodeID</a>, <a class="pcalibre el" href="_ak_dynamic_sequence_8h_source.html#l00068">AK::SoundEngine::DynamicSequence::PlaylistItem::msDelay</a>, <a class="pcalibre el" href="_ak_dynamic_sequence_8h_source.html#l00069">AK::SoundEngine::DynamicSequence::PlaylistItem::pCustomInfo</a>, and <a class="pcalibre el" href="class_a_k_1_1_sound_engine_1_1_dynamic_sequence_1_1_playlist_item_aa861de047bd7230b4f016de187d35f16_split_000.html#aa861de047bd7230b4f016de187d35f16">AK::SoundEngine::DynamicSequence::PlaylistItem::SetExternalSources()</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

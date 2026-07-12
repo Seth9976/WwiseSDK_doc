@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak.wwise.core.remote.connect Arguments Schema</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2"><h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="section_ak_wwise_core_remote_connect_argsSchema"></a>
+Schema</h1>
+<div class="fragment"><div class="line">{</div>
+<div class="line">    "type": "object",</div>
+<div class="line">    "properties": {</div>
+<div class="line">        "host": {</div>
+<div class="line">            "type": "string",</div>
+<div class="line">            "description": "The host to connect to. The host can be a computer name, an IPv4 address, an IP:PORT pair, or a full path to a saved capture (.prof file). Use 127.0.0.1 to connect to localhost."</div>
+<div class="line">        },</div>
+<div class="line">        "appName": {</div>
+<div class="line">            "type": "string",</div>
+<div class="line">            "description": "The value in the Application Name column from the Remote Connection dialog in Wwise, or from from ak.wwise.core.remote.getAvailableConsoles. If you are running more than one Sound Engine instance, you can specify the name of the application to connect to."</div>
+<div class="line">        },</div>
+<div class="line">        "commandPort": {</div>
+<div class="line">            "type": "integer",</div>
+<div class="line">            "description": "The command port. If you are running two or more Sound Engine instances that use the same application name, you can specify the command port to distinguish between different applications sharing the same name. You don't need to use this if the application name is unique. When using this, you must also provide appName. You can obtain this information from ak.wwise.core.remote.getAvailableConsoles.\\n Unsigned Integer 16-bit.",</div>
+<div class="line">            "minimum": 0,</div>
+<div class="line">            "maximum": 65535</div>
+<div class="line">        },</div>
+<div class="line">        "notificationPort": {</div>
+<div class="line">            "type": "integer",</div>
+<div class="line">            "description": "Unused.\\n Unsigned Integer 16-bit.",</div>
+<div class="line">            "minimum": 0,</div>
+<div class="line">            "maximum": 65535</div>
+<div class="line">        }</div>
+<div class="line">    },</div>
+<div class="line">    "required": [</div>
+<div class="line">        "host"</div>
+<div class="line">    ],</div>
+<div class="line">    "additionalProperties": false</div>
+<div class="line">}</div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

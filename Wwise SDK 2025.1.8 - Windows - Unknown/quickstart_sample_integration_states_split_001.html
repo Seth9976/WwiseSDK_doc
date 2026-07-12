@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Quick Start Sample Integration - States</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2"><h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="soundengine_integration_states"></a>
+State Example</h1>
+<p class="calibre7">The following code shows how you can set the current state for a given state group:</p>
+<div class="fragment"><div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a68dc9be195962c671b82fbb354b68cc5_split_000.html#a68dc9be195962c671b82fbb354b68cc5">AK::SoundEngine::SetState</a>( AK::STATES::PLAYERHEALTH::GROUP, AK::STATES::PLAYERHEALTH::STATE::NORMAL );</div>
+</div><!-- fragment --><p class="calibre7">The <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a68dc9be195962c671b82fbb354b68cc5_split_000.html#a68dc9be195962c671b82fbb354b68cc5">AK::SoundEngine::SetState()</a> method also accepts strings (Unicode or Ansi) instead of IDs. In this case, you would specify the names of the State Group and State, as defined by the Wwise user:</p>
+<div class="fragment"><div class="line"><a class="pcalibre code" href="namespace_a_k_1_1_sound_engine_a68dc9be195962c671b82fbb354b68cc5_split_000.html#a68dc9be195962c671b82fbb354b68cc5">AK::SoundEngine::SetState</a>( L<span class="stringliteral">"PlayerHealth"</span>, L<span class="stringliteral">"Normal"</span> );</div>
+</div><!-- fragment --><p class="calibre7">In the sample application, you can change the current state for the <code class="calibre14">PlayerHealth</code> state group by using the corresponding dropdown list in the General section of the dialog.</p>
+<p class="calibre7">Refer to <a class="pcalibre el" href="soundengine_states_split_000.html">Integration Details - States</a> for more information.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> This sample code comes from the Sound Engine Integration Sample Project available in the <a class="pcalibre el" href="samplecode_split_000.html">Samples</a> section. Refer to <a class="pcalibre el" href="soundengine_integration_samplecode_split_000.html">Integration Demo Sample</a> for more information. </td></tr>
+</tbody></table>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_a68dc9be195962c671b82fbb354b68cc5_html_a68dc9be195962c671b82fbb354b68cc5"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_a68dc9be195962c671b82fbb354b68cc5_split_000.html#a68dc9be195962c671b82fbb354b68cc5" class="pcalibre calibre12">AK::SoundEngine::SetState</a></div><div class="calibre2">AKSOUNDENGINE_API AKRESULT SetState(AkStateGroupID in_stateGroup, AkStateID in_state)</div></div>
+
+
+</body></html>

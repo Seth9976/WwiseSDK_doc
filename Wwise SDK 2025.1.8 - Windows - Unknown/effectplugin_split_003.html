@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Audio Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_4"><a class="pcalibre1 anchor" id="effectplugin_overview_soundengine"></a>
+Overview of the Sound Engine part of the plug-in</h2>
+<p class="calibre7">This is the code that runs in the Sound Engine to produce or modify the input sound based on settings defined by the user in Wwise. These settings are provided to the sound engine as parameters in SoundBanks.</p>
+<p class="calibre7">The code is provided as both a static library and a dynamic library for platforms that support it. The Sound Engine plug-in library files are located along with the Wwise libraries in the SDK:</p>
+<ul class="calibre8">
+<li class="calibre9"><code class="calibre14">&lt;Wwise&gt;/SDK/&lt;Platform&gt;/&lt;Config&gt;/bin</code></li>
+<li class="calibre9"><code class="calibre14">&lt;Wwise&gt;/SDK/&lt;Platform&gt;/&lt;Config&gt;/lib</code></li>
+</ul>
+<p class="calibre7">A header file is also expected in the Wwise include directory:</p>
+<ul class="calibre8">
+<li class="calibre9"><code class="calibre14">&lt;Wwise&gt;/SDK/include/AK/Plugin</code></li>
+</ul>
+<p class="calibre7">The static library is also linked to the Authoring dynamic library so it can be used in the Wwise Authoring application.</p>
+<p class="calibre7">Refer to <a class="pcalibre el" href="effectpluginsoundengine.html">Writing the Sound Engine Part of an Audio Plug-in</a> for information on writing this part of the plug-in.</p>
+</div></div></div></body></html>

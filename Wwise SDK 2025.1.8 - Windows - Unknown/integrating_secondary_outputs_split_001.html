@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integrating Secondary Outputs</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="secondary_output_bus"></a>
+Bus Routing</h1>
+<p class="calibre7">On the authoring side, you need to create new master busses to be able to define a different mix for an Audio Device. Then change the Audio Device ShareSet property on that new bus to point to a different device. Note that if you want to use an Audio Device plug-in created by a third party, you might need to create an Audio Device ShareSet of the right plug-in type first. Then the sounds can be routed normally to the new bus or any child bus. See <a href="https://www.audiokinetic.com/library/edge/?source=Help&amp;id=builtin_audio_devices" target="_blank" class="pcalibre calibre12">Audio Devices</a> for information on which Audio Device is available with Wwise.</p>
+<p class="calibre7">Setting the Output Bus directly is the preferred method for sounds that are normally tied to only one secondary output instance. For example, player-initiated gunshots, tennis racket whacks, PDA sounds, gameplay feedback, and so on. However, you can use a User or Game Send to an Auxiliary Bus inside any other bus hierarchy. This is the preferred method if the same sound is going to be heard in multiple outputs and the TV at the same time, such as with a spy camera or announcements.</p>
+<p class="calibre7">It is possible to play the same sound on multiple controllers and on TV at the same time, using the same source. On the design side, there is no knowledge of how many players might be playing the game. The bus hierarchy will be used as a template for routing for each output registered from the game. So, each output may have a different mix and Effect applied, depending on the sources played, as well as RTPC and Switch values active on the game objects. See an example of this in the <a class="pcalibre el" href="integrating_secondary_outputs_split_004.html#secondary_output_examples">Examples</a> section below.</p>
+</div></div></div></body></html>

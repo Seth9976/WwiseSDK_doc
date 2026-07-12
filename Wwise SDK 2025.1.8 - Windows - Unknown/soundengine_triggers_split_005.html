@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integration Details - Triggers</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_4"><a class="pcalibre1 anchor" id="soundengine_trigger_enabling_ids"></a>
+Enabling ID Usage</h2>
+<p class="calibre7">To work with IDs, the banks must be generated with the "Generate header file" option in the Generate SoundBanks dialog box in Wwise. The definition file, named Wwise_IDs.h, contains all the required IDs. It is updated at each bank generation.</p>
+<p class="calibre7">The second parameter of the <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a1cd4b83f1a684a70e009cc9d81bbe57a_split_000.html#a1cd4b83f1a684a70e009cc9d81bbe57a">PostTrigger()</a> function is the ID of the game object on which the trigger will be applied. Passing AK_INVALID_GAME_OBJECT as game object ID to <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a1cd4b83f1a684a70e009cc9d81bbe57a_split_000.html#a1cd4b83f1a684a70e009cc9d81bbe57a">AK::SoundEngine::PostTrigger()</a> will force all registered game objects that define a behavior for the specified trigger to handle this trigger.</p>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="concept_triggers.html">Understanding Triggers</a></li>
+<li class="calibre9"><a class="pcalibre el" href="soundengine_gameobj_split_000.html">Integration Details - Game Objects</a></li>
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a1cd4b83f1a684a70e009cc9d81bbe57a_split_000.html#a1cd4b83f1a684a70e009cc9d81bbe57a">AK::SoundEngine::PostTrigger()</a> </li>
+</ul>
+</dd></dl>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<div class="ttc" id="anamespace_a_k_1_1_sound_engine_a1cd4b83f1a684a70e009cc9d81bbe57a_html_a1cd4b83f1a684a70e009cc9d81bbe57a"><div class="calibre2"><a href="namespace_a_k_1_1_sound_engine_a1cd4b83f1a684a70e009cc9d81bbe57a_split_000.html#a1cd4b83f1a684a70e009cc9d81bbe57a" class="pcalibre calibre12">AK::SoundEngine::PostTrigger</a></div><div class="calibre2">AKSOUNDENGINE_API AKRESULT PostTrigger(AkTriggerID in_triggerID, AkGameObjectID in_gameObjectID)</div></div>
+
+
+</body></html>

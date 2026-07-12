@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Registering a command to edit in Visual Studio Code</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="ak_wwise_ui_commands_register_example_registering_a_command_to_edit_in_visual_studio_code_args"></a>
+Arguments</h1>
+<div class="fragment"><div class="line">{</div>
+<div class="line">    <span class="stringliteral">"commands"</span>: [</div>
+<div class="line">        {</div>
+<div class="line">            <span class="stringliteral">"id"</span>: <span class="stringliteral">"ak.edit_in_vscode"</span>,</div>
+<div class="line">            <span class="stringliteral">"displayName"</span>: <span class="stringliteral">"Edit in Visual Studio Code"</span>,</div>
+<div class="line">            <span class="stringliteral">"defaultShortcut"</span>: <span class="stringliteral">"C"</span>,</div>
+<div class="line">            <span class="stringliteral">"program"</span>: <span class="stringliteral">"code"</span>,</div>
+<div class="line">            <span class="stringliteral">"startMode"</span>: <span class="stringliteral">"MultipleSelectionSingleProcessSpaceSeparated"</span>,</div>
+<div class="line">            <span class="stringliteral">"args"</span>: <span class="stringliteral">"${filePath}"</span>,</div>
+<div class="line">            <span class="stringliteral">"cwd"</span>: <span class="stringliteral">""</span>,</div>
+<div class="line">            <span class="stringliteral">"contextMenu"</span>: {</div>
+<div class="line">                <span class="stringliteral">"basePath"</span>: <span class="stringliteral">"Editors"</span>,</div>
+<div class="line">                <span class="stringliteral">"enabledFor"</span>: <span class="stringliteral">"Sound,PropertyContainer,SwitchContainer,RandomSequenceContainer"</span></div>
+<div class="line">            },</div>
+<div class="line">            <span class="stringliteral">"mainMenu"</span>: {</div>
+<div class="line">                <span class="stringliteral">"basePath"</span>: <span class="stringliteral">"Extra"</span></div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">    ]</div>
+<div class="line">}</div>
+</div><!-- fragment --></div></div></div></body></html>

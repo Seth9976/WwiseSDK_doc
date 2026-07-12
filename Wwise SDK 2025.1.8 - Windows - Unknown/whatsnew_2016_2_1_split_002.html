@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2016.2.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="bugs_2016_2_1"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-30670</b> Fixed: File Packager can't open very large SoundBanksInfo.xml files.</li>
+<li class="calibre9"><b class="calibre13">WG-30913</b> Fixed: Very large values for <code class="calibre14">DurationMax</code> in SoundBanksInfo.xml for Blend Containers inside Random Containers.</li>
+<li class="calibre9"><b class="calibre13">WG-31008</b> Fixed: ASSERT when closing the Game Simulator while a Blend Container is playing.</li>
+<li class="calibre9"><b class="calibre13">WG-31100</b> Fixed: (Xbox One) XMA assert when pausing sounds after starvation occurs, if pitch changes.</li>
+<li class="calibre9"><b class="calibre13">WG-31214</b> Fixed: Assert during playback of Switch track group while changing State.</li>
+<li class="calibre9"><b class="calibre13">WG-31349</b> Fixed: Possible SoundBank integrity issue when downmix of originals is required.</li>
+<li class="calibre9"><b class="calibre13">WG-31532</b> Fixed: Blend track resets all of the boxes on project load.</li>
+<li class="calibre9"><b class="calibre13">WG-31537</b> Fixed: (Xbox One) XMA assert caused from an unknown XMA voice state when recycling old voices.</li>
+<li class="calibre9"><b class="calibre13">WG-31617</b> Fixed: Rare crash in <code class="calibre14">AK::DSP::ApplyGainRamp</code>.</li>
+<li class="calibre9"><b class="calibre13">WG-31630</b> Fixed: (Windows) Crash when creating a project in Windows 7.</li>
+<li class="calibre9"><b class="calibre13">WG-31658</b> Fixed: Cursor position not updated when enabling 'follow capture time' while not capturing.</li>
+<li class="calibre9"><b class="calibre13">WG-31662</b> Fixed: Can't create an RTPC while remote connected.</li>
+<li class="calibre9"><b class="calibre13">WG-31675</b> Fixed: Multi Selection values differ depending on the order the objects are selected.</li>
+<li class="calibre9"><b class="calibre13">WG-31676</b> Better error reporting when WwiseCLI fails to launch.</li>
+<li class="calibre9"><b class="calibre13">WG-31685</b> (Android) Set the maximum sample rate to 48 kHz on devices incorrectly reporting higher values.</li>
+<li class="calibre9"><b class="calibre13">WG-31697</b> Fixed: Cannot enter decimal fractions for the Randomizer range.</li>
+<li class="calibre9"><b class="calibre13">WG-31699</b> Fixed: Nested Switch Containers show incorrect Switch assignation with tab-delimited import files.</li>
+<li class="calibre9"><b class="calibre13">WG-31700</b> (Mac,iOS,tvOS) Integration Demo: Increase Sound Engine memory pool to 2 MB to fix occasional crash.</li>
+<li class="calibre9"><b class="calibre13">WG-31704</b> Fixed: Soloed Game Object's solo state unrecoverable after death.</li>
+<li class="calibre9"><b class="calibre13">WG-31711</b> Fixed: (iOS) Crash on startup if sample rate is set to 0.</li>
+<li class="calibre9"><b class="calibre13">WG-31726</b> Fixed: Gap in start of timeline after loading certain PROF files.</li>
+<li class="calibre9"><b class="calibre13">WG-31761</b> Fixed: Crash when using API Profiler and either <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_acad2fdfa60860a790b678fa4bd078540_split_000.html#acad2fdfa60860a790b678fa4bd078540">StartOutputCapture()</a></code> or <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a55e99fc6cc6be2f93c4599e6e1bd1c0d_split_000.html#a55e99fc6cc6be2f93c4599e6e1bd1c0d">StartProfilerCapture()</a></code> is called.</li>
+<li class="calibre9"><b class="calibre13">WG-31768</b> Fixed: <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a3e077eddb929881cd5369fd3e6bba5d7_split_000.html#a3e077eddb929881cd5369fd3e6bba5d7">AK::SoundEngine::GetBufferStatusForPinnedEvent()</a></code> and <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_stream_mgr_a98e0b89d39648ac3353537996d7767e2_split_000.html#a98e0b89d39648ac3353537996d7767e2">AK::IAkStreamMgr::GetBufferStatusForPinnedFile()</a></code> may return 100% while still buffering.</li>
+<li class="calibre9"><b class="calibre13">WG-31772</b> Fixed: Game Object Explorer view is extremely slow when adding/removing Watches in batch.</li>
+<li class="calibre9"><b class="calibre13">WG-31783</b> Fixed: (Android) Some Android 4.2 and older devices crash if the hardware doesn't support resampling.</li>
+<li class="calibre9"><b class="calibre13">WG-31787</b> Fixed: (Android) Vorbis distorted on Android x86 (ARM is OK).</li>
+<li class="calibre9"><b class="calibre13">WG-31798</b> Fixed: Warning in <a class="pcalibre el" href="_ak_speaker_config_8h_split_000.html">AkSpeakerConfig.h</a>.</li>
+<li class="calibre9"><b class="calibre13">WG-31805</b> Fixed: Inconsistencies when live editing the output bus of an object while this object is in playback.</li>
+<li class="calibre9"><b class="calibre13">WG-31840</b> Fixed: Override Output Bus check box reflects parent instead of the object in the Multi Editor.</li>
+<li class="calibre9"><b class="calibre13">WG-31859</b> Fixed: Convolution Reverb downmixing of N.1 channel configurations (such as 5.1 and 7.1) results in invalid contributions of surround channels and LFE.</li>
+<li class="calibre9"><b class="calibre13">WG-31870</b> (Xbox 360) Removed dependency on xapid.lib/xapi.lib.</li>
+<li class="calibre9"><b class="calibre13">WG-31892</b> Fixed: Random crash when double-clicking an RTPC icon in the Multi Editor.</li>
+<li class="calibre9"><b class="calibre13">WG-31900</b> Fixed: Project fails to load because Work Unit files contain invalid property types when unlinked via the Multi Editor.</li>
+<li class="calibre9"><b class="calibre13">WG-31908</b> Fixed: Audio File Importer does not remember the last settings.</li>
+<li class="calibre9"><b class="calibre13">WG-31909</b> Fixed: Creating Dialogue Events with a tab delimited import sometimes sets path properties to have garbage values.</li>
+<li class="calibre9"><b class="calibre13">WG-31910</b> Fixed: Importing 1 WAV file with the Audio File Importer can potentially add the whole project to Perforce.</li>
+<li class="calibre9"><b class="calibre13">WG-31911</b> Fixed: Assigning the same object twice in a Dialogue Event with a tab delimited import gives an unwanted warning.</li>
+<li class="calibre9"><b class="calibre13">WG-31920</b> Fixed: Tab delimited import does not use the Use Existing option when available.</li>
+</ul>
+</div></div></div></body></html>

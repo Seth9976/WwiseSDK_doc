@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK::SoundEngine::ProcessBanks</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="namespace_a_k_1_1_sound_engine_a1bb80e2fe3b8051fb9ece6dc9bb1fbb6_split_000.html#a1bb80e2fe3b8051fb9ece6dc9bb1fbb6" class="pcalibre1 anchor">◆ </a></span>ProcessBanks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_sound_engine_export_8h_ac6e96d34dfc0e12f9aaa7a47f4e9c322_split_000.html#ac6e96d34dfc0e12f9aaa7a47f4e9c322">AKSOUNDENGINE_API</a> void AK::SoundEngine::ProcessBanks </td>
+          <td class="calibre17">(</td>
+          <td class="paramname"/><td class="calibre17">)</td>
+          <td class="calibre17"/>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Processes all pending asynchronous bank operations. This function must be called periodically (once per game frame, for example) when using asynchronous bank-loading functions. Its purpose is to process all queued asynchronous LoadBank, UnloadBank, PrepareBank, etc (functions using a callback). The work done in this function can be slow or blocking. Therefore, the calling thread must not be a critical thread. It is recommended to have a dedicated thread for this, or a job/task if such a system exists.</p>
+<p class="calibre7">When <code class="calibre14"><a class="pcalibre el" href="struct_ak_init_settings_a3f9f40766762c100b829467ffaa31b24_split_000.html#a3f9f40766762c100b829467ffaa31b24" title="Use a Wwise-owned thread for loading sound banks. If set to false, bank-loading will occur only insid...">AkInitSettings::bUseSoundBankMgrThread</a></code> is <code class="calibre14">false</code>, this function processes all pending operations immediately on the calling thread.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="caution.gif"/></td><td class="calibre17"><b class="calibre13">Caution:</b> Do not call this function from multiple different threads. Synchronous Bank and Prepare (functions without callbacks) calls implicitely call this function. Therefore, synchronous Bank and Prepare calls should always be called from the same thread that is calling <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a1bb80e2fe3b8051fb9ece6dc9bb1fbb6_split_000.html#a1bb80e2fe3b8051fb9ece6dc9bb1fbb6">AK::SoundEngine::ProcessBanks</a></code>. </td></tr>
+</tbody></table>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">AK::SoundEngine::LoadBank</a></code></li>
+<li class="calibre9"><code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a2e6ebb779470b43d78984c27f6a0c238_split_000.html#a2e6ebb779470b43d78984c27f6a0c238">AK::SoundEngine::PrepareEvent</a></code></li>
+<li class="calibre9"><a class="pcalibre el" href="goingfurther_eventmgrthread_split_000.html">Optimizing CPU usage</a> </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

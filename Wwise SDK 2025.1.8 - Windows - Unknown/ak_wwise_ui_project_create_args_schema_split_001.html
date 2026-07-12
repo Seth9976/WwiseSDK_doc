@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak.wwise.ui.project.create Arguments Schema</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2"><h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="section_ak_wwise_ui_project_create_argsSchema"></a>
+Schema</h1>
+<div class="fragment"><div class="line">{</div>
+<div class="line">    "type": "object",</div>
+<div class="line">    "properties": {</div>
+<div class="line">        "path": {</div>
+<div class="line">            "type": "string",</div>
+<div class="line">            "pattern": "\\.[Ww][Pp][Rr][Oo][Jj]$",</div>
+<div class="line">            "description": "The path to the project WPROJ file. The path must use the same name for the WPROJ and the parent directory folder. For example: c:\\\\Projects\\\\MYPROJECT\\\\MYPROJECT.wproj. For using WAAPI on Mac, please see \\ref waapi_path_on_mac ."</div>
+<div class="line">        },</div>
+<div class="line">        "platforms": {</div>
+<div class="line">            "anyOf": [</div>
+<div class="line">                {</div>
+<div class="line">                    "type": "object",</div>
+<div class="line">                    "description": "One platform to create.",</div>
+<div class="line">                    "properties": {</div>
+<div class="line">                        "name": {</div>
+<div class="line">                            "type": "string",</div>
+<div class="line">                            "pattern": "^[a-zA-Z_]+[a-zA-Z_0-9()]*$",</div>
+<div class="line">                            "description": "The name of the platform"</div>
+<div class="line">                        },</div>
+<div class="line">                        "basePlatform": {</div>
+<div class="line">                            "type": "string",</div>
+<div class="line">                            "pattern": "^[a-zA-Z_]+[a-zA-Z_0-9()]*$",</div>
+<div class="line">                            "description": "Base platform supported by Wwise SDK. Must have one of the these values: Android, iOS, Linux, Mac, Switch, Ounce, PS4, PS5, Windows, XboxOne, or XboxSeriesX"</div>
+<div class="line">                        }</div>
+<div class="line">                    },</div>
+<div class="line">                    "required": [</div>
+<div class="line">                        "basePlatform"</div>
+<div class="line">                    ],</div>
+<div class="line">                    "additionalProperties": false</div>
+<div class="line">                },</div>
+<div class="line">                {</div>
+<div class="line">                    "description": "Array of platforms to create",</div>
+<div class="line">                    "type": "array",</div>
+<div class="line">                    "items": {</div>
+<div class="line">                        "type": "object",</div>
+<div class="line">                        "description": "One platform to create.",</div>
+<div class="line">                        "properties": {</div>
+<div class="line">                            "name": {</div>
+<div class="line">                                "type": "string",</div>
+<div class="line">                                "pattern": "^[a-zA-Z_]+[a-zA-Z_0-9()]*$",</div>
+<div class="line">                                "description": "The name of the platform"</div>
+<div class="line">                            },</div>
+<div class="line">                            "basePlatform": {</div>
+<div class="line">                                "type": "string",</div>
+<div class="line">                                "pattern": "^[a-zA-Z_]+[a-zA-Z_0-9()]*$",</div>
+<div class="line">                                "description": "Base platform supported by Wwise SDK. Must have one of the these values: Android, iOS, Linux, Mac, Switch, Ounce, PS4, PS5, Windows, XboxOne, or XboxSeriesX"</div>
+<div class="line">                            }</div>
+<div class="line">                        },</div>
+<div class="line">                        "required": [</div>
+<div class="line">                            "basePlatform"</div>
+<div class="line">                        ],</div>
+<div class="line">                        "additionalProperties": false</div>
+<div class="line">                    }</div>
+<div class="line">                }</div>
+<div class="line">            ],</div>
+<div class="line">            "description": "Specifies the platform or platforms supported by the new project. If not specified, only Windows is used."</div>
+<div class="line">        },</div>
+<div class="line">        "languages": {</div>
+<div class="line">            "type": "array",</div>
+<div class="line">            "items": {</div>
+<div class="line">                "type": "string",</div>
+<div class="line">                "description": "The name of the language."</div>
+<div class="line">            },</div>
+<div class="line">            "description": "Array of languages to creates for this project. If not specified, the English(US) language is created. When multiple languages are specified, the first one becomes the default language."</div>
+<div class="line">        }</div>
+<div class="line">    },</div>
+<div class="line">    "required": [</div>
+<div class="line">        "path"</div>
+<div class="line">    ],</div>
+<div class="line">    "additionalProperties": false</div>
+<div class="line">}</div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

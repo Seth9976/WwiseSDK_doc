@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK_CommandBuffer_Init</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="_ak_command_buffer_8h_afc99984f6d3d3f48d562e239d4ba089d_split_000.html#afc99984f6d3d3f48d562e239d4ba089d" class="pcalibre1 anchor">◆ </a></span>AK_CommandBuffer_Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1"><a class="pcalibre el" href="_ak_sound_engine_export_8h_ac6e96d34dfc0e12f9aaa7a47f4e9c322_split_000.html#ac6e96d34dfc0e12f9aaa7a47f4e9c322">AKSOUNDENGINE_API</a> struct <a class="pcalibre el" href="struct_ak_command_buffer_header_split_000.html">AkCommandBufferHeader</a>* AK_CommandBuffer_Init </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype">void * </td>
+          <td class="paramname"><em class="calibre59">out_buffer</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">size_t </td>
+          <td class="paramname"><em class="calibre59">in_size</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+<p class="calibre7">Initialize a previously-allocated command buffer. Clears any previous data contained in the buffer. A buffer can be re-initialized multiple times with this function.</p>
+<p class="calibre7">Note that it is the responsibility of the caller to allocate the buffer. Use AK_CommandBuffer_MinSize and AK_CommandBuffer_CmdSize to determine how much space to allocate for the planned buffer. Ensure the allocated buffer is aligned on 4 bytes.</p>
+<p class="calibre7">Alternatively, use AK_CommandBuffer_Create to allocate and initialize the buffer in one call.</p>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="calibre17">[out]</td><td class="paramname">out_buffer</td><td class="calibre17">Pointer to buffer space </td></tr>
+    <tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_size</td><td class="calibre17">Size of buffer in bytes </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">Pointer to initialized command buffer header on success, NULL if buffer is smaller than the value returned by AK_CommandBuffer_MinSize or buffer not aligned on 4 bytes. </dd></dl>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

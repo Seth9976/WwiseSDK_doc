@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AkSpeakerVolumeMatrixCallbackInfo Struct Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_1">Detailed Description</h2>
+<div class="calibre2"><p class="calibre7">Callback information structure corresponding to <a class="pcalibre el" href="_ak_callback_types_8h_a948c083ff18dc4c8dfe1d32cb0eb6732_split_001.html#a948c083ff18dc4c8dfe1d32cb0eb6732a398dd4133debe48731389d00ac8335fe">AK_SpeakerVolumeMatrix</a>, and passed to callbacks registered in <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_adc878481e54793302e90f59d1c90202f_split_000.html#adc878481e54793302e90f59d1c90202f">RegisterBusVolumeCallback()</a> or <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a41e9ef8d42951871fe4a8ae58a29a68e_split_000.html#a41e9ef8d42951871fe4a8ae58a29a68e">PostEvent()</a> with AK_SpeakerVolumeMatrix. These callbacks are called at every audio frame for every connection from an input (voice or bus) to an output bus (standard or auxiliary), at the point when an input signal is about to be mixed into a mixing bus, but just before having been scaled in accordance to volumes authored in Wwise. The volumes are passed via this structure as pointers because they can be modified in the callbacks. They are factored into two linear values ([0..1]): a common base value (pfBaseVolume), that is channel-agnostic and represents the collapsed gain of all volume changes in Wwise (sliders, actions, RTPC, attenuations, ...), and a matrix of gains per input/output channel, which depends on spatialization. Use the methods of AK_SpeakerVolumes_Matrix, defined in <a class="pcalibre el" href="_ak_speaker_volumes_8h_split_000.html">AK/SoundEngine/Common/AkSpeakerVolumes.h</a>, to perform operations on them. Access each input channel of the volumes matrix with <a class="pcalibre el" href="_ak_speaker_volumes_8h_a08a63637dabc48bf55d41c9126ac22d0_split_000.html#a08a63637dabc48bf55d41c9126ac22d0">AK_SpeakerVolumes_Matrix_GetChannel()</a>, passing it the input and output channel configuration. Then, you may access each element of the output vector using the standard bracket [] operator. See <a class="pcalibre el" href="_ak_speaker_volumes_8h_split_000.html">AK/SoundEngine/Common/AkSpeakerVolumes.h</a> for more details. It is crucial that the processing done in the callback be lightweight and non-blocking. </p><dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="goingfurther_speakermatrixcallback.html">Advanced Mix Customization Using the Speaker Matrix Callback</a></li>
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a41e9ef8d42951871fe4a8ae58a29a68e_split_000.html#a41e9ef8d42951871fe4a8ae58a29a68e">AK::SoundEngine::PostEvent()</a></li>
+<li class="calibre9"><a class="pcalibre el" href="soundengine_events_split_000.html">Integration Details - Events</a></li>
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_adc878481e54793302e90f59d1c90202f_split_000.html#adc878481e54793302e90f59d1c90202f">AK::SoundEngine::RegisterBusVolumeCallback()</a> </li>
+</ul>
+</dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_ak_callback_types_8h_source.html#l00226">226</a> of file <a class="pcalibre el" href="_ak_callback_types_8h_source.html">AkCallbackTypes.h</a>.</p>
+</div></div><!-- contents -->
+
+
+</body></html>

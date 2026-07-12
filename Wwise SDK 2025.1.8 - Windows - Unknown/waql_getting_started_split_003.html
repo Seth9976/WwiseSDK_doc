@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Getting Started with WAQL</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="waql_gs_chain_object"></a>
+Chaining Object Properties</h1>
+<p class="calibre7">There are two types of properties on Wwise objects:</p>
+<ul class="calibre8">
+<li class="calibre9">Properties returning a value:<ul class="calibre15">
+<li class="calibre9">Volume, Pitch, Lowpass, etc: Commonly associated with a slider in Wwise, they store a numerical value. These vary depending on the object type. For example, <b class="calibre13">Sound</b> and <b class="calibre13">Random Containers</b> do not have the same set of properties.</li>
+<li class="calibre9">Name, notes, id, path: Core elements of the Wwise object system, they often store a string value. These are found on any Wwise object.</li>
+</ul>
+</li>
+<li class="calibre9">Properties returning another Wwise object (also known as references):<ul class="calibre15">
+<li class="calibre9">OutputBus, Target, UserAuxSend0: They point to another object and they vary depending on the object type. For example, <b class="calibre13">Events</b> and <b class="calibre13">Sounds</b> do not have the same properties.</li>
+<li class="calibre9">Parent: pointer to the parent object.</li>
+</ul>
+</li>
+</ul>
+<p class="calibre7">It's possible to combine properties using the <b class="calibre13">dot</b> operator. For example:</p>
+<p class="calibre7"><code class="calibre14">$ where parent.name = "Music"</code></p>
+<p class="calibre7">or</p>
+<p class="calibre7"><code class="calibre14">$ where parent.volume &lt; 0</code></p>
+<p class="calibre7">It's also possible to combine several properties:</p>
+<p class="calibre7"><code class="calibre14">$ where outputbus.parent.name = "Main Audio Bus"</code></p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> When combining properties, make sure that properties returning a value are only found after the last dot. Properties returning another object can be located anywhere in the sequence. </td></tr>
+</tbody></table>
+<p class="calibre7">Additional exercises:</p>
+<ul class="calibre8">
+<li class="calibre9">Try to filter on the outputbus's volume</li>
+<li class="calibre9">Try to filter on the pluginname of the first effect</li>
+</ul>
+</div></div></div></body></html>

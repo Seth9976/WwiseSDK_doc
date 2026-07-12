@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK.Wwise::Plugin::V1::PropertySetBase::SetValueReal64</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table border="0" cellpadding="0" cellspacing="0" class="calibre3">
+<tbody class="calibre4">
+<tr class="calibre16">
+<td class="calibre20">
+<h2 class="calibre21" id="calibre_pb_0"><span class="permalink"><a href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_property_set_base_a494c92aa82960491c4cb7bda1d3ff3b9_split_000.html#a494c92aa82960491c4cb7bda1d3ff3b9" class="pcalibre1 anchor">◆ </a></span>SetValueReal64()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename CHostPropertySetT  = CHostPropertySet, int interface_version = 1&gt; </div>
+<table class="calibre3">
+  <tbody class="calibre4"><tr class="calibre16">
+  <td class="calibre17">
+      <table class="memname">
+        <tbody class="calibre4"><tr class="calibre16">
+          <td class="memname1">bool <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_property_set_base_split_000.html">AK.Wwise::Plugin::V1::PropertySetBase</a>&lt; CHostPropertySetT, interface_version &gt;::SetValueReal64 </td>
+          <td class="calibre17">(</td>
+          <td class="paramtype">const GUID &amp; </td>
+          <td class="paramname"><em class="calibre59">in_guidPlatform</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">const char * </td>
+          <td class="paramname"><em class="calibre59">in_pszPropertyName</em>, </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre56"/>
+          <td class="calibre17"/>
+          <td class="paramtype">double </td>
+          <td class="paramname"><em class="calibre59">in_propertyValue</em> </td>
+        </tr>
+        <tr class="calibre16">
+          <td class="calibre17"/>
+          <td class="calibre17">)</td>
+          <td class="calibre17"/><td class="calibre17"/>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="calibre17">
+<span><span>inline</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+
+<p class="calibre7">Modifies a property to a 64-bit floating point value. </p>
+<p class="calibre7">Updates the property <code class="calibre14">in_pszPropertyName</code> to contain <code class="calibre14">in_propertyValue</code> under the <code class="calibre14">in_guidPlatform</code> platform.</p>
+<p class="calibre7">The plug-in XML definition file should define this property as a <code class="calibre14">Real64</code> in order to use this method.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><p class="starttd"><b class="calibre13">Note:</b> Your changes might be substantially altered or replaced if your property is bound to an RTPC ( <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_property_set_base_a62e045af1c4842dd5605467a08a40df9_split_000.html#a62e045af1c4842dd5605467a08a40df9">PropertyHasRTPC</a> ) or a State ( <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_property_set_base_ad9fdb2385bdc900fee2169784b9e1d7b_split_000.html#ad9fdb2385bdc900fee2169784b9e1d7b">PropertyHasState</a> ).</p>
+<p class="endtd">More than one platform will be affected if the property is linked ( <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_property_set_base_a0e0c3b2069116d64494f8bc1d23aece3_split_000.html#a0e0c3b2069116d64494f8bc1d23aece3">PropertyPlatformIsLinked</a> ); all platforms are linked by default. </p>
+</td></tr>
+</tbody></table>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="wwiseplugin_backend_split_001.html#wwiseplugin_bank">Generating SoundBanks</a></li>
+</ul>
+</dd></dl>
+<dl class="calibre7"><dt class="calibre23">Parameters</dt><dd class="calibre24">
+  <table class="calibre3">
+    <tbody class="calibre4"><tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_guidPlatform</td><td class="calibre17">The unique ID of the platform whose property you want to modify. </td></tr>
+    <tr class="calibre16"><td class="calibre17">[in]</td><td class="paramname">in_pszPropertyName</td><td class="calibre17">The name of the property to update, based on the XML definition file. </td></tr>
+    <tr class="calibre16"><td class="calibre17">[out]</td><td class="paramname">in_propertyValue</td><td class="calibre17">The new value of the property. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+<dl class="calibre7"><dt class="calibre23">Returns</dt><dd class="calibre24">true if successful. </dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_v1_2_host_property_set_8h_source_split_001.html#l01640">1640</a> of file <a class="pcalibre el" href="_v1_2_host_property_set_8h_source_split_000.html">HostPropertySet.h</a>.</p>
+
+</div>
+</div>
+    </td>
+  </tr>
+</tbody></table>
+</div><!-- contents -->
+
+
+</body></html>

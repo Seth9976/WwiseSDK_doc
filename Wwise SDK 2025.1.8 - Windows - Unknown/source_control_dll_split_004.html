@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Source Control Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_3"><a class="pcalibre1 anchor" id="source_control_dll_creation_interfaces"></a>
+Source Control Interfaces</h2>
+<p class="calibre7">Each Wwise source control plug-in must contain certain interfaces so that it may be integrated properly. These are summarized below, and described in detail later in this documentation.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="source_control_dll_creation_interfaces_isourcecontrol"></a>
+AK::Wwise::ISourceControl</h3>
+<p class="calibre7">Your plug-in must implement this interface to perform source control operations.</p>
+<p class="calibre7">For more information about this interface, refer to <a class="pcalibre el" href="source_control_dll_split_005.html#source_control_dll_creation_object">Building the Source Control Plug-in Interface</a>.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="source_control_dll_creation_interfaces_isourcecontrolutilities"></a>
+AK::Wwise::ISourceControlUtilities</h3>
+<p class="calibre7">This interface is implemented by Wwise and is given to the plug-in at its creation. It exposes some useful utility functions to the plug-in.</p>
+<p class="calibre7">For more information about this interface, refer to <a class="pcalibre el" href="source_control_dll_split_010.html#source_control_dll_creation_utilities">Using the Source Control Utilities Interface</a>.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="source_control_dll_creation_interfaces_isourcecontroloperationprogress"></a>
+AK::Wwise::ISourceControlOperationProgress</h3>
+<p class="calibre7">This interface is implemented by Wwise and is given to the plug-in via the ISourceControlUtilities class. It exposes functions to manage a simple progress dialog.</p>
+<p class="calibre7">For more information about this interface, refer to <a class="pcalibre el" href="source_control_dll_split_011.html#source_control_dll_creation_progress">Implementing the Source Control Operation Progress Interface</a>.</p>
+<h3 class="calibre22"><a class="calibre12 pcalibre1" id="source_control_dll_creation_interfaces_isourcecontroldialogbase"></a>
+AK::Wwise::ISourceControlDialogBase</h3>
+<p class="calibre7">This is the interface that the plug-in must implement to create dialogs that have the Wwise UI look and feel.</p>
+<p class="calibre7">For more information about this interface, refer to <a class="pcalibre el" href="source_control_dll_split_019.html#source_control_dll_creation_dialog">Defining the Source Control Plug-in Dialog</a>.</p>
+</div></div></div></body></html>

@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Backend of an Authoring Plug-in</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="wwiseplugin_bank"></a>
+Generating SoundBanks</h1>
+<p class="calibre7">You must code your plug-in to store its current settings into banks when requested. You can do this by implementing the <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_audio_plugin_ae59a3955718ed3bbde0521da21cd8539_split_000.html#ae59a3955718ed3bbde0521da21cd8539" title="Obtains parameters that will be written to a bank.">AK::Wwise::Plugin::AudioPlugin::GetBankParameters()</a></code> method.</p>
+<p class="calibre7">The parameters are written into the SoundBank as a data block. The block is then loaded directly from the SoundBank into your sound engine plug-in's parameter structure. Therefore, you must write the parameters in the same order they are declared in the parameter structure of your sound engine plug-in. For more information, refer to <a class="pcalibre el" href="soundengine_plugins_split_006.html#shared_parameter_interface">Parameter Node Interface Implementation</a>.</p>
+<p class="calibre7">For example, consider the following parameter structure:</p>
+<div class="fragment"><div class="line"><span class="comment">// Parameter structure for this effect.</span></div>
+<div class="line"><span class="keyword">struct </span>AkFXSrcSineParams</div>
+<div class="line">{</div>
+<div class="line">    <a class="pcalibre code" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a>     fFrequency;     <span class="comment">// Frequency (in Hertz).</span></div>
+<div class="line">    <a class="pcalibre code" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a>     fGain;          <span class="comment">// Gain (in dBFS).</span></div>
+<div class="line">    <a class="pcalibre code" href="_ak_numeral_types_8h_afc38459f26e2b23defe588026e886a98_split_000.html#afc38459f26e2b23defe588026e886a98">AkReal32</a>     fDuration;      <span class="comment">// Sustain duration (only valid if finite).</span></div>
+<div class="line">};</div>
+</div><!-- fragment --><p class="calibre7">The following implementation of <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_audio_plugin_ae59a3955718ed3bbde0521da21cd8539_split_000.html#ae59a3955718ed3bbde0521da21cd8539" title="Obtains parameters that will be written to a bank.">AK::Wwise::Plugin::AudioPlugin::GetBankParameters()</a></code> gets the current value of each property and then uses the appropriate method to write the value with the <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_a32526a23215a4452f561220b527e12f8_split_000.html#a32526a23215a4452f561220b527e12f8" title="Latest version of the C++ DataWriter interface.">AK::Wwise::Plugin::DataWriter</a></code> object received as a parameter. These actions are performed in the same order in which the members are defined in your parameter structure.</p>
+<div class="fragment"><div class="line"><span class="keywordtype">bool</span> MySourcePlugin::GetBankParameters(</div>
+<div class="line">    <span class="keyword">const</span> GUID&amp; in_guidPlatform,</div>
+<div class="line">    <a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_data_writer_split_000.html">AK::Wwise::Plugin::DataWriter</a>&amp; in_dataWriter)<span class="keyword"> const</span></div>
+<div class="line"><span class="keyword"></span>{</div>
+<div class="line">    <span class="keywordtype">bool</span> result = <span class="keyword">true</span>;</div>
+<div class="line">    result &amp;= in_dataWriter.<a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_data_writer_a8d9b58e2ecba7f95721d4b89b7f9630f_split_000.html#a8d9b58e2ecba7f95721d4b89b7f9630f">WriteReal32</a>(m_propertySet-&gt;GetReal32(in_guidPlatform, <span class="stringliteral">"Frequency"</span>));</div>
+<div class="line">    result &amp;= in_dataWriter.<a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_data_writer_a8d9b58e2ecba7f95721d4b89b7f9630f_split_000.html#a8d9b58e2ecba7f95721d4b89b7f9630f">WriteReal32</a>(m_propertySet-&gt;GetReal32(in_guidPlatform, <span class="stringliteral">"Gain"</span>));</div>
+<div class="line">    result &amp;= in_dataWriter.<a class="pcalibre code" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v1_1_1_data_writer_a8d9b58e2ecba7f95721d4b89b7f9630f_split_000.html#a8d9b58e2ecba7f95721d4b89b7f9630f">WriteReal32</a>(m_propertySet-&gt;GetReal32(in_guidPlatform, <span class="stringliteral">"Duration"</span>));</div>
+<div class="line">    <span class="keywordflow">return</span> result;</div>
+<div class="line">}</div>
+</div><!-- fragment --><table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> To get the current value of a property, use the getter functions provided by <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_a052a63312bad5bdbd0adc1b07decf6de_split_000.html#a052a63312bad5bdbd0adc1b07decf6de" title="Latest version of the C++ PropertySet interface.">AK::Wwise::Plugin::PropertySet</a></code>. The type requested must exactly match the type specified in the XML. </td></tr>
+</tbody></table>
+<p class="calibre7">For more information about available methods for writing different types of data, refer to <a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_a32526a23215a4452f561220b527e12f8_split_000.html#a32526a23215a4452f561220b527e12f8">AK::Wwise::Plugin::DataWriter</a>.</p>
+</div></div></div></body></html>

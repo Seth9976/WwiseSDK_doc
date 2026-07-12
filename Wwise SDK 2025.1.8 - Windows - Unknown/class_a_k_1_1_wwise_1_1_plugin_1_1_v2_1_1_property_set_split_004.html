@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK.Wwise::Plugin::V2::PropertySet Class Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_3">Detailed Description</h2>
+<div class="calibre2"><p class="calibre7">Interface used to interact with property sets. </p>
+<p class="calibre7">A property set is a dictionary of properties, as stored inside a user's Authoring project. Whenever a property name is specified, it corresponds to the property name as set in the plug-in's XML definition file.</p>
+<p class="calibre7">By default, Authoring will provide a property set, as defined in the XML definition file. It is possible to have more than one property set by requesting <a class="pcalibre el" href="structak__wwise__plugin__host__object__store__v1_split_000.html" title="Custom inner property set interface.">ak_wwise_plugin_host_object_store_v1</a>, and adding <code class="calibre14">InnerTypes</code> in the XML definition file.</p>
+<p class="calibre7">This interface supports both the unique default property set, as well as Object Store's inner property sets.</p>
+<p class="calibre7">You can also subscribe to notifications through <a class="pcalibre el" href="structak__wwise__plugin__notifications__property__set__v1_split_000.html">ak_wwise_plugin_notifications_property_set_v1</a> in order to be informed when some property set values changed.</p>
+<p class="calibre7">The methods in this interface which use in_guidPlatform as an input parameter assume that you have access to a Platform defined as a GUID, either provided by the caller function or retrieved through the <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_plugin_1_1_v2_1_1_host_split_000.html" title="API to request host's current state and services.">Host</a> interface.</p>
+<p class="calibre7">You can retrieve GUIDs in the following ways:</p>
+<ul class="calibre8">
+<li class="calibre9">Use the in_guidPlatform provided as an input parameter in <a class="pcalibre el" href="structak__wwise__plugin__audio__plugin__v1_abd584886ab95277158307efdf633af78_split_000.html#abd584886ab95277158307efdf633af78">ak_wwise_plugin_audio_plugin_v1::GetBankParameters</a> or <a class="pcalibre el" href="structak__wwise__plugin__custom__data__v1_ae2a50eda33df6c0c7da86b967751cf40_split_000.html#ae2a50eda33df6c0c7da86b967751cf40">ak_wwise_plugin_custom_data_v1::GetPluginData</a></li>
+<li class="calibre9">Poll the currently-active platform from <a class="pcalibre el" href="structak__wwise__plugin__host__v1_abb94fc626e520d00c4f77e9b8fab3adb_split_000.html#abb94fc626e520d00c4f77e9b8fab3adb">ak_wwise_plugin_host_v1::GetCurrentPlatform</a> or <a class="pcalibre el" href="structak__wwise__plugin__host__v1_a04c6938e999f9d1b3da2599155680e1f_split_000.html#a04c6938e999f9d1b3da2599155680e1f">ak_wwise_plugin_host_v1::GetAuthoringPlaybackPlatform</a></li>
+</ul>
+<p class="calibre7">You can also provide GUID_NULL as a parameter, which accesses data for all platforms at once as a linked value. However, GUID_NULL only works when no platform-specific data is possible for a value. Using the current platform is always the preferred access method.</p>
+<dl class="calibre7"><dt class="calibre23">See also</dt><dd class="calibre24"><ul class="calibre25">
+<li class="calibre9"><a class="pcalibre el" href="plugin_xml_properties_split_001.html#wwiseplugin_xml_properties_tag">Properties Element</a></li>
+<li class="calibre9"><a class="pcalibre el" href="plugin_backend_model_split_001.html#wwiseplugin_propertyset">Property Set</a></li>
+<li class="calibre9"><a class="pcalibre el" href="structak__wwise__plugin__notifications__property__set__v1_split_000.html">ak_wwise_plugin_notifications_property_set_v1</a></li>
+<li class="calibre9"><a class="pcalibre el" href="structak__wwise__plugin__host__object__store__v1_split_000.html">ak_wwise_plugin_host_object_store_v1</a> </li>
+</ul>
+</dd></dl>
+
+<p class="calibre7">Definition at line <a class="pcalibre el" href="_host_property_set_8h_source.html#l00091">91</a> of file <a class="pcalibre el" href="_host_property_set_8h_source.html">HostPropertySet.h</a>.</p>
+</div></div><!-- contents -->
+
+
+</body></html>

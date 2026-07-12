@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Parameter Smoothing [Experimental]</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="spatial_audio_parameter_smoothing_ema"></a>
+Exponential Moving Average (EMA) and Smoothing Constant</h1>
+<p class="calibre7">Parameter smoothing uses an exponential moving average (EMA), where recent parameter values have a greater influence on the output than older values. A smoothing constant (<a class="pcalibre el" href="struct_ak_spatial_audio_init_settings_a406bea3f65e5fef84954eb2603b8ecd0_split_000.html#a406bea3f65e5fef84954eb2603b8ecd0">AkSpatialAudioInitSettings::fSmoothingConstantMs</a>) determines the degree of weighting decrease for previous observations.</p>
+<p class="calibre7">This method ensures that sudden changes in parameters do not cause abrupt shifts in the audio output, which could be jarring to the listener. Instead, parameter changes are gradually introduced, preserving the natural evolution of the sound environment and maintaining a consistent audio experience.</p>
+<p class="calibre7">The smoothing constant plays a crucial role in determining how quickly the EMA reacts to parameter changes. A larger value means that the EMA is more responsive to new data, while a smaller value produces a smoother, slower-moving average. You can adjust the value of the smoothing constant based on the desired responsiveness of the audio parameters to changes within the virtual environment.</p>
+</div></div></div></body></html>

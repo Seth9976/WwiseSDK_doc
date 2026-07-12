@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Using Reverb Zones</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_1"><a class="pcalibre1 anchor" id="spatial_audio_roomsportals_reverbzones_transition_regions"></a>
+Reverb Zone Transition Regions</h1>
+<p class="calibre7">You can use the <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_af57f04a0250faecc0246cf0552c03ca6_split_000.html#af57f04a0250faecc0246cf0552c03ca6">AK::SpatialAudio::SetReverbZone</a></code> API to specify a transition region between a Reverb Zone and its parent Room. This transition region functions very similarly to a portal. A transition region can overlap with portals and other transition regions as long as the Rooms' geometries do not overlap. You can use this type of overlap to create smooth crossfades between Reverb Zones. To define a transition region for a Reverb Zone, the Reverb Zone Room must have geometry with 1 or more "transparent" surfaces. A transparent surface is a surface with <code class="calibre14"><a class="pcalibre el" href="struct_ak_acoustic_surface_ab0ec8a6eee25b28b4f8b9e91dbff17da_split_000.html#ab0ec8a6eee25b28b4f8b9e91dbff17da">AkAcousticSurface::transmissionLoss</a></code> set to 0. The extent of a Reverb Zone's transition region is defined by the location of the Room's transparent triangles, and the <code class="calibre14">in_transitionRegionWidth</code> parameter passed to <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_af57f04a0250faecc0246cf0552c03ca6_split_000.html#af57f04a0250faecc0246cf0552c03ca6">AK::SpatialAudio::SetReverbZone</a></code>. The transition region is centered around each triangle. Consider a Room with one wall composed of transparent surfaces, which we define as a Reverb Zone by calling <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_spatial_audio_af57f04a0250faecc0246cf0552c03ca6_split_000.html#af57f04a0250faecc0246cf0552c03ca6">AK::SpatialAudio::SetReverbZone</a></code> with <code class="calibre14">in_transitionRegionWidth</code> set to 5. The transition region starts when a Game Object is 5 units away from the transparent wall on the outside of the Reverb Zone, and ends when the Game Object is 5 units past the wall on inside of the Reverb Zone. Because transition regions are only defined by transparent triangles, you can define a custom shape for the transition region. For more information about defining room geometry, refer to <a class="pcalibre el" href="spatial_audio_roomsportals_apiconfig_split_003.html#spatial_audio_roomsportals_apiconfigroomgeometry">Setting up Room Geometry</a>.</p>
+</div></div></div></body></html>

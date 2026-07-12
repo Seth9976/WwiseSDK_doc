@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Importing Audio Files and Creating Structures</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_6"><a class="pcalibre1 anchor" id="waapi_import_audio_files"></a>
+Importing Audio Files</h1>
+<p class="calibre7">Audio files can be imported using the Wwise Authoring API by means of the same import processor available through the Tab Delimited import in the Audio File Importer.</p>
+<p class="calibre7">Using the Wwise Authoring API allows complete automation of the import process and provides direct control in the programming language of your choice.</p>
+<p class="calibre7">The import format allows great flexibility. You can import:</p>
+<ul class="calibre8">
+<li class="calibre9">Using <a class="pcalibre el" href="ak_wwise_core_object_set_split_000.html">ak.wwise.core.object.set</a>, along with the object structures</li>
+<li class="calibre9">Using <a class="pcalibre el" href="ak_wwise_core_audio_import_split_000.html">ak.wwise.core.audio.import</a> with JSON content</li>
+<li class="calibre9">Using <a class="pcalibre el" href="ak_wwise_core_audio_importtabdelimited_split_000.html">ak.wwise.core.audio.importTabDelimited</a> with Tab delimited TXT files</li>
+</ul>
+<p class="calibre7">At a glance, the audio file importation allows:</p><ul class="calibre8">
+<li class="calibre9">Importation and localization of audio files</li>
+<li class="calibre9">Automatic creation of Containers hierarchies</li>
+<li class="calibre9">Creation of Events</li>
+<li class="calibre9">Property Value assignation, such as Volume</li>
+<li class="calibre9">Reference assignation, such as the Output Bus</li>
+</ul>
+<p class="calibre7">For more information about it, refer to <a href="https://www.audiokinetic.com/library/edge/?source=Help&amp;id=importing_media_files_from_tab_delimited_text_file" target="_blank" class="pcalibre calibre12">https://www.audiokinetic.com/library/edge/?source=Help&amp;id=importing_media_files_from_tab_delimited_text_file</a>.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> <a class="pcalibre el" href="ak_wwise_core_audio_importtabdelimited_split_000.html">ak.wwise.core.audio.importTabDelimited</a> and <a class="pcalibre el" href="ak_wwise_core_audio_import_split_000.html">ak.wwise.core.audio.import</a> are the preferred ways to create Sound objects and import audio files at the same time. We do not recommend using <a class="pcalibre el" href="ak_wwise_core_object_create_split_000.html">ak.wwise.core.object.create</a> or \ ref ak_wwise_core_object_set because it is currently not possible to associate an audio file and a language to created objects. </td></tr>
+</tbody></table>
+<p class="calibre7"><b class="calibre13">Examples:</b> </p>
+<ul class="calibre8">
+<li class="calibre9"><a class="pcalibre el" href="ak_wwise_core_audio_import_example_creating_a_new_sfx_with_no_file_and_setting_a_value_to_a_property_split_000.html">Creating a new SFX with no file and setting a value to a property</a></li>
+<li class="calibre9"><a class="pcalibre el" href="ak_wwise_core_audio_import_example_importing_audio_files_and_creating_multiple_sound_sfx_split_000.html">Importing audio files and creating multiple Sound SFX</a></li>
+<li class="calibre9"><a class="pcalibre el" href="ak_wwise_core_audio_import_example_importing_an_audio_file_to_create_a_sound_sfx_using_a_relative_object_path_split_000.html">Importing an audio file to create a Sound SFX using a relative object path</a></li>
+<li class="calibre9"><a class="pcalibre el" href="ak_wwise_core_audio_import_example_importing_an_audio_file_to_create_a_sound_sfx_using_an_absolute_object_path_split_000.html">Importing an audio file to create a Sound SFX using an absolute object path</a></li>
+<li class="calibre9"><a class="pcalibre el" href="ak_wwise_core_audio_import_example_importing_audio_files_to_create_sound_sfx_and_audio_file_sources_split_000.html">Importing audio files to create Sound SFX and Audio File Sources</a></li>
+<li class="calibre9"><a class="pcalibre el" href="ak_wwise_core_audio_import_example_importing_an_audio_file_to_create_a_sound_voice_for_english_split_000.html">Importing an audio file to create a Sound Voice for English</a></li>
+<li class="calibre9"><a class="pcalibre el" href="ak_wwise_core_audio_import_example_importing_an_audio_file_to_create_a_sound_voice_for_french_split_000.html">Importing an audio file to create a Sound Voice for French</a></li>
+<li class="calibre9"><a class="pcalibre el" href="ak_wwise_core_audio_import_example_importing_audio_files_to_create_sound_voices_for_english_and_french_split_000.html">Importing audio files to create Sound Voices for English and French</a></li>
+</ul>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> Make sure the language exists in your project, and make sure the case is also matching. </td></tr>
+</tbody></table>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Ray Tracing Engine Geometry Guide</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_9"><a class="pcalibre1 anchor" id="raytracing_geometry_guide_load_balancing_use_cases"></a>
+Load Balancing Use Cases</h2>
+<p class="calibre7">There are several ways to tweak Wwise Acoustics performance: change the order of reflection, enable or disable diffraction and diffraction on reflections, and adjust the motion threshold setting. You can combine load balancing with the other settings to achieve the desired balance between quality and performance.</p>
+<p class="calibre7">Although load balancing can be used in any scenario, it is most appropriate for scenes that involve multiple active emitters. Load balancing behavior is controlled through the <a class="pcalibre el" href="struct_ak_spatial_audio_init_settings_adb7560b0a616975d9f95fb932380002e_split_000.html#adb7560b0a616975d9f95fb932380002e" title="Spread the computation of paths on uLoadBalancingSpread frames [1..[. When uLoadBalancingSpread is se...">AkSpatialAudioInitSettings::uLoadBalancingSpread</a> setting (see <a class="pcalibre el" href="struct_ak_spatial_audio_init_settings_split_000.html">AkSpatialAudioInitSettings</a>). A spread of 1 frame is equivalent to disabling the feature, because every task is executed immediately. Higher values increase CPU performance, but can lead to less accurate results. For example, a spread of 4 frames for a frame buffer of 1024 samples (around 21ms at 48kHz) executes the tasks over a period of 84 ms. Spread values under 10 should not noticeably affect quality.</p>
+</div></div></div></body></html>

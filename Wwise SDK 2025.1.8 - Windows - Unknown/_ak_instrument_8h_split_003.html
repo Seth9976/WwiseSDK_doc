@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>AK/Tools/Common/AkInstrument.h File Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table class="calibre3">
+<tbody class="calibre4"><tr class="calibre16"><td colspan="2" class="calibre17"><h2 class="calibre21" id="calibre_pb_2"><a class="pcalibre1 anchor" id="define-members"></a>
+Macros</h2></td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_instrument_8h_ae37bc915cac8ae64ba260d5ec4558fee_split_000.html#ae37bc915cac8ae64ba260d5ec4558fee">AK_INSTRUMENT_BEGIN</a>(_plugin_id_,  _zone_name_)   (<a class="pcalibre el" href="namespace_a_k_1_1_instrument_a4d6354879e83de9f73cbc5bd3e96343a_split_000.html#a4d6354879e83de9f73cbc5bd3e96343a">AK::Instrument::g_fnPushTimer</a>(_plugin_id_, _zone_name_))</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_instrument_8h_a96088112e8415d065ac15f0939b96b2b_split_000.html#a96088112e8415d065ac15f0939b96b2b">AK_INSTRUMENT_END</a>(__token__)   (<a class="pcalibre el" href="namespace_a_k_1_1_instrument_ad0bf380e63872033d2f2ab0a2b352e2a_split_000.html#ad0bf380e63872033d2f2ab0a2b352e2a">AK::Instrument::g_fnPopTimer</a>(__token__))</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_instrument_8h_aeab71ae33e14db55ac13e0bd8df7d001_split_000.html#aeab71ae33e14db55ac13e0bd8df7d001">AK_INSTRUMENT_MARKER</a>(_plugin_id_,  _marker_name_)   (<a class="pcalibre el" href="namespace_a_k_1_1_instrument_aa777c6d77bb5c34e43c405e38bc80af8_split_000.html#aa777c6d77bb5c34e43c405e38bc80af8">AK::Instrument::g_fnPostMarker</a>(_plugin_id_, _marker_name_))</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_instrument_8h_a106b2266075b2a72725301785f637e90_split_000.html#a106b2266075b2a72725301785f637e90">AK_INSTRUMENT_MARKER_PROFILINGID</a>(_profilingid_)   (<a class="pcalibre el" href="namespace_a_k_1_1_instrument_aa777c6d77bb5c34e43c405e38bc80af8_split_000.html#aa777c6d77bb5c34e43c405e38bc80af8">AK::Instrument::g_fnPostMarker</a>(<a class="pcalibre el" href="_ak_common_defs_8h_ac73a5e1e4a45a0aeea1b11b08ba93516_split_000.html#ac73a5e1e4a45a0aeea1b11b08ba93516">AKMAKECLASSID</a>( <a class="pcalibre el" href="_ak_enums_8h_af1a95e76b0e2a003e7edb2ad6f4043f4_split_001.html#af1a95e76b0e2a003e7edb2ad6f4043f4a8b439dd9d1761adf9912d02734a74bcd">AkPluginTypeNone</a>, <a class="pcalibre el" href="_ak_constants_8h_a807adbb4abc6856ff54fa2010e7f6a0f_split_000.html#a807adbb4abc6856ff54fa2010e7f6a0f">AKCOMPANYID_AUDIOKINETIC</a>, _profilingid_ ), nullptr))</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_instrument_8h_aa231ffac244555f4d91301f2d866b47b_split_000.html#aa231ffac244555f4d91301f2d866b47b">AK_INSTRUMENT_METAMARKER</a>(_plugin_id_,  _metadata_)   (<a class="pcalibre el" href="namespace_a_k_1_1_instrument_a75981354356e161bf785b5aa0e6ce070_split_000.html#a75981354356e161bf785b5aa0e6ce070">AK::Instrument::g_fnPostMetaMarker</a>(_plugin_id_, _metadata_))</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_instrument_8h_a66b1d62e3d3035a1758843ac3c769e36_split_000.html#a66b1d62e3d3035a1758843ac3c769e36">AK_INSTRUMENT_CONCAT_INNER</a>(_base_,  _counter_)   _base_ ## _counter_</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_instrument_8h_a4d3c29b432e1919289fa01380543d5f4_split_000.html#a4d3c29b432e1919289fa01380543d5f4">AK_INSTRUMENT_CONCAT</a>(_base_,  _counter_)   <a class="pcalibre el" href="_ak_instrument_8h_a66b1d62e3d3035a1758843ac3c769e36_split_000.html#a66b1d62e3d3035a1758843ac3c769e36">AK_INSTRUMENT_CONCAT_INNER</a>(_base_, _counter_)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_instrument_8h_a03a63ce8dce30a5215c4e5beace1fe9d_split_000.html#a03a63ce8dce30a5215c4e5beace1fe9d">AK_INSTRUMENT_SCOPE</a>(_zone_name_)   	<a class="pcalibre el" href="class_a_k_1_1_instrument_1_1_scope_split_000.html">AK::Instrument::Scope</a> <a class="pcalibre el" href="_ak_instrument_8h_a4d3c29b432e1919289fa01380543d5f4_split_000.html#a4d3c29b432e1919289fa01380543d5f4">AK_INSTRUMENT_CONCAT</a>(_akInstrumentScope_, __LINE__)(0, _zone_name_)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_instrument_8h_a4ae24e7988a5ebdefbf5f75a254336ab_split_000.html#a4ae24e7988a5ebdefbf5f75a254336ab">AK_INSTRUMENT_SCOPE_ID</a>(_plugin_id_,  _zone_name_)   	<a class="pcalibre el" href="class_a_k_1_1_instrument_1_1_scope_split_000.html">AK::Instrument::Scope</a> <a class="pcalibre el" href="_ak_instrument_8h_a4d3c29b432e1919289fa01380543d5f4_split_000.html#a4d3c29b432e1919289fa01380543d5f4">AK_INSTRUMENT_CONCAT</a>(_akInstrumentScope_, __LINE__)(_plugin_id_, _zone_name_)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_instrument_8h_a8f2268e3785049353af0dd5b31237b81_split_000.html#a8f2268e3785049353af0dd5b31237b81">AK_INSTRUMENT_SCOPE_PROFILINGID</a>(_profilingid_)   	<a class="pcalibre el" href="class_a_k_1_1_instrument_1_1_scope_split_000.html">AK::Instrument::Scope</a> <a class="pcalibre el" href="_ak_instrument_8h_a4d3c29b432e1919289fa01380543d5f4_split_000.html#a4d3c29b432e1919289fa01380543d5f4">AK_INSTRUMENT_CONCAT</a>(_akInstrumentScope_, __LINE__)(<a class="pcalibre el" href="_ak_common_defs_8h_ac73a5e1e4a45a0aeea1b11b08ba93516_split_000.html#ac73a5e1e4a45a0aeea1b11b08ba93516">AKMAKECLASSID</a>( <a class="pcalibre el" href="_ak_enums_8h_af1a95e76b0e2a003e7edb2ad6f4043f4_split_001.html#af1a95e76b0e2a003e7edb2ad6f4043f4a8b439dd9d1761adf9912d02734a74bcd">AkPluginTypeNone</a>, <a class="pcalibre el" href="_ak_constants_8h_a807adbb4abc6856ff54fa2010e7f6a0f_split_000.html#a807adbb4abc6856ff54fa2010e7f6a0f">AKCOMPANYID_AUDIOKINETIC</a>, _profilingid_ ), nullptr)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_instrument_8h_a4267b9fea38693fbb38a425a2e93669c_split_000.html#a4267b9fea38693fbb38a425a2e93669c">AK_INSTRUMENT_THREAD_START</a>(_thread_name_)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">#define </td><td class="memitemright"><a class="pcalibre el" href="_ak_instrument_8h_a6113adb4ca0af1d57c114a53e5b9f15a_split_000.html#a6113adb4ca0af1d57c114a53e5b9f15a">AK_INSTRUMENT_BEGIN_C</a>(_plugin_id_,  _color_,  _zone_name_)   <a class="pcalibre el" href="_ak_instrument_8h_ae37bc915cac8ae64ba260d5ec4558fee_split_000.html#ae37bc915cac8ae64ba260d5ec4558fee">AK_INSTRUMENT_BEGIN</a>(_plugin_id_, _zone_name_)</td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+</tbody></table></div></body></html>

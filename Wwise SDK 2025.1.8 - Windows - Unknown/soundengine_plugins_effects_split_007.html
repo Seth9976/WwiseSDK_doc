@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Sound Engine Effect Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_6"><a class="pcalibre1 anchor" id="fx_bypass"></a>
+Bypass</h2>
+<p class="calibre7">Plug-ins can be bypassed in Wwise or in-game through various mechanisms, including UI, events, and RTPCs. In such cases, the plug-in Execute() routine is not called. When the plug-in resumes on unbypass and the execute function is called again, the plug-in will restart its processing. The <a class="pcalibre el" href="namespace_a_k_1_1_comm_af3d99fab833c0b3c4bc7ce7b78d7b4bf_split_000.html#af3d99fab833c0b3c4bc7ce7b78d7b4bf">Reset()</a> function of the plug-in is called on bypass so that its delay line and other state information can be cleared for a fresh new start when the effect is finally unbypassed. Refer to <a class="pcalibre el" href="soundengine_plugins_split_015.html#iakeffect_reset">AK::IAkPlugin::Reset()</a> for more information.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="caution.gif"/></td><td class="calibre17"><b class="calibre13">Caution:</b> Bypassing and unbypassing plug-ins at runtime may result in signal discontinuities depending on the plug-in and on the sound material being processed. </td></tr>
+</tbody></table>
+<p class="calibre7">For more information, refer to the following sections:</p>
+<ul class="calibre8">
+<li class="calibre9"><a class="pcalibre el" href="soundengine_plugins_split_001.html#se_plugins_overview">Sound Engine Plug-ins Overview</a></li>
+<li class="calibre9"><a class="pcalibre el" href="soundengine_plugins_source_split_001.html#se_source_effect">Source Plug-in Interface Implementation</a></li>
+<li class="calibre9"><a class="pcalibre el" href="effectpluginwwise_split_000.html">Writing the Authoring Part of an Audio Plug-in</a></li>
+</ul>
+</div></div></div></body></html>

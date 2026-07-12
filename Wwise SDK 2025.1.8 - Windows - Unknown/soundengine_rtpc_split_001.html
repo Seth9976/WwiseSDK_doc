@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Integration Details - RTPCs</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="soundengine_rtpc_values"></a>
+RTPC Values</h1>
+<p class="calibre7">RTPC values are always passed as AkRtpcValue, which represents a 32-bit float value. This value is used to directly interpolate in the RTPC curve the sound designer has previously defined in Wwise.</p>
+<p class="calibre7">When parameters are beyond the curve defined in Wwise, the extreme values on the curve are used. If the parameter exceeds the maximum value, the rightmost value of the curve is used, and if the parameter is under the minimum value, the leftmost value of the curve is used. If the RTPC represents a Boolean value, 1 represents True and 0 represents False.</p>
+</div></div></div></body></html>

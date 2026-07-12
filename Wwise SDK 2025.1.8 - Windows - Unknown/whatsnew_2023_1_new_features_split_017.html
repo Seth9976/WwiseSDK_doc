@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>New Features Overview 2023.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_16"><a class="pcalibre1 anchor" id="features_23_1_tts_source_plugin_development"></a>
+TTS Source Plug-in Development</h2>
+<p class="calibre7">To facilitate the development of TTS (Text-To-Speech) source plug-ins, the SDK now allows source plug-ins to send data to and receive data from the game.</p>
+<p class="calibre7">Using <a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_context_base_ac1312db4f8b44c176e9064f258c020a3_split_000.html#ac1312db4f8b44c176e9064f258c020a3">AK::IAkSourcePluginContext::GetPluginCustomGameData()</a>, a plug-in can retrieve data sent to it from the game through <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a25efe2a9b18ad130f4fc4c0c3599ec30_split_000.html#a25efe2a9b18ad130f4fc4c0c3599ec30">AK::SoundEngine::SendPluginCustomGameData()</a>.</p>
+<p class="calibre7">Source plug-ins can now generate marker notifications. See <a class="pcalibre el" href="soundengine_markers_split_007.html#soundengine_markers_plugins_example">Marker Generator Source Plug-in Example</a>.</p>
+<p class="calibre7">Within a source plug-in, <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_service_markers_adc860123c5af8918edcc787a8459d65b_split_000.html#adc860123c5af8918edcc787a8459d65b">AK::IAkPluginServiceMarkers::CreateMarkerNotificationService()</a></code> can be used to create an instance of <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_service_markers_1_1_i_ak_marker_notification_service_split_000.html">AK::IAkPluginServiceMarkers::IAkMarkerNotificationService</a></code>. <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_plugin_service_markers_1_1_i_ak_marker_notification_service_a37f50515ba3505f02de27d3c43a2616f_split_000.html#a37f50515ba3505f02de27d3c43a2616f">AK::IAkPluginServiceMarkers::IAkMarkerNotificationService::SubmitMarkerNotifications()</a></code> can then be used to send marker notifications to the game using the <code class="calibre14"><a class="pcalibre el" href="struct_ak_audio_marker_split_000.html" title="Defines the parameters of a marker.">AkAudioMarker</a></code> structure.</p>
+</div></div></div></body></html>

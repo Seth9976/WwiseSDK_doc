@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>General Information</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_10"><a class="pcalibre1 anchor" id="soundengine_banks_general_identification_filesystem"></a>
+Loading Banks From File System</h2>
+<p class="calibre7">The Wwise sound engine never accesses I/O directly. All its requests for I/O are executed through the Stream Manager, whose interface is defined as <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_stream_mgr_split_000.html">AK::IAkStreamMgr</a></code> (see <a class="pcalibre el" href="streamingdevicemanager_split_000.html">Streaming / Stream Manager</a>). This module can be overridden, but Audiokinetic's default implementation further defines an abstraction for low-level access to I/O transfers and file system, and the Low-Level IO module, whose interface is defined as <code class="calibre14">AK::IAkLowLevelIO</code> and is specific to Audiokinetic's implementation of <code class="calibre14"><a class="pcalibre el" href="class_a_k_1_1_i_ak_stream_mgr_split_000.html">AK::IAkStreamMgr</a></code>. A default implementation of the Low-Level IO is provided, but it is meant to be replaced by your own, especially to resolve file location (see <a class="pcalibre el" href="streamingmanager_lowlevel_split_000.html">Low-Level I/O</a>).</p>
+<p class="calibre7">The Stream Manager and Low-Level IO define 2 overloads to open files, one by string, and another by ID. Similarly, the sound engine API provides overloads of <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">LoadBank()</a></code> that use strings, or IDs. The version of <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_1_1_dynamic_sequence_ab6daddd96e109dc7669889733ce4f2cc_split_000.html#ab6daddd96e109dc7669889733ce4f2cc">AK::IAkLowLevelIO::Open()</a></code> that ends up being called by the sound engine depends on which overload of <code class="calibre14"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_a95f8f6841a618ec3d5e51a30a1614e13_split_000.html#a95f8f6841a618ec3d5e51a30a1614e13">LoadBank()</a></code> was used by the game. It also depends on whether the SoundBanks were generated with the "Use SoundBank names" option that is located on the SoundBanks tab of the Project Settings dialog box. See <a href="https://www.audiokinetic.com/library/edge/?source=Help&amp;id=defining_soundbank_settings_for_project#defining_soundbank_project_settings" target="_blank" class="pcalibre calibre12">Defining SoundBank project settings</a> for more information.</p>
+</div></div></div></body></html>

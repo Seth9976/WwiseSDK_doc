@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak.wwise.cli.generateSoundbank Result Schema</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2"><h1 class="calibre19" id="calibre_pb_0"><a class="pcalibre1 anchor" id="section_ak_wwise_cli_generatesoundbank_resultSchema"></a>
+Schema</h1>
+<div class="fragment"><div class="line">{</div>
+<div class="line">    "type": "object",</div>
+<div class="line">    "properties": {</div>
+<div class="line">        "result": {</div>
+<div class="line">            "type": "number",</div>
+<div class="line">            "description": "The process exit code of SoundBank generation. Although your SoundBanks might generate properly with warnings, it is strongly recommended that you consider these warnings as errors. For example, WwiseConsole.exe returns an error code when a source file is missing. Although a missing source file does not prevent your SoundBanks from being generated, the resulting SoundBanks might potentially be incomplete. You can change the severity of most messages encountered during the SoundBank Generation by going to Project Settings &gt; Logs, in Wwise. Changing the severity of the messages impacts the return codes.\\n A WwiseConsole.exe exit code of 0 means success, 1 means at least one error (and potentially warnings) occurred, and 2 means that only warnings occurred."</div>
+<div class="line">        }</div>
+<div class="line">    },</div>
+<div class="line">    "required": [</div>
+<div class="line">        "result"</div>
+<div class="line">    ],</div>
+<div class="line">    "additionalProperties": false</div>
+<div class="line">}</div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

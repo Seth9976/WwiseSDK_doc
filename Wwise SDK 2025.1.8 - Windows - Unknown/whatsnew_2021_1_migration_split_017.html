@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Important Migration Notes 2021.1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_16"><a class="pcalibre1 anchor" id="midi_api_changes"></a>
+MIDI API Changes</h1>
+<p class="calibre7">The MIDI API functions have seen several additions. These additions are:</p>
+<ul class="calibre8">
+<li class="calibre9"><a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_ab24b5dc8bd4d1adbdc6aa5c98d94d946_split_000.html#ab24b5dc8bd4d1adbdc6aa5c98d94d946">AK::SoundEngine::PostMIDIOnEvent</a> has parameters more akin to PostEvent:<ul class="calibre15">
+<li class="calibre9">Returns playing ID</li>
+<li class="calibre9">Specifies optional playing ID (to use an existing one)</li>
+<li class="calibre9">Can specify callback function, with flags and cookie</li>
+</ul>
+</li>
+<li class="calibre9">Offsets specified in <a class="pcalibre el" href="struct_ak_m_i_d_i_post_split_000.html">AkMIDIPost</a> can now be relative (as before), or absolute. This is specified via a new parameter to PostMIDIOnEvent.</li>
+<li class="calibre9">A new type of <a class="pcalibre el" href="struct_ak_m_i_d_i_event_split_000.html">AkMIDIEvent</a>: AK_MIDI_EVENT_TYPE_WWISE_CMD. This provides Wwise specific MIDI events:<ul class="calibre15">
+<li class="calibre9">AK_MIDI_WWISE_CMD_PLAY</li>
+<li class="calibre9">AK_MIDI_WWISE_CMD_STOP</li>
+<li class="calibre9">AK_MIDI_WWISE_CMD_PAUSE</li>
+<li class="calibre9">AK_MIDI_WWISE_CMD_RESUME</li>
+<li class="calibre9">AK_MIDI_WWISE_CMD_SEEK_MS</li>
+<li class="calibre9">AK_MIDI_WWISE_CMD_SEEK_SAMPLES</li>
+</ul>
+</li>
+<li class="calibre9">The returned playing ID can be used with existing playing ID functions (e.g. ExecuteActionOnPlayingID).</li>
+</ul>
+<p class="calibre7"><code class="calibre14">IAkGlobalPluginContext::PostMIDIOnEventSync</code> and <code class="calibre14">IAkGlobalPluginContext::StopMIDIOnEventSync</code> have been updated to reflect this API change.</p>
+</div></div></div></body></html>

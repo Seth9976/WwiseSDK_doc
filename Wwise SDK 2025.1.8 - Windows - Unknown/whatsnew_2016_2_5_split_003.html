@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Release Notes 2016.2.5</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h1 class="calibre19" id="calibre_pb_2"><a class="pcalibre1 anchor" id="bugs_2016_2_5"></a>
+Bug Fixes</h1>
+<ul class="calibre8">
+<li class="calibre9"><b class="calibre13">WG-32252</b> &amp; <b class="calibre13">WG-34024</b> Fixed: The Bus Voice Properties are incorrectly applied twice, when a child object overrides to the same output bus as its parent Blend Container.</li>
+<li class="calibre9"><b class="calibre13">WG-32484</b> Fixed: Crash in <code class="calibre14">CAkPBI::VirtualPositionUpdate()</code> when remote connected.</li>
+<li class="calibre9"><b class="calibre13">WG-32987</b> Fixed: (Switch) Opus decoder failure during playback when reaching the end of certain files. <table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="note.gif"/></td><td class="calibre17"><b class="calibre13">Note:</b> The .cache folder and generated SoundBanks should be manually cleared for the fix to be effective. </td></tr>
+</tbody></table>
+</li>
+<li class="calibre9"><b class="calibre13">WG-33393</b> Fixed: Blend Container child object property values are incorrectly added to the bus values when the child object overrides to the same output bus as its parent Blend Container.</li>
+<li class="calibre9"><b class="calibre13">WG-33405</b> Fixed: (Android) Possible crash on Android platform when no <code class="calibre14">jNativeActivity</code> is set in Android Platform settings.</li>
+<li class="calibre9"><b class="calibre13">WG-33413</b> Fixed: The <em class="calibre11">Source of Override</em> query is broken.</li>
+<li class="calibre9"><b class="calibre13">WG-33448</b> Fixed: The <em class="calibre11">Inconsistent source status</em> error intermittently and incorrectly shows up.</li>
+<li class="calibre9"><b class="calibre13">WG-33603</b> Fixed: (iOS) Crash on init when <a class="pcalibre el" href="namespace_a_k_1_1_sound_engine_afc66d31bf5c6425d841ca3510e2d0539_split_000.html#afc66d31bf5c6425d841ca3510e2d0539"><code class="calibre14">Suspend</code>  </a>is called.</li>
+<li class="calibre9"><b class="calibre13">WG-33816</b> Fixed: (Android) Crash caused by division by zero.</li>
+<li class="calibre9"><b class="calibre13">WG-33956</b> Fixed: Random or Sequence Containers with sample accurate transitions that have child containers with trigger rate transitions can crash Wwise.</li>
+<li class="calibre9"><b class="calibre13">WG-34020</b> Fixed: Wwise can spend a lot of time in the 'Collecting SoundBank information' stage of SoundBank generation involving music objects.</li>
+<li class="calibre9"><b class="calibre13">WG-34028</b> Fixed: (PS4) Rare deadlock during soak test (of more than 12 hours).</li>
+<li class="calibre9"><b class="calibre13">WG-34207</b> Fixed: Sink plug-in failure does not revert to default sinks, resulting in silence.</li>
+<li class="calibre9"><b class="calibre13">WG-34226</b> Added debugging tool for invalid samples in audio buffers (off by default).</li>
+<li class="calibre9"><b class="calibre13">WG-34243</b> Fixed: (Switch) Performance issue at the start of Opus decoding.</li>
+<li class="calibre9"><b class="calibre13">WG-35118</b> Fixed: Rare crash in CAkRTPCMgr::SetBuiltInParamValue() </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

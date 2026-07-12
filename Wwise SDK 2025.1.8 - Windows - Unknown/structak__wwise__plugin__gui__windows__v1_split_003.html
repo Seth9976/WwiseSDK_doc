@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>ak_wwise_plugin_gui_windows_v1 Struct Reference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<table class="calibre3">
+<tbody class="calibre4"><tr class="calibre16"><td colspan="2" class="calibre17"><h2 class="calibre21" id="calibre_pb_2"><a class="pcalibre1 anchor" id="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="calibre16"><td class="memitemleft">HINSTANCE(* </td><td class="memitemright"><a class="pcalibre el" href="structak__wwise__plugin__gui__windows__v1_a5b036698bfb04694254fe7a1a61ebd79_split_000.html#a5b036698bfb04694254fe7a1a61ebd79">GetResourceHandle</a> )(const struct <a class="pcalibre el" href="structak__wwise__plugin__gui__windows__instance__v1_split_000.html">ak_wwise_plugin_gui_windows_instance_v1</a> *in_this)</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Retrieves the plug-in's HINSTANCE used for loading resources.  <a href="structak__wwise__plugin__gui__windows__v1_a5b036698bfb04694254fe7a1a61ebd79_split_000.html#a5b036698bfb04694254fe7a1a61ebd79" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">bool(* </td><td class="memitemright"><a class="pcalibre el" href="structak__wwise__plugin__gui__windows__v1_a3eb842cb63ed86b621bcea6ed692bd1c_split_000.html#a3eb842cb63ed86b621bcea6ed692bd1c">GetDialog</a> )(const struct <a class="pcalibre el" href="structak__wwise__plugin__gui__windows__instance__v1_split_000.html">ak_wwise_plugin_gui_windows_instance_v1</a> *in_this, <a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_a5a9328b141630d1de228c92e81e9034d_split_000.html#a5a9328b141630d1de228c92e81e9034d">AK::Wwise::Plugin::eDialog</a> in_eDialog, uint32_t *out_uiDialogID, <a class="pcalibre el" href="struct_a_k_1_1_wwise_1_1_plugin_1_1_populate_table_item_split_000.html">AK::Wwise::Plugin::PopulateTableItem</a> **out_pTable)</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Retrieves the plug-in dialog parameters.  <a href="structak__wwise__plugin__gui__windows__v1_a3eb842cb63ed86b621bcea6ed692bd1c_split_000.html#a3eb842cb63ed86b621bcea6ed692bd1c" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">bool(* </td><td class="memitemright"><a class="pcalibre el" href="structak__wwise__plugin__gui__windows__v1_a61a4925c4d1df3c0cb1d05b35b5bbc46_split_000.html#a61a4925c4d1df3c0cb1d05b35b5bbc46">WindowProc</a> )(struct <a class="pcalibre el" href="structak__wwise__plugin__gui__windows__instance__v1_split_000.html">ak_wwise_plugin_gui_windows_instance_v1</a> *in_this, <a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_a5a9328b141630d1de228c92e81e9034d_split_000.html#a5a9328b141630d1de228c92e81e9034d">AK::Wwise::Plugin::eDialog</a> in_eDialog, HWND in_hWnd, uint32_t in_message, WPARAM in_wParam, LPARAM in_lParam, LRESULT *out_lResult)</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Window message handler for dialogs.  <a href="structak__wwise__plugin__gui__windows__v1_a61a4925c4d1df3c0cb1d05b35b5bbc46_split_000.html#a61a4925c4d1df3c0cb1d05b35b5bbc46" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">bool(* </td><td class="memitemright"><a class="pcalibre el" href="structak__wwise__plugin__gui__windows__v1_a1cd16b3f42ff0faf531a190b649da0cf_split_000.html#a1cd16b3f42ff0faf531a190b649da0cf">Help</a> )(const struct <a class="pcalibre el" href="structak__wwise__plugin__gui__windows__instance__v1_split_000.html">ak_wwise_plugin_gui_windows_instance_v1</a> *in_this, HWND in_hWnd, <a class="pcalibre el" href="namespace_a_k_1_1_wwise_1_1_plugin_a5a9328b141630d1de228c92e81e9034d_split_000.html#a5a9328b141630d1de228c92e81e9034d">AK::Wwise::Plugin::eDialog</a> in_eDialog, const char *in_szLanguageCode)</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Called when the user clicks on the '?' icon.  <a href="structak__wwise__plugin__gui__windows__v1_a1cd16b3f42ff0faf531a190b649da0cf_split_000.html#a1cd16b3f42ff0faf531a190b649da0cf" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_structak__wwise__plugin__base__interface')" class="calibre17"><img alt="-" src="closed.png" class="inline"/> Public Attributes inherited from <a class="pcalibre el" href="structak__wwise__plugin__base__interface_split_000.html">ak_wwise_plugin_interface_ptr</a></td></tr>
+<tr class="calibre16"><td class="memitemleft"><a class="pcalibre el" href="group__global_ga6611f8c24af9575c6be02f8a963b57c9_split_000.html#ga6611f8c24af9575c6be02f8a963b57c9">ak_wwise_plugin_interface_type</a> </td><td class="memitemright"><a class="pcalibre el" href="structak__wwise__plugin__base__interface_a146b64003437eb7327201578ee814bc9_split_000.html#a146b64003437eb7327201578ee814bc9">m_interface</a>: 32</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Interface type (see <a class="pcalibre el" href="group__global_ga6611f8c24af9575c6be02f8a963b57c9_split_000.html#ga6611f8c24af9575c6be02f8a963b57c9">ak_wwise_plugin_interface_type</a>)  <a href="structak__wwise__plugin__base__interface_a146b64003437eb7327201578ee814bc9_split_000.html#a146b64003437eb7327201578ee814bc9" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+<tr class="calibre16"><td class="memitemleft">uint32_t </td><td class="memitemright"><a class="pcalibre el" href="structak__wwise__plugin__base__interface_ab047f9139a14c6f03e396493c7dc6fb6_split_000.html#ab047f9139a14c6f03e396493c7dc6fb6">m_version</a>: 32</td></tr>
+<tr class="calibre16"><td class="mdescleft"> </td><td class="mdescleft">Version of the interface.  <a href="structak__wwise__plugin__base__interface_ab047f9139a14c6f03e396493c7dc6fb6_split_000.html#ab047f9139a14c6f03e396493c7dc6fb6" class="pcalibre calibre12">More...</a><br class="calibre10"/></td></tr>
+<tr class="calibre16"><td class="calibre17" colspan="2"> </td></tr>
+</tbody></table>
+<a id="details" class="pcalibre calibre12"></a></div></body></html>

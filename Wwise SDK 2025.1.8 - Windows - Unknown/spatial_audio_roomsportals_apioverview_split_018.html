@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Rooms and Portals Overview</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_17"><a class="pcalibre1 anchor" id="spatial_audio_roomsportals_portalinfluence"></a>
+Portal Area of Influence</h2>
+<p class="calibre7">The shape of a Portal is defined by the values in <code class="calibre14"><a class="pcalibre el" href="struct_ak_portal_params_a74acf1db3eb64175a9368962bdb56ff6_split_000.html#a74acf1db3eb64175a9368962bdb56ff6">AkPortalParams::Extent</a></code>. However, a Portal has an area of influence past the box formed by these extents. The effects of a Portal are based on distance from the Portal's center, up to <code class="calibre14">AkPortalParams::Extent::halfDepth</code>, and extend past the Portal's opening in every direction. Although the Game Object 3D Viewer displays a Portal as a rectangle, in practice this shape is rounded.</p>
+<p class="calibre7">The following illustration is a top-down view of a Portal that connects a small Room to the outside.</p>
+<div class="calibre2">
+<img alt="" src="portal_influence.png" class="inline"/>
+</div>
+<table class="doxtable">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre36"><div class="calibre2">
+<img alt="" src="callout1.png" class="inline"/>
+</div>
+ </td><td class="calibre36">Room  </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><div class="calibre2">
+<img alt="" src="callout2.png" class="inline"/>
+</div>
+ </td><td class="calibre36">Portal  </td></tr>
+<tr class="calibre16">
+<td class="calibre36"><div class="calibre2">
+<img alt="" src="callout3.png" class="inline"/>
+</div>
+ </td><td class="calibre36">Outside  </td></tr>
+</tbody></table>
+<p class="calibre7">The area in green represents the Portal's <code class="calibre14"><a class="pcalibre el" href="struct_ak_portal_params_a74acf1db3eb64175a9368962bdb56ff6_split_000.html#a74acf1db3eb64175a9368962bdb56ff6">AkPortalParams::Extent</a></code>. The area in blue is the area of influence of the Portal while inside the small Room. The area in red shows the influence of the Portal while outside of the Room. This area extends around the corner and behind the Portal. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+
+
+</body></html>

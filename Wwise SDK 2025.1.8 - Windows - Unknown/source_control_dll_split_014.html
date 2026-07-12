@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.20" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Creating Source Control Plug-ins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<link rel="stylesheet" type="text/css" href="page_styles.css"/>
+</head>
+  <body class="calibre">
+<div class="calibre2">
+<div class="calibre2">
+<div class="calibre2">
+<h2 class="calibre21" id="calibre_pb_13"><a class="pcalibre1 anchor" id="source_control_dll_creation_object_workgroup"></a>
+Enabling the File Manager Dialog</h2>
+<p class="calibre7">When the File Manager is refreshed, two methods are called:</p><ul class="calibre8">
+<li class="calibre9"><a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_acda8ef1d7727c6ba45d302f4c4ee339e_split_000.html#acda8ef1d7727c6ba45d302f4c4ee339e">AK::Wwise::ISourceControl::GetMissingFilesInDirectories( const StringList&amp; in_rDirectoryList, StringList&amp; out_rFilenameList )</a></li>
+<li class="calibre9">AK::Wwise::ISourceControl::GetFileStatus( const StringList&amp; in_rFilenameList, FilenameToStatusMap&amp; out_rFileStatusMap )</li>
+</ul>
+<p class="calibre7">When the file list is populated, Wwise searches for files that are on the disk. On some source control systems, however, files are removed from the disk when they are deleted. Despite this, these files must still be identified to confirm the delete operation on the server. To retrieve the list of files that are in this state, Wwise calls the <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_acda8ef1d7727c6ba45d302f4c4ee339e_split_000.html#acda8ef1d7727c6ba45d302f4c4ee339e">AK::Wwise::ISourceControl::GetMissingFilesInDirectories()</a> method. The first parameter is the list of directories in which Wwise will look for such missing files, while the second parameter is a list of strings that will be overwritten with the names of the missing files.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="warning.gif"/></td><td class="calibre17"><b class="calibre13">Warning:</b> The plug-in must not include files located in subdirectories of the given directories. </td></tr>
+</tbody></table>
+<p class="calibre7">After Wwise has obtained the complete file list, the Status and Owner(s) columns must be refreshed. To do this, Wwise calls the <a class="pcalibre el" href="class_a_k_1_1_wwise_1_1_i_source_control_ad9ed25401176139c3185a5980b6d44d4_split_000.html#ad9ed25401176139c3185a5980b6d44d4">AK::Wwise::ISourceControl::GetFileStatus()</a> method. For each file, the plug-in needs to display the corresponding status and owner of the file. Wwise obtains the status of the files listed in the function's first parameter. The second parameter is the resulting map containing the text to be displayed in the Status and Owner(s) columns.</p>
+<table border="0" cellpadding="2" cellspacing="0" class="calibre3">
+<tbody class="calibre4"><tr class="calibre16">
+<td class="calibre20"><img alt="" class="inline" src="warning.gif"/></td><td class="calibre17"><b class="calibre13">Warning:</b> The memory of the string members of <a class="pcalibre el" href="struct_a_k_1_1_wwise_1_1_i_source_control_1_1_filename_to_status_map_item_split_000.html">AK::Wwise::ISourceControl::FilenameToStatusMapItem</a> must be allocated using the SysAllocString function because Wwise is responsible for deleting this memory. Two strings must not share the same memory space because Wwise will try to destroy these two strings separately. </td></tr>
+</tbody></table>
+</div></div></div></body></html>
