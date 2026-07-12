@@ -3,8 +3,7 @@
 name: 自动解压多分卷 Zip 文件
 on:
   push:
-    # 仅在 main 分支（或你的主分支）上触发
-    branches:[ main, master, GM82 ]
+    branches: [ main, master, GM82 ]
     # 关键：只有当推送的提交中包含 .zip.001 文件时才触发
     # 这是 7-Zip 分卷的第一个文件
     paths:
